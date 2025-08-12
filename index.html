@@ -1,23 +1,611 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="de">
 <head>
-    <title>Hello Deploy Now build with plain html</title>
-    <link rel="stylesheet" href="./main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMI</title>
+    <meta name="description" content="Das Collegium Musicum Iuvenale bringt Menschen durch Musik zusammen. Werden Sie Teil unserer Musikfamilie und unterstützen Sie gute Zwecke durch Benefizkonzerte.">
+    <link rel="stylesheet" href="style.css">
+    <link href="" rel="stylesheet">
+    <link rel="icon" href="files/logo_cmi1 - weiß.svg" type="image/svg+xml">
 </head>
-
 <body>
-    <div class="main">
-        <h1>
-            Hello Deploy Now build with plain html
-        </h1>
-        <div>
-            <a href="https://ionos.space/setup?repo=https://github.com/ionos-deploy-now/hello-plain-html"
-                target="_blank">
-                <img src="https://images.ionos.space/deploy-now-icons/deploy-to-ionos-btn.svg" />
-            </a>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <!-- Logo ohne grünen Kreis -->
+                <img id="mainLogo" src="files/logo_cmi1 - schwarz.svg" alt="CMI Logo" style="width: 56px; height: 56px;">
+                <span class="brand-text">Collegium Musicum Iuvenale Ochsenfurt</span>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="nav-menu">
+                <a href="#about" class="nav-link">Über uns</a>
+                <a href="#articels" class="nav-link">Artikel</a>
+                <a href="#gallery" class="nav-link">Galerie</a>
+                <a href="#join" class="nav-link">Mitmachen</a>
+                <a href="#causes" class="nav-link">Benefizprojekte</a>
+                <a href="#events" class="nav-link">Termine</a>
+                <a href="#contact" class="nav-link">Kontakt</a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <div class="mobile-menu-btn">
+                <img src="files/icon.menu.button.svg" alt="Menu button" style="width: 24px; height: 24px;">
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu">
+            <a href="#about" class="mobile-nav-link">Über uns</a>
+            <a href="#articels" class="mobile-nav-link">Artikel</a>
+            <a href="#gallery" class="mobile-nav-link">Galerie</a>
+            <a href="#join" class="mobile-nav-link">Mitmachen</a>
+            <a href="#causes" class="mobile-nav-link">Benefizprojekte</a>
+            <a href="#events" class="mobile-nav-link">Termine</a>
+            <a href="#contact" class="mobile-nav-link">Kontakt</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Musik baut
+                        <span class="highlight">Brücken</span>
+                    </h1>
+                    <p class="hero-description">
+                        Das Collegium Musicum Iuvenale Ochsenfurt bringt seit <span id="yearsPassed"></span> Jahren Menschen durch die Kraft der Musik zusammen. 
+                        Wir sind eine Gemeinschaft von Musikliebhabern, die ihre Freude am gemeinsamen Musizieren an das Publikum weitervermitteln und gleichzeitig
+                        durch Benefizprojekte sozial engagiert sind. Dabei pflegen wir internationale Freundschaften.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#join" class="btn btn-primary">
+                            Jetzt mitmachen
+                            <img src="files/icon.menu.arrow.svg" alt="arrow" style="width: 32px; height: 32px; margin-left: 8px;">
+                        </a>
+                        <a href="#events" class="btn btn-secondary" id="heroMailBtn">
+                            Nächste Konzerte
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <!-- Gruppenbild als Hero-Bild -->
+                    <img src="bilder/Gruppenbild.jpg" alt="CMI Orchester Gruppenbild" class="hero-group-image" style="width:100%;max-width:420px;border-radius:24px;box-shadow:0 10px 40px rgba(0,0,0,0.18);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Über das Collegium Musicum Iuvenale Ochsenfurt</h2>
+                <p class="section-description">
+                    Collegium Musicum Iuvenale Ochsenfurt, das im Jahr 2021 sein 40-jähriges 
+                    Jubiläum mit einem aufwändigen Videoprojekt beging <a target="_blank" href="https://www.youtube.com/watch?v=n6geYJRmu7Y">hier klicken für das Video</a>,
+                    entstand 1981, als sich auf die Initiative von Astrid Eitschberger 
+                    mehrere musikbegeisterte Jugendliche zum gemeinsamen Musizieren zusammenfanden. 
+                    1985 erhielt das Ensemble seinen jetzigen Namen und war seither 
+                    bei öffentlichen und privaten Festgelegenheiten und Konzerten tätig.  
+                    1992 wurde das Collegium Musicum Iuvenale zum Mitinitiator des Projekts EUROPEAN
+                    MUSIC MEETING sowohl in Padua und Pianiga als auch in Ochsenfurt und 
+                    veranstaltete seither zahlreiche gemeinsame Konzerte mit italienischen, französischen
+                    und englischen Orchestern und Chören. Das Projekt zeichnet sich durch 
+                    Besuche im Gastland sowie durch die Beherbergung der ausländischen Musikgruppen
+                    in Ochsenfurt aus, wodurch das internationale Zusammenspiel nicht nur 
+                    auf musikalischer Ebene gefördert wird, sondern auch Brücken geschlagen wer
+                    den zwischen den Menschen verschiedener Länder. 
+                    Das Reportoire ist breit gefächert von der Renaissance bis zur Moderne. Daneben bilden Stücke aus der internationalen Folklore und 
+                    Unterhaltungsmusik sowie eigene Produktionen die unterhaltsame Seite der Programme. Chöre, Blaskapellen und 
+                    verschiedene Instrumentalgruppen sind dabei stets willkommene
+                    Kooperationspartner. Eine wichtige Aufgabe sieht die 
+                    Leiterin Dr. Astrid Eitschberger darin, mit den Spenden aus 
+                    den Konzerten jährlich verschiedene soziale Institutionen wie 
+                    Lebenshilfe, Caritas, Krankenhausseelsorge, Kindergärten 
+                    sowie eine Partnerschule in Kinshasa/Kongo und in Nepal zu 
+                    unterstützen. So kommt die musikalische Arbeit nicht nur 
+                    dem Publikum zu Gute, sondern auch den Bedürftigen unserer
+                    Gesellschaft. Aktuell steht auch die Hilfe für die Ukraine im Mittelpunkt. 
+                </p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon gradient-1">
+                        <img src="files/icon.mitwirkende.svg" alt="Mitwirkende Icon" style="width: 48px; height: 48px;">
+                    </div>
+                    <h3 class="stat-number">50+ Mitwirkende</h3>
+                    <p class="stat-description">
+                        Unser Orchester besteht aus mehr als 50 Mitgliedern jeden Alters, die ihre Leidenschaft 
+                        für die Musik teilen und gemeinsam wachsen.
+                    </p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon gradient-2">
+                        <img src="files/icon.zeit.svg" alt="Zeit Icon" style="width: 48px; height: 48px;">
+                    </div>
+                    <h3 class="stat-number">40+ Jahre</h3>
+                    <p class="stat-description">
+                        Seit mehr als 40 Jahren bereichern wir das kulturelle Leben in Ochsenfurt 
+                        und der Region sowie im Ausland mit unseren Aufführungen.
+                    </p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon gradient-3">
+                        <img src="files/icon.spende.svg" alt="Spende Icon" style="width: 48px; height: 48px;">
+                    </div>
+                    <h3 class="stat-number">❤️+ Euro gespendet</h3>
+                    <p class="stat-description">
+                        Durch unsere Benefizkonzerte haben wir bereits große Mengen an Spenden für 
+                        wohltätige Zwecke gesammelt.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="articels">
+        <h1>Collegium Musicum Iuvenale in der Zeitung</h1>
+        <div class="container">
+            <div class="articel">
+                <div class="articel_image">
+                    <img src="bilder/Gruppenbild.jpg" alt="Bild dieses Artikels">
+                </div>
+                <div class="articel_title">
+                    <h1>CMI wurde geründet</h1>
+                </div>
+                <div class="atricel_text">
+                    <p>
+                        bla bla bla
+                    </p>
+                </div>
+                <div class="articel_info">
+                    <p>Main Post 12.10.1981</p>
+                </div>
+            </div>
+            <div class="articel">
+                <div class="articel_image">
+                    <img src="bilder/Gruppenbild2.jpg" alt="Bild dieses Artikels">
+                </div>
+                <div class="articel_title">
+                    <a href="https://example.com" target="_blank">CMI 2.0 wurde geründet</a>
+                </div>
+                <div class="atricel_text">
+                    <p>
+                        bla bla bla
+                    </p>
+                </div>
+                <div class="articel_info">
+                    <p>Main Post 12.10.1981</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h1>Galerie</h1>
+        <div class="container">
+            <div class="gallery-grid">
+                <div class="gallery-item" data-type="image" data-src="bilder/Gruppenbild.jpg" tabindex="0">
+                    <img src="bilder/Gruppenbild.jpg" alt="Bild 1">
+                </div>
+                <div class="gallery-item" data-type="image" data-src="bilder/peterbild.jpg" tabindex="0">
+                    <img src="bilder/peterbild.jpg" alt="Bild 2">
+                </div>
+                <div class="gallery-item" data-type="image" data-src="bilder/konzert.jpg" tabindex="0">
+                    <img src="bilder/konzert.jpg" alt="Bild 4">
+                </div>
+                <div class="gallery-item" data-type="image" data-src="bilder/gruppemitflagge.jpg" tabindex="0">
+                    <img src="bilder/gruppemitflagge.jpg" alt="Bild 4">
+                </div>
+                <!-- Jahrestrennungen  einfügen -->
+                <div class="gallery-item" data-type="video" data-src="bilder/Dummy_Video.mp4" tabindex="0">
+                    <img src="bilder/Platzhalter.jpg" alt="Video Vorschau">
+                    <img class="gallery-icon-video" src="files/icon.video.svg" alt="Video Icon" aria-label="Video">
+                </div>
+                <div class="gallery-item" data-type="video" data-src="bilder/ichbinglücklich.webm" tabindex="0">
+                    <img src="bilder/Platzhalter.jpg" alt="Video Vorschau">
+                    <img class="gallery-icon-video" src="files/icon.video.svg" alt="Video Icon" aria-label="Video">
+                </div>
+                <div class="gallery-item" data-type="audio" data-src="bilder/Dummy_Audio.mp3" tabindex="0">
+                    <img src="bilder/Platzhalter.jpg" alt="Audio Vorschau">
+                    <img class="gallery-icon-audio" src="files/icon.audio.svg" alt="Audio Icon" aria-label="Audio">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section id="join" class="join">
+        <div class="container">
+            <div class="join-content">
+                <div class="join-text">
+                    <h2 class="section-title">
+                        Werde Teil unserer <br> 
+                        Musikfamilie
+                    </h2>
+                    <p class="section-description">
+                        Egal ob du erst angefangen hast oder schon Erfahrung mitbringst – bei uns findest du deinen Platz. 
+                        Wir suchen motivierte Musikerinnen und Musiker aller Instrumente.
+                    </p>
+                    
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <div class="benefit-dot"></div>
+                            <span>Wöchentliche Proben jeden Samstag Vormittag</span>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-dot"></div>
+                            <span>Kostenlose Teilnahme – nur deine Leidenschaft zählt</span>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-dot"></div>
+                            <span>Freundliche Atmosphäre und kompetente Leitung</span>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-dot"></div>
+                            <span>Regelmäßige Auftritte und besondere Events</span>
+                        </div>
+                    </div>
+
+                    <!-- Zusatz: Info Anfängergruppe und Fortgeschrittene -->
+                    <div class="join-extra-info" style="margin-top:32px;">
+                        <h3 style="font-size:1.2em;margin-bottom:8px;">Anfängergruppe</h3>
+                        <ul style="margin-bottom:12px;">
+                            <li><b>Wann:</b> samstags von 10.00–11.00 Uhr</li>
+                            <li><b>Wo:</b> Rote Schule (VHS-Gebäude), Kirchplatz 2, 97199 Ochsenfurt, Raum 4</li>
+                            <li><b>Alter:</b> ab 5 Jahren</li>
+                            <li><b>Kosten:</b> keine</li>
+                            <li><b>Voraussetzung:</b> Instrument, Notenständer, Kenntnis von wenigstens zwei Tönen oder Freude am Singen</li>
+                        </ul>
+                        <h3 style="font-size:1.2em;margin-bottom:8px;">Für fortgeschrittene Jugendliche und Erwachsene (auch Neu-Einsteiger):</h3>
+                        <ul>
+                            <li><b>Wann:</b> samstags von 11.00–12.30 Uhr</li>
+                            <li><b>Wo:</b> Rote Schule (VHS-Gebäude), Kirchplatz 2, 97199 Ochsenfurt, Raum 4</li>
+                            <li><b>Alter:</b> ab 12 - 101 Jahren</li>
+                            <li><b>Kosten:</b> keine</li>
+                            <li><b>Voraussetzung:</b> Instrument, Notenständer, ca. drei Jahre Erfahrung</li>
+                        </ul>
+                        <div style="margin-top:10px;">
+                            <b>Info & Anmeldung:</b><br>
+                            Astrid Eitschberger<br>
+                            Mail: <a href="mailto:Astrid.Eitschberger@cmi-ochsenfurt.de">Astrid.Eitschberger@cmi-ochsenfurt.de</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="join-form-container">
+                    <h3 class="form-title">Interesse? Melde dich bei uns!</h3>
+                    <form id="joinForm" class="join-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Ihr Name">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="instrument">Instrument</label>
+                                <select id="instrument" name="instrument" required>
+                                    <option value="">Bitte wählen</option>
+                                    <option value="violine">Violine</option>
+                                    <option value="viola">Viola</option>
+                                    <option value="cello">Cello</option>
+                                    <option value="kontrabass">Kontrabass</option>
+                                    <option value="flöte">Flöte</option>
+                                    <option value="oboe">Oboe</option>
+                                    <option value="klarinette">Klarinette</option>
+                                    <option value="fagott">Fagott</option>
+                                    <option value="horn">Horn</option>
+                                    <option value="trompete">Trompete</option>
+                                    <option value="posaune">Posaune</option>
+                                    <option value="tuba">Tuba</option>
+                                    <option value="schlagzeug">Schlagzeug</option>
+                                    <option value="klavier">Klavier</option>
+                                    <option value="gitarre">Gitarre</option>
+                                    <option value="harfe">Harfe</option>
+                                    <option value="saxophon">Saxophon</option>
+                                    <option value="akkordeon">Akkordeon</option>
+                                    <option value="gesang">Gesang</option>
+                                    <option value="percussion">Percussion</option>
+
+                                    <option value="andere">Andere</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="experience">Erfahrung</label>
+                                <select id="experience" name="experience" required>
+                                    <option value="">Bitte wählen</option>
+                                    <option value="anfänger">Anfänger</option>
+                                    <option value="fortgeschritten">fortgeschritten</option>
+                                    <option value="erfahren">große Erfahrung</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Nachricht (optional)</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Erzählen Sie uns etwas über sich..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">
+                            Interesse bekunden
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Causes Section -->
+    <section id="causes" class="causes">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Musik für den guten Zweck</h2>
+                <p class="section-description">
+                    Unsere Benefizkonzerte unterstützen wichtige Organisationen und Projekte. 
+                    Gemeinsam können wir durch Musik positive Veränderungen bewirken.
+                </p>
+            </div>
+
+            <div class="causes-grid">
+                <div class="cause-card">
+                    <div class="cause-stripe gradient-1"></div>
+                    <div class="cause-content">
+                        <h3 class="cause-title">Ukraine-Hilfe</h3>
+                        <p class="cause-description">Unterstützung für Flüchtlinge und humanitäre Hilfe</p>
+                        <img src="bilder/ukraine.jpg" alt="ukraine" class="cause-image"></img>
+                        <div class="cause-amount">
+                            <span class="amount"></span>
+                            <span class="amount-label">gespendet 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cause-card">
+                    <div class="cause-stripe gradient-4"></div>
+                    <div class="cause-content">
+                        <h3 class="cause-title">Ärzte ohne Grenzen</h3>
+                        <p class="cause-description"><br>Medizinische Nothilfe weltweit</p>
+                        <img src="bilder/spendenurkunde.jpg" alt="Spendenurkunde" class="cause-image"></img>
+                        <div class="cause-amount">
+                            <span class="amount"></span>
+                            <span class="amount-label">gespendet 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cause-card">
+                    <div class="cause-stripe gradient-2"></div>
+                    <div class="cause-content">
+                        <h3 class="cause-title">Lokale Jugendarbeit</h3>
+                        <p class="cause-description">Musikförderung für Kinder und Jugendliche</p>
+                        <img src="bilder/kinderarbeit.jpg" alt="Kinder" class="cause-image"></img>
+                        <div class="cause-amount">
+                            <span class="amount"></span>
+                            <span class="amount-label">gespendet 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="causes-cta">
+                <p class="cta-text">
+                    Möchten du dich mit deinem Talent einbringen oder hast Vorschläge für weitere Projekte?
+                </p>
+                <a href="#contact" class="btn btn-accent" id="contactMailBtn">
+                    Kontakt aufnehmen
+                    <img src="files/icon.menu.arrow.svg" alt="arrow" style="width: 32px; height: 32px; margin-left: 8px;">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Kommende Veranstaltungen</h2>
+                <p class="section-description">
+                    Erleben Sie unvergessliche Konzerte und musikalische Momente mit dem Collegium Musicum Iuvenale.
+                </p>
+            </div>
+
+            <div class="events-grid">
+                <!-- Neue Auftritte aus Info -->
+                <div class="event-card">
+                    <div class="event-date">09. + 10. August 2025</div>
+                    <h3 class="event-title">ConCello mit Andrea Marcolini und Riccardo Paltanin</h3>
+                    <div class="event-details">
+                        <div class="event-detail">
+                            <img src="files/icon.position.svg" alt="Map Icon" style="width: 16px; height: 16px;">
+                            <span>Kirche des ehemaligen Kaputzinerklosters beim Altenheim Sankt Franziskus, <br> Uffenheimer Straße 16a</span>
+                        </div>
+                        <div class="event-detail">
+                            <img src="files/icon.time.svg" alt="Zeir Icon" style="width: 16px; height: 16px;">
+                            <span>16:00 Uhr</span>
+                        </div>
+                    </div>
+                    <div class="event-footer">
+                        <button class="event-link">Mehr erfahren →</button>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">12. Oktober 2025</div>
+                    <h3 class="event-title">Konzert der Anfängergruppe und Solisten des CMI</h3>
+                    <div class="event-details">
+                        <div class="event-detail">
+                            <img src="files/icon.position.svg" alt="Map Icon" style="width: 16px; height: 16px;">
+                            <span>Kirche des ehemaligen Kaputzinerklosters beim Altenheim Sankt Franziskus, <br> Uffenheimer Straße 16a</span>
+                        </div>
+                        <div class="event-detail">
+                            <img src="files/icon.time.svg" alt="Zeir Icon" style="width: 16px; height: 16px;">
+                            <span>16:00 Uhr</span>
+                        </div>
+                    </div>
+                    <div class="event-footer">
+                        <button class="event-link">Mehr erfahren →</button>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date">20. Dezember 2025</div>
+                    <h3 class="event-title">Großes Weihnachtskonzert <br> SING MIT!</h3>
+                    <div class="event-details">
+                        <div class="event-detail">
+                            <img src="files/icon.position.svg" alt="Map Icon" style="width: 16px; height: 16px;">
+                            <span>Planet Erde</span>
+                        </div>
+                        <div class="event-detail">
+                            <img src="files/icon.time.svg" alt="Zeir Icon" style="width: 16px; height: 16px;">
+                            <span>18:00 Uhr</span>
+                        </div>
+                    </div>
+                    <div class="event-footer">
+                        <button class="event-link">Mehr erfahren →</button>
+                    </div>
+                </div>
+                
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title white">Kontakt</h2>
+                <p class="section-description light">
+                    Haben Sie Fragen oder möchten Sie uns besuchen? Wir freuen uns auf Ihre Nachricht!
+                </p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 class="contact-subtitle">Probenzeiten & Ort</h3>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon gradient-1">
+                                <img src="files/icon.calendar.svg" alt="Kalender Icon" style="width: 32px; height: 32px;">
+                            </div>
+                            <div class="contact-text">
+                                <h4>Probe</h4>
+                                <p>Jeden Samstag <br> Anfänger: 10:00 - 11:00 Uhr <br> Fortgeschrittene: 11:00 - 12:30 Uhr</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon gradient-2">
+                                <img src="files/icon.position.svg" alt="Map Icon" style="width: 32px; height: 32px;">
+                            </div>
+                            <div class="contact-text">
+                                <h4>Probenraum</h4>
+                                <p>
+                                    Kirchplatz 2<br>
+                                    Rote Schule (VHS-Gebäude) - Raum 4<br>
+                                    97199 Ochsenfurt
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon gradient-3">
+                                <img src="files/icon.mail.svg" alt="Mail Icon" style="width: 32px; height: 32px;">
+                            </div>
+                            <div class="contact-text">
+                                <h4>E-Mail</h4>
+                                <p>Astrid.Eitschberger@cmi-ochsenfurt.de</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <h3 class="form-title white">Schnell-Kontakt</h3>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" required placeholder="Ihr Name">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" rows="4" required placeholder="Ihre Nachricht"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            Nachricht senden
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img id="footerLogo" src="files/logo_cmi1 - weiß.svg" alt="CMI Logo" style="width: 56px; height: 56px;">
+                        <span class="brand-text">CMI Ochsenfurt</span>
+                    </div>
+                    <p class="footer-description">
+                        Das Collegium Musicum Iuvenale – Musik baut Brücken und schafft positive Veränderungen 
+                        in unserer Gemeinschaft.
+                    </p>
+                </div>
+                
+                <div class="footer-nav">
+                    <h4 class="footer-title">Navigation</h4>
+                    <div class="footer-links">
+                        <a href="#about">Über uns</a>
+                        <a href="#articels">Artikel</a>
+                        <a href="#gallery">Galerie</a>
+                        <a href="#join">Mitmachen</a>
+                        <a href="#causes">Benefizprojekte</a>
+                        <a href="#events">Termine</a>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4 class="footer-title">Kontakt</h4>
+                    <div class="footer-contact-info">
+                        <p>Kirchplatz 2</p>
+                        <p>Rote Schule (VHS-Gebäude) - Raum 4</p>
+                        <p>97199 Ochsenfurt</p>
+                        <p>Astrid.Eitschberger@cmi-ochsenfurt.de</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Collegium Musicum Iuvenale. Alle Rechte vorbehalten. Design und Homepage: Richard Ullmann</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Galerie-Overlay -->
+    <div id="galleryOverlay" class="gallery-overlay" style="display:none;">
+        <div class="gallery-overlay-bg"></div>
+        <div class="gallery-overlay-content">
+            <button class="gallery-overlay-close" aria-label="Schließen">&times;</button>
+            <div class="gallery-overlay-media"></div>
         </div>
     </div>
-</body>
 
+    <script src="script.js"></script>
+</body>
 </html>
