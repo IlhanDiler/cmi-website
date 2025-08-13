@@ -48,23 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
 
     // Hilfsfunktion für Mail-Popup
-    function showMailPopup(mailto, subject, body) {
-        // Popup-Overlay erstellen
-        let popup = document.createElement('div');
-        popup.className = 'mail-popup-overlay';
-        popup.innerHTML = `
-            <div class="mail-popup">
-                <h2>Mailversand</h2>
-                <p>Falls sich Ihr Mailprogramm nicht automatisch geöffnet hat, kopieren Sie bitte die folgende Nachricht und senden Sie sie manuell an:</p>
-                <div class="mail-popup-address"><b>Astrid.Eitschberger@cmi-ochsenfurt.de</b></div>
-                <div class="mail-popup-subject"><b>Betreff:</b> ${subject}</div>
-                <div class="mail-popup-body"><b>Nachricht:</b><br><pre>${body}</pre></div>
-                <button class="mail-popup-close">Schließen</button>
-            </div>
-        `;
-        document.body.appendChild(popup);
-        document.querySelector('.mail-popup-close').onclick = () => popup.remove();
-    }
 
     // Notification system
     function showNotification(message, type = 'info') {
@@ -164,72 +147,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Join form submission
-    if (joinForm) {
-        joinForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
 
-            // E-Mail optional, da im Join-Formular kein Feld vorhanden ist
-            let emailLine = '';
-            if (data.email) {
-                emailLine = `E-Mail: ${data.email}\n`;
-            }
 
-            const subject = 'Interesse am Mitmachen beim CMI Orchester';
-            const body = 
-                `Name: ${data.name || ''}\n` +
-                emailLine +
-                `Instrument: ${data.instrument || ''}\n` +
-                `Erfahrung: ${data.experience || ''}\n` +
-                `Nachricht: ${data.message || ''}`;
-            const mailto = `mailto:Astrid.Eitschberger@cmi-ochsenfurt.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-            window.location.href = mailto;
-            setTimeout(() => showMailPopup(mailto, subject, body), 800);
-
-            this.reset();
-        });
-    }
-
-    // Contact form submission
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-
-            const subject = 'Kontaktanfrage über die CMI Website';
-            const body =
-                `Name: ${data.name || ''}\n` +
-                `Nachricht: ${data.message || 'Hall ich habe eigentlich eine Nachricht, aber habe sie dann doch nicht verfasst.'}`;
-            const mailto = `mailto:Astrid.Eitschberger@cmi-ochsenfurt.de?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-            window.location.href = mailto;
-            setTimeout(() => showMailPopup(mailto, subject, body), 800);
-
-            this.reset();
-        });
-    }
-
-    // Mailto for "Kontakt aufnehmen" and "Nächste Konzerte" buttons
-    const contactMailBtn = document.getElementById('contactMailBtn');
-    if (contactMailBtn) {
-        contactMailBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.location.href = 'mailto:Astrid.Eitschberger@cmi-ochsenfurt.de?subject=Kontaktaufnahme%20über%20die%20CMI%20Website';
-        });
-    }
-    const heroMailBtn = document.getElementById('heroMailBtn');
-
-    // Mail mit anfrage für konzerte
-
-    //if (heroMailBtn) {
-    //    heroMailBtn.addEventListener('click', function(e) {
-    //        e.preventDefault();
-    //        window.location.href = 'mailto:Astrid.Eitschberger@cmi-ochsenfurt.de?subject=Konzertanfrage%20über%20die%20CMI%20Website';
-    //    });
-    //}
 
     // Navbar background on scroll
     const navbar = document.querySelector('.navbar');
@@ -281,7 +200,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Add loading states to buttons
-    // Entfernt für Mailto-Formulare, da Seite verlassen wird und Button-Loading keinen Sinn macht
 
     // Parallax effect for hero shapes
     window.addEventListener('scroll', function() {
@@ -438,200 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('CMI Orchester Website loaded successfully!');
 });
 
-// Galerie-Overlay für Bilder, Videos, Audios
-document.addEventListener('DOMContentLoaded', function() {
-    // Galerie Overlay
-    const galleryOverlay = document.getElementById('galleryOverlay');
-    const galleryOverlayMedia = document.querySelector('.gallery-overlay-media');
-    const galleryOverlayClose = document.querySelector('.gallery-overlay-close');
-    const galleryItems = document.querySelectorAll('.gallery-item');
 
-    // Referenz auf aktuell abgespieltes Audio/Video
-    let currentMedia = null;
-
-    function closeGalleryOverlay() {
-        // Stoppe Audio/Video falls vorhanden
-        if (currentMedia) {
-            if (currentMedia.tagName === 'AUDIO' || currentMedia.tagName === 'VIDEO') {
-                currentMedia.pause();
-                currentMedia.currentTime = 0;
-            }
-            currentMedia = null;
-        }
-        galleryOverlay.style.display = 'none';
-        galleryOverlayMedia.innerHTML = '';
-        document.body.style.overflow = '';
-    }
-
-    galleryOverlayClose.addEventListener('click', closeGalleryOverlay);
-    galleryOverlay.addEventListener('click', function(e) {
-        if (e.target === galleryOverlay || e.target === document.querySelector('.gallery-overlay-bg')) {
-            closeGalleryOverlay();
-        }
-    });
-    document.addEventListener('keydown', function(e) {
-        if (galleryOverlay.style.display !== 'none' && (e.key === 'Escape' || e.key === 'Esc')) {
-            closeGalleryOverlay();
-        }
-    });
-
-    function openGalleryItem(item) {
-        const type = item.getAttribute('data-type');
-        const src = item.getAttribute('data-src');
-        galleryOverlayMedia.innerHTML = '';
-        document.body.style.overflow = 'hidden';
-        currentMedia = null;
-
-        if (type === 'image') {
-            const img = document.createElement('img');
-            img.src = src;
-            img.alt = item.querySelector('img')?.alt || '';
-            galleryOverlayMedia.appendChild(img);
-        } else if (type === 'video') {
-            const container = document.createElement('div');
-            container.className = 'custom-video-container';
-            container.innerHTML = `
-                <video class="custom-video"></video>
-                <div class="custom-video-controls">
-                    <button class="custom-video-btn" title="Play/Pause">&#9654;</button>
-                    <div class="custom-video-progress"><div class="custom-video-progress-bar"></div></div>
-                    <span class="custom-video-time">0:00 / 0:00</span>
-                </div>
-            `;
-            const video = container.querySelector('.custom-video');
-            video.src = src;
-            video.playsInline = true;
-            video.preload = "metadata";
-            video.style.background = "#111";
-            video.style.borderRadius = "0";
-            video.removeAttribute('controls');
-            currentMedia = video;
-            const playBtn = container.querySelector('.custom-video-btn');
-            const progress = container.querySelector('.custom-video-progress');
-            const progressBar = container.querySelector('.custom-video-progress-bar');
-            const time = container.querySelector('.custom-video-time');
-
-            function formatTime(s) {
-                s = Math.floor(s);
-                return `${Math.floor(s/60)}:${('0'+(s%60)).slice(-2)}`;
-            }
-            function updateTime() {
-                time.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration || 0)}`;
-            }
-            function updateProgress() {
-                const percent = (video.currentTime / (video.duration || 1)) * 100;
-                progressBar.style.width = percent + '%';
-            }
-            playBtn.onclick = function() {
-                if (video.paused) {
-                    video.play();
-                    playBtn.innerHTML = '&#10073;&#10073;';
-                } else {
-                    video.pause();
-                    playBtn.innerHTML = '&#9654;';
-                }
-            };
-            video.addEventListener('play', () => playBtn.innerHTML = '&#10073;&#10073;');
-            video.addEventListener('pause', () => playBtn.innerHTML = '&#9654;');
-            video.addEventListener('timeupdate', () => {
-                updateTime();
-                updateProgress();
-            });
-            video.addEventListener('loadedmetadata', updateTime);
-            progress.onclick = function(e) {
-                const rect = progress.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const percent = x / rect.width;
-                video.currentTime = percent * video.duration;
-            };
-            galleryOverlayMedia.appendChild(container);
-        } else if (type === 'audio') {
-            const container = document.createElement('div');
-            container.className = 'custom-audio-container';
-            container.innerHTML = `
-                <div class="audio-waves"></div>
-                <button class="custom-audio-btn" title="Play/Pause">&#9654;</button>
-                <span class="custom-audio-time">0:00 / 0:00</span>
-            `;
-            const audio = new Audio(src);
-            audio.preload = "metadata";
-            currentMedia = audio;
-            let isPlaying = false;
-            const playBtn = container.querySelector('.custom-audio-btn');
-            const time = container.querySelector('.custom-audio-time');
-            const waves = container.querySelector('.audio-waves');
-            const barCount = 24;
-            let bars = [];
-            for (let i = 0; i < barCount; i++) {
-                const bar = document.createElement('div');
-                bar.className = 'audio-wave-bar';
-                bar.style.height = (10 + Math.random()*40) + 'px';
-                waves.appendChild(bar);
-                bars.push(bar);
-            }
-            let waveAnim = null;
-            function animateWaves() {
-                if (!isPlaying) return;
-                bars.forEach((bar, i) => {
-                    bar.style.height = (18 + Math.random()*42) + 'px';
-                });
-                waveAnim = requestAnimationFrame(animateWaves);
-            }
-            function stopWaves() {
-                bars.forEach(bar => bar.style.height = '20px');
-                if (waveAnim) cancelAnimationFrame(waveAnim);
-            }
-            function formatTime(s) {
-                s = Math.floor(s);
-                return `${Math.floor(s/60)}:${('0'+(s%60)).slice(-2)}`;
-            }
-            function updateTime() {
-                time.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration || 0)}`;
-            }
-            playBtn.onclick = function() {
-                if (audio.paused) {
-                    audio.play();
-                } else {
-                    audio.pause();
-                }
-            };
-            audio.addEventListener('play', () => {
-                isPlaying = true;
-                playBtn.innerHTML = '&#10073;&#10073;';
-                animateWaves();
-            });
-            audio.addEventListener('pause', () => {
-                isPlaying = false;
-                playBtn.innerHTML = '&#9654;';
-                stopWaves();
-            });
-            audio.addEventListener('ended', () => {
-                isPlaying = false;
-                playBtn.innerHTML = '&#9654;';
-                stopWaves();
-                audio.currentTime = 0;
-            });
-            audio.addEventListener('timeupdate', updateTime);
-            audio.addEventListener('loadedmetadata', updateTime);
-            galleryOverlayMedia.appendChild(container);
-        }
-        galleryOverlay.style.display = 'flex';
-    }
-
-    galleryItems.forEach(item => {
-        item.addEventListener('click', function() {
-            openGalleryItem(item);
-        });
-        // Öffnen per Tastatur (Enter/Space)
-        item.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                openGalleryItem(item);
-            }
-        });
-    });
-
-    console.log('Galerie-Skripte geladen!');
-});
 
 // Zeitspanne seit gründung berechnen
 const currentYear = new Date().getFullYear();
