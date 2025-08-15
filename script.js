@@ -1,3 +1,23 @@
+// Highlight active nav link on scroll and click
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = Array.from(navLinks).map(link => {
+        const id = link.getAttribute('href').replace('#','');
+        return document.getElementById(id);
+    });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                const id = this.getAttribute('href').replace('#','');
+                const section = document.getElementById(id);
+                if (section) {
+                    section.scrollIntoView({behavior:'smooth'});
+                }
+            });
+        });
+});
 // Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
