@@ -24,18 +24,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-    // Toggle mobile menu
+    // Toggle mobile menu (fix: use display style instead of class)
     mobileMenuBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        mobileMenu.classList.toggle('active');
-        mobileMenuBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+        if (mobileMenu.style.display === 'none' || mobileMenu.style.display === '') {
+            mobileMenu.style.display = 'flex';
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        } else {
+            mobileMenu.style.display = 'none';
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
     });
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
-        if (mobileMenu.classList.contains('active')) {
+        if (mobileMenu.style.display === 'flex') {
             if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                mobileMenu.classList.remove('active');
+                mobileMenu.style.display = 'none';
                 mobileMenuBtn.setAttribute('aria-expanded', 'false');
             }
         }
@@ -44,15 +49,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close mobile menu when clicking on a link
     mobileNavLinks.forEach(link => {
         link.addEventListener('click', function() {
-            mobileMenu.classList.remove('active');
+            mobileMenu.style.display = 'none';
             mobileMenuBtn.setAttribute('aria-expanded', 'false');
         });
     });
 
     // Keyboard accessibility: close menu with Escape
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-            mobileMenu.classList.remove('active');
+        if (e.key === 'Escape' && mobileMenu.style.display === 'flex') {
+            mobileMenu.style.display = 'none';
             mobileMenuBtn.setAttribute('aria-expanded', 'false');
         }
     });
