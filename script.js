@@ -1,27 +1,33 @@
 // Highlight active nav link on scroll
 document.addEventListener('DOMContentLoaded', function() {
-    // Language toggle logic
-    function setLanguage(lang) {
-        // Show only elements with matching data-lang, hide others
-        document.querySelectorAll('[data-lang]').forEach(el => {
+    // Language switcher logic
+    function setLang(lang) {
+        // Show/hide all elements with data-lang
+        document.querySelectorAll('[data-lang]').forEach(function(el) {
             if (el.getAttribute('data-lang') === lang) {
                 el.style.display = '';
             } else {
                 el.style.display = 'none';
             }
         });
-        // Store selected language
-        localStorage.setItem('selectedLang', lang);
-    }
 
-    // Detect language switcher click
-    document.querySelectorAll('.lang-switch').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            const lang = this.getAttribute('data-lang');
-            setLanguage(lang);
+        // Mobile navigation fix: ensure only correct language links are visible
+        document.querySelectorAll('.mobile-nav-link').forEach(function(el) {
+            if (el.getAttribute('data-lang') === lang) {
+                el.style.display = '';
+            } else {
+                el.style.display = 'none';
+            }
         });
-    });
 
+        // Optionally, close mobile menu after language switch (optional UX improvement)
+        var mobileMenu = document.querySelector('.mobile-menu');
+        if (mobileMenu && mobileMenu.style.display !== 'none') {
+            mobileMenu.style.display = 'none';
+            var menuBtn = document.querySelector('.mobile-menu-btn');
+            if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+        }
+    }
     // On page load, set language from localStorage or default to 'de'
     const savedLang = localStorage.getItem('selectedLang') || 'de';
     setLanguage(savedLang);
@@ -503,6 +509,14 @@ if (mobileMenuBtn && mobileMenu) {
     // Keyboard accessibility: close menu with Escape
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.classList.remove('open');
+        }
+    });
+
+    // Reset menu state on window resize (desktop <-> mobile)
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 900) {
             mobileMenu.classList.remove('active');
             mobileMenuBtn.classList.remove('open');
         }
