@@ -13,16 +13,16 @@
             <!-- Styles moved to style.css -->
 </head>
 <body>
+    <!-- Cookie Banner -->
+    <div id="cookieBanner" style="position:fixed;bottom:0;left:0;width:100%;background:#fff;box-shadow:0 -2px 8px rgba(0,0,0,0.08);padding:18px 0;display:none;z-index:9999;text-align:center;">
+        <span data-lang="de">Diese Website verwendet Cookies, um Ihnen das beste Erlebnis zu bieten. <a href="datenschutz.html" style="color:#00b894;text-decoration:underline;">Mehr erfahren</a></span>
+        <span data-lang="en" style="display:none;">This website uses cookies to give you the best experience. <a href="datenschutz.html" style="color:#00b894;text-decoration:underline;">Learn more</a></span>
+        <button class="cookieAcceptBtn" data-lang="de" style="background:#00b894;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:600;cursor:pointer;margin-left:12px;">OK</button>
+        <button class="cookieAcceptBtn" data-lang="en" style="background:#00b894;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:600;cursor:pointer;margin-left:12px;display:none;">OK</button>
+        <button class="cookieDeclineBtn" data-lang="de" style="background:#888;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:600;cursor:pointer;margin-left:8px;">Ablehnen</button>
+        <button class="cookieDeclineBtn" data-lang="en" style="background:#888;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:600;cursor:pointer;margin-left:8px;display:none;">Decline</button>
+    </div>
     <!-- ...existing code... -->
-        <!-- Cookie Notice Banner -->
-        <div id="cookieBanner">
-            <span data-lang="de">Diese Website verwendet Cookies, um Ihnen das beste Erlebnis zu bieten. <a href="datenschutz.html" style="color:#00b894;text-decoration:underline;">Mehr erfahren</a></span>
-            <span data-lang="en" style="display:none;">This website uses cookies to give you the best experience. <a href="datenschutz.html" style="color:#00b894;text-decoration:underline;">Learn more</a></span>
-            <button id="cookieAcceptBtn" data-lang="de" style="background:#00b894;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:600;cursor:pointer;">OK</button>
-            <button id="cookieAcceptBtn" data-lang="en" style="background:#00b894;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:600;cursor:pointer;display:none;">OK</button>
-            <button id="cookieDeclineBtn" data-lang="de" style="background:#888;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:600;cursor:pointer;">Ablehnen</button>
-            <button id="cookieDeclineBtn" data-lang="en" style="background:#888;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:600;cursor:pointer;display:none;">Decline</button>
-        </div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
