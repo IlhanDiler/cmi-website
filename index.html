@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMI</title>
-    <meta name="description" content="Das Collegium Musicum Iuvenale bringt Menschen durch Musik zusammen. Werden Sie Teil unserer Musikfamilie und unterstützen Sie gute Zwecke durch Benefizkonzerte.">
+    <meta name="description" content="Das Collegium Musicum Iuvenale bringt Menschen durch Musik zusammen. Werde Teil unserer Musikfamilie und unterstütze gute Zwecke durch Benefizkonzerte.">
     <link rel="stylesheet" href="style.css">
     <link href="" rel="stylesheet">
     <link rel="icon" href="files/logo_cmi1 - weiß.svg" type="image/svg+xml">
 </head>
 <body>
-    <!-- Cookie Notice Banner -->
-    <div id="cookieBanner" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:18px 32px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.12);z-index:9999;display:flex;align-items:center;gap:18px;font-size:1em;">
-        <span>Diese Website verwendet Cookies, um Ihnen das beste Erlebnis zu bieten. <a href="datenschutz.html" style="color:#00b894;text-decoration:underline;">Mehr erfahren</a></span>
-        <button id="cookieAcceptBtn" style="background:#00b894;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:600;cursor:pointer;">OK</button>
-        <button id="cookieDeclineBtn" style="background:#888;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:600;cursor:pointer;">Ablehnen</button>
-    </div>
+    <!-- ...existing code... -->
+        <!-- Cookie Notice Banner -->
+        <div id="cookieBanner">
+            <span data-lang="de">Diese Website verwendet Cookies, um Ihnen das beste Erlebnis zu bieten. <a href="datenschutz.html" style="color:#00b894;text-decoration:underline;">Mehr erfahren</a></span>
+            <span data-lang="en" style="display:none;">This website uses cookies to give you the best experience. <a href="datenschutz.html" style="color:#00b894;text-decoration:underline;">Learn more</a></span>
+            <button id="cookieAcceptBtn" data-lang="de" style="background:#00b894;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:600;cursor:pointer;">OK</button>
+            <button id="cookieAcceptBtn" data-lang="en" style="background:#00b894;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:600;cursor:pointer;display:none;">OK</button>
+            <button id="cookieDeclineBtn" data-lang="de" style="background:#888;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:600;cursor:pointer;">Ablehnen</button>
+            <button id="cookieDeclineBtn" data-lang="en" style="background:#888;color:#fff;border:none;padding:8px 18px;border-radius:6px;font-weight:600;cursor:pointer;display:none;">Decline</button>
+        </div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -27,11 +31,40 @@
             
             <!-- Desktop Navigation -->
             <div class="nav-menu">
-                <a href="#about" class="nav-link">Über uns</a>
-                <a href="#join" class="nav-link">Mitmachen</a>
-                <a href="#causes" class="nav-link">Benefizprojekte</a>
-                <a href="#events" class="nav-link">Termine</a>
-                <a href="#contact" class="nav-link">Kontakt</a>
+                <a href="#about" class="nav-link" data-lang="de">Über uns</a>
+                <a href="#about" class="nav-link" data-lang="en" style="display:none;">About us</a>
+                <a href="#join" class="nav-link" data-lang="de">Mitmachen</a>
+                <a href="#join" class="nav-link" data-lang="en" style="display:none;">Join</a>
+                <a href="#causes" class="nav-link" data-lang="de">Benefizprojekte</a>
+                <a href="#causes" class="nav-link" data-lang="en" style="display:none;">Charity Projects</a>
+                <a href="#events" class="nav-link" data-lang="de">Termine</a>
+                <a href="#events" class="nav-link" data-lang="en" style="display:none;">Events</a>
+                <a href="#contact" class="nav-link" data-lang="de">Kontakt</a>
+                <a href="#contact" class="nav-link" data-lang="en" style="display:none;">Contact</a>
+            </div>
+
+            <!-- Language Switcher in nav-container -->
+            <div id="langSwitcher" style="display:flex;align-items:center;gap:4px;margin-left:auto;">
+                <button onclick="setLang('de')" id="langDe" style="padding:6px 14px;margin-right:4px;font-weight:600;border-radius:8px;border:none;background:rgba(255,255,255,0.85);color:#222;box-shadow:0 2px 8px rgba(0,0,0,0.08);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s,box-shadow 0.2s;">
+                    <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right:4px;">
+                        <rect width="21" height="14" fill="#000000"/>
+                        <rect y="4.66667" width="21" height="4.66667" fill="#DD0000"/>
+                        <rect y="9.33333" width="21" height="4.66667" fill="#FFCC00"/>
+                    </svg>
+                </button>
+                <button onclick="setLang('en')" id="langEn" style="padding:6px 14px;font-weight:600;border-radius:8px;border:none;background:rgba(255,255,255,0.85);color:#222;box-shadow:0 2px 8px rgba(0,0,0,0.08);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s,box-shadow 0.2s;">
+                                                            <svg width="21" height="14" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" style="margin-right:4px;">
+                                                                <rect width="1200" height="600" fill="#00247d"/>
+                                                                <path d="M0,0L1200,600M1200,0L0,600" stroke="#fff" stroke-width="120"/>
+                                                                <path d="M0,0L1200,600M1200,0L0,600" stroke="#cf142b" stroke-width="60"/>
+                                                                <path d="M600,0L600,600M0,300L1200,300" stroke="#fff" stroke-width="120"/>
+                                                                <path d="M600,0L600,600M0,300L1200,300" stroke="#cf142b" stroke-width="60"/>
+                                                                <path d="M120,600L0,0L120,0L240,600" fill="#fff"/>
+                                                                <path d="M120,600L0,0L120,0L240,600" stroke="#cf142b" stroke-width="30"/>
+                                                                <path d="M1080,0L1200,600L1080,600L960,0" fill="#fff"/>
+                                                                <path d="M1080,0L1200,600L1080,600L960,0" stroke="#cf142b" stroke-width="30"/>
+                                                            </svg>
+                </button>
             </div>
 
             <!-- Mobile menu button -->
@@ -42,11 +75,16 @@
 
         <!-- Mobile Navigation -->
         <div class="mobile-menu">
-            <a href="#about" class="mobile-nav-link">Über uns</a>
-            <a href="#join" class="mobile-nav-link">Mitmachen</a>
-            <a href="#causes" class="mobile-nav-link">Benefizprojekte</a>
-            <a href="#events" class="mobile-nav-link">Termine</a>
-            <a href="#contact" class="mobile-nav-link">Kontakt</a>
+            <a href="#about" class="mobile-nav-link" data-lang="de">Über uns</a>
+            <a href="#about" class="mobile-nav-link" data-lang="en" style="display:none;">About us</a>
+            <a href="#join" class="mobile-nav-link" data-lang="de">Mitmachen</a>
+            <a href="#join" class="mobile-nav-link" data-lang="en" style="display:none;">Join</a>
+            <a href="#causes" class="mobile-nav-link" data-lang="de">Benefizprojekte</a>
+            <a href="#causes" class="mobile-nav-link" data-lang="en" style="display:none;">Charity Projects</a>
+            <a href="#events" class="mobile-nav-link" data-lang="de">Termine</a>
+            <a href="#events" class="mobile-nav-link" data-lang="en" style="display:none;">Events</a>
+            <a href="#contact" class="mobile-nav-link" data-lang="de">Kontakt</a>
+            <a href="#contact" class="mobile-nav-link" data-lang="en" style="display:none;">Contact</a>
         </div>
     </nav>
 
@@ -61,22 +99,35 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title" style="font-size:2em;">
+                    <h1 class="hero-title" style="font-size:2em;" data-lang="de">
                         Musik baut
                         <span class="highlight">Brücken</span>
                     </h1>
-                    <p class="hero-description">
-                        Das Collegium Musicum Iuvenale Ochsenfurt bringt seit <span id="yearsPassed"></span> Jahren Menschen durch die Kraft der Musik zusammen. 
+                    <h1 class="hero-title" style="font-size:2em;display:none;" data-lang="en">
+                        Music builds <span class="highlight">bridges</span>
+                    </h1>
+                    <p class="hero-description" data-lang="de">
+                        Das Collegium Musicum Iuvenale Ochsenfurt bringt seit 44 Jahren Menschen durch die Kraft der Musik zusammen. 
                         Wir sind eine Gemeinschaft von Musikliebhabern, die ihre Freude am gemeinsamen Musizieren an das Publikum weitervermitteln und gleichzeitig
                         durch Benefizprojekte sozial engagiert sind. Dabei pflegen wir internationale Freundschaften.
                     </p>
+                    <p class="hero-description" data-lang="en" style="display:none;">
+                        For 44 years, Collegium Musicum Iuvenale Ochsenfurt has been bringing people together through the power of music. We are a community of music lovers who share the joy of making music with the audience and, at the same time, are socially committed through charity projects. We also foster international friendships.
+                    </p>
                     <div class="hero-buttons">
-                        <a href="#join" class="btn btn-primary">
+                        <a href="#join" class="btn btn-primary" data-lang="de">
                             Jetzt mitmachen
                             <img src="files/icon.menu.arrow.svg" alt="arrow" style="width: 32px; height: 32px; margin-left: 8px;">
                         </a>
-                        <a href="#events" class="btn btn-secondary" id="heroMailBtn">
+                        <a href="#join" class="btn btn-primary" data-lang="en" style="display:none;">
+                            Join now
+                            <img src="files/icon.menu.arrow.svg" alt="arrow" style="width: 32px; height: 32px; margin-left: 8px;">
+                        </a>
+                        <a href="#events" class="btn btn-secondary" id="heroMailBtn" data-lang="de">
                             Nächste Konzerte
+                        </a>
+                        <a href="#events" class="btn btn-secondary" id="heroMailBtn" data-lang="en" style="display:none;">
+                            Upcoming concerts
                         </a>
                     </div>
                 </div>
@@ -95,36 +146,60 @@
                 <h3 class="section-title" style="margin-top:-64px; font-size:2em;">Über das Collegium Musicum Iuvenale Ochsenfurt</h3>
                 <div class="section-description" style="line-height:1.7;font-size:0.97em;">
                     <div style="text-align:center;margin-bottom:8px;">
-                        <span class="anniversary-info">Collegium Musicum Iuvenale Ochsenfurt feierte 2021 sein 40-jähriges Jubiläum mit einem besonderen Videoprojekt.</span><br>
-                        <span style="font-size:1em;color:#444;">Einen Eindruck vom musikalischen Jubiläum erhalten Sie direkt hier:</span>
+                        <span class="anniversary-info" data-lang="de">Collegium Musicum Iuvenale Ochsenfurt feierte 2021 sein 40-jähriges Jubiläum mit einem besonderen Videoprojekt.</span><br>
+                        <span class="anniversary-info" data-lang="en" style="display:none;">Collegium Musicum Iuvenale Ochsenfurt celebrated its 40th anniversary in 2021 with a special video project.</span><br>
+                        <span style="font-size:1em;color:#444;" data-lang="de">Einen Eindruck vom musikalischen Jubiläum bekommst du direkt hier:</span>
+                        <span style="font-size:1em;color:#444;display:none;" data-lang="en">Get an impression of the musical anniversary right here:</span>
                     </div>
                     <div style="margin:18px 0 24px 0;display:flex;justify-content:center;">
                         <a href="https://www.youtube.com/watch?v=n6geYJRmu7Y" target="_blank" style="display:inline-block;position:relative;">
                             <img src="bilder/oeffne_dein_herz.jpg" alt="Öffne dein Herz - Jubiläumsvideo" style="width:420px;height:236px;object-fit:cover;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.07);cursor:pointer;filter:brightness(0.85);">
                             <img src="files/icon.video.svg" alt="Play" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;opacity:0.85;pointer-events:none;">
-                            <span style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.6);color:#fff;padding:6px 18px;border-radius:8px;font-size:1em;font-weight:500;">Video abspielen</span>
+                            <span style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.6);color:#fff;padding:6px 18px;border-radius:8px;font-size:1em;font-weight:500;" data-lang="de">Video abspielen</span>
+                            <span style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.6);color:#fff;padding:6px 18px;border-radius:8px;font-size:1em;font-weight:500;display:none;" data-lang="en">Play video</span>
                         </a>
                     </div>
-                    <p><b>Historie & Entwicklung</b></p>
-                    <ul style="margin-bottom:16px;padding-left:22px;">
+                    <p data-lang="de"><b>Historie & Entwicklung</b></p>
+                    <p data-lang="en" style="display:none;"><b>History & Development</b></p>
+                    <ul style="margin-bottom:16px;padding-left:22px;" data-lang="de">
                         <li>Gegründet 1981 auf Initiative von Astrid Eitschberger durch musikbegeisterte Jugendliche.</li>
                         <li>Seit 1985 unter dem heutigen Namen aktiv bei öffentlichen und privaten Festen sowie Konzerten.</li>
                         <li>Ab 1992 Mitinitiator des Projekts <b>EUROPEAN MUSIC MEETING</b> in Padua, Pianiga und Ochsenfurt.</li>
                         <li>Zahlreiche gemeinsame Konzerte mit italienischen, französischen und englischen Orchestern und Chören.</li>
                         <li>Internationaler Austausch durch Besuche im Gastland und Beherbergung ausländischer Musikgruppen in Ochsenfurt.</li>
                     </ul>
-                    <p><b>Musikalisches Repertoire</b></p>
-                    <ul style="margin-bottom:16px;padding-left:22px;">
+                    <ul style="margin-bottom:16px;padding-left:22px;display:none;" data-lang="en">
+                        <li>Founded in 1981 on the initiative of Astrid Eitschberger by young music enthusiasts.</li>
+                        <li>Active under its current name since 1985 at public and private festivals and concerts.</li>
+                        <li>Since 1992, co-initiator of the <b>EUROPEAN MUSIC MEETING</b> project in Padua, Pianiga, and Ochsenfurt.</li>
+                        <li>Numerous joint concerts with Italian, French, and English orchestras and choirs.</li>
+                        <li>International exchange through visits to host countries and hosting foreign music groups in Ochsenfurt.</li>
+                    </ul>
+                    <p data-lang="de"><b>Musikalisches Repertoire</b></p>
+                    <p data-lang="en" style="display:none;"><b>Musical Repertoire</b></p>
+                    <ul style="margin-bottom:16px;padding-left:22px;" data-lang="de">
                         <li>Von der Renaissance bis zur Moderne.</li>
                         <li>Internationale Folklore, Unterhaltungsmusik und eigene Produktionen.</li>
                         <li>Chöre, Blaskapellen und verschiedene Instrumentalgruppen als Kooperationspartner.</li>
                     </ul>
-                    <p><b>Soziales Engagement</b></p>
-                    <ul style="margin-bottom:16px;padding-left:22px;">
+                    <ul style="margin-bottom:16px;padding-left:22px;display:none;" data-lang="en">
+                        <li>From the Renaissance to the Modern era.</li>
+                        <li>International folklore, popular music, and original productions.</li>
+                        <li>Choirs, brass bands, and various instrumental groups as cooperation partners.</li>
+                    </ul>
+                    <p data-lang="de"><b>Soziales Engagement</b></p>
+                    <p data-lang="en" style="display:none;"><b>Social Commitment</b></p>
+                    <ul style="margin-bottom:16px;padding-left:22px;" data-lang="de">
                         <li>Spenden aus Konzerten gehen jährlich an soziale Institutionen wie Lebenshilfe, Caritas, Krankenhausseelsorge, Kindergärten.</li>
                         <li>Unterstützung von Partnerschulen in Kinshasa/Kongo und Nepal.</li>
                         <li>Musikalische Arbeit kommt Publikum und Bedürftigen zugute.</li>
                         <li>Aktuell: Hilfe für die Ukraine.</li>
+                    </ul>
+                    <ul style="margin-bottom:16px;padding-left:22px;display:none;" data-lang="en">
+                        <li>Donations from concerts go annually to social institutions such as Lebenshilfe, Caritas, hospital chaplaincy, and kindergartens.</li>
+                        <li>Support for partner schools in Kinshasa/Congo and Nepal.</li>
+                        <li>Musical work benefits the audience and those in need.</li>
+                        <li>Currently: Aid for Ukraine.</li>
                     </ul>
                 </div>
             </div>
@@ -134,10 +209,14 @@
                     <div class="stat-icon gradient-1">
                         <img src="files/icon.mitwirkende.svg" alt="Mitwirkende Icon" style="width: 48px; height: 48px;">
                     </div>
-                    <h3 class="stat-number" style="font-size:2em;">50+ Mitwirkende</h3>
-                    <p class="stat-description">
+                    <h3 class="stat-number" style="font-size:2em;" data-lang="de">50+ Mitwirkende</h3>
+                    <h3 class="stat-number" style="font-size:2em;display:none;" data-lang="en">50+ Members</h3>
+                    <p class="stat-description" data-lang="de">
                         Unser Orchester besteht aus mehr als 50 Mitgliedern jeden Alters, die ihre Leidenschaft 
                         für die Musik teilen und gemeinsam wachsen.
+                    </p>
+                    <p class="stat-description" data-lang="en" style="display:none;">
+                        Our orchestra consists of more than 50 members of all ages who share their passion for music and grow together.
                     </p>
                 </div>
 
@@ -145,10 +224,14 @@
                     <div class="stat-icon gradient-2">
                         <img src="files/icon.zeit.svg" alt="Zeit Icon" style="width: 48px; height: 48px;">
                     </div>
-                    <h3 class="stat-number" style="font-size:2em;">40+ Jahre</h3>
-                    <p class="stat-description">
+                    <h3 class="stat-number" style="font-size:2em;" data-lang="de">40+ Jahre</h3>
+                    <h3 class="stat-number" style="font-size:2em;display:none;" data-lang="en">40+ Years</h3>
+                    <p class="stat-description" data-lang="de">
                         Seit mehr als 40 Jahren bereichern wir das kulturelle Leben in Ochsenfurt 
                         und der Region sowie im Ausland mit unseren Aufführungen.
+                    </p>
+                    <p class="stat-description" data-lang="en" style="display:none;">
+                        For more than 40 years, we have enriched the cultural life in Ochsenfurt, the region, and abroad with our performances.
                     </p>
                 </div>
 
@@ -156,10 +239,14 @@
                     <div class="stat-icon gradient-3">
                         <img src="files/icon.spende.svg" alt="Spende Icon" style="width: 48px; height: 48px;">
                     </div>
-                    <h3 class="stat-number" style="font-size:2em;">❤️+ Euro gespendet</h3>
-                    <p class="stat-description">
+                    <h3 class="stat-number" style="font-size:2em;" data-lang="de">❤️+ Euro gespendet</h3>
+                    <h3 class="stat-number" style="font-size:2em;display:none;" data-lang="en">❤️+ Euros donated</h3>
+                    <p class="stat-description" data-lang="de">
                         Durch unsere Benefizkonzerte haben wir bereits große Mengen an Spenden für 
                         wohltätige Zwecke gesammelt.
+                    </p>
+                    <p class="stat-description" data-lang="en" style="display:none;">
+                        Through our charity concerts, we have already collected large amounts of donations for good causes.
                     </p>
                 </div>
             </div>
@@ -171,16 +258,22 @@
         <div class="container">
             <div class="join-content">
                 <div class="join-text">
-                    <h2 class="section-title" style="font-size:2em;">
+                    <h2 class="section-title" style="font-size:2em;" data-lang="de">
                         Werde Teil unserer <br> 
                         Musikfamilie
                     </h2>
-                    <p class="section-description">
+                    <h2 class="section-title" style="font-size:2em;display:none;" data-lang="en">
+                        Become part of our <br>
+                        music family
+                    </h2>
+                    <p class="section-description" data-lang="de">
                         Egal ob du erst angefangen hast oder schon Erfahrung mitbringst – bei uns findest du deinen Platz. 
                         Wir suchen motivierte Musikerinnen und Musiker aller Instrumente.
                     </p>
-                    
-                    <div class="benefits-list">
+                    <p class="section-description" data-lang="en" style="display:none;">
+                        Whether you are just starting out or already have experience – you will find your place with us. We are looking for motivated musicians of all instruments.
+                    </p>
+                    <div class="benefits-list" data-lang="de">
                         <div class="benefit-item">
                             <div class="benefit-dot"></div>
                             <span>Wöchentliche Proben jeden Samstag Vormittag</span>
@@ -198,27 +291,66 @@
                             <span>Regelmäßige Auftritte und besondere Events</span>
                         </div>
                     </div>
+                    <div class="benefits-list" data-lang="en" style="display:none;">
+                        <div class="benefit-item">
+                            <div class="benefit-dot"></div>
+                            <span>Weekly rehearsals every Saturday morning</span>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-dot"></div>
+                            <span>Free participation – only your passion counts</span>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-dot"></div>
+                            <span>Friendly atmosphere and competent leadership</span>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-dot"></div>
+                            <span>Regular performances and special events</span>
+                        </div>
+                    </div>
 
                     <!-- Zusatz: Info Anfängergruppe und Fortgeschrittene -->
                     <div class="join-extra-info" style="margin-top:32px;color:black;">
-                        <h3 style="margin-bottom:8px;color:black;">Anfängergruppe</h3>
-                        <ul style="margin-bottom:12px;">
+                        <h3 style="margin-bottom:8px;color:black;" data-lang="de">Anfängergruppe</h3>
+                        <h3 style="margin-bottom:8px;color:black;display:none;" data-lang="en">Beginner Group</h3>
+                        <ul style="margin-bottom:12px;" data-lang="de">
                             <li><b style="color:#222;">Wann:</b> <span style="color:#222;">samstags von 10.00–11.00 Uhr</span></li>
                             <li><b style="color:#222;">Wo:</b> <span style="color:#222;">Rote Schule (VHS-Gebäude), Kirchplatz 2, 97199 Ochsenfurt, Raum 4</span></li>
                             <li><b style="color:#222;">Alter:</b> <span style="color:#222;">ab 5 Jahren</span></li>
                             <li><b style="color:#222;">Kosten:</b> <span style="color:#222;">keine</span></li>
                             <li><b style="color:#222;">Voraussetzung:</b> <span style="color:#222;">Instrument, Notenständer, Kenntnis von wenigstens zwei Tönen oder Freude am Singen</span></li>
                         </ul>
-                        <h3 style="margin-bottom:8px;color:#222;">Für fortgeschrittene Jugendliche und Erwachsene (auch Neu-Einsteiger):</h3>
-                        <ul>
+                        <ul style="margin-bottom:12px;display:none;" data-lang="en">
+                            <li><b style="color:#222;">When:</b> <span style="color:#222;">Saturdays from 10:00–11:00 am</span></li>
+                            <li><b style="color:#222;">Where:</b> <span style="color:#222;">Rote Schule (VHS building), Kirchplatz 2, 97199 Ochsenfurt, Room 4</span></li>
+                            <li><b style="color:#222;">Age:</b> <span style="color:#222;">from 5 years</span></li>
+                            <li><b style="color:#222;">Cost:</b> <span style="color:#222;">none</span></li>
+                            <li><b style="color:#222;">Requirement:</b> <span style="color:#222;">Instrument, music stand, knowledge of at least two notes or joy in singing</span></li>
+                        </ul>
+                        <h3 style="margin-bottom:8px;color:#222;" data-lang="de">Für fortgeschrittene Jugendliche und Erwachsene (auch Neu-Einsteiger):</h3>
+                        <h3 style="margin-bottom:8px;color:#222;display:none;" data-lang="en">For advanced youth and adults (also newcomers):</h3>
+                        <ul data-lang="de">
                             <li><b style="color:#222;">Wann:</b> <span style="color:#222;">samstags von 11.00–12.30 Uhr</span></li>
                             <li><b style="color:#222;">Wo:</b> <span style="color:#222;">Rote Schule (VHS-Gebäude), Kirchplatz 2, 97199 Ochsenfurt, Raum 4</span></li>
                             <li><b style="color:#222;">Alter:</b> <span style="color:#222;">ab 12 - 101 Jahren</span></li>
                             <li><b style="color:#222;">Kosten:</b> <span style="color:#222;">keine</span></li>
                             <li><b style="color:#222;">Voraussetzung:</b> <span style="color:#222;">Instrument, Notenständer, ca. drei Jahre Erfahrung</span></li>
                         </ul>
-                        <div style="margin-top:10px;">
+                        <ul style="display:none;" data-lang="en">
+                            <li><b style="color:#222;">When:</b> <span style="color:#222;">Saturdays from 11:00–12:30 am</span></li>
+                            <li><b style="color:#222;">Where:</b> <span style="color:#222;">Rote Schule (VHS building), Kirchplatz 2, 97199 Ochsenfurt, Room 4</span></li>
+                            <li><b style="color:#222;">Age:</b> <span style="color:#222;">from 12 - 101 years</span></li>
+                            <li><b style="color:#222;">Cost:</b> <span style="color:#222;">none</span></li>
+                            <li><b style="color:#222;">Requirement:</b> <span style="color:#222;">Instrument, music stand, about three years of experience</span></li>
+                        </ul>
+                        <div style="margin-top:10px;" data-lang="de">
                             <b>Info & Anmeldung:</b><br>
+                            Dr. Astrid Eitschberger<br>
+                            Mail: <a href="mailto:astrid.eitschberger@cmi-ochsenfurt.de">astrid.eitschberger@cmi-ochsenfurt.de</a>
+                        </div>
+                        <div style="margin-top:10px;display:none;" data-lang="en">
+                            <b>Info & Registration:</b><br>
                             Dr. Astrid Eitschberger<br>
                             Mail: <a href="mailto:astrid.eitschberger@cmi-ochsenfurt.de">astrid.eitschberger@cmi-ochsenfurt.de</a>
                         </div>
@@ -250,18 +382,24 @@
     <section id="causes" class="causes">
         <div class="container">
             <div class="section-header" style="margin-bottom:18px;">
-                <h2 class="section-title" style="font-size:2em;">Benefizprojekte</h2>
-                <p class="section-description">
+                <h2 class="section-title" style="font-size:2em;" data-lang="de">Benefizprojekte</h2>
+                <h2 class="section-title" style="font-size:2em;display:none;" data-lang="en">Charity Projects</h2>
+                <p class="section-description" data-lang="de">
                     Unsere Benefizkonzerte unterstützen wichtige Organisationen und Projekte. 
                     Gemeinsam können wir durch Musik positive Veränderungen bewirken.
+                </p>
+                <p class="section-description" data-lang="en" style="display:none;">
+                    Our charity concerts support important organizations and projects. Together, we can create positive change through music.
                 </p>
             </div>
             <div class="causes-grid">
                   <div class="cause-card">
                         <div class="cause-stripe gradient-1"></div>
                         <div class="cause-content">
-                            <h3 class="cause-title">ConCello Musikwoche 2025 – Abschlusskonzert in Ochsenfurt</h3>
-                            <p class="cause-description">Das Collegium Musicum Iuvenale Ochsenfurt veranstaltete eine Musikwoche für Cellisten und Streicher unter dem Titel „ConCello“. Unter Leitung von Maestro Andrea Marcolini und Maestro Riccardo Paltanin wurde ein vielfältiges Programm von Romantik bis Filmmusik erarbeitet. Das Abschlusskonzert mit der französischen Sängerin Marika Marcuzzi fand am 10. August 2025 in der Klosterkirche in Ochsenfurt statt. Der Eintritt war frei, Spenden gingen an die Renovierung der Kirche.</p>
+                            <h3 class="cause-title" data-lang="de">ConCello Musikwoche 2025 – Abschlusskonzert in Ochsenfurt</h3>
+                            <h3 class="cause-title" data-lang="en" style="display:none;">ConCello Music Week 2025 – Final Concert in Ochsenfurt</h3>
+                            <p class="cause-description" data-lang="de">Das Collegium Musicum Iuvenale Ochsenfurt veranstaltete eine Musikwoche für Cellisten und Streicher unter dem Titel „ConCello“. Unter Leitung von Maestro Andrea Marcolini und Maestro Riccardo Paltanin wurde ein vielfältiges Programm von Romantik bis Filmmusik erarbeitet. Das Abschlusskonzert mit der französischen Sängerin Marika Marcuzzi fand am 10. August 2025 in der Klosterkirche in Ochsenfurt statt. Der Eintritt war frei, Spenden gingen an die Renovierung der Kirche.</p>
+                            <p class="cause-description" data-lang="en" style="display:none;">Collegium Musicum Iuvenale Ochsenfurt organized a music week for cellists and string players under the title "ConCello." Under the direction of Maestro Andrea Marcolini and Maestro Riccardo Paltanin, a diverse program from Romanticism to film music was developed. The final concert with French singer Marika Marcuzzi took place on August 10, 2025, in the monastery church in Ochsenfurt. Admission was free, and donations went to the renovation of the church.</p>
                             <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;">#internationaleraustausch</div>
                             <img src="bilder/concello.jfif" alt="Concello" class="cause-image"></img>
                         </div>
@@ -269,9 +407,11 @@
                 <div class="cause-card">
                     <div class="cause-stripe gradient-2"></div>
                     <div class="cause-content">
-                        <h3 class="cause-title">Symphonic Mob Orchester</h3>
-                        <p class="cause-description">Das CMI hat am »Symphonic Mob« in Bad Kissingen teilgenommen und gemeinsam mit Profimusikerinnen und -musikern des Deutschen Symphonie-Orchesters Berlin unter der Leitung von Aurélien Bello ein beeindruckendes Programm dargeboten. Mit unserem Engagement und unserer Begeisterung haben wir zur Gemeinschaftsstärkung beigetragen und viele Menschen im Kissinger Kurpark begeistert. Ein herzlicher Dank an alle Teilnehmenden für dieses großartige Erlebnis!</p>
-                        <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;">#teambuilding</div>
+                        <h3 class="cause-title" data-lang="de">Symphonic Mob Orchester</h3>
+                        <h3 class="cause-title" data-lang="en" style="display:none;">Symphonic Mob Orchestra</h3>
+                        <p class="cause-description" data-lang="de">Das CMI hat am »Symphonic Mob« in Bad Kissingen teilgenommen und gemeinsam mit Profimusikerinnen und -musikern des Deutschen Symphonie-Orchesters Berlin unter der Leitung von Aurélien Bello ein beeindruckendes Programm dargeboten. Mit unserem Engagement und unserer Begeisterung haben wir zur Gemeinschaftsstärkung beigetragen und viele Menschen im Kissinger Kurpark begeistert. Ein herzlicher Dank an alle Teilnehmenden für dieses großartige Erlebnis!</p>
+                        <p class="cause-description" data-lang="en" style="display:none;">CMI participated in the "Symphonic Mob" in Bad Kissingen and, together with professional musicians from the Deutsches Symphonie-Orchester Berlin under the direction of Aurélien Bello, presented an impressive program. With our commitment and enthusiasm, we contributed to strengthening the community and inspired many people in the Kissingen Kurpark. A heartfelt thank you to all participants for this wonderful experience!</p>
+                        <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;">#gemeinschaftserlebnis</div>
                                                   <img src="bilder/symphonic_mob.jpg" alt="Spendenurkunde" class="cause-image"></img>
                     </div>
                 </div>
@@ -279,8 +419,10 @@
                 <div class="cause-card">
                     <div class="cause-stripe gradient-3"></div>
                     <div class="cause-content">
-                        <h3 class="cause-title">Benefizkonzert in der Neuen Festhalle Maintz – 11. Mai 2025 - Ärzte ohne Grenzen</h3>
-                        <p class="cause-description"><br>Am 10. Mai 2025 fand in der Neuen Festhalle Maintz ein Benefizkonzert mit den Gruppen Filarmonica Bibbienese, Veeh-Harfen-Gruppe Querbeet, Vokalensemble FAINO und dem Collegium Musicum Iuvenale (CMI) statt. Die gesammelten Spenden kamen der Organisation Ärzte ohne Grenzen zugute. Ein musikalischer Abend für den guten Zweck.</p>
+                        <h3 class="cause-title" data-lang="de">Benefizkonzert in der Neuen Festhalle Meintz – 11. Mai 2025 - Ärzte ohne Grenzen</h3>
+                        <h3 class="cause-title" data-lang="en" style="display:none;">Charity Concert at the New Festhalle Maintz – May 11, 2025 – Doctors Without Borders</h3>
+                        <p class="cause-description" data-lang="de"><br>Am 10. Mai 2025 fand in der Neuen Festhalle Maintz ein Benefizkonzert mit den Gruppen Filarmonica Bibbienese, Veeh-Harfen-Gruppe Querbeet, Vokalensemble FAINO und dem Collegium Musicum Iuvenale (CMI) statt. Die gesammelten Spenden kamen der Organisation Ärzte ohne Grenzen zugute. Ein musikalischer Abend für den guten Zweck.</p>
+                        <p class="cause-description" data-lang="en" style="display:none;"><br>On May 10, 2025, a charity concert took place at the New Festhalle Maintz with the groups Filarmonica Bibbienese, Veeh-Harfen-Gruppe Querbeet, Vokalensemble FAINO, and Collegium Musicum Iuvenale (CMI). The collected donations benefited the organization Doctors Without Borders. A musical evening for a good cause.</p>
                         <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;">#spendenkonzert</div>
                         <img src="bilder/Gruppenbild2.jpg" alt="Gruppenbild2" class="cause-image"></img>
                     </div>
@@ -293,8 +435,10 @@
                     <div class="cause-card">
                     <div class="cause-stripe gradient-2"></div>
                     <div class="cause-content">
-                        <h3 class="cause-title">80 Jahre Frieden – Gedenkfeier am 09. Mai 2025 in Ochsenfurt</h3>
-                        <p class="cause-description">Am 10. Mai 2025 fand in Ochsenfurt das Benefizkonzert „80 Jahre Kriegsende – 80 Jahre Frieden“ statt. Das Collegium Musicum Iuvenale Ochsenfurt unter Leitung von Dr. Astrid Eitschberger musizierte gemeinsam mit Gästen aus der italienischen Partnerstadt Bibbiena (Filarmonica Bibbienese „Sereni“) und dem ukrainischen Vokalensemble FAINO. Ein bewegender Abend für Frieden und Völkerverständigung.</p>
+                        <h3 class="cause-title" data-lang="de">80 Jahre Frieden – Gedenkfeier am 09. Mai 2025 in Ochsenfurt</h3>
+                        <h3 class="cause-title" data-lang="en" style="display:none;">80 Years of Peace – Memorial Ceremony on May 9, 2025 in Ochsenfurt</h3>
+                        <p class="cause-description" data-lang="de">Am 10. Mai 2025 fand in Ochsenfurt das Benefizkonzert „80 Jahre Kriegsende – 80 Jahre Frieden“ statt. Das Collegium Musicum Iuvenale Ochsenfurt unter Leitung von Dr. Astrid Eitschberger musizierte gemeinsam mit Gästen aus der italienischen Partnerstadt Bibbiena (Filarmonica Bibbienese „Sereni“) und dem ukrainischen Vokalensemble FAINO. Ein bewegender Abend für Frieden und Völkerverständigung.</p>
+                        <p class="cause-description" data-lang="en" style="display:none;">On May 10, 2025, the charity concert "80 Years Since the End of the War – 80 Years of Peace" took place in Ochsenfurt. Collegium Musicum Iuvenale Ochsenfurt, under the direction of Dr. Astrid Eitschberger, performed together with guests from the Italian partner city Bibbiena (Filarmonica Bibbienese "Sereni") and the Ukrainian vocal ensemble FAINO. It was a moving evening for peace and international understanding.</p>
                         <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;">#gedenkveranstaltung</div>
                         <img src="bilder/peterbild.jpg" alt="Gedenkfeier" class="cause-image"></img>
 
@@ -303,8 +447,10 @@
                     <div class="cause-card">
                         <div class="cause-stripe gradient-1"></div>
                         <div class="cause-content">
-                            <h3 class="cause-title">Neujahrskonzert 2025 - Vom Barock bis Harry Potter</h3>
-                            <p class="cause-description">Am 15. Februar 2025 fand in St. Thekla das Neujahrskonzert „Vom Barock bis Harry Potter“ statt. Das Collegium Musicum Iuvenale Ochsenfurt (Leitung: Dr. Astrid Eitschberger), das ukrainische Vokalensemble Faino (Leitung: Viktoria Hromova) sowie Vorschulkinder des Kindergartens St. Thekla (Leitung: Petra Striffler) sorgten für ein abwechslungsreiches Programm. Die gesammelten Spenden kamen dem Kindergarten St. Thekla zugute.</p>
+                            <h3 class="cause-title" data-lang="de">Neujahrskonzert 2025 - Vom Barock bis Harry Potter</h3>
+                            <h3 class="cause-title" data-lang="en" style="display:none;">New Year's Concert 2025 – From Baroque to Harry Potter</h3>
+                            <p class="cause-description" data-lang="de">Am 15. Februar 2025 fand in St. Thekla das Neujahrskonzert „Vom Barock bis Harry Potter“ statt. Das Collegium Musicum Iuvenale Ochsenfurt (Leitung: Dr. Astrid Eitschberger), das ukrainische Vokalensemble Faino (Leitung: Viktoria Hromova) sowie Vorschulkinder des Kindergartens St. Thekla (Leitung: Petra Striffler) sorgten für ein abwechslungsreiches Programm. Die gesammelten Spenden kamen dem Kindergarten St. Thekla zugute.</p>
+                            <p class="cause-description" data-lang="en" style="display:none;">On February 15, 2025, the New Year's Concert "From Baroque to Harry Potter" took place in St. Thekla. Collegium Musicum Iuvenale Ochsenfurt (conducted by Dr. Astrid Eitschberger), the Ukrainian vocal ensemble Faino (conducted by Viktoria Hromova), and preschool children from the kindergarten St. Thekla (led by Petra Striffler) provided a varied program. The collected donations benefited the kindergarten St. Thekla.</p>
                             <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;">#spendenaktion</div>
                             <img src="bilder/kirche.jpg" alt="Concello" class="cause-image"></img>
                         
@@ -313,8 +459,10 @@
                     <div class="cause-card">
                         <div class="cause-stripe gradient-2"></div>
                         <div class="cause-content">
-                            <h3 class="cause-title">Konzertreihe Musik an der Furt</h3>
-                            <p class="cause-description">Die Konzertreihe „Musik an der Furt“ findet jedes Jahr von Ende April bis Anfang August in der idyllischen Altstadt von Ochsenfurt statt. Jeden Samstag von 14 bis 15 Uhr sorgen verschiedene Gruppen aus der Region für musikalische Unterhaltung – jung und alt, darunter auch das CMI, das am Samstag, den 7. Juni 2025, mitgewirkt hat. Die Reihe endete am 2. August 2025 unter dem Motto „Wir feiern Blasmusik!“ mit der Kapelle „Unsere kleine Besetzung“.</p>
+                            <h3 class="cause-title" data-lang="de">Konzertreihe Musik an der Furt</h3>
+                            <h3 class="cause-title" data-lang="en" style="display:none;">Concert Series "Musik an der Furt"</h3>
+                            <p class="cause-description" data-lang="de">Die Konzertreihe „Musik an der Furt“ findet jedes Jahr von Ende April bis Anfang August in der idyllischen Altstadt von Ochsenfurt statt. Jeden Samstag von 14 bis 15 Uhr sorgen verschiedene Gruppen aus der Region für musikalische Unterhaltung – jung und alt, darunter auch das CMI, das am Samstag, den 7. Juni 2025, mitgewirkt hat. Die Reihe endete am 2. August 2025 unter dem Motto „Wir feiern Blasmusik!“ mit der Kapelle „Unsere kleine Besetzung“.</p>
+                            <p class="cause-description" data-lang="en" style="display:none;">The concert series "Musik an der Furt" takes place every year from the end of April to the beginning of August in the picturesque old town of Ochsenfurt. Every Saturday from 2 to 3 pm, various groups from the region provide musical entertainment – young and old, including CMI, which performed on Saturday, June 7, 2025. The series ended on August 2, 2025, with the motto "We celebrate brass music!" featuring the band "Unsere kleine Besetzung".</p>
                             <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;">#musikinderstadt</div>
                               <a href="https://www.facebook.com/stadtochsenfurt/videos/3802468500074422/" target="_blank" style="display:block;width:100%;max-width:320px;margin:0 auto 16px auto;position:relative;">
                                                       <img src="bilder/facebook_preview.jpg" alt="Facebook Video Vorschau" style="width:100%;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.07);">
@@ -336,9 +484,13 @@
     <section id="events" class="events">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title" style="font-size:2em;">Kommende Veranstaltungen</h2>
-                <p class="section-description">
-                    Erleben Sie unvergessliche Konzerte und musikalische Momente mit dem Collegium Musicum Iuvenale.
+                <h2 class="section-title" style="font-size:2em;" data-lang="de">Kommende Veranstaltungen</h2>
+                <h2 class="section-title" style="font-size:2em;display:none;" data-lang="en">Upcoming Events</h2>
+                <p class="section-description" data-lang="de">
+                    Erlebe unvergessliche Konzerte und musikalische Momente mit dem Collegium Musicum Iuvenale.
+                </p>
+                <p class="section-description" data-lang="en" style="display:none;">
+                    Experience unforgettable concerts and musical moments with Collegium Musicum Iuvenale.
                 </p>
             </div>
 
@@ -364,19 +516,23 @@
 
                 <div class="event-card">
                     <div class="event-date">20. Dezember 2025</div>
-                        <h3 class="event-title">Großes Weihnachtskonzert <br> SING MIT!</h3>
+                        <h3 class="event-title" data-lang="de">Großes Weihnachtskonzert <br> SING MIT!</h3>
+                        <h3 class="event-title" data-lang="en" style="display:none;">Grand Christmas Concert <br> SING WITH US!</h3>
                     <div class="event-details">
                         <div class="event-detail">
                             <img src="files/icon.position.svg" alt="Map Icon" style="width: 16px; height: 16px;">
-                            <span>Planet Erde</span>
+                            <span data-lang="de">Planet Erde</span>
+                            <span data-lang="en" style="display:none;">Planet Earth</span>
                         </div>
                         <div class="event-detail">
-                            <img src="files/icon.time.svg" alt="Zeit Icon" style="width: 16px; height: 16px;">
-                            <span>18:00 Uhr</span>
+                            <img src="files/icon.time.svg" alt="Time Icon" style="width: 16px; height: 16px;">
+                            <span data-lang="de">18:00 Uhr</span>
+                            <span data-lang="en" style="display:none;">6:00 pm</span>
                         </div>
                     </div>
                     <div class="event-footer">
-                        <button class="event-link">Mehr erfahren →</button>
+                        <button class="event-link" data-lang="de">Mehr erfahren →</button>
+                        <button class="event-link" data-lang="en" style="display:none;">Learn more →</button>
                     </div>
                 </div>
                 
@@ -387,22 +543,29 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title white" style="font-size:2em;">Kontakt</h2>
-                <p class="section-description light">
-                    Haben Sie Fragen oder möchten Sie uns besuchen? Wir freuen uns auf Ihre Nachricht!
+                <h2 class="section-title white" style="font-size:2em;" data-lang="de">Kontakt</h2>
+                <h2 class="section-title white" style="font-size:2em;display:none;" data-lang="en">Contact</h2>
+                <p class="section-description light" data-lang="de">
+                    Hast du Fragen oder möchtest du uns besuchen? Wir freuen uns auf deine Nachricht!
+                </p>
+                <p class="section-description light" data-lang="en" style="display:none;">
+                    Do you have questions or would you like to visit us? We look forward to your message!
                 </p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3 class="contact-subtitle" style="font-size:2em;">Probenzeiten & Ort & E-Mail</h3>
+                    <h3 class="contact-subtitle" style="font-size:2em;" data-lang="de">Probenzeiten & Ort & E-Mail</h3>
+                    <h3 class="contact-subtitle" style="font-size:2em;display:none;" data-lang="en">Rehearsal Times & Location & Email</h3>
                     <div class="contact-items">
                         <div class="contact-item">
                             <div class="contact-icon gradient-1">
-                                <img src="files/icon.calendar.svg" alt="Kalender Icon" style="width: 32px; height: 32px;">
+                                <img src="files/icon.calendar.svg" alt="Calendar Icon" style="width: 32px; height: 32px;">
                             </div>
                             <div class="contact-text">
-                                <h4>Probe</h4>
-                                <p>Jeden Samstag <br> Anfänger: 10:00 - 11:00 Uhr <br> Fortgeschrittene: 11:00 - 12:30 Uhr</p>
+                                <h4 data-lang="de">Probe</h4>
+                                <h4 data-lang="en" style="display:none;">Rehearsal</h4>
+                                <p data-lang="de">Jeden Samstag <br> Anfänger: 10:00 - 11:00 Uhr <br> Fortgeschrittene: 11:00 - 12:30 Uhr</p>
+                                <p data-lang="en" style="display:none;">Every Saturday <br> Beginners: 10:00 - 11:00 am <br> Advanced: 11:00 - 12:30 pm</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -410,10 +573,16 @@
                                 <img src="files/icon.position.svg" alt="Map Icon" style="width: 32px; height: 32px;">
                             </div>
                             <div class="contact-text">
-                                <h4>Probenraum</h4>
-                                <p>
+                                <h4 data-lang="de">Probenraum</h4>
+                                <h4 data-lang="en" style="display:none;">Rehearsal Room</h4>
+                                <p data-lang="de">
                                     Kirchplatz 2<br>
                                     Rote Schule (VHS-Gebäude) - Raum 4<br>
+                                    97199 Ochsenfurt
+                                </p>
+                                <p data-lang="en" style="display:none;">
+                                    Kirchplatz 2<br>
+                                    Rote Schule (VHS building) - Room 4<br>
                                     97199 Ochsenfurt
                                 </p>
                             </div>
@@ -423,11 +592,11 @@
                                 <img src="files/icon.mail.svg" alt="Mail Icon" style="width: 32px; height: 32px;">
                             </div>
                             <div class="contact-text">
-                                <h4>E-Mail</h4>
+                                <h4 data-lang="de">E-Mail</h4>
+                                <h4 data-lang="en" style="display:none;">Email</h4>
                                 <p>astrid.eitschberger@cmi-ochsenfurt.de</p>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -440,24 +609,67 @@
             <div class="footer-content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:80px;">
                 <div class="footer-logo" style="display:flex;align-items:center;gap:12px;">
                     <img id="footerLogo" src="files/logo_cmi1 - weiß.svg" alt="CMI Logo" style="width:48px;height:48px;">
-                    <span class="brand-text" style="font-size:1.15em;font-weight:600;color:#bfc8d6;">CMI Ochsenfurt</span>
+                    <span class="brand-text" style="font-size:1.15em;font-weight:600;color:#bfc8d6;" data-lang="de">CMI Ochsenfurt</span>
+                    <span class="brand-text" style="font-size:1.15em;font-weight:600;color:#bfc8d6;display:none;" data-lang="en">CMI Ochsenfurt</span>
                 </div>
-                <p class="footer-description" style="margin:8px 0 0 0;font-size:1em;color:#bfc8d6;max-width:340px;line-height:1.5;text-align:center;">
+                <p class="footer-description" style="margin:8px 0 0 0;font-size:1em;color:#bfc8d6;max-width:340px;line-height:1.5;text-align:center;" data-lang="de">
                     Das Collegium Musicum Iuvenale – Musik baut Brücken und schafft positive Veränderungen in unserer Gemeinschaft.
                 </p>
-                <div class="footer-contributors" style="margin:8px 0 0 0;text-align:center;color:#bfc8d6;font-size:0.97em;">
-                        <span>Design & Umsetzung: <b>Richard Ullmann</b></span><br>
-                        <span>Programmierung: <b>Ilhan Diler</b></span><br>
-                </div>
-                <div class="footer-links" style="display:flex;flex-direction:column;align-items:center;gap:4px;min-width:120px;">
+                <p class="footer-description" style="margin:8px 0 0 0;font-size:1em;color:#bfc8d6;max-width:340px;line-height:1.5;text-align:center;display:none;" data-lang="en">
+                    Collegium Musicum Iuvenale – Music builds bridges and creates positive change in our community.
+                </p>
+        <div class="footer-contributors" style="margin:8px 0 0 0;text-align:center;color:#bfc8d6;font-size:0.97em;" data-lang="de">
+            <span>Design & Umsetzung: <b>Richard Ullmann</b></span><br>
+            <span>Programmierung: <b>Ilhan Diler</b></span><br>
+        </div>
+        <div class="footer-contributors" style="margin:8px 0 0 0;text-align:center;color:#bfc8d6;font-size:0.97em;display:none;" data-lang="en">
+            <span>Design & Implementation: <b>Richard Ullmann</b></span><br>
+            <span>Programming: <b>Ilhan Diler</b></span><br>
+        </div>
+                <div class="footer-links" style="display:flex;flex-direction:column;align-items:center;gap:4px;min-width:120px;" data-lang="de">
                     <a href="impressum.html" class="footer-link" style="color:#bfc8d6;font-size:1em;text-decoration:none;text-align:center;">Impressum</a>
                     <a href="datenschutz.html" class="footer-link" style="color:#bfc8d6;font-size:1em;text-decoration:none;text-align:center;">Datenschutz</a>
                 </div>
+                <div class="footer-links" style="display:flex;flex-direction:column;align-items:center;gap:4px;min-width:120px;display:none;" data-lang="en">
+                    <a href="impressum.html" class="footer-link" style="color:#bfc8d6;font-size:1em;text-decoration:none;text-align:center;">Legal Notice</a>
+                    <a href="datenschutz.html" class="footer-link" style="color:#bfc8d6;font-size:1em;text-decoration:none;text-align:center;">Privacy Policy</a>
+                </div>
             </div>
-            <p style="text-align:center;width:100%;margin-top:12px;color:#bfc8d6;font-size:0.97em;">© 2025 Collegium Musicum Iuvenale. Alle Rechte vorbehalten.</p>
+            <p style="text-align:center;width:100%;margin-top:12px;color:#bfc8d6;font-size:0.97em;" data-lang="de">© 2025 Collegium Musicum Iuvenale. Alle Rechte vorbehalten.</p>
+            <p style="text-align:center;width:100%;margin-top:12px;color:#bfc8d6;font-size:0.97em;display:none;" data-lang="en">© 2025 Collegium Musicum Iuvenale. All rights reserved.</p>
         </div>
     </footer>
     <script src="script.js"></script>
+<script>
+function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(function(el) {
+        if (el.getAttribute('data-lang') === lang) {
+            el.style.display = '';
+        } else {
+            el.style.display = 'none';
+        }
+    });
+    // Button backgrounds: active = accent, inactive = semi-transparent white
+    document.getElementById('langDe').style.background = lang === 'de' ? '#00b894' : 'rgba(255,255,255,0.85)';
+    document.getElementById('langDe').style.color = lang === 'de' ? '#fff' : '#222';
+    document.getElementById('langEn').style.background = lang === 'en' ? '#00b894' : 'rgba(255,255,255,0.85)';
+    document.getElementById('langEn').style.color = lang === 'en' ? '#fff' : '#222';
+}
+setLang('de');
+// Add hover effect for both buttons
+document.getElementById('langDe').onmouseover = function() {
+    if (this.style.background !== '#00b894') this.style.background = 'rgba(255,255,255,1)';
+};
+document.getElementById('langDe').onmouseout = function() {
+    if (this.style.background !== '#00b894') this.style.background = 'rgba(255,255,255,0.85)';
+};
+document.getElementById('langEn').onmouseover = function() {
+    if (this.style.background !== '#00b894') this.style.background = 'rgba(255,255,255,1)';
+};
+document.getElementById('langEn').onmouseout = function() {
+    if (this.style.background !== '#00b894') this.style.background = 'rgba(255,255,255,0.85)';
+};
+</script>
 </body>
 </html>
 
