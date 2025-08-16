@@ -390,6 +390,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cookie Banner Logic
     const cookieBanner = document.getElementById('cookieBanner');
     const cookieAcceptBtn = document.getElementById('cookieAcceptBtn');
+    const cookieDeclineBtn = document.getElementById('cookieDeclineBtn');
     function setCookie(name, value, days) {
         let expires = '';
         if (days) {
@@ -409,13 +410,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         return null;
     }
-    if (cookieBanner && cookieAcceptBtn) {
-        if (getCookie('cookieAccepted')) {
+    if (cookieBanner && cookieAcceptBtn && cookieDeclineBtn) {
+        if (getCookie('cookieAccepted') || getCookie('cookieDeclined')) {
             cookieBanner.style.display = 'none';
         } else {
             cookieBanner.style.display = 'flex';
             cookieAcceptBtn.addEventListener('click', function() {
                 setCookie('cookieAccepted', 'true', 365);
+                cookieBanner.style.display = 'none';
+            });
+            cookieDeclineBtn.addEventListener('click', function() {
+                setCookie('cookieDeclined', 'true', 365);
                 cookieBanner.style.display = 'none';
             });
         }
