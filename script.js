@@ -27,6 +27,17 @@ document.addEventListener('DOMContentLoaded', function() {
             var menuBtn = document.querySelector('.mobile-menu-btn');
             if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
         }
+
+        // Extra: force only one title visible in mobile menu (fix for bug)
+        document.querySelectorAll('.section-title, .hero-title, .event-title').forEach(function(el) {
+            if (el.getAttribute('data-lang')) {
+                if (el.getAttribute('data-lang') === lang) {
+                    el.style.display = '';
+                } else {
+                    el.style.display = 'none';
+                }
+            }
+        });
     }
     // On page load, set language from localStorage or default to 'de'
     const savedLang = localStorage.getItem('selectedLang') || 'de';
