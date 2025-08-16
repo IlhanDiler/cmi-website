@@ -441,3 +441,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const yearsSince1981 = currentYear - 1981;
     document.getElementById("yearsPassed").textContent = yearsSince1981;
 });
+
+// Mobile menu animation logic
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const mobileMenu = document.querySelector('.mobile-menu');
+if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        mobileMenuBtn.classList.toggle('open');
+        // Optionally close menu when clicking outside
+        document.body.addEventListener('click', function(e) {
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.classList.remove('open');
+            }
+        }, { once: true });
+    });
+}
