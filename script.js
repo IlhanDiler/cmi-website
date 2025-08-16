@@ -1,20 +1,38 @@
-// Highlight active nav link on scroll
-// Cookie Banner: Only hide banner on OK/Decline, no language switch
-document.addEventListener('DOMContentLoaded', function() {
-    var cookieBanner = document.getElementById('cookieBanner');
-    var okBtns = document.querySelectorAll('#cookieAcceptBtn');
-    var declineBtns = document.querySelectorAll('#cookieDeclineBtn');
-    okBtns.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            if (cookieBanner) cookieBanner.style.display = 'none';
-        });
-    });
-    declineBtns.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            if (cookieBanner) cookieBanner.style.display = 'none';
-        });
-    });
+// Cookie Banner Logic
+document.addEventListener('DOMContentLoaded', function () {
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptBtns = document.querySelectorAll('.cookieAcceptBtn');
+    const declineBtns = document.querySelectorAll('.cookieDeclineBtn');
+
+    function setCookieConsent(value) {
+        localStorage.setItem('cookieConsent', value);
+    }
+
+    function getCookieConsent() {
+        return localStorage.getItem('cookieConsent');
+    }
+
+    if (cookieBanner && acceptBtns.length && declineBtns.length) {
+        if (getCookieConsent()) {
+            cookieBanner.style.display = 'none';
+        } else {
+            cookieBanner.style.display = 'block';
+            acceptBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    setCookieConsent('accepted');
+                    cookieBanner.style.display = 'none';
+                });
+            });
+            declineBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    setCookieConsent('declined');
+                    cookieBanner.style.display = 'none';
+                });
+            });
+        }
+    }
 });
+// Highlight active nav link on scroll
 document.addEventListener('DOMContentLoaded', function() {
     // Language switcher logic
     function setLang(lang) {
@@ -427,53 +445,6 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('CMI Orchester Website loaded successfully!');
 
     // Cookie Banner Logic
-    const cookieBanner = document.getElementById('cookieBanner');
-    const cookieAcceptBtn = document.getElementById('cookieAcceptBtn');
-    const cookieDeclineBtn = document.getElementById('cookieDeclineBtn');
-    function setCookie(name, value, days) {
-        let expires = '';
-        if (days) {
-            const date = new Date();
-            date.setTime(date.getTime() + (days*24*60*60*1000));
-            expires = '; expires=' + date.toUTCString();
-        }
-        document.cookie = name + '=' + (value || '')  + expires + '; path=/';
-    }
-    function getCookie(name) {
-        const nameEQ = name + '=';
-        const ca = document.cookie.split(';');
-        for(let i=0;i < ca.length;i++) {
-            let c = ca[i];
-            while (c.charAt(0)==' ') c = c.substring(1,c.length);
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-        }
-        return null;
-    }
-    function setCookieConsent(value) {
-        setCookie('cookieAccepted', value === 'accepted' ? 'true' : '', 365);
-        setCookie('cookieDeclined', value === 'declined' ? 'true' : '', 365);
-        localStorage.setItem('cookieConsent', value);
-    }
-    function getCookieConsent() {
-        if (getCookie('cookieAccepted')) return 'accepted';
-        if (getCookie('cookieDeclined')) return 'declined';
-        return localStorage.getItem('cookieConsent');
-    }
-    if (cookieBanner && cookieAcceptBtn && cookieDeclineBtn) {
-        if (getCookieConsent()) {
-            cookieBanner.style.display = 'none';
-        } else {
-            cookieBanner.style.display = 'flex';
-            cookieAcceptBtn.addEventListener('click', function() {
-                setCookieConsent('accepted');
-                cookieBanner.style.display = 'none';
-            });
-            cookieDeclineBtn.addEventListener('click', function() {
-                setCookieConsent('declined');
-                cookieBanner.style.display = 'none';
-            });
-        }
-    }
 
     // Zeitspanne seit gründung berechnen
     const currentYear = new Date().getFullYear();
