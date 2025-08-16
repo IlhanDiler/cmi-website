@@ -160,6 +160,25 @@ p {
     color: var(--gray-300) !important;
 }
 
+/* Anniversary info text responsive styling */
+.anniversary-info {
+    font-size: 1em;
+    font-weight: 500;
+    white-space: normal;
+    display: inline-block;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .anniversary-info {
+        font-size: 0.97em;
+        padding: 0 2px;
+        text-align: center;
+        line-height: 1.4;
+    }
+}
+
+
 /* Buttons */
 .btn {
     display: inline-flex;
