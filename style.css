@@ -1,3 +1,22 @@
+/* Unify and reduce font sizes for headings and descriptions on mobile devices */
+@media (max-width: 600px) {
+    h1, h2, h3, h4, h5, h6,
+    .section-title,
+    .event-title,
+    .cause-title,
+    .contact-subtitle,
+    .form-title {
+        font-size: 1.08em !important;
+        margin-top: 0 !important;
+    }
+    .section-description,
+    .event-description,
+    .cause-description,
+    .contact-description,
+    .footer-description {
+        font-size: 0.97em !important;
+    }
+}
 /* Mobile font size adjustments for headings and Kontakt section */
 @media (max-width: 600px) {
     .section-title {
