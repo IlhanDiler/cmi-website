@@ -2,9 +2,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Language switcher logic
     function setLang(lang) {
-        // Show/hide all elements with data-lang (including headings, titles, etc.)
+        // Strictly hide all elements with data-lang except selected
         document.querySelectorAll('[data-lang]').forEach(function(el) {
-            // Always hide all except selected language
             if (el.getAttribute('data-lang') === lang) {
                 el.style.setProperty('display', '', 'important');
             } else {
@@ -12,8 +11,33 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Optionally, close mobile menu after language switch (optional UX improvement)
+        // Also update all mobile nav links
         var mobileMenu = document.querySelector('.mobile-menu');
+        if (mobileMenu) {
+            mobileMenu.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+                if (link.getAttribute('data-lang') === lang) {
+                    link.style.setProperty('display', '', 'important');
+                } else {
+                    link.style.setProperty('display', 'none', 'important');
+                }
+            });
+        }
+
+        // Update all section headers, event titles, links, contact subtitles, footer descriptions, contributors, links, and brand text
+        document.querySelectorAll('.section-title, .section-description, .event-title, .event-link, .contact-subtitle, .footer-description, .footer-contributors, .footer-links, .brand-text').forEach(function(el) {
+            if (el.getAttribute('data-lang') === lang) {
+                el.style.setProperty('display', '', 'important');
+            } else {
+                el.style.setProperty('display', 'none', 'important');
+            }
+        });
+
+        // Update language switcher button styles
+        document.getElementById('langDe').style.background = lang === 'de' ? '#00b894' : 'rgba(255,255,255,0.85)';
+        document.getElementById('langDe').style.color = lang === 'de' ? '#fff' : '#222';
+        document.getElementById('langEn').style.background = lang === 'en' ? '#00b894' : 'rgba(255,255,255,0.85)';
+        document.getElementById('langEn').style.color = lang === 'en' ? '#fff' : '#222';
+        // Optionally, close mobile menu after language switch (optional UX improvement)
         if (mobileMenu && mobileMenu.style.display !== 'none') {
             mobileMenu.style.display = 'none';
             var menuBtn = document.querySelector('.mobile-menu-btn');
