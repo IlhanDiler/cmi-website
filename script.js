@@ -36,28 +36,12 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function() {
     // Language switcher logic
     function setLang(lang) {
-        // Extra strict: Hide all headings, section titles, and cause titles except selected language
-        document.querySelectorAll('.hero-title, .hero-description, .section-title, .section-description, .cause-title, .cause-description, .event-title, .event-link, .contact-subtitle, .footer-description, .footer-contributors, .footer-links, .brand-text').forEach(function(el) {
+        // Hide all headings, section titles, cause titles, hero titles, descriptions, etc. except selected language
+        document.querySelectorAll('.hero-title, .hero-description, .section-title, .section-description, .cause-title, .cause-description, .event-title, .event-link, .contact-subtitle, .footer-description, .footer-contributors, .footer-links, .brand-text, [data-lang]').forEach(function(el) {
             if (el.getAttribute('data-lang') === lang) {
-                el.style.setProperty('display', '', 'important');
+                el.style.display = '';
             } else {
-                el.style.setProperty('display', 'none', 'important');
-            }
-        });
-        // Extra strict: Hide all hero titles and descriptions except selected language
-        document.querySelectorAll('.hero-title, .hero-description').forEach(function(el) {
-            if (el.getAttribute('data-lang') === lang) {
-                el.style.setProperty('display', '', 'important');
-            } else {
-                el.style.setProperty('display', 'none', 'important');
-            }
-        });
-        // Strictly hide all elements with data-lang except selected
-        document.querySelectorAll('[data-lang]').forEach(function(el) {
-            if (el.getAttribute('data-lang') === lang) {
-                el.style.setProperty('display', '', 'important');
-            } else {
-                el.style.setProperty('display', 'none', 'important');
+                el.style.display = 'none';
             }
         });
 
