@@ -1060,6 +1060,26 @@ section {
     padding: var(--spacing-4xl) 0;
 }
 
+    /* Set all text to justified alignment (Blocksatz) */
+    /* Headings and section titles centered for modern look */
+    h1, h2, h3, h4, h5, h6, .section-title {
+        text-align: center;
+    }
+
+    /* Paragraphs, section descriptions, stat descriptions, contact subtitles, footer descriptions, contributors, links, spans, and list items left-aligned for readability */
+    p, .section-description, .stat-description, .contact-subtitle, .footer-description, .footer-contributors, .footer-link, span, li {
+        text-align: left;
+    }
+
+    /* Event and cause card descriptions justified for elegance */
+    .event-card .event-details,
+    .event-card .event-title,
+    .event-card .event-footer,
+    .event-card p,
+    .cause-card .cause-description {
+        text-align: justify;
+        text-justify: inter-word;
+    }
 .section-header {
     text-align: center;
     margin-bottom: var(--spacing-4xl);
@@ -1456,6 +1476,18 @@ section {
 }
 
 .event-link {
+    /* Event card text as justified (Blocksatz) */
+    .event-card .event-details,
+    .event-card .event-title,
+    .event-card .event-footer {
+        text-align: justify;
+        text-justify: inter-word;
+    }
+    /* For paragraphs inside event-card */
+    .event-card p {
+        text-align: justify;
+        text-justify: inter-word;
+    }
     background: none;
     border: none;
     color: var(--dark-primary);
