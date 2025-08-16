@@ -35,6 +35,16 @@
     .contact .section-description {
         font-size: 0.97em !important;
     }
+    /* Hide duplicate section headings on mobile devices */
+    @media (max-width: 600px) {
+        [data-lang][style*="display:none"] {
+            display: none !important;
+        }
+        /* Ensure only one heading per section is visible */
+        .section-title[data-lang] {
+            display: block;
+        }
+    }
 }
 .nav-link.active {
     color: var(--primary);
