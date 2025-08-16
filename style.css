@@ -501,6 +501,23 @@ p {
 
     @media (max-width: 900px) {
         .footer-content {
+        .mobile-menu-btn {
+            min-width: 36px !important;
+            min-height: 36px !important;
+            padding: 0 !important;
+        }
+        .menu-icon {
+            width: 28px !important;
+            height: 28px !important;
+        }
+        .mobile-menu {
+            padding: 16px 0 8px 0 !important;
+            gap: 4px !important;
+        }
+        .mobile-nav-link {
+            padding: 10px 18px !important;
+            font-size: 1em !important;
+        }
             flex-direction: column;
             gap: 18px;
         }
@@ -1041,6 +1058,51 @@ section {
 .section-title {
     font-size: var(--font-size-4xl);
     margin-bottom: var(--spacing-lg);
+}
+/* Kontakt Section adjustments for mobile */
+@media (max-width: 600px) {
+    .section-title,
+    .section-title.white,
+    .hero-title,
+    .cause-title,
+    .event-title,
+    .contact-subtitle,
+    .form-title {
+        font-size: 1.55em !important;
+        line-height: 1.22 !important;
+        padding: 0 12px !important;
+        text-align: center !important;
+        width: 100% !important;
+        margin: 0 !important;
+        display: block !important;
+    }
+    .hero-description {
+        font-size: 0.97em !important;
+        line-height: 1.6 !important;
+        padding: 0 8px !important;
+        margin-bottom: 18px !important;
+    }
+    .hero-buttons .btn {
+        font-size: 0.97em !important;
+        padding: 10px 18px !important;
+        min-width: 0 !important;
+        margin-bottom: 8px !important;
+        border-radius: 8px !important;
+    }
+    .hero-buttons img {
+        width: 24px !important;
+        height: 24px !important;
+        margin-left: 6px !important;
+    }
+    .contact .section-header {
+        padding-top: 32px !important;
+        padding-bottom: 18px !important;
+        background: #222 !important;
+        border-radius: 0 0 24px 24px !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    }
 }
 
 @media (min-width: 1024px) {
