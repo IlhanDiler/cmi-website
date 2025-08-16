@@ -1,99 +1,58 @@
-// Cookie Banner Logic
-document.addEventListener('DOMContentLoaded', function () {
-    const cookieBanner = document.getElementById('cookieBanner');
-    const acceptBtns = document.querySelectorAll('.cookieAcceptBtn');
-    const declineBtns = document.querySelectorAll('.cookieDeclineBtn');
-
-    function setCookieConsent(value) {
-        localStorage.setItem('cookieConsent', value);
-    }
-
-    function getCookieConsent() {
-        return localStorage.getItem('cookieConsent');
-    }
-
-    if (cookieBanner && acceptBtns.length && declineBtns.length) {
-        if (getCookieConsent()) {
-            cookieBanner.style.display = 'none';
-        } else {
-            cookieBanner.style.display = 'block';
-            acceptBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    setCookieConsent('accepted');
-                    cookieBanner.style.display = 'none';
-                });
-            });
-            declineBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    setCookieConsent('declined');
-                    cookieBanner.style.display = 'none';
-                });
-            });
-        }
-    }
-});
 // Highlight active nav link on scroll
 document.addEventListener('DOMContentLoaded', function() {
-    // Language switcher logic
-    function setLang(lang) {
-        // Hide all headings, section titles, cause titles, hero titles, descriptions, etc. except selected language
-        document.querySelectorAll('.hero-title, .hero-description, .section-title, .section-description, .cause-title, .cause-description, .event-title, .event-link, .contact-subtitle, .footer-description, .footer-contributors, .footer-links, .brand-text, [data-lang]').forEach(function(el) {
-            if (el.getAttribute('data-lang') === lang) {
-                el.style.display = '';
-            } else {
-                el.style.display = 'none';
-            }
-        });
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = Array.from(navLinks).map(link => {
+        const id = link.getAttribute('href').replace('#','');
+        return document.getElementById(id);
+    });
 
-        // Also update all mobile nav links
-        var mobileMenu = document.querySelector('.mobile-menu');
-        if (mobileMenu) {
-            mobileMenu.querySelectorAll('.mobile-nav-link').forEach(function(link) {
-                if (link.getAttribute('data-lang') === lang) {
-                    link.style.setProperty('display', '', 'important');
-                } else {
-                    link.style.setProperty('display', 'none', 'important');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                const id = this.getAttribute('href').replace('#','');
+                const section = document.getElementById(id);
+                if (section) {
+                    section.scrollIntoView({behavior:'smooth'});
                 }
             });
-        }
-
-        // Update all section headers, event titles, links, contact subtitles, footer descriptions, contributors, links, and brand text
-        document.querySelectorAll('.section-title, .section-description, .event-title, .event-link, .contact-subtitle, .footer-description, .footer-contributors, .footer-links, .brand-text').forEach(function(el) {
-            if (el.getAttribute('data-lang') === lang) {
-                el.style.setProperty('display', '', 'important');
-            } else {
-                el.style.setProperty('display', 'none', 'important');
-            }
         });
+});
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-        // Update language switcher button styles
-        document.getElementById('langDe').style.background = lang === 'de' ? '#00b894' : 'rgba(255,255,255,0.85)';
-        document.getElementById('langDe').style.color = lang === 'de' ? '#fff' : '#222';
-        document.getElementById('langEn').style.background = lang === 'en' ? '#00b894' : 'rgba(255,255,255,0.85)';
-        document.getElementById('langEn').style.color = lang === 'en' ? '#fff' : '#222';
-        // Optionally, close mobile menu after language switch (optional UX improvement)
-        if (mobileMenu && mobileMenu.style.display !== 'none') {
-            mobileMenu.style.display = 'none';
-            var menuBtn = document.querySelector('.mobile-menu-btn');
-            if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+    // Toggle mobile menu
+    mobileMenuBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        mobileMenu.classList.toggle('active');
+        mobileMenuBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (mobileMenu.classList.contains('active')) {
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            }
         }
-    }
-    // On page load, set language from localStorage or default to 'de'
-    const savedLang = localStorage.getItem('selectedLang') || 'de';
     });
 
     // Close mobile menu when clicking on a link
     mobileNavLinks.forEach(link => {
         link.addEventListener('click', function() {
-            mobileMenu.style.display = 'none';
+            mobileMenu.classList.remove('active');
             mobileMenuBtn.setAttribute('aria-expanded', 'false');
         });
     });
 
     // Keyboard accessibility: close menu with Escape
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenu.style.display === 'flex') {
-            mobileMenu.style.display = 'none';
+        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+            mobileMenu.classList.remove('active');
             mobileMenuBtn.setAttribute('aria-expanded', 'false');
         }
     });
@@ -429,53 +388,56 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('CMI Orchester Website loaded successfully!');
 
     // Cookie Banner Logic
+    const cookieBanner = document.getElementById('cookieBanner');
+    const cookieAcceptBtn = document.getElementById('cookieAcceptBtn');
+    const cookieDeclineBtn = document.getElementById('cookieDeclineBtn');
+    function setCookie(name, value, days) {
+        let expires = '';
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = '; expires=' + date.toUTCString();
+        }
+        document.cookie = name + '=' + (value || '')  + expires + '; path=/';
+    }
+    function getCookie(name) {
+        const nameEQ = name + '=';
+        const ca = document.cookie.split(';');
+        for(let i=0;i < ca.length;i++) {
+            let c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+    function setCookieConsent(value) {
+        setCookie('cookieAccepted', value === 'accepted' ? 'true' : '', 365);
+        setCookie('cookieDeclined', value === 'declined' ? 'true' : '', 365);
+        localStorage.setItem('cookieConsent', value);
+    }
+    function getCookieConsent() {
+        if (getCookie('cookieAccepted')) return 'accepted';
+        if (getCookie('cookieDeclined')) return 'declined';
+        return localStorage.getItem('cookieConsent');
+    }
+    if (cookieBanner && cookieAcceptBtn && cookieDeclineBtn) {
+        if (getCookieConsent()) {
+            cookieBanner.style.display = 'none';
+        } else {
+            cookieBanner.style.display = 'flex';
+            cookieAcceptBtn.addEventListener('click', function() {
+                setCookieConsent('accepted');
+                cookieBanner.style.display = 'none';
+            });
+            cookieDeclineBtn.addEventListener('click', function() {
+                setCookieConsent('declined');
+                cookieBanner.style.display = 'none';
+            });
+        }
+    }
 
     // Zeitspanne seit gründung berechnen
     const currentYear = new Date().getFullYear();
     const yearsSince1981 = currentYear - 1981;
     document.getElementById("yearsPassed").textContent = yearsSince1981;
-
-// Mobile menu animation logic
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const mobileMenu = document.querySelector('.mobile-menu');
-if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        mobileMenu.classList.toggle('active');
-        mobileMenuBtn.classList.toggle('open');
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (mobileMenu.classList.contains('active')) {
-            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-                mobileMenuBtn.classList.remove('open');
-            }
-        }
-    });
-
-    // Close menu when clicking a nav link
-    document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
-        link.addEventListener('click', function() {
-            mobileMenu.classList.remove('active');
-            mobileMenuBtn.classList.remove('open');
-        });
-    });
-
-    // Keyboard accessibility: close menu with Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-            mobileMenu.classList.remove('active');
-            mobileMenuBtn.classList.remove('open');
-        }
-    });
-
-    // Reset menu state on window resize (desktop <-> mobile)
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 900) {
-            mobileMenu.classList.remove('active');
-            mobileMenuBtn.classList.remove('open');
-        }
-    });
-}
+});
