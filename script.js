@@ -25,14 +25,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
     // Toggle mobile menu
-    mobileMenuBtn.addEventListener('click', function() {
+    mobileMenuBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
         mobileMenu.classList.toggle('active');
-        const icon = mobileMenuBtn.querySelector('i');
-        
+        mobileMenuBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
         if (mobileMenu.classList.contains('active')) {
-            icon.className = 'fas fa-times';
-        } else {
-            icon.className = 'fas fa-bars';
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            }
         }
     });
 
@@ -40,9 +45,16 @@ document.addEventListener('DOMContentLoaded', function() {
     mobileNavLinks.forEach(link => {
         link.addEventListener('click', function() {
             mobileMenu.classList.remove('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            icon.className = 'fas fa-bars';
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
         });
+    });
+
+    // Keyboard accessibility: close menu with Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
     });
 
     // Smooth scrolling for navigation links
