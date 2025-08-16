@@ -1,4 +1,20 @@
 // Highlight active nav link on scroll
+// Cookie Banner: Only hide banner on OK/Decline, no language switch
+document.addEventListener('DOMContentLoaded', function() {
+    var cookieBanner = document.getElementById('cookieBanner');
+    var okBtns = document.querySelectorAll('#cookieAcceptBtn');
+    var declineBtns = document.querySelectorAll('#cookieDeclineBtn');
+    okBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            if (cookieBanner) cookieBanner.style.display = 'none';
+        });
+    });
+    declineBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            if (cookieBanner) cookieBanner.style.display = 'none';
+        });
+    });
+});
 document.addEventListener('DOMContentLoaded', function() {
     // Language switcher logic
     function setLang(lang) {
@@ -62,51 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     // On page load, set language from localStorage or default to 'de'
     const savedLang = localStorage.getItem('selectedLang') || 'de';
-    setLanguage(savedLang);
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = Array.from(navLinks).map(link => {
-        const id = link.getAttribute('href').replace('#','');
-        return document.getElementById(id);
-    });
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                navLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                const id = this.getAttribute('href').replace('#','');
-                const section = document.getElementById(id);
-                if (section) {
-                    section.scrollIntoView({behavior:'smooth'});
-                }
-            });
-        });
-});
-// Mobile Menu Toggle
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-    // Toggle mobile menu (fix: use display style instead of class)
-    mobileMenuBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (mobileMenu.style.display === 'none' || mobileMenu.style.display === '') {
-            mobileMenu.style.display = 'flex';
-            mobileMenuBtn.setAttribute('aria-expanded', 'true');
-        } else {
-            mobileMenu.style.display = 'none';
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
-        }
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (mobileMenu.style.display === 'flex') {
-            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                mobileMenu.style.display = 'none';
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            }
-        }
     });
 
     // Close mobile menu when clicking on a link
@@ -508,7 +479,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentYear = new Date().getFullYear();
     const yearsSince1981 = currentYear - 1981;
     document.getElementById("yearsPassed").textContent = yearsSince1981;
-});
 
 // Mobile menu animation logic
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
