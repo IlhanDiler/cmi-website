@@ -1,4 +1,4 @@
-// Highlight active nav link on scroll and click
+// Highlight active nav link on scroll
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = Array.from(navLinks).map(link => {
@@ -386,11 +386,43 @@ document.addEventListener('DOMContentLoaded', function() {
     document.head.appendChild(mailPopupStyles);
 
     console.log('CMI Orchester Website loaded successfully!');
+
+    // Cookie Banner Logic
+    const cookieBanner = document.getElementById('cookieBanner');
+    const cookieAcceptBtn = document.getElementById('cookieAcceptBtn');
+    function setCookie(name, value, days) {
+        let expires = '';
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = '; expires=' + date.toUTCString();
+        }
+        document.cookie = name + '=' + (value || '')  + expires + '; path=/';
+    }
+    function getCookie(name) {
+        const nameEQ = name + '=';
+        const ca = document.cookie.split(';');
+        for(let i=0;i < ca.length;i++) {
+            let c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+    if (cookieBanner && cookieAcceptBtn) {
+        if (getCookie('cookieAccepted')) {
+            cookieBanner.style.display = 'none';
+        } else {
+            cookieBanner.style.display = 'flex';
+            cookieAcceptBtn.addEventListener('click', function() {
+                setCookie('cookieAccepted', 'true', 365);
+                cookieBanner.style.display = 'none';
+            });
+        }
+    }
+
+    // Zeitspanne seit gründung berechnen
+    const currentYear = new Date().getFullYear();
+    const yearsSince1981 = currentYear - 1981;
+    document.getElementById("yearsPassed").textContent = yearsSince1981;
 });
-
-
-
-// Zeitspanne seit gründung berechnen
-const currentYear = new Date().getFullYear();
-const yearsSince1981 = currentYear - 1981;
-document.getElementById("yearsPassed").textContent = yearsSince1981;
