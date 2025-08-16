@@ -1,3 +1,22 @@
+/* Mobile font size adjustments for headings and Kontakt section */
+@media (max-width: 600px) {
+    .section-title {
+        font-size: 1.25em !important;
+        margin-top: -32px !important;
+    }
+    .section-description {
+        font-size: 0.97em !important;
+    }
+    .contact-subtitle {
+        font-size: 1.15em !important;
+    }
+    .contact .section-title {
+        font-size: 1.15em !important;
+    }
+    .contact .section-description {
+        font-size: 0.97em !important;
+    }
+}
 .nav-link.active {
     color: var(--primary);
     border-bottom: 3px solid var(--primary);
