@@ -2,21 +2,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Language switcher logic
     function setLang(lang) {
-        // Show/hide all elements with data-lang
+        // Show/hide all elements with data-lang (including headings, titles, etc.)
         document.querySelectorAll('[data-lang]').forEach(function(el) {
+            // Always hide all except selected language
             if (el.getAttribute('data-lang') === lang) {
-                el.style.display = '';
+                el.style.setProperty('display', '', 'important');
             } else {
-                el.style.display = 'none';
-            }
-        });
-
-        // Mobile navigation fix: ensure only correct language links are visible
-        document.querySelectorAll('.mobile-nav-link').forEach(function(el) {
-            if (el.getAttribute('data-lang') === lang) {
-                el.style.display = '';
-            } else {
-                el.style.display = 'none';
+                el.style.setProperty('display', 'none', 'important');
             }
         });
 
@@ -27,17 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
             var menuBtn = document.querySelector('.mobile-menu-btn');
             if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
         }
-
-        // Extra: force only one title visible in mobile menu (fix for bug)
-        document.querySelectorAll('.section-title, .hero-title, .event-title').forEach(function(el) {
-            if (el.getAttribute('data-lang')) {
-                if (el.getAttribute('data-lang') === lang) {
-                    el.style.display = '';
-                } else {
-                    el.style.display = 'none';
-                }
-            }
-        });
     }
     // On page load, set language from localStorage or default to 'de'
     const savedLang = localStorage.getItem('selectedLang') || 'de';
