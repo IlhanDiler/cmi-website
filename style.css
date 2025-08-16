@@ -1497,3 +1497,22 @@ section {
         font-size: 0.95rem;
     }
 }
+
+/* Anpassung der Schriftgröße für die Überschrift 'Über uns' auf Smartphones */
+@media (max-width: 600px) {
+  #about h2 {
+    font-size: 1.1em;
+  }
+    #about .section-description {
+        font-size: 0.90em !important;
+        line-height: 1.8 !important;
+        word-break: break-word;
+        hyphens: manual;
+    }
+    #about ul {
+        font-size: 0.90em !important;
+        line-height: 1.7 !important;
+        word-break: break-word;
+        hyphens: manual;
+    }
+}
