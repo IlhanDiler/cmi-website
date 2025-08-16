@@ -335,6 +335,134 @@ p {
     border-radius: 50%;
     background: transparent;
     border: none;
+    }
+
+    .menu-icon {
+        width: 24px;
+        height: 24px;
+        display: block;
+        object-fit: contain;
+        transition: width 0.2s, height 0.2s;
+    }
+
+    @media (max-width: 600px) {
+        .menu-icon {
+            width: 22px;
+            height: 22px;
+        }
+    }
+
+    /* Responsive Footer Styles */
+    .site-footer {
+        background: #000;
+        color: #fff;
+        padding: 32px 0;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        width: 100%;
+    }
+    .site-footer .container {
+        width: 100%;
+        padding: 0 16px;
+    }
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        width: 100%;
+    }
+    .footer-brand {
+        min-width: 220px;
+        flex: 1 1 220px;
+    }
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 8px;
+    }
+    .footer-description {
+        font-size: 1em;
+        margin-bottom: 12px;
+        color: #eee;
+    }
+    .impressum-section, .privacy-section {
+        flex: 2 1 320px;
+        background: #f7f7f9;
+        color: #222;
+        border-radius: 18px;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+        padding: 24px 0;
+        margin-bottom: 12px;
+        font-size: 0.97em;
+    }
+    .impressum-card, .privacy-card {
+        background: #fff;
+        color: #222;
+        border-radius: 14px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+        padding: 18px 12px;
+        width: 90%;
+        max-width: 900px;
+        margin: 0 auto 12px auto;
+        box-sizing: border-box;
+    }
+    .footer-bottom {
+        text-align: center;
+        width: 100%;
+        font-size: 0.97em;
+        margin-top: 16px;
+        color: #ccc;
+    }
+
+    @media (max-width: 900px) {
+        .footer-content {
+            flex-direction: column;
+            gap: 18px;
+        }
+        .impressum-section, .privacy-section {
+            padding: 18px 0;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .site-footer {
+            padding: 18px 0;
+            gap: 8px;
+        }
+        .footer-content {
+            flex-direction: column;
+            gap: 12px;
+        }
+        .footer-logo img {
+            width: 40px;
+            height: 40px;
+        }
+        .footer-logo .brand-text {
+            font-size: 1em;
+            max-width: 120px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .footer-description {
+            font-size: 0.97em;
+        }
+        .impressum-section, .privacy-section {
+            font-size: 0.95em;
+            padding: 12px 0;
+        }
+        .impressum-card, .privacy-card {
+            padding: 12px 6px;
+        }
+        .footer-bottom {
+            font-size: 0.95em;
+            margin-top: 8px;
+        }
+    }
 }
 
 .mobile-menu-btn:hover {
