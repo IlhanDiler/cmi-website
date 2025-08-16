@@ -1191,8 +1191,9 @@ section {
 }
 
 .cause-description {
-    margin-bottom: var(--spacing-lg);
-    line-height: var(--line-height-relaxed);
+    font-size: 0.97em !important;
+    line-height: 1.7 !important;
+    color: #222;
 }
 
 .cause-amount {
@@ -1515,4 +1516,25 @@ section {
         word-break: break-word;
         hyphens: manual;
     }
+}
+
+html, body {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 1.05em;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: #222;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+.btn, .nav-link, .mobile-nav-link, .footer-link {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+.section-title, .cause-title, .form-title, .stat-number, .contact-subtitle {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 700;
 }
