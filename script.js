@@ -1,5 +1,30 @@
 // Highlight active nav link on scroll
 document.addEventListener('DOMContentLoaded', function() {
+    // Language toggle logic
+    function setLanguage(lang) {
+        // Show only elements with matching data-lang, hide others
+        document.querySelectorAll('[data-lang]').forEach(el => {
+            if (el.getAttribute('data-lang') === lang) {
+                el.style.display = '';
+            } else {
+                el.style.display = 'none';
+            }
+        });
+        // Store selected language
+        localStorage.setItem('selectedLang', lang);
+    }
+
+    // Detect language switcher click
+    document.querySelectorAll('.lang-switch').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const lang = this.getAttribute('data-lang');
+            setLanguage(lang);
+        });
+    });
+
+    // On page load, set language from localStorage or default to 'de'
+    const savedLang = localStorage.getItem('selectedLang') || 'de';
+    setLanguage(savedLang);
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = Array.from(navLinks).map(link => {
         const id = link.getAttribute('href').replace('#','');
