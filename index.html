@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="style.css">
     <link href="" rel="stylesheet">
     <link rel="icon" href="files/logo_cmi1 - weiß.svg" type="image/svg+xml">
+            <!-- Google Fonts: Inter -->
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+            <!-- Styles moved to style.css -->
 </head>
 <body>
     <!-- ...existing code... -->
@@ -143,7 +146,8 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <h3 class="section-title" style="margin-top:-64px; font-size:2em;">Über das Collegium Musicum Iuvenale Ochsenfurt</h3>
+                <h3 class="section-title" style="margin-top:-64px; font-size:2em;" data-lang="de">Über das Collegium Musicum Iuvenale Ochsenfurt</h3>
+                <h3 class="section-title" style="margin-top:-64px; font-size:2em;display:none;" data-lang="en">About Collegium Musicum Iuvenale Ochsenfurt</h3>
                 <div class="section-description" style="line-height:1.7;font-size:0.97em;">
                     <div style="text-align:center;margin-bottom:8px;">
                         <span class="anniversary-info" data-lang="de">Collegium Musicum Iuvenale Ochsenfurt feierte 2021 sein 40-jähriges Jubiläum mit einem besonderen Videoprojekt.</span><br>
@@ -359,7 +363,8 @@
                 </div>
 
                 <div class="join-form-container">
-                    <h3 class="form-title" style="font-size:2em;">Interesse? Melde dich bei uns!</h3>
+                    <h3 class="form-title" style="font-size:2em;" data-lang="de">Interesse? Melde dich bei uns!</h3>
+                    <h3 class="form-title" style="font-size:2em;display:none;" data-lang="en">Interested? Get in touch with us!</h3>
                     <div class="info-map">
                         <!-- Embed Google Maps -->
                         <iframe
@@ -396,22 +401,43 @@
                   <div class="cause-card">
                         <div class="cause-stripe gradient-1"></div>
                         <div class="cause-content">
-                            <h3 class="cause-title" data-lang="de">ConCello Musikwoche 2025 – Abschlusskonzert in Ochsenfurt</h3>
-                            <h3 class="cause-title" data-lang="en" style="display:none;">ConCello Music Week 2025 – Final Concert in Ochsenfurt</h3>
+                                                        <h3 class="cause-title" data-lang="de">ConCello Musikwoche 2025
+                                                                                            <span style="display:block;font-size:0.95em;font-weight:400;">Abschlusskonzert · 10. August 2025, Ochsenfurt</span>
+                                                                                        </h3>
+                                                                                        <style>
+                                                                                            .cause-title {
+                                                                                                font-size: 1.35em !important;
+                                                                                                font-weight: 600 !important;
+                                                                                            }
+                                                                                            .cause-title span {
+                                                                                                font-size: 0.95em !important;
+                                                                                                font-weight: 400 !important;
+                                                                                            }
+                                                                                        </style>
+                                                        </h3>
+                                                        <h3 class="cause-title" data-lang="en" style="display:none;">ConCello Music Week 2025
+                                                              <span style="display:block;font-size:0.95em;font-weight:400;">Final Concert · August 10, 2025, Ochsenfurt</span>
+                                                        </h3>
                             <p class="cause-description" data-lang="de">Das Collegium Musicum Iuvenale Ochsenfurt veranstaltete eine Musikwoche für Cellisten und Streicher unter dem Titel „ConCello“. Unter Leitung von Maestro Andrea Marcolini und Maestro Riccardo Paltanin wurde ein vielfältiges Programm von Romantik bis Filmmusik erarbeitet. Das Abschlusskonzert mit der französischen Sängerin Marika Marcuzzi fand am 10. August 2025 in der Klosterkirche in Ochsenfurt statt. Der Eintritt war frei, Spenden gingen an die Renovierung der Kirche.</p>
                             <p class="cause-description" data-lang="en" style="display:none;">Collegium Musicum Iuvenale Ochsenfurt organized a music week for cellists and string players under the title "ConCello." Under the direction of Maestro Andrea Marcolini and Maestro Riccardo Paltanin, a diverse program from Romanticism to film music was developed. The final concert with French singer Marika Marcuzzi took place on August 10, 2025, in the monastery church in Ochsenfurt. Admission was free, and donations went to the renovation of the church.</p>
-                            <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;">#internationaleraustausch</div>
+                            <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;" data-lang="de">#internationaleraustausch</div>
+                            <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;display:none;" data-lang="en">#internationalexchange</div>
                             <img src="bilder/concello.jfif" alt="Concello" class="cause-image"></img>
                         </div>
                     </div>
                 <div class="cause-card">
                     <div class="cause-stripe gradient-2"></div>
                     <div class="cause-content">
-                        <h3 class="cause-title" data-lang="de">Symphonic Mob Orchester</h3>
-                        <h3 class="cause-title" data-lang="en" style="display:none;">Symphonic Mob Orchestra</h3>
+                                                <h3 class="cause-title" data-lang="de">Symphonic Mob Orchester
+                                                    <span style="display:block;font-size:0.95em;font-weight:400;">Gemeinschaftskonzert · Bad Kissingen, 2025</span>
+                                                </h3>
+                                                <h3 class="cause-title" data-lang="en" style="display:none;">Symphonic Mob Orchestra
+                                                    <span style="display:block;font-size:0.95em;font-weight:400;">Community Concert · Bad Kissingen, 2025</span>
+                                                </h3>
                         <p class="cause-description" data-lang="de">Das CMI hat am »Symphonic Mob« in Bad Kissingen teilgenommen und gemeinsam mit Profimusikerinnen und -musikern des Deutschen Symphonie-Orchesters Berlin unter der Leitung von Aurélien Bello ein beeindruckendes Programm dargeboten. Mit unserem Engagement und unserer Begeisterung haben wir zur Gemeinschaftsstärkung beigetragen und viele Menschen im Kissinger Kurpark begeistert. Ein herzlicher Dank an alle Teilnehmenden für dieses großartige Erlebnis!</p>
                         <p class="cause-description" data-lang="en" style="display:none;">CMI participated in the "Symphonic Mob" in Bad Kissingen and, together with professional musicians from the Deutsches Symphonie-Orchester Berlin under the direction of Aurélien Bello, presented an impressive program. With our commitment and enthusiasm, we contributed to strengthening the community and inspired many people in the Kissingen Kurpark. A heartfelt thank you to all participants for this wonderful experience!</p>
-                        <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;">#gemeinschaftserlebnis</div>
+                        <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;" data-lang="de">#gemeinschaftserlebnis</div>
+                        <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;display:none;" data-lang="en">#communityexperience</div>
                                                   <img src="bilder/symphonic_mob.jpg" alt="Spendenurkunde" class="cause-image"></img>
                     </div>
                 </div>
@@ -419,11 +445,16 @@
                 <div class="cause-card">
                     <div class="cause-stripe gradient-3"></div>
                     <div class="cause-content">
-                        <h3 class="cause-title" data-lang="de">Benefizkonzert in der Neuen Festhalle Meintz – 11. Mai 2025 - Ärzte ohne Grenzen</h3>
-                        <h3 class="cause-title" data-lang="en" style="display:none;">Charity Concert at the New Festhalle Maintz – May 11, 2025 – Doctors Without Borders</h3>
+                                                <h3 class="cause-title" data-lang="de">Benefizkonzert in der Neuen Festhalle Meintz
+                                                    <span style="display:block;font-size:0.95em;font-weight:400;">10. Mai 2025 · Ärzte ohne Grenzen</span>
+                                                </h3>
+                                                <h3 class="cause-title" data-lang="en" style="display:none;">Charity Concert at the New Festhalle Maintz
+                                                    <span style="display:block;font-size:0.95em;font-weight:400;">May 10, 2025 · Doctors Without Borders</span>
+                                                </h3>
                         <p class="cause-description" data-lang="de"><br>Am 10. Mai 2025 fand in der Neuen Festhalle Maintz ein Benefizkonzert mit den Gruppen Filarmonica Bibbienese, Veeh-Harfen-Gruppe Querbeet, Vokalensemble FAINO und dem Collegium Musicum Iuvenale (CMI) statt. Die gesammelten Spenden kamen der Organisation Ärzte ohne Grenzen zugute. Ein musikalischer Abend für den guten Zweck.</p>
                         <p class="cause-description" data-lang="en" style="display:none;"><br>On May 10, 2025, a charity concert took place at the New Festhalle Maintz with the groups Filarmonica Bibbienese, Veeh-Harfen-Gruppe Querbeet, Vokalensemble FAINO, and Collegium Musicum Iuvenale (CMI). The collected donations benefited the organization Doctors Without Borders. A musical evening for a good cause.</p>
-                        <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;">#spendenkonzert</div>
+                        <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;" data-lang="de">#spendenkonzert</div>
+                        <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;display:none;" data-lang="en">#charityconcert</div>
                         <img src="bilder/Gruppenbild2.jpg" alt="Gruppenbild2" class="cause-image"></img>
                     </div>
                 </div>
@@ -435,11 +466,16 @@
                     <div class="cause-card">
                     <div class="cause-stripe gradient-2"></div>
                     <div class="cause-content">
-                        <h3 class="cause-title" data-lang="de">80 Jahre Frieden – Gedenkfeier am 09. Mai 2025 in Ochsenfurt</h3>
-                        <h3 class="cause-title" data-lang="en" style="display:none;">80 Years of Peace – Memorial Ceremony on May 9, 2025 in Ochsenfurt</h3>
-                        <p class="cause-description" data-lang="de">Am 10. Mai 2025 fand in Ochsenfurt das Benefizkonzert „80 Jahre Kriegsende – 80 Jahre Frieden“ statt. Das Collegium Musicum Iuvenale Ochsenfurt unter Leitung von Dr. Astrid Eitschberger musizierte gemeinsam mit Gästen aus der italienischen Partnerstadt Bibbiena (Filarmonica Bibbienese „Sereni“) und dem ukrainischen Vokalensemble FAINO. Ein bewegender Abend für Frieden und Völkerverständigung.</p>
-                        <p class="cause-description" data-lang="en" style="display:none;">On May 10, 2025, the charity concert "80 Years Since the End of the War – 80 Years of Peace" took place in Ochsenfurt. Collegium Musicum Iuvenale Ochsenfurt, under the direction of Dr. Astrid Eitschberger, performed together with guests from the Italian partner city Bibbiena (Filarmonica Bibbienese "Sereni") and the Ukrainian vocal ensemble FAINO. It was a moving evening for peace and international understanding.</p>
-                        <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;">#gedenkveranstaltung</div>
+                                                                        <h3 class="cause-title" data-lang="de">80 Jahre Frieden
+                                                                            <span style="display:block;font-size:0.95em;font-weight:400;">Gedenkfeier · 09. Mai 2025, Ochsenfurt</span>
+                                                                        </h3>
+                                                                        <h3 class="cause-title" data-lang="en" style="display:none;">80 Years of Peace
+                                                                            <span style="display:block;font-size:0.95em;font-weight:400;">Memorial Ceremony · May 9, 2025, Ochsenfurt</span>
+                                                                        </h3>
+                        <p class="cause-description" data-lang="de">Am 09. Mai 2025 fand in Ochsenfurt das Benefizkonzert „80 Jahre Kriegsende – 80 Jahre Frieden“ statt. Das Collegium Musicum Iuvenale Ochsenfurt unter Leitung von Dr. Astrid Eitschberger musizierte gemeinsam mit Gästen aus der italienischen Partnerstadt Bibbiena (Filarmonica Bibbienese „Sereni“) und dem ukrainischen Vokalensemble FAINO. Ein bewegender Abend für Frieden und Völkerverständigung.</p>
+                        <p class="cause-description" data-lang="en" style="display:none;">On May 9, 2025, the charity concert "80 Years Since the End of the War – 80 Years of Peace" took place in Ochsenfurt. Collegium Musicum Iuvenale Ochsenfurt, under the direction of Dr. Astrid Eitschberger, performed together with guests from the Italian partner city Bibbiena (Filarmonica Bibbienese "Sereni") and the Ukrainian vocal ensemble FAINO. It was a moving evening for peace and international understanding.</p>
+                        <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;" data-lang="de">#gedenkveranstaltung</div>
+                        <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;display:none;" data-lang="en">#memorialevent</div>
                         <img src="bilder/peterbild.jpg" alt="Gedenkfeier" class="cause-image"></img>
 
                     </div>
@@ -447,11 +483,17 @@
                     <div class="cause-card">
                         <div class="cause-stripe gradient-1"></div>
                         <div class="cause-content">
-                            <h3 class="cause-title" data-lang="de">Neujahrskonzert 2025 - Vom Barock bis Harry Potter</h3>
+                                                        <h3 class="cause-title" data-lang="de">Neujahrskonzert 2025
+                                                            <span style="display:block;font-size:0.95em;font-weight:400;">Vom Barock bis Harry Potter · 15. Februar 2025, St. Thekla</span>
+                                                        </h3>
+                                                        <h3 class="cause-title" data-lang="en" style="display:none;">New Year's Concert 2025
+                                                            <span style="display:block;font-size:0.95em;font-weight:400;">From Baroque to Harry Potter · February 15, 2025, St. Thekla</span>
+                                                        </h3>
                             <h3 class="cause-title" data-lang="en" style="display:none;">New Year's Concert 2025 – From Baroque to Harry Potter</h3>
                             <p class="cause-description" data-lang="de">Am 15. Februar 2025 fand in St. Thekla das Neujahrskonzert „Vom Barock bis Harry Potter“ statt. Das Collegium Musicum Iuvenale Ochsenfurt (Leitung: Dr. Astrid Eitschberger), das ukrainische Vokalensemble Faino (Leitung: Viktoria Hromova) sowie Vorschulkinder des Kindergartens St. Thekla (Leitung: Petra Striffler) sorgten für ein abwechslungsreiches Programm. Die gesammelten Spenden kamen dem Kindergarten St. Thekla zugute.</p>
                             <p class="cause-description" data-lang="en" style="display:none;">On February 15, 2025, the New Year's Concert "From Baroque to Harry Potter" took place in St. Thekla. Collegium Musicum Iuvenale Ochsenfurt (conducted by Dr. Astrid Eitschberger), the Ukrainian vocal ensemble Faino (conducted by Viktoria Hromova), and preschool children from the kindergarten St. Thekla (led by Petra Striffler) provided a varied program. The collected donations benefited the kindergarten St. Thekla.</p>
-                            <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;">#spendenaktion</div>
+                            <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;" data-lang="de">#spendenaktion</div>
+                            <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;display:none;" data-lang="en">#charitycampaign</div>
                             <img src="bilder/kirche.jpg" alt="Concello" class="cause-image"></img>
                         
                         </div>
@@ -459,15 +501,21 @@
                     <div class="cause-card">
                         <div class="cause-stripe gradient-2"></div>
                         <div class="cause-content">
-                            <h3 class="cause-title" data-lang="de">Konzertreihe Musik an der Furt</h3>
-                            <h3 class="cause-title" data-lang="en" style="display:none;">Concert Series "Musik an der Furt"</h3>
-                            <p class="cause-description" data-lang="de">Die Konzertreihe „Musik an der Furt“ findet jedes Jahr von Ende April bis Anfang August in der idyllischen Altstadt von Ochsenfurt statt. Jeden Samstag von 14 bis 15 Uhr sorgen verschiedene Gruppen aus der Region für musikalische Unterhaltung – jung und alt, darunter auch das CMI, das am Samstag, den 7. Juni 2025, mitgewirkt hat. Die Reihe endete am 2. August 2025 unter dem Motto „Wir feiern Blasmusik!“ mit der Kapelle „Unsere kleine Besetzung“.</p>
-                            <p class="cause-description" data-lang="en" style="display:none;">The concert series "Musik an der Furt" takes place every year from the end of April to the beginning of August in the picturesque old town of Ochsenfurt. Every Saturday from 2 to 3 pm, various groups from the region provide musical entertainment – young and old, including CMI, which performed on Saturday, June 7, 2025. The series ended on August 2, 2025, with the motto "We celebrate brass music!" featuring the band "Unsere kleine Besetzung".</p>
-                            <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;">#musikinderstadt</div>
+                                                    <h3 class="cause-title" data-lang="de">Konzertreihe Musik an der Furt
+                                                        <span style="display:block;font-size:0.95em;font-weight:400;">April–August 2025 · Altstadt Ochsenfurt</span>
+                                                    </h3>
+                                                    <h3 class="cause-title" data-lang="en" style="display:none;">Concert Series "Musik an der Furt"
+                                                        <span style="display:block;font-size:0.95em;font-weight:400;">April–August 2025 · Old Town Ochsenfurt</span>
+                                                    </h3>
+                            <p class="cause-description" data-lang="de">Die Konzertreihe „Musik an der Furt“ findet jedes Jahr von Ende April bis Anfang August in der idyllischen Altstadt von Ochsenfurt statt. Jeden Samstag von 14 bis 15 Uhr sorgen verschiedene Gruppen aus der Region für musikalische Unterhaltung – jung und alt, darunter auch das CMI, das am Samstag, den 7. Juni 2025, mitgewirkt hat. Das Konzert am 7. Juni 2025 mit dem CMI war ein voller Erfolg und ein wunderbarer Höhepunkt der diesjährigen Reihe „Musik an der Furt“, der den Besuchern noch lange in Erinnerung bleiben wird.</p>
+                            <p class="cause-description" data-lang="en" style="display:none;">The concert series "Musik an der Furt" takes place every year from the end of April to the beginning of August in the picturesque old town of Ochsenfurt. Every Saturday from 2 to 3 pm, various groups from the region provide musical entertainment – young and old, including CMI, which performed on Saturday, June 7, 2025. The concert on June 7, 2025 with CMI was a great success and a wonderful highlight of this year's "Musik an der Furt" series, which will remain in the visitors' memories for a long time.</p>
+                            <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;" data-lang="de">#musikinderstadt</div>
+                            <div style="margin-top:8px;font-size:0.85em;color:#00b894;font-weight:600;display:none;" data-lang="en">#musicinthecity</div>
                               <a href="https://www.facebook.com/stadtochsenfurt/videos/3802468500074422/" target="_blank" style="display:block;width:100%;max-width:320px;margin:0 auto 16px auto;position:relative;">
                                                       <img src="bilder/facebook_preview.jpg" alt="Facebook Video Vorschau" style="width:100%;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.07);">
                                                     <img src="files/icon.video.svg" alt="Play" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;opacity:0.8;pointer-events:none;">
                                                     <span style="display:block;text-align:center;font-size:0.95em;color:#888;margin-top:8px;">Zum Ansehen des Videos ist ggf. ein Facebook-Login notwendig.</span>
+                                                    <span style="display:block;text-align:center;font-size:0.95em;color:#888;margin-top:8px;display:none;" data-lang="en">A Facebook login may be required to view the video.</span>
                                                 </a>
                             <div class="cause-amount">
                                 <span class="amount"></span>
@@ -649,7 +697,7 @@ function setLang(lang) {
             el.style.display = 'none';
         }
     });
-    // Button backgrounds: active = accent, inactive = semi-transparent white
+    // Button backgrounds: active = #00b894, inactive = semi-transparent white
     document.getElementById('langDe').style.background = lang === 'de' ? '#00b894' : 'rgba(255,255,255,0.85)';
     document.getElementById('langDe').style.color = lang === 'de' ? '#fff' : '#222';
     document.getElementById('langEn').style.background = lang === 'en' ? '#00b894' : 'rgba(255,255,255,0.85)';
@@ -661,13 +709,13 @@ document.getElementById('langDe').onmouseover = function() {
     if (this.style.background !== '#00b894') this.style.background = 'rgba(255,255,255,1)';
 };
 document.getElementById('langDe').onmouseout = function() {
-    if (this.style.background !== '#00b894') this.style.background = 'rgba(255,255,255,0.85)';
+    if (document.getElementById('langDe').style.background !== '#00b894') document.getElementById('langDe').style.background = 'rgba(255,255,255,0.85)';
 };
 document.getElementById('langEn').onmouseover = function() {
     if (this.style.background !== '#00b894') this.style.background = 'rgba(255,255,255,1)';
 };
 document.getElementById('langEn').onmouseout = function() {
-    if (this.style.background !== '#00b894') this.style.background = 'rgba(255,255,255,0.85)';
+    if (document.getElementById('langEn').style.background !== '#00b894') document.getElementById('langEn').style.background = 'rgba(255,255,255,0.85)';
 };
 </script>
 </body>
