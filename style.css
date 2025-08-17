@@ -4,6 +4,76 @@
     font-weight: 700;
 }
 
+/* Standard: Blocksatz für breite Karten */
+.cause-description {
+    text-align: justify;
+    text-justify: inter-character;
+    hyphens: none;
+    word-break: normal;
+    font-size: 0.92em;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.2em;
+    max-width: 99%;
+}
+
+/* Dynamisch: Bei schmalen Karten/Displays linksbündig */
+@media (max-width: 700px) {
+    .cause-description {
+        text-align: left;
+        text-justify: auto;
+    }
+}
+.cause-card, .cause-content {
+    max-width: 820px;
+}
+@media (max-width: 900px) {
+    .cause-card, .cause-content {
+        max-width: 98vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .cause-description {
+        text-align: justify;
+        font-size: 0.97em;
+        line-height: 1.6;
+    }
+    .cause-card, .cause-content {
+        max-width: 99vw;
+    }
+}
+
+/* Mobile: Blocksatz bleibt erhalten, max-width wird angepasst */
+@media (max-width: 600px) {
+    .cause-description {
+        text-align: justify;
+        font-size: 0.97em;
+        line-height: 1.6;
+    }
+    .cause-card, .cause-content {
+        max-width: 99vw;
+    }
+}
+@media (max-width: 600px) {
+    .cause-description {
+        text-align: justify;
+        hyphens: none;
+        line-height: var(--line-height-relaxed);
+    }
+}
+.cause-card, .cause-content {
+    max-width: 500px;
+}
+
+.cause-card, .cause-content {
+    max-width: 500px;
+}
+
+.cause-description {
+    font-size: 0.97em;
+}
+
 .nav-link.active:after {
     display: none;
 }
@@ -911,7 +981,6 @@ p {
         box-shadow: 0 4px 12px rgba(0,184,148,0.08);
     }
     .mobile-menu {
-        display: block;
         background: rgba(255,255,255,0.97);
         border-top: 1px solid var(--gray-200);
         padding: 1.2em 0 1.6em 0;
@@ -929,6 +998,7 @@ p {
         z-index: 9999;
     }
     .mobile-menu.active {
+        display: block;
         max-height: 480px;
         opacity: 1;
         padding: 1.2em 0 1.6em 0;
@@ -1305,10 +1375,51 @@ section {
     margin-bottom: var(--spacing-md);
 }
 
+/* Optimierter Blocksatz für cause-description mit minimalen Lücken */
 .cause-description {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: none;
+    word-break: normal;
+    font-size: 0.94em;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
     margin-bottom: var(--spacing-lg);
-    line-height: var(--line-height-relaxed);
+    max-width: 99%;
+    /* Verhindert große Lücken am Zeilenende */
+    text-align-last: left;
 }
+
+/* Noch breitere Karten für weniger Lücken */
+.cause-card, .cause-content {
+    max-width: 760px;
+}
+
+.cause-description {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;           /* Automatische Silbentrennung für bessere Verteilung */
+    word-break: break-word;  /* Zeilenumbruch bei langen Wörtern */
+    font-size: 0.94em;
+    line-height: 1.45;
+    letter-spacing: 0em;
+    margin-bottom: var(--spacing-lg);
+    max-width: 99%;
+    text-align-last: left;   /* Letzte Zeile linksbündig, verhindert große Lücke am Ende */
+}
+
+/* Bei schmalen Karten/Displays: linksbündig, um große Lücken zu vermeiden */
+@media (max-width: 800px) {
+    .cause-description {
+        text-align: left;
+        text-justify: auto;
+        hyphens: none;
+        word-break: normal;
+        text-align-last: auto;
+    }
+}
+
+
 
 .cause-amount {
     display: flex;
