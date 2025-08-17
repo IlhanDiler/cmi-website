@@ -1370,12 +1370,13 @@ section {
     background: var(--white);
     border-radius: var(--radius-xl);
     overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    transition: box-shadow var(--transition-normal);
 }
 
-.cause-card:hover {
-    box-shadow: var(--shadow-xl);
+.cause-card:hover,
+.cause-card:focus {
+    background: var(--white);
+    box-shadow: none;
+    transform: none;
 }
 
 .cause-stripe {
