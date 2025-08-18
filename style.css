@@ -1365,6 +1365,7 @@ section {
     background: var(--white);
     border-radius: var(--radius-xl);
     overflow: hidden;
+    transition:none;
 }
 
 .cause-card:hover,
@@ -1372,6 +1373,7 @@ section {
     background: var(--white);
     box-shadow: none;
     transform: none;
+    transition:none;
 }
 
 .cause-stripe {
@@ -1487,7 +1489,7 @@ section {
     border-radius: var(--radius-xl);
     padding: var(--spacing-xl);
     box-shadow: var(--shadow-lg);
-    transition: all var(--transition-normal);
+    transition: none;
 }
 
 .event-card:hover {
@@ -1812,4 +1814,43 @@ h1, h2, h3, h4, h5, h6 {
     body {
         padding-top: calc(108px + var(--cookie-banner-height));
     }
+}
+.cause-card,
+.cause-card:hover,
+.cause-card:focus,
+.stat-card,
+.stat-card:hover,
+.stat-card:focus,
+.gallery-item,
+.gallery-item:hover,
+.gallery-item:focus,
+.btn,
+.btn:hover,
+.btn:focus,
+.event-card,
+.event-card:hover,
+.event-card:focus,
+.nav-link,
+.nav-link:hover,
+.nav-link:focus {
+    transition: none !important;
+}
+
+.event-card:hover,
+.event-card:focus,
+.join-form,
+.join-form:hover,
+.join-form:focus,
+.stat-card,
+.stat-card:hover,
+.stat-card:focus,
+.cause-card,
+.cause-card:hover,
+.cause-card:focus {
+    box-shadow: none !important;
+    background: var(--white) !important;
+    transform: none !important;
+    transition: none !important;
+    filter: none !important;
+    outline: none !important;
 }
