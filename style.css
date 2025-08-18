@@ -24,9 +24,7 @@
         text-justify: auto;
     }
 }
-.cause-card, .cause-content {
-    max-width: 820px;
-}
+
 @media (max-width: 900px) {
     .cause-card, .cause-content {
         max-width: 98vw;
@@ -46,6 +44,8 @@
 
 /* Mobile: Blocksatz bleibt erhalten, max-width wird angepasst */
 @media (max-width: 600px) {
+    .cause-card,
+    .cause-content,
     .cause-description {
         text-align: justify;
         text-justify: inter-word;
@@ -59,33 +59,25 @@
 }
 
 
-.cause-image {
+.cause-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Inhalt und Bild nach unten ausrichten */
     width: 100%;
-    height: 180px;           /* Einheitliche Höhe für alle Bilder */
-    object-fit: cover;       /* Bild wird zentriert und ggf. leicht beschnitten, aber immer bündig */
+}
+
+.cause-image {
+    align-self: flex-end;      /* Bild am unteren Rand der Card */
+    margin-top: auto;          /* Schiebt das Bild nach unten */
+    width: 100%;
+    
+    object-fit: cover;
     border-radius: var(--radius-xl);
-    margin: 16px 0 0 0;
     box-shadow: var(--shadow-md);
     background: #fff;
     display: block;
 }
-.cause-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 100%;
-}
-.cause-card, .cause-content {
-    max-width: 500px;
-}
 
-.cause-card, .cause-content {
-    max-width: 500px;
-}
-
-.cause-description {
-    font-size: 0.97em;
-}
 
 .nav-link.active:after {
     display: none;
