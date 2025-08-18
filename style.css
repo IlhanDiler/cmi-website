@@ -587,7 +587,7 @@ p {
             margin-top: 8px;
         }
     }
-}
+
 
 .mobile-menu-btn:hover {
     color: var(--primary);
@@ -1423,6 +1423,11 @@ section {
         text-justify: inter-word;
         hyphens: auto;
         word-break: break-word;
+        font-size: 0.94em;
+        line-height: 1.45;
+        letter-spacing: -0.01em;
+        margin-bottom: var(--spacing-lg);
+        max-width: 99%;
         text-align-last: left;
     }
 }
@@ -1773,9 +1778,6 @@ h1, h2, h3, h4, h5, h6 {
     .cause-card-description {
         font-size: 1em;
     }
-    --header-height: 64px;
-    --cookie-banner-height: 44px;
-    padding-top: calc(var(--header-height) + var(--cookie-banner-height));
 }
 /* Cookie Banner */
 #cookieBanner {
