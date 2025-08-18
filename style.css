@@ -1419,11 +1419,11 @@ section {
 /* Bei schmalen Karten/Displays: linksbündig, um große Lücken zu vermeiden */
 @media (max-width: 800px) {
     .cause-description {
-        text-align: left;
-        text-justify: auto;
-        hyphens: none;
-        word-break: normal;
-        text-align-last: auto;
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+        word-break: break-word;
+        text-align-last: left;
     }
 }
 
