@@ -202,24 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Intersection Observer for animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-up');
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements for animation
-    const animateElements = document.querySelectorAll('.stat-card, .cause-card, .event-card, .contact-item');
-    animateElements.forEach(el => {
-        observer.observe(el);
-    });
+    // Fade-in-up animation for cause cards removed for flat design
 
     // Event card interactions
     const eventLinks = document.querySelectorAll('.event-link');
@@ -247,13 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add hover effects to cards
     const cards = document.querySelectorAll('.stat-card, .cause-card, .event-card');
     cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
+        // Removed hover effect for flat design
     });
 
     // Form validation enhancements
