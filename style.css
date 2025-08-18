@@ -455,7 +455,7 @@
     border-radius: 0;
     box-shadow: none;
     margin: 0;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .nav-link.active:after {
@@ -1624,9 +1624,49 @@ section {
     border-radius: 18px 18px 0 0;
     box-shadow: 0 2px 12px rgba(0,0,0,0.07);
     margin: 0;
-    object-fit: cover;
+    object-fit: contain;
 }
 .causes-grid {
     gap: 32px;
     margin-bottom: 0;
+}
+
+/* Grid für die Card-Section (z.B. Historie, Repertoire, Engagement) */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.cards-grid > .card {
+    min-width: 0;
+}
+
+img.cause-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.cause-image-container {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+@media (max-width: 1200px) {
+  .cause-image-container {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  img.cause-image {
+    margin-top: 0;
+    padding-top: 0;
+  }
 }
