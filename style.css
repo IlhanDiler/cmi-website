@@ -1,3 +1,40 @@
+#contact.contact {
+    background: linear-gradient(135deg, #fff 0%, #f6fff9 40%, #eafbe6 80%, #d6fbe7 100%);
+}
+#join {
+    min-height: calc(100vh - 108px);
+    padding-top: 32px;
+    box-sizing: border-box;
+    background: #f6fff9;
+}
+@media (max-width: 767px) {
+    #join {
+        min-height: calc(100vh - 108px);
+        padding-top: 18px;
+    }
+}
+
+div.section-description-card::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 8px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    background: linear-gradient(90deg, #d6fbe7 0%, #f6fff9 100%);
+    z-index: 1;
+    position: relative;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 8px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    background: linear-gradient(90deg, #d6fbe7 0%, #f6fff9 100%);
+    z-index: 1;
+}
 /* Modern Blocksatz mit Silbentrennung für Fließtext */
 .hero-description,
 .section-description,
@@ -18,7 +55,17 @@ html, body {
     overflow-x: hidden !important;
     width: 100%;
     box-sizing: border-box;
+    /* Farbverlauf: sehr helles Türkis zu Musik-baut-Brücken zu sanftem Türkis-Grün */
+    background: linear-gradient(
+        to bottom,
+        #ffffff 0%,      /* Weiß oben */
+        #f6fff9 30%,     /* Zartes Mintgrün */
+        #eafcfb 60%,     /* Sehr helles Türkis */
+        #e0f7fa 100%     /* Softes Pastell-Türkis unten */
+    );
+    min-height: 100vh;
 }
+
 section, .container, .hero-container, .hero-content, .about, .causes, .events, .contact {
     max-width: 100vw;
     box-sizing: border-box;
@@ -55,7 +102,7 @@ img, video {
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background: linear-gradient(135deg, #00e0c6 60%, #c16cc7 100%);
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -98,7 +145,7 @@ img, video {
     width: 36px;
     height: 36px;
     border-radius: 12px;
-    background: linear-gradient(135deg, #00e0c6 60%, #c16cc7 100%);
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -175,7 +222,7 @@ img, video {
     margin: 32px auto;
 }
 .stats-card {
-    background: linear-gradient(135deg, #f8fbff 0%, #eafcf4 100%);
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
     border-radius: 18px;
     box-shadow: 0 4px 24px rgba(60, 100, 180, 0.08);
     padding: 2em 1.5em 1.5em 1.5em;
@@ -189,7 +236,7 @@ img, video {
     width: 56px;
     height: 56px;
     border-radius: 12px;
-    background: linear-gradient(135deg, #eafcf4 0%, #dbeafe 100%);
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -268,13 +315,24 @@ img, video {
 }
 /* --- Musikfamilie Section Card Design --- */
 .musikfamilie-card {
-    background: #fff;
-    border-radius: 24px;
-    box-shadow: 0 8px 32px rgba(60,30,180,0.08), 0 1.5px 8px rgba(0,0,0,0.04);
-    padding: 36px 32px 32px 32px;
-    margin-bottom: 4px;
+    background: linear-gradient(135deg, rgba(246,255,249,0.92) 0%, rgba(234,251,230,0.92) 80%, rgba(214,251,231,0.92) 100%);
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(67,233,123,0.07);
+    padding: 32px 24px;
+    margin-bottom: 24px;
     position: relative;
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.musikfamilie-card:hover {
+    box-shadow: 0 6px 24px rgba(67,233,123,0.13);
+    transform: translateY(-2px) scale(1.01);
+}
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .musikfamilie-card:hover {
     box-shadow: 0 12px 40px rgba(60,30,180,0.13), 0 2px 12px rgba(0,0,0,0.07);
@@ -282,12 +340,13 @@ img, video {
 .musikfamilie-icon {
     width: 56px;
     height: 56px;
-    background: linear-gradient(135deg, #7c4dff 60%, #00e0c6 100%);
+    background: linear-gradient(135deg, #e6fcf7 0%, #43e97b 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 8px rgba(60,30,180,0.10);
+    margin-bottom: 12px;
     margin-bottom: 18px;
     font-size: 2em;
     color: #fff;
@@ -296,7 +355,7 @@ img, video {
     font-size: 2.1em;
     font-weight: 800;
     margin-bottom: 18px;
-    background: linear-gradient(90deg, #7c4dff 60%, #00e0c6 100%);
+    background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -328,7 +387,7 @@ img, video {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #7c4dff 0%, #00bcd4 100%);
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
     box-shadow: 0 1px 4px rgba(60,100,180,0.12);
     display: inline-block;
 }
@@ -352,22 +411,25 @@ img, video {
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 220px;
-    margin: 24px auto 0 auto;
-    padding: 12px 0;
-    font-size: 1.1em;
-    font-weight: 600;
-    background: linear-gradient(90deg, #7c4dff 60%, #00e0c6 100%);
+    max-width: 240px;
+    margin: 28px auto 0 auto;
+    padding: 14px 0;
+    font-size: 1.15em;
+    font-weight: 700;
+    background: linear-gradient(90deg, #43e97b 0%, #00e0c6 100%);
     color: #fff;
     border: none;
-    border-radius: 32px;
-    box-shadow: 0 2px 8px rgba(60,30,180,0.10);
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(0,184,148,0.12);
     cursor: pointer;
-    transition: background 0.2s, box-shadow 0.2s;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
     text-align: center;
+    letter-spacing: 0.03em;
 }
 .musikfamilie-card .btn:hover {
-    background: linear-gradient(90deg, #00e0c6 60%, #7c4dff 100%);
+    background: linear-gradient(90deg, #00e0c6 0%, #43e97b 100%);
+    box-shadow: 0 8px 24px rgba(0,184,148,0.18);
+    transform: translateY(-2px) scale(1.04);
     box-shadow: 0 4px 16px rgba(60,30,180,0.18);
 }
 .musikfamilie-map iframe {
@@ -382,12 +444,12 @@ img, video {
     margin-top: 10px;
 }
 .musikfamilie-contact a {
-    color: #7c4dff;
+    color: #43e97b;
     text-decoration: underline;
     transition: color 0.2s;
 }
 .musikfamilie-contact a:hover {
-    color: #00e0c6;
+    color: #38f9d7;
 }
 
 @media (max-width: 900px) {
@@ -403,7 +465,7 @@ img, video {
 .jubilaeum-card {
     width: 100%;
     margin: 0 auto var(--spacing-4xl) auto;
-    background: linear-gradient(135deg, #e0f7fa 0%, #f3e5f5 100%);
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
     border-radius: var(--radius-xl);
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     padding: var(--spacing-xl);
@@ -797,8 +859,8 @@ p {
     min-height: calc(100vh - 108px); /* header + cookie banner height */
     padding-top: 32px;
     box-sizing: border-box;
-    background: linear-gradient(135deg, #eafcf4 0%, #f4eafc 100%);
-    /* Soft pastel gradient: mint to lavender, modern and friendly */
+    /* Sehr heller, softer Mint-Türkis-Verlauf passend zu .hero-bg */
+    background: linear-gradient(135deg, #fff 0%, #f6fff9 40%, #eafbe6 80%, #d6fbe7 100%);
 }
 @media (max-width: 767px) {
     #about {
@@ -1001,7 +1063,7 @@ p {
 
     /* Responsive Footer Styles */
     .site-footer {
-        background: #000;
+    background: #000; /* Footer bleibt unverändert */
         color: #fff;
         padding: 32px 0;
         text-align: left;
@@ -1561,10 +1623,11 @@ p {
 .hero-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, 
-        rgba(0, 224, 198, 0.1), 
-        rgba(83, 227, 134, 0.05), 
-        rgba(193, 108, 199, 0.1)
+    background: linear-gradient(135deg,
+        rgba(255,255,255,0.95),
+        rgba(246,255,249,0.75),
+        rgba(234,252,251,0.45),
+        rgba(178,247,226,0.28)
     );
 }
 
@@ -1593,7 +1656,7 @@ p {
     right: 40px;
     width: 384px;
     height: 384px;
-    background: rgba(193, 108, 199, 0.2);
+    background: rgba(56, 249, 215, 0.18);
 }
 
 .hero-content {
@@ -1667,6 +1730,15 @@ p {
 /* Section Styles */
 section {
     padding: var(--spacing-4xl) 0;
+    /* Gleicher Farbverlauf für alle Sections, inkl. Benefizprojekte */
+    background: linear-gradient(
+        to bottom,
+        #e6fcf7 0%,   /* sehr softes Türkis */
+        #c8f7ef 25%,  /* pastelliges Türkis */
+        #aafaf0 50%,  /* helles Türkis */
+        #b2f7e2 75%,  /* soft grünlich-türkis */
+        #d6fbe7 100%  /* fast weiß, sehr soft */
+    );
 }
 
 .section-header {
@@ -1677,6 +1749,8 @@ section {
 .section-title {
     font-size: var(--font-size-4xl);
     margin-bottom: var(--spacing-lg);
+    color: #2e7d6b; /* Modernes dunkles Mint */
+    text-shadow: 0 2px 8px rgba(46,125,107,0.08);
 }
 
 @media (min-width: 1024px) {
@@ -1728,7 +1802,7 @@ section {
     height: 8px;
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
-    background: linear-gradient(90deg, #00b894 0%, #6c63ff 100%);
+    background: linear-gradient(90deg, #f6fff9 0%, #eafbe6 60%, #d6fbe7 100%);
 }
 .cause-content {
     background: none;
@@ -1820,11 +1894,36 @@ img.cause-image {
 }
 
 .card {
+    position: relative;
     border-radius: 16px;
     overflow: hidden;
     padding: 20px 16px;
     min-height: 0;
     box-sizing: border-box;
+    position: relative;
+}
+
+.card::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 8px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    background: linear-gradient(90deg, #d6fbe7 0%, #f6fff9 100%);
+    z-index: 1;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+    z-index: 1;
 }
 .join.join {
     max-width: 1200px;
@@ -1844,8 +1943,63 @@ img.cause-image {
 }
 
 #causes.causes {
-    background: #f4f4f6;
+    /* Pastel mint gradient for a lighter, warmer look */
+    background: linear-gradient(135deg, #fff 0%, #f6fff9 40%, #eafbe6 80%, #d6fbe7 100%);
 }
 #events.events {
-    background: #eafcf4;
+    background: linear-gradient(135deg, #fff 0%, #f6fff9 40%, #eafbe6 80%, #d6fbe7 100%);
+}
+
+/* Harmonische, moderne Textfarben für Lesbarkeit im About-Bereich */
+#about .section-title {
+    color: #2e7d6b !important;
+    text-shadow: 0 2px 8px rgba(46,125,107,0.08);
+}
+#about .jubilaeum-title {
+    color: #2e7d6b !important;
+}
+#about .jubilaeum-subtitle {
+    color: #4cae9a !important;
+}
+#about .card h2 {
+    color: #2e7d6b !important;
+}
+#about .card ul, #about .card li {
+    color: #444 !important;
+}
+
+/* Kontaktbereich: moderne, harmonische Textfarben und leichte Schatten für Lesbarkeit auf hellem Mint-Hintergrund */
+#contact .section-title.white {
+    color: #2e7d6b !important;
+    text-shadow: 0 2px 8px rgba(46,125,107,0.10);
+}
+#contact .section-description.light {
+    color: #4cae9a !important;
+    text-shadow: 0 1px 6px rgba(76,174,154,0.08);
+}
+#contact .contact-subtitle {
+    color: #2e7d6b !important;
+    text-shadow: 0 2px 8px rgba(46,125,107,0.10);
+}
+#contact .contact-info {
+    color: #222 !important;
+}
+#contact .contact-items {
+    color: #222 !important;
+}
+#contact .contact-item {
+    background: #fff;
+    color: #222;
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(76,174,154,0.08);
+}
+#contact .contact-item h4 {
+    color: #2e7d6b !important;
+}
+#contact .contact-item a {
+    color: #4cae9a !important;
+    text-decoration: underline;
+}
+#contact .contact-item a:hover {
+    color: #2e7d6b !important;
 }
