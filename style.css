@@ -228,79 +228,114 @@
 }
 /* --- Musikfamilie Section Card Design --- */
 .musikfamilie-card {
-    background: #fafbfa;
-    border-radius: 18px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-    padding: 2em 2em 2em 2em;
-    max-width: 900px;
-    margin: 32px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2em;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(60,30,180,0.08), 0 1.5px 8px rgba(0,0,0,0.04);
+    padding: 36px 32px 32px 32px;
+    margin-bottom: 4px;
     position: relative;
+    transition: box-shadow 0.2s;
 }
-.musikfamilie-card::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 8px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-        background: #e0f7fa;
+.musikfamilie-card:hover {
+    box-shadow: 0 12px 40px rgba(60,30,180,0.13), 0 2px 12px rgba(0,0,0,0.07);
 }
 .musikfamilie-icon {
-    width: 44px;
-    height: 44px;
-        border-radius: 0;
-        background: #e0f7fa;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 18px;
-        box-shadow: none;
-}
-.musikfamilie-icon span {
-    font-size: 1.7em;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #7c4dff 60%, #00e0c6 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(60,30,180,0.10);
+    margin-bottom: 18px;
+    font-size: 2em;
     color: #fff;
 }
-.musikfamilie-card h2, .musikfamilie-card h3, .musikfamilie-card h4 {
-    margin-top: 0;
-    margin-bottom: 0.7em;
-    color: #0C0B11;
+.musikfamilie-card h2 {
+    font-size: 2.1em;
+    font-weight: 800;
+    margin-bottom: 18px;
+    background: linear-gradient(90deg, #7c4dff 60%, #00e0c6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
 }
 .musikfamilie-card ul {
-    margin: 0 0 1em 0;
-    padding-left: 1.2em;
+    margin: 18px 0 18px 0;
+    padding-left: 0;
+    list-style: none;
 }
-.musikfamilie-card li {
-    margin-bottom: 0.5em;
+.musikfamilie-card ul li {
+    margin-bottom: 10px;
     font-size: 1.08em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
-.musikfamilie-card .musikfamilie-info {
+.musikfamilie-card ul li::before {
+    content: '';
+    display: none;
+}
+.musikfamilie-info {
+    margin-bottom: 14px;
+    color: #444;
     font-size: 1em;
-    margin-bottom: 1em;
 }
-.musikfamilie-card .musikfamilie-map {
-    margin: 1.5em 0 0 0;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+.musikfamilie-card .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 220px;
+    margin: 24px auto 0 auto;
+    padding: 12px 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    background: linear-gradient(90deg, #7c4dff 60%, #00e0c6 100%);
+    color: #fff;
+    border: none;
+    border-radius: 32px;
+    box-shadow: 0 2px 8px rgba(60,30,180,0.10);
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    text-align: center;
 }
-.musikfamilie-card .musikfamilie-contact {
-    margin-top: 1.5em;
+.musikfamilie-card .btn:hover {
+    background: linear-gradient(90deg, #00e0c6 60%, #7c4dff 100%);
+    box-shadow: 0 4px 16px rgba(60,30,180,0.18);
+}
+.musikfamilie-map iframe {
+    border-radius: 16px;
+    border: 2px solid #e0e7ff;
+    box-shadow: 0 2px 12px rgba(60,30,180,0.08);
+    margin-bottom: 12px;
+}
+.musikfamilie-contact {
     font-size: 1em;
-    color: #222;
-    font-weight: 500;
+    color: #333;
+    margin-top: 10px;
 }
+.musikfamilie-contact a {
+    color: #7c4dff;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+.musikfamilie-contact a:hover {
+    color: #00e0c6;
+}
+
 @media (max-width: 900px) {
     .musikfamilie-card {
-        padding: 1.2em 0.7em;
-        max-width: 99vw;
+        padding: 24px 10px 20px 10px;
+    }
+    .musikfamilie-card h2 {
+        font-size: 1.4em;
     }
 }
+
+/* --- Jubiläum Card --- */
 .jubilaeum-card {
     width: 100%;
     margin: 0 auto var(--spacing-4xl) auto;
@@ -1681,13 +1716,10 @@ img.cause-image {
   }
 }
 
-/* Card Styles - Reduced height and adjusted padding */
 .card {
     border-radius: 16px;
     overflow: hidden;
     padding: 20px 16px;
-    /* max-height entfernt, damit Inhalt nicht abgeschnitten wird */
     min-height: 0;
     box-sizing: border-box;
 }
-
