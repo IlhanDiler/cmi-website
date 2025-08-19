@@ -133,16 +133,7 @@
     margin-top: 0.5em;
     transition: none;
 }
-/* Optisches Cropping für Gruppenbild2.jpg */
-.cropped-gruppenbild2 {
-    width: 100%;
-    height: 480px;
-    object-fit: cover;
-    object-position: center 40%; /* Fokus etwas nach unten verschieben */
-    border-radius: 0;
-    box-shadow: none;
-    display: block;
-}
+
 /* Stats Cards Design */
 .stats-grid {
     display: grid;
@@ -1687,3 +1678,14 @@ img.cause-image {
     max-width: 100vw;
   }
 }
+
+/* Card Styles - Reduced height and adjusted padding */
+.card {
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 20px 16px;
+    /* max-height entfernt, damit Inhalt nicht abgeschnitten wird */
+    min-height: 0;
+    box-sizing: border-box;
+}
+
