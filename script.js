@@ -418,3 +418,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const yearsSince1981 = currentYear - 1981;
     document.getElementById("yearsPassed").textContent = yearsSince1981;
 });
+
+// Sprachumschalter: Zeige nur die passende Sprache
+function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+        if (el.getAttribute('data-lang') === lang) {
+            el.style.display = '';
+        } else {
+            el.style.display = 'none';
+        }
+    });
+    // Optionale Anpassung für Buttons, Banner etc. falls benötigt
+}
+window.setLang = setLang;
