@@ -1,3 +1,40 @@
+.musikfamilie-title {
+    font-size: clamp(1rem, 1.2vw + 0.8rem, 1.45rem);
+    font-weight: 700;
+    margin-bottom: 0.6em;
+    line-height: 1.18;
+    text-align: left;
+    letter-spacing: 0.01em;
+}
+.musikfamilie-description, .musikfamilie-list li, .musikfamilie-group-details li {
+    font-size: clamp(0.95rem, 1vw + 0.7rem, 1.08rem);
+    line-height: 1.6;
+}
+.musikfamilie-list {
+    background: linear-gradient(135deg, #eafcfb 0%, #e0f7fa 100%);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(56, 214, 194, 0.08);
+    padding: 1.2em 1.5em;
+    margin-bottom: 0.7em;
+    list-style: none;
+}
+.musikfamilie-list li {
+    font-size: 1.08em;
+    color: #176d6d;
+    display: flex;
+    align-items: center;
+    gap: 0.7em;
+    margin-bottom: 0.5em;
+}
+.musikfamilie-description {
+    font-size: 1.13em;
+    color: #143c4a;
+    background: none;
+    margin-bottom: 0.7em;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1.6;
+}
 #contact.contact {
     background: linear-gradient(135deg, #fff 0%, #f6fff9 40%, #eafbe6 80%, #d6fbe7 100%);
 }
@@ -42,8 +79,7 @@ div.section-description-card::before {
 .jubilaeum-card,
 .cause-description,
 .event-details,
-.contact-text p,
-.footer-description {
+{
     text-align: justify;
     hyphens: auto;
     -webkit-hyphens: auto;
@@ -59,9 +95,9 @@ html, body {
     background: linear-gradient(
         to bottom,
         #ffffff 0%,      /* Weiß oben */
-        #f6fff9 30%,     /* Zartes Mintgrün */
+        #e0f7fa 30%,     /* Zartes Türkis */
         #eafcfb 60%,     /* Sehr helles Türkis */
-        #e0f7fa 100%     /* Softes Pastell-Türkis unten */
+        #00e0c6 100%     /* Softes Pastell-Türkis unten */
     );
     min-height: 100vh;
 }
@@ -73,14 +109,21 @@ section, .container, .hero-container, .hero-content, .about, .causes, .events, .
 }
 img, video {
     max-width: 100%;
-    height: auto;
     box-sizing: border-box;
     display: block;
 }
 /* Contact Info Card Design */
+.anfängergruppe, b.anfängergruppe {
+    color: #c97a00 !important;
+    background: rgba(255, 200, 80, 0.13);
+    border-radius: 8px;
+    padding: 2px 6px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 1px 6px rgba(201, 122, 0, 0.08);
+}
 .contact-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2.5vw;
     max-width: 1200px;
     margin: 32px auto;
@@ -295,6 +338,11 @@ img, video {
     max-width: 1200px;
     margin: 32px auto;
 }
+
+.causes-grid {
+    background: linear-gradient(180deg, #fcffff 0%, #f7feff 100%);
+    border-radius: 18px;
+}
 /* --- Musikfamilie Cards Grid --- */
 .musikfamilie-grid {
     display: grid;
@@ -314,7 +362,28 @@ img, video {
     }
 }
 /* --- Musikfamilie Section Card Design --- */
+/* Musikfamilie Title - slightly smaller, fluid, and layout-matched to join section */
+.musikfamilie-title {
+    font-size: clamp(1.15rem, 2vw + 0.9rem, 2rem);
+    font-weight: 700;
+    margin-bottom: 0.7em;
+    line-height: 1.18;
+    text-align: left;
+    letter-spacing: 0.01em;
+}
 .musikfamilie-card {
+    max-height: 540px;
+    overflow: hidden;
+    margin-bottom: 3.5em;
+    padding: 2em 1.2em 2.2em 1.2em;
+    background: linear-gradient(135deg, #f7fcfc 0%, #eafdff 100%);
+    border: 2px solid #b2f2f7;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px rgba(56,214,194,0.07);
+    overflow: visible;
+    margin-bottom: 3.5em;
+    padding-bottom: 2em;
+    overflow: visible;
     background: linear-gradient(135deg, rgba(246,255,249,0.92) 0%, rgba(234,251,230,0.92) 80%, rgba(214,251,231,0.92) 100%);
     border-radius: 16px;
     box-shadow: 0 2px 8px rgba(67,233,123,0.07);
@@ -323,33 +392,95 @@ img, video {
     position: relative;
     transition: box-shadow 0.2s, transform 0.2s;
 }
-.musikfamilie-card:hover {
-    box-shadow: 0 6px 24px rgba(67,233,123,0.13);
-    transform: translateY(-2px) scale(1.01);
-}
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
+
 .musikfamilie-card:hover {
     box-shadow: 0 12px 40px rgba(60,30,180,0.13), 0 2px 12px rgba(0,0,0,0.07);
+}
+.musikfamilie-card {
+    background: linear-gradient(135deg, #eafcfb 0%, #d6fbe7 100%);
+    border-radius: 22px;
+    box-shadow: 0 8px 32px rgba(0, 224, 198, 0.13), 0 2px 8px rgba(0,0,0,0.07);
+    padding: 2.2em 2em 2em 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2em;
+    position: relative;
+    border-top: 0.5em solid #38d6c2;
+    min-height: 0;
+    overflow: hidden;
+    transition: box-shadow 0.25s, transform 0.25s;
+}
+.musikfamilie-card:hover {
+    box-shadow: 0 16px 48px rgba(0, 224, 198, 0.18), 0 4px 16px rgba(0,0,0,0.10);
+    transform: translateY(-4px) scale(1.02);
 }
 .musikfamilie-icon {
     width: 56px;
     height: 56px;
-    background: linear-gradient(135deg, #e6fcf7 0%, #43e97b 100%);
     border-radius: 50%;
+    background: linear-gradient(135deg, #38f9d7 0%, #00e0c6 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 8px rgba(60,30,180,0.10);
-    margin-bottom: 12px;
-    margin-bottom: 18px;
-    font-size: 2em;
+    font-size: 2.2em;
+    margin-bottom: 0.7em;
+    box-shadow: 0 0 0 8px rgba(56, 214, 194, 0.12);
+    filter: drop-shadow(0 2px 8px #38d6c2);
+}
+.musikfamilie-info {
+    font-size: 1.13em;
+    color: #176d6d;
+    background: linear-gradient(135deg, #eafcfb 0%, #d6fbe7 100%);
+    box-shadow: 0 4px 16px rgba(56, 214, 194, 0.10);
+    border: none;
+    color: #176d6d;
+    border-radius: 16px;
+    padding: 1.2em 1.5em;
+    margin-bottom: 0.7em;
+    box-shadow: 0 6px 24px rgba(0, 90, 106, 0.13);
+}
+.musikfamilie-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.7em 0;
+}
+.musikfamilie-card ul li {
+    font-size: 1.08em;
+    margin-bottom: 0.5em;
+    color: #176d6d;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+.musikfamilie-card b {
+    color: #00bfff;
+}
+.musikfamilie-contact {
+    font-size: 1em;
+    color: #176d6d;
+    margin-top: 1em;
+}
+.musikfamilie-map iframe {
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(56, 214, 194, 0.10);
+}
+.btn.btn-primary {
+    background: linear-gradient(90deg, #38f9d7 0%, #00e0c6 100%);
     color: #fff;
+    border: none;
+    border-radius: 32px;
+    font-weight: 700;
+    font-size: 1.15em;
+    padding: 0.8em 2.2em;
+    box-shadow: 0 2px 12px rgba(56, 214, 194, 0.10);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.btn.btn-primary:hover {
+    background: linear-gradient(90deg, #00e0c6 0%, #38f9d7 100%);
+    box-shadow: 0 4px 24px rgba(56, 214, 194, 0.18);
+    transform: scale(1.04);
+}
 }
 .musikfamilie-card h2 {
     font-size: 2.1em;
@@ -634,12 +765,12 @@ img, video {
     --primary: #00e0c6;
     --dark: #0C0B11;
     --light-gray: #dde0df;
-    --accent-green: #53e386;
+    --accent-green: #38d6c2; /* dezentes Türkis */
     --accent-purple: #c16cc7;
 
     /* Dark Variations */
     --dark-primary: #005f54;
-    --dark-accent-green: #1a4629;
+    --dark-accent-green: #176d6d; /* dunkles Türkis */
     --dark-accent-purple: #452847;
     
     /* LINK */
@@ -737,6 +868,9 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
+    background: linear-gradient(180deg, #ffffff 0%, #f7feff 100%);
+    border-radius: 24px;
+    box-shadow: 0 4px 24px rgba(56, 214, 194, 0.08);
 }
 
 @media (min-width: 640px) {
@@ -753,7 +887,31 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
+/* Fluid responsive font sizes for all main text elements */
+body, p, li, a, span, label, input, textarea, button {
+    font-size: clamp(1rem, 1.2vw + 0.8rem, 1.18rem);
+    line-height: 1.6;
+}
     font-weight: 700;
+    /* Fluid responsive font sizes for headings */
+}
+h1 {
+    font-size: clamp(2rem, 4vw + 1.2rem, 3.5rem);
+}
+h2 {
+    font-size: clamp(1.4rem, 2.5vw + 1rem, 2.6rem);
+}
+h3 {
+    font-size: clamp(1.15rem, 2vw + 0.8rem, 2rem);
+}
+h4 {
+    font-size: clamp(1rem, 1.5vw + 0.7rem, 1.5rem);
+}
+h5 {
+    font-size: clamp(0.95rem, 1vw + 0.6rem, 1.2rem);
+}
+h6 {
+    font-size: clamp(0.9rem, 0.8vw + 0.5rem, 1rem);
     line-height: var(--line-height-tight);
     color: var(--dark);
 }
@@ -1065,23 +1223,22 @@ p {
     .site-footer {
     background: #000; /* Footer bleibt unverändert */
         color: #fff;
-        padding: 32px 0;
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
+        padding: 40px 0 24px 0;
+        text-align: center;
         width: 100%;
+        box-shadow: 0 -2px 24px rgba(0,0,0,0.08);
     }
     .site-footer .container {
-        width: 100%;
-        padding: 0 16px;
+    display: none;
     }
     .footer-content {
         display: flex;
         flex-direction: column;
-        gap: 32px;
+        align-items: center;
+        gap: 18px;
         width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
     }
     .footer-brand {
         min-width: 220px;
@@ -1090,13 +1247,42 @@ p {
     .footer-logo {
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 16px;
+        justify-content: center;
         margin-bottom: 8px;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    font-size: 1.15em;
+    font-weight: 600;
+    color: #fff;
     }
     .footer-description {
+        margin: 8px 0 0 0;
         font-size: 1em;
-        margin-bottom: 12px;
-        color: #eee;
+        color: #bfc8d6;
+        max-width: 340px;
+        line-height: 1.5;
+        text-align: center;
+        letter-spacing: 0.01em;
+    .site-footer {
+        padding: 24px 0 16px 0;
+    }
+    .footer-content {
+        gap: 12px;
+        max-width: 98vw;
+    }
+    .footer-logo img {
+        width: 38px;
+        height: 38px;
+    }
+    .brand-text {
+        font-size: 1em;
+    }
+    .footer-description {
+        font-size: 0.95em;
+        max-width: 98vw;
+    }
     }
     .impressum-section, .privacy-section {
         flex: 2 1 320px;
@@ -1397,7 +1583,8 @@ p {
 }
 /* Events Card Design */
 .event-card {
-    background: #fff;
+    background: linear-gradient(135deg, #f7fcfc 0%, #eafdff 100%);
+    border: 2px solid #b2f2f7;
     border-radius: 16px;
     box-shadow: 0 6px 24px rgba(0,0,0,0.09);
     padding: 2em 1.5em 1.5em 1.5em;
@@ -1661,10 +1848,12 @@ p {
 
 .hero-content {
     display: grid;
-    gap: var(--spacing-3xl);
+    gap: 3.5vw;
     align-items: center;
     position: relative;
     z-index: 10;
+    padding: 3vw 2vw;
+    min-height: 480px;
 }
 
 @media (min-width: 1024px) {
@@ -1736,7 +1925,7 @@ section {
         #e6fcf7 0%,   /* sehr softes Türkis */
         #c8f7ef 25%,  /* pastelliges Türkis */
         #aafaf0 50%,  /* helles Türkis */
-        #b2f7e2 75%,  /* soft grünlich-türkis */
+    #38d6c2 75%,  /* soft Türkis */
         #d6fbe7 100%  /* fast weiß, sehr soft */
     );
 }
@@ -1802,7 +1991,7 @@ section {
     height: 8px;
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
-    background: linear-gradient(90deg, #f6fff9 0%, #eafbe6 60%, #d6fbe7 100%);
+    background: linear-gradient(90deg, #eafdff 0%, #c6f7fa 60%, #b2f2f7 100%);
 }
 .cause-content {
     background: none;
@@ -1838,6 +2027,7 @@ section {
 
 /* Grid für die Card-Section (z.B. Historie, Repertoire, Engagement) */
 .cards-grid {
+    margin-top: 2.5em;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 32px;
@@ -2046,9 +2236,11 @@ img.cause-image {
 }
 /* Card Stripe/Accent Gradients */
 .card > div[style*="background:linear-gradient"],
-.cause-card > div[style*="background:linear-gradient"],
-div.section-description-card::before {
-    background: linear-gradient(90deg, #38e8e1 0%, #00c9b7 60%, #1a8c85 100%) !important;
+    .cause-card > div[style*="background:linear-gradient"],
+    div.section-description-card::before {
+        background: linear-gradient(180deg, #fcffff 0%, #f7feff 60%, #eafdff 100%) !important;
+    
+    }
 }
 /* Icon backgrounds */
 .card img,
@@ -2081,7 +2273,7 @@ div.section-description-card::before {
         color: #fff !important;
     }
     #join .musikfamilie-contact a {
-        color: #38e8e1 !important;
+        color: #005a6a !important;
     }
     #join .musikfamilie-contact a:hover {
         color: #1a8c85 !important;
@@ -2109,7 +2301,7 @@ div.section-description-card::before {
     color: #fff !important;
 }
 #join .musikfamilie-contact a {
-    color: #38e8e1 !important;
+    color: #034949 !important;
 }
 #join .musikfamilie-contact a:hover {
     color: #1a8c85 !important;
