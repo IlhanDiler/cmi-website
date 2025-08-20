@@ -2058,38 +2058,59 @@ div.section-description-card::before {
     background: linear-gradient(135deg, #38e8e1 0%, #00c9b7 100%) !important;
 }
 
-/* Türkis für Join-Bereich nach modernen Design-Richtlinien */
+/* Türkis und Schwarz für Join-Bereich auf allen Geräten */
+@media (max-width: 900px) {
+    #join .musikfamilie-card {
+        background: #f0fcfc !important;
+        border-radius: 18px;
+        box-shadow: 0 6px 24px rgba(56,232,225,0.08);
+    }
+    #join h2 {
+        color: #00c9b7 !important;
+        text-shadow: 0 2px 8px rgba(0,201,183,0.10);
+    }
+    #join .btn-primary {
+        background: linear-gradient(135deg, #38e8e1 0%, #00c9b7 100%) !important;
+        color: #fff !important;
+    }
+    #join ul li {
+        color: #222 !important;
+    }
+    #join .musikfamilie-icon {
+        background: linear-gradient(135deg, #38e8e1 0%, #00c9b7 100%) !important;
+        color: #fff !important;
+    }
+    #join .musikfamilie-contact a {
+        color: #38e8e1 !important;
+    }
+    #join .musikfamilie-contact a:hover {
+        color: #1a8c85 !important;
+    }
+}
+/* Desktop: bereits oben gesetzt, hier zur Sicherheit nochmal */
 #join .musikfamilie-card {
     background: #f0fcfc !important;
     border-radius: 18px;
     box-shadow: 0 6px 24px rgba(56,232,225,0.08);
 }
-#join .musikfamilie-icon {
-    background: linear-gradient(135deg, #38e8e1 0%, #00c9b7 100%) !important;
-    color: #fff !important;
-}
-#join h2,
-#join h3 {
+#join h2 {
     color: #00c9b7 !important;
     text-shadow: 0 2px 8px rgba(0,201,183,0.10);
-}
-#join .musikfamilie-info,
-#join ul li,
-#join .musikfamilie-contact {
-    color: #00c9b7 !important;
-}
-#join .musikfamilie-contact a {
-    color: #38e8e1 !important;
-    text-decoration: underline;
-}
-#join .musikfamilie-contact a:hover {
-    color: #1a8c85 !important;
 }
 #join .btn-primary {
     background: linear-gradient(135deg, #38e8e1 0%, #00c9b7 100%) !important;
     color: #fff !important;
-    box-shadow: 0 2px 12px rgba(56,232,225,0.12);
 }
 #join ul li {
     color: #222 !important;
+}
+#join .musikfamilie-icon {
+    background: linear-gradient(135deg, #38e8e1 0%, #00c9b7 100%) !important;
+    color: #fff !important;
+}
+#join .musikfamilie-contact a {
+    color: #38e8e1 !important;
+}
+#join .musikfamilie-contact a:hover {
+    color: #1a8c85 !important;
 }
