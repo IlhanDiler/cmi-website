@@ -817,8 +817,8 @@ p {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary), var(--accent-green));
-    color: var(--white);
+    background: linear-gradient(135deg, #38e8e1 0%, #00c9b7 100%) !important;
+    color: #fff !important;
 }
 
 .btn-primary:hover {
@@ -1944,10 +1944,10 @@ img.cause-image {
 
 #causes.causes {
     /* Pastel mint gradient for a lighter, warmer look */
-    background: linear-gradient(135deg, #fff 0%, #f6fff9 40%, #eafbe6 80%, #d6fbe7 100%);
+    background: linear-gradient(135deg, #fff 0%, #e0f7fa 40%, #38e8e1 80%, #00c9b7 100%) !important;
 }
 #events.events {
-    background: linear-gradient(135deg, #fff 0%, #f6fff9 40%, #eafbe6 80%, #d6fbe7 100%);
+    background: linear-gradient(135deg, #fff 0%, #e0f7fa 40%, #38e8e1 80%, #00c9b7 100%) !important;
 }
 
 /* Harmonische, moderne Textfarben für Lesbarkeit im About-Bereich */
@@ -2002,4 +2002,94 @@ img.cause-image {
 }
 #contact .contact-item a:hover {
     color: #2e7d6b !important;
+}
+
+/* Türkis statt Mint für moderne, frische Akzente */
+:root {
+    --primary-turquoise: #38e8e1;
+    --accent-turquoise: #00c9b7;
+    --turquoise-dark: #1a8c85;
+}
+
+/* Section Titles, Cards, Links, Icons, Gradients */
+.section-title,
+#about .section-title,
+#contact .section-title.white,
+.card h2,
+#about .card h2,
+.jubilaeum-title,
+#about .jubilaeum-title,
+#contact .contact-subtitle,
+#contact .contact-item h4 {
+    color: var(--turquoise-dark) !important;
+    text-shadow: 0 2px 8px rgba(26,140,133,0.10);
+}
+.jubilaeum-subtitle,
+#about .jubilaeum-subtitle,
+.section-description.light,
+#contact .section-description.light,
+.card ul, .card li,
+#about .card ul, #about .card li {
+    color: var(--accent-turquoise) !important;
+}
+.musikfamilie-contact,
+.musikfamilie-info {
+    color: var(--primary-turquoise) !important;
+}
+.musikfamilie-contact a,
+#contact .contact-item a {
+    color: var(--accent-turquoise) !important;
+}
+.musikfamilie-contact a:hover,
+#contact .contact-item a:hover {
+    color: var(--turquoise-dark) !important;
+}
+/* Card Stripe/Accent Gradients */
+.card > div[style*="background:linear-gradient"],
+.cause-card > div[style*="background:linear-gradient"],
+div.section-description-card::before {
+    background: linear-gradient(90deg, #38e8e1 0%, #00c9b7 60%, #1a8c85 100%) !important;
+}
+/* Icon backgrounds */
+.card img,
+.cause-card img,
+.musikfamilie-icon,
+.contact-icon {
+    background: linear-gradient(135deg, #38e8e1 0%, #00c9b7 100%) !important;
+}
+
+/* Türkis für Join-Bereich nach modernen Design-Richtlinien */
+#join .musikfamilie-card {
+    background: #f0fcfc !important;
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(56,232,225,0.08);
+}
+#join .musikfamilie-icon {
+    background: linear-gradient(135deg, #38e8e1 0%, #00c9b7 100%) !important;
+    color: #fff !important;
+}
+#join h2,
+#join h3 {
+    color: #00c9b7 !important;
+    text-shadow: 0 2px 8px rgba(0,201,183,0.10);
+}
+#join .musikfamilie-info,
+#join ul li,
+#join .musikfamilie-contact {
+    color: #00c9b7 !important;
+}
+#join .musikfamilie-contact a {
+    color: #38e8e1 !important;
+    text-decoration: underline;
+}
+#join .musikfamilie-contact a:hover {
+    color: #1a8c85 !important;
+}
+#join .btn-primary {
+    background: linear-gradient(135deg, #38e8e1 0%, #00c9b7 100%) !important;
+    color: #fff !important;
+    box-shadow: 0 2px 12px rgba(56,232,225,0.12);
+}
+#join ul li {
+    color: #222 !important;
 }
