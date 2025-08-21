@@ -201,20 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScrollTop = scrollTop;
     });
 
-    // Intersection Observer for animations
-    // Fade-in-up animation for cause cards removed for flat design
-
-    // Event card interactions
-    const eventLinks = document.querySelectorAll('.event-link');
-    eventLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            const eventCard = this.closest('.event-card');
-            const eventTitle = eventCard.querySelector('.event-title').textContent;
-            showNotification(`Weitere Informationen zu "${eventTitle}" folgen bald auf unserer Website!`, 'info');
-        });
-    });
-
-    // Add loading states to buttons
+ 
 
     // Parallax effect for hero shapes
     window.addEventListener('scroll', function() {
