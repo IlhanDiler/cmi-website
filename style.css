@@ -228,10 +228,10 @@
     gap: 1em;
     position: relative;
     border-top: 0.5em solid #38d6c2;
-    min-height: 120px;
+    min-height: 320px;
     height: auto;
     width: 100%;
-    max-width: 480px;
+    max-width: 640px;
     margin: 0 auto 1.2em auto;
     box-sizing: border-box;
     overflow: hidden;
