@@ -1,3 +1,229 @@
+    .event-description, .justified-hyphen, .event-description *, .justified-hyphen * {
+        color: #222 !important;
+        background: transparent !important;
+        text-shadow: none;
+    }
+    
+@media (max-width: 1100px) and (min-width: 767px) {
+    .musikfamilie-card, .musikfamilie-card.revealed {
+        min-height: 220px;
+        height: auto !important;
+        padding-bottom: 2.5em;
+        box-sizing: border-box;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .mobile-menu.active {
+        background: #23272a !important;
+        color: #eafcfb !important;
+        box-shadow: 0 2px 12px rgba(0,224,198,0.07);
+    }
+    .mobile-nav-link {
+        color: #eafcfb !important;
+        transition: color 0.2s;
+    }
+    .mobile-nav-link:hover {
+        color: #00e0c6 !important;
+        background: rgba(0,224,198,0.08) !important;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .mobile-menu-btn .menu-icon {
+        filter: none !important;
+        background: #00e0c6 !important;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,224,198,0.12);
+    }
+}
+.mobile-menu-btn {
+    min-width: 48px;
+    min-height: 48px;
+    padding: 0;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+@media (max-width: 900px) {
+    .mobile-menu-btn {
+        min-width: 40px;
+        min-height: 40px;
+        border-radius: 10px;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .mobile-menu-btn {
+        background: #23272a !important;
+        box-shadow: 0 2px 8px rgba(0,224,198,0.08);
+    }
+    .mobile-menu-btn .menu-icon {
+        filter: brightness(1.5) invert(0.1);
+    }
+}
+.brand-text {
+    font-size: clamp(1.05rem, 2vw + 0.7rem, 1.45rem);
+    font-weight: 700;
+    color: #174d4d;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+}
+@media (max-width: 900px) {
+    .brand-text {
+        font-size: clamp(0.95rem, 2vw + 0.6rem, 1.15rem);
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .brand-text {
+        color: #eafcfb !important;
+        text-shadow: 0 2px 8px rgba(0,224,198,0.08);
+    }
+}
+@media (prefers-color-scheme: dark) {
+    .navbar, .nav-container {
+        background: #23272a !important;
+        color: #eafcfb !important;
+        box-shadow: 0 2px 12px rgba(0,224,198,0.07);
+    }
+    .nav-link, .mobile-nav-link {
+        color: #eafcfb !important;
+        transition: color 0.2s;
+    }
+    .nav-link:hover, .mobile-nav-link:hover {
+        color: #00e0c6 !important;
+    }
+    .nav-logo, .menu-icon {
+        filter: brightness(1.5) invert(0.1);
+    }
+    #langSwitcher button {
+        background: #23272a !important;
+        color: #eafcfb !important;
+        box-shadow: 0 2px 8px rgba(0,224,198,0.08);
+    }
+}
+/* Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #181c1f;
+        color: #eafcfb;
+    }
+    .container {
+        background: none;
+    }
+    .modern-card, .musikfamilie-card, .timeline-content, .accordion-content {
+        background: #23272a;
+        color: #eafcfb;
+        box-shadow: 0 4px 24px rgba(0,224,198,0.10), 0 1.5px 8px rgba(0,0,0,0.14);
+    }
+    .timeline-date, .accordion-toggle.timeline-date {
+        background: #00e0c6;
+        color: #181c1f;
+        border-radius: 18px;
+    }
+    .btn-primary, .btn-secondary {
+        background: #00e0c6;
+        color: #181c1f;
+        border: none;
+    }
+    .section-title, .modern-card-title, .musikfamilie-title {
+        color: #fff;
+    }
+    .event-info-bar, .event-card-header, .refined-header {
+        background: #23272a;
+        color: #eafcfb;
+    }
+    .highlight {
+        color: #00e0c6;
+    }
+    .navbar, .nav-container {
+        background: #23272a !important;
+        color: #eafcfb !important;
+    }
+    .timeline-section {
+        background: linear-gradient(135deg, #181c1f 0%, #23272a 100%);
+    }
+    #about, #join, #contact.contact {
+        background: linear-gradient(135deg, #181c1f 0%, #23272a 100%);
+    }
+}
+.timeline-content.accordion-content {
+    padding: 18px 24px;
+    font-size: 1.08em;
+    line-height: 1.6;
+    word-break: break-word;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 700px;
+}
+@media (max-width: 900px) {
+    .timeline-content.accordion-content {
+        padding: 14px 12px;
+        font-size: 1em;
+        max-width: 98vw;
+    }
+}
+@media (max-width: 600px) {
+    .timeline-content.accordion-content {
+        padding: 10px 4px;
+        font-size: 0.97em;
+        max-width: 99vw;
+    }
+}
+.accordion-toggle.timeline-date {
+    width: 100%;
+    display: block;
+    text-align: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: var(--primary, #00e0c6);
+    color: #fff;
+    font-weight: 700;
+    border-radius: 18px;
+    padding: 12px 18px;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(0,224,198,0.08);
+    margin-bottom: 8px;
+    transition: background 0.2s;
+}
+.accordion-toggle.timeline-date[aria-expanded="true"] {
+    background: #009e8c;
+}
+.accordion-content {
+    display: none;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,224,198,0.07);
+    padding: 18px 24px;
+    margin-left: 0;
+    margin-bottom: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+@media (min-width: 900px) {
+    .nav-menu {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.8em;
+        flex-wrap: nowrap !important;
+        width: auto !important;
+        margin: 0;
+        padding: 0;
+    }
+    .nav-link {
+        font-size: 1.08em;
+        padding: 0.7em 1.2em;
+        white-space: nowrap;
+        margin: 0;
+        line-height: 1.1;
+        min-width: unset;
+        max-width: unset;
+    }
+}
 @media (min-width: 767px) {
     #join {
         min-height: 320px;
@@ -6,7 +232,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    transition: box-shadow 0.2s, transform 0.2s, opacity 0.7s cubic-bezier(.4,.2,.2,1);
         box-sizing: border-box;
+.modern-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
     }
 }
 .section-join {
@@ -23,11 +254,19 @@
 .event-description,
 .justified-hyphen {
     padding-left: 1.5rem;
+    opacity: 0;
+    transform: translateY(32px);
+    transition: box-shadow 0.2s, transform 0.2s, opacity 0.7s cubic-bezier(.4,.2,.2,1);
     margin-top: 0.2rem;
     margin-bottom: 0.7rem;
     text-align: justify;
     hyphens: auto;
+    transition: box-shadow 0.2s, transform 0.2s, opacity 0.7s cubic-bezier(.4,.2,.2,1);
     -webkit-hyphens: auto;
+.musikfamilie-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
     -ms-hyphens: auto;
     word-break: break-word;
 }
@@ -306,6 +545,8 @@
     min-height: calc(100vh - 108px);
     padding-top: 32px;
     box-sizing: border-box;
+    /* Sehr dezenter Verlauf von Weiß zu Türkis, wenig Mint */
+    background: linear-gradient(135deg, #fff 0%, #eafcfb 50%, #b3f4f7 90%, #00e0c6 100%);
 }
 @media (max-width: 767px) {
     #join {
@@ -644,20 +885,20 @@ img, video {
     letter-spacing: 0.01em;
 }
 
-.musikfamilie-card {
-    background: linear-gradient(135deg, #eafcfb 0%, #d6fbe7 100%);
-    border-radius: 22px;
-    padding: 2em 1.5em 2em 1.5em;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 1em;
-    position: relative;
-    border-top: 0.5em solid #38d6c2;
-    min-height: 120px;
-    height: auto;
-    width: 100%;
+ .musikfamilie-card {
+     background: linear-gradient(135deg, #fff 0%, #eafcfb 70%, #b3f4f7 100%);
+     border-radius: 22px;
+     padding: 2em 1.5em 2em 1.5em;
+     display: flex;
+     flex-direction: column;
+     align-items: stretch;
+     justify-content: flex-start;
+     gap: 1em;
+     position: relative;
+     border-top: 0.5em solid #00e0c6;
+     min-height: 120px;
+     height: auto;
+     width: 100%;
     max-width: 480px;
     margin: 0 auto 1.2em auto;
     box-sizing: border-box;
@@ -2622,16 +2863,22 @@ img.cause-image {
   margin-bottom: 48px;
 }
 .timeline-date {
-  position: absolute;
-  left: -80px;
-  top: 0;
-  background: var(--primary, #00e0c6);
-  color: #fff;
-  font-weight: 700;
-  border-radius: 18px;
-  padding: 8px 18px;
-  font-size: 1.1em;
-  box-shadow: 0 2px 8px rgba(0,224,198,0.08);
+    background: var(--primary, #00e0c6);
+    color: #fff;
+    font-weight: 700;
+    border-radius: 18px;
+    padding: 8px 18px;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(0,224,198,0.08);
+    position: static;
+    display: block;
+    margin-bottom: 8px;
+    width: fit-content;
+    min-width: 70px;
+    max-width: 90vw;
+    word-break: break-word;
+    left: 0;
+    top: 0;
 }
 .timeline-content {
   background: #fff;
