@@ -1,3 +1,21 @@
+// Scroll-Reveal für Cards
+function revealOnScroll(selector) {
+    const elements = document.querySelectorAll(selector);
+    const observer = new window.IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    elements.forEach(el => observer.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    revealOnScroll('.modern-card');
+    revealOnScroll('.musikfamilie-card');
+});
 // Highlight active nav link on scroll
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
@@ -80,6 +98,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
 
     // Hilfsfunktion für Mail-Popup
+    // Accordion für Chronik-Timeline
+    function initAccordion() {
+        // Event Delegation für maximale Zuverlässigkeit
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('accordion-toggle')) {
+                const btn = e.target;
+                const content = btn.parentElement.querySelector('.accordion-content');
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', !expanded);
+                if (expanded) {
+                    content.style.display = 'none';
+                } else {
+                    content.style.display = 'block';
+                }
+            }
+        });
+    }
+    window.addEventListener('DOMContentLoaded', function() {
+        initAccordion();
+    });
 
     // Notification system
     function showNotification(message, type = 'info') {
