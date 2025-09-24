@@ -1,3 +1,128 @@
+// Dynamisch Abstand zwischen Gallery und nächster Section minimieren
+function minimizeGallerySectionGap() {
+    const heroBg = document.querySelector('.hero-bg');
+    // Finde die nächste Section nach .hero-bg
+    let nextSection = heroBg;
+    while (nextSection && nextSection.nextElementSibling && nextSection.nextElementSibling.nodeType !== 1) {
+        nextSection = nextSection.nextElementSibling;
+    }
+    nextSection = nextSection && nextSection.nextElementSibling;
+    if (nextSection) {
+        // Setze einen festen Abstand, z.B. 8vw, damit der Abstand zur Navbar und zur Section gleich ist
+        nextSection.style.marginTop = '8vw';
+    }
+}
+window.addEventListener('resize', minimizeGallerySectionGap);
+window.addEventListener('DOMContentLoaded', minimizeGallerySectionGap);
+// Bild in .hero-bg immer vollständig anzeigen, unabhängig von der Screen-Größe
+window.addEventListener('DOMContentLoaded', function() {
+    const heroBg = document.querySelector('.hero-bg');
+    if (!heroBg) return;
+    const heroImg = heroBg.querySelector('img');
+    if (!heroImg) return;
+
+    function fitHeroImg() {
+        // Setze das Bild so, dass es immer komplett sichtbar ist
+        heroImg.style.width = '';
+        heroImg.style.height = '';
+        heroImg.style.maxWidth = '100%';
+        heroImg.style.maxHeight = '100vh';
+        heroImg.style.objectFit = 'contain';
+        heroImg.style.display = 'block';
+        heroImg.style.margin = '0 auto';
+        // Optional: Passe Höhe an, falls Container kleiner als Bild ist
+        const containerRect = heroBg.getBoundingClientRect();
+        if (heroImg.naturalWidth && heroImg.naturalHeight) {
+            const aspect = heroImg.naturalWidth / heroImg.naturalHeight;
+            let newWidth = containerRect.width;
+            let newHeight = newWidth / aspect;
+            if (newHeight > window.innerHeight) {
+                newHeight = window.innerHeight;
+                newWidth = newHeight * aspect;
+            }
+            heroImg.style.width = newWidth + 'px';
+            heroImg.style.height = newHeight + 'px';
+        }
+    }
+
+    if (heroImg.complete) {
+        fitHeroImg();
+    } else {
+        heroImg.onload = fitHeroImg;
+    }
+    window.addEventListener('resize', fitHeroImg);
+});
+// Hero-BG Gallery/Slideshow
+const heroImages = [
+        'bilder/Gruppenbild.jpg',
+        'bilder/kissingen_symphonic.jpg',
+        'bilder/ukraine.jpg',
+        'bilder/concello.jfif',
+        'bilder/Christmette 2024.jpg'
+];
+let heroIndex = 0;
+const fadeDuration = 7000;
+let fadeToggle = false;
+function setHeroBgCrossfade(idx) {
+    const fadeContainer = document.querySelector('.hero-bg-fade-container');
+    if (!fadeContainer) return;
+    const fadeA = fadeContainer.children[0];
+    const fadeB = fadeContainer.children[1];
+    const current = fadeToggle ? fadeA : fadeB;
+    const next = fadeToggle ? fadeB : fadeA;
+    // Set next image and bring to front
+    next.style.backgroundImage = `url('${heroImages[idx]}')`;
+    next.style.opacity = '0';
+    next.style.transition = `opacity ${fadeDuration/1000}s cubic-bezier(.77,0,.18,1)`;
+    // Individuelle Hintergrundposition für img-3 und img-4
+    // Mobile: andere Positionen
+    if (window.innerWidth <= 600) {
+        next.style.backgroundPosition = 'center 8%';
+        next.style.backgroundSize = '100% center';
+    } else {
+        if (idx === 1) {
+            next.style.backgroundPosition = 'center 50%';
+        } else if (idx === 3) {
+            next.style.backgroundPosition = 'center 70%';
+        }else if (idx === 0) {
+            next.style.backgroundPosition = 'center 30%';
+        }else if (idx === 2){
+            next.style.backgroundPosition = 'center 10%';
+        }else {
+            next.style.backgroundPosition = '';
+        }
+    }
+    // Start fade in
+    setTimeout(() => {
+        next.style.opacity = '1';
+        current.style.opacity = '0';
+        current.style.transition = `opacity ${fadeDuration/1000}s cubic-bezier(.77,0,.18,1)`;
+        // No need to swap classes, just toggle for next round
+        fadeToggle = !fadeToggle;
+    }, 50);
+}
+function nextHeroBgImage() {
+    heroIndex = (heroIndex + 1) % heroImages.length;
+    setHeroBgCrossfade(heroIndex);
+}
+document.addEventListener('DOMContentLoaded', function() {
+    // Init gallery
+    setHeroBgCrossfade(heroIndex);
+    setInterval(nextHeroBgImage, fadeDuration);
+});
+// Dynamisch Hintergrundlayer für about-me-section je nach Screengröße
+function updateAboutMeBackground() {
+    const aboutMeSection = document.querySelector('.about-me-section');
+    if (!aboutMeSection) return;
+    if (window.innerWidth <= 600) {
+        aboutMeSection.style.background = 'none';
+    } else {
+        aboutMeSection.style.background = "url('bilder/Astrid var.jpg') center center/cover no-repeat";
+    }
+}
+
+window.addEventListener('resize', updateAboutMeBackground);
+window.addEventListener('DOMContentLoaded', updateAboutMeBackground);
 // Scroll-Reveal für Cards
 function revealOnScroll(selector) {
     const elements = document.querySelectorAll(selector);
@@ -226,20 +351,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
         // Add/remove background based on scroll position
         if (scrollTop > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.backdropFilter = 'blur(20px)';
+            navbar.style.background = '#000';
+            navbar.style.zindex = '5000';
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.9)';
-            navbar.style.backdropFilter = 'blur(10px)';
+            navbar.style.background = 'transparent';
         }
-
         lastScrollTop = scrollTop;
     });
 
- 
+    function setNavbarStyle(isScrolled) {
+        const navbar = document.querySelector('.navbar');
+        if (!navbar) return;
+        if (isScrolled) {
+            navbar.style.background = '#222';
+            navbar.style.zIndex = '5000';
+        } else {
+            navbar.style.background = 'transparent';
+            navbar.style.zIndex = '5000'; // Optional: keep high z-index always
+        }
+    }
+
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (!navbar) return;
+        if (window.scrollY > 40) {
+            setNavbarStyle(true);
+        } else {
+            setNavbarStyle(false);
+        }
+    });
 
     // Parallax effect for hero shapes
     window.addEventListener('scroll', function() {
@@ -441,9 +583,38 @@ document.addEventListener('DOMContentLoaded', function() {
     // Zeitspanne seit gründung berechnen
     const currentYear = new Date().getFullYear();
     const yearsSince1981 = currentYear - 1981;
-    document.getElementById("yearsPassed").textContent = yearsSince1981;
+    const yearsPassedEl = document.getElementById("yearsPassed");
+    if (yearsPassedEl) {
+        yearsPassedEl.textContent = yearsSince1981;
+    }
 });
 
+const hamburger = document.getElementById('navbarHamburger');
+const mobileMenu = document.getElementById('navbarMobileMenu');
+hamburger && hamburger.addEventListener('click', () => {
+    mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+});
+window.addEventListener('resize', () => {
+    const mobileMenu = document.querySelector('.mobile-menu');
+    if (window.innerWidth > 700 && mobileMenu) mobileMenu.style.display = 'none';
+});
+
+// Dynamische Anpassung des Hintergrundbildes
+function updateHeroBg() {
+    const heroBg = document.querySelector('.hero-bg');
+    if (!heroBg) return;
+    if (window.innerWidth <= 900) {
+        heroBg.style.backgroundSize = '120vw 100vh';
+        heroBg.style.backgroundPosition = '60% 35%';
+        heroBg.style.backgroundRepeat = 'no-repeat';
+    } else {
+        heroBg.style.backgroundSize = 'cover';
+        heroBg.style.backgroundPosition = 'center 35%';
+        heroBg.style.backgroundRepeat = 'no-repeat';
+    }
+}
+window.addEventListener('resize', updateHeroBg);
+window.addEventListener('DOMContentLoaded', updateHeroBg);
 // Sprachumschalter: Zeige nur die passende Sprache
 function setLang(lang) {
     document.querySelectorAll('[data-lang]').forEach(el => {
