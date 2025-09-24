@@ -16,6 +16,26 @@ window.addEventListener('resize', minimizeGallerySectionGap);
 window.addEventListener('DOMContentLoaded', minimizeGallerySectionGap);
 // Bild in .hero-bg immer vollständig anzeigen, unabhängig von der Screen-Größe
 window.addEventListener('DOMContentLoaded', function() {
+    // Charity-Projekt: Christmette 2024 Bild auf mobilen Screens volle Breite und flexible Höhe
+    function fitChristmetteImg() {
+        var christmetteImg = document.querySelector('.christmette-img-tall');
+        if (!christmetteImg) return;
+        if (window.innerWidth <= 600) {
+            christmetteImg.style.width = '100vw';
+            christmetteImg.style.height = 'auto';
+            christmetteImg.style.objectFit = 'cover';
+            christmetteImg.style.display = 'block';
+            christmetteImg.style.margin = '0 auto';
+        } else {
+            christmetteImg.style.width = '';
+            christmetteImg.style.height = '';
+            christmetteImg.style.objectFit = '';
+            christmetteImg.style.display = '';
+            christmetteImg.style.margin = '';
+        }
+    }
+    fitChristmetteImg();
+    window.addEventListener('resize', fitChristmetteImg);
     const heroBg = document.querySelector('.hero-bg');
     if (!heroBg) return;
     const heroImg = heroBg.querySelector('img');
