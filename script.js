@@ -77,8 +77,14 @@ function setHeroBgCrossfade(idx) {
     // Individuelle Hintergrundposition für img-3 und img-4
     // Mobile: andere Positionen
     if (window.innerWidth <= 600) {
-        next.style.backgroundPosition = 'center 8%';
-        next.style.backgroundSize = '100% center';
+        // Mobile: img 3 (idx 2) volle Breite wie img 1
+        if (idx === 2) {
+            next.style.backgroundPosition = 'center 8%';
+            next.style.backgroundSize = '100vw auto';
+        } else {
+            next.style.backgroundPosition = 'center 10%';
+            next.style.backgroundSize = '100vw auto';
+        }
     } else {
         if (idx === 1) {
             next.style.backgroundPosition = 'center 50%';
