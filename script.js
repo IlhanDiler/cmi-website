@@ -673,6 +673,19 @@ function setLang(lang) {
             el.style.display = 'none';
         }
     });
+    // Sprache persistent speichern
+    try {
+        localStorage.setItem('siteLang', lang);
+    } catch (e) {}
     // Optionale Anpassung für Buttons, Banner etc. falls benötigt
 }
 window.setLang = setLang;
+// Beim Laden der Seite: Sprache aus localStorage übernehmen
+window.addEventListener('DOMContentLoaded', function() {
+    try {
+        var lang = localStorage.getItem('siteLang');
+        if (lang && (lang === 'de' || lang === 'en')) {
+            setLang(lang);
+        }
+    } catch (e) {}
+});
