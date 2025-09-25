@@ -5,25 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impressum | CMI Ochsenfurt</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700,900&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background: linear-gradient(180deg,#eafafc 0%,#f7fff7 100%);
+        font-family: 'Inter', Arial, sans-serif;
+        margin: 0;
+        color: #222;
+      }
+      .legal-main {
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 48px 0 48px 0;
+      }
+      .container {
+        max-width: 700px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+      .impressum-title {
+        font-size: 2.5em;
+        font-weight: 900;
+        color: #00796b;
+        margin-bottom: 32px;
+        letter-spacing: -0.01em;
+        text-align: left;
+      }
+      .impressum-card {
+        background: #fff;
+        border-radius: 22px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+        margin-bottom: 32px;
+        padding: 32px 32px 24px 32px;
+        transition: box-shadow 0.2s;
+        border: none;
+        position: relative;
+      }
+      .impressum-card h2 {
+        font-size: 1.35em;
+        font-weight: 700;
+        color: #009688;
+        margin-bottom: 12px;
+        margin-top: 0;
+        letter-spacing: -0.01em;
+      }
+      .impressum-card h3 {
+        font-size: 1.08em;
+        font-weight: 600;
+        color: #19D3C5;
+        margin-bottom: 8px;
+        margin-top: 18px;
+        letter-spacing: -0.01em;
+      }
+      .impressum-card p {
+        font-size: 1.05em;
+        line-height: 1.7;
+        margin: 0 0 16px 0;
+        color: #222;
+      }
+      .impressum-icon {
+        width: 22px;
+        height: 22px;
+        vertical-align: middle;
+        margin-right: 8px;
+        opacity: 0.85;
+      }
+      .impressum-link {
+        color: #009688;
+        text-decoration: underline;
+        font-weight: 600;
+        transition: color 0.2s;
+      }
+      .impressum-link:hover {
+        color: #19D3C5;
+      }
+      @media (max-width: 600px) {
+        .container {
+          padding: 0 2vw;
+        }
+        .impressum-title {
+          font-size: 2em;
+          text-align: center;
+        }
+        .impressum-card {
+          padding: 18px 8vw 16px 8vw;
+        }
+        .impressum-card h2 {
+          font-size: 1.12em;
+        }
+      }
+    </style>
 </head>
 <body>
   <main class="legal-main">
     <div class="container">
-      <h1 style="margin-bottom:32px;">Impressum</h1>
-      <div class="privacy-card squared">
+      <h1 class="impressum-title">Impressum</h1>
+      <div class="impressum-card">
         <h2>Verein</h2>
         <p><strong>CMI - Collegium Musicum Iuvenale Ochsenfurt</strong><br>Hohestadter Steige 24<br>97199 Ochsenfurt</p>
         <h3>Vertreten durch</h3>
         <p>Dr. Astrid Eitschberger, Leiterin und Gründerin</p>
       </div>
-      <div class="privacy-card squared">
+      <div class="impressum-card">
         <h2>Kontakt</h2>
         <p>
-          <img src="bilder/telefon.afif" alt="Telefon" style="width:20px;vertical-align:middle;"> 0179 - 121 447 1<br>
-          <img src="files/icon.mail.svg" alt="E-Mail" style="width:20px;vertical-align:middle;"> E-Mail: <a href="mailto:astrid.eitschberger@cmi-ochsenfurt.de">info@cmi-ochsenfurt.de</a>
+          <img src="bilder/telefon.afif" alt="Telefon" class="impressum-icon"> 0179 - 121 447 1<br>
+          <img src="files/icon.mail.svg" alt="E-Mail" class="impressum-icon"> E-Mail: <a href="mailto:astrid.eitschberger@cmi-ochsenfurt.de" class="impressum-link">info@cmi-ochsenfurt.de</a>
         </p>
       </div>
-      <div class="privacy-card squared">
+      <div class="impressum-card">
         <h2>Rechtliches</h2>
         <h3>Streitschlichtung</h3>
         <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
