@@ -2086,8 +2086,6 @@ article, section, p, .project-card, .chronik-section, .about-me-bio, .about-me-c
 /* Importiere die Inter-Schrift von Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-.navbar {
-}
 @media (max-width: 700px) {
     .navbar {
         background: #000 !important;
@@ -2109,16 +2107,7 @@ article, section, p, .project-card, .chronik-section, .about-me-bio, .about-me-c
         height: calc(100% - 56px) !important;
     }
 }
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    background: transparent;
-    color: #fff;
-    z-index: 5000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    /* Removed blur effect */
-}
+    
 .hero-overlay {
   z-index: 1;
 }
@@ -2520,7 +2509,6 @@ html, body {
 @keyframes menuDropFadeIn {
     0% { opacity: 0; transform: translateY(-40px) scale(0.98); }
     100% { opacity: 1; transform: translateY(0) scale(1); }
-}
 }
 
 .mobile-menu.active {
