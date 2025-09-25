@@ -95,6 +95,256 @@
         <div class="image-caption-card-footer">Gemeinschaft verbindet – Collegium Musicum Iuvenale Ochsenfurt</div>
     </div>
 </section>
+<style>
+@media (max-width: 600px) {
+        .christmette-flex {
+            flex-direction: column !important;
+            align-items: center !important;
+        }
+        .charity-flex-right {
+            width: 92vw !important;
+            max-width: 92vw !important;
+            aspect-ratio: 4/3 !important;
+            background: #fff !important;
+            border-radius: 20px !important;
+            overflow: hidden !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin: 0 auto 0 auto !important;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10) !important;
+        }
+        .christmette-img-tall {
+            width: 100% !important;
+            height: 100% !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            object-fit: contain !important;
+            object-position: center !important;
+            border-radius: 20px !important;
+            display: block !important;
+            margin: 0 !important;
+            background: #fff !important;
+        }
+}
+</style>
+<style>
+@media (max-width: 600px) {
+    .about-me-modern-bio span {
+        font-family: Inter, Arial, sans-serif !important;
+        font-size: 15.5px !important;
+        line-height: 1.6 !important;
+        color: #211A1D !important;
+        background: #f7fff7 !important;
+        border-radius: 10px !important;
+        display: block !important;
+        margin: 0 auto 0 auto !important;
+        box-sizing: border-box !important;
+        padding: 0 2vw !important;
+        word-break: break-word !important;
+        letter-spacing: 0.01em !important;
+    }
+}
+</style>
+<style>
+@media (max-width: 600px) {
+    .musik-bruecken-title {
+        font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
+        font-weight: 800 !important;
+        font-size: 1.45em !important;
+        letter-spacing: -0.01em !important;
+        text-align: center !important;
+        margin-bottom: 0.5em !important;
+    }
+    .musik-bruecken-text {
+        font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
+        font-size: 1.08em !important;
+        line-height: 1.6 !important;
+        letter-spacing: 0.01em !important;
+        text-align: center !important;
+        margin: 0 2vw !important;
+    }
+}
+</style>
+<style>
+/* Responsive Schriftgröße für Repertoire-Section */
+@media (min-width: 1025px) {
+    .musikalisches-repertoire-list,
+    .musikalisches-repertoire-list li {
+        font-size: 16.5px !important;
+        line-height: 1.7 !important;
+    }
+}
+@media (max-width: 1024px) and (min-width: 601px) {
+    .musikalisches-repertoire-list,
+    .musikalisches-repertoire-list li {
+        font-size: 1.08em !important;
+        line-height: 1.6 !important;
+    }
+}
+@media (max-width: 600px) {
+    .musikalisches-repertoire-list,
+    .musikalisches-repertoire-list li {
+        font-size: 1em !important;
+        line-height: 1.5 !important;
+    }
+}
+</style>
+<style>
+/* Einheitlicher Margin für Bilder in Charity Cards */
+.charity-flex-right > .charity-image {
+    margin: 18px 24px 18px 24px !important;
+    box-sizing: border-box !important;
+}
+@media (max-width: 600px) {
+    .charity-flex-right > .charity-image {
+        margin: 12px 0 12px 0 !important;
+    }
+}
+</style>
+<style>
+/* Elegant padding for text in charity project cards */
+.charity-flex-left {
+    padding: 20px 28px 20px 28px;
+    box-sizing: border-box;
+}
+@media (max-width: 600px) {
+    .charity-flex-left {
+        padding: 14px 8vw 14px 8vw !important;
+    }
+}
+</style>
+<style>
+@media (max-width: 600px) {
+    .about-me-modern-bio span {
+        font-size: 1.08em !important;
+        line-height: 1.6 !important;
+        padding: 0 2vw !important;
+        word-break: break-word !important;
+        letter-spacing: 0.01em !important;
+    }
+}
+</style>
+<style>
+/* General responsive and rounded image logic for all charity cards */
+@media (max-width: 600px) {
+    .charity-flex-row {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .charity-flex-right {
+        width: 92vw !important;
+        max-width: 92vw !important;
+        aspect-ratio: 4/3 !important;
+        background: #fff !important;
+        border-radius: 20px !important;
+        overflow: hidden !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 auto 0 auto !important;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.10) !important;
+    }
+    .charity-image {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        object-fit: contain !important;
+        object-position: center !important;
+        border-radius: 20px !important;
+        display: block !important;
+        margin: 0 !important;
+        background: #fff !important;
+    }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+    .charity-flex-row {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .charity-flex-right {
+        width: 60vw !important;
+        max-width: 60vw !important;
+        aspect-ratio: 4/3 !important;
+        background: #fff !important;
+        border-radius: 24px !important;
+        overflow: hidden !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 auto 0 auto !important;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.10) !important;
+    }
+    .charity-image {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        object-fit: contain !important;
+        object-position: center !important;
+        border-radius: 24px !important;
+        display: block !important;
+        margin: 0 !important;
+        background: #fff !important;
+    }
+}
+@media (min-width: 1025px) {
+    .charity-flex-right {
+        border-radius: 24px !important;
+        overflow: hidden !important;
+    }
+    .charity-image {
+        border-radius: 24px !important;
+        background: #fff !important;
+    }
+}
+</style>
+<style>
+@media (min-width: 1025px) {
+    .charity-flex-right {
+        border-radius: 24px !important;
+        overflow: hidden !important;
+    }
+    .christmette-img-tall {
+        border-radius: 24px !important;
+        background: #fff !important;
+    }
+}
+</style>
+<style>
+@media (min-width: 601px) and (max-width: 1024px) {
+    .christmette-flex {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .charity-flex-right {
+        width: 60vw !important;
+        max-width: 60vw !important;
+        aspect-ratio: 4/3 !important;
+        background: #fff !important;
+        border-radius: 24px !important;
+        overflow: hidden !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 auto 0 auto !important;
+      
+    }
+    .christmette-img-tall {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        object-fit: contain !important;
+        object-position: center !important;
+        border-radius: 24px !important;
+        display: block !important;
+        margin: 0 !important;
+        background: #fff !important;
+    }
+}
+</style>
 
 <!-- Neue Section: Musikalisches Repertoire -->
 <section class="musikalisches-repertoire-section">
@@ -236,7 +486,7 @@
         <h1 class="about-me-modern-title">Dr. Astrid Eitschberger</h1>
         <div class="about-me-modern-subtitle">Gründerin Collegium Musicum Iuvenale</div>
         <div class="about-me-modern-bio">
-            <span style="font-size:0.9em;">Astrid Eitschberger, geboren am 21.02.1969, lernte Klavier, Violoncello und später verschiedene Blasinstrumente. Sie verbrachte sieben Jahre ihrer Kindheit in Athen. 1981 gründete sie im Alter von zwölf Jahren das Collegium Musicum Iuvenale Ochsenfurt. 2018 schloss sie die Ausbildung an der Nordbayerischen Bläserakademie als „Dirigentin von Blasorchestern im Laienmusizieren“ mit der staatlichen Anerkennung ab. Während ihrer Studienzeit in Padua schloss Astrid musikalische Freundschaften, die bis heute andauern. Seit 1999 unterrichtet die promovierte Germanistin am Matthias-Grünewald-Gymnasium Würzburg Latein und Deutsch. Sie sieht es als ihre Aufgabe, Menschen über Sprachgrenzen und unterschiedliche Traditionen hinweg einander begegnen zu lassen und verschiedene Stil- und Kunstrichtungen zu verbinden. Das zentrale Motiv für ihre musikalische Arbeit, die über all die Jahre hinweg rein ehrenamtlich erfolgt, liegt darin, anderen durch die Musik Freude zu bereiten und mit Benefizkonzerten die schwächeren Mitglieder unserer Gesellschaft zu unterstützen. 1998 erhielt sie dafür den Kulturpreis der Stadt Ochsenfurt, 2017 bekam sie von der Landtagspräsidentin die Bayerische Verfassungsmedaille in Silber verliehen, und 2024 folgte der Kulturpreis des Landkreises Würzburg.</span>
+            <span style="font-size:16.5px;">Astrid Eitschberger, geboren am 21.02.1969, lernte Klavier, Violoncello und später verschiedene Blasinstrumente. Sie verbrachte sieben Jahre ihrer Kindheit in Athen. 1981 gründete sie im Alter von zwölf Jahren das Collegium Musicum Iuvenale Ochsenfurt. 2018 schloss sie die Ausbildung an der Nordbayerischen Bläserakademie als „Dirigentin von Blasorchestern im Laienmusizieren“ mit der staatlichen Anerkennung ab. Während ihrer Studienzeit in Padua schloss Astrid musikalische Freundschaften, die bis heute andauern. Seit 1999 unterrichtet die promovierte Germanistin am Matthias-Grünewald-Gymnasium Würzburg Latein und Deutsch. Sie sieht es als ihre Aufgabe, Menschen über Sprachgrenzen und unterschiedliche Traditionen hinweg einander begegnen zu lassen und verschiedene Stil- und Kunstrichtungen zu verbinden. Das zentrale Motiv für ihre musikalische Arbeit, die über all die Jahre hinweg rein ehrenamtlich erfolgt, liegt darin, anderen durch die Musik Freude zu bereiten und mit Benefizkonzerten die schwächeren Mitglieder unserer Gesellschaft zu unterstützen. 1998 erhielt sie dafür den Kulturpreis der Stadt Ochsenfurt, 2017 bekam sie von der Landtagspräsidentin die Bayerische Verfassungsmedaille in Silber verliehen, und 2024 folgte der Kulturpreis des Landkreises Würzburg.</span>
         </div>
     </div>
     <div class="about-me-image-modern">
@@ -281,10 +531,10 @@
     <div class="charity-projects-container">
         <div class="charity-flex-row concello-flex">
             <div class="charity-flex-left">
-                <h2 class="charity-title">Charity Project: ConCello Ensemble Course Week 2025</h2>
-                <div class="charity-meta">August 10, 2025, Kapuzinerkloster Ochsenfurt</div>
+                <h2 class="charity-title">Benefizprojekt: ConCello Ensemble Kurswoche 2025</h2>
+                <div class="charity-meta">10. August 2025, Kapuzinerkloster Ochsenfurt</div>
                 <div class="charity-description">
-                    Collegium Musicum Iuvenale Ochsenfurt organized an ensemble course week for cellists and other string players under the title "ConCello." Under the direction of Maestro Andrea Marcolini and Maestro Riccardo Paltanin from Padua, a diverse program ranging from Romanticism to film music was developed. The final concert with French singer Marika Marcuzzi took place on August 10, 2025, in the monastery church in Ochsenfurt. Admission was free, and donations were collected for the renovation of the church.
+                    Das Collegium Musicum Iuvenale Ochsenfurt veranstaltete eine Ensemble-Kurswoche für Cellist:innen und andere Streicher:innen unter dem Titel „ConCello“. Unter der Leitung von Maestro Andrea Marcolini und Maestro Riccardo Paltanin aus Padua wurde ein vielfältiges Programm von der Romantik bis zur Filmmusik erarbeitet. Das Abschlusskonzert mit der französischen Sängerin Marika Marcuzzi fand am 10. August 2025 in der Klosterkirche Ochsenfurt statt. Der Eintritt war frei, um Spenden für die Renovierung der Kirche wurde gebeten.
                 </div>
             </div>
             <img class="charity-image charity-flex-right" src="bilder/concello.jfif" alt="ConCello Ensemble 2025" />
@@ -351,7 +601,7 @@
                         Am 24. Dezember 2024 gestalteten Musikerinnen und Musiker des Collegium Musicum Iuvenale gemeinsam mit dem ukrainischen Vokalensemble die Christmette in der Kirche St. Thekla Ochsenfurt musikalisch aus. Mit festlichen Liedern und Instrumentalstücken wurde die feierliche Atmosphäre des Weihnachtsabends unterstrichen und die Besucher stimmungsvoll auf das Fest eingestimmt.
                     </div>
                 </div>
-                <img class="charity-image charity-flex-right christmette-img-tall" src="bilder/Christmette 2024.jpg" alt="Christmette 2024" style="width:100%;height:auto;max-width:100vw;max-height:60vw;object-fit:contain;object-position:center;background:#fff;display:block;margin:0 auto;" />
+                <img class="charity-image charity-flex-right christmette-img-tall" src="bilder/Christmette 2024.jpg" alt="Christmette 2024" style="width:100%;height:32vw;max-width:100vw;max-height:32vw;object-fit:cover;object-position:center;background:#fff;display:block;margin:0 auto;border-radius:24px;box-shadow:0 4px 24px rgba(0,0,0,0.10);" />
             </div>
         <div class="charity-footer">Christmette 2024</div>
     </div>
