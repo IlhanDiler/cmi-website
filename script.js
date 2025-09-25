@@ -16,6 +16,29 @@ window.addEventListener('resize', minimizeGallerySectionGap);
 window.addEventListener('DOMContentLoaded', minimizeGallerySectionGap);
 // Bild in .hero-bg immer vollständig anzeigen, unabhängig von der Screen-Größe
 window.addEventListener('DOMContentLoaded', function() {
+    // Dynamisch hero-bg-Containerhöhe an Bildhöhe für mobile Screens anpassen
+    function setHeroBgHeightResponsive() {
+        const heroBg = document.querySelector('.hero-bg');
+        if (!heroBg) return;
+        let heroImg = heroBg.querySelector('img');
+        if (window.innerWidth <= 900 && heroImg && heroImg.complete && heroImg.naturalHeight) {
+            // Für mobile und Tablet: Containerhöhe exakt wie Bildhöhe, aber max 100vh
+            let imgRatio = heroImg.naturalWidth / heroImg.naturalHeight;
+            let containerWidth = heroBg.offsetWidth;
+            let newHeight = containerWidth / imgRatio;
+            if (newHeight > window.innerHeight) newHeight = window.innerHeight;
+            heroBg.style.height = newHeight + 'px';
+            heroBg.style.minHeight = '0';
+        } else {
+            // Für größere Screens: Standardhöhe (z.B. 100vh)
+            heroBg.style.height = '';
+            heroBg.style.minHeight = '100vh';
+        }
+    }
+    setHeroBgHeightResponsive();
+    window.addEventListener('resize', setHeroBgHeightResponsive);
+    const heroBgImg = document.querySelector('.hero-bg img');
+    if (heroBgImg) heroBgImg.onload = setHeroBgHeightResponsive;
     // Charity-Projekt: Christmette 2024 Bild auf mobilen Screens volle Breite und flexible Höhe
     function fitChristmetteImg() {
         var christmetteImg = document.querySelector('.christmette-img-tall');
