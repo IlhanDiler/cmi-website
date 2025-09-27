@@ -99,9 +99,18 @@ window.addEventListener('DOMContentLoaded', function() {
 const heroImages = [
         'bilder/Gruppenbild.jpg',
         'bilder/kissingen_symphonic.jpg',
-        'bilder/ukraine.jpg',
+        'bilder/peterbild.jpg',
         'bilder/concello.jfif',
-        'bilder/Christmette 2024.jpg'
+        'bilder/Gruppenbild2.jpg',
+        'bilder/klosterkirche.jpg',
+        'bilder/gaukönigshofen.jpg',
+        'bilder/gruppemitflagge.jpg',
+        'bilder/christuskirche_27_april_2024.jpg',                 
+        'bilder/christuskirche_27_april_2024_2.jpg',  
+        'bilder/christuskirche_27_april_2024_3.jpg',  
+        'bilder/konzert.jpg',
+        'bilder/salboro_santa_maria_assunta_2024.jpg',
+        'bilder/salboro_santa_maria_assunta_2024_2.jpg',
 ];
 let heroIndex = 0;
 const fadeDuration = 7000;
