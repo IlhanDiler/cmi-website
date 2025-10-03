@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -8,9 +10,6 @@
     <!-- Materialize CSS (Material Design) -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-   
-   
-  
 </head>
 <body>
     <div class="hero-bg">
@@ -106,6 +105,216 @@
     </div>
 </section>
 <style>
+/* Modern Event Cards Responsive Design */
+.event-section {
+    padding: 32px 0 32px 0 !important;
+}
+.event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    width: 100%;
+}
+.event-card, .event-card.event-card-poster {
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 4px 24px rgba(25,211,197,0.08);
+    padding: 24px 32px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.event-card-poster-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+.event-card-poster-image img {
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(25,211,197,0.10);
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: 0 auto;
+}
+.event-badge {
+    background: #19D3C5;
+    color: #fff;
+    border-radius: 16px;
+    padding: 12px 0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.15em;
+    margin-bottom: 18px;
+    width: 100%;
+}
+.event-date, .event-time {
+    font-size: 1.08em;
+    font-weight: 600;
+}
+.event-headline {
+    font-size: 1.12em;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    color: #1a5c63;
+}
+.event-location {
+    font-size: 1em;
+    font-weight: 500;
+    margin-bottom: 0.5em;
+    color: #19D3C5;
+}
+.event-description {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #222;
+    margin-bottom: 1em;
+}
+@media (max-width: 700px) {
+    .event-card, .event-card.event-card-poster {
+        max-width: 98vw !important;
+        padding: 18px 6vw !important;
+        border-radius: 18px !important;
+    }
+    .event-card-poster-image img {
+        max-width: 92vw !important;
+        border-radius: 14px !important;
+    }
+    .event-badge {
+        font-size: 1em !important;
+        border-radius: 12px !important;
+        padding: 10px 0 !important;
+    }
+    .event-headline {
+        font-size: 1.08em !important;
+    }
+    .event-location {
+        font-size: 0.98em !important;
+    }
+    .event-description {
+        font-size: 0.98em !important;
+    }
+}
+/* Responsive Timeline Section for Mobile */
+@media (max-width: 700px) {
+    .timeline-vertical-section {
+        padding: 24px 0 24px 0 !important;
+    }
+    .timeline-vertical-container {
+        width: 98vw !important;
+        max-width: 98vw !important;
+        margin: 0 auto !important;
+        padding: 0 2vw !important;
+    }
+    .timeline-vertical-title {
+        font-size: 1.45em !important;
+        text-align: center !important;
+        margin-bottom: 1.2em !important;
+    }
+    .timeline-vertical-list {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 32px !important;
+    }
+    .timeline-vertical-row {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        margin-bottom: 0 !important;
+        min-height: unset !important;
+        position: relative !important;
+        gap: 0 !important;
+    }
+    .timeline-vertical-col.left,
+    .timeline-vertical-col.right {
+        width: 100% !important;
+        max-width: 98vw !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .timeline-vertical-card {
+        background: #f7fff7 !important;
+        border-radius: 18px !important;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.07) !important;
+        padding: 18px 12px !important;
+        margin: 0 0 18px 0 !important;
+        width: 98vw !important;
+        max-width: 98vw !important;
+        font-size: 1em !important;
+    }
+    .timeline-vertical-img img,
+    .timeline-vertical-img iframe {
+        width: 96vw !important;
+        max-width: 96vw !important;
+        height: auto !important;
+        border-radius: 16px !important;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.10) !important;
+        margin: 0 auto 18px auto !important;
+        display: block !important;
+    }
+    .timeline-vertical-year {
+        font-size: 1.15em !important;
+        font-weight: 700 !important;
+        color: #19D3C5 !important;
+        margin-bottom: 0.5em !important;
+        text-align: left !important;
+    }
+    .timeline-vertical-title-item {
+        font-size: 1.08em !important;
+        font-weight: 600 !important;
+        margin-bottom: 0.5em !important;
+        text-align: left !important;
+    }
+    .timeline-vertical-desc {
+        font-size: 1em !important;
+        line-height: 1.6 !important;
+        margin-bottom: 0.5em !important;
+        text-align: left !important;
+    }
+    .timeline-vertical-center {
+        display: none !important;
+    }
+    .timeline-vertical-dot {
+        display: none !important;
+    }
+    .timeline-vertical-line {
+        position: absolute;
+        left: 50%;
+        top: 170px;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 55%;
+        background: linear-gradient(180deg,#19D3C5 0%,#eafafc 100%);
+        border-radius: 2px;
+        z-index: 1;
+        opacity: 0.7;
+        box-shadow: 0 2px 12px rgba(25,211,197,0.08);
+    }
+@media (max-width: 700px) {
+    .timeline-vertical-line {
+        display: block !important;
+        z-index: 0 !important;
+        opacity: 0.5 !important;
+        top: 170px !important;
+        left: 50% !important;
+        width: 4px !important;
+        height: 70% !important;
+        position: absolute !important;
+        transform: translateX(-50%) !important;
+        background: linear-gradient(180deg,#19D3C5 0%,#eafafc 100%) !important;
+        border-radius: 2px !important;
+        box-shadow: 0 2px 12px rgba(25,211,197,0.08) !important;
+    }
+    }
+}
 @media (max-width: 600px) {
         .christmette-flex {
             flex-direction: column !important;
@@ -142,7 +351,7 @@
 /* About-me-bio Bild immer voll in der Card, oben/unten abgerundet, overflow fix */
 .about-me-image-modern {
     width: 100%;
-    max-width: 520px;
+    max-width: 700px;
     margin: 0 auto;
     border-radius: 24px;
     overflow: hidden;
@@ -154,6 +363,7 @@
 }
 .about-me-image-modern img {
     width: 100%;
+    max-width: 700px;
     height: auto;
     border-radius: 0;
     display: block;
@@ -163,13 +373,13 @@
 }
 @media (max-width: 900px) {
     .about-me-image-modern {
-        max-width: 80vw;
+        max-width: 96vw;
         border-radius: 18px;
     }
 }
 @media (max-width: 600px) {
     .about-me-image-modern {
-        max-width: 94vw;
+        max-width: 99vw;
         border-radius: 14px;
         aspect-ratio: 4/3;
         min-height: 62vw;
@@ -182,6 +392,7 @@
         height: 100% !important;
         width: 100% !important;
         object-fit: contain !important;
+        max-width: 99vw !important;
     }
 }
 </style>
@@ -277,6 +488,11 @@
 .charity-flex-right > .charity-image {
     margin: 18px 24px 18px 24px !important;
     box-sizing: border-box !important;
+    width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block !important;
 }
 @media (max-width: 600px) {
     .charity-flex-right > .charity-image {
@@ -328,15 +544,14 @@
         box-shadow: 0 4px 24px rgba(0,0,0,0.10) !important;
     }
     .charity-image {
-        width: 100% !important;
-        height: 100% !important;
+        width: auto !important;
         max-width: 100% !important;
-        max-height: 100% !important;
+        height: auto !important;
         object-fit: contain !important;
         object-position: center !important;
         border-radius: 20px !important;
         display: block !important;
-        margin: 0 !important;
+        margin: 0 auto !important;
         background: #fff !important;
     }
 }
@@ -346,9 +561,9 @@
         align-items: center !important;
     }
     .charity-flex-right {
-        width: 60vw !important;
-        max-width: 60vw !important;
-        aspect-ratio: 4/3 !important;
+        width: auto !important;
+        max-width: 100% !important;
+        aspect-ratio: unset !important;
         background: #fff !important;
         border-radius: 24px !important;
         overflow: hidden !important;
@@ -359,26 +574,33 @@
         box-shadow: 0 4px 24px rgba(0,0,0,0.10) !important;
     }
     .charity-image {
-        width: 100% !important;
-        height: 100% !important;
+        width: auto !important;
         max-width: 100% !important;
-        max-height: 100% !important;
+        height: auto !important;
         object-fit: contain !important;
         object-position: center !important;
         border-radius: 24px !important;
         display: block !important;
-        margin: 0 !important;
+        margin: 0 auto !important;
         background: #fff !important;
     }
 }
 @media (min-width: 1025px) {
     .charity-flex-right {
         border-radius: 24px !important;
-        overflow: hidden !important;
+        overflow: visible !important;
+        width: auto !important;
+        max-width: 100% !important;
     }
     .charity-image {
         border-radius: 24px !important;
         background: #fff !important;
+        width: auto !important;
+        max-width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+        display: block !important;
+        margin: 0 auto !important;
     }
 }
 </style>
@@ -440,7 +662,7 @@
             <ul class="musikalisches-repertoire-list" data-lang="de">
                 <li>Von der Renaissance bis zur Moderne</li>
                 <li>Im großen Orchester sowie in kammermusikalischen Besetzungen</li>
-                <li>Musizieren in bestimmten Instrumentengruppen:<br>Cellonensemble, Blockflötenensemble, Ocarinaensemble, Saxophonensemble, Tiefblechensemble</li>
+                <li>Musizieren in bestimmten Instrumentengruppen:<br>Celloensemble, Blockflötenensemble, Ocarinaensemble, Saxophonensemble, Tiefblechensemble</li>
                 <li>Internationale Folklore, Unterhaltungsmusik und eigene Produktionen</li>
                 <li>Chöre, Blaskapellen und verschiedene Instrumentalgruppen als Kooperationspartner</li>
                 <li>Singen von schwungvollen Kinderliedern mit den Kindern der Anfängergruppe</li>
@@ -473,7 +695,6 @@
         </div>
     </div>
 </section>
-
 <section class="mint-section-dark" id="about">
     <div class="mint-section-dark-flex">
         <div class="musik-bruecken-card">
@@ -482,7 +703,7 @@
             <div class="musik-bruecken-divider"></div>
             <p class="musik-bruecken-text" data-lang="de">
                 Das Collegium Musicum Iuvenale Ochsenfurt bringt seit 44 Jahren Menschen durch die Kraft der Musik zusammen.<br>
-                Wir sind eine Gemeinschaft von Musikliebhabern, die ihre Freude am gemeinsamen Musizieren an das Publikum weitervermitteln und gleichzeitig durch Benefizprojekte sozial engagiert sind. Dabei pflegen wir internationale Freundschaften.
+                Wir sind eine Gemeinschaft von Musikbegeisterten, die ihre Freude am gemeinsamen Musizieren an das Publikum weitervermitteln, gleichzeitig durch Benefizprojekte sozial engagiert sind und durch internationale Freundschaften kulturelle Kontakte pflegen.
             </p>
             <p class="musik-bruecken-text" data-lang="en" style="display:none;">
                 For 44 years, Collegium Musicum Iuvenale Ochsenfurt has been bringing people together through the power of music.<br>
@@ -492,72 +713,180 @@
     </div>
 </section>
 <!-- Neue Material Design Timeline Section -->
-<section class="timeline-section">
-    <div class="timeline-container">
-        <h2 class="timeline-title" data-lang="de">Unsere Geschichte</h2>
-        <h2 class="timeline-title" data-lang="en" style="display:none;">Our History</h2>
-        <div class="timeline-list timeline-has-bar">
-            <div class="timeline-bar"></div>
-            <div class="timeline-item" style="--timeline-index:0;">
-                <div class="timeline-year"><span class="timeline-dot"></span>1981</div>
-                <div class="timeline-content">
-                    <div class="timeline-item-title" data-lang="de">Gründung</div>
-                    <div class="timeline-item-title" data-lang="en" style="display:none;">Foundation</div>
-                    <div class="timeline-item-text" data-lang="de">Im Jahr 1981 wurde unsere Organisation auf Initiative von Astrid Eitschberger und einer Gruppe musikbegeisterter Jugendlicher gegründet.</div>
-                    <div class="timeline-item-text" data-lang="en" style="display:none;">In 1981, our organization was founded on the initiative of Astrid Eitschberger and a group of music-enthusiastic young people.</div>
+
+<!-- Moderne Timeline-Section mit Bild/Text-Kombi -->
+
+<!-- ...existing code... -->
+<section class="timeline-vertical-section" id="timeline">
+    <div class="timeline-vertical-container">
+        <h2 class="timeline-vertical-title" data-lang="de">Unsere Geschichte</h2>
+        <h2 class="timeline-vertical-title" data-lang="en" style="display:none;">Our History</h2>
+        <div class="timeline-vertical-list">
+            <!-- Timeline-Item 1 -->
+            <div class="timeline-vertical-row">
+                <div class="timeline-vertical-col left">
+                    <div class="timeline-vertical-card">
+                        <div class="timeline-vertical-year">1981</div>
+                        <div class="timeline-vertical-title-item" data-lang="de">Gründung</div>
+                        <div class="timeline-vertical-title-item" data-lang="en" style="display:none;">Foundation</div>
+                        <div class="timeline-vertical-desc" data-lang="de">Im Jahr 1981 wurde unsere Organisation auf Initiative von Astrid Eitschberger und einer Gruppe musikbegeisterter Jugendlicher gegründet.</div>
+                        <div class="timeline-vertical-desc" data-lang="en" style="display:none;">In 1981, our organization was founded on the initiative of Astrid Eitschberger and a group of music-enthusiastic young people.</div>
+                    </div>
+                </div>
+                <div class="timeline-vertical-center">
+                    <div class="timeline-vertical-dot"></div>
+                </div>
+                <div class="timeline-vertical-col right">
+                    <div class="timeline-vertical-img">
+                        <img src="bilder/Gruppenbild.jpg" alt="Gründung 1981" class="event-lightbox-img" style="cursor:zoom-in;" />
+                    </div>
                 </div>
             </div>
-            <div class="timeline-item" style="--timeline-index:1;">
-                <div class="timeline-year"><span class="timeline-dot"></span>1985</div>
-                <div class="timeline-content">
-                    <div class="timeline-item-title" data-lang="de">Erste Konzerte</div>
-                    <div class="timeline-item-title" data-lang="en" style="display:none;">First Concerts</div>
-                    <div class="timeline-item-text" data-lang="de">Seit 1985 treten wir unter unserem heutigen Namen bei öffentlichen und privaten Festen sowie Konzerten auf.</div>
-                    <div class="timeline-item-text" data-lang="en" style="display:none;">Since 1985, we have performed under our current name at public and private events as well as concerts.</div>
+        
+            <!-- Timeline-Item 3 -->
+            <div class="timeline-vertical-row">
+                <div class="timeline-vertical-col left">
+                    <div class="timeline-vertical-card">
+                        <div class="timeline-vertical-year">1992</div>
+                        <div class="timeline-vertical-title-item" data-lang="de">Erstes Projekt</div>
+                        <div class="timeline-vertical-title-item" data-lang="en" style="display:none;">First Project</div>
+                        <div class="timeline-vertical-desc" data-lang="de">Wir waren Mitinitiatoren des Projekts „EUROPEAN MUSIC MEETING“ in Padua, Pianiga und Ochsenfurt. Wir organisierten und führten zahlreiche gemeinsame Konzerte mit Orchestern und Chören aus Italien, Frankreich und England durch. Zudem förderten wir den internationalen Austausch durch Konzertreisen ins europäische Ausland und die Beherbergung ausländischer Musikgruppen in Ochsenfurt.</div>
+                        <div class="timeline-vertical-desc" data-lang="en" style="display:none;">We were co-initiators of the "EUROPEAN MUSIC MEETING" project in Padua, Pianiga, and Ochsenfurt. We organized and held numerous joint concerts with orchestras and choirs from Italy, France, and England. We also promoted international exchange through concert tours abroad and by hosting foreign music groups in Ochsenfurt.</div>
+                    </div>
+                </div>
+                <div class="timeline-vertical-center">
+                    <div class="timeline-vertical-dot"></div>
+                </div>
+                <div class="timeline-vertical-col right">
+                    <div class="timeline-vertical-img">
+                        <img src="bilder/concello.jfif" alt="Erstes Projekt 1992" class="event-lightbox-img" style="cursor:zoom-in;" />
+                    </div>
                 </div>
             </div>
-            <div class="timeline-item" style="--timeline-index:2;">
-                <div class="timeline-year"><span class="timeline-dot"></span>1992</div>
-                <div class="timeline-content">
-                    <div class="timeline-item-title" data-lang="de">Erstes Projekt</div>
-                    <div class="timeline-item-title" data-lang="en" style="display:none;">First Project</div>
-                    <div class="timeline-item-text" data-lang="de">Wir waren Mitinitiatoren des Projekts „EUROPEAN MUSIC MEETING“ in Padua, Pianiga und Ochsenfurt. Wir organisierten und führten zahlreiche gemeinsame Konzerte mit Orchestern und Chören aus Italien, Frankreich und England durch. Zudem förderten wir den internationalen Austausch durch Konzertreisen ins europäische Ausland und die Beherbergung ausländischer Musikgruppen in Ochsenfurt.</div>
-                    <div class="timeline-item-text" data-lang="en" style="display:none;">We were co-initiators of the "EUROPEAN MUSIC MEETING" project in Padua, Pianiga, and Ochsenfurt. We organized and held numerous joint concerts with orchestras and choirs from Italy, France, and England. We also promoted international exchange through concert tours abroad and by hosting foreign music groups in Ochsenfurt.</div>
+            <!-- Timeline-Item 4 -->
+            <div class="timeline-vertical-row">
+                <div class="timeline-vertical-col left">
+                    <div class="timeline-vertical-img">
+                        <img src="bilder/kinderarbeit.jpg" alt="Gründung Anfängergruppe 1992" class="event-lightbox-img" style="cursor:zoom-in;" />
+                    </div>
+                </div>
+                <div class="timeline-vertical-center">
+                    <div class="timeline-vertical-dot"></div>
+                </div>
+                <div class="timeline-vertical-col right">
+                    <div class="timeline-vertical-card">
+                        <div class="timeline-vertical-year">1992</div>
+                        <div class="timeline-vertical-title-item" data-lang="de">Gründung einer Anfängergruppe</div>
+                        <div class="timeline-vertical-title-item" data-lang="en" style="display:none;">Foundation of a Beginner Group</div>
+                        <div class="timeline-vertical-desc" data-lang="de">Im selben Jahr gründeten wir eine Anfängergruppe, die jüngeren Mitspielern die Möglichkeit bietet, erste Erfahrungen im Zusammenspiel zu sammeln.</div>
+                        <div class="timeline-vertical-desc" data-lang="en" style="display:none;">In the same year, we founded a beginner group, giving younger players the opportunity to gain their first experience in making music together.</div>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-item" style="--timeline-index:3;">
-                <div class="timeline-year"><span class="timeline-dot"></span>1992</div>
-                <div class="timeline-content">
-                    <div class="timeline-item-title" data-lang="de">Gründung einer Anfängergruppe</div>
-                    <div class="timeline-item-title" data-lang="en" style="display:none;">Foundation of a Beginner Group</div>
-                    <div class="timeline-item-text" data-lang="de">Im selben Jahr gründeten wir eine Anfängergruppe, die jüngeren Mitspielern die Möglichkeit bietet, erste Erfahrungen im Zusammenspiel zu sammeln.</div>
-                    <div class="timeline-item-text" data-lang="en" style="display:none;">In the same year, we founded a beginner group, giving younger players the opportunity to gain their first experience in making music together.</div>
+                <!-- Timeline-Item: 2010 Benefizkonzert -->
+                <div class="timeline-vertical-row">
+                    <div class="timeline-vertical-col left">
+                        <div class="timeline-vertical-card">
+                            <div class="timeline-vertical-year">2010</div>
+                            <div class="timeline-vertical-title-item" data-lang="de">Erstes Benefizkonzert</div>
+                            <div class="timeline-vertical-title-item" data-lang="en" style="display:none;">First Charity Concert</div>
+                            <div class="timeline-vertical-desc" data-lang="de">Seit dem Konzert "Tor für Afrika" engagiert sich das CMI regelmäßig mit Konzertspenden für die Schule Vabatu Ngoma in Kingshasa.</div>
+                            <div class="timeline-vertical-desc" data-lang="en" style="display:none;">Since the concert "Goal for Africa", CMI has regularly supported the Vabatu Ngoma school in Kinshasa with concert donations.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-vertical-center">
+                        <div class="timeline-vertical-dot"></div>
+                    </div>
+                    <div class="timeline-vertical-col right">
+                        <div class="timeline-vertical-img">
+                            <img src="bilder/neujahrskonzert.jpg" alt="Benefizkonzert 2010" class="event-lightbox-img" style="cursor:zoom-in;" />
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <!-- Timeline-Item: 2011 Jubiläum -->
+                <div class="timeline-vertical-row">
+                    <div class="timeline-vertical-col left">
+                        <div class="timeline-vertical-img">
+                            <img src="bilder/kissingen_symphonic.jpg" alt="30-jähriges Jubiläum 2011" class="event-lightbox-img" style="cursor:zoom-in;" />
+                        </div>
+                    </div>
+                    <div class="timeline-vertical-center">
+                        <div class="timeline-vertical-dot"></div>
+                    </div>
+                    <div class="timeline-vertical-col right">
+                        <div class="timeline-vertical-card">
+                            <div class="timeline-vertical-year">2011</div>
+                            <div class="timeline-vertical-title-item" data-lang="de">30-jähriges Jubiläum</div>
+                            <div class="timeline-vertical-title-item" data-lang="en" style="display:none;">30th Anniversary</div>
+                            <div class="timeline-vertical-desc" data-lang="de">Das dreißigjährige Bestehen feierte das Orchester mit einem außergewöhnlichem Konzert im Kaisersaal der Residenz Würzburg.</div>
+                            <div class="timeline-vertical-desc" data-lang="en" style="display:none;">The orchestra celebrated its thirtieth anniversary with an extraordinary concert in the Kaisersaal of the Würzburg Residence.</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Timeline-Item: 2021 Jubiläum -->
+                <div class="timeline-vertical-row">
+                    <div class="timeline-vertical-col left">
+                        <div class="timeline-vertical-card">
+                            <div class="timeline-vertical-year">2021</div>
+                            <div class="timeline-vertical-title-item" data-lang="de">40-jähriges Jubiläum</div>
+                            <div class="timeline-vertical-title-item" data-lang="en" style="display:none;">40th Anniversary</div>
+                            <div class="timeline-vertical-desc" data-lang="de">Da im Lockdown kein reales Konzert stattfinden konnte, machte das CMI aus der Not eine Tugend: In aufwändigen Einzelsitzungen wurden Ton- und Videoaufnahmen erstellt, die Astrid Eitschberger zu einem Gesamtkunstwerk zusammenfügte.</div>
+                            <div class="timeline-vertical-desc" data-lang="en" style="display:none;">As no real concert could take place during the lockdown, CMI turned necessity into virtue: Elaborate individual sessions were held to create audio and video recordings, which Astrid Eitschberger assembled into a complete work of art.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-vertical-center">
+                        <div class="timeline-vertical-dot"></div>
+                    </div>
+                    <div class="timeline-vertical-col right">
+                        <div class="timeline-vertical-img">
+                             <iframe width="340" height="200" src="https://www.youtube.com/embed/n6geYJRmu7Y"
+    title="Öffne dein Herz - Collegium Musicum Iuvenale" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen style="border-radius:18px;box-shadow:0 4px 24px rgba(0,0,0,0.10);"></iframe>
+                        </div>
+                    </div>
+                </div>
+               
         </div>
+        <div class="timeline-vertical-line"></div>
     </div>
 </section>
-
+<!-- ...existing code... -->
 <!-- Event Section: Kommende Konzerte & Events -->
 <section class="event-section" id="events">
+<!-- Lightbox Modal für Event-Bilder -->
+<div id="eventLightboxModal" style="display:none;position:fixed;z-index:99999;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;">
+    <button id="eventLightboxClose" tabindex="0" aria-label="Schließen" style="position:absolute;top:32px;right:48px;background:rgba(0,0,0,0.8);color:#fff;border:none;font-size:2.2em;padding:0 0.3em;line-height:1;border-radius:50%;cursor:pointer;z-index:100001;">&times;</button>
+    <img id="eventLightboxImg" src="" alt="Event Bild" style="max-width:90vw;max-height:90vh;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.25);background:#fff;" />
+</div>
     <h2 class="event-title" data-lang="de">Kommende Konzerte & Events</h2>
     <h2 class="event-title" data-lang="en" style="display:none;">Upcoming Concerts & Events</h2>
     <div class="event-list">
-        <div class="event-card">
-            <div class="event-badge">
-                <div class="event-date">12. Okt 2025</div>
-                <div class="event-time" data-lang="de">16:00 Uhr</div>
-                <div class="event-time" data-lang="en" style="display:none;">4:00 pm</div>
+        <div class="event-card event-card-poster">
+            <div class="event-card-poster-flex">
+                <div class="event-card-poster-text">
+                    <div class="event-badge">
+                        <div class="event-date">12. Okt 2025</div>
+                        <div class="event-time" data-lang="de">16:00 Uhr</div>
+                        <div class="event-time" data-lang="en" style="display:none;">4:00 pm</div>
+                    </div>
+                     <div class="event-content">
+                <div class="event-headline" data-lang="de">Benefizkonzert zum 200. Geburtstag von Johann Strauß</div>
+                <div class="event-headline" data-lang="en" style="display:none;">Benefit Concert for the 200th Birthday of Johann Strauss</div>
+                <div class="event-location" data-lang="de">Festhalle des Hotels „Meintz“ in Ochsenfurt</div>
+                <div class="event-location" data-lang="en" style="display:none;">Festival Hall of Hotel "Meintz" in Ochsenfurt</div>
+                <div class="event-description" data-lang="de">
+                    Fast genau zum Geburtstag des Walzerkönigs am 25.10.1825 gibt die Veeh-Harfengruppe „Querbeet“ unter der Leitung von Sigrid Schäfer 200 Jahre und einen Tag später am Sonntag, den 26.10.2025 um 16.00 Uhr ein internationales Benefiz-Konzert in der Festhalle des Hotels „Meintz“ in Ochsenfurt. Gemeinsam mit Solisten des Collegium Musicum Iuvenale Ochsenfurt (Leitung: Dr. Astrid Eitschberger) und Gästen aus Italien (Chiara Passudetti, Sopran, Silvano Ruffo, Tenor, sowie Mirko Ballico am Klavier und Andrea Vinco an der Gitarre) werden sie ein beschwingtes Programm mit Musik von Johann Strauß, Gioachino Rossini und deren Zeitgenossen zu Gehör bringen. Der Eintritt ist frei, Spenden kommen dem Herzenswunsch-Krankenwagen der Malteser zu Gute.
+                </div>
+                <div class="event-description" data-lang="en" style="display:none;">
+                    Almost exactly on the birthday of the "Waltz King" on 25.10.1825, the Veeh harp group "Querbeet" under the direction of Sigrid Schäfer will give an international benefit concert 200 years and one day later on Sunday, 26.10.2025 at 4:00 pm in the festival hall of Hotel "Meintz" in Ochsenfurt. Together with soloists from Collegium Musicum Iuvenale Ochsenfurt (director: Dr. Astrid Eitschberger) and guests from Italy (Chiara Passudetti, soprano, Silvano Ruffo, tenor, as well as Mirko Ballico on piano and Andrea Vinco on guitar), they will present a lively program with music by Johann Strauss, Gioachino Rossini, and their contemporaries. Admission is free, and donations will benefit the Malteser "Herzenswunsch" ambulance.
+                </div>
+                  <div class="event-card-poster-image">
+                    <img src="bilder/johann_strauss.png" alt="Plakat Konzert Anfängergruppe 2025" class="event-lightbox-img" style="cursor:zoom-in;" />
+                </div>
             </div>
-            <div class="event-content">
-                <div class="event-headline" data-lang="de">Konzert der Anfängergruppe und Solisten des „CMI"</div>
-                <div class="event-headline" data-lang="en" style="display:none;">Concert of the Beginner Group and Soloists of "CMI"</div>
-                <div class="event-location" data-lang="de">Kirche des ehemaligen Kapuzinerklosters beim Altenheim Sankt Franziskus, Uffenheimer Straße 16a</div>
-                <div class="event-location" data-lang="en" style="display:none;">Church of the former Capuchin Monastery at the St. Franziskus retirement home, Uffenheimer Straße 16a</div>
-                <div class="event-description" data-lang="de"></div>
-                <div class="event-description" data-lang="en" style="display:none;"></div>
-            </div>
-        </div>
+              
+        
         <div class="event-card">
             <div class="event-badge">
                 <div class="event-date">25. Okt 2025</div>
@@ -593,6 +922,9 @@
                 </div>
                 <div class="event-description" data-lang="en" style="display:none;">
                     Almost exactly on the birthday of the "Waltz King" on 25.10.1825, the Veeh harp group "Querbeet" under the direction of Sigrid Schäfer will give an international benefit concert 200 years and one day later on Sunday, 26.10.2025 at 4:00 pm in the festival hall of Hotel "Meintz" in Ochsenfurt. Together with soloists from Collegium Musicum Iuvenale Ochsenfurt (director: Dr. Astrid Eitschberger) and guests from Italy (Chiara Passudetti, soprano, Silvano Ruffo, tenor, as well as Mirko Ballico on piano and Andrea Vinco on guitar), they will present a lively program with music by Johann Strauss, Gioachino Rossini, and their contemporaries. Admission is free, and donations will benefit the Malteser "Herzenswunsch" ambulance.
+                </div>
+                  <div class="event-card-poster-image">
+                    <img src="bilder/johann_strauss.png" alt="Plakat Konzert Anfängergruppe 2025" class="event-lightbox-img" style="cursor:zoom-in;" />
                 </div>
             </div>
         </div>
@@ -645,54 +977,10 @@
                     On May 10, 2025, an international benefit concert took place in the new Festival Hall Meintz together with the Veeh harp group "Querbeet" (director: Sigrid Schäfer), Filarmonica Bibbienese "Sereni" (director: Marcello Biagini) from the Italian partner city Bibiena, vocal ensemble "FAINO" (director: Viktoria Hromova), children of the 2nd grades of the Ochsenfurt elementary school (director: Renate Glauth), André Miabala and students of ethnomusicology at the University of Würzburg, and Collegium Musicum Iuvenale "CMI" (director: Dr. Astrid Eitschberger). The collected donations benefited Doctors Without Borders, who used them to purchase playground equipment for the summer season to the delight of the children.
                 </div>
             </div>
-            <img class="charity-image charity-flex-right" src="bilder/Gruppenbild2.jpg" alt="Internationales Benefizkonzert 2025 Gruppenbild" style="width:100%;height:auto;max-width:100vw;object-fit:cover;display:block;" />
+            <img class="charity-image charity-flex-right" src="bilder/Gruppenbild2.jpg" alt="Internationales Benefizkonzert 2025 Gruppenbild" />
         </div>
         <div class="charity-footer" data-lang="de">Internationales Benefizkonzert 2025</div>
         <div class="charity-footer" data-lang="en" style="display:none;">International Benefit Concert 2025</div>
-    </div>
-</section>
-<!-- Dritte Charity Card: Musik an der Furt 2025 -->
-<section class="charity-projects-section" id="causes">
-    <div class="charity-projects-container">
-        <div class="charity-flex-row">
-            <div class="charity-flex-left">
-                <h2 class="charity-title" data-lang="de">Teilnahme an der Konzertreihe „Musik an der Furt“</h2>
-                <h2 class="charity-title" data-lang="en" style="display:none;">Participation in the concert series "Musik an der Furt"</h2>
-                <div class="charity-meta" data-lang="de">7. Juli 2025 · Altstadt Ochsenfurt</div>
-                <div class="charity-meta" data-lang="en" style="display:none;">July 7, 2025 · Old Town Ochsenfurt</div>
-                <div class="charity-description" data-lang="de">
-                    Die Konzertreihe „Musik an der Furt“ findet jedes Jahr von Ende April bis Anfang August in der idyllischen Altstadt von Ochsenfurt statt. Jeden Samstag von 14 bis 15 Uhr sorgen verschiedene Gruppen aus der Region für musikalische Unterhaltung, darunter auch das „CMI“ (Leitung: Dr. Astrid Eitschberger), das am Samstag, den 7. Juni 2025 zusammen mit der Blaskapelle Giebelstadt-Sulzdorf (Leitung: Robert Schmitt) und dem ukrainischen Vokalensemble „FAINO“ (Leitung: Viktoria Hromova) mitgewirkt hat. Mit der Spendenbox während der Darbietungen wurde das Hilfsprojekt von Oxana Ruban unterstützt, die als Ärztin in der Ukraine an der Front arbeitet und versucht, verletzten Soldaten eine Überlebenschance zu ermöglichen. Gleichzeitig boten Helferinnen ukrainische Spezialitäten an, um für die Charity foundation „Headquarters Heart“ Mittel beitragen zu können. Diese musikalisch-kulinarische Kombination hat sich seit 2024 bewährt und machte auch das Konzert an der Furt zu einem vollen Erfolg.
-                </div>
-                <div class="charity-description" data-lang="en" style="display:none;">
-                    The concert series "Musik an der Furt" takes place every year from the end of April to the beginning of August in the idyllic old town of Ochsenfurt. Every Saturday from 2 to 3 pm, various groups from the region provide musical entertainment, including "CMI" (director: Dr. Astrid Eitschberger), which performed on Saturday, June 7, 2025, together with the brass band Giebelstadt-Sulzdorf (director: Robert Schmitt) and the Ukrainian vocal ensemble "FAINO" (director: Viktoria Hromova). During the performances, donations were collected for the aid project of Oxana Ruban, who works as a doctor at the front in Ukraine and tries to give wounded soldiers a chance of survival. At the same time, helpers offered Ukrainian specialties to contribute to the charity foundation "Headquarters Heart." This musical and culinary combination has proven itself since 2024 and also made the concert at the Furt a complete success.
-                </div>
-            </div>
-            <img class="charity-image charity-flex-right" src="bilder/furt.jpg" alt="Musik an der Furt 2025" />
-        </div>
-        <div class="charity-footer" data-lang="de">Musik an der Furt 2025</div>
-        <div class="charity-footer" data-lang="en" style="display:none;">Musik an der Furt 2025</div>
-    </div>
-</section>
-<!-- Charity Projects Section (Material Design Beispiel) -->
-<section class="charity-projects-section">
-    <div class="charity-projects-container">
-        <div class="charity-flex-row concello-flex">
-            <div class="charity-flex-left">
-                <h2 class="charity-title" data-lang="de">Benefizprojekt: ConCello Ensemble Kurswoche 2025</h2>
-                <h2 class="charity-title" data-lang="en" style="display:none;">Charity Project: ConCello Ensemble Course Week 2025</h2>
-                <div class="charity-meta" data-lang="de">10. August 2025, Kapuzinerkloster Ochsenfurt</div>
-                <div class="charity-meta" data-lang="en" style="display:none;">August 10, 2025, Capuchin Monastery Ochsenfurt</div>
-                <div class="charity-description" data-lang="de">
-                    Das Collegium Musicum Iuvenale Ochsenfurt veranstaltete eine Ensemble-Kurswoche für Cellist:innen und andere Streicher:innen unter dem Titel „ConCello“. Unter der Leitung von Maestro Andrea Marcolini und Maestro Riccardo Paltanin aus Padua wurde ein vielfältiges Programm von der Romantik bis zur Filmmusik erarbeitet. Das Abschlusskonzert mit der französischen Sängerin Marika Marcuzzi fand am 10. August 2025 in der Klosterkirche Ochsenfurt statt. Der Eintritt war frei, um Spenden für die Renovierung der Kirche wurde gebeten.
-                </div>
-                <div class="charity-description" data-lang="en" style="display:none;">
-                    Collegium Musicum Iuvenale Ochsenfurt organized an ensemble course week for cellists and other string players under the title "ConCello." Under the direction of Maestro Andrea Marcolini and Maestro Riccardo Paltanin from Padua, a varied program from Romanticism to film music was developed. The final concert with the French singer Marika Marcuzzi took place on August 10, 2025, in the monastery church of Ochsenfurt. Admission was free, and donations were requested for the renovation of the church.
-                </div>
-            </div>
-            <img class="charity-image charity-flex-right" src="bilder/concello.jfif" alt="ConCello Ensemble 2025" />
-        </div>
-        <div class="charity-footer" data-lang="de">ConCello Ensemble 2025</div>
-        <div class="charity-footer" data-lang="en" style="display:none;">ConCello Ensemble 2025</div>
     </div>
 </section>
 <!-- Charity Card: 80 Jahre Kriegsende – 80 Jahre Frieden -->
@@ -777,7 +1065,7 @@
                     On December 24, 2024, musicians from Collegium Musicum Iuvenale together with the Ukrainian vocal ensemble provided the musical arrangement for the Christmas Mass in the church of St. Thekla Ochsenfurt. With festive songs and instrumental pieces, the festive atmosphere of Christmas Eve was emphasized and the visitors were put in the mood for the celebration.
                 </div>
             </div>
-            <img class="charity-image charity-flex-right christmette-img-tall" src="bilder/Christmette 2024.jpg" alt="Christmette 2024" style="width:100%;height:32vw;max-width:100vw;max-height:32vw;object-fit:cover;object-position:center;background:#fff;display:block;margin:0 auto;border-radius:24px;box-shadow:0 4px 24px rgba(0,0,0,0.10);" />
+            <img class="charity-image charity-flex-right christmette-img-tall" src="bilder/Christmette 2024.jpg" alt="Christmette 2024" />
         </div>
         <div class="charity-footer" data-lang="de">Christmette 2024</div>
         <div class="charity-footer" data-lang="en" style="display:none;">Christmas Mass 2024</div>
