@@ -1,3 +1,37 @@
+// Lightbox für Event-Bilder
+document.addEventListener('DOMContentLoaded', function() {
+    const lightboxModal = document.getElementById('eventLightboxModal');
+    const lightboxImg = document.getElementById('eventLightboxImg');
+    const lightboxCloseBtn = document.getElementById('eventLightboxClose');
+    document.querySelectorAll('.event-lightbox-img').forEach(img => {
+        img.addEventListener('click', function() {
+            if (lightboxImg && lightboxModal) {
+                lightboxImg.src = this.src;
+                lightboxModal.style.display = 'flex';
+            }
+        });
+    });
+    if (lightboxCloseBtn && lightboxModal && lightboxImg) {
+        lightboxCloseBtn.addEventListener('click', function(e) {
+            lightboxModal.style.display = 'none';
+            lightboxImg.src = '';
+        });
+    }
+    if (lightboxModal) {
+        lightboxModal.addEventListener('click', function(e) {
+            if (e.target === lightboxModal || e.target === lightboxImg) {
+                lightboxModal.style.display = 'none';
+                lightboxImg.src = '';
+            }
+        });
+    }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightboxModal && lightboxModal.style.display === 'flex') {
+            lightboxModal.style.display = 'none';
+            lightboxImg.src = '';
+        }
+    });
+});
 // Dynamisch Abstand zwischen Gallery und nächster Section minimieren
 function minimizeGallerySectionGap() {
     const heroBg = document.querySelector('.hero-bg');
@@ -99,9 +133,18 @@ window.addEventListener('DOMContentLoaded', function() {
 const heroImages = [
         'bilder/Gruppenbild.jpg',
         'bilder/kissingen_symphonic.jpg',
-        'bilder/ukraine.jpg',
+        'bilder/peterbild.jpg',
         'bilder/concello.jfif',
-        'bilder/Christmette 2024.jpg'
+        'bilder/Gruppenbild2.jpg',
+        'bilder/klosterkirche.jpg',
+        'bilder/gaukönigshofen.jpg',
+        'bilder/gruppemitflagge.jpg',
+        'bilder/christuskirche_27_april_2024.jpg',                 
+        'bilder/christuskirche_27_april_2024_2.jpg',  
+        'bilder/christuskirche_27_april_2024_3.jpg',  
+        'bilder/konzert.jpg',
+        'bilder/salboro_santa_maria_assunta_2024.jpg',
+        'bilder/salboro_santa_maria_assunta_2024_2.jpg',
 ];
 let heroIndex = 0;
 const fadeDuration = 7000;
@@ -129,15 +172,25 @@ function setHeroBgCrossfade(idx) {
             next.style.backgroundSize = '100vw auto';
         }
     } else {
-        if (idx === 1) {
+        // Desktop: Christuskirche-Bilder weiter oben anzeigen
+        if (
+            heroImages[idx].includes('bilder/klosterkirche.jpg') ||
+            heroImages[idx].includes('salboro_santa_maria_assunta_2024.jpg') ||
+            heroImages[idx].includes('salboro_santa_maria_assunta_2024_2.jpg') ||
+            heroImages[idx].includes('christuskirche_27_april_2024.jpg') ||
+            heroImages[idx].includes('christuskirche_27_april_2024_2.jpg') ||
+            heroImages[idx].includes('christuskirche_27_april_2024_3.jpg')
+        ) {
+            next.style.backgroundPosition = 'center 45%';
+        } else if (idx === 1) {
             next.style.backgroundPosition = 'center 50%';
         } else if (idx === 3) {
             next.style.backgroundPosition = 'center 70%';
-        }else if (idx === 0) {
+        } else if (idx === 0) {
             next.style.backgroundPosition = 'center 30%';
-        }else if (idx === 2){
+        } else if (idx === 2) {
             next.style.backgroundPosition = 'center 10%';
-        }else {
+        } else {
             next.style.backgroundPosition = '';
         }
     }
