@@ -52,28 +52,43 @@
                         <path d="M1080,0L1200,600L1080,600L960,0" stroke="#cf142b" stroke-width="30"/>
                     </svg>
                 </button>
+                <button onclick="setLang('it')" id="langIt" style="padding:6px 14px;font-weight:600;border-radius:8px;border:none;background:rgba(255,255,255,0.85);color:#222;box-shadow:0 2px 8px rgba(0,0,0,0.08);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s,box-shadow 0.2s;">
+                    <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right:4px;">
+                        <rect width="7" height="14" x="0" y="0" fill="#008C45"/>
+                        <rect width="7" height="14" x="7" y="0" fill="#F4F5F0"/>
+                        <rect width="7" height="14" x="14" y="0" fill="#CD212A"/>
+                    </svg>
+                </button>
             </div>
             <!-- Desktop Navigation bleibt unverändert -->
             <div class="nav-menu">
                 <a href="#about" class="nav-link" data-lang="de">Über uns</a>
                 <a href="#about" class="nav-link" data-lang="en" style="display:none;">About us</a>
+                <a href="#about" class="nav-link" data-lang="it" style="display:none;">Chi siamo</a>
                 <a href="#causes" class="nav-link" data-lang="de">Benefizprojekte</a>
                 <a href="#causes" class="nav-link" data-lang="en" style="display:none;">Charity Projects</a>
+                <a href="#causes" class="nav-link" data-lang="it" style="display:none;">Progetti di beneficenza</a>
                 <a href="#events" class="nav-link" data-lang="de">Termine</a>
                 <a href="#events" class="nav-link" data-lang="en" style="display:none;">Events</a>
+                <a href="#events" class="nav-link" data-lang="it" style="display:none;">Eventi</a>
                 <a href="#contact" class="nav-link" data-lang="de">Kontakt</a>
                 <a href="#contact" class="nav-link" data-lang="en" style="display:none;">Contact</a>
+                <a href="#contact" class="nav-link" data-lang="it" style="display:none;">Contatto</a>
             </div>
             <!-- Mobile Navigation -->
             <div class="mobile-menu">
                 <a href="#about" class="mobile-nav-link" data-lang="de">Über uns</a>
                 <a href="#about" class="mobile-nav-link" data-lang="en" style="display:none;">About us</a>
+                <a href="#about" class="mobile-nav-link" data-lang="it" style="display:none;">Chi siamo</a>
                 <a href="#causes" class="mobile-nav-link" data-lang="de">Benefizprojekte</a>
                 <a href="#causes" class="mobile-nav-link" data-lang="en" style="display:none;">Charity Projects</a>
+                <a href="#causes" class="mobile-nav-link" data-lang="it" style="display:none;">Progetti di beneficenza</a>
                 <a href="#events" class="mobile-nav-link" data-lang="de">Termine</a>
                 <a href="#events" class="mobile-nav-link" data-lang="en" style="display:none;">Events</a>
+                <a href="#events" class="mobile-nav-link" data-lang="it" style="display:none;">Eventi</a>
                 <a href="#contact" class="mobile-nav-link" data-lang="de">Kontakt</a>
                 <a href="#contact" class="mobile-nav-link" data-lang="en" style="display:none;">Contact</a>
+                <a href="#contact" class="mobile-nav-link" data-lang="it" style="display:none;">Contatto</a>
             </div>
         </nav>
       </nav>
@@ -89,8 +104,10 @@
     <div class="image-caption-card" style="position:relative;">
         <h1 class="image-caption-card-h1" data-lang="de">Collegium Musicum Iuvenale – Gemeinschaft in Musik</h1>
         <h1 class="image-caption-card-h1" data-lang="en" style="display:none;">Collegium Musicum Iuvenale – Community in Music</h1>
+        <h1 class="image-caption-card-h1" data-lang="it" style="display:none;">Collegium Musicum Iuvenale – Comunità nella musica</h1>
         <div class="image-caption-card-lead" data-lang="de">Einen Eindruck vom musikalischen Jubiläum bekommst du direkt hier:</div>
-        <div class="image-caption-card-lead" data-lang="en" style="display:none;">Get an impression of the musical anniversary right here:</div>
+        <div class="image-caption-card-lead" data-lang="en" style="display:none;">Get a glimpse of our musical anniversary right here:</div>
+        <div class="image-caption-card-lead" data-lang="it" style="display:none;">Scopri subito un'impressione del nostro anniversario musicale:</div>
         <a href="https://www.youtube.com/watch?v=n6geYJRmu7Y" target="_blank" rel="noopener noreferrer" style="display:inline-block;position:relative;">
             <img class="image-caption-card-img" src="bilder/oeffne_dein_herz.jpg" alt="CMI Gruppenbild">
             <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.55);border-radius:50%;padding:18px 22px;display:flex;align-items:center;justify-content:center;">
@@ -102,6 +119,7 @@
         </a>
         <div class="image-caption-card-footer" data-lang="de">Gemeinschaft verbindet – Collegium Musicum Iuvenale Ochsenfurt</div>
         <div class="image-caption-card-footer" data-lang="en" style="display:none;">Community connects – Collegium Musicum Iuvenale Ochsenfurt</div>
+        <div class="image-caption-card-footer" data-lang="it" style="display:none;">La comunità unisce – Collegium Musicum Iuvenale Ochsenfurt</div>
     </div>
 </section>
 <style>
@@ -348,22 +366,10 @@
 }
 </style>
 <style>
-/* About-me-bio Bild immer voll in der Card, oben/unten abgerundet, overflow fix */
-.about-me-image-modern {
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    border-radius: 24px;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 .about-me-image-modern img {
     width: 100%;
-    max-width: 700px;
+    max-width: 1800px;
     height: auto;
     border-radius: 0;
     display: block;
@@ -397,17 +403,7 @@
 }
 </style>
 <style>
-/* About-me-bio Bild full responsive und modern */
-.about-me-image-modern img {
-    width: 100%;
-    max-width: 520px;
-    height: auto;
-    border-radius: 24px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-    display: block;
-    margin: 0 auto;
-    background: #fff;
-}
+
 @media (max-width: 900px) {
     .about-me-image-modern img {
         max-width: 80vw;
@@ -476,6 +472,10 @@
     }
 }
 @media (max-width: 600px) {
+    .about-me-modern-bio span {
+        font-size: 16.5px;
+        line-height: 1.6;
+    }
     .musikalisches-repertoire-list,
     .musikalisches-repertoire-list li {
         font-size: 1em !important;
@@ -505,10 +505,17 @@
 .charity-flex-left {
     padding: 20px 28px 20px 28px;
     box-sizing: border-box;
+    font-size: 1.15em;
 }
 @media (max-width: 600px) {
     .charity-flex-left {
+        font-size: 1.08em !important;
+    }
+    .charity-flex-left {
         padding: 14px 8vw 14px 8vw !important;
+    .charity-flex-left {
+        font-size: 1em !important;
+    }
     }
 }
 </style>
@@ -657,6 +664,7 @@
             <div class="musikalisches-repertoire-card-header">
                 <h2 class="musikalisches-repertoire-title" data-lang="de">Musikalisches Repertoire</h2>
                 <h2 class="musikalisches-repertoire-title" data-lang="en" style="display:none;">Musical Repertoire</h2>
+                <h2 class="musikalisches-repertoire-title" data-lang="it" style="display:none;">Repertorio Musicale</h2>
                 <div class="musikalisches-repertoire-divider"></div>
             </div>
             <ul class="musikalisches-repertoire-list" data-lang="de">
@@ -669,18 +677,27 @@
                 <li>Singen von schwungvollen Kinderliedern mit den Kindern der Anfängergruppe</li>
             </ul>
             <ul class="musikalisches-repertoire-list" data-lang="en" style="display:none;">
-                <li>From the Renaissance to Modern Times</li>
-                <li>In large orchestras as well as chamber music ensembles</li>
-                <li>Playing in specific instrument groups:<br>Cello ensemble, recorder ensemble, ocarina ensemble, saxophone ensemble, low brass ensemble</li>
-                <li>International folklore, popular music, and original productions</li>
-                <li>Choirs, brass bands, and various instrumental groups as cooperation partners</li>
-                <li>Singing lively children's songs with the children of the beginner group</li>
+                <li>From the Renaissance to the Modern Era</li>
+                <li>Performing in large orchestras and chamber ensembles</li>
+                <li>Playing in dedicated instrument groups:<br>Cello ensemble, recorder ensemble, ocarina ensemble, saxophone ensemble, low brass ensemble</li>
+                <li>International folklore, popular music, and original compositions</li>
+                <li>Choirs, brass bands, and various instrumental groups as partners</li>
+                <li>Singing lively children's songs with the beginner group</li>
+            </ul>
+            <ul class="musikalisches-repertoire-list" data-lang="it" style="display:none;">
+                <li>Dalla Rinascenza all’epoca moderna</li>
+                <li>In grandi orchestre e in formazioni da camera</li>
+                <li>Suonare in gruppi strumentali dedicati:<br>Ensemble di violoncelli, ensemble di flauti dolci, ensemble di ocarine, ensemble di sassofoni, ensemble di ottoni gravi</li>
+                <li>Folklore internazionale, musica popolare e produzioni originali</li>
+                <li>Cori, bande e vari gruppi strumentali come partner</li>
+                <li>Cantare vivaci canzoni per bambini con il gruppo principianti</li>
             </ul>
         </div>
         <div class="musikalisches-repertoire-card">
             <div class="musikalisches-repertoire-card-header">
                 <h2 class="musikalisches-repertoire-title" data-lang="de">Soziales Engagement</h2>
                 <h2 class="musikalisches-repertoire-title" data-lang="en" style="display:none;">Social Commitment</h2>
+                <h2 class="musikalisches-repertoire-title" data-lang="it" style="display:none;">Impegno Sociale</h2>
                 <div class="musikalisches-repertoire-divider"></div>
             </div>
             <ul class="musikalisches-repertoire-list" data-lang="de">
@@ -689,9 +706,14 @@
                 <li>Unterstützung verschiedener Hilfsprojekte in der Ukraine</li>
             </ul>
             <ul class="musikalisches-repertoire-list" data-lang="en" style="display:none;">
-                <li>Benefit concerts in support of social institutions such as Lebenshilfe, Caritas, hospital chaplaincy, kindergartens, Doctors Without Borders, and the Malteser "Herzenswunsch" ambulance</li>
+                <li>Benefit concerts for social institutions such as Lebenshilfe, Caritas, hospital chaplaincy, kindergartens, Doctors Without Borders, and the Malteser "Herzenswunsch" ambulance</li>
                 <li>Support for school projects in Kinshasa/Congo and Kathmandu/Nepal</li>
                 <li>Support for various aid projects in Ukraine</li>
+            </ul>
+            <ul class="musikalisches-repertoire-list" data-lang="it" style="display:none;">
+                <li>Concerti di beneficenza a favore di istituzioni sociali come Lebenshilfe, Caritas, cappellania ospedaliera, asili, Medici Senza Frontiere e l’ambulanza "Herzenswunsch" dei Malteser</li>
+                <li>Sostegno a progetti scolastici a Kinshasa/Congo e Kathmandu/Nepal</li>
+                <li>Sostegno a vari progetti di aiuto in Ucraina</li>
             </ul>
         </div>
     </div>
@@ -701,6 +723,7 @@
         <div class="musik-bruecken-card">
             <h1 class="musik-bruecken-title" data-lang="de">Musik baut Brücken</h1>
             <h1 class="musik-bruecken-title" data-lang="en" style="display:none;">Music Builds Bridges</h1>
+            <h1 class="musik-bruecken-title" data-lang="it" style="display:none;">La musica crea ponti</h1>
             <div class="musik-bruecken-divider"></div>
             <p class="musik-bruecken-text" data-lang="de">
                 Das Collegium Musicum Iuvenale Ochsenfurt bringt seit 44 Jahren Menschen durch die Kraft der Musik zusammen.<br>
@@ -709,7 +732,11 @@
             </p>
             <p class="musik-bruecken-text" data-lang="en" style="display:none;">
                 For 44 years, Collegium Musicum Iuvenale Ochsenfurt has been bringing people together through the power of music.<br>
-                We are a community of music lovers who share our joy of making music with the audience and are socially committed through charity projects. At the same time, we foster international friendships.
+                We are a community of passionate musicians who share our joy of making music with the audience, engage in charity projects, and cultivate international friendships through cultural exchange.
+            </p>
+            <p class="musik-bruecken-text" data-lang="it" style="display:none;">
+                Da 44 anni il Collegium Musicum Iuvenale Ochsenfurt unisce le persone attraverso la forza della musica.<br>
+                Siamo una comunità di appassionati di musica che trasmette la gioia del fare musica insieme al pubblico, si impegna in progetti benefici e coltiva amicizie internazionali attraverso lo scambio culturale.
             </p>
         </div>
     </div>
@@ -721,8 +748,9 @@
 <!-- ...existing code... -->
 <section class="timeline-vertical-section" id="timeline">
     <div class="timeline-vertical-container">
-        <h2 class="timeline-vertical-title" data-lang="de">Unsere Geschichte</h2>
-        <h2 class="timeline-vertical-title" data-lang="en" style="display:none;">Our History</h2>
+    <h2 class="timeline-vertical-title" data-lang="de">Unsere Geschichte</h2>
+    <h2 class="timeline-vertical-title" data-lang="en" style="display:none;">Our History</h2>
+    <h2 class="timeline-vertical-title" data-lang="it" style="display:none;">La nostra storia</h2>
         <div class="timeline-vertical-list">
             <!-- Timeline-Item 1 -->
             <div class="timeline-vertical-row">
@@ -731,8 +759,10 @@
                         <div class="timeline-vertical-year">1981</div>
                         <div class="timeline-vertical-title-item" data-lang="de">Gründung</div>
                         <div class="timeline-vertical-title-item" data-lang="en" style="display:none;">Foundation</div>
+                        <div class="timeline-vertical-title-item" data-lang="it" style="display:none;">Fondazione</div>
                         <div class="timeline-vertical-desc" data-lang="de">Im Jahr 1981 wurde unsere Organisation auf Initiative von Astrid Eitschberger und einer Gruppe musikbegeisterter Jugendlicher gegründet.</div>
                         <div class="timeline-vertical-desc" data-lang="en" style="display:none;">In 1981, our organization was founded on the initiative of Astrid Eitschberger and a group of music-enthusiastic young people.</div>
+                        <div class="timeline-vertical-desc" data-lang="it" style="display:none;">Nel 1981 la nostra organizzazione è stata fondata su iniziativa di Astrid Eitschberger e di un gruppo di giovani appassionati di musica.</div>
                     </div>
                 </div>
                 <div class="timeline-vertical-center">
@@ -752,8 +782,10 @@
                         <div class="timeline-vertical-year">1992</div>
                         <div class="timeline-vertical-title-item" data-lang="de">Erstes Projekt</div>
                         <div class="timeline-vertical-title-item" data-lang="en" style="display:none;">First Project</div>
+                        <div class="timeline-vertical-title-item" data-lang="it" style="display:none;">Primo progetto</div>
                         <div class="timeline-vertical-desc" data-lang="de">Wir waren Mitinitiatoren des Projekts „EUROPEAN MUSIC MEETING“ in Padua, Pianiga und Ochsenfurt. Wir organisierten und führten zahlreiche gemeinsame Konzerte mit Orchestern und Chören aus Italien, Frankreich und England durch. Zudem förderten wir den internationalen Austausch durch Konzertreisen ins europäische Ausland und die Beherbergung ausländischer Musikgruppen in Ochsenfurt.</div>
                         <div class="timeline-vertical-desc" data-lang="en" style="display:none;">We were co-initiators of the "EUROPEAN MUSIC MEETING" project in Padua, Pianiga, and Ochsenfurt. We organized and held numerous joint concerts with orchestras and choirs from Italy, France, and England. We also promoted international exchange through concert tours abroad and by hosting foreign music groups in Ochsenfurt.</div>
+                        <div class="timeline-vertical-desc" data-lang="it" style="display:none;">Siamo stati co-ideatori del progetto "EUROPEAN MUSIC MEETING" a Padova, Pianiga e Ochsenfurt. Abbiamo organizzato e realizzato numerosi concerti con orchestre e cori provenienti da Italia, Francia e Inghilterra. Abbiamo inoltre promosso lo scambio internazionale attraverso tournée all'estero e l'ospitalità di gruppi musicali stranieri a Ochsenfurt.</div>
                     </div>
                 </div>
                 <div class="timeline-vertical-center">
@@ -780,8 +812,10 @@
                         <div class="timeline-vertical-year">1992</div>
                         <div class="timeline-vertical-title-item" data-lang="de">Gründung einer Anfängergruppe</div>
                         <div class="timeline-vertical-title-item" data-lang="en" style="display:none;">Foundation of a Beginner Group</div>
+                        <div class="timeline-vertical-title-item" data-lang="it" style="display:none;">Fondazione di un gruppo principianti</div>
                         <div class="timeline-vertical-desc" data-lang="de">Im selben Jahr gründeten wir eine Anfängergruppe, die jüngeren Mitspielern die Möglichkeit bietet, erste Erfahrungen im Zusammenspiel zu sammeln.</div>
                         <div class="timeline-vertical-desc" data-lang="en" style="display:none;">In the same year, we founded a beginner group, giving younger players the opportunity to gain their first experience in making music together.</div>
+                        <div class="timeline-vertical-desc" data-lang="it" style="display:none;">Nello stesso anno abbiamo fondato un gruppo principianti, offrendo ai più giovani la possibilità di fare le prime esperienze di musica d’insieme.</div>
                     </div>
                 </div>
             </div>
@@ -792,8 +826,10 @@
                             <div class="timeline-vertical-year">2010</div>
                             <div class="timeline-vertical-title-item" data-lang="de">Erstes Benefizkonzert</div>
                             <div class="timeline-vertical-title-item" data-lang="en" style="display:none;">First Charity Concert</div>
+                            <div class="timeline-vertical-title-item" data-lang="it" style="display:none;">Primo concerto di beneficenza</div>
                             <div class="timeline-vertical-desc" data-lang="de">Seit dem Konzert "Tor für Afrika" engagiert sich das CMI regelmäßig mit Konzertspenden für die Schule Vabatu Ngoma in Kingshasa.</div>
                             <div class="timeline-vertical-desc" data-lang="en" style="display:none;">Since the concert "Goal for Africa", CMI has regularly supported the Vabatu Ngoma school in Kinshasa with concert donations.</div>
+                            <div class="timeline-vertical-desc" data-lang="it" style="display:none;">Dal concerto "Goal for Africa" il CMI sostiene regolarmente la scuola Vabatu Ngoma a Kinshasa con donazioni provenienti dai concerti.</div>
                         </div>
                     </div>
                     <div class="timeline-vertical-center">
@@ -820,8 +856,10 @@
                             <div class="timeline-vertical-year">2011</div>
                             <div class="timeline-vertical-title-item" data-lang="de">30-jähriges Jubiläum</div>
                             <div class="timeline-vertical-title-item" data-lang="en" style="display:none;">30th Anniversary</div>
+                            <div class="timeline-vertical-title-item" data-lang="it" style="display:none;">30° anniversario</div>
                             <div class="timeline-vertical-desc" data-lang="de">Das dreißigjährige Bestehen feierte das Orchester mit einem außergewöhnlichem Konzert im Kaisersaal der Residenz Würzburg.</div>
                             <div class="timeline-vertical-desc" data-lang="en" style="display:none;">The orchestra celebrated its thirtieth anniversary with an extraordinary concert in the Kaisersaal of the Würzburg Residence.</div>
+                            <div class="timeline-vertical-desc" data-lang="it" style="display:none;">Il trentesimo anniversario è stato celebrato dall’orchestra con un concerto straordinario nella Kaisersaal della Residenz di Würzburg.</div>
                         </div>
                     </div>
                 </div>
@@ -832,8 +870,10 @@
                             <div class="timeline-vertical-year">2021</div>
                             <div class="timeline-vertical-title-item" data-lang="de">40-jähriges Jubiläum</div>
                             <div class="timeline-vertical-title-item" data-lang="en" style="display:none;">40th Anniversary</div>
+                            <div class="timeline-vertical-title-item" data-lang="it" style="display:none;">40° anniversario</div>
                             <div class="timeline-vertical-desc" data-lang="de">Da im Lockdown kein reales Konzert stattfinden konnte, machte das CMI aus der Not eine Tugend: In aufwändigen Einzelsitzungen wurden Ton- und Videoaufnahmen erstellt, die Astrid Eitschberger zu einem Gesamtkunstwerk zusammenfügte.</div>
                             <div class="timeline-vertical-desc" data-lang="en" style="display:none;">As no real concert could take place during the lockdown, CMI turned necessity into virtue: Elaborate individual sessions were held to create audio and video recordings, which Astrid Eitschberger assembled into a complete work of art.</div>
+                            <div class="timeline-vertical-desc" data-lang="it" style="display:none;">Poiché durante il lockdown non è stato possibile tenere concerti dal vivo, il CMI ha trasformato la necessità in virtù: sono state realizzate registrazioni audio e video in sessioni individuali, che Astrid Eitschberger ha assemblato in un’opera d’arte completa.</div>
                         </div>
                     </div>
                     <div class="timeline-vertical-center">
@@ -863,6 +903,7 @@
 </div>
     <h2 class="event-title" data-lang="de">Kommende Konzerte & Events</h2>
     <h2 class="event-title" data-lang="en" style="display:none;">Upcoming Concerts & Events</h2>
+    <h2 class="event-title" data-lang="it" style="display:none;">Concerti ed eventi in programma</h2>
     <div class="event-list">
         <div class="event-card event-card-poster">
             <div class="event-card-poster-flex">
@@ -871,17 +912,23 @@
                         <div class="event-date">12. Okt 2025</div>
                         <div class="event-time" data-lang="de">16:00 Uhr</div>
                         <div class="event-time" data-lang="en" style="display:none;">4:00 pm</div>
+                        <div class="event-time" data-lang="it" style="display:none;">16:00</div>
                     </div>
                      <div class="event-content">
                 <div class="event-headline" data-lang="de">Benefizkonzert zum 200. Geburtstag von Johann Strauß</div>
                 <div class="event-headline" data-lang="en" style="display:none;">Benefit Concert for the 200th Birthday of Johann Strauss</div>
+                <div class="event-headline" data-lang="it" style="display:none;">Concerto di beneficenza per il 200° compleanno di Johann Strauss</div>
                 <div class="event-location" data-lang="de">Festhalle des Hotels „Meintz“ in Ochsenfurt</div>
                 <div class="event-location" data-lang="en" style="display:none;">Festival Hall of Hotel "Meintz" in Ochsenfurt</div>
+                <div class="event-location" data-lang="it" style="display:none;">Sala delle feste dell'Hotel "Meintz" a Ochsenfurt</div>
                 <div class="event-description" data-lang="de">
-                    Fast genau zum Geburtstag des Walzerkönigs am 25.10.1825 gibt die Veeh-Harfengruppe „Querbeet“ unter der Leitung von Sigrid Schäfer 200 Jahre und einen Tag später am Sonntag, den 26.10.2025 um 16.00 Uhr ein internationales Benefiz-Konzert in der Festhalle des Hotels „Meintz“ in Ochsenfurt. Gemeinsam mit Solisten des Collegium Musicum Iuvenale Ochsenfurt (Leitung: Dr. Astrid Eitschberger) und Gästen aus Italien (Chiara Passudetti, Sopran, Silvano Ruffo, Tenor, sowie Mirko Ballico am Klavier und Andrea Vinco an der Gitarre) werden sie ein beschwingtes Programm mit Musik von Johann Strauß, Gioachino Rossini und deren Zeitgenossen zu Gehör bringen. Der Eintritt ist frei, Spenden kommen dem Herzenswunsch-Krankenwagen der Malteser zu Gute.
+                    Fast genau zum Geburtstag des Walzerkönigs am 25.10.1825 gibt die Veeh-Harfengruppe „Querbeet“ unter der Leitung von Sigrid Schäfer 200 Jahre und einen Tag später am Sonntag, den 26.10.2025 um 16.00 Uhr ein internationales Benefiz-Konzert in der Festhalle des Hotels „Meintz“ in Ochsenfurt. Gemeinsam mit Solisten des Collegium Musicum Iuvenale Ochsenfurt (Leitung: Dr. Astrid Eitschberger) und Gästen aus Italien (Chiara Passudetti, Sopran, Silvano Ruffo, Tenor, sowie Mirko Ballico am Klavier und Andrea Vinco an der Gitarra) werden sie ein beschwingtes Programm mit Musik von Johann Strauß, Gioachino Rossini und deren Zeitgenossen zu Gehör bringen. Der Eintritt ist frei, Spenden kommen dem Herzenswunsch-Krankenwagen der Malteser zu Gute.
                 </div>
                 <div class="event-description" data-lang="en" style="display:none;">
                     Almost exactly on the birthday of the "Waltz King" on 25.10.1825, the Veeh harp group "Querbeet" under the direction of Sigrid Schäfer will give an international benefit concert 200 years and one day later on Sunday, 26.10.2025 at 4:00 pm in the festival hall of Hotel "Meintz" in Ochsenfurt. Together with soloists from Collegium Musicum Iuvenale Ochsenfurt (director: Dr. Astrid Eitschberger) and guests from Italy (Chiara Passudetti, soprano, Silvano Ruffo, tenor, as well as Mirko Ballico on piano and Andrea Vinco on guitar), they will present a lively program with music by Johann Strauss, Gioachino Rossini, and their contemporaries. Admission is free, and donations will benefit the Malteser "Herzenswunsch" ambulance.
+                </div>
+                <div class="event-description" data-lang="it" style="display:none;">
+                    Quasi esattamente nel giorno del compleanno del "Re del Valzer" il 25.10.1825, il gruppo di arpe Veeh "Querbeet" sotto la direzione di Sigrid Schäfer terrà un concerto internazionale di beneficenza 200 anni e un giorno dopo, domenica 26.10.2025 alle ore 16:00 nella sala delle feste dell'Hotel "Meintz" a Ochsenfurt. Insieme ai solisti del Collegium Musicum Iuvenale Ochsenfurt (direzione: Dr. Astrid Eitschberger) e agli ospiti dall'Italia (Chiara Passudetti, soprano, Silvano Ruffo, tenore, Mirko Ballico al pianoforte e Andrea Vinco alla chitarra), presenteranno un programma vivace con musiche di Johann Strauss, Gioachino Rossini e dei loro contemporanei. L'ingresso è gratuito, le donazioni saranno destinate all'ambulanza "Herzenswunsch" dei Malteser.
                 </div>
                   <div class="event-card-poster-image">
                     <img src="bilder/johann_strauss.png" alt="Plakat Konzert Anfängergruppe 2025" class="event-lightbox-img" style="cursor:zoom-in;" />
@@ -894,17 +941,23 @@
                 <div class="event-date">25. Okt 2025</div>
                 <div class="event-time" data-lang="de">18:00 Uhr</div>
                 <div class="event-time" data-lang="en" style="display:none;">6:00 pm</div>
+                <div class="event-time" data-lang="it" style="display:none;">18:00</div>
             </div>
             <div class="event-content">
                 <div class="event-headline" data-lang="de">Benefizkonzert zum 200. Geburtstag von Johann Strauß</div>
                 <div class="event-headline" data-lang="en" style="display:none;">Benefit Concert for the 200th Birthday of Johann Strauss</div>
+                <div class="event-headline" data-lang="it" style="display:none;">Concerto di beneficenza per il 200° compleanno di Johann Strauss</div>
                 <div class="event-location" data-lang="de">Rathaus Marktbreit</div>
                 <div class="event-location" data-lang="en" style="display:none;">Town Hall Marktbreit</div>
+                <div class="event-location" data-lang="it" style="display:none;">Municipio di Marktbreit</div>
                 <div class="event-description" data-lang="de">
                     Genau zum Geburtstag des Walzerkönigs am 25.10.1825 gibt die Veeh-Harfengruppe „Querbeet“ unter der Leitung von Sigrid Schäfer 200 Jahre später am Samstag, den 25.10.2025 um 18.00 Uhr ein internationales Benefiz-Konzert in der Rathausdiele Marktbreit. Gemeinsam mit Solisten des Collegium Musicum Iuvenale Ochsenfurt (Leitung: Dr. Astrid Eitschberger) und Gästen aus Italien (Chiara Passudetti, Sopran, Silvano Ruffo, Tenor, sowie Mirko Ballico am Klavier und Andrea Vinco an der Gitarre) werden sie ein beschwingtes Programm mit Musik von Johann Strauß, Gioachino Rossini und deren Zeitgenossen zu Gehör bringen. Die Veranstaltung findet in Zusammenarbeit mit dem Partnerschaftskomitee Marktbreit statt. Der Eintritt ist frei, am Spenden kommen dem Partnerschaftskomitee zur Unterstützung von Marktbreiter Mittelschülern bei ihrer Frankreichfahrt 2026 zu Gute.
                 </div>
                 <div class="event-description" data-lang="en" style="display:none;">
                     Exactly on the birthday of the "Waltz King" on 25.10.1825, the Veeh harp group "Querbeet" under the direction of Sigrid Schäfer will give an international benefit concert 200 years later on Saturday, 25.10.2025 at 6:00 pm in the town hall of Marktbreit. Together with soloists from Collegium Musicum Iuvenale Ochsenfurt (director: Dr. Astrid Eitschberger) and guests from Italy (Chiara Passudetti, soprano, Silvano Ruffo, tenor, as well as Mirko Ballico on piano and Andrea Vinco on guitar), they will present a lively program with music by Johann Strauss, Gioachino Rossini, and their contemporaries. The event is organized in cooperation with the Marktbreit partnership committee. Admission is free, and donations will benefit the partnership committee to support Marktbreit secondary school students on their trip to France in 2026.
+                </div>
+                <div class="event-description" data-lang="it" style="display:none;">
+                    Proprio nel giorno del compleanno del "Re del Valzer" il 25.10.1825, il gruppo di arpe Veeh "Querbeet" sotto la direzione di Sigrid Schäfer terrà un concerto internazionale di beneficenza 200 anni dopo, sabato 25.10.2025 alle ore 18:00 nella sala del municipio di Marktbreit. Insieme ai solisti del Collegium Musicum Iuvenale Ochsenfurt (direzione: Dr. Astrid Eitschberger) e agli ospiti dall'Italia (Chiara Passudetti, soprano, Silvano Ruffo, tenore, Mirko Ballico al pianoforte e Andrea Vinco alla chitarra), presenteranno un programma vivace con musiche di Johann Strauss, Gioachino Rossini e dei loro contemporanei. L'evento è organizzato in collaborazione con il comitato di partenariato di Marktbreit. L'ingresso è gratuito, le donazioni saranno destinate al comitato di partenariato per sostenere gli studenti della scuola secondaria di Marktbreit nel loro viaggio in Francia nel 2026.
                 </div>
             </div>
         </div>
@@ -913,17 +966,23 @@
                 <div class="event-date">26. Okt 2025</div>
                 <div class="event-time" data-lang="de">16:00 Uhr</div>
                 <div class="event-time" data-lang="en" style="display:none;">4:00 pm</div>
+                <div class="event-time" data-lang="it" style="display:none;">16:00</div>
             </div>
             <div class="event-content">
                 <div class="event-headline" data-lang="de">Benefizkonzert zum 200. Geburtstag von Johann Strauß</div>
                 <div class="event-headline" data-lang="en" style="display:none;">Benefit Concert for the 200th Birthday of Johann Strauss</div>
+                <div class="event-headline" data-lang="it" style="display:none;">Concerto di beneficenza per il 200° compleanno di Johann Strauss</div>
                 <div class="event-location" data-lang="de">Festhalle des Hotels „Meintz“ in Ochsenfurt</div>
                 <div class="event-location" data-lang="en" style="display:none;">Festival Hall of Hotel "Meintz" in Ochsenfurt</div>
+                <div class="event-location" data-lang="it" style="display:none;">Sala delle feste dell'Hotel "Meintz" a Ochsenfurt</div>
                 <div class="event-description" data-lang="de">
                     Fast genau zum Geburtstag des Walzerkönigs am 25.10.1825 gibt die Veeh-Harfengruppe „Querbeet“ unter der Leitung von Sigrid Schäfer 200 Jahre und einen Tag später am Sonntag, den 26.10.2025 um 16.00 Uhr ein internationales Benefiz-Konzert in der Festhalle des Hotels „Meintz“ in Ochsenfurt. Gemeinsam mit Solisten des Collegium Musicum Iuvenale Ochsenfurt (Leitung: Dr. Astrid Eitschberger) und Gästen aus Italien (Chiara Passudetti, Sopran, Silvano Ruffo, Tenor, sowie Mirko Ballico am Klavier und Andrea Vinco an der Gitarre) werden sie ein beschwingtes Programm mit Musik von Johann Strauß, Gioachino Rossini und deren Zeitgenossen zu Gehör bringen. Der Eintritt ist frei, Spenden kommen dem Herzenswunsch-Krankenwagen der Malteser zu Gute.
                 </div>
                 <div class="event-description" data-lang="en" style="display:none;">
                     Almost exactly on the birthday of the "Waltz King" on 25.10.1825, the Veeh harp group "Querbeet" under the direction of Sigrid Schäfer will give an international benefit concert 200 years and one day later on Sunday, 26.10.2025 at 4:00 pm in the festival hall of Hotel "Meintz" in Ochsenfurt. Together with soloists from Collegium Musicum Iuvenale Ochsenfurt (director: Dr. Astrid Eitschberger) and guests from Italy (Chiara Passudetti, soprano, Silvano Ruffo, tenor, as well as Mirko Ballico on piano and Andrea Vinco on guitar), they will present a lively program with music by Johann Strauss, Gioachino Rossini, and their contemporaries. Admission is free, and donations will benefit the Malteser "Herzenswunsch" ambulance.
+                </div>
+                <div class="event-description" data-lang="it" style="display:none;">
+                    Quasi esattamente nel giorno del compleanno del "Re del Valzer" il 25.10.1825, il gruppo di arpe Veeh "Querbeet" sotto la direzione di Sigrid Schäfer terrà un concerto internazionale di beneficenza 200 anni e un giorno dopo, domenica 26.10.2025 alle ore 16:00 nella sala delle feste dell'Hotel "Meintz" a Ochsenfurt. Insieme ai solisti del Collegium Musicum Iuvenale Ochsenfurt (direzione: Dr. Astrid Eitschberger) e agli ospiti dall'Italia (Chiara Passudetti, soprano, Silvano Ruffo, tenore, Mirko Ballico al pianoforte e Andrea Vinco alla chitarra), presenteranno un programma vivace con musiche di Johann Strauss, Gioachino Rossini e dei loro contemporanei. L'ingresso è gratuito, le donazioni saranno destinate all'ambulanza "Herzenswunsch" dei Malteser.
                 </div>
                   <div class="event-card-poster-image">
                     <img src="bilder/johann_strauss.png" alt="Plakat Konzert Anfängergruppe 2025" class="event-lightbox-img" style="cursor:zoom-in;" />
@@ -935,14 +994,18 @@
                 <div class="event-date">20. Dez 2025</div>
                 <div class="event-time" data-lang="de">18:00 Uhr</div>
                 <div class="event-time" data-lang="en" style="display:none;">6:00 pm</div>
+                <div class="event-time" data-lang="it" style="display:none;">18:00</div>
             </div>
             <div class="event-content">
                 <div class="event-headline" data-lang="de">Großes Weihnachtskonzert</div>
                 <div class="event-headline" data-lang="en" style="display:none;">Grand Christmas Concert</div>
+                <div class="event-headline" data-lang="it" style="display:none;">Grande Concerto di Natale</div>
                 <div class="event-location" data-lang="de">Planet Erde</div>
                 <div class="event-location" data-lang="en" style="display:none;">Planet Earth</div>
+                <div class="event-location" data-lang="it" style="display:none;">Pianeta Terra</div>
                 <div class="event-description" data-lang="de">SING MIT!</div>
                 <div class="event-description" data-lang="en" style="display:none;">SING ALONG!</div>
+                <div class="event-description" data-lang="it" style="display:none;">CANTA CON NOI!</div>
             </div>
         </div>
     </div>
@@ -951,11 +1014,14 @@
     <div class="about-me-text-modern">
         <h1 class="about-me-modern-title" data-lang="de">Dr. Astrid Eitschberger</h1>
         <h1 class="about-me-modern-title" data-lang="en" style="display:none;">Dr. Astrid Eitschberger</h1>
+        <h1 class="about-me-modern-title" data-lang="it" style="display:none;">Dr. Astrid Eitschberger</h1>
         <div class="about-me-modern-subtitle" data-lang="de">Gründerin Collegium Musicum Iuvenale</div>
         <div class="about-me-modern-subtitle" data-lang="en" style="display:none;">Founder of Collegium Musicum Iuvenale</div>
+        <div class="about-me-modern-subtitle" data-lang="it" style="display:none;">Fondatrice del Collegium Musicum Iuvenale</div>
         <div class="about-me-modern-bio">
             <span style="font-size:16.5px;" data-lang="de">Astrid Eitschberger, geboren am 21.02.1969, lernte Klavier, Violoncello und später verschiedene Blasinstrumente. Sie verbrachte sieben Jahre ihrer Kindheit in Athen. 1981 gründete sie im Alter von zwölf Jahren das Collegium Musicum Iuvenale Ochsenfurt. 2018 schloss sie die Ausbildung an der Nordbayerischen Bläserakademie als „Dirigentin von Blasorchestern im Laienmusizieren“ mit der staatlichen Anerkennung ab. Während ihrer Studienzeit in Padua schloss Astrid musikalische Freundschaften, die bis heute andauern. Seit 1999 unterrichtet die promovierte Germanistin am Matthias-Grünewald-Gymnasium Würzburg Latein und Deutsch. Sie sieht es als ihre Aufgabe, Menschen über Sprachgrenzen und unterschiedliche Traditionen hinweg einander begegnen zu lassen und verschiedene Stil- und Kunstrichtungen zu verbinden. Das zentrale Motiv für ihre musikalische Arbeit, die über all die Jahre hinweg rein ehrenamtlich erfolgt, liegt darin, anderen durch die Musik Freude zu bereiten und mit Benefizkonzerten die schwächeren Mitglieder unserer Gesellschaft zu unterstützen. 1998 erhielt sie dafür den Kulturpreis der Stadt Ochsenfurt, 2017 bekam sie von der Landtagspräsidentin die Bayerische Verfassungsmedaille in Silber verliehen, und 2024 folgte der Kulturpreis des Landkreises Würzburg.</span>
             <span style="font-size:16.5px;display:none;" data-lang="en">Astrid Eitschberger, born on 21.02.1969, learned piano, cello, and later various wind instruments. She spent seven years of her childhood in Athens. In 1981, at the age of twelve, she founded Collegium Musicum Iuvenale Ochsenfurt. In 2018, she completed her training at the Nordbayerische Bläserakademie as a "conductor of wind orchestras in amateur music" with state recognition. During her studies in Padua, Astrid formed musical friendships that continue to this day. Since 1999, the PhD Germanist has been teaching Latin and German at the Matthias-Grünewald-Gymnasium in Würzburg. She sees it as her mission to bring people together across language barriers and different traditions and to connect various styles and art forms. The central motivation for her musical work, which has always been purely voluntary over the years, is to bring joy to others through music and to support the weaker members of our society with benefit concerts. In 1998, she received the Culture Prize of the City of Ochsenfurt, in 2017 the Bavarian Constitution Medal in Silver from the President of the State Parliament, and in 2024 the Culture Prize of the Würzburg district.</span>
+            <span style="font-size:16.5px;display:none;" data-lang="it">Astrid Eitschberger, nata il 21.02.1969, ha imparato a suonare il pianoforte, il violoncello e successivamente vari strumenti a fiato. Ha trascorso sette anni della sua infanzia ad Atene. Nel 1981, all'età di dodici anni, ha fondato il Collegium Musicum Iuvenale Ochsenfurt. Nel 2018 ha completato la formazione presso la Nordbayerische Bläserakademie come "direttrice di orchestre di fiati nella musica amatoriale" con riconoscimento statale. Durante gli studi a Padova, Astrid ha stretto amicizie musicali che durano ancora oggi. Dal 1999 la germanista con dottorato insegna latino e tedesco al Matthias-Grünewald-Gymnasium di Würzburg. Considera sua missione far incontrare le persone oltre le barriere linguistiche e le diverse tradizioni, collegando vari stili e forme d'arte. La motivazione centrale per il suo lavoro musicale, che negli anni è sempre stato svolto in modo completamente volontario, è quella di portare gioia agli altri attraverso la musica e sostenere i membri più deboli della società con concerti di beneficenza. Nel 1998 ha ricevuto il Premio Cultura della città di Ochsenfurt, nel 2017 la Medaglia della Costituzione Bavarese in argento dalla Presidente del Parlamento regionale e nel 2024 il Premio Cultura del distretto di Würzburg.</span>
         </div>
     </div>
     <div class="about-me-image-modern">
@@ -970,19 +1036,25 @@
             <div class="charity-flex-left">
                 <h2 class="charity-title" data-lang="de">Internationales Benefizkonzert</h2>
                 <h2 class="charity-title" data-lang="en" style="display:none;">International Benefit Concert</h2>
+                <h2 class="charity-title" data-lang="it" style="display:none;">Concerto internazionale di beneficenza</h2>
                 <div class="charity-meta" data-lang="de">10. Mai 2025 · Festhalle des Hotels Meintz in Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;">May 10, 2025 · Festival Hall of Hotel Meintz in Ochsenfurt</div>
+                <div class="charity-meta" data-lang="it" style="display:none;">10 maggio 2025 · Sala delle feste dell'Hotel Meintz a Ochsenfurt</div>
                 <div class="charity-description" data-lang="de">
                     Am 10. Mai 2025 fand in der Neuen Festhalle Meintz ein internationales Benefizkonzert gemeinsam mit der Veeh-Harfen-Gruppe „Querbeet“ (Leitung: Sigrid Schäfer), Filarmonica Bibbienese „Sereni“ (Leitung: Marcello Biagini) aus der italienischen Partnerstadt Bibiena, Vokalensemble „FAINO“ (Leitung: Viktoria Hromova), Kinder der 2. Klassen der Grundschule Ochsenfurt (Leitung: Renate Glauth), André Miabala und Studierende der Ethnomusikologie an der Universität Würzburg und dem Collegium Musicum Iuvenale „CMI" (Leitung Dr. Astrid Eitschberger) statt. Die gesammelten Spenden kamen der Organisation Ärzte ohne Grenzen zugute, der damit zur Freude der Kinder Spielgerät für die Sommersaison kaufte.
                 </div>
                 <div class="charity-description" data-lang="en" style="display:none;">
                     On May 10, 2025, an international benefit concert took place in the new Festival Hall Meintz together with the Veeh harp group "Querbeet" (director: Sigrid Schäfer), Filarmonica Bibbienese "Sereni" (director: Marcello Biagini) from the Italian partner city Bibiena, vocal ensemble "FAINO" (director: Viktoria Hromova), children of the 2nd grades of the Ochsenfurt elementary school (director: Renate Glauth), André Miabala and students of ethnomusicology at the University of Würzburg, and Collegium Musicum Iuvenale "CMI" (director: Dr. Astrid Eitschberger). The collected donations benefited Doctors Without Borders, who used them to purchase playground equipment for the summer season to the delight of the children.
                 </div>
+                <div class="charity-description" data-lang="it" style="display:none;">
+                    Il 10 maggio 2025 si è tenuto nella nuova sala delle feste Meintz un concerto internazionale di beneficenza insieme al gruppo di arpe Veeh "Querbeet" (direzione: Sigrid Schäfer), Filarmonica Bibbienese "Sereni" (direzione: Marcello Biagini) dalla città gemellata italiana Bibiena, ensemble vocale "FAINO" (direzione: Viktoria Hromova), bambini delle seconde classi della scuola elementare di Ochsenfurt (direzione: Renate Glauth), André Miabala e studenti di etnomusicologia dell'Università di Würzburg e il Collegium Musicum Iuvenale "CMI" (direzione: Dr. Astrid Eitschberger). Le donazioni raccolte sono state destinate a Medici Senza Frontiere, che le ha utilizzate per acquistare attrezzature da gioco per la stagione estiva, con grande gioia dei bambini.
+                </div>
             </div>
             <img class="charity-image charity-flex-right" src="bilder/Gruppenbild2.jpg" alt="Internationales Benefizkonzert 2025 Gruppenbild" />
         </div>
         <div class="charity-footer" data-lang="de">Internationales Benefizkonzert 2025</div>
-        <div class="charity-footer" data-lang="en" style="display:none;">International Benefit Concert 2025</div>
+    <div class="charity-footer" data-lang="en" style="display:none;">International Benefit Concert 2025</div>
+    <div class="charity-footer" data-lang="it" style="display:none;">Concerto internazionale di beneficenza 2025</div>
     </div>
 </section>
 <!-- Charity Card: 80 Jahre Kriegsende – 80 Jahre Frieden -->
@@ -992,19 +1064,25 @@
             <div class="charity-flex-left">
                 <h2 class="charity-title" data-lang="de">„80 Jahre Kriegsende – 80 Jahre Frieden“</h2>
                 <h2 class="charity-title" data-lang="en" style="display:none;">"80 Years End of War – 80 Years of Peace"</h2>
+                <h2 class="charity-title" data-lang="it" style="display:none;">"80 anni dalla fine della guerra – 80 anni di pace"</h2>
                 <div class="charity-meta" data-lang="de" style="color:#19D3C5;font-weight:600;">09. Mai 2025 · Altstadt Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;color:#19D3C5;font-weight:600;">May 9, 2025 · Old Town Ochsenfurt</div>
+                <div class="charity-meta" data-lang="it" style="display:none;color:#19D3C5;font-weight:600;">9 maggio 2025 · Centro storico di Ochsenfurt</div>
                 <div class="charity-description" data-lang="de">
                     Am 09. Mai 2025 fand in Ochsenfurt eine Gedenkveranstaltung „80 Jahre Kriegsende – 80 Jahre Frieden“ statt, die vom Collegium Musicum Iuvenale Ochsenfurt „CMI“ (Leitung: Dr. Astrid Eitschberger) gemeinsam mit Gästen aus der italienischen Partnerstadt Bibbiena Filarmonica Bibbienese „Sereni“ (Leitung: Marcello Biagini) und dem ukrainischen Vokalensemble „FAINO“ (Leitung: Viktoria Hromova), sowie der französischen Sängerin Marika Marcuzzi umrahmt wurde. Ein bewegender Abend für Frieden und Völkerverständigung.
                 </div>
                 <div class="charity-description" data-lang="en" style="display:none;">
                     On May 9, 2025, a commemorative event "80 Years End of War – 80 Years of Peace" took place in Ochsenfurt, framed by Collegium Musicum Iuvenale Ochsenfurt "CMI" (director: Dr. Astrid Eitschberger) together with guests from the Italian partner city Bibbiena Filarmonica Bibbienese "Sereni" (director: Marcello Biagini) and the Ukrainian vocal ensemble "FAINO" (director: Viktoria Hromova), as well as the French singer Marika Marcuzzi. A moving evening for peace and international understanding.
                 </div>
+                <div class="charity-description" data-lang="it" style="display:none;">
+                    Il 9 maggio 2025 si è svolta a Ochsenfurt una cerimonia commemorativa "80 anni dalla fine della guerra – 80 anni di pace", organizzata dal Collegium Musicum Iuvenale Ochsenfurt "CMI" (direzione: Dr. Astrid Eitschberger) insieme agli ospiti della città gemellata italiana Bibbiena Filarmonica Bibbienese "Sereni" (direzione: Marcello Biagini) e all'ensemble vocale ucraino "FAINO" (direzione: Viktoria Hromova), oltre alla cantante francese Marika Marcuzzi. Una serata emozionante per la pace e la comprensione tra i popoli.
+                </div>
             </div>
             <img class="charity-image charity-flex-right" src="bilder/peterbild.jpg" alt="80 Jahre Kriegsende – 80 Jahre Frieden" />
         </div>
         <div class="charity-footer" data-lang="de">80 Jahre Kriegsende – 80 Jahre Frieden</div>
-        <div class="charity-footer" data-lang="en" style="display:none;">80 Years End of War – 80 Years of Peace</div>
+    <div class="charity-footer" data-lang="en" style="display:none;">80 Years End of War – 80 Years of Peace</div>
+    <div class="charity-footer" data-lang="it" style="display:none;">80 anni dalla fine della guerra – 80 anni di pace</div>
     </div>
 </section>
 <!-- Charity Card: Neujahrskonzert 2025 -->
@@ -1014,19 +1092,25 @@
             <div class="charity-flex-left">
                 <h2 class="charity-title" data-lang="de">Neujahrskonzert 2025</h2>
                 <h2 class="charity-title" data-lang="en" style="display:none;">New Year's Concert 2025</h2>
+                <h2 class="charity-title" data-lang="it" style="display:none;">Concerto di Capodanno 2025</h2>
                 <div class="charity-meta" data-lang="de" style="color:#19D3C5;font-weight:600;">15. Februar 2025 · St. Thekla Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;color:#19D3C5;font-weight:600;">February 15, 2025 · St. Thekla Ochsenfurt</div>
+                <div class="charity-meta" data-lang="it" style="display:none;color:#19D3C5;font-weight:600;">15 febbraio 2025 · St. Thekla Ochsenfurt</div>
                 <div class="charity-description" data-lang="de">
                     Am 15. Februar 2025 fand in St. Thekla das Neujahrskonzert „Vom Barock bis Harry Potter“ statt. Das Collegium Musicum Iuvenale Ochsenfurt „CMI“ (Leitung: Dr. Astrid Eitschberger), das ukrainische Vokalensemble „FAINO“ (Leitung: Viktoria Hromova) sowie Vorschulkinder des Kindergartens St. Thekla (Leitung: Petra Striffler) sorgten für ein abwechslungsreiches Programm. Die gesammelten Spenden kamen dem Kindergarten St. Thekla zugute.
                 </div>
                 <div class="charity-description" data-lang="en" style="display:none;">
                     On February 15, 2025, the New Year's Concert "From Baroque to Harry Potter" took place at St. Thekla. Collegium Musicum Iuvenale Ochsenfurt "CMI" (director: Dr. Astrid Eitschberger), the Ukrainian vocal ensemble "FAINO" (director: Viktoria Hromova), and preschool children from the St. Thekla kindergarten (director: Petra Striffler) provided a varied program. The collected donations benefited the St. Thekla kindergarten.
                 </div>
+                <div class="charity-description" data-lang="it" style="display:none;">
+                    Il 15 febbraio 2025 si è tenuto presso St. Thekla il Concerto di Capodanno "Dal Barocco a Harry Potter". Il Collegium Musicum Iuvenale Ochsenfurt "CMI" (direzione: Dr. Astrid Eitschberger), l'ensemble vocale ucraino "FAINO" (direzione: Viktoria Hromova) e i bambini della scuola materna St. Thekla (direzione: Petra Striffler) hanno offerto un programma vario. Le donazioni raccolte sono state destinate alla scuola materna St. Thekla.
+                </div>
             </div>
             <img class="charity-image charity-flex-right" src="bilder/kirche.jpg" alt="Neujahrskonzert 2025" />
         </div>
         <div class="charity-footer" data-lang="de">Neujahrskonzert 2025</div>
-        <div class="charity-footer" data-lang="en" style="display:none;">New Year's Concert 2025</div>
+    <div class="charity-footer" data-lang="en" style="display:none;">New Year's Concert 2025</div>
+    <div class="charity-footer" data-lang="it" style="display:none;">Concerto di Capodanno 2025</div>
     </div>
 </section>
 <!-- Charity Card: Musikalische Umrahmung der Kauzensitzung -->
@@ -1036,19 +1120,25 @@
             <div class="charity-flex-left">
                 <h2 class="charity-title" data-lang="de">Musikalische Umrahmung der Kauzensitzung</h2>
                 <h2 class="charity-title" data-lang="en" style="display:none;">Musical Accompaniment of the Kauzen Session</h2>
+                <h2 class="charity-title" data-lang="it" style="display:none;">Accompagnamento musicale della sessione Kauzen</h2>
                 <div class="charity-meta" data-lang="de" style="color:#19D3C5;font-weight:600;">9. Januar 2025 · Altstadt Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;color:#19D3C5;font-weight:600;">January 9, 2025 · Old Town Ochsenfurt</div>
+                <div class="charity-meta" data-lang="it" style="display:none;color:#19D3C5;font-weight:600;">9 gennaio 2025 · Centro storico di Ochsenfurt</div>
                 <div class="charity-description" data-lang="de">
                     Am 9. Januar 2025 sorgte das Saxophonsensemble des Collegium Musicum Iuvenale für die musikalische Umrahmung der traditionellen Kauzensitzung in der Altstadt Ochsenfurt. Die Musikerinnen und Musiker begeisterten das Publikum mit einem abwechslungsreichen Programm und trugen zur feierlichen Atmosphäre der Veranstaltung bei.
                 </div>
                 <div class="charity-description" data-lang="en" style="display:none;">
                     On January 9, 2025, the saxophone ensemble of Collegium Musicum Iuvenale provided the musical accompaniment for the traditional Kauzen session in the old town of Ochsenfurt. The musicians delighted the audience with a varied program and contributed to the festive atmosphere of the event.
                 </div>
+                <div class="charity-description" data-lang="it" style="display:none;">
+                    Il 9 gennaio 2025, l'ensemble di sassofoni del Collegium Musicum Iuvenale ha fornito l'accompagnamento musicale per la tradizionale sessione Kauzen nel centro storico di Ochsenfurt. I musicisti hanno entusiasmato il pubblico con un programma vario e hanno contribuito all'atmosfera festosa dell'evento.
+                </div>
             </div>
             <img class="charity-image charity-flex-right" src="bilder/Kauzensitzung Saxophonensemble.jpg" alt="Kauzensitzung Saxophonensemble 2025" />
         </div>
         <div class="charity-footer" data-lang="de">Kauzensitzung 2025</div>
         <div class="charity-footer" data-lang="en" style="display:none;">Kauzen Session 2025</div>
+    <div class="charity-footer" data-lang="it" style="display:none;">Sessione Kauzen 2025</div>
     </div>
 </section>
 <!-- Charity Card: Musikalische Mitgestaltung der Christmette 2024 -->
@@ -1058,29 +1148,38 @@
             <div class="charity-flex-left">
                 <h2 class="charity-title" data-lang="de">Musikalische Mitgestaltung der Christmette 2024</h2>
                 <h2 class="charity-title" data-lang="en" style="display:none;">Musical Arrangement of the Christmas Mass 2024</h2>
+                <h2 class="charity-title" data-lang="it" style="display:none;">Arrangiamento musicale della Messa di Natale 2024</h2>
                 <div class="charity-meta" data-lang="de" style="color:#19D3C5;font-weight:600;">24. Dezember 2024 · St. Thekla Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;color:#19D3C5;font-weight:600;">December 24, 2024 · St. Thekla Ochsenfurt</div>
+                <div class="charity-meta" data-lang="it" style="display:none;color:#19D3C5;font-weight:600;">24 dicembre 2024 · St. Thekla Ochsenfurt</div>
                 <div class="charity-description" data-lang="de">
                     Am 24. Dezember 2024 gestalteten Musikerinnen und Musiker des Collegium Musicum Iuvenale gemeinsam mit dem ukrainischen Vokalensemble die Christmette in der Kirche St. Thekla Ochsenfurt musikalisch aus. Mit festlichen Liedern und Instrumentalstücken wurde die feierliche Atmosphäre des Weihnachtsabends unterstrichen und die Besucher stimmungsvoll auf das Fest eingestimmt.
                 </div>
                 <div class="charity-description" data-lang="en" style="display:none;">
                     On December 24, 2024, musicians from Collegium Musicum Iuvenale together with the Ukrainian vocal ensemble provided the musical arrangement for the Christmas Mass in the church of St. Thekla Ochsenfurt. With festive songs and instrumental pieces, the festive atmosphere of Christmas Eve was emphasized and the visitors were put in the mood for the celebration.
                 </div>
+                <div class="charity-description" data-lang="it" style="display:none;">
+                    Il 24 dicembre 2024, musicisti del Collegium Musicum Iuvenale insieme all'ensemble vocale ucraino hanno curato l'arrangiamento musicale della Messa di Natale nella chiesa di St. Thekla Ochsenfurt. Con canti festosi e brani strumentali è stata sottolineata l'atmosfera solenne della vigilia di Natale e i visitatori sono stati preparati con gioia alla celebrazione.
+                </div>
             </div>
             <img class="charity-image charity-flex-right christmette-img-tall" src="bilder/Christmette 2024.jpg" alt="Christmette 2024" />
         </div>
         <div class="charity-footer" data-lang="de">Christmette 2024</div>
         <div class="charity-footer" data-lang="en" style="display:none;">Christmas Mass 2024</div>
+    <div class="charity-footer" data-lang="it" style="display:none;">Messa di Natale 2024</div>
     </div>
 </section>
 <section class="contact-info-section" id="contact" style="background:linear-gradient(180deg,#f7fff7 0%,#eafafc 100%);padding:48px 0 32px 0;text-align:center;font-family:'Inter',Arial,sans-serif;">
     <div style="max-width:800px;margin:0 auto;padding:0 16px;">
         <h2 data-lang="de" style="color:#009688;font-size:2em;margin-bottom:10px;font-weight:700;">Kontakt</h2>
         <h2 data-lang="en" style="color:#009688;font-size:2em;margin-bottom:10px;font-weight:700;display:none;">Contact</h2>
+        <h2 data-lang="it" style="color:#009688;font-size:2em;margin-bottom:10px;font-weight:700;display:none;">Contatto</h2>
         <p data-lang="de" style="color:#00b894;font-size:1.15em;margin-bottom:32px;">Hast du Fragen oder möchtest uns besuchen? Wir freuen uns auf deine Nachricht!</p>
         <p data-lang="en" style="color:#00b894;font-size:1.15em;margin-bottom:32px;display:none;">Do you have questions or would like to visit us? We look forward to your message!</p>
+        <p data-lang="it" style="color:#00b894;font-size:1.15em;margin-bottom:32px;display:none;">Hai domande o vuoi venirci a trovare? Attendiamo con piacere il tuo messaggio!</p>
         <h3 data-lang="de" style="color:#009688;font-size:1.5em;text-align:left;margin-bottom:24px;font-weight:700;">Probenzeiten & Ort & E-Mail</h3>
         <h3 data-lang="en" style="color:#009688;font-size:1.5em;text-align:left;margin-bottom:24px;font-weight:700;display:none;">Rehearsal Times & Location & Email</h3>
+        <h3 data-lang="it" style="color:#009688;font-size:1.5em;text-align:left;margin-bottom:24px;font-weight:700;display:none;">Orari delle prove, luogo ed e-mail</h3>
         <div style="display:flex;flex-direction:column;gap:32px;">
             <div style="background:#fff;border-radius:18px;box-shadow:0 4px 24px rgba(0,184,148,0.08);padding:24px 32px;display:flex;align-items:center;gap:24px;">
                 <div style="background:#00b894;border-radius:12px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;">
@@ -1089,8 +1188,10 @@
                 <div style="text-align:left;">
                     <div data-lang="de" style="font-size:1.15em;font-weight:700;color:#009688;margin-bottom:6px;">Probezeiten</div>
                     <div data-lang="en" style="font-size:1.15em;font-weight:700;color:#009688;margin-bottom:6px;display:none;">Rehearsal Times</div>
+                    <div data-lang="it" style="font-size:1.15em;font-weight:700;color:#009688;margin-bottom:6px;display:none;">Orari delle prove</div>
                     <div data-lang="de" style="color:#222;font-size:1em;">Jeden Samstag<br>Anfänger: 10:00 - 11:00 Uhr<br>Fortgeschrittene: 11:00 - 12:30 Uhr</div>
                     <div data-lang="en" style="color:#222;font-size:1em;display:none;">Every Saturday<br>Beginners: 10:00 am - 11:00 am<br>Advanced: 11:00 am - 12:30 pm</div>
+                    <div data-lang="it" style="color:#222;font-size:1em;display:none;">Ogni sabato<br>Principianti: 10:00 - 11:00<br>Avanzati: 11:00 - 12:30</div>
                 </div>
             </div>
             <div style="background:#fff;border-radius:18px;box-shadow:0 4px 24px rgba(0,184,148,0.08);padding:24px 32px;display:flex;align-items:center;gap:24px;">
@@ -1100,8 +1201,10 @@
                 <div style="text-align:left;">
                     <div data-lang="de" style="font-size:1.15em;font-weight:700;color:#009688;margin-bottom:6px;">Proberaum</div>
                     <div data-lang="en" style="font-size:1.15em;font-weight:700;color:#009688;margin-bottom:6px;display:none;">Rehearsal Room</div>
+                    <div data-lang="it" style="font-size:1.15em;font-weight:700;color:#009688;margin-bottom:6px;display:none;">Sala prove</div>
                     <div data-lang="de" style="color:#222;font-size:1em;">Kirchplatz 2<br>Rote Schule (VHS Gebäude) – Raum 4<br>97199 Ochsenfurt</div>
                     <div data-lang="en" style="color:#222;font-size:1em;display:none;">Kirchplatz 2<br>Rote Schule (VHS building) – Room 4<br>97199 Ochsenfurt</div>
+                    <div data-lang="it" style="color:#222;font-size:1em;display:none;">Kirchplatz 2<br>Rote Schule (edificio VHS) – Stanza 4<br>97199 Ochsenfurt</div>
                 </div>
             </div>
             <div style="background:#fff;border-radius:18px;box-shadow:0 4px 24px rgba(0,184,148,0.08);padding:24px 32px;display:flex;align-items:center;gap:24px;">
@@ -1111,8 +1214,10 @@
                 <div style="text-align:left;">
                     <div data-lang="de" style="font-size:1.15em;font-weight:700;color:#009688;margin-bottom:6px;">Email</div>
                     <div data-lang="en" style="font-size:1.15em;font-weight:700;color:#009688;margin-bottom:6px;display:none;">Email</div>
+                    <div data-lang="it" style="font-size:1.15em;font-weight:700;color:#009688;margin-bottom:6px;display:none;">Email</div>
                     <div data-lang="de" style="color:#222;font-size:1em;">astrid.eitschberger@cmi-ochsenfurt.de</div>
                     <div data-lang="en" style="color:#222;font-size:1em;display:none;">astrid.eitschberger@cmi-ochsenfurt.de</div>
+                    <div data-lang="it" style="color:#222;font-size:1em;display:none;">astrid.eitschberger@cmi-ochsenfurt.de</div>
                 </div>
             </div>
         </div>
@@ -1124,19 +1229,25 @@
             <img src="files/logo_cmi1 - weiß.svg" alt="CMI Logo" style="height:48px;margin-bottom:12px;">
             <div style="font-size:1.1em;font-weight:600;" data-lang="de">Collegium Musicum Iuvenale Ochsenfurt</div>
             <div style="font-size:1.1em;font-weight:600;display:none;" data-lang="en">Collegium Musicum Iuvenale Ochsenfurt</div>
+            <div style="font-size:1.1em;font-weight:600;display:none;" data-lang="it">Collegium Musicum Iuvenale Ochsenfurt</div>
             <div style="font-size:0.95em;margin-top:4px;" data-lang="de">Musik verbindet Menschen seit 1981</div>
             <div style="font-size:0.95em;margin-top:4px;display:none;" data-lang="en">Music connects people since 1981</div>
+            <div style="font-size:0.95em;margin-top:4px;display:none;" data-lang="it">La musica unisce le persone dal 1981</div>
         </div>
         <div style="margin-bottom:12px;font-size:0.98em;">
             <a href="impressum.html" style="color:#fff;text-decoration:underline;margin:0 10px;" data-lang="de">Impressum</a>
             <a href="impressum.html" style="color:#fff;text-decoration:underline;margin:0 10px;display:none;" data-lang="en">Legal Notice</a>
+            <a href="impressum.html" style="color:#fff;text-decoration:underline;margin:0 10px;display:none;" data-lang="it">Note legali</a>
             <a href="datenschutz.html" style="color:#fff;text-decoration:underline;margin:0 10px;" data-lang="de">Datenschutz</a>
             <a href="datenschutz.html" style="color:#fff;text-decoration:underline;margin:0 10px;display:none;" data-lang="en">Privacy Policy</a>
+            <a href="datenschutz.html" style="color:#fff;text-decoration:underline;margin:0 10px;display:none;" data-lang="it">Informativa sulla privacy</a>
             <a href="chronik.html" style="color:#fff;text-decoration:underline;margin:0 10px;" data-lang="de">Chronik</a>
             <a href="chronik.html" style="color:#fff;text-decoration:underline;margin:0 10px;display:none;" data-lang="en">History</a>
+            <a href="chronik.html" style="color:#fff;text-decoration:underline;margin:0 10px;display:none;" data-lang="it">Storia</a>
         </div>
         <div style="font-size:0.92em;color:#bbb;" data-lang="de">&copy; 1981–2025 Collegium Musicum Iuvenale Ochsenfurt. Alle Rechte vorbehalten.</div>
         <div style="font-size:0.92em;color:#bbb;display:none;" data-lang="en">&copy; 1981–2025 Collegium Musicum Iuvenale Ochsenfurt. All rights reserved.</div>
+    <div style="font-size:0.92em;color:#bbb;display:none;" data-lang="it">&copy; 1981–2025 Collegium Musicum Iuvenale Ochsenfurt. Tutti i diritti riservati.</div>
     </div>
 </footer>
 </body>
