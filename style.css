@@ -1,3 +1,34 @@
+/* Fade-in animation for hero gallery image titles */
+.hero-bg-title {
+    position: absolute;
+    right: 7vw;
+    bottom: 24px;
+    background: rgba(34,34,34,0.85);
+    color: #fff;
+    padding: 14px 38px 14px 28px;
+    border-radius: 18px 32px 18px 32px;
+    font-size: 1.15em;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 2.8s cubic-bezier(0.4,0,0.2,1), transform 2.8s cubic-bezier(0.4,0,0.2,1);
+    pointer-events: none;
+    z-index: 2;
+    text-align: left;
+    max-width: 60vw;
+    min-width: 220px;
+}
+.hero-bg-fade .hero-bg-title {
+    opacity: 0;
+    transform: translateY(40px);
+}
+.hero-bg-fade[style*="opacity: 1"] .hero-bg-title {
+    opacity: 1;
+    transform: translateY(0);
+    animation: heroTitleFadeUp 2.8s cubic-bezier(.77,0,.18,1) forwards;
+}
 /* Event Card with Poster Layout */
 .event-card-poster {
     display: flex;
@@ -106,7 +137,7 @@
 }
 .timeline-vertical-title {
     color: #0D5C63;
-    font-size: 2.2em;
+    font-size: 1.35em;
     text-align: center;
     margin-bottom: 16px;
     font-weight: 900;
@@ -3221,28 +3252,48 @@ article, section, p, .project-card, .chronik-section, .about-me-bio, .about-me-c
     overflow: hidden;
 }
 
-.hero-bg::before {
-    content: '';
+.hero-bg-title {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    /* background: linear-gradient(180deg, rgba(20,20,20,0.55) 0%, rgba(20,20,20,0.35) 60%, rgba(20,20,20,0.65) 100%); */
-    z-index: 10;
+    right: 5vw;
+    bottom: 7vw;
+    min-width: 220px;
+    max-width: 60vw;
+    padding: 1.2em 2.2em 1.2em 1.2em;
+    font-size: 1.6em;
+    font-family: 'Segoe UI', 'Montserrat', 'Roboto', Arial, sans-serif;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(30, 30, 40, 0.32);
+    border-radius: 1.2em 1.2em 0 1.2em;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18), 0 2px 8px 0 rgba(0,0,0,0.12);
+    opacity: 0;
+    transform: translateY(60px) scale(0.98);
+    z-index: 2;
     pointer-events: none;
+    letter-spacing: 0.03em;
+    text-align: right;
+    backdrop-filter: blur(12px) saturate(120%);
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
+    border: 1.5px solid rgba(255,255,255,0.18);
+    text-shadow: 0 2px 16px rgba(0,0,0,0.22), 0 1px 2px rgba(0,0,0,0.12);
+    box-sizing: border-box;
+    animation: heroTitleFadeUp 1.2s cubic-bezier(.77,0,.18,1) forwards;
 }
 
-.hero-bg > * {
-    background: transparent;
+@keyframes heroTitleFadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(60px) scale(0.98);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-8px) scale(1.01);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
-.hero-container {
-  position: relative;
-  width: 100%;
-  height: 500px; /* Höhe nach Bedarf anpassen */
-    z-index: 0; /* Set z-index for about-me-section */
-  background-position: center bottom;
-  height: 80vh;
 }
 
 .hero-text {
