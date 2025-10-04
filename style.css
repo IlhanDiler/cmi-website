@@ -1,3 +1,9 @@
+.charity-section .charity-projects-container h1 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
 /* Charity & Benefiz Card Layout */
 .charity-card {
     display: flex;
