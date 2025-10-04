@@ -182,9 +182,9 @@
 .timeline-vertical-line {
     position: absolute;
     left: 50%;
-    top: 0;
+    top: 70px; /* Startet unterhalb des Titels */
     width: 6px;
-    height: 100%;
+    height: calc(100% - 70px); /* Höhe ab Offset */
     background: linear-gradient(180deg, #e3f0ff 0%, #19d3c5 100%);
     transform: translateX(-50%);
     z-index: 1;
