@@ -1,3 +1,12 @@
+.music-family-group h2 {
+    text-align: justify;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    word-break: break-word;
+    word-spacing: 0;
+    letter-spacing: 0 !important;
+}
 
         .charity-oval-headline {
                 text-align: center;
@@ -15,7 +24,7 @@
                 letter-spacing: 0.04em;
                 text-shadow: 0 4px 24px rgba(25,211,197,0.28), 0 2px 0 #fff, 0 0 8px #19d3c5;
             }
-        
+              
 
 /* Charity & Benefiz Card Layout */
 .charity-card {
