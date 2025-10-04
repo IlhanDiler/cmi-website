@@ -130,21 +130,21 @@ window.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', fitHeroImg);
 });
 // Hero-BG Gallery/Slideshow
-const heroImages = [
-        'bilder/Gruppenbild.jpg',
-        'bilder/kissingen_symphonic.jpg',
-        'bilder/peterbild.jpg',
-        'bilder/concello.jfif',
-        'bilder/Gruppenbild2.jpg',
-        'bilder/klosterkirche.jpg',
-        'bilder/gaukönigshofen.jpg',
-        'bilder/gruppemitflagge.jpg',
-        'bilder/christuskirche_27_april_2024.jpg',                 
-        'bilder/christuskirche_27_april_2024_2.jpg',  
-        'bilder/christuskirche_27_april_2024_3.jpg',  
-        'bilder/konzert.jpg',
-        'bilder/salboro_santa_maria_assunta_2024.jpg',
-        'bilder/salboro_santa_maria_assunta_2024_2.jpg',
+const heroGallery = [
+    { src: 'bilder/Gruppenbild.jpg', title: 'Collegium Musicum Iuvenale 2025' },
+    { src: 'bilder/kissingen_symphonic.jpg', title: 'Kissingen Symphonic Mob 2025' },
+    { src: 'bilder/peterbild.jpg', title: 'Gedenkfeier - „80 Jahre Kriegsende, 80 Jahre Frieden in Ochsenfurt 2025' },
+    { src: 'bilder/concello.jfif', title: 'Concello 2025 in der Klosterkirche Ochsenfurt' },
+    { src: 'bilder/Gruppenbild2.jpg', title: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Maintz Hotel Ochsenfurt' },
+    { src: 'bilder/klosterkirche.jpg', title: 'Klosterkirche' },
+    { src: 'bilder/gaukönigshofen.jpg', title: 'Benefizkonzert 2024 in Gaukönigshofen' },
+    { src: 'bilder/gruppemitflagge.jpg', title: 'Gruppenbild 2025' },
+    { src: 'bilder/christuskirche_27_april_2024.jpg', title: 'Christuskirche 27. April 2024' },
+    { src: 'bilder/christuskirche_27_april_2024_2.jpg', title: 'Christuskirche 2' },
+    { src: 'bilder/christuskirche_27_april_2024_3.jpg', title: 'Christuskirche 3' },
+    { src: 'bilder/konzert.jpg', title: 'Konzert' },
+    { src: 'bilder/salboro_santa_maria_assunta_2024.jpg', title: 'Salboro Santa Maria Assunta 2024' },
+    { src: 'bilder/salboro_santa_maria_assunta_2024_2.jpg', title: 'Salboro Santa Maria Assunta 2024 – 2' },
 ];
 let heroIndex = 0;
 const fadeDuration = 7000;
@@ -157,13 +157,20 @@ function setHeroBgCrossfade(idx) {
     const current = fadeToggle ? fadeA : fadeB;
     const next = fadeToggle ? fadeB : fadeA;
     // Set next image and bring to front
-    next.style.backgroundImage = `url('${heroImages[idx]}')`;
+    next.style.backgroundImage = `url('${heroGallery[idx].src}')`;
     next.style.opacity = '0';
     next.style.transition = `opacity ${fadeDuration/1000}s cubic-bezier(.77,0,.18,1)`;
-    // Individuelle Hintergrundposition für img-3 und img-4
-    // Mobile: andere Positionen
+    // Set or update title overlay
+    let titleDiv = next.querySelector('.hero-bg-title');
+    if (!titleDiv) {
+        titleDiv = document.createElement('div');
+        titleDiv.className = 'hero-bg-title';
+        next.appendChild(titleDiv);
+    }
+    titleDiv.textContent = heroGallery[idx].title;
+    titleDiv.style.opacity = '0';
+    // Individual background position logic (existing)
     if (window.innerWidth <= 600) {
-        // Mobile: img 3 (idx 2) volle Breite wie img 1
         if (idx === 2) {
             next.style.backgroundPosition = 'center 8%';
             next.style.backgroundSize = '100vw auto';
@@ -172,16 +179,16 @@ function setHeroBgCrossfade(idx) {
             next.style.backgroundSize = '100vw auto';
         }
     } else {
-        // Desktop: Christuskirche-Bilder weiter oben anzeigen
         if (
-            heroImages[idx].includes('bilder/klosterkirche.jpg') ||
-            heroImages[idx].includes('salboro_santa_maria_assunta_2024.jpg') ||
-            heroImages[idx].includes('salboro_santa_maria_assunta_2024_2.jpg') ||
-            heroImages[idx].includes('christuskirche_27_april_2024.jpg') ||
-            heroImages[idx].includes('christuskirche_27_april_2024_2.jpg') ||
-            heroImages[idx].includes('christuskirche_27_april_2024_3.jpg')
+            heroGallery[idx].src.includes('bilder/peterbild.jpg') ||
+            heroGallery[idx].src.includes('bilder/klosterkirche.jpg') ||
+            heroGallery[idx].src.includes('salboro_santa_maria_assunta_2024.jpg') ||
+            heroGallery[idx].src.includes('salboro_santa_maria_assunta_2024_2.jpg') ||
+            heroGallery[idx].src.includes('christuskirche_27_april_2024.jpg') ||
+            heroGallery[idx].src.includes('christuskirche_27_april_2024_2.jpg') ||
+            heroGallery[idx].src.includes('christuskirche_27_april_2024_3.jpg')
         ) {
-            next.style.backgroundPosition = 'center 45%';
+            next.style.backgroundPosition = 'center 50%';
         } else if (idx === 1) {
             next.style.backgroundPosition = 'center 50%';
         } else if (idx === 3) {
@@ -199,16 +206,21 @@ function setHeroBgCrossfade(idx) {
         next.style.opacity = '1';
         current.style.opacity = '0';
         current.style.transition = `opacity ${fadeDuration/1000}s cubic-bezier(.77,0,.18,1)`;
-        // No need to swap classes, just toggle for next round
+        // Fade in title overlay
+        setTimeout(() => {
+            titleDiv.style.opacity = '1';
+        }, 600);
+        // Hide previous title
+        let prevTitle = current.querySelector('.hero-bg-title');
+        if (prevTitle) prevTitle.style.opacity = '0';
         fadeToggle = !fadeToggle;
     }, 50);
 }
 function nextHeroBgImage() {
-    heroIndex = (heroIndex + 1) % heroImages.length;
+    heroIndex = (heroIndex + 1) % heroGallery.length;
     setHeroBgCrossfade(heroIndex);
 }
 document.addEventListener('DOMContentLoaded', function() {
-    // Init gallery
     setHeroBgCrossfade(heroIndex);
     setInterval(nextHeroBgImage, fadeDuration);
 });
