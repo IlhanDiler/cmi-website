@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -72,9 +73,9 @@
                 <a href="#contact" class="nav-link" data-lang="de">Kontakt</a>
                 <a href="#contact" class="nav-link" data-lang="en" style="display:none;">Contact</a>
                 <a href="#contact" class="nav-link" data-lang="it" style="display:none;">Contatto</a>
-                <a href="#music-family" class="nav-link" data-lang="de">MITMACHEN</a>
-                <a href="#music-family" class="nav-link" data-lang="en" style="display:none;">JOIN US</a>
-                <a href="#music-family" class="nav-link" data-lang="it" style="display:none;">PARTECIPA</a>
+                <a href="#music-family-section" class="nav-link" data-lang="de">MITMACHEN</a>
+                <a href="#music-family-section" class="nav-link" data-lang="en" style="display:none;">JOIN US</a>
+                <a href="#music-family-section" class="nav-link" data-lang="it" style="display:none;">PARTECIPA</a>
             </div>
             <!-- Mobile Navigation -->
             <div class="mobile-menu">
@@ -127,7 +128,7 @@
     </div>
 </section>
 <!-- Moderne Section: Werde Teil unserer Musikfamilie -->
-<section class="music-family-section" style="background:linear-gradient(180deg,#eafafc 0%,#f7fff7 100%);padding:72px 0 72px 0;">
+<section id="music-family-section" class="music-family-section" style="background:linear-gradient(180deg,#eafafc 0%,#f7fff7 100%);padding:72px 0 72px 0;">
     <div class="music-family-container" style="max-width:900px;margin:0 auto;padding:0 24px;">
         <h1 class="music-family-title" data-lang="de" style="font-size:2.6em;font-weight:800;color:#222;margin-bottom:18px;">Werde Teil unserer <span style="color:#009688;">Musikfamilie</span></h1>
         <h1 class="music-family-title" data-lang="en" style="font-size:2.6em;font-weight:800;color:#222;margin-bottom:18px;display:none;">Become Part of Our <span style="color:#009688;">Music Family</span></h1>
@@ -984,7 +985,21 @@
 <!-- Zweite Charity Card: Internationales Benefizkonzert 2025 -->
 <section class="charity-projects-section">
     <div class="charity-projects-container">
-         <h1 style="font-size:2.2em;font-weight:800;color:#222;margin-bottom:32px;">Rückblick auf die vergangenen Highlights</h1>
+     <!-- Kreisförmiger Text um Bild -->
+<div style="position:relative; width:320px; height:320px; margin:48px auto;">
+  <img src="bilder/maria_schnee_neujahrskonzert_2023.png" alt="Bild" style="width:320px; height:320px; border-radius:50%; display:block; position:relative; z-index:1;">
+  <svg width="700" height="700" style="position:absolute; top:-40px; left:-40px; pointer-events:none; z-index:2;">
+    <defs>
+      <path id="circlePathOuter" d="M200,200 m-160,0 a160,160 0 1,1 320,0 a160,160 0 1,1 -320,0"/>
+    </defs>
+    <text font-size="20" font-family="Arial" fill="#176d6d">
+      <textPath href="#circlePathOuter" startOffset="0">
+        RÜCKBLICK AUF DIE VERGANGENEN HIGHLIGHTS• RÜCKBLICK AUF DIE VERGANGENEN HIGHLIGHTS •
+      </textPath>
+    </text>
+  </svg>
+</div>
+        <!-- <h1 class="charity-oval-headline">Rückblick auf die vergangenen Highlights</h1> -->
 
         <div class="charity-flex-row benefizkonzert-flex">
             <div class="charity-flex-left">
@@ -1040,7 +1055,7 @@
     </div>
 </section>
 <!-- Charity Card: Neujahrskonzert 2025 -->
-<section class="charity-projects-section">
+<section id="charity-projects-section" class="charity-projects-section">
     <div class="charity-projects-container">
         <div class="charity-flex-row neujahr-flex">
             <div class="charity-flex-left">

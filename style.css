@@ -1,9 +1,22 @@
-.charity-section .charity-projects-container h1 {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
+
+        .charity-oval-headline {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                background: linear-gradient(90deg, #eafafc 0%, #fff 100%);
+                padding: 32px 48px;
+                border-radius: 48px 48px 48px 48px / 60px 60px 60px 60px;
+                box-shadow: 0 4px 24px rgba(26,54,93,0.10);
+                font-family: 'Montserrat', 'Segoe UI', 'Roboto', Arial, sans-serif;
+                font-weight: 1000;
+                font-size: 2.9em;
+                color: #176d6d;
+                letter-spacing: 0.04em;
+                text-shadow: 0 4px 24px rgba(25,211,197,0.28), 0 2px 0 #fff, 0 0 8px #19d3c5;
+            }
+        
+
 /* Charity & Benefiz Card Layout */
 .charity-card {
     display: flex;
@@ -3346,7 +3359,7 @@ article, section, p, .project-card, .chronik-section, .about-me-bio, .about-me-c
         transform: translateY(0) scale(1);
     }
 }
-}
+
 
 .hero-text {
   position: absolute;
