@@ -160,7 +160,6 @@ const heroGallery = [
         { src: 'bilder/GoPro002 (4).png', title: 'GoPro002 (4)' },
         { src: 'bilder/Gruppenfoto Weikersheim.jpg', title: 'Gruppenfoto Weikersheim 2006' },
         { src: 'bilder/Opern-Gala-BGS - 20 von 44.jpg', title: 'Opern-Gala-BGS - 20 von 44' },
-        { src: 'bilder/Gruppenfoto CMI BGS St. Thekla 2022.jpg', title: 'Gruppenfoto CMI BGS St. Thekla 2022' },
         // Alte Bilder
         { src: 'bilder/Weikersheim_2006.png', title: 'Weikersheim 2006' },
         { src: 'bilder/Gruppenbild.jpg', title: 'Collegium Musicum Iuvenale 2025' },
