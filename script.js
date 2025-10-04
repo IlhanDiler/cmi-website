@@ -131,6 +131,7 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 // Hero-BG Gallery/Slideshow
 const heroGallery = [
+    { src: 'bilder/maria_schnee_neujahrskonzert_2023.png', title: 'Neujahrskonzert 2023' },
     { src: 'bilder/Mitte.jpg', title: 'Mitte' },
     { src: 'bilder/Ochsenfurt 23.07.2005.JPG', title: 'Ochsenfurt 23.07.2005' },
     { src: 'bilder/Tutti insieme 2016.jpg', title: 'Tutti insieme 2016' },
