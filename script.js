@@ -737,7 +737,7 @@ window.setLang = setLang;
 window.addEventListener('DOMContentLoaded', function() {
     try {
         var lang = localStorage.getItem('siteLang');
-        if (lang && (lang === 'de' || lang === 'en')) {
+        if (lang && (lang === 'de' || lang === 'en' || lang === 'it')) {
             setLang(lang);
         }
     } catch (e) {}
