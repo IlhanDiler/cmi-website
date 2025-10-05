@@ -131,51 +131,48 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 // Hero-BG Gallery/Slideshow
 const heroGallery = [
-    { src: 'bilder/maria_schnee_neujahrskonzert_2023.png', title: 'Neujahrskonzert 2023' },
-    { src: 'bilder/Mitte.jpg', title: 'Mitte' },
-    { src: 'bilder/Ochsenfurt 23.07.2005.JPG', title: 'Ochsenfurt 23.07.2005' },
-    { src: 'bilder/Tutti insieme 2016.jpg', title: 'Tutti insieme 2016' },
-    { src: 'bilder/CMI 2016.jpg', title: 'CMI 2016' },
-    { src: 'bilder/CMI in chiesa St.Wolfgang.jpg', title: 'CMI in St.Wolfgang' },
-    { src: 'bilder/Totale.jpg', title: 'Totale' },
-    { src: 'bilder/Gruppe17.09.11.jpg', title: 'Jubiläumskonzert zum 30-jährigen Bestehen am 17.09.11' },
-    { src: 'bilder/Ochsenfurt 23.07.2005 (1).JPG', title: 'Ochsenfurt 23.07.2005 (1)' },
-    { src: 'bilder/Ochsenfurt 23.07.2005.JPG', title: 'Ochsenfurt 23.07.2005' },
-    { src: 'bilder/Mitte.jpg', title: 'Mitte' },
-    { src: 'bilder/Ochsenfurt 05.03.2011.JPG', title: 'Ochsenfurt 05.03.2011' },
-    { src: 'bilder/DSC_6083.JPG', title: 'DSC_6083' },
-    { src: 'bilder/7 Gruppe CMI 2013.JPG', title: 'Gruppe CMI 2013' },
-    { src: 'bilder/6 Gruppe 05.01.2013.jpg', title: 'Gruppe 05.01.2013' },
-        // Neue Bilder
-        { src: 'bilder/DSC_4296.JPG', title: 'DSC_4296' },
-        { src: 'bilder/DSC_4255.JPG', title: 'St Thekla 2017' },
-        { src: 'bilder/Gruppe CMI BGS Veehnklang April 2023.jpg', title: 'Gruppe CMI BGS Veehnklang April 2023' },
-        { src: 'bilder/Gruppe 2016 2.jpg', title: 'Gruppe 2016' },
-        { src: 'bilder/Grundschule.JPG', title: 'Grundschule' },
-        { src: 'bilder/Spendenübergabe.jpg', title: 'Spendenübergabe' },
-        { src: 'bilder/Singen schenke uns.png', title: 'Singen schenke uns' },
-        { src: 'bilder/Gruppenfoto_St._Thekla_2022.jpg', title: 'Gruppenfoto St. Thekla 2022' },
-        { src: 'bilder/Gib uns Fireden 1.png', title: 'Gib uns Frieden' },
-        { src: 'bilder/Gruppenbild 2022.jpg', title: 'Gruppenbild 2022' },
-        { src: 'bilder/Scheunenkonzert 17.07.jpg', title: 'Scheunenkonzert 17.07' },
-        { src: 'bilder/GoPro002 (4).png', title: 'GoPro002 (4)' },
-        { src: 'bilder/Gruppenfoto Weikersheim.jpg', title: 'Gruppenfoto Weikersheim 2006' },
-        { src: 'bilder/Opern-Gala-BGS - 20 von 44.jpg', title: 'Opern-Gala-BGS - 20 von 44' },
-        // Alte Bilder
-        { src: 'bilder/Weikersheim_2006.png', title: 'Weikersheim 2006' },
-        { src: 'bilder/Gruppenbild.jpg', title: 'Collegium Musicum Iuvenale 2025' },
-        { src: 'bilder/peterbild.jpg', title: 'Gedenkfeier - „80 Jahre Kriegsende, 80 Jahre Frieden in Ochsenfurt 2025' },
-        { src: 'bilder/concello.jfif', title: 'Concello 2025 in der Klosterkirche Ochsenfurt' },
-        { src: 'bilder/Gruppenbild2.jpg', title: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Maintz Hotel Ochsenfurt' },
-        { src: 'bilder/klosterkirche.jpg', title: 'Klosterkirche 2024' },
-        { src: 'bilder/gaukönigshofen.jpg', title: 'Benefizkonzert 2024 in Gaukönigshofen' },
-        { src: 'bilder/gruppemitflagge.jpg', title: 'Gruppenbild 2025' },
-        { src: 'bilder/christuskirche_27_april_2024.jpg', title: 'Christuskirche 27. April 2024' },
-        { src: 'bilder/christuskirche_27_april_2024_2.jpg', title: 'Christuskirche 2024' },
-        { src: 'bilder/christuskirche_27_april_2024_3.jpg', title: 'Christuskirche 2024' },
-        { src: 'bilder/konzert.jpg', title: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Maintz Hotel Ochsenfurt' },
-        { src: 'bilder/salboro_santa_maria_assunta_2024.jpg', title: 'Salboro Santa Maria Assunta 2024' },
-        { src: 'bilder/salboro_santa_maria_assunta_2024_2.jpg', title: 'Salboro Santa Maria Assunta 2024 – 2' },
+     { src: 'bilder/Gruppenbild2.jpg', title: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Maintz Hotel Ochsenfurt' },
+     { src: 'bilder/konzert.jpg', title: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Maintz Hotel Ochsenfurt' },
+     { src: 'bilder/peterbild.jpg', title: 'Gedenkfeier - „80 Jahre Kriegsende, 80 Jahre Frieden in Ochsenfurt 2025' },
+     { src: 'bilder/maria_schnee_neujahrskonzert_2023.png', title: 'Neujahrskonzert 2023' },
+     { src: 'bilder/concello.jfif', title: 'Concello 2025 in der Klosterkirche Ochsenfurt' },
+     { src: 'bilder/gruppemitflagge.jpg', title: 'Gruppenbild 2025' },
+     { src: 'bilder/Gruppenbild.jpg', title: 'Collegium Musicum Iuvenale 2025' },
+     { src: 'bilder/klosterkirche.jpg', title: 'Klosterkirche 2024' },
+     { src: 'bilder/gaukönigshofen.jpg', title: 'Benefizkonzert 2024 in Gaukönigshofen' },
+     { src: 'bilder/christuskirche_27_april_2024.jpg', title: 'Christuskirche 27. April 2024' },
+     { src: 'bilder/christuskirche_27_april_2024_2.jpg', title: 'Christuskirche 2024' },
+     { src: 'bilder/christuskirche_27_april_2024_3.jpg', title: 'Christuskirche 2024' },
+{ src: 'bilder/salboro_santa_maria_assunta_2024.jpg', title: 'Salboro Santa Maria Assunta 2024' },
+{ src: 'bilder/salboro_santa_maria_assunta_2024_2.jpg', title: 'Salboro Santa Maria Assunta 2024 – 2' },
+{ src: 'bilder/Gruppe CMI BGS Veehnklang April 2023.jpg', title: 'Gruppe CMI BGS Veehnklang April 2023' },
+{ src: 'bilder/Gruppenfoto_St._Thekla_2022.jpg', title: 'Gruppenfoto St. Thekla 2022' },
+{ src: 'bilder/Gruppenbild 2022.jpg', title: 'Gruppenbild 2022' },
+{ src: 'bilder/Grundschule.JPG', title: 'Grundschule' },
+{ src: 'bilder/Spendenübergabe.jpg', title: 'Spendenübergabe' },
+{ src: 'bilder/Singen schenke uns.png', title: 'Singen schenke uns' },
+{ src: 'bilder/Gib uns Fireden 1.png', title: 'Gib uns Frieden' },
+{ src: 'bilder/GoPro002 (4).png', title:'' },
+{ src: 'bilder/DSC_4255.JPG', title: 'St Thekla 2017' },
+{ src: 'bilder/Gruppe 2016 2.jpg', title: 'Gruppe 2016' },
+{ src: 'bilder/Tutti insieme 2016.jpg', title: 'Tutti insieme 2016' },
+{ src: 'bilder/CMI 2016.jpg', title: 'CMI 2016' },
+{ src: 'bilder/7 Gruppe CMI 2013.JPG', title: 'Gruppe CMI 2013' },
+{ src: 'bilder/6 Gruppe 05.01.2013.jpg', title: 'Gruppe 05.01.2013' },
+{ src: 'bilder/Scheunenkonzert 17.07.jpg', title: 'Scheunenkonzert 17.07' },
+{ src: 'bilder/Gruppe17.09.11.jpg', title: 'Jubiläumskonzert zum 30-jährigen Bestehen am 17.09.11' },
+{ src: 'bilder/Mitte.jpg', title: '' },
+{ src: 'bilder/CMI in chiesa St.Wolfgang.jpg', title: 'CMI in St.Wolfgang' },
+{ src: 'bilder/Totale.jpg', title: '' },
+{ src: 'bilder/Mitte.jpg', title: '' },
+{ src: 'bilder/Ochsenfurt 05.03.2011.JPG', title: 'Ochsenfurt 05.03.2011' },
+{ src: 'bilder/DSC_6083.JPG', title: '' },
+{ src: 'bilder/DSC_4296.JPG', title: '' }, 
+{ src: 'bilder/Gruppenfoto Weikersheim.jpg', title: 'Gruppenfoto Weikersheim 2006' },
+{ src: 'bilder/Opern-Gala-BGS - 20 von 44.jpg', title: 'Opern-Gala-BGS' },
+{ src: 'bilder/Weikersheim_2006.png', title: 'Weikersheim 2006' }, 
+{ src: 'bilder/Ochsenfurt 23.07.2005.JPG', title: 'Ochsenfurt 23.07.2005' }, 
+    
 ];
 let heroIndex = 0;
 const fadeDuration = 7000;
@@ -199,7 +196,13 @@ function setHeroBgCrossfade(idx) {
         next.appendChild(titleDiv);
     }
     titleDiv.textContent = heroGallery[idx].title;
-    titleDiv.style.opacity = '0';
+    if (heroGallery[idx].title === '') {
+        titleDiv.style.opacity = '0';
+        titleDiv.style.transition = 'none';
+    } else {
+        titleDiv.style.opacity = '0';
+        titleDiv.style.transition = '';
+    }
     // Individual background position logic (existing)
     if (window.innerWidth <= 600) {
         if (idx === 2) {
@@ -210,37 +213,43 @@ function setHeroBgCrossfade(idx) {
             next.style.backgroundSize = '100vw auto';
         }
     } else {
-        if (
-            heroGallery[idx].src.includes('bilder/peterbild.jpg') ||
-            heroGallery[idx].src.includes('bilder/klosterkirche.jpg') ||
-            heroGallery[idx].src.includes('salboro_santa_maria_assunta_2024.jpg') ||
-            heroGallery[idx].src.includes('salboro_santa_maria_assunta_2024_2.jpg') ||
-            heroGallery[idx].src.includes('christuskirche_27_april_2024.jpg') ||
-            heroGallery[idx].src.includes('christuskirche_27_april_2024_2.jpg') ||
-            heroGallery[idx].src.includes('christuskirche_27_april_2024_3.jpg')
-        ) {
-            next.style.backgroundPosition = 'center 50%';
-        } else if (idx === 1) {
-            next.style.backgroundPosition = 'center 50%';
-        } else if (idx === 3) {
-            next.style.backgroundPosition = 'center 70%';
-        } else if (idx === 0) {
-            next.style.backgroundPosition = 'center 30%';
-        } else if (idx === 2) {
-            next.style.backgroundPosition = 'center 10%';
-        } else {
-            next.style.backgroundPosition = '';
-        }
-    }
+    if (
+        heroGallery[idx].src.includes('bilder/Ochsenfurt 23.07.2005.JPG') ||
+        heroGallery[idx].src.includes('bilder/Opern-Gala-BGS - 20 von 44.jpg') ||
+        heroGallery[idx].src.includes('bilder/Ochsenfurt 05.03.2011.JPG') ||
+        heroGallery[idx].src.includes('bilder/CMI in chiesa St.Wolfgang.jpg') ||
+        heroGallery[idx].src.includes('bilder/Totale.jpg') ||
+        heroGallery[idx].src.includes('bilder/6 Gruppe 05.01.2013.jpg') ||
+        heroGallery[idx].src.includes('bilder/DSC_4255.JPG') ||
+        heroGallery[idx].src.includes('bilder/Gruppenbild 2022.jpg') ||
+        heroGallery[idx].src.includes('bilder/salboro_santa_maria_assunta_2024.jpg') ||
+        heroGallery[idx].src.includes('bilder/salboro_santa_maria_assunta_2024_2.jpg') ||
+        heroGallery[idx].src.includes('bilder/peterbild.jpg') ||
+        heroGallery[idx].src.includes('bilder/klosterkirche.jpg') ||
+        heroGallery[idx].src.includes('salboro_santa_maria_assunta_2024.jpg') ||
+        heroGallery[idx].src.includes('salboro_santa_maria_assunta_2024_2.jpg') ||
+        heroGallery[idx].src.includes('christuskirche_27_april_2024.jpg') ||
+        heroGallery[idx].src.includes('christuskirche_27_april_2024_2.jpg') ||
+        heroGallery[idx].src.includes('christuskirche_27_april_2024_3.jpg')
+    ) {
+        next.style.backgroundPosition = 'center 50%';
+    } else   {
+        next.style.backgroundPosition = 'center 10%';
+    } 
+}
     // Start fade in
     setTimeout(() => {
         next.style.opacity = '1';
         current.style.opacity = '0';
         current.style.transition = `opacity ${fadeDuration/1000}s cubic-bezier(.77,0,.18,1)`;
-        // Fade in title overlay
-        setTimeout(() => {
-            titleDiv.style.opacity = '1';
-        }, 600);
+        // Fade in title overlay nur wenn nicht leer
+        if (heroGallery[idx].title !== '') {
+            setTimeout(() => {
+                titleDiv.style.opacity = '1';
+            }, 600);
+        } else {
+            titleDiv.style.opacity = '0';
+        }
         // Hide previous title
         let prevTitle = current.querySelector('.hero-bg-title');
         if (prevTitle) prevTitle.style.opacity = '0';
