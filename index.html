@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -947,8 +945,6 @@
                     <img src="bilder/event_blockfloeten.png" alt="Plakat Konzert Anfängergruppe 2025" class="event-lightbox-img" style="cursor:zoom-in;" />
                 </div>
             </div>
-              
-        
         <div class="event-card">
             <div class="event-badge">
                 <div class="event-date">25. Okt 2025</div>
@@ -1045,26 +1041,90 @@
     </div>
 </section>
 <!-- Zweite Charity Card: Internationales Benefizkonzert 2025 -->
+
 <section class="charity-projects-section">
-     <div style="display:flex;justify-content:center;align-items:center;width:100%;height:100%;min-height:420px;margin:48px 0;">
-        <div style="position:relative; display:inline-block; width:auto; max-width:100%;">
-            <svg viewBox="0 0 1000 1100" width="950" height="950" style="display:block; position:relative; z-index:1;">
-                <defs>
-                    <clipPath id="rectClip">
-                        <path d="M125,120 Q450,60 775,120 V1000 H125 V120 Z" />
-                    </clipPath>
-                </defs>
-                <image href="bilder/kirche_rund_19.15.15.jpeg" x="125" y="80" width="650" height="1000" clip-path="url(#rectClip)" preserveAspectRatio="xMidYMid slice" />
-                <defs>
-                    <path id="headlineCurve" d="M170,200 Q450,100 730,200" />
-                </defs>
-                <text font-size="23" font-family="Inter, Segoe UI, Arial, sans-serif" font-weight="bold" fill="#fff" letter-spacing="0.02em">
-                    <textPath href="#headlineCurve" startOffset="0">RÜCKBLICK AUF DIE VERGANGENEN HIGHLIGHTS</textPath>
-                </text>
-            </svg>
-        </div>
-        </div>
+    <div class="charity-svg-hero-container">
+        <svg viewBox="0 0 1000 1200" class="charity-svg-hero" aria-label="Rückblick auf die vergangenen Highlights">
+            <defs>
+                <clipPath id="rectClip">
+                    <path d="M125,120 Q450,60 775,120 V1000 H125 V120 Z" />
+                </clipPath>
+                <!-- Desktop curve -->
+                <path id="headlineCurveDesktop" d="M170,200 Q450,100 730,200" />
+                <!-- Mobile curve: lower arc for visibility -->
+                <path id="headlineCurveMobile" d="M220,250 Q500,110 780,250" />
+            </defs>
+            <image href="bilder/kirche_rund_19.15.15.jpeg" x="125" y="80" width="650" height="1000" clip-path="url(#rectClip)" preserveAspectRatio="xMidYMid slice" />
+            <!-- Desktop headline -->
+            <text class="charity-svg-hero-headline charity-svg-hero-headline-desktop" font-size="22px" font-family="Inter, Segoe UI, Arial, sans-serif" font-weight="bold" fill="#fff" letter-spacing="0.02em">
+                <textPath href="#headlineCurveDesktop" startOffset="0">RÜCKBLICK AUF DIE VERGANGENEN HIGHLIGHTS</textPath>
+            </text>
+            <!-- Mobile headline -->
+            <text class="charity-svg-hero-headline charity-svg-hero-headline-mobile" font-size="20px" font-family="Inter, Segoe UI, Arial, sans-serif" font-weight="bold" fill="#fff" letter-spacing="0.02em" style="display:none;">
+                <textPath href="#headlineCurveMobile" startOffset="45%" text-anchor="middle" alignment-baseline="middle" dominant-baseline="middle">RÜCKBLICK AUF DIE VERGANGENEN HIGHLIGHTS</textPath>
+            </text>
+        </svg>
+    </div>
 </section>
+
+<style>
+.charity-svg-hero-container {
+    width: 100%;
+    max-width: 950px;
+    margin: 48px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1.15;
+    position: relative;
+}
+.charity-svg-hero {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+@media (max-width: 1024px) {
+    .charity-svg-hero-container {
+        max-width: 92vw;
+        margin: 32px auto;
+        aspect-ratio: 1/1.15;
+    }
+}
+@media (max-width: 700px) {
+    .charity-svg-hero-container {
+        max-width: 98vw;
+        margin: 18px auto;
+        aspect-ratio: 1/1.15;
+        min-height: 220px;
+    }
+    .charity-svg-hero {
+        width: 100%;
+        height: auto;
+        min-height: 220px;
+    }
+    .charity-svg-hero-headline-desktop {
+        display: none !important;
+    }
+    .charity-svg-hero-headline-mobile {
+        display: block !important;
+        font-size: 4vw !important;
+        text-anchor: middle;
+    }
+}
+@media (max-width: 480px) {
+    .charity-svg-hero-container {
+        max-width: 100vw;
+        margin: 8px auto;
+        min-height: 120px;
+    }
+    .charity-svg-hero {
+        min-height: 120px;
+    }
+    .charity-svg-hero-headline-mobile {
+        font-size: 5vw !important;
+    }
+}
+</style>
 <section class="charity-projects-section">
     <div class="charity-projects-container">
         <div class="charity-flex-row benefizkonzert-flex">
