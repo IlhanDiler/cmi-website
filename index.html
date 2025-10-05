@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -31,14 +32,14 @@
 
             <!-- Sprachumschalter: ganz rechts -->
             <div id="langSwitcher" style="display:flex;align-items:center;gap:4px;margin-left:auto;">
-                <button onclick="setLang('de')" id="langDe" style="padding:6px 14px;margin-right:4px;font-weight:600;border-radius:8px;border:none;background:rgba(255,255,255,0.85);color:#222;box-shadow:0 2px 8px rgba(0,0,0,0.08);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s,box-shadow 0.2s;">
+                <button onclick="setLang('de')" id="langDe" style="padding:6px 14px;margin-right:4px;font-weight:600;border-radius:8px;border:none;background:rgba(255,255,255,0.85);color:#222;box-shadow:0 2px 8px rgba(0,0,0,0.08);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">
                     <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right:4px;">
                         <rect width="21" height="14" fill="#000000"/>
                         <rect y="4.66667" width="21" height="4.66667" fill="#DD0000"/>
                         <rect y="9.33333" width="21" height="4.66667" fill="#FFCC00"/>
                     </svg>
                 </button>
-                <button onclick="setLang('en')" id="langEn" style="padding:6px 14px;font-weight:600;border-radius:8px;border:none;background:rgba(255,255,255,0.85);color:#222;box-shadow:0 2px 8px rgba(0,0,0,0.08);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s,box-shadow 0.2s;">
+                <button onclick="setLang('en')" id="langEn" style="padding:6px 14px;font-weight:600;border-radius:8px;border:none;background:rgba(255,255,255,0.85);color:#222;box-shadow:0 2px 8px rgba(0,0,0,0.08);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">
                     <svg width="21" height="14" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" style="margin-right:4px;">
                         <rect width="1200" height="600" fill="#00247d"/>
                         <path d="M0,0L1200,600M1200,0L0,600" stroke="#fff" stroke-width="120"/>
@@ -51,7 +52,7 @@
                         <path d="M1080,0L1200,600L1080,600L960,0" stroke="#cf142b" stroke-width="30"/>
                     </svg>
                 </button>
-                <button onclick="setLang('it')" id="langIt" style="padding:6px 14px;font-weight:600;border-radius:8px;border:none;background:rgba(255,255,255,0.85);color:#222;box-shadow:0 2px 8px rgba(0,0,0,0.08);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s,box-shadow 0.2s;">
+                <button onclick="setLang('it')" id="langIt" style="padding:6px 14px;font-weight:600;border-radius:8px;border:none;background:rgba(255,255,255,0.85);color:#222;box-shadow:0 2px 8px rgba(0,0,0,0.08);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">
                     <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right:4px;">
                         <rect width="7" height="14" x="0" y="0" fill="#008C45"/>
                         <rect width="7" height="14" x="7" y="0" fill="#F4F5F0"/>
@@ -64,6 +65,9 @@
                 <a href="#about" class="nav-link" data-lang="de">Über uns</a>
                 <a href="#about" class="nav-link" data-lang="en" style="display:none;">About us</a>
                 <a href="#about" class="nav-link" data-lang="it" style="display:none;">Chi siamo</a>
+                <a href="#music-family-section" class="nav-link" data-lang="de">MITMACHEN</a>
+                <a href="#music-family-section" class="nav-link" data-lang="en" style="display:none;">JOIN US</a>
+                <a href="#music-family-section" class="nav-link" data-lang="it" style="display:none;">PARTECIPA</a>
                 <a href="#charity-projects-section" class="nav-link" data-lang="de">Benefizprojekte</a>
                 <a href="#charity-projects-section" class="nav-link" data-lang="en" style="display:none;">Charity Projects</a>
                 <a href="#charity-projects-section" class="nav-link" data-lang="it" style="display:none;">Progetti di beneficenza</a>
@@ -73,15 +77,16 @@
                 <a href="#contact" class="nav-link" data-lang="de">Kontakt</a>
                 <a href="#contact" class="nav-link" data-lang="en" style="display:none;">Contact</a>
                 <a href="#contact" class="nav-link" data-lang="it" style="display:none;">Contatto</a>
-                <a href="#music-family-section" class="nav-link" data-lang="de">MITMACHEN</a>
-                <a href="#music-family-section" class="nav-link" data-lang="en" style="display:none;">JOIN US</a>
-                <a href="#music-family-section" class="nav-link" data-lang="it" style="display:none;">PARTECIPA</a>
+              
             </div>
             <!-- Mobile Navigation -->
             <div class="mobile-menu">
                 <a href="#about" class="mobile-nav-link" data-lang="de">Über uns</a>
                 <a href="#about" class="mobile-nav-link" data-lang="en" style="display:none;">About us</a>
                 <a href="#about" class="mobile-nav-link" data-lang="it" style="display:none;">Chi siamo</a>
+                 <a href="#music-family" class="mobile-nav-link" data-lang="de">MITMACHEN</a>
+                <a href="#music-family" class="mobile-nav-link" data-lang="en" style="display:none;">JOIN US</a>
+                <a href="#music-family" class="mobile-nav-link" data-lang="it" style="display:none;">PARTECIPA</a>
                 <a href="#charity-projects-section" class="mobile-nav-link" data-lang="de">Benefizprojekte</a>
                 <a href="#charity-projects-section" class="mobile-nav-link" data-lang="en" style="display:none;">Charity Projects</a>
                 <a href="#charity-projects-section" class="mobile-nav-link" data-lang="it" style="display:none;">Progetti di beneficenza</a>
@@ -91,9 +96,7 @@
                 <a href="#contact" class="mobile-nav-link" data-lang="de">Kontakt</a>
                 <a href="#contact" class="mobile-nav-link" data-lang="en" style="display:none;">Contact</a>
                 <a href="#contact" class="mobile-nav-link" data-lang="it" style="display:none;">Contatto</a>
-                <a href="#music-family" class="mobile-nav-link" data-lang="de">MITMACHEN</a>
-                <a href="#music-family" class="mobile-nav-link" data-lang="en" style="display:none;">JOIN US</a>
-                <a href="#music-family" class="mobile-nav-link" data-lang="it" style="display:none;">PARTECIPA</a>
+               
             </div>
         </nav>
       </nav>
@@ -446,7 +449,6 @@
             align-items: center !important;
             justify-content: center !important;
             margin: 0 auto 0 auto !important;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.10) !important;
         }
         .christmette-img-tall {
             width: 100% !important;
@@ -576,7 +578,7 @@
         align-items: center !important;
         justify-content: center !important;
         margin: 0 auto 0 auto !important;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.10) !important;
+        
     }
     .charity-image {
         width: auto !important;
@@ -606,7 +608,7 @@
         align-items: center !important;
         justify-content: center !important;
         margin: 0 auto 0 auto !important;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.10) !important;
+    
     }
     .charity-image {
         width: auto !important;
@@ -985,23 +987,38 @@
     </div>
 </section>
 
+
 <!-- Zweite Charity Card: Internationales Benefizkonzert 2025 -->
 <section class="charity-projects-section">
+    
+    
+     
+     <div style="display:flex;justify-content:center;align-items:center;width:100%;height:100%;min-height:420px;margin:48px 0;">
+        <div style="position:relative; display:inline-block; width:auto; max-width:100%;">
+            <svg viewBox="0 0 1000 1100" width="950" height="950" style="display:block; position:relative; z-index:1;">
+                <defs>
+                    <clipPath id="rectClip">
+                        <path d="M125,120 Q450,60 775,120 V1000 H125 V120 Z" />
+                    </clipPath>
+                </defs>
+                <image href="bilder/kirche_rund_19.15.15.jpeg" x="125" y="80" width="650" height="1000" clip-path="url(#rectClip)" preserveAspectRatio="xMidYMid slice" />
+                <defs>
+                    <path id="headlineCurve" d="M170,200 Q450,100 730,200" />
+                </defs>
+                <text font-size="23" font-family="Inter, Segoe UI, Arial, sans-serif" font-weight="bold" fill="#176d6d" letter-spacing="0.02em">
+                    <textPath href="#headlineCurve" startOffset="0">RÜCKBLICK AUF DIE VERGANGENEN HIGHLIGHTS</textPath>
+                </text>
+            </svg>
+        </div>
+        </div>
+</section>
+   
+
+<!-- Zweite Charity Card: Internationales Benefizkonzert 2025 -->
+<section class="charity-projects-section">
+    
     <div class="charity-projects-container">
-     <!-- Kreisförmiger Text um Bild -->
-<div style="position:relative; width:320px; height:320px; margin:48px auto;">
-  <img src="bilder/maria_schnee_neujahrskonzert_2023.png" alt="Bild" style="width:320px; height:320px; border-radius:50%; display:block; position:relative; z-index:1;">
-  <svg width="700" height="700" style="position:absolute; top:-40px; left:-40px; pointer-events:none; z-index:2;">
-    <defs>
-      <path id="circlePathOuter" d="M200,200 m-160,0 a160,160 0 1,1 320,0 a160,160 0 1,1 -320,0"/>
-    </defs>
-    <text font-size="20" font-family="Arial" fill="#176d6d">
-      <textPath href="#circlePathOuter" startOffset="0">
-        RÜCKBLICK AUF DIE VERGANGENEN HIGHLIGHTS• RÜCKBLICK AUF DIE VERGANGENEN HIGHLIGHTS •
-      </textPath>
-    </text>
-  </svg>
-</div>
+     
         <!-- <h1 class="charity-oval-headline">Rückblick auf die vergangenen Highlights</h1> -->
 
         <div class="charity-flex-row benefizkonzert-flex">
