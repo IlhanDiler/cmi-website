@@ -73,6 +73,28 @@ window.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', setHeroBgHeightResponsive);
     const heroBgImg = document.querySelector('.hero-bg img');
     if (heroBgImg) heroBgImg.onload = setHeroBgHeightResponsive;
+
+        // Dynamisch Schriftgröße für Hero-Bildtitel setzen
+        function setHeroTitleFontSize() {
+            const titles = document.querySelectorAll('.hero-bg-title');
+            const width = window.innerWidth;
+            let fontSize;
+            if (width <= 400) {
+                fontSize = '0.45em';
+            } else if (width <= 600) {
+                fontSize = '0.6em';
+            } else if (width <= 900) {
+                fontSize = '1em';
+            } else {
+                fontSize = '1.15em';
+            }
+            titles.forEach(title => {
+                title.style.fontSize = fontSize;
+            });
+        }
+        window.addEventListener('resize', setHeroTitleFontSize);
+        document.addEventListener('DOMContentLoaded', setHeroTitleFontSize);
+        // Rufe setHeroTitleFontSize auch nach jedem dynamischen Textwechsel auf!
     // Charity-Projekt: Christmette 2024 Bild auf mobilen Screens volle Breite und flexible Höhe
     function fitChristmetteImg() {
         var christmetteImg = document.querySelector('.christmette-img-tall');
@@ -232,7 +254,7 @@ function setHeroBgCrossfade(idx) {
         heroGallery[idx].src.includes('christuskirche_27_april_2024_2.jpg') ||
         heroGallery[idx].src.includes('christuskirche_27_april_2024_3.jpg')
     ) {
-        next.style.backgroundPosition = 'center 50%';
+        next.style.backgroundPosition = 'center 60%';
     } else   {
         next.style.backgroundPosition = 'center 10%';
     } 
