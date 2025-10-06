@@ -159,13 +159,14 @@ const heroGallery = [
      { src: 'bilder/maria_schnee_neujahrskonzert_2023.png', title: 'Neujahrskonzert 2023' },
      { src: 'bilder/concello.jfif', title: 'Concello 2025 in der Klosterkirche Ochsenfurt' },
      { src: 'bilder/gruppemitflagge.jpg', title: 'Gruppenbild 2025' },
-     { src: 'bilder/Gruppenbild.jpg', title: 'Collegium Musicum Iuvenale 2025' },
+   //  { src: 'bilder/Gruppenbild.jpg', title: 'Collegium Musicum Iuvenale 2025' },
      { src: 'bilder/klosterkirche.jpg', title: 'Klosterkirche 2024' },
-  //   { src: 'bilder/gaukönigshofen.jpg', title: 'Benefizkonzert 2024 in Gaukönigshofen' },
-  //   { src: 'bilder/christuskirche_27_april_2024.jpg', title: 'Christuskirche 27. April 2024' },
+     { src: 'bilder/salboro_santa_maria_assunta_2024.jpg', title: 'Salboro Santa Maria Assunta 2024' },
+     //   { src: 'bilder/gaukönigshofen.jpg', title: 'Benefizkonzert 2024 in Gaukönigshofen' },
+     { src: 'bilder/christuskirche_27_april_2024.jpg', title: 'Christuskirche 27. April 2024' },
   //   { src: 'bilder/christuskirche_27_april_2024_2.jpg', title: 'Christuskirche 2024' },
   //   { src: 'bilder/christuskirche_27_april_2024_3.jpg', title: 'Christuskirche 2024' },
-{ src: 'bilder/salboro_santa_maria_assunta_2024.jpg', title: 'Salboro Santa Maria Assunta 2024' },
+
 //{ src: 'bilder/salboro_santa_maria_assunta_2024_2.jpg', title: 'Salboro Santa Maria Assunta 2024 – 2' },
 //{ src: 'bilder/Gruppe CMI BGS Veehnklang April 2023.jpg', title: 'Gruppe CMI BGS Veehnklang April 2023' },
 { src: 'bilder/Gruppenfoto_St._Thekla_2022.jpg', title: 'Gruppenfoto St. Thekla 2022' },
@@ -175,13 +176,13 @@ const heroGallery = [
 //{ src: 'bilder/Singen schenke uns.png', title: 'Singen schenke uns' },
 //{ src: 'bilder/Gib uns Fireden 1.png', title: 'Gib uns Frieden' },
 //{ src: 'bilder/GoPro002 (4).png', title:'' },
-{ src: 'bilder/DSC_4255.JPG', title: 'St Thekla 2017' },
+//{ src: 'bilder/DSC_4255.JPG', title: 'St Thekla 2017' },
 { src: 'bilder/Gruppe 2016 2.jpg', title: 'Gruppe 2016' },
-{ src: 'bilder/Tutti insieme 2016.jpg', title: 'Tutti insieme 2016' },
+//{ src: 'bilder/Tutti insieme 2016.jpg', title: 'Tutti insieme 2016' },
 { src: 'bilder/CMI 2016.jpg', title: 'CMI 2016' },
-{ src: 'bilder/7 Gruppe CMI 2013.JPG', title: 'Gruppe CMI 2013' },
+//{ src: 'bilder/7 Gruppe CMI 2013.JPG', title: 'Gruppe CMI 2013' },
 //{ src: 'bilder/6 Gruppe 05.01.2013.jpg', title: 'Gruppe 05.01.2013' },
-{ src: 'bilder/Scheunenkonzert 17.07.jpg', title: 'Scheunenkonzert 17.07' },
+{ src: 'bilder/Scheunenkonzert 17.07.jpg', title: 'Scheunenkonzert 17.07.2017' },
 { src: 'bilder/Gruppe17.09.11.jpg', title: 'Jubiläumskonzert zum 30-jährigen Bestehen am 17.09.11' },
 // { src: 'bilder/Mitte.jpg', title: '' },
 // { src: 'bilder/CMI in chiesa St.Wolfgang.jpg', title: 'CMI in St.Wolfgang' },
@@ -252,7 +253,7 @@ function setHeroBgCrossfade(idx) {
         heroGallery[idx].src.includes('salboro_santa_maria_assunta_2024_2.jpg') ||
         heroGallery[idx].src.includes('christuskirche_27_april_2024.jpg') ||
         heroGallery[idx].src.includes('christuskirche_27_april_2024_2.jpg') ||
-        heroGallery[idx].src.includes('christuskirche_27_april_2024_3.jpg')
+        heroGallery[idx].src.includes('concello.jfif')
     ) {
         next.style.backgroundPosition = 'center 60%';
     } else   {
