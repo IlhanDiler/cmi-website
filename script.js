@@ -164,7 +164,7 @@ const heroGallery = [
      { src: 'bilder/Scheunenkonzert 17.07.jpg', title: 'Scheunenkonzert 17.07.2017' },
 
      { src: 'bilder/Gruppe17.09.11.jpg', title: 'Jubiläumskonzert zum 30-jährigen Bestehen am 17.09.11' },
-         // { src: 'bilder/CMI 2016.jpg', title: 'CMI 2016' },
+       
      //  { src: 'bilder/konzert.jpg', title: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Maintz Hotel Ochsenfurt' },
   //   { src: 'bilder/maria_schnee_neujahrskonzert_2023.png', title: 'Neujahrskonzert 2023' },
    //  { src: 'bilder/Gruppenbild.jpg', title: 'Collegium Musicum Iuvenale 2025' },
