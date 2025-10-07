@@ -213,20 +213,20 @@ function setHeroBgCrossfade(idx) {
     next.style.backgroundImage = `url('${heroGallery[idx].src}')`;
     next.style.opacity = '0';
     next.style.transition = `opacity ${fadeDuration/1000}s cubic-bezier(.77,0,.18,1)`;
-    // Set or update title overlay
-    let titleDiv = next.querySelector('.hero-bg-title');
-    if (!titleDiv) {
-        titleDiv = document.createElement('div');
-        titleDiv.className = 'hero-bg-title';
-        next.appendChild(titleDiv);
+    // Set or update fadein-text overlay
+    let fadeinDiv = next.querySelector('.fadein-text');
+    if (!fadeinDiv) {
+        fadeinDiv = document.createElement('div');
+        fadeinDiv.className = 'fadein-text';
+        next.appendChild(fadeinDiv);
     }
-    titleDiv.textContent = heroGallery[idx].title;
+    fadeinDiv.textContent = heroGallery[idx].title;
     if (heroGallery[idx].title === '') {
-        titleDiv.style.opacity = '0';
-        titleDiv.style.transition = 'none';
+        fadeinDiv.style.opacity = '0';
+        fadeinDiv.style.transition = 'none';
     } else {
-        titleDiv.style.opacity = '0';
-        titleDiv.style.transition = '';
+        fadeinDiv.style.opacity = '0';
+        fadeinDiv.style.transition = '';
     }
     // Individual background position logic (existing)
     if (window.innerWidth <= 600) {
@@ -267,17 +267,17 @@ function setHeroBgCrossfade(idx) {
         next.style.opacity = '1';
         current.style.opacity = '0';
         current.style.transition = `opacity ${fadeDuration/1000}s cubic-bezier(.77,0,.18,1)`;
-        // Fade in title overlay nur wenn nicht leer
+        // Fade in fadein-text overlay nur wenn nicht leer
         if (heroGallery[idx].title !== '') {
             setTimeout(() => {
-                titleDiv.style.opacity = '1';
+                fadeinDiv.style.opacity = '1';
             }, 600);
         } else {
-            titleDiv.style.opacity = '0';
+            fadeinDiv.style.opacity = '0';
         }
-        // Hide previous title
-        let prevTitle = current.querySelector('.hero-bg-title');
-        if (prevTitle) prevTitle.style.opacity = '0';
+        // Hide previous fadein-text
+        let prevFadein = current.querySelector('.fadein-text');
+        if (prevFadein) prevFadein.style.opacity = '0';
         fadeToggle = !fadeToggle;
     }, 50);
 }
