@@ -18,23 +18,23 @@
 }
 @media (max-width: 700px) {
     .fadein-text {
-        font-size: 0.85em;
-        padding: 5px 8vw 5px 8vw;
-        max-width: 90vw;
-        right: 1vw;
-        bottom: 6px;
-        border-radius: 10px 14px 10px 14px;
-        text-align: right;
+        font-size: 0.65em !important;
+        padding: 4px 6vw 4px 6vw !important;
+        max-width: 92vw !important;
+        right: 1vw !important;
+        bottom: 6px !important;
+        border-radius: 10px 14px 10px 14px !important;
+        text-align: right !important;
     }
 }
 @media (max-width: 400px) {
     .fadein-text {
-        font-size: 0.7em;
-        padding: 4px 4vw 4px 4vw;
-        max-width: 98vw;
-        right: 0.5vw;
-        bottom: 4px;
-        border-radius: 8px 10px 8px 10px;
+        font-size: 0.55em !important;
+        padding: 3px 2vw 3px 2vw !important;
+        max-width: 98vw !important;
+        right: 0.5vw !important;
+        bottom: 4px !important;
+        border-radius: 8px 10px 8px 10px !important;
     }
 }
 .music-family-group h2 {
