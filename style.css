@@ -1878,13 +1878,28 @@
 .charity-description {
     font-family: 'Inter', Arial, sans-serif;
     color: #211A1D;
-    font-size: 1.1em;
+    font-size: clamp(0.75em, 1vw + 1vh, 1.08em);
     line-height: 1.6;
     font-weight: 500;
     text-align: justify;
     word-break: break-word;
     hyphens: auto;
     margin-bottom: 18px;
+}
+@media (max-width: 1600px) and (min-width: 900px) {
+    .about-me-bio-text {
+        font-size: clamp(0.65em, 0.8vw + 0.8vh, 0.75em);
+    }
+}
+@media (max-width: 1000px) and (min-width: 700px) {
+    .about-me-bio-text {
+        font-size: clamp(0.7em, 0.7vw + 0.7vh, 0.65em);
+    }
+}
+@media (max-width: 700px) {
+    .about-me-bio-text {
+        font-size: clamp(0.65em, 2vw, 0.55em);
+    }
 }
 .charity-footer {
     font-family: 'Inter', Arial, sans-serif;
@@ -2194,8 +2209,8 @@
     align-items: stretch;
     justify-content: center;
     width: 100vw;
-    min-height: 80vh;
-    height: auto;
+    height: 100vh;
+    min-height: 100vh;
     background: #FAFAFA;
     padding: 0;
     box-sizing: border-box;
@@ -2205,7 +2220,7 @@
 .about-me-section-modern .about-me-image-modern {
     flex: 0 0 50vw;
     width: 50vw;
-    height: auto;
+    height: 100vh;
     display: flex;
     align-items: stretch;
     justify-content: flex-end;
@@ -2217,7 +2232,7 @@
     width: 100%;
     height: 100%;
     max-width: none;
-    max-height: none;
+    max-height: 100vh;
     border-radius: 0 32px 32px 0;
     object-fit: cover;
     object-position: center 5%;
@@ -2234,9 +2249,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
     padding: 0 5vw;
     box-sizing: border-box;
-    height: auto;
+    height: 100vh;
     font-family: 'Inter', Arial, sans-serif;
     font-size: clamp(0.95em, 1.2vw + 1.2vh, 1.18em);
     line-height: 1.6;
@@ -2505,15 +2521,15 @@
 }
 .image-caption-card {
     background: #F5F5F5;
-    border-radius: 32px;
-    max-width: 900px;
-    width: 90vw;
-    margin: 0 2vw;
-    padding: 2vw 2vw 2vw 2vw;
+    border-radius: 48px;
+    max-width: 1200px;
+    width: 98vw;
+    margin: 0 auto 0 auto;
+    padding: 4vw 4vw 4vw 4vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: none;
+    box-shadow: 0 4px 24px rgba(26,54,93,0.10);
 }
 /* Musik baut Brücken Card: Responsive height and vertical centering */
 .musik-bruecken-card {
@@ -2722,14 +2738,14 @@
 }
 .image-caption-card-img {
     width: 100%;
-    max-width: 900px;
+    max-width: 1800px;
     min-width: 0;
     height: auto;
-    border-radius: 24px;
-    margin-bottom: 32px;
-    margin-top: 12px;
-    aspect-ratio: 16/9;
-    object-fit: contain;
+    border-radius: 32px;
+    margin-bottom: 48px;
+    margin-top: 18px;
+    aspect-ratio: 16/7;
+    object-fit: cover;
     display: block;
 }
 .image-caption-card-footer {
@@ -2754,18 +2770,7 @@
     text-align: center;
     margin-bottom: 18px;
 }
-.image-caption-card img {
-    width: 100%;
-    max-width: 900px;
-    min-width: 0;
-    height: auto;
-    border-radius: 24px;
-    margin-bottom: 32px;
-    margin-top: 12px;
-    aspect-ratio: 16/9;
-    object-fit: contain;
-    display: block;
-}
+
 .image-caption-card .caption-footer {
     color: #0D5C63;
     font-size: clamp(1.12em, 1.7vw, 1.25em);
