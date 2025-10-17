@@ -169,7 +169,12 @@
                 <h2 style="color:#000;font-size:1.35em;font-weight:700;margin-bottom:18px;display:none;font-family:'Inter','Segoe UI',Arial,sans-serif;" data-lang="it">Gruppo principianti</h2>
                     <ul style="list-style:none;padding:0;font-size:1.08em;color:#222;font-family:'Inter','Segoe UI',Arial,sans-serif;">
                         <li><b>Wann:</b> samstags von 10.00–11.00 Uhr</li>
-                        <li><b>Wo:</b> Rote Schule (VHS-Gebäude), Kirchplatz 2, 97199 Ochsenfurt, Raum 4</li>
+                        <li><b>Wo:</b><br>
+                        <span class="address-part">Rote Schule (VHS-Gebäude)</span><br>
+                        <span class="address-part">Kirchplatz 2</span><br>
+                        <span class="address-part">97199 Ochsenfurt</span><br>
+                        <span class="address-part">Raum 4</span>
+                    </li>
                         <li><b>Alter:</b> ab 5 Jahren</li>
                         <li><b>Kosten:</b> keine</li>
                         <li><b>Voraussetzung:</b> Instrument, Notenständer, Kenntnis von wenigstens zwei Tönen oder Freude am Singen</li>
@@ -195,7 +200,12 @@
                 <h2 style="color:#000;font-size:1.35em;font-weight:700;margin-bottom:18px;display:none;font-family:'Inter','Segoe UI',Arial,sans-serif;" data-lang="it">Per giovani avanzati e adulti (anche nuovi arrivati):</h2>
                 <ul style="list-style:none;padding:0;font-size:1.08em;color:#222;font-family:'Inter','Segoe UI',Arial,sans-serif;">
                     <li><b>Wann:</b> samstags von 11.00–12.30 Uhr</li>
-                    <li><b>Wo:</b> Rote Schule (VHS-Gebäude), Kirchplatz 2, 97199 Ochsenfurt, Raum 4</li>
+                    <li><b>Wo:</b><br>
+                        <span class="address-part">Rote Schule (VHS-Gebäude)</span><br>
+                        <span class="address-part">Kirchplatz 2</span><br>
+                        <span class="address-part">97199 Ochsenfurt</span><br>
+                        <span class="address-part">Raum 4</span>
+                    </li>
                     <li><b>Alter:</b> ab 12 - 101 Jahren</li>
                     <li><b>Kosten:</b> keine</li>
                     <li><b>Voraussetzung:</b> Instrument, Notenständer, ca. drei Jahre Erfahrung</li>
@@ -242,8 +252,14 @@
 .music-family-section {
     font-family: 'Inter', Arial, sans-serif;
 }
+/* Responsive Schriftgröße für music-family-title */
 .music-family-title {
     letter-spacing: -0.01em;
+    font-size: clamp(1.1em, 6vw, 2.5em) !important;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    word-break: break-word;
 }
 .music-family-benefits li {
     transition: background 0.2s;
@@ -879,7 +895,7 @@
                 Wir sind eine Gemeinschaft von Musikbegeisterten, die ihre Freude am gemeinsamen Musizieren an das Publikum weitervermitteln, gleichzeitig durch Benefizprojekte sozial engagiert sind und durch internationale Freundschaften kulturelle Kontakte pflegen.
             </p>
             <p class="musik-bruecken-text" data-lang="en" style="display:none;">
-                For 44 years, Collegium Musicum Iuvenale Ochsenfurt has been bringing people together through the power of music.<br>
+                        <li><b>Wo:</b> Rote Schule (VHS-Gebäude)<br>Kirchplatz 2<br>97199 Ochsenfurt, Raum 4</li>
                 We are a community of passionate musicians who share our joy of making music with the audience, engage in charity projects, and cultivate international friendships through cultural exchange.
             </p>
             <p class="musik-bruecken-text" data-lang="it" style="display:none;">
@@ -1192,16 +1208,8 @@
         font-size: 4vw !important;
         text-anchor: middle;
     }
-}
-@media (max-width: 480px) {
-    .charity-svg-hero-container {
-        max-width: 100vw;
-        margin: 8px auto;
-        min-height: 120px;
-    }
-    .charity-svg-hero {
-        min-height: 120px;
-    }
+
+    
     .charity-svg-hero-headline-mobile {
         font-size: 5vw !important;
     }
