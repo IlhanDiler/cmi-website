@@ -132,16 +132,18 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 // Hero-BG Gallery/Slideshow
 const heroGallery = [
-     { src: 'bilder/Gruppenbild2.jpg', title: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Maintz Hotel Ochsenfurt' },
-      { src: 'bilder/gruppe_2007.jpeg', title: 'CMI 2007' },
+    //Gruppenbild2 aufhellen
+     { src: 'bilder/Gruppenbild2.jpg', title: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Meintz Hotel Ochsenfurt' },
+      { src: 'bilder/gruppe_2007.jpeg', title: 'CMI 2009' },
      { src: 'bilder/peterbild.jpg', title: 'Gedenkfeier - „80 Jahre Kriegsende, 80 Jahre Frieden in Ochsenfurt 2025' },
-     { src: 'bilder/concello.jfif', title: 'Concello 2025 in der Klosterkirche Ochsenfurt' },
-     { src: 'bilder/gruppemitflagge.jpg', title: 'Gruppenbild 2025' },
+     { src: 'bilder/concello.jfif', title: 'ConCello 2025 in der Klosterkirche Ochsenfurt' },
+     { src: 'bilder/gruppemitflagge.jpg', title: 'CMI und Veeh-Harfengruppe Querbeet 2025' },
      { src: 'bilder/klosterkirche.jpg', title: 'Klosterkirche 2024' },
+
      { src: 'bilder/salboro_santa_maria_assunta_2024.jpg', title: 'Salboro Santa Maria Assunta 2024' },
-     { src: 'bilder/christuskirche_27_april_2024.jpg', title: 'Christuskirche 27. April 2024' },
-     { src: 'bilder/Gruppenfoto_St._Thekla_2022.jpg', title: 'Gruppenfoto St. Thekla 2022' },
-     { src: 'bilder/Scheunenkonzert 17.07.jpg', title: 'Scheunenkonzert 17.07.2017' },
+     { src: 'bilder/Jubiläumskonzert_2016.jpg', title: 'Jubiläumskonzert 2016' },
+     { src: 'bilder/Gruppenfoto_St._Thekla_2022.jpg', title: 'CMI und BGS St. Thekla 2022' },
+     { src: 'bilder/Scheunenkonzert 17.07.jpg',title:'' },
 
      { src: 'bilder/Gruppe17.09.11.jpg', title: 'Jubiläumskonzert zum 30-jährigen Bestehen am 17.09.11' },
     
