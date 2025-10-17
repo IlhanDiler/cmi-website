@@ -100,15 +100,11 @@
       </nav>
     </div>
 
-<!-- Moderne Mint-Section: Musik baut Brücken -->
-
-
-
-
 <!-- Material Design Section: Bild mit Unterschrift -->
 <section class="image-caption-section" style="background: #F5F5F5; position: relative; overflow: hidden; padding: 80px 0 80px 0;">
     <div class="image-caption-card" style="position:relative;">
-        <h1 class="image-caption-card-h1" data-lang="de">Collegium Musicum Iuvenale – Gemeinschaft in Musik</h1>
+        <h1 class="image-caption-card-h1" data-lang="de">Collegium Musicum Iuvenale – </h1>
+        <h1 class="image-caption-card-h1" data-lang="de">Gemeinschaft in Musik</h1>
         <h1 class="image-caption-card-h1" data-lang="en" style="display:none;">Collegium Musicum Iuvenale – Community in Music</h1>
         <h1 class="image-caption-card-h1" data-lang="it" style="display:none;">Collegium Musicum Iuvenale – Comunità nella musica</h1>
         <div class="image-caption-card-lead" data-lang="de">Einen Eindruck vom musikalischen Jubiläum bekommst du direkt hier:</div>
@@ -131,7 +127,7 @@
 <!-- Moderne Section: Werde Teil unserer Musikfamilie -->
 <section id="music-family-section" class="music-family-section" style="background:linear-gradient(180deg,#eafafc 0%,#f7fff7 100%);padding:72px 0 72px 0;">
     <div class="music-family-container" style="max-width:900px;margin:0 auto;padding:0 24px;">
-    <h2 class="music-family-title" data-lang="de" style="font-size:clamp(1.3em, 4vw, 2.5em);font-weight:700;color:#222;margin-bottom:18px;font-family:'Inter','Segoe UI',Arial,sans-serif;white-space:nowrap;">Werde Teil unserer <span style="color:#009688;">Musikfamilie</span></h2>
+    <h2 class="music-family-title" data-lang="de" style="font-size:clamp(1.3em, 4vw, 2.5em);font-weight:700;color:#222;margin-bottom:18px;font-family:'Inter','Segoe UI',Arial,sans-serif;white-space:nowrap;">Werde Teil unserer </br><span style="color:#009688;">Musikfamilie</span></h2>
     <h2 class="music-family-title" data-lang="en" style="display:none;font-size:clamp(1.3em, 4vw, 2.5em);font-weight:700;color:#222;margin-bottom:18px;font-family:'Inter','Segoe UI',Arial,sans-serif;white-space:nowrap;">Become Part of Our <span style="color:#009688;">Music Family</span></h2>
     <h2 class="music-family-title" data-lang="it" style="display:none;font-size:clamp(1.3em, 4vw, 2.5em);font-weight:700;color:#222;margin-bottom:18px;font-family:'Inter','Segoe UI',Arial,sans-serif;white-space:nowrap;">Diventa parte della nostra <span style="color:#009688;">famiglia musicale</span></h2>
         <div style="display:flex;flex-direction:column;align-items:center;gap:18px;margin-bottom:32px;">
@@ -145,9 +141,13 @@
                     <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Wöchentliche Proben jeden Samstag Vormittag</li>
                     <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Kostenlose Teilnahme – nur deine Leidenschaft zählt</li>
                     <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Freundliche Atmosphäre und kompetente Leitung</li>
-                    <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Regelmäßige Auftritte und besondere Events</li>
+                            <li class="music-family-benefit"><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Regelmäßige Auftritte und besondere Events
+                                                            <span class="music-family-logo-mobile">
+                                                                <img src="files/logo_cmi1 - schwarz.svg" alt="CMI Logo" style="height:72px;width:auto;margin-top:12px;display:block;" />
+                                                            </span>
+                            </li>
                 </ul>
-                <img src="files/logo_cmi1 - schwarz.svg" alt="CMI Logo" style="height:100px;width:auto;vertical-align:middle;">
+               
             </div>
             <ul class="music-family-benefits" style="list-style:none;padding:0;margin:0;min-width:260px;display:none;" data-lang="en">
                 <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Weekly rehearsals every Saturday morning</li>
@@ -238,6 +238,31 @@
     </div>
 </section>
 <style>
+@media (max-width: 600px) {
+    .music-family-benefits li {
+        padding-left: 28px !important;
+        text-indent: -10px !important;
+        margin-bottom: 10px !important;
+        font-size: 1.08em !important;
+        line-height: 1.35 !important;
+        box-sizing: border-box !important;
+    }
+    .music-family-benefits {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .music-family-benefits li span {
+        display: inline-block !important;
+        min-width: 18px !important;
+        margin-left: -18px !important;
+        vertical-align: top !important;
+    }
+}
+.music-family-benefits li {
+    padding-left: 28px !important;
+    text-indent: -8px !important;
+    margin-bottom: 8px !important;
+}
 
 
 /* Bullets mittig zum Text ausrichten */
@@ -286,6 +311,14 @@
     }
 }
 @media (max-width: 600px) {
+@media (max-width: 600px) {
+    .music-family-logo-mobile img {
+        display: block !important;
+        margin: 0 auto !important;
+        height: 72px !important;
+        width: auto !important;
+    }
+}
     .music-family-title {
         font-size: 2em !important;
     }
