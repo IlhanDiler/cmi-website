@@ -1,3 +1,153 @@
+/* Modern Design for About-Me Subtitle */
+.about-me-modern-subtitle {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    font-size: clamp(1.15em, 2.5vw, 1.5em);
+    font-weight: 500;
+    color: #009688;
+    margin-bottom: 0.7em;
+    margin-top: 0.1em;
+    text-align: center;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    word-break: break-word;
+}
+/* Modern Design for About-Me Title */
+.about-me-modern-title {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    font-size: clamp(2em, 5vw, 3em);
+    font-weight: 700;
+    color: #176d6d;
+    margin-bottom: 0.5em;
+    margin-top: 0.2em;
+    letter-spacing: -0.01em;
+    text-align: center;
+    line-height: 1.1;
+    word-break: break-word;
+    text-shadow: 0 2px 12px rgba(25,211,197,0.08);
+}
+/* Responsive About-Me Section Modern */
+.about-me-section-modern-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    width: 100vw;
+    max-width: 100vw;
+    box-sizing: border-box;
+    gap: 0;
+    padding-top: 4vw;
+    padding-bottom: 4vw;
+}
+.about-me-text-modern {
+    flex: 1 1 50vw;
+    width: 50vw;
+    min-width: 260px;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 8vw;
+    padding-right: 8vw;
+    box-sizing: border-box;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: clamp(0.95em, 1.2vw + 1.2vh, 1.18em);
+    line-height: 1.6;
+    color: #211A1D;
+    word-break: break-word;
+    hyphens: auto;
+}
+.about-me-image-modern {
+    flex: 0 0 50vw;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0;
+    overflow: hidden;
+}
+.about-me-image-modern img {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: 100vh;
+    border-radius: 0 32px 32px 0;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    margin: 0 auto;
+    transition: margin-top 0.3s;
+}
+@media (max-width: 1440px) {
+    .about-me-section-modern-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        width: 100vw;
+        max-width: 100vw;
+        height: auto;
+        min-height: 0;
+        padding: 32px 0;
+    }
+    .about-me-text-modern {
+        order: 1;
+        width: 100%;
+        max-width: 900px;
+        display: flex;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 4vw;
+        box-sizing: border-box;
+        text-align: justify;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        word-break: break-word;
+        word-spacing: 0;
+        letter-spacing: 0 !important;
+    }
+    .about-me-image-modern {
+        order: 2;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+        .about-me-image-modern img {
+            width: 90vw;
+            max-width: 90vw;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 24px;
+            object-fit: contain;
+            background: #fff;
+        }
+}
+@media (max-width: 600px) {
+    .about-me-section-modern-inner {
+        padding: 18px 0;
+        gap: 1.2rem;
+    }
+    .about-me-text-modern {
+        padding: 0 2vw;
+        font-size: clamp(0.9em, 2vw, 1em);
+        line-height: 1.5;
+    }
+    .about-me-image-modern img {
+        max-width: 98vw;
+        width: auto;
+        height: auto;
+        border-radius: 18px;
+    }
+}
+
 /* Timeline Section General Styles */
 .timeline-section {
     padding: 48px 0 48px 0 !important;
@@ -2059,51 +2209,6 @@
     margin-bottom: 18px;
 }
 
-@media (max-width: 2800px){
-    .about-me-bio-text {
-        font-size: clamp(0.95em, 0.9vw + 0.9vh, 1.05em);
-        font-family: 'Inter', Arial, sans-serif;
-        color: #211A1D;
-        line-height: 1.6;
-        font-weight: 400;
-        text-align: left;
-        word-break: break-word;
-        hyphens: auto;
-        overflow-wrap: anywhere;
-        margin-bottom: 14px;
-    }
-}
-
-@media (max-width: 1000px){
-    .about-me-bio-text {
-        font-size: clamp(0.87em, 2.5vw, 0.95em);
-        font-family: 'Inter', Arial, sans-serif;
-        color: #211A1D;
-        line-height: 1.6;
-        font-weight: 400;
-        text-align: left;
-        word-break: break-word;
-        hyphens: auto;
-        overflow-wrap: anywhere;
-        margin-bottom: 14px;
-    }
-}
-@media (max-width: 700px) {
-    .about-me-bio-text {
-        font-size: clamp(0.95em, 4vw, 1.01em);
-        font-family: 'Inter', Arial, sans-serif;
-        color: #211A1D;
-        line-height: 1.6;
-        font-weight: 400;
-        text-align: left;
-        word-break: break-word;
-        hyphens: auto;
-        overflow-wrap: anywhere;
-        margin-bottom: 12px;
-        padding-left: 2vw;
-        padding-right: 2vw;
-    }
-}
 .charity-footer {
     font-family: 'Inter', Arial, sans-serif;
     color: #0D5C63;
@@ -2286,236 +2391,6 @@
     hyphens: auto;
 }
 
-/* @media (max-width: 600px) {
-    .timeline-section {
-        padding: 32px 0 32px 0;
-    }
-    .timeline-container {
-        padding: 18px 2vw 18px 2vw;
-        border-radius: 14px;
-    }
-    .timeline-title {
-        font-size: clamp(1.1em, 7vw, 1.7em);
-        margin-bottom: 16px;
-    }
-    .timeline-list {
-        gap: 16px;
-    }
-    .timeline-item {
-        flex-direction: column;
-        gap: 8px;
-    }
-    .timeline-year {
-        font-size: 1em;
-        padding: 7px 0;
-        border-radius: 10px;
-        width: 100%;
-        margin-bottom: 2px;
-    }
-    .timeline-content {
-        gap: 2px;
-    }
-} */
-/* Material Design Typografie für neue About-Me-Section */
-.about-me-modern-title {
-    font-family: 'Inter', Arial, sans-serif;
-    font-weight: 900;
-    color: #0D5C63;
-    font-size: clamp(2.1rem, 4vw, 3.2rem);
-    line-height: 1.08;
-    margin-bottom: 0.18em;
-    margin-top: 0;
-    letter-spacing: -1.2px;
-    text-align: left;
-}
-.about-me-modern-subtitle {
-    font-family: 'Inter', Arial, sans-serif;
-    color: #19D3C5;
-    font-size: clamp(1.15em, 2.5vw, 2em);
-    font-weight: 700;
-    line-height: 1.13;
-    margin-bottom: 0.7em;
-    margin-top: 0.1em;
-    text-align: left;
-}
-.about-me-modern-bio {
-    font-family: 'Inter', Arial, sans-serif;
-    color: #211A1D;
-    font-size: clamp(1em, 1.2vw + 1.2vh, 1.18em);
-    line-height: 1.6;
-    font-weight: 500;
-    text-align: justify;
-    word-break: break-word;
-    hyphens: auto;
-    margin-bottom: 0;
-}
-@media (max-width: 900px) {
-    .about-me-modern-title {
-        font-size: clamp(1.3em, 5vw, 2.1em);
-        line-height: 1.13;
-        margin-bottom: 0.3em;
-        text-align: left;
-    }
-    .about-me-modern-subtitle {
-        font-size: clamp(1em, 3.5vw, 1.15em);
-        line-height: 1.18;
-        margin-bottom: 1em;
-        text-align: left;
-    }
-    .about-me-modern-bio {
-        font-size: clamp(0.98em, 3vw, 1.08em);
-        line-height: 1.7;
-    }
-}
-@media (max-width: 600px) {
-    .about-me-modern-title {
-        font-size: clamp(1.1em, 7vw, 1.7em);
-        line-height: 1.13;
-        margin-bottom: 0.3em;
-        text-align: left;
-    }
-    .about-me-modern-subtitle {
-        font-size: clamp(1em, 5vw, 1.1em);
-        line-height: 1.18;
-        margin-bottom: 1em;
-        text-align: left;
-    }
-    .about-me-modern-bio {
-        font-size: clamp(0.95em, 3vw, 1.05em);
-        line-height: 1.5;
-    }
-}
-/* Neue About-Me-Section: Modern, voll responsive, Bild unten auf Mobile */
-.about-me-section-modern {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    min-height: 100vh;
-    background: #FAFAFA;
-    padding: 0;
-    box-sizing: border-box;
-    gap: 0;
-    overflow: hidden;
-}
-.about-me-section-modern .about-me-image-modern {
-    flex: 0 0 50vw;
-    width: 50vw;
-    height: 100vh;
-    display: flex;
-    align-items: stretch;
-    justify-content: flex-end;
-    box-sizing: border-box;
-    padding: 0;
-    overflow: hidden;
-}
-.about-me-section-modern .about-me-image-modern img {
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    max-height: 100vh;
-    border-radius: 0 32px 32px 0;
-    object-fit: cover;
-    object-position: center 5%;
-    box-shadow: 0 4px 24px rgba(13,92,99,0.10);
-    display: block;
-    margin-top: 0;
-    transition: margin-top 0.3s;
-}
-.about-me-section-modern .about-me-text-modern {
-    flex: 1 1 50vw;
-    width: 50vw;
-    min-width: 260px;
-    max-width: 900px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0 5vw;
-    box-sizing: border-box;
-    height: 100vh;
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: clamp(0.95em, 1.2vw + 1.2vh, 1.18em);
-    line-height: 1.6;
-    color: #211A1D;
-    word-break: break-word;
-    hyphens: auto;
-}
-@media (max-width: 900px) {
-    .about-me-section-modern {
-        flex-direction: column;
-        min-height: 0;
-        height: auto;
-        padding: 24px 0;
-        align-items: stretch;
-    }
-    .about-me-section-modern .about-me-image-modern {
-        width: 100vw;
-        flex: none;
-        padding: 0;
-        justify-content: center;
-        align-items: stretch;
-        margin-bottom: 18px;
-        height: auto;
-    }
-    .about-me-section-modern .about-me-image-modern img {
-        max-width: 96vw;
-        width: 100%;
-        height: auto;
-        max-height: 400px;
-        border-radius: 24px;
-        object-fit: cover;
-    }
-    .about-me-section-modern .about-me-text-modern {
-        width: 98vw;
-        max-width: 98vw;
-        min-width: 0;
-        padding: 12px 2vw 12px 2vw;
-        height: auto;
-        font-size: clamp(0.9em, 1.5vw, 1em);
-        line-height: 1.5;
-    }
-}
-@media (max-width: 600px) {
-    .about-me-section-modern {
-        font-size: clamp(0.85em, 1.5vw + 1.5vh, 1.05em);
-        height: auto !important;
-        min-height: 100vh !important;
-        flex-direction: column;
-        align-items: stretch;
-        box-sizing: border-box;
-        flex: 1 1 auto !important;
-        padding-bottom: 24px;
-    }
-    .about-me-section-modern .about-me-image-modern {
-        display: block;
-        width: 100vw;
-        height: 50vh;
-        margin: 0 auto;
-        padding: 0;
-        justify-content: center;
-        align-items: stretch;
-    }
-    .about-me-section-modern .about-me-image-modern img {
-        width: 100vw;
-        height: 100%;
-        max-width: 100vw;
-        max-height: 100vh;
-        min-height: 0;
-        object-fit: cover;
-        object-position: center 5%;
-        border-radius: 0 0 24px 24px;
-        margin: 0 auto;
-        display: block;
-    }
-    .about-me-section-modern .about-me-text-modern {
-        font-size: clamp(0.85em, 2vw, 0.98em);
-        padding: 8px 1vw 8px 1vw;
-        line-height: 1.4;
-    }
-}
 
 @media (min-width: 600px) and (max-width: 900px) {
     .musik-bruecken-card {
@@ -2994,306 +2869,7 @@
     }
 }
 
-.about-me-responsive-subtitle {
-    color: #19D3C5 !important;
-    line-height: 1.05;
-    margin-bottom: 0.7em;
-}
-.about-me-responsive-subtitle {
-    color: #19D3C5 !important;
-    font-size: clamp(1.35em, 2.5vw, 2em);
-    line-height: 1.13;
-    margin-bottom: 0.7em;
-    font-weight: 700;
-    font-family: 'Inter', Arial, sans-serif;
-}
-.about-me-responsive-title {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: clamp(1.3em, 1vw + 1.3em, 2.5em);
-    font-weight: 900;
-    line-height: 1.01;
-    color: #0D5C63;
-    letter-spacing: -1.2px;
-    margin-bottom: 0.18em;
-    margin-top: 0;
-}
-@media (max-width: 900px) {
-    .about-me-responsive-title {
-        font-size: clamp(1.1em, 3vw, 2em);
-        line-height: 1.04;
-    }
-}
-@media (max-width: 600px) {
-    .about-me-responsive-title {
-    .about-me-responsive-subtitle {
-        font-size: clamp(1.2em, 6vw, 1.5em);
-        line-height: 1.13;
-        margin-bottom: 1em;
-    }
-        font-family: 'Inter', Arial, sans-serif !important;
-        font-size: clamp(0.98em, 3vw, 1.08em);
-        line-height: 1.7;
-        font-weight: 500;
-    }
-}
-@media (max-width: 600px) {
-    .about-me-responsive-title {
-        font-size: clamp(1.1em, 5vw, 1.7em);
-        line-height: 1.13;
-        font-family: 'Inter', Arial, sans-serif;
-        font-weight: 900;
-        margin-bottom: 0.3em;
-    }
-    .about-me-responsive-subtitle {
-        font-size: clamp(1em, 3.5vw, 1.15em);
-        line-height: 1.18;
-        font-family: 'Inter', Arial, sans-serif;
-        font-weight: 700;
-        margin-bottom: 1em;
-    }
-    .about-me-responsive-bio {
-        font-size: clamp(0.98em, 3vw, 1.08em);
-        line-height: 1.7;
-        font-family: 'Inter', Arial, sans-serif;
-        font-weight: 500;
-    }
-}
-/* Responsive About Me Section */
-/* Responsive About Me Section: 90% Viewport-Höhe, Bild nutzt volle linke Breite */
-.about-me-responsive-section {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: center;
-    width: 100vw;
-    min-height: 0;
-    height: auto;
-    background: #FAFAFA;
-    padding: 0;
-    box-sizing: border-box;
-    gap: 0;
-    overflow: hidden;
-}
-/* Bild-Container nimmt die gleiche Höhe wie der Text-Container ein */
-/* Bild nutzt volle linke Breite und Höhe der Section */
-.about-me-responsive-image {
-    flex: 0 0 50vw;
-    width: 50vw;
-    height: auto;
-    min-height: unset;
-    display: flex;
-    align-items: stretch;
-    justify-content: flex-end;
-    box-sizing: border-box;
-    padding: 0;
-    overflow: hidden;
-}
-.about-me-responsive-image img {
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    max-height: none;
-    border-radius: 0 32px 32px 0;
-    object-fit: cover;
-    object-position: center 5%;
-    display: block;
-    margin-top: 0;
-    transition: margin-top 0.3s;
-}
-@media (max-width: 900px) {
-    .about-me-responsive-image img {
-        margin-top: 1.5vh;
-    }
-}
-@media (max-width: 600px) {
-    .about-me-responsive-image img {
-        margin-top: 0.5vh;
-    }
-}
-/* Text bleibt rechts, nimmt volle Höhe ein, padding angepasst */
-.about-me-responsive-text {
-    flex: 1 1 50vw;
-    width: 50vw;
-    min-width: 260px;
-    max-width: 900px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 5vw;
-    box-sizing: border-box;
-    height: auto;
-    min-height: unset;
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: clamp(0.85em, 1.2vw + 1.2vh, 1.18em);
-    line-height: 1.6;
-    color: #211A1D;
-    word-break: break-word;
-    hyphens: auto;
-}
-@media (max-width: 900px) {
-    .about-me-responsive-section {
-        flex-direction: column;
-        min-height: 0;
-        height: auto;
-        padding: 24px 0;
-        align-items: stretch;
-    }
-    .about-me-responsive-image {
-        width: 100vw;
-        flex: none;
-        padding: 0;
-        justify-content: center;
-        align-items: stretch;
-        margin-bottom: 18px;
-        height: auto;
-        min-height: unset;
-        max-height: none;
-    }
-    .about-me-responsive-image img {
-        max-width: 96vw;
-        width: 100%;
-        height: auto;
-        max-height: 400px;
-        border-radius: 24px;
-        object-fit: cover;
-    }
-    .about-me-responsive-text {
-        width: 98vw;
-        max-width: 98vw;
-        min-width: 0;
-        padding: 12px 2vw 12px 2vw;
-        height: auto;
-        min-height: unset;
-        font-size: clamp(0.85em, 1.5vw, 1em);
-        line-height: 1.5;
-    }
-}
-@media (max-width: 600px) {
-    .about-me-responsive-section {
-        font-size: clamp(0.85em, 1.5vw + 1.5vh, 1.05em);
-        height: auto !important;
-        min-height: 100vh !important;
-        flex-direction: column;
-        align-items: stretch;
-        box-sizing: border-box;
-        flex: 1 1 auto !important;
-        padding-bottom: 24px;
-    }
-    .about-me-responsive-image {
-        display: block;
-        width: 100vw;
-        height: 50vh;
-        margin: 0 auto;
-        padding: 0;
-        justify-content: center;
-        align-items: stretch;
-    }
-    .about-me-responsive-image img {
-        width: 100vw;
-        height: 100%;
-        max-width: 100vw;
-        max-height: 100vh;
-        min-height: 0;
-        object-fit: cover;
-        object-position: center 5%;
-        border-radius: 0 0 24px 24px;
-        margin: 0 auto;
-        display: block;
-    }
-    .about-me-responsive-text {
-        font-size: clamp(0.8em, 2vw, 0.95em);
-        padding: 8px 1vw 8px 1vw;
-        line-height: 1.4;
-    }
-}
-@media (max-width: 900px) {
-    .about-me-responsive-text {
-        width: 98vw;
-        max-width: 98vw;
-        min-width: 0;
-        padding: 18px 4vw 18px 4vw;
-        height: auto;
-        font-size: clamp(0.98em, 2vw, 1.08em);
-    }
-}
-@media (max-width: 900px) {
-    .about-me-responsive-image {
-        width: 100vw;
-        flex: none;
-        padding: 0;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 18px;
-        height: 32vw;
-        max-height: 160px;
-    }
-    .about-me-responsive-image img {
-        max-width: 96vw;
-        width: 100%;
-        height: 90%;
-        max-height: 140px;
-        border-radius: 24px;
-        object-fit: cover;
-        object-position: center 5%;
-    }
 
-}
-.about-me-responsive-bio {
-       color: #211A1D;
-    font-size: clamp(0.8em, 2vw + 1.5vh, 1.12em);
-       line-height: 1.5;
-       font-family: 'Inter', Arial, sans-serif;
-       font-weight: 500;
-       letter-spacing: -0.01em;
-       padding-bottom: 0;
-       width: 100%;
-       max-width: 100vw;
-       box-sizing: border-box;
-       word-break: break-word;
-       hyphens: auto;
-}
-@media (max-width: 900px) {
-    .about-me-responsive-section {
-        flex-direction: column;
-        min-height: auto;
-        height: auto;
-        padding: 24px 0;
-    }
-    .about-me-responsive-image {
-        width: 100vw;
-        flex: none;
-        padding: 0;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 18px;
-        height: auto;
-    }
-    .about-me-responsive-image img {
-        max-width: 96vw;
-        width: 100%;
-        height: auto;
-        max-height: 400px;
-        border-radius: 24px;
-        object-fit: cover;
-    }
-    .about-me-responsive-text {
-        width: 98vw;
-        max-width: 98vw;
-        min-width: 0;
-        padding: 18px 4vw 18px 4vw;
-        height: auto;
-    }
-    .about-me-responsive-title {
-        font-size: clamp(1.1em, 3vw, 2em);
-    }
-    .about-me-responsive-subtitle {
-        font-size: clamp(0.95em, 1.5vw, 1.1em);
-    }
-    .about-me-responsive-bio {
-        font-size: clamp(0.78em, 2vw + 2vh, 1.05em);
-        line-height: 1.7;
-    }
-}
 
 .hero-bg {
     position: relative;
