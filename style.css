@@ -39,6 +39,9 @@
     .musikalisches-repertoire-list li:last-child {
         margin-bottom: 0 !important;
     }
+    .event-date {
+        margin-left: 18px !important;
+    }
 }
 /* Vertically center bullets in musikalisches-repertoire-list */
 .musikalisches-repertoire-list li {
@@ -422,6 +425,12 @@
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: 8px !important;
+        background: #fff !important;
+        border-radius: 18px !important;
+        box-shadow: 0 2px 16px rgba(25,211,197,0.13), 0 1.5px 6px rgba(0,0,0,0.04) !important;
+        padding: 18px 12px 18px 18px !important;
+        margin-bottom: 24px !important;
+        position: relative !important;
     }
     .timeline-year-title-row {
         display: flex !important;
@@ -430,6 +439,7 @@
         gap: 12px !important;
         width: 100% !important;
         margin-bottom: 2px !important;
+        position: relative !important;
     }
     .timeline-year {
         align-self: flex-start !important;
@@ -442,6 +452,48 @@
         text-align: left !important;
         justify-content: flex-start !important;
         display: flex !important;
+        box-shadow: 0 1.5px 6px rgba(25,211,197,0.10);
+        font-size: 1.08em !important;
+        font-weight: 700 !important;
+        border-radius: 16px !important;
+        background: #19D3C5 !important;
+        color: #fff !important;
+        padding: 0 18px !important;
+        height: 48px !important;
+        min-height: 48px !important;
+        min-width: 48px !important;
+        align-items: center !important;
+        position: relative !important;
+    }
+    .timeline-dot {
+        width: 16px;
+        height: 16px;
+        background: #fff;
+        border: 3px solid #19D3C5;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        position: relative;
+        left: -2px;
+        top: 1px;
+    }
+    .timeline-bar {
+        position: absolute !important;
+        left: 32px !important;
+        top: 0 !important;
+        width: 4px !important;
+        height: 100%;
+        background: #19D3C5 !important;
+        z-index: 0;
+        border-radius: 2px;
+        opacity: 0.18;
+    }
+    .timeline-list.timeline-has-bar {
+        position: relative !important;
+        padding-left: 0 !important;
+    }
+    .timeline-item {
+        z-index: 1 !important;
     }
     .timeline-item-title {
         margin-bottom: 0 !important;
@@ -451,10 +503,20 @@
         line-height: 1.2 !important;
         flex: 1 1 auto !important;
         text-align: left !important;
+        margin-top: 0.2em !important;
+        margin-left: 0 !important;
     }
     .timeline-content {
         width: 100% !important;
         margin-left: 0 !important;
+        padding-left: 0 !important;
+        text-align: left !important;
+    }
+    .timeline-item-text {
+        font-size: 1em !important;
+        color: #222 !important;
+        margin-top: 0.5em !important;
+        text-align: left !important;
     }
 }
 /* @media (max-width: 600px) {
