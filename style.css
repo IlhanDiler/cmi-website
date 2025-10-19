@@ -1,152 +1,143 @@
-/* Modern Design for About-Me Subtitle */
-.about-me-modern-subtitle {
+/* Modern responsive layout for About Me section */
+.about-me-section-modern {
+    width: 100%;
+    background: linear-gradient(180deg,#eafafc 0%,#f7fff7 100%);
+    padding: 64px 0 64px 0;
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-    font-size: clamp(1.15em, 2.5vw, 1.5em);
-    font-weight: 500;
-    color: #009688;
-    margin-bottom: 0.7em;
-    margin-top: 0.1em;
-    text-align: center;
-    letter-spacing: 0.01em;
-    line-height: 1.2;
-    word-break: break-word;
 }
-/* Modern Design for About-Me Title */
-.about-me-modern-title {
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-    font-size: clamp(2em, 5vw, 3em);
-    font-weight: 700;
-    color: #176d6d;
-    margin-bottom: 0.5em;
-    margin-top: 0.2em;
-    letter-spacing: -0.01em;
-    text-align: center;
-    line-height: 1.1;
-    word-break: break-word;
-    text-shadow: 0 2px 12px rgba(25,211,197,0.08);
-}
-/* Responsive About-Me Section Modern */
 .about-me-section-modern-inner {
     display: flex;
     flex-direction: row;
-    align-items: stretch;
+    align-items: center;
     justify-content: center;
+    gap: 32px;
     width: 100vw;
     max-width: 100vw;
-    box-sizing: border-box;
-    gap: 0;
-    padding-top: 4vw;
-    padding-bottom: 4vw;
+    margin: 0;
+    padding: 0;
 }
 .about-me-text-modern {
-    flex: 1 1 50vw;
-    width: 50vw;
-    min-width: 260px;
-    max-width: 900px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: 8vw;
-    padding-right: 8vw;
+    flex: 1 1 0;
+    min-width: 320px;
+    max-width: 700px;
+        padding: 32px 24px 32px 2vw;
     box-sizing: border-box;
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: clamp(0.95em, 1.2vw + 1.2vh, 1.18em);
-    line-height: 1.6;
-    color: #211A1D;
-    word-break: break-word;
+    background: #fff;
+
+    height: auto;
+}
+.about-me-modern-title {
+    font-size: clamp(1.5em, 4vw, 2.6em);
+    font-weight: 800;
+    color: #009688;
+    margin-bottom: 0.2em;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    letter-spacing: -0.01em;
+    text-align: left;
+}
+.about-me-modern-subtitle {
+    font-size: clamp(1.1em, 2vw, 1.35em);
+    font-weight: 500;
+    color: #1a5c63;
+    margin-bottom: 1.2em;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    letter-spacing: 0.01em;
+    text-align: left;
+}
+.about-me-modern-bio {
+    margin-top: 0.5em;
+}
+.about-me-bio-text {
+    font-size: clamp(1em, 2vw, 1.15em);
+    line-height: 1.7;
+    color: #222;
+    margin-bottom: 0.8em;
+    text-align: left;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     hyphens: auto;
+    word-break: break-word;
 }
 .about-me-image-modern {
-    flex: 0 0 50vw;
-    width: 50vw;
+    flex: 1 1 0;
+    min-width: 320px;
+    max-width: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
+    background: #fff;
     padding: 0;
-    overflow: hidden;
+    box-sizing: border-box;
+    height: auto;
 }
 .about-me-image-modern img {
     width: 100%;
-    height: auto;
-    max-width: none;
-    max-height: 100vh;
-    border-radius: 0 32px 32px 0;
-    object-fit: contain;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
     object-position: center;
     display: block;
     margin: 0 auto;
-    transition: margin-top 0.3s;
+    background: #fff;
+   
 }
-@media (max-width: 1440px) {
+@media (max-width: 900px) {
     .about-me-section-modern-inner {
         flex-direction: column;
-        align-items: center;
-        gap: 2rem;
+        gap: 4px;
         width: 100vw;
         max-width: 100vw;
-        height: auto;
-        min-height: 0;
-        padding: 32px 0;
-    }
-    .about-me-text-modern {
-        order: 1;
-        width: 100%;
-        max-width: 900px;
-        display: flex;
-        padding-left: 5vw;
-        padding-right: 5vw;
-        flex-direction: column;
-        justify-content: center;
-        padding: 0 4vw;
-        box-sizing: border-box;
-        text-align: justify;
-        -webkit-hyphens: auto;
-        -ms-hyphens: auto;
-        hyphens: auto;
-        word-break: break-word;
-        word-spacing: 0;
-        letter-spacing: 0 !important;
-    }
-    .about-me-image-modern {
-        order: 2;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: auto;
-        margin: 0;
         padding: 0;
     }
-        .about-me-image-modern img {
-            width: 90vw;
-            max-width: 90vw;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            border-radius: 24px;
-            object-fit: contain;
-            background: #fff;
-        }
+    .about-me-text-modern, .about-me-image-modern {
+        max-width: 100vw;
+        width: 100vw;
+        padding: 18px 2vw;
+        height: auto;
+    }
+  
+    .about-me-image-modern img {
+        max-width: 98vw;
+        max-height: 60vh;
+    }
 }
 @media (max-width: 600px) {
-    .about-me-section-modern-inner {
-        padding: 18px 0;
-        gap: 1.2rem;
+    .about-me-section-modern {
+        padding: 24px 0 24px 0;
     }
-    .about-me-text-modern {
-        padding: 0 2vw;
-        font-size: clamp(0.9em, 2vw, 1em);
-        line-height: 1.5;
+    .about-me-section-modern-inner {
+        gap: 12px;
+        width: 100vw;
+        max-width: 100vw;
+        padding: 0;
+    }
+    .about-me-text-modern, .about-me-image-modern {
+        padding: 8px 1vw;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(25,211,197,0.10);
+        height: auto;
+    }
+
+    .about-me-modern-title {
+        font-size: 1.25em !important;
+        text-align: center !important;
+    }
+    .about-me-modern-subtitle {
+        font-size: 1em !important;
+        text-align: center !important;
     }
     .about-me-image-modern img {
         max-width: 98vw;
-        width: auto;
-        height: auto;
-        border-radius: 18px;
+        max-height: 40vh;
     }
+    .about-me-bio-text {
+        font-size: 1em !important;
+        text-align: justify !important;
+        margin-bottom: 0.6em !important;
+    }
+  
 }
+
 
 /* Timeline Section General Styles */
 .timeline-section {
@@ -2693,8 +2684,9 @@
 .material-card ul {
     list-style: none;
     padding-left: 0;
-    margin: 0 0 1em 0;
 }
+
+
 .material-card ul li {
     position: relative;
     padding-left: 32px;
@@ -2971,94 +2963,23 @@
 .hero-bg-fade-next {
     z-index: 1003;
 }
-.about-me-mobile-image {
-    display: none;
-}
-@media (max-width: 600px) {
-    .about-me-mobile-image {
-    font-size: clamp(0.85em, 1vw + 1vh, 1em);
-        width: 100vw;
-        height: 48vw;
-        max-height: 420px;
-        background: url('bilder/Astrid var.jpg') center center/cover no-repeat;
-        margin: 0 auto;
-    }
-        .about-me-content-mobile {
-            background: linear-gradient(180deg, #fff 0%, #eafafc 100%);
-            color: #222;
-            padding: 18px 4vw 18px 4vw;
-            border-radius: 18px;
-            max-width: 98vw;
-            margin: 18px auto 0 auto;
-            font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
-            word-break: break-word;
-            hyphens: auto;
-        }
-        .about-me-content-mobile .about-me-title,
-        .about-me-content-mobile .about-me-name {
-            color: #009688;
-            text-align: left;
-        }
-}
-.about-me-content-mobile {
-    display: none;
-}
-@media (max-width: 600px) {
-    .about-me-content-mobile {
-        display: block;
-        background: rgba(20,20,20,0.45);
-        padding: 16px 4vw 16px 4vw;
-        border-radius: 14px;
-        max-width: 98vw;
-        margin: 18px auto 0 auto;
-        color: #fff;
-        font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
-        word-break: break-word;
-        hyphens: auto;
-    }
-    .about-me-desktop {
-        display: none;
-    }
-}
-/* Responsive Anzeige für about-me-content: Desktop vs. Mobile */
-.about-me-mobile {
-    display: none;
-}
-.about-me-desktop {
-    display: block;
-}
-@media (max-width: 600px) {
-    .about-me-mobile {
-        display: block;
-        width: 100%;
-        margin-top: 12px;
-    }
-    .about-me-desktop {
-        display: none;
-    }
-    .about-me-content {
-        margin: 0 auto 12px auto;
-        padding: 12px 2vw 12px 2vw;
-        border-radius: 14px;
-        max-width: 98vw;
-    }
-}
+
 
 /* Globale Blocksatz- und Responsive-Regel für alle Haupttextbereiche */
-article, section, p, .project-card, .chronik-section, .about-me-bio, .about-me-content, .next-section-content, .contact-info-section, .site-footer {
+article, section, p, .project-card, .chronik-section, .next-section-content, .contact-info-section, .site-footer {
     text-align: justify;
     word-break: break-word;
     hyphens: auto;
 }
 @media (max-width: 900px) {
-    article, section, p, .project-card, .chronik-section, .about-me-bio, .about-me-content, .next-section-content, .contact-info-section, .site-footer {
+    article, section, p, .project-card, .chronik-section,  .next-section-content, .contact-info-section, .site-footer {
         font-size: 1em;
         padding-left: 2vw;
         padding-right: 2vw;
     }
 }
 @media (max-width: 600px) {
-    article, section, p, .project-card, .chronik-section, .about-me-bio, .about-me-content, .next-section-content, .contact-info-section, .site-footer {
+    article, section, p, .project-card, .chronik-section,  .next-section-content, .contact-info-section, .site-footer {
         font-size: 0.98em;
         padding-left: 1vw;
         padding-right: 1vw;
