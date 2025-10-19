@@ -133,9 +133,9 @@ window.addEventListener('DOMContentLoaded', function() {
 // Hero-BG Gallery/Slideshow
 const heroGallery = [
     //Gruppenbild2 aufhellen
-     { src: 'bilder/Gruppenbild2.jpg', title: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Meintz Hotel Ochsenfurt' },
+     { src: 'bilder/Gruppenbild2.jpg', title: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Hotel Meintz Ochsenfurt' },
       { src: 'bilder/gruppe_2007.jpeg', title: 'CMI 2009' },
-     { src: 'bilder/peterbild.jpg', title: 'Gedenkfeier - „80 Jahre Kriegsende, 80 Jahre Frieden in Ochsenfurt 2025' },
+     { src: 'bilder/peterbild.jpg', title: 'Gedenkfeier - „80 Jahre Kriegsende, 80 Jahre Frieden“ in Ochsenfurt 2025' },
      { src: 'bilder/concello.jfif', title: 'ConCello 2025 in der Klosterkirche Ochsenfurt' },
      { src: 'bilder/gruppemitflagge.jpg', title: 'CMI und Veeh-Harfengruppe Querbeet 2025' },
      { src: 'bilder/klosterkirche.jpg', title: 'Klosterkirche 2024' },
