@@ -140,7 +140,7 @@
 }
 @media (min-width: 900px) {
     .gruppenbild-img {
-        max-width: 40vw !important;
+        max-width: 35vw !important;
         max-height: 100vh !important;
         width: auto !important;
         height: auto !important;
@@ -180,14 +180,13 @@
 /* Gruppenbild: immer voll sichtbar, nie überstehend */
 .gruppenbild-img {
     width: 100%;
-    max-width: 50%;
+    max-width: 45%;
     max-height: 380px;
     height: auto;
     object-fit: contain;
     display: block;
     margin: auto;
     background: #fff;
-    
     box-sizing: border-box;
 }
 
