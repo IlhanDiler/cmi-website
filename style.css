@@ -59,6 +59,20 @@
         max-width: 98vw;
         max-height: 60vh;
     }
+        /* Responsive style for music-family-benefits list on mobile */
+        .music-family-benefits li {
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
+            font-size: clamp(1em, 3vw, 1.08em) !important;
+            line-height: 1.6 !important;
+            color: #1a5c63 !important;
+            font-weight: 400 !important;
+            letter-spacing: 0.01em !important;
+            white-space: normal !important;
+            word-break: break-word !important;
+            overflow-wrap: anywhere !important;
+            hyphens: auto !important;
+            padding-right: 2vw !important;
+        }
 }
 /* Vertically center bullets in musikalisches-repertoire-list */
 .musikalisches-repertoire-list li {
@@ -2042,7 +2056,10 @@
     .musikalisches-repertoire-divider {
         width: 32px;
         height: 3px;
-        margin-bottom: 12px;
+        white-space: normal !important;
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+        hyphens: auto !important;
     }
     .musikalisches-repertoire-list {
         font-size: clamp(0.98rem, 3vw, 1.05rem);
