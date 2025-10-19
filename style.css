@@ -1,3 +1,109 @@
+/* Musikalisches Repertoire: bullets like soziales Engagement */
+.musikalisches-repertoire-list li {
+    position: relative;
+    list-style: none !important;
+    padding-left: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
+    font-size: clamp(1.04em, 2.2vw, 1.16em) !important;
+    line-height: 1.55 !important;
+    color: #1a5c63 !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.01em !important;
+}
+.musikalisches-repertoire-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    background: #19D3C5;
+    border-radius: 50%;
+    display: inline-block;
+}
+@media (max-width: 600px) {
+    .musikalisches-repertoire-list {
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+    }
+    .musikalisches-repertoire-list li {
+        margin-bottom: 6px !important;
+        margin-top: 0 !important;
+        padding-bottom: 0 !important;
+        text-align: left !important;
+        hyphens: auto !important;
+    }
+    .musikalisches-repertoire-list li:last-child {
+        margin-bottom: 0 !important;
+    }
+}
+/* Vertically center bullets in musikalisches-repertoire-list */
+.musikalisches-repertoire-list li {
+    display: flex !important;
+    align-items: center !important;
+}
+.musikalisches-repertoire-list li::marker {
+    vertical-align: middle !important;
+    font-size: 1.1em !important;
+}
+/* Responsive style for music-family-benefits list */
+.music-family-benefits li {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
+    font-size: clamp(1.04em, 2.2vw, 1.16em) !important;
+    line-height: 1.55 !important;
+    color: #1a5c63 !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.01em !important;
+}
+/* Responsive style for music-family-desc */
+.music-family-desc {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
+    font-size: clamp(1.05em, 2.5vw, 1.22em) !important;
+    line-height: 1.6 !important;
+    color: #222 !important;
+    margin-bottom: 1.2em !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.01em !important;
+}
+/* Limit logo size to max 20% of viewport width */
+.music-family-logo-mobile img {
+    max-width: 12vw !important;
+    height: auto !important;
+    width: auto !important;
+}
+/* Custom positioning for music-family-logo-mobile */
+.music-family-logo-mobile {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+@media (min-width: 901px) {
+    .music-family-logo-mobile {
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-left: 120px;
+    }
+    .music-family-logo-mobile img {
+        margin-top: 0 !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .music-family-logo-mobile {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        margin-left: 0;
+    }
+    .music-family-logo-mobile img {
+        margin-top: 12px !important;
+    }
+}
 @media (min-width: 900px) {
     .gruppenbild-img {
         max-width: 40vw !important;
