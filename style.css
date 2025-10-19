@@ -201,20 +201,38 @@
 .rueckblick-img {
         width: 100%;
         height: auto;
-        max-width: 420px;
+        max-width: 100vw;
         max-height: 80vh;
         object-fit: contain;
         display: block;
         margin: 0 auto;
-        border-radius: 32px;
+        
         background: #fff;
-        box-shadow: 0 2px 12px rgba(25,211,197,0.10);
+        
 }
+.charity-svg-hero-container {
+            max-width: 100vw !important;
+            width: 100vw !important;
+            margin: 0 auto 0 auto !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+        }
+        .charity-svg-hero-container img {
+            max-width: 100vw !important;
+            width: 100vw !important;
+            height: auto !important;
+            display: block !important;
+            margin: 0 auto !important;
+        }
 
 @media (max-width: 600px) {
     .rueckblick-img {
-        max-width: 98vw;
-        max-height: 60vh;
+        max-width: 100vw !important;
+        width: 100vw !important;
+        height: auto !important;
+        max-height: 100vh !important;
+        display: block !important;
+        margin: 0 auto !important;
     }
 }
 /* Modern responsive layout for About Me section */
@@ -283,7 +301,7 @@
     .about-me-modern-title {
         font-size: 1.4em !important;
         text-align: center !important;
-        font-weight: 800 !important;
+        font-weight: 700 !important;
         color: #009688 !important;
         margin-bottom: 0.2em !important;
         margin-top: 0.2em !important;
@@ -938,9 +956,9 @@
     font-size: 1.35em;
     text-align: center;
     margin-bottom: 16px;
-    font-weight: 900;
+    font-weight: 800;
     letter-spacing: -1px;
-    font-family: 'Inter', Arial, sans-serif;
+   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .timeline-vertical-list {
     display: flex;
@@ -1028,7 +1046,7 @@
 .timeline-vertical-title-item {
     font-size: 1.35em;
     color: #0D5C63;
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: 0.2em;
 }
 .timeline-vertical-desc {
@@ -1085,9 +1103,9 @@
     font-size: 2.2em;
     text-align: center;
     margin-bottom: 48px;
-    font-weight: 900;
+    font-weight: 800;
     letter-spacing: -1px;
-    font-family: 'Inter', Arial, sans-serif;
+   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .timeline-modern-list {
     display: flex;
@@ -1139,7 +1157,7 @@
 .timeline-modern-title-item {
     font-size: 1.35em;
     color: #0D5C63;
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: 0.2em;
 }
 .timeline-modern-desc {
@@ -1194,7 +1212,7 @@
     margin-top: 1.7em;
     margin-bottom: 0.8em;
     color: #19d3c5;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: -0.5px;
 }
 .info-bild-list {
@@ -1371,24 +1389,24 @@
 .event-modern-title {
     color: #0D5C63;
     font-size: 2.6em;
-    font-weight: 900;
+    font-weight: 800;
     margin-bottom: 0.2em;
     letter-spacing: -1.2px;
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .event-modern-date {
     color: #19D3C5;
     font-size: 1.15em;
     font-weight: 700;
     margin-bottom: 1.2em;
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .event-modern-desc {
     color: #222;
     font-size: 1.13em;
     line-height: 1.7;
     margin-bottom: 0;
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .event-modern-link {
     color: #0D5C63;
@@ -1488,9 +1506,9 @@
     color: #0D5C63;
     font-size: 2.5em;
     margin-bottom: 10px;
-    font-weight: 900;
+    font-weight: 800;
     letter-spacing: -1px;
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .repertoire-modern-divider {
     width: 64px;
@@ -1582,9 +1600,9 @@
     color: #0D5C63;
     font-size: 2.5em;
     margin-bottom: 10px;
-    font-weight: 900;
+    font-weight: 800;
     letter-spacing: -1px;
-    font-family: 'Inter', Arial, sans-serif;
+   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .repertoire-list-divider {
     width: 64px;
@@ -1676,9 +1694,9 @@
     color: #1a365d;
     font-size: 2.5em;
     margin-bottom: 10px;
-    font-weight: 900;
+    font-weight: 800;
     letter-spacing: -1px;
-    font-family: 'Inter', Arial, sans-serif;
+   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .charity-list-divider {
     width: 64px;
@@ -1753,9 +1771,9 @@
     padding: 0 24px;
 }
 .charity-new-title {
-    font-family: 'Inter', Arial, sans-serif;
+   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     font-size: 2.5rem;
-    font-weight: 900;
+    font-weight: 800;
     .charity-new-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -1787,7 +1805,7 @@
     }
     .charity-new-card-content h3 {
         font-size: 1.18em;
-        font-weight: 800;
+        font-weight: 700;
         color: #1a365d;
         margin-bottom: 0.5em;
         letter-spacing: -0.5px;
@@ -1954,12 +1972,12 @@
 .musik-bruecken-title {
     color: #211A1D;
     font-size: 3.2rem;
-    font-weight: 900;
+    font-weight: 800;
     text-align: center;
     margin-bottom: 24px;
     letter-spacing: -1.5px;
     line-height: 1.13;
-    font-family: 'Inter', Arial, sans-serif;
+   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .musik-bruecken-divider {
     width: 64px;
@@ -1978,7 +1996,7 @@
     word-break: break-word !important;
     line-height: 1.55;
     margin: 0;
-    font-family: 'Inter', Arial, sans-serif;
+   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 
 
@@ -2012,26 +2030,26 @@
     }
 }
 .musikalisches-repertoire-section {
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 .musikalisches-repertoire-title {
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
-    font-weight: 900;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    font-weight: 800;
     letter-spacing: -1px;
     line-height: 1.13;
     font-size: clamp(1.3rem, 3vw, 2.2rem);
 }
 .musikalisches-repertoire-list {
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     font-size: clamp(1rem, 2.2vw, 1.15em);
     line-height: 1.7;
     font-weight: 500;
     letter-spacing: -0.01em;
 }
 .musikalisches-repertoire-card {
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     font-size: clamp(1rem, 2vw, 1.13rem);
     line-height: 1.7;
     box-sizing: border-box;
@@ -2154,9 +2172,9 @@
     color: #0D5C63;
     font-size: 2.2em;
     margin-bottom: 10px;
-    font-weight: 900;
+    font-weight: 800;
     letter-spacing: -1px;
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .musikalisches-repertoire-divider {
     width: 64px;
@@ -2206,9 +2224,9 @@
     color: #0D5C63;
     font-size: 2.4em;
     margin-bottom: 18px;
-    font-weight: 900;
+    font-weight: 800;
     letter-spacing: -1px;
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .musikalisches-repertoire-divider {
     width: 64px;
@@ -2523,8 +2541,8 @@
     align-items: flex-start;
 }
 .charity-title {
-    font-family: 'Inter', Arial, sans-serif;
-    font-weight: 900;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    font-weight: 800;
     color: #0D5C63;
     font-size: clamp(2rem, 4vw, 2.4rem);
     line-height: 1.08;
@@ -2533,7 +2551,7 @@
     text-align: left;
 }
 .charity-meta {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     color: #19D3C5;
     font-size: 1.15em;
     font-weight: 600;
@@ -2547,11 +2565,11 @@
         }
     }
 .charity-description {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     color: #211A1D;
     font-size: clamp(0.95em, 1vw + 1vh, 1.08em);
     line-height: 1.6;
-    font-weight: 500;
+    font-weight: 400;
     text-align: justify;
     word-break: break-word;
     hyphens: auto;
@@ -2560,7 +2578,7 @@
 }
 
 .charity-footer {
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     color: #0D5C63;
     font-size: 1.08em;
     font-weight: 700;
@@ -2683,8 +2701,8 @@
     transition: width 0.3s, max-width 0.3s;
 }
 .timeline-title {
-    font-family: 'Inter', Arial, sans-serif;
-    font-weight: 900;
+   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    font-weight: 800;
     color: #0D5C63;
     font-size: clamp(2rem, 4vw, 2.8rem);
     line-height: 1.08;
@@ -2709,7 +2727,7 @@
     flex: 0 0 80px;
     background: #19D3C5;
     color: #fff;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 1.25em;
     padding: 12px 0;
     border-radius: 18px;
@@ -2724,18 +2742,18 @@
     gap: 6px;
 }
 .timeline-item-title {
-    font-family: 'Inter', Arial, sans-serif;
+   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     color: #0D5C63;
     font-weight: 700;
     font-size: 1.13em;
     margin-bottom: 2px;
 }
 .timeline-item-text {
-    font-family: 'Inter', Arial, sans-serif;
+   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     color: #211A1D;
     font-size: 1.08em;
     line-height: 1.6;
-    font-weight: 500;
+    font-weight: 400;
     text-align: justify;
     word-break: break-word;
     hyphens: auto;
@@ -2770,9 +2788,9 @@
 }
 .brand-text {
     display: block;
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 1.18em;
-    font-weight: 800;
+   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    font-size: 1.15em;
+    font-weight: 700;
     color: #fff;
     line-height: 1.13;
     letter-spacing: -0.5px;
@@ -2793,7 +2811,7 @@
 }
 @media (max-width: 600px) {
     .brand-text {
-        font-size: 1em;
+        font-size: 0.9em;
         padding-left: 2px;
         padding-right: 2px;
         text-align: left;
@@ -2811,11 +2829,11 @@
 .event-title {
     color: #0D5C63;
     font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-    font-weight: 900;
+    font-weight: 800;
     margin-bottom: 32px;
     text-align: center;
     letter-spacing: -1px;
-    font-family: 'Inter', Arial, sans-serif;
+   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .event-list {
     display: flex;
@@ -2847,14 +2865,14 @@
     justify-content: center;
     min-width: 110px;
     padding: 28px 16px 28px 16px;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 1.1em;
     letter-spacing: 0.5px;
     border-radius: 0 28px 28px 0;
 }
 .event-date {
     font-size: 1.15em;
-    font-weight: 900;
+    font-weight: 800;
     margin-bottom: 8px;
 }
 .event-time {
@@ -2905,7 +2923,7 @@
         padding: 32px 0 32px 0;
     }
     .event-title {
-        font-size: 1.15rem;
+        font-size: 1.7em;
         margin-bottom: 18px;
     }
     .event-card {
@@ -3082,7 +3100,7 @@
 }
 .material-card h2, .material-card h3 {
     color: #0D5C63;
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: 0.5em;
     font-size: clamp(1.3em, 2vw, 2em);
     line-height: 1.13;
@@ -3134,7 +3152,7 @@
 .image-caption-card-h1 {
     color: #211A1D;
     font-size: clamp(1.4rem, 2.7vw, 2.2rem);
-    font-weight: 900;
+    font-weight: 800;
     text-align: center;
     margin-bottom: 16px;
     letter-spacing: -1px;
@@ -3168,11 +3186,11 @@
 .image-caption-card h1 {
     color: #211A1D;
     font-size: clamp(1.4rem, 2.7vw, 2.2rem);
-    font-weight: 900;
+    font-weight: 800;
     text-align: center;
     margin-bottom: 16px;
     letter-spacing: -1px;
-    font-family: 'Inter', Arial, sans-serif;
+   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 .image-caption-card .caption-lead {
     color: #19D3C5;
@@ -3351,6 +3369,7 @@ article, section, p, .project-card, .chronik-section, .next-section-content, .co
 
 
 
+
 /* Importiere die Inter-Schrift von Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
@@ -3522,6 +3541,7 @@ article, section, p, .project-card, .chronik-section, .next-section-content, .co
 
 .btn.secondary {
   background: transparent;
+        
   color: #00c9a7;
   border: 2px solid #00c9a7;
 }
