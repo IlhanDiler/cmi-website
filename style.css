@@ -1,3 +1,28 @@
+@media (min-width: 900px) {
+    .gruppenbild-img {
+        max-width: 40vw !important;
+        max-height: 100vh !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
+        display: block !important;
+        margin: 0 auto 18px auto !important;
+        background: #fff !important;
+    }
+}
+@media (min-width: 701px) and (max-width: 1024px) {
+    .gruppenbild-img {
+        max-width: 90vw !important;
+        max-height: 340px !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
+        display: block !important;
+        margin: 0 auto 18px auto !important;
+       
+        background: #fff !important;
+    }
+}
 /* Inline list: no gaps between ensemble names */
 .ensemble-inline-list {
     display: flex;
@@ -2446,18 +2471,18 @@
 }
 
 
-@media (min-width: 600px) and (max-width: 900px) {
-    .musik-bruecken-card {
-        width: 96vw !important;
-        max-width: 98vw !important;
+@media (min-width: 700px) and (max-width: 900px) {
+    .gruppenbild-img {
+        max-width: 75vw !important;
+        max-height: 60vh !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
+        display: block !important;
+        margin: 0 auto 18px auto !important;
+   
+        background: #fff !important;
     }
-}
-@media (min-width: 600px) and (max-width: 900px) {
-    .musik-bruecken-card {
-        width: 90vw;
-    }
-}
-@media (min-width: 600px) and (max-width: 900px) {
     .musik-bruecken-text {
         font-size: clamp(0.85rem, 1vw, 0.98rem);
         text-align: justify !important;
