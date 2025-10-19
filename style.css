@@ -1,3 +1,17 @@
+/* Inline list: no gaps between ensemble names */
+.ensemble-inline-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    align-items: baseline;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+.ensemble-inline-list span {
+    display: inline-block;
+    white-space: nowrap;
+}
 /* Gruppenbild: immer voll sichtbar, nie überstehend */
 .gruppenbild-img {
     width: 100%;
@@ -2228,8 +2242,14 @@
     font-size: 1.15em;
     font-weight: 600;
     margin-bottom: 18px;
+            text-align: justify;
 }
 
+    @media (max-width: 600px) {
+        .charity-meta {
+            text-align: left;
+        }
+    }
 .charity-description {
     font-family: 'Inter', Arial, sans-serif;
     color: #211A1D;
