@@ -1,3 +1,23 @@
+/* Rückblick image: always fully visible, never cropped */
+.rueckblick-img {
+        width: 100%;
+        height: auto;
+        max-width: 420px;
+        max-height: 80vh;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+        border-radius: 32px;
+        background: #fff;
+        box-shadow: 0 2px 12px rgba(25,211,197,0.10);
+}
+
+@media (max-width: 600px) {
+    .rueckblick-img {
+        max-width: 98vw;
+        max-height: 60vh;
+    }
+}
 /* Modern responsive layout for About Me section */
 .about-me-section-modern {
     width: 100%;
