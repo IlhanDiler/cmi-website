@@ -810,6 +810,66 @@
     }
 }
 </style>
+<style>
+    /* Charity-Haupttext optisch wie Listeneinträge */
+.charity-card-main-text {
+    font-size: clamp(1em, 2.5vw, 1.15em) !important;
+    line-height: 1.6 !important;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
+    font-weight: 400 !important;
+    text-align: left !important;
+    margin-bottom: 12px !important;
+}
+@media (max-width: 600px) {
+    ul.musikalisches-repertoire-list {
+        text-align: justify !important;
+        hyphens: auto !important;
+        font-size: clamp(1em, 4vw, 1.15em) !important;
+        line-height: 1.7 !important;
+        word-break: break-word !important;
+        font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
+        margin: 0 2vw 0 2vw !important;
+    }
+}
+</style>
+<style>
+    /* Charity-List: Dot vertikal mittig zum Text */
+.charity-list-item {
+    position: relative;
+    list-style: none !important;
+    padding-left: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+.charity-list-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    background: #19D3C5;
+    border-radius: 50%;
+    display: inline-block;
+}
+@media (max-width: 600px) {
+    .musikalisches-repertoire-list {
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+    }
+    .charity-list-item {
+        margin-bottom: 6px !important;
+        margin-top: 0 !important;
+        padding-bottom: 0 !important;
+        text-align: left !important;
+        hyphens: auto !important;
+    }
+    .charity-list-item:last-child {
+        margin-bottom: 0 !important;
+    }
+}
+</style>
 
 <!-- Neue Section: Musikalisches Repertoire -->
 <section class="musikalisches-repertoire-section">
@@ -861,32 +921,9 @@
             </div>
              <div class="charity-card">
         <div class="charity-card-text">
-            <p class="charity-card-main-text" data-lang="de">Unsere Konzerte unterstützen regelmäßig soziale Projekte – von lokalen Initiativen bis zu internationalen Hilfsaktionen. Gemeinsam helfen wir dort, wo Musik Brücken baut.</p>
+            <p class="charity-card-main-text" data-lang="de">Unsere Konzerte unterstützen regelmäßig soziale Projekte – von lokalen Initiativen bis zu internationalen Hilfsaktionen. Gemeinsam helfen wir dort, wo Musik Brücken baut. </p>
             <p class="charity-card-main-text" data-lang="en" style="display:none;">Our concerts regularly support social projects – from local initiatives to international relief efforts. Together, we help where music builds bridges.</p>
             <p class="charity-card-main-text" data-lang="it" style="display:none;">I nostri concerti sostengono regolarmente progetti sociali – dalle iniziative locali alle azioni di aiuto internazionale. Insieme aiutiamo là dove la musica costruisce ponti.</p>
-
-<style>
-    /* Charity-Haupttext optisch wie Listeneinträge */
-.charity-card-main-text {
-    font-size: clamp(1em, 2.5vw, 1.15em) !important;
-    line-height: 1.6 !important;
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
-    font-weight: 400 !important;
-    text-align: left !important;
-    margin-bottom: 12px !important;
-}
-@media (max-width: 600px) {
-    ul.musikalisches-repertoire-list {
-        text-align: justify !important;
-        hyphens: auto !important;
-        font-size: clamp(1em, 4vw, 1.15em) !important;
-        line-height: 1.7 !important;
-        word-break: break-word !important;
-        font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
-        margin: 0 2vw 0 2vw !important;
-    }
-}
-</style>
         </div>
         <div class="charity-card-image">
             <img src="bilder/spende_aerzte_ohne_grenzen.jpeg" alt="Musik für den guten Zweck">
@@ -896,55 +933,19 @@
                 <li class="charity-list-item">Benefizkonzerte zugunsten von sozialen Institutionen wie Lebenshilfe, Caritas, Krankenhausseelsorge, Kindergärten, Ärzte ohne Grenzen, Herzenswunschkrankenwagen der Malteser</li>
                 <li class="charity-list-item">Unterstützung von Schulprojekten in Kinshasa/Kongo und Kathmandu/Nepal</li>
                 <li class="charity-list-item">Unterstützung verschiedener Hilfsprojekte in der Ukraine</li>
-
-<style>
-    /* Charity-List: Dot vertikal mittig zum Text */
-.charity-list-item {
-    position: relative;
-    list-style: none !important;
-    padding-left: 32px !important;
-    display: flex !important;
-    align-items: center !important;
-}
-.charity-list-item::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 18px;
-    height: 18px;
-    background: #19D3C5;
-    border-radius: 50%;
-    display: inline-block;
-}
-@media (max-width: 600px) {
-    .musikalisches-repertoire-list {
-        margin-top: 10px !important;
-        margin-bottom: 10px !important;
-    }
-    .charity-list-item {
-        margin-bottom: 6px !important;
-        margin-top: 0 !important;
-        padding-bottom: 0 !important;
-        text-align: left !important;
-        hyphens: auto !important;
-    }
-    .charity-list-item:last-child {
-        margin-bottom: 0 !important;
-    }
-}
-</style>
+                <li class="charity-list-item">Integratives Musizieren mit Menschen unterschiedlicher Begabungen, jahrelange Zusammenarbeit mit Hermann Veeh, dem Erfinder der Veeh-Harfe</li>
             </ul>
             <ul class="musikalisches-repertoire-list" data-lang="en" style="display:none;">
-                <li>Benefit concerts for social institutions such as Lebenshilfe, Caritas, hospital chaplaincy, kindergartens, Doctors Without Borders, and the Malteser "Herzenswunsch" ambulance</li>
-                <li>Support for school projects in Kinshasa/Congo and Kathmandu/Nepal</li>
-                <li>Support for various aid projects in Ukraine</li>
-            </ul>
+                <li class="charity-list-item">Benefit concerts for social institutions such as Lebenshilfe, Caritas, hospital chaplaincy, kindergartens, Doctors Without Borders, Malteser Heart's Desire Ambulance</li>
+                <li class="charity-list-item">Support for school projects in Kinshasa/Congo and Kathmandu/Nepal</li>
+                <li class="charity-list-item">Support for various aid projects in Ukraine</li>
+                <li class="charity-list-item">Inclusive music-making with people of different abilities, long-term collaboration with Hermann Veeh, the inventor of the Veeh harp</li>
+          </ul>
             <ul class="musikalisches-repertoire-list" data-lang="it" style="display:none;">
-                <li>Concerti di beneficenza a favore di istituzioni sociali come Lebenshilfe, Caritas, cappellania ospedaliera, asili, Medici Senza Frontiere e l’ambulanza "Herzenswunsch" dei Malteser</li>
-                <li>Sostegno a progetti scolastici a Kinshasa/Congo e Kathmandu/Nepal</li>
-                <li>Sostegno a vari progetti di aiuto in Ucraina</li>
+                <li class="charity-list-item">Concerti di beneficenza a favore di istituzioni sociali come Lebenshilfe, Caritas, cappellania ospedaliera, asili nido, Medici Senza Frontiere, Ambulanza del Desiderio del Cuore dei Malteser</li>
+                <li class="charity-list-item">Sostegno a progetti scolastici a Kinshasa/Congo e Kathmandu/Nepal</li>
+                <li class="charity-list-item">Sostegno a vari progetti di aiuto in Ucraina</li>
+                <li class="charity-list-item">Musica inclusiva con persone di diverse abilità, collaborazione a lungo termine con Hermann Veeh, l'inventore dell'arpa Veeh</li>
             </ul>
         </div>
     </div>
