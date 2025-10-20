@@ -184,9 +184,12 @@ const heroGallery = [
 let heroIndex = 0;
 const fadeDuration = 7000;
 let fadeToggle = false;
+let isFading = false;
 function setHeroBgCrossfade(idx) {
+    if (isFading) return;
+    isFading = true;
     const fadeContainer = document.querySelector('.hero-bg-fade-container');
-    if (!fadeContainer) return;
+    if (!fadeContainer) { isFading = false; return; }
     const fadeA = fadeContainer.children[0];
     const fadeB = fadeContainer.children[1];
     const current = fadeToggle ? fadeA : fadeB;
@@ -261,17 +264,84 @@ function setHeroBgCrossfade(idx) {
         // Hide previous fadein-text
         let prevFadein = current.querySelector('.fadein-text');
         if (prevFadein) prevFadein.style.opacity = '0';
-        fadeToggle = !fadeToggle;
+        setTimeout(() => {
+            fadeToggle = !fadeToggle;
+            isFading = false;
+        }, 700); // Delay toggle until fade animation is done
     }, 50);
 }
 function nextHeroBgImage() {
     heroIndex = (heroIndex + 1) % heroGallery.length;
     setHeroBgCrossfade(heroIndex);
 }
+let heroGalleryInterval = null;
+let heroGalleryTimeout = null;
+
+function renderHeroGalleryDots() {
+    const pagination = document.querySelector('.hero-gallery-pagination');
+    if (!pagination) return;
+    // Remove all children
+    pagination.innerHTML = '';
+    for (let i = 0; i < heroGallery.length; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'hero-gallery-dot';
+        btn.setAttribute('role', 'tab');
+        btn.setAttribute('aria-label', `Bild ${i+1}`);
+        btn.setAttribute('tabindex', i === heroIndex ? '0' : '-1');
+        btn.setAttribute('aria-selected', i === heroIndex ? 'true' : 'false');
+        if (i === heroIndex) btn.classList.add('active');
+        btn.addEventListener('click', function() {
+            if (heroIndex !== i) {
+                heroIndex = i;
+                setHeroBgCrossfade(heroIndex);
+                renderHeroGalleryDots();
+                pauseHeroGalleryAuto();
+            }
+        });
+        btn.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                let prev = (i - 1 + heroGallery.length) % heroGallery.length;
+                pagination.children[prev].focus();
+                pagination.children[prev].click();
+            } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                let next = (i + 1) % heroGallery.length;
+                pagination.children[next].focus();
+                pagination.children[next].click();
+            }
+        });
+        pagination.appendChild(btn);
+    }
+}
+
+function pauseHeroGalleryAuto() {
+    if (heroGalleryInterval) clearInterval(heroGalleryInterval);
+    if (heroGalleryTimeout) clearTimeout(heroGalleryTimeout);
+    // Resume auto after 12s
+    heroGalleryTimeout = setTimeout(() => {
+        heroGalleryInterval = setInterval(() => {
+            nextHeroBgImage();
+            renderHeroGalleryDots();
+        }, fadeDuration);
+    }, 12000);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     setHeroBgCrossfade(heroIndex);
-    setInterval(nextHeroBgImage, fadeDuration);
+    renderHeroGalleryDots();
+    heroGalleryInterval = setInterval(() => {
+        nextHeroBgImage();
+        renderHeroGalleryDots();
+    }, fadeDuration);
 });
+
+// Update dots on manual/auto change
+const origSetHeroBgCrossfade = setHeroBgCrossfade;
+setHeroBgCrossfade = function(idx) {
+    origSetHeroBgCrossfade(idx);
+    renderHeroGalleryDots();
+};
 // Dynamisch Hintergrundlayer für about-me-section je nach Screengröße
 function updateAboutMeBackground() {
     const aboutMeSection = document.querySelector('.about-me-section');

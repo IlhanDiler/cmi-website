@@ -1,3 +1,51 @@
+/* Hero Gallery Pagination Dots */
+.hero-gallery-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    z-index: 20;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: none;
+    padding-bottom: 32px;
+    z-index: 3000;
+}
+.hero-gallery-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: none;
+    background: #e0e0e0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    outline: none;
+    position: relative;
+}
+.hero-gallery-dot[aria-selected="true"] {
+    background: #009688;
+    transform: scale(1.18);
+    box-shadow: 0 2px 8px rgba(0,150,136,0.13);
+}
+.hero-gallery-dot:focus {
+    outline: 2px solid #009688;
+    outline-offset: 2px;
+}
+@media (max-width: 600px) {
+    .hero-gallery-pagination {
+        gap: 10px;
+        margin-top: 10px;
+    }
+    .hero-gallery-dot {
+        width: 12px;
+        height: 12px;
+    }
+}
 /* Musikalisches Repertoire: bullets like soziales Engagement */
 .musikalisches-repertoire-list li {
     position: relative;

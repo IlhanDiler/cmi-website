@@ -10,12 +10,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="hero-bg">
-                <div class="hero-bg-fade-container">
-                    <div class="hero-bg-fade hero-bg-fade-current" style="background-image:url('bilder/Gruppenbild2.jpg');background-size:100vw auto;background-position:center 8%;"></div>
-                    <div class="hero-bg-fade hero-bg-fade-next"></div>
-                </div>
-                <nav class="navbar">
+    <div class="hero-bg" style="position:relative;">
+        <div class="hero-bg-fade-container">
+            <div class="hero-bg-fade hero-bg-fade-current" style="background-image:url('bilder/Gruppenbild2.jpg');background-size:100vw auto;background-position:center 8%;"></div>
+            <div class="hero-bg-fade hero-bg-fade-next"></div>
+        </div>
+        <nav class="navbar">
+      
             <!-- Mobile menu button: ganz links -->
             <button class="mobile-menu-btn" aria-label="Menü öffnen" aria-controls="mobile-menu" aria-expanded="false" tabindex="0" style="background:none;border:none;padding:0;display:flex;align-items:center;justify-content:center;min-width:48px;min-height:48px;cursor:pointer;">
                 <img src="files/icon.menu.button.svg" alt="Menü öffnen" class="menu-icon" style="width:40px;height:40px;pointer-events:none;">
@@ -95,8 +96,10 @@
             </div>
         </nav>
       </nav>
+      <!-- Hero Gallery Pagination Dots -->
+        <div class="hero-gallery-pagination" role="tablist" aria-label="Hero Gallery Pagination"></div>
     </div>
-
+     
 <!-- Material Design Section: Bild mit Unterschrift -->
 <section class="image-caption-section" style="background: #F5F5F5; position: relative; overflow: hidden; padding: 80px 0 80px 0;">
     <div class="image-caption-card" style="position:relative;">
