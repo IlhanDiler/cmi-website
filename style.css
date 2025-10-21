@@ -107,21 +107,27 @@
         max-width: 98vw;
         max-height: 60vh;
     }
-        /* Responsive style for music-family-benefits list on mobile */
-        .music-family-benefits li {
-            font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
-            font-size: clamp(1em, 3vw, 1.08em) !important;
-            line-height: 1.6 !important;
-            color: #1a5c63 !important;
-            font-weight: 400 !important;
-            letter-spacing: 0.01em !important;
-            white-space: normal !important;
-            word-break: break-word !important;
-            overflow-wrap: anywhere !important;
-            hyphens: auto !important;
-            padding-right: 2vw !important;
-        }
+@media (max-width: 600px) {
+    .music-family-benefits {
+        padding-left: 0 !important;
+        list-style-position: outside !important;
+    }
+    .music-family-benefits li {
+        font-size: 1em !important;
+        padding-right: 12vw !important;
+        padding-left: 2.1em !important;
+        text-indent: -1.7em !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+        hyphens: auto !important;
+        text-align: left !important;
+        list-style-position: outside !important;
+    }
 }
+       
+}
+
 /* Vertically center bullets in musikalisches-repertoire-list */
 .musikalisches-repertoire-list li {
     display: flex !important;
@@ -2199,11 +2205,11 @@
 .musikalisches-repertoire-card {
     background: #fff;
     border-radius: 32px;
-    box-shadow: 0 2px 16px 0 rgba(13,92,99,0.07), 0 1.5px 6px 0 rgba(33,26,29,0.04);
+
     max-width: 900px;
     width: 90vw;
     margin: 0 auto;
-    padding: 26px 48px 48px 48px;
+    padding: 26px 26px 26px 36px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -2252,7 +2258,7 @@
 }
 .musikalisches-repertoire-title {
     color: #0D5C63;
-    font-size: 2.4em;
+    font-size: 2.0em;
     margin-bottom: 18px;
     font-weight: 600;
     letter-spacing: -1px;
