@@ -28,8 +28,27 @@
                     Collegium Musicum Iuvenale<br><span class="brand-sub">Ochsenfurt</span>
                 </span>
             </div>
-
-            <!-- Sprachumschalter: ganz rechts -->
+            <!-- Desktop Navigation jetzt links -->
+            <div class="nav-menu">
+                <a href="#music-family-section" class="nav-link" data-lang="de">MITMACHEN</a>
+                <a href="#music-family-section" class="nav-link" data-lang="en" style="display:none;">JOIN US</a>
+                <a href="#music-family-section" class="nav-link" data-lang="it" style="display:none;">PARTECIPA</a>
+                <a href="#about" class="nav-link" data-lang="de">Über uns</a>
+                <a href="#about" class="nav-link" data-lang="en" style="display:none;">About us</a>
+                <a href="#about" class="nav-link" data-lang="it" style="display:none;">Chi siamo</a>
+                <a href="#events" class="nav-link" data-lang="de">Termine</a>
+                <a href="#events" class="nav-link" data-lang="en" style="display:none;">Events</a>
+                <a href="#events" class="nav-link" data-lang="it" style="display:none;">Eventi</a>
+                <a href="#review" class="nav-link" data-lang="de">Rückblick</a>
+                <a href="#review" class="nav-link" data-lang="en">Review</a>
+                <a href="#review" class="nav-link" data-lang="it">Riepilogo</a>
+                <a href="#review" class="nav-link" data-lang="en">Charity Projects</a>
+                <a href="#review" class="nav-link" data-lang="it">Progetti Benefici</a>
+                <a href="#contact" class="nav-link" data-lang="de">Kontakt</a>
+                <a href="#contact" class="nav-link" data-lang="en" style="display:none;">Contact</a>
+                <a href="#contact" class="nav-link" data-lang="it" style="display:none;">Contatto</a>
+            </div>
+            <!-- Sprachumschalter: jetzt ganz rechts -->
             <div id="langSwitcher" style="display:flex;align-items:center;gap:4px;margin-left:auto;">
                 <button onclick="setLang('de')" id="langDe" style="padding:6px 14px;margin-right:4px;font-weight:600;border-radius:8px;border:none;background:rgba(255,255,255,0.85);color:#222;box-shadow:0 2px 8px rgba(0,0,0,0.08);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">
                     <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right:4px;">
@@ -58,26 +77,6 @@
                         <rect width="7" height="14" x="14" y="0" fill="#CD212A"/>
                     </svg>
                 </button>
-            </div>
-            <!-- Desktop Navigation bleibt unverändert -->
-            <div class="nav-menu">
-                <a href="#music-family-section" class="nav-link" data-lang="de">MITMACHEN</a>
-                <a href="#music-family-section" class="nav-link" data-lang="en" style="display:none;">JOIN US</a>
-                <a href="#music-family-section" class="nav-link" data-lang="it" style="display:none;">PARTECIPA</a>
-                <a href="#about" class="nav-link" data-lang="de">Über uns</a>
-                <a href="#about" class="nav-link" data-lang="en" style="display:none;">About us</a>
-                <a href="#about" class="nav-link" data-lang="it" style="display:none;">Chi siamo</a>
-                <a href="#events" class="nav-link" data-lang="de">Termine</a>
-                <a href="#events" class="nav-link" data-lang="en" style="display:none;">Events</a>
-                <a href="#events" class="nav-link" data-lang="it" style="display:none;">Eventi</a>
-                <a href="#review" class="nav-link" data-lang="de">Rückblick</a>
-                <a href="#review" class="nav-link" data-lang="en">Review</a>
-                <a href="#review" class="nav-link" data-lang="it">Riepilogo</a>
-                <a href="#review" class="nav-link" data-lang="en">Charity Projects</a>
-                <a href="#review" class="nav-link" data-lang="it">Progetti Benefici</a>
-                <a href="#contact" class="nav-link" data-lang="de">Kontakt</a>
-                <a href="#contact" class="nav-link" data-lang="en" style="display:none;">Contact</a>
-                <a href="#contact" class="nav-link" data-lang="it" style="display:none;">Contatto</a>
             </div>
             <!-- Mobile Navigation -->
             <div class="mobile-menu">
@@ -909,7 +908,33 @@
     </div>
             <ul class="musikalisches-repertoire-list" data-lang="de">
                 <li class="charity-list-item">Benefizkonzerte zugunsten von sozialen Institutionen wie Lebenshilfe, Caritas, Krankenhausseelsorge, Kindergärten, Ärzte ohne Grenzen, Herzenswunschkrankenwagen der Malteser</li>
-                <li class="charity-list-item">Unterstützung von Schulprojekten in Kinshasa/Kongo und Kathmandu/Nepal</li>
+                                <li class="charity-list-item">
+                                    <span>Unterstützung von Schulprojekten in Kinshasa/Kongo und Kathmandu/Nepal</span>
+                                      <img src="bilder/kinshasa.jfif" alt="Kinshasa" class="kinshasa-card-img" id="kinshasaPreviewImg" style="cursor:pointer;">
+<!-- Modal for Kinshasa image preview -->
+<div id="kinshasaModal" class="modal" style="display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;">
+    <span id="kinshasaModalClose" style="position:absolute;top:32px;right:48px;font-size:2.5em;color:#fff;cursor:pointer;font-weight:700;z-index:10001;">&times;</span>
+    <img src="bilder/kinshasa.jfif" alt="Kinshasa groß" style="max-width:90vw;max-height:80vh;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.25);background:#fff;display:block;margin:auto;">
+</div>
+</script>
+<script>
+// Kinshasa image preview modal logic
+const kinshasaImg = document.getElementById('kinshasaPreviewImg');
+const kinshasaModal = document.getElementById('kinshasaModal');
+const kinshasaModalClose = document.getElementById('kinshasaModalClose');
+if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
+    kinshasaImg.addEventListener('click', function() {
+        kinshasaModal.style.display = 'flex';
+    });
+    kinshasaModalClose.addEventListener('click', function() {
+        kinshasaModal.style.display = 'none';
+    });
+    kinshasaModal.addEventListener('click', function(e) {
+        if (e.target === kinshasaModal) kinshasaModal.style.display = 'none';
+    });
+}
+</script>
+                                </li>
                 <li class="charity-list-item">Unterstützung verschiedener Hilfsprojekte in der Ukraine</li>
                 <li class="charity-list-item">Integratives Musizieren mit Menschen unterschiedlicher Begabungen, jahrelange Zusammenarbeit mit Hermann Veeh, dem Erfinder der Veeh-Harfe</li>
             </ul>
@@ -1005,9 +1030,9 @@
             <div class="timeline-item" style="--timeline-index:3;">
                 <div class="timeline-year"><span class="timeline-dot"></span>2010</div>
                 <div class="timeline-content">
-                    <div class="timeline-item-title" data-lang="de">Erstes Benefizkonzert zugunsten Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</div>
+                    <div class="timeline-item-title" data-lang="de">Erstes Benefizkonzert zugunsten <a href="https://www.mbonda-lokito.org/home.html" target="_blank" rel="noopener">Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a></div>
                     <div class="timeline-item-title" data-lang="en" style="display:none;">Foundation of a Beginner Group</div>
-                    <div class="timeline-item-title" data-lang="it" style="display:none;">Primo concerto di beneficenza a favore di Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</div>
+                    <div class="timeline-item-title" data-lang="it" style="display:none;">Primo concerto di beneficenza a favore di <a href="https://www.mbonda-lokito.org/home.html" target="_blank" rel="noopener">Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a></div>
                     <div class="timeline-item-text" data-lang="de">Seit dem Konzert "Tor für Afrika" engagiert sich das CMI regelmäßig mit Konzertspenden für die Schule Vabatu Ngoma in Kingshasa.</div>
                     <div class="timeline-item-text" data-lang="en" style="display:none;">In the same year, we founded a beginner group, giving younger players the opportunity to gain their first experience in making music together.</div>
                     <div class="timeline-item-text" data-lang="it" style="display:none;">Dal concerto "Tor für Afrika" il CMI si impegna regolarmente con donazioni di concerti per la scuola Vabatu Ngoma a Kinshasa.</div>
@@ -1137,9 +1162,9 @@
             <div class="about-me-modern-subtitle" data-lang="en" style="display:none;">Founder of Collegium Musicum Iuvenale</div>
             <div class="about-me-modern-subtitle" data-lang="it" style="display:none;">Fondatrice del Collegium Musicum Iuvenale</div>
             <div class="about-me-modern-bio">
-                <div class="about-me-bio-text" data-lang="de">Astrid Eitschberger, geboren am 21.02.1969, lernte Klavier, Violoncello und später verschiedene Blasinstrumente. Sie verbrachte sieben Jahre ihrer Kindheit in Athen. 1981 gründete sie im Alter von zwölf Jahren das Collegium Musicum Iuvenale Ochsenfurt. 2018 schloss sie die Ausbildung an der Nordbayerischen Bläserakademie als „Dirigentin von Blasorchestern im Laienmusizieren“ mit der staatlichen Anerkennung ab. Während ihrer Studienzeit in Padua schloss Astrid musikalische Freundschaften, die bis heute andauern. Seit 1999 unterrichtet die promovierte Germanistin am Matthias-Grünewald-Gymnasium Würzburg Latein und Deutsch. Sie sieht es als ihre Aufgabe, Menschen über Sprachgrenzen und unterschiedliche Traditionen hinweg einander begegnen zu lassen und verschiedene Stil- und Kunstrichtungen zu verbinden. Das zentrale Motiv für ihre musikalische Arbeit, die über all die Jahre hinweg rein ehrenamtlich erfolgt, liegt darin, anderen durch die Musik Freude zu bereiten und mit Benefizkonzerten die schwächeren Mitglieder unserer Gesellschaft zu unterstützen. 1998 erhielt sie dafür den Kulturpreis der Stadt Ochsenfurt, 2017 bekam sie von der Landtagspräsidentin die Bayerische Verfassungsmedaille in Silber verliehen, und 2024 folgte der Kulturpreis des Landkreises Würzburg.</div>
-                <div class="about-me-bio-text" style="display:none;" data-lang="en">Astrid Eitschberger, born on 21.02.1969, learned piano, cello, and later various wind instruments. She spent seven years of her childhood in Athens. In 1981, at the age of twelve, she founded Collegium Musicum Iuvenale Ochsenfurt. In 2018, she completed her training at the Nordbayerische Bläserakademie as a "conductor of wind orchestras in amateur music" with state recognition. During her studies in Padua, Astrid formed musical friendships that continue to this day. Since 1999, the PhD Germanist has been teaching Latin and German at the Matthias-Grünewald-Gymnasium in Würzburg. She sees it as her mission to bring people together across language barriers and different traditions and to connect various styles and art forms. The central motivation for her musical work, which has always been purely voluntary over the years, is to bring joy to others through music and to support the weaker members of our society with benefit concerts. In 1998, she received the Culture Prize of the City of Ochsenfurt, in 2017 the Bavarian Constitution Medal in Silver from the President of the State Parliament, and in 2024 the Culture Prize of the Würzburg district.</div>
-                <div class="about-me-bio-text" style="display:none;" data-lang="it">Astrid Eitschberger, nata il 21.02.1969, ha imparato a suonare il pianoforte, il violoncello e successivamente vari strumenti a fiato. Ha trascorso sette anni della sua infanzia ad Atene. Nel 1981, all'età di dodici anni, ha fondato il Collegium Musicum Iuvenale Ochsenfurt. Nel 2018 ha completato la formazione presso la Nordbayerische Bläserakademie come "direttrice di orchestre di fiati nella musica amatoriale" con riconoscimento statale. Durante gli studi a Padova, Astrid ha stretto amicizie musicali che durano ancora oggi. Dal 1999 la germanista con dottorato insegna latino e tedesco al Matthias-Grünewald-Gymnasium di Würzburg. Considera sua missione far incontrare le persone oltre le barriere linguistiche e le diverse tradizioni, collegando vari stili e forme d'arte. La motivazione centrale per il suo lavoro musicale, che negli anni è sempre stato svolto in modo completamente volontario, è quella di portare gioia agli altri attraverso la musica e sostenere i membri più deboli della società con concerti di beneficenza. Nel 1998 ha ricevuto il Premio Cultura della città di Ochsenfurt, nel 2017 la Medaglia della Costituzione Bavarese in argento dalla Presidente del Parlamento regionale e nel 2024 il Premio Cultura del distretto di Würzburg.</div>
+                <div class="about-me-bio-text" data-lang="de">Astrid Eitschberger, lernte Klavier, Violoncello und später verschiedene Blasinstrumente. Sie verbrachte sieben Jahre ihrer Kindheit in Athen. 1981 gründete sie das Collegium Musicum Iuvenale Ochsenfurt. 2018 schloss sie die Ausbildung an der Nordbayerischen Bläserakademie als „Dirigentin von Blasorchestern im Laienmusizieren“ mit der staatlichen Anerkennung ab. Während ihrer Studienzeit in Padua schloss Astrid musikalische Freundschaften, die bis heute andauern. Seit 1999 unterrichtet die promovierte Germanistin am Matthias-Grünewald-Gymnasium Würzburg Latein und Deutsch. Sie sieht es als ihre Aufgabe, Menschen über Sprachgrenzen und unterschiedliche Traditionen hinweg einander begegnen zu lassen und verschiedene Stil- und Kunstrichtungen zu verbinden. Das zentrale Motiv für ihre musikalische Arbeit, die über all die Jahre hinweg rein ehrenamtlich erfolgt, liegt darin, anderen durch die Musik Freude zu bereiten und mit Benefizkonzerten die schwächeren Mitglieder unserer Gesellschaft zu unterstützen. 1998 erhielt sie dafür den Kulturpreis der Stadt Ochsenfurt, 2017 bekam sie von der Landtagspräsidentin die Bayerische Verfassungsmedaille in Silber verliehen, und 2024 folgte der Kulturpreis des Landkreises Würzburg.</div>
+                <div class="about-me-bio-text" style="display:none;" data-lang="en">Astrid Eitschberger, learned piano, cello, and later various wind instruments. She spent seven years of her childhood in Athens. In 1981, she founded Collegium Musicum Iuvenale Ochsenfurt. In 2018, she completed her training at the Nordbayerische Bläserakademie as a "conductor of wind orchestras in amateur music" with state recognition. During her studies in Padua, Astrid formed musical friendships that continue to this day. Since 1999, the PhD Germanist has been teaching Latin and German at the Matthias-Grünewald-Gymnasium in Würzburg. She sees it as her mission to bring people together across language barriers and different traditions and to connect various styles and art forms. The central motivation for her musical work, which has always been purely voluntary over the years, is to bring joy to others through music and to support the weaker members of our society with benefit concerts. In 1998, she received the Culture Prize of the City of Ochsenfurt, in 2017 the Bavarian Constitution Medal in Silver from the President of the State Parliament, and in 2024 the Culture Prize of the Würzburg district.</div>
+                <div class="about-me-bio-text" style="display:none;" data-lang="it">Astrid Eitschberger, ha imparato a suonare il pianoforte, il violoncello e successivamente vari strumenti a fiato. Ha trascorso sette anni della sua infanzia ad Atene. Nel 1981, ha fondato il Collegium Musicum Iuvenale Ochsenfurt. Nel 2018 ha completato la formazione presso la Nordbayerische Bläserakademie come "direttrice di orchestre di fiati nella musica amatoriale" con riconoscimento statale. Durante gli studi a Padova, Astrid ha stretto amicizie musicali che durano ancora oggi. Dal 1999 la germanista con dottorato insegna latino e tedesco al Matthias-Grünewald-Gymnasium di Würzburg. Considera sua missione far incontrare le persone oltre le barriere linguistiche e le diverse tradizioni, collegando vari stili e forme d'arte. La motivazione centrale per il suo lavoro musicale, che negli anni è sempre stato svolto in modo completamente volontario, è quella di portare gioia agli altri attraverso la musica e sostenere i membri più deboli della società con concerti di beneficenza. Nel 1998 ha ricevuto il Premio Cultura della città di Ochsenfurt, nel 2017 la Medaglia della Costituzione Bavarese in argento dalla Presidente del Parlamento regionale e nel 2024 il Premio Cultura del distretto di Würzburg.</div>
             </div>
         </div>
         <div class="about-me-image-modern">
