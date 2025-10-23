@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="svg1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <!-- Generator: Adobe Illustrator 29.6.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 9)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+      }
+
+      .st0, .st1, .st2 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: .7px;
+      }
+
+      .st1 {
+        fill: #ccc;
+      }
+
+      .st2 {
+        fill: #c16cc7;
+      }
+    </style>
+  </defs>
+  <sodipodi:namedview id="namedview1" bordercolor="#000000" borderopacity="0.25" inkscape:deskcolor="#d1d1d1" inkscape:document-units="mm" inkscape:export-bgcolor="#ffffff00" inkscape:pagecheckerboard="0" inkscape:pageopacity="0.0" inkscape:showpageshadow="2" pagecolor="#ba54b6"/>
+  <g>
+    <g>
+      <path id="rect1" class="st1" d="M185.77,113.18c-19.75,0-35.77,13.68-35.77,30.55v118.11h71.54v-118.11c0-16.87-16.02-30.55-35.77-30.55h0Z"/>
+      <circle id="path1" class="st1" cx="185.77" cy="73.92" r="35.77"/>
+      <path id="rect11" data-name="rect1" class="st1" d="M42.69,113.18c-19.75,0-35.77,13.68-35.77,30.55v118.11h71.54v-118.11c0-16.87-16.02-30.55-35.77-30.55h0Z"/>
+      <circle id="path11" data-name="path1" class="st1" cx="42.69" cy="73.92" r="35.77"/>
+      <path id="rect1-1" class="st1" d="M257.31,113.18c-19.75,0-35.77,13.68-35.77,30.55v118.11h71.54v-118.11c0-16.87-16.02-30.55-35.77-30.55h0Z"/>
+      <circle id="path1-9" class="st1" cx="257.31" cy="73.92" r="35.77"/>
+      <path id="rect1-11" data-name="rect1-1" class="st1" d="M114.23,113.18c-19.75,0-35.77,13.68-35.77,30.55v118.11h71.54v-118.11c0-16.87-16.02-30.55-35.77-30.55h0Z"/>
+      <circle id="path1-91" data-name="path1-9" class="st1" cx="114.23" cy="73.92" r="35.77"/>
+    </g>
+    <g>
+      <path id="rect1-19" class="st0" d="M77.1,100.36c-19.75,0-35.77,15.22-35.77,34v131.45h71.54v-131.45c0-18.78-16.02-34-35.77-34h0Z"/>
+      <circle id="path1-3" class="st0" cx="77.1" cy="69.96" r="35.77"/>
+      <path id="rect1-191" data-name="rect1-19" class="st0" d="M222.9,100.36c-19.75,0-35.77,15.22-35.77,34v131.45h71.54v-131.45c0-18.78-16.02-34-35.77-34h0Z"/>
+      <circle id="path1-31" data-name="path1-3" class="st0" cx="222.9" cy="69.96" r="35.77"/>
+    </g>
+    <g>
+      <path id="rect1-192" data-name="rect1-19" class="st2" d="M150,99.85c-21.75,0-39.38,16.76-39.38,37.43v144.72h78.77v-144.72c0-20.67-17.63-37.43-39.38-37.43h0Z"/>
+      <circle id="path1-32" data-name="path1-3" class="st2" cx="150" cy="57.37" r="39.38"/>
+    </g>
+  </g>
+</svg>
