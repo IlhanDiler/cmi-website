@@ -3,31 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CMI</title>
+    <title>Collegium Musicum Iuvenale Ochsenfurt – Musik verbindet Menschen</title>
     <meta property="og:title" content="Collegium Musicum Iuvenale Ochsenfurt">
-    <meta property="og:description" content="Das Collegium Musicum Iuvenale bringt Menschen durch Musik zusammen. Werde Teil unserer Musikfamilie und unterstütze gute Zwecke durch Benefizkonzerte.">
+    <meta property="og:description" content="Das Collegium Musicum Iuvenale Ochsenfurt verbindet Menschen durch Musik und unterstützt soziale Projekte mit Benefizkonzerten.">
     <meta property="og:image" content="https://cmi-ochsenfurt.de/bilder/Gruppenbild2.jpg">
     <meta property="og:url" content="https://cmi-ochsenfurt.de">
-    <meta name="description" content="Das Collegium Musicum Iuvenale bringt Menschen durch Musik zusammen. Werde Teil unserer Musikfamilie und unterstütze gute Zwecke durch Benefizkonzerte.">
+    <meta name="description" content="Das Collegium Musicum Iuvenale Ochsenfurt verbindet Menschen durch Musik und engagiert sich für soziale Projekte.">
+    <meta name="keywords" content="Musik, Benefiz, Ochsenfurt, Collegium Musicum, Konzerte, Ensemble, Musikverein, soziale Projekte">
+    <link rel="canonical" href="https://cmi-ochsenfurt.de/">
     <!-- Materialize CSS (Material Design) -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1 style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Collegium Musicum Iuvenale Ochsenfurt</h1>
     <div class="hero-bg" style="position:relative;">
         <div class="hero-bg-fade-container">
-            <div class="hero-bg-fade hero-bg-fade-current" style="background-image:url('bilder/Gruppenbild2.jpg');background-size:100vw auto;background-position:center 8%;"></div>
+            <div class="hero-bg-fade hero-bg-fade-current" style="background-image:url('bilder/Gruppenbild2.jpg');background-size:100vw auto;background-position:center 8%;" aria-label="Gruppenbild Collegium Musicum Iuvenale Ochsenfurt"></div>
             <div class="hero-bg-fade hero-bg-fade-next"></div>
         </div>
         <nav class="navbar">
-      
             <!-- Mobile menu button: ganz links -->
             <button class="mobile-menu-btn" aria-label="Menü öffnen" aria-controls="mobile-menu" aria-expanded="false" tabindex="0" style="background:none;border:none;padding:0;display:flex;align-items:center;justify-content:center;min-width:48px;min-height:48px;cursor:pointer;">
                 <img src="files/icon.menu.button.svg" alt="Menü öffnen" class="menu-icon" style="width:40px;height:40px;pointer-events:none;">
             </button>
             <!-- Logo und Titel: mittig -->
             <div class="nav-brand" style="margin: 0 auto; display: flex; align-items: center; justify-content: center;">
-                <img id="mainLogo" src="files/logo_cmi1 - weiß.svg" alt="CMI Logo" class="nav-logo">
+                                <a href="/" title="Startseite Collegium Musicum Iuvenale Ochsenfurt">
+                                    <img id="mainLogo" src="files/logo_cmi1 - weiß.svg" alt="Logo Collegium Musicum Iuvenale Ochsenfurt Hauptlogo" class="nav-logo">
+                                </a>
                 <span class="brand-text">
                     Collegium Musicum Iuvenale<br><span class="brand-sub">Ochsenfurt</span>
                 </span>
@@ -43,6 +47,9 @@
                 <a href="#events" class="nav-link" data-lang="de">Termine</a>
                 <a href="#events" class="nav-link" data-lang="en" style="display:none;">Events</a>
                 <a href="#events" class="nav-link" data-lang="it" style="display:none;">Eventi</a>
+                <a href="#timeline-section" class="nav-link" data-lang="de">Chronik</a>
+                <a href="#timeline-section" class="nav-link" data-lang="en" style="display:none;">Timeline</a>
+                <a href="#timeline-section" class="nav-link" data-lang="it" style="display:none;">Cronologia</a>
                 <a href="#review" class="nav-link" data-lang="de">Rückblick</a>
                 <a href="#review" class="nav-link" data-lang="en">Review</a>
                 <a href="#review" class="nav-link" data-lang="it">Riepilogo</a>
@@ -93,9 +100,12 @@
                  <a href="#events" class="mobile-nav-link" data-lang="de">Termine</a>
                 <a href="#events" class="mobile-nav-link" data-lang="en" style="display:none;">Events</a>
                 <a href="#events" class="mobile-nav-link" data-lang="it" style="display:none;">Eventi</a>
+                <a href="#timeline-section" class="mobile-nav-link" data-lang="de">Chronik</a>
+                <a href="#timeline-section" class="mobile-nav-link" data-lang="en" style="display:none;">Timeline</a>
+                <a href="#timeline-section" class="mobile-nav-link" data-lang="it" style="display:none;">Cronologia</a>
                 <a href="#review" class="mobile-nav-link" data-lang="de">Rückblick</a>
-                <a href="#review" class="mobile-nav-link" data-lang="en">Review</a>
-                <a href="#review" class="mobile-nav-link" data-lang="it">Riepilogo</a>
+                <a href="#review" class="mobile-nav-link" data-lang="en" style="display:none">Review</a>
+                <a href="#review" class="mobile-nav-link" data-lang="it" style="display:none">Riepilogo</a>
                 <a href="#contact" class="mobile-nav-link" data-lang="de">Kontakt</a>
                 <a href="#contact" class="mobile-nav-link" data-lang="en" style="display:none;">Contact</a>
                 <a href="#contact" class="mobile-nav-link" data-lang="it" style="display:none;">Contatto</a>
@@ -118,7 +128,7 @@
         <div class="image-caption-card-lead" data-lang="en" style="display:none;">Get a glimpse of our musical anniversary right here:</div>
         <div class="image-caption-card-lead" data-lang="it" style="display:none;">Scopri subito un'impressione del nostro anniversario musicale:</div>
         <a href="https://www.youtube.com/watch?v=n6geYJRmu7Y" target="_blank" rel="noopener noreferrer" style="display:inline-block;position:relative;">
-            <img class="image-caption-card-img" src="bilder/oeffne_dein_herz.jpg" alt="CMI Gruppenbild">
+            <img class="image-caption-card-img" src="bilder/oeffne_dein_herz.jpg" alt="Gruppenbild zum musikalischen Jubiläum Collegium Musicum Iuvenale Ochsenfurt">
             <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.55);border-radius:50%;padding:18px 22px;display:flex;align-items:center;justify-content:center;">
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="24" cy="24" r="24" fill="#fff" fill-opacity="0.85"/>
@@ -150,7 +160,7 @@
         <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Regelmäßige Auftritte und besondere Events</li>
     </ul>
     <span class="music-family-logo-mobile">
-        <img src="files/logo_cmi1 - schwarz.svg" alt="CMI Logo" />
+    <img src="files/logo_cmi1 - schwarz.svg" alt="Logo Collegium Musicum Iuvenale Ochsenfurt schwarz" />
     </span>
             <ul class="music-family-benefits" style="list-style:none;padding:0;margin:0;min-width:260px;display:none;" data-lang="en">
                 <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Weekly rehearsals every Saturday morning</li>
@@ -907,18 +917,19 @@
             <p class="charity-card-main-text" data-lang="it" style="display:none;">I nostri concerti sostengono regolarmente progetti sociali – dalle iniziative locali alle azioni di aiuto internazionale. Insieme aiutiamo là dove la musica costruisce ponti.</p>
         </div>
         <div class="charity-card-image">
-            <img src="bilder/spende_aerzte_ohne_grenzen.jpeg" alt="Musik für den guten Zweck">
+            <img src="bilder/spende_aerzte_ohne_grenzen.jpeg" alt="Spendenübergabe an Ärzte ohne Grenzen durch Collegium Musicum Iuvenale Ochsenfurt">
         </div>
     </div>
             <ul class="musikalisches-repertoire-list" data-lang="de">
                 <li class="charity-list-item">Benefizkonzerte zugunsten von sozialen Institutionen wie Lebenshilfe, Caritas, Krankenhausseelsorge, Kindergärten, Ärzte ohne Grenzen, Herzenswunschkrankenwagen der Malteser</li>
                                 <li class="charity-list-item">
                                     <span>Unterstützung von Schulprojekten in Kinshasa/Kongo und Kathmandu/Nepal</span>
-                                      <img src="bilder/kinshasa.jfif" alt="Kinshasa" class="kinshasa-card-img" id="kinshasaPreviewImg" style="cursor:pointer;">
-<!-- Modal for Kinshasa image preview -->
+                                    <img src="bilder/kinshasa.jfif" alt="Schulprojekt Kinshasa Kongo Collegium Musicum Iuvenale Ochsenfurt" class="kinshasa-card-img" id="kinshasaPreviewImg" style="cursor:pointer;">
+                                    <!-- Modal for Kinshasa image preview -->
 <div id="kinshasaModal" class="modal" style="display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;">
     <span id="kinshasaModalClose" style="position:absolute;top:32px;right:48px;font-size:2.5em;color:#fff;cursor:pointer;font-weight:700;z-index:10001;">&times;</span>
     <img src="bilder/kinshasa.jfif" alt="Kinshasa groß" style="max-width:90vw;max-height:80vh;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.25);background:#fff;display:block;margin:auto;">
+<img src="bilder/kinshasa.jfif" alt="Schulprojekt Kinshasa Kongo groß Collegium Musicum Iuvenale Ochsenfurt" style="max-width:90vw;max-height:80vh;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.25);background:#fff;display:block;margin:auto;">
 </div>
 </script>
 <script>
@@ -960,7 +971,7 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
 <section class="mint-section-dark" id="about">
     <div class="mint-section-dark-flex">
         <div class="musik-bruecken-card">
-            <img src="bilder/musik_baut_bruecken.jpeg" alt="Musik baut Brücken" style="width:100%;max-width:600px;display:block;margin:0 auto 18px auto;border-radius:18px;box-shadow:0 4px 24px rgba(0,0,0,0.10);" />
+        <img src="bilder/musik_baut_bruecken.jpeg" alt="Musik baut Brücken – Collegium Musicum Iuvenale Ochsenfurt" style="width:100%;max-width:600px;display:block;margin:0 auto 18px auto;border-radius:18px;box-shadow:0 4px 24px rgba(0,0,0,0.10);" />
             <div class="musik-bruecken-divider"></div>
             <p class="musik-bruecken-text" data-lang="de">
                 Das Collegium Musicum Iuvenale Ochsenfurt bringt seit 44 Jahren Menschen durch die Kraft der Musik zusammen.<br>
@@ -1214,7 +1225,6 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                 <h2 class="charity-title" data-lang="de" style="margin-bottom:0.2em;">„Wir musizieren gemeinsam - ein Musikerlebnis für jedes Alter“</h2>
                 <h2 class="charity-title" data-lang="en" style="margin-bottom:0.2em;display:none;">"We make music together – a musical experience for all ages"</h2>
                 <h2 class="charity-title" data-lang="it" style="margin-bottom:0.2em;display:none;">"Facciamo musica insieme – un'esperienza musicale per tutte le età"</h2>
-               
                 <div class="charity-meta" data-lang="de">12. Oktober 2025 · Kapuzinerklosterkirche Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;">October 12, 2025 · Capuchin Monastery Church Ochsenfurt</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">12 ottobre 2025 · Chiesa del Monastero dei Cappuccini Ochsenfurt</div>
@@ -1228,7 +1238,7 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                     I bambini del Collegium Musicum Iuvenale, insieme alla loro direttrice Astrid Eitschberger e agli alunni delle classi 2a e 4a della scuola elementare di Ochsenfurt sotto la guida di Annette Patrzek, hanno presentato canzoni piene di vita alternate a musica da camera barocca proveniente da Francia, Italia e Germania. Tra i solisti si sono esibiti Beate e Friedhelm Hoffmann, Renate Glauth, Johanna Griebel e Astrid Eitschberger. Un momento speciale è stato l'ensemble di otto flautisti dolci specializzato in musica rinascimentale. L'evento si è svolto in collaborazione con il gruppo di lavoro di storia. Una novità assoluta è stata l'idea che alcuni bambini dell'orchestra presentassero una breve introduzione alla storia della chiesa del monastero. Nina Eisenhauer e Simon Streit, entrambi di dieci anni, hanno entusiasmato il pubblico con il loro modo spontaneo e naturale di far rivivere il mondo dei cappuccini. Sono stati raccolti in totale 609 € di donazioni per la ristrutturazione della chiesa del monastero.
                 </div>
             </div>
-            <img class="gruppenbild-img" src="bilder/blockfloetenensemble_2025.jpg" alt="Klosterkirche" />
+            <img class="gruppenbild-img" src="bilder/blockfloetenensemble_2025.jpg" alt="Blockflötenensemble in der Klosterkirche Ochsenfurt 2025" />
         </div>
     </div>
 </section>
@@ -1252,11 +1262,9 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                     <div class="charity-description" data-lang="it" style="display:none;">
                         Il Collegium Musicum Iuvenale Ochsenfurt ha organizzato una settimana di corso per ensemble di violoncellisti e altri strumentisti ad arco dal titolo "ConCello". Sotto la direzione del Maestro Andrea Marcolini e del Maestro Riccardo Paltanin da Padova è stato preparato un programma variegato dalla musica romantica alle colonne sonore. Il concerto finale con la cantante francese Marika Marcuzzi si è tenuto il 10 agosto 2025 nella chiesa del monastero di Ochsenfurt. L'ingresso era libero e sono stati raccolti 785 euro di donazioni per la ristrutturazione della chiesa del monastero.
                     </div>
-               
             </div>
-            <img class="gruppenbild-img" src="bilder/concello.jfif" alt="ConCello Ensemble 2025" />
-        </div>
-      
+            <img class="gruppenbild-img" src="bilder/concello.jfif" alt="ConCello Ensemble Kurswoche 2025 Collegium Musicum Iuvenale Ochsenfurt" />
+        </div>  
     </div>
 </section>
 <section class="charity-projects-section" id="causes">
@@ -1273,7 +1281,7 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                 <div class="charity-description" data-lang="en" style="display:none;">Members of CMI and the Liederkranz Ochsenfurt participated in the "Symphonic Mob" in Bad Kissingen and, together with professional musicians from the Deutsches Symphonie-Orchester Berlin under the direction of Aurélien Bello, presented an impressive program. This event was a wonderful community experience. Being able to make music together with the professionals inspired and motivated us.</div>
                 <div class="charity-description" data-lang="it" style="display:none;">I membri del CMI e del Liederkranz Ochsenfurt hanno partecipato al "Symphonic Mob" a Bad Kissingen e, insieme a musicisti professionisti della Deutsches Symphonie-Orchester Berlin sotto la direzione di Aurélien Bello, hanno presentato un programma impressionante. Questo evento è stato una meravigliosa esperienza di comunità. Poter fare musica insieme ai professionisti ci ha ispirato e motivato.</div>
             </div>     
-                <img class="gruppenbild-img" src="bilder/kissingen_symphonic.png" alt="symphonic_mob" class="cause-image"/>
+            <img class="gruppenbild-img" src="bilder/kissingen_symphonic.png" alt="Symphonic Mob Bad Kissingen 2025 Collegium Musicum Iuvenale Ochsenfurt" class="cause-image"/>
         </div>
     </div>
 </section>
@@ -1296,9 +1304,8 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                <div class="charity-description" data-lang="it" style="display:none;">
                    Il gruppo CMI ha trascorso una giornata ricca di attività a Norimberga. Gli adulti si sono immersi nella storia dell'arte durante una visita guidata con la Prof.ssa Teresa Bischoff al Germanisches Nationalmuseum, mentre i bambini hanno esplorato in modo giocoso le stazioni interattive con un "kit del museo". Dopo una foto di gruppo davanti al museo, ci siamo incamminati a piedi verso il "Campo delle esperienze sensoriali". Particolarmente entusiasmante è stata la tenda sonora, dove soprattutto i bambini hanno sperimentato e scoperto con grande curiosità diversi tipi di suoni. Per una pausa ci siamo recati nel vicino biergarten, dove abbiamo pranzato o fatto una pausa caffè insieme. È stata una splendida giornata piena di scoperte, divertimento e comunità!
                 </div>
-                
             </div>
-            <img class="gruppenbild-img" src="bilder/nuremberg_museum.jpg" alt="Ausflug nach Nürnberg" />
+            <img class="gruppenbild-img" src="bilder/nuremberg_museum.jpg" alt="Gruppenausflug ins Germanische Nationalmuseum Nürnberg Collegium Musicum Iuvenale Ochsenfurt" />
         </div>
     </div>
 </section>
@@ -1323,7 +1330,7 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                         La rassegna concertistica "Musik an der Furt" si svolge ogni anno dalla fine di aprile all'inizio di agosto nell'idilliaco centro storico di Ochsenfurt. Ogni sabato dalle 14 alle 15, diversi gruppi della regione offrono intrattenimento musicale, tra cui il "CMI" (direzione: Dr. Astrid Eitschberger), che si è esibito sabato 7 giugno 2025 insieme alla banda di ottoni Giebelstadt-Sulzdorf (direzione: Robert Schmitt) e al gruppo vocale ucraino "FAINO" (direzione: Viktoria Hromova). Durante le esibizioni sono state raccolte donazioni per il progetto di aiuto di Oxana Ruban, che lavora come medico al fronte in Ucraina e cerca di dare una possibilità di sopravvivenza ai soldati feriti. Allo stesso tempo, le volontarie hanno offerto specialità ucraine per contribuire alla fondazione benefica "Headquarters Heart". Questa combinazione musicale e culinaria si è affermata dal 2024 e ha reso anche il concerto alla Furt un vero successo.
                     </div>
             </div>
-            <img class="gruppenbild-img" src="bilder/furt.jpg" alt="Musik an der Furt 2025" />
+            <img class="gruppenbild-img" src="bilder/furt.jpg" alt="Musik an der Furt Altstadt Ochsenfurt 2025 Collegium Musicum Iuvenale" />
         </div>
     </div>
 </section>
@@ -1345,10 +1352,9 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                     </div>
                     <div class="charity-description" data-lang="it" style="display:none;">
                         Il 10 maggio 2025 si è tenuto nella nuova Festhalle Meintz un concerto internazionale di beneficenza con il gruppo di arpe Veeh "Querbeet" (direzione: Sigrid Schäfer), la Filarmonica Bibbienese "Sereni" (direzione: Marcello Biagini) dalla città gemellata italiana Bibiena, il gruppo vocale "FAINO" (direzione: Viktoriia Hromova), i bambini delle seconde classi della scuola elementare di Ochsenfurt (direzione: Renate Glauth), André Miabala e studenti di etnomusicologia dell'Università di Würzburg e il Collegium Musicum Iuvenale "CMI" (direzione: Dr. Astrid Eitschberger). Questo è stato il primo grande concerto nella sala appena inaugurata. La serie di immagini sulla doppia superficie di proiezione ha creato un'esperienza per tutti i sensi. Il CMI ringrazia di cuore Joachim Beck e tutto il team dell'Hotel Meintz per il supporto professionale. Gli spettatori entusiasti hanno donato 1.432,50 euro a "Medici Senza Frontiere".
-                    </div>
-              
+                    </div>  
             </div>
-            <img class="gruppenbild-img" src="bilder/Gruppenbild2.jpg" alt="Internationales Benefizkonzert" />
+            <img class="gruppenbild-img" src="bilder/Gruppenbild2.jpg" alt="Internationales Benefizkonzert 2025 Collegium Musicum Iuvenale Ochsenfurt" />
         </div>
     </div>
 </section>
@@ -1372,9 +1378,8 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                     <div class="charity-description" data-lang="it" style="display:none;">
                         Il 9 maggio 2025 la città di Ochsenfurt ha organizzato una cerimonia commemorativa "80 anni dalla fine della guerra – 80 anni di pace", accompagnata dal Collegium Musicum Iuvenale Ochsenfurt "CMI" (direzione: Dr. Astrid Eitschberger) insieme agli ospiti della città gemellata italiana Bibbiena, la Filarmonica Bibbienese "Sereni" (direzione: Marcello Biagini), il gruppo vocale ucraino "FAINO" (direzione: Viktoriia Hromova) e la cantante francese Marika Marcuzzi. È stata una serata toccante per la pace e la comprensione tra i popoli.
                     </div>
-               
             </div>
-            <img class="gruppenbild-img" src="bilder/peterbild.jpg" alt="80 Jahre Kriegsende – 80 Jahre Frieden" />
+            <img class="gruppenbild-img" src="bilder/peterbild.jpg" alt="Gedenkveranstaltung 80 Jahre Kriegsende – 80 Jahre Frieden Ochsenfurt 2025" />
         </div>
     </div>
 </section>
@@ -1399,7 +1404,7 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                         Il 15 febbraio 2025 si è tenuto presso St. Thekla il Concerto di Capodanno "Dal Barocco a Harry Potter". Il Collegium Musicum Iuvenale Ochsenfurt (direzione: Dr. Astrid Eitschberger), l'ensemble vocale ucraino FAINO (direzione: Viktoriia Hromova) e i bambini della scuola materna St. Thekla (direzione: Petra Striffler) hanno creato un programma vario. Le donazioni raccolte sono state destinate alla scuola materna St. Thekla, che le ha utilizzate per sostenere le sue attività.
                     </div>
             </div>
-            <img class="gruppenbild-img" src="bilder/kirche.jpg" alt="Neujahrskonzert 2025" />
+            <img class="gruppenbild-img" src="bilder/kirche.jpg" alt="Neujahrskonzert St. Thekla Ochsenfurt 2025 Collegium Musicum Iuvenale" />
         </div>
     </div>
 </section>
@@ -1424,7 +1429,7 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                         Il 9 gennaio 2025, l'ensemble di sassofoni del Collegium Musicum Iuvenale è stato invitato dal sindaco a fornire l'accompagnamento musicale per la tradizionale sessione Kauzen nella sala del consiglio del municipio di Ochsenfurt. Le musiciste hanno entusiasmato il pubblico con un programma vario e hanno contribuito all'atmosfera festosa dell'evento.
                     </div>
             </div>
-            <img class="gruppenbild-img" src="bilder/Kauzensitzung Saxophonensemble.jpg" alt="Kauzensitzung Saxophonensemble 2025" />
+            <img class="gruppenbild-img" src="bilder/Kauzensitzung Saxophonensemble.jpg" alt="Kauzensitzung Saxophonensemble Rathaus Ochsenfurt 2025 Collegium Musicum Iuvenale" />
         </div>
     </div>
 </section>
@@ -1450,7 +1455,7 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                     </div>
                    
             </div>
-            <img class="gruppenbild-img" src="bilder/Christmette 2024.jpg" alt="Christmette 2024" />
+            <img class="gruppenbild-img" src="bilder/Christmette 2024.jpg" alt="Christmette St. Thekla Ochsenfurt 2024 Collegium Musicum Iuvenale" />
         </div>
     </div>
 </section>
