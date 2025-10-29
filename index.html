@@ -302,6 +302,86 @@
     </div>
 </section>
 <style>
+/* Voll responsive Rückblick-Abschnitt */
+.rueckblick-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: flex-start;
+}
+.rueckblick-flex .charity-flex-left {
+    flex: 1 1 340px;
+    min-width: 260px;
+    max-width: 600px;
+    box-sizing: border-box;
+    padding: 18px 18px 18px 0;
+}
+.rueckblick-flex .charity-flex-right {
+    flex: 1 1 260px;
+    min-width: 180px;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 18px 0 18px 18px;
+}
+.rueckblick-flex img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+}
+.charity-program-list {
+    font-size: 0.98em;
+    line-height: 1.5;
+    margin-left: 1.2em;
+    margin-bottom: 0.8em;
+}
+@media (max-width: 900px) {
+    .rueckblick-flex {
+        flex-direction: column;
+        gap: 24px;
+        align-items: stretch;
+    }
+    .rueckblick-flex .charity-flex-left,
+    .rueckblick-flex .charity-flex-right {
+        max-width: 100%;
+        min-width: 0;
+        padding: 0;
+    }
+    .rueckblick-flex img {
+        max-width: 98vw;
+        margin: 0 auto 18px auto;
+    }
+}
+@media (max-width: 600px) {
+    .rueckblick-flex {
+        gap: 16px;
+    }
+    .charity-program-list {
+        font-size: 0.95em;
+        margin-left: 1em;
+    }
+    .rueckblick-flex img {
+        max-width: 96vw;
+        border-radius: 12px;
+    }
+}
+@media (max-width: 400px) {
+    .rueckblick-flex {
+        gap: 8px;
+    }
+    .charity-program-list {
+        font-size: 0.92em;
+        margin-left: 0.6em;
+    }
+    .rueckblick-flex img {
+        max-width: 92vw;
+        border-radius: 8px;
+    }
+}
 
 
 
@@ -1120,62 +1200,6 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
     <div class="event-list">
         <div class="event-card">
             <div class="event-badge">
-                <div class="event-date">25. Oktober 2025</div>
-                <div class="event-time" data-lang="de">18:00 Uhr</div>
-                <div class="event-time" data-lang="en" style="display:none;">6:00 pm</div>
-                <div class="event-time" data-lang="it" style="display:none;">18:00</div>
-            </div>
-            <div class="event-content">
-                <div class="event-headline" data-lang="de">Benefizkonzert zum 200. Geburtstag von Johann Strauß</div>
-                <div class="event-headline" data-lang="en" style="display:none;">Benefit Concert for the 200th Birthday of Johann Strauss</div>
-                <div class="event-headline" data-lang="it" style="display:none;">Concerto di beneficenza per il 200° compleanno di Johann Strauss</div>
-                <div class="event-location" data-lang="de">Rathaus Marktbreit</div>
-                <div class="event-location" data-lang="en" style="display:none;">Town Hall Marktbreit</div>
-                <div class="event-location" data-lang="it" style="display:none;">Municipio di Marktbreit</div>
-                <div class="event-description" data-lang="de">
-                    Genau zum Geburtstag des Walzerkönigs am 25.10.1825 gibt die Veeh-Harfengruppe „Querbeet“ unter der Leitung von Sigrid Schäfer 200 Jahre später am Samstag, den 25.10.2025 um 18.00 Uhr ein internationales Benefiz-Konzert in der Rathausdiele Marktbreit. Gemeinsam mit Solisten des Collegium Musicum Iuvenale Ochsenfurt (Leitung: Dr. Astrid Eitschberger) und Gästen aus Italien (Chiara Passudetti, Sopran, Silvano Ruffo, Tenor, sowie Mirko Ballico am Klavier und Andrea Vinco an der Gitarre) werden sie ein beschwingtes Programm mit Musik von Johann Strauß, Gioachino Rossini und deren Zeitgenossen zu Gehör bringen. Die Veranstaltung findet in Zusammenarbeit mit dem Partnerschaftskomitee Marktbreit statt. Der Eintritt ist frei, Spenden kommen dem Partnerschaftskomitee zur Unterstützung von Marktbreiter Mittelschülern bei ihrer Frankreichfahrt 2026 zu Gute.
-                </div>
-                <div class="event-description" data-lang="en" style="display:none;">
-                    Exactly on the birthday of the "Waltz King" on 25.10.1825, the Veeh harp group "Querbeet" under the direction of Sigrid Schäfer will give an international benefit concert 200 years later on Saturday, 25.10.2025 at 6:00 pm in the town hall of Marktbreit. Together with soloists from Collegium Musicum Iuvenale Ochsenfurt (director: Dr. Astrid Eitschberger) and guests from Italy (Chiara Passudetti, soprano, Silvano Ruffo, tenor, as well as Mirko Ballico on piano and Andrea Vinco on guitar), they will present a lively program with music by Johann Strauss, Gioachino Rossini, and their contemporaries. The event is organized in cooperation with the Marktbreit partnership committee. Admission is free, and donations will benefit the partnership committee to support Marktbreit secondary school students on their trip to France in 2026.
-                </div>
-                <div class="event-description" data-lang="it" style="display:none;">
-                    Proprio nel giorno del compleanno del "Re del Valzer" il 25.10.1825, il gruppo di arpe Veeh "Querbeet" sotto la direzione di Sigrid Schäfer terrà un concerto internazionale di beneficenza 200 anni dopo, sabato 25.10.2025 alle ore 18:00 nella sala del municipio di Marktbreit. Insieme ai solisti del Collegium Musicum Iuvenale Ochsenfurt (direzione: Dr. Astrid Eitschberger) e agli ospiti dall'Italia (Chiara Passudetti, soprano, Silvano Ruffo, tenore, Mirko Ballico al pianoforte e Andrea Vinco alla chitarra), presenteranno un programma vivace con musiche di Johann Strauss, Gioachino Rossini e dei loro contemporanei. L'evento è organizzato in collaborazione con il comitato di partenariato di Marktbreit. L'ingresso è gratuito, le donazioni saranno destinate al comitato di partenariato per sostenere gli studenti della scuola secondaria di Marktbreit nel loro viaggio in Francia nel 2026.
-                </div>
-                    <div class="event-card-poster-image">
-                    <img src="bilder/johann_strauss.png" alt="Plakat Konzert Anfängergruppe 2025" class="event-lightbox-img" style="cursor:zoom-in;" />
-                </div>
-            </div>
-        </div>
-        <div class="event-card">
-            <div class="event-badge">
-                <div class="event-date">26. Oktober 2025</div>
-                <div class="event-time" data-lang="de">16:00 Uhr</div>
-                <div class="event-time" data-lang="en" style="display:none;">4:00 pm</div>
-                <div class="event-time" data-lang="it" style="display:none;">16:00</div>
-            </div>
-            <div class="event-content">
-                <div class="event-headline" data-lang="de">Benefizkonzert zum 200. Geburtstag von Johann Strauß</div>
-                <div class="event-headline" data-lang="en" style="display:none;">Benefit Concert for the 200th Birthday of Johann Strauss</div>
-                <div class="event-headline" data-lang="it" style="display:none;">Concerto di beneficenza per il 200° compleanno di Johann Strauss</div>
-                <div class="event-location" data-lang="de">Festhalle des Hotels „Meintz“ in Ochsenfurt</div>
-                <div class="event-location" data-lang="en" style="display:none;">Festival Hall of Hotel "Meintz" in Ochsenfurt</div>
-                <div class="event-location" data-lang="it" style="display:none;">Sala delle feste dell'Hotel "Meintz" a Ochsenfurt</div>
-                <div class="event-description" data-lang="de">
-                    Fast genau zum Geburtstag des Walzerkönigs am 25.10.1825 gibt die Veeh-Harfengruppe „Querbeet“ unter der Leitung von Sigrid Schäfer 200 Jahre und einen Tag später am Sonntag, den 26.10.2025 um 16.00 Uhr ein internationales Benefiz-Konzert in der Festhalle des Hotels „Meintz“ in Ochsenfurt. Gemeinsam mit Solisten des Collegium Musicum Iuvenale Ochsenfurt (Leitung: Dr. Astrid Eitschberger) und Gästen aus Italien (Chiara Passudetti, Sopran, Silvano Ruffo, Tenor, sowie Mirko Ballico am Klavier und Andrea Vinco an der Gitarre) werden sie ein beschwingtes Programm mit Musik von Johann Strauß, Gioachino Rossini und deren Zeitgenossen zu Gehör bringen. Der Eintritt ist frei, Spenden kommen dem Herzenswunsch-Krankenwagen der Malteser zu Gute.
-                </div>
-                <div class="event-description" data-lang="en" style="display:none;">
-                    Almost exactly on the birthday of the "Waltz King" on 25.10.1825, the Veeh harp group "Querbeet" under the direction of Sigrid Schäfer will give an international benefit concert 200 years and one day later on Sunday, 26.10.2025 at 4:00 pm in the festival hall of Hotel "Meintz" in Ochsenfurt. Together with soloists from Collegium Musicum Iuvenale Ochsenfurt (director: Dr. Astrid Eitschberger) and guests from Italy (Chiara Passudetti, soprano, Silvano Ruffo, tenor, as well as Mirko Ballico on piano and Andrea Vinco on guitar), they will present a lively program with music by Johann Strauss, Gioachino Rossini, and their contemporaries. Admission is free, and donations will benefit the Malteser "Herzenswunsch" ambulance.
-                </div>
-                <div class="event-description" data-lang="it" style="display:none;">
-                    Quasi esattamente nel giorno del compleanno del "Re del Valzer" il 25.10.1825, il gruppo di arpe Veeh "Querbeet" sotto la direzione di Sigrid Schäfer terrà un concerto internazionale di beneficenza 200 anni e un giorno dopo, domenica 26.10.2025 alle ore 16:00 nella sala delle feste dell'Hotel "Meintz" a Ochsenfurt. Insieme ai solisti del Collegium Musicum Iuvenale Ochsenfurt (direzione: Dr. Astrid Eitschberger) e agli ospiti dall'Italia (Chiara Passudetti, soprano, Silvano Ruffo, tenore, Mirko Ballico al pianoforte e Andrea Vinco alla chitarra), presenteranno un programma vivace con musiche di Johann Strauss, Gioachino Rossini e dei loro contemporanei. L'ingresso è gratuito, le donazioni saranno destinate all'ambulanza "Herzenswunsch" dei Malteser.
-                </div>
-                  <div class="event-card-poster-image">
-                    <img src="bilder/johann_strauss.png" alt="Plakat Konzert Anfängergruppe 2025" class="event-lightbox-img" style="cursor:zoom-in;" />
-                </div>
-            </div>
-        </div>
-        <div class="event-card">
-            <div class="event-badge">
                 <div class="event-date" data-lang="de">13. Dezember 2025</div>
                 <div class="event-date" data-lang="en" style="display:none;">December 13, 2025</div>
                 <div class="event-date" data-lang="it" style="display:none;">13 dicembre 2025</div>
@@ -1250,6 +1274,43 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
      <div class="charity-svg-hero-container" id="review">
   <img src="bilder/rueckblick.jpeg" alt="Rückblick" class="rueckblick-img" />
 </div>
+</div>
+
+<section class="charity-projects-section">
+    <div class="charity-projects-container">
+        <div class="charity-flex-row frieden-flex">
+            <div class="charity-flex-left">
+                <!-- Rückblick: Benefizkonzert zum 200. Geburtstag von Johann Strauß -->
+                <h2 class="charity-title" data-lang="de" style="margin-bottom:0.2em;">Benefizkonzert zum 200. Geburtstag von Johann Strauß</h2><h2 style="margin-top:0" class="charity-title" data-lang="de">200 Jahre Strauß</h2>
+                <h2 class="charity-title" data-lang="en" style="display:none;">Retrospective: Benefit Concert for the 200th Birthday of Johann Strauss</h2>
+                <h2 class="charity-title" data-lang="it" style="display:none;">Ritorno: Concerto di beneficenza per il 200° compleanno di Johann Strauss</h2>
+                <div class="charity-meta" data-lang="de">25. Oktober 2025 · Rathausdiele Marktbreit</div>
+                <div class="charity-meta" data-lang="en" style="display:none;">October 25, 2025 · Town Hall Marktbreit</div>
+                <div class="charity-meta" data-lang="it" style="display:none;">25 ottobre 2025 · Sala del Municipio Marktbreit</div>
+                <div class="charity-description" data-lang="de" style="text-align:left;">
+                    Am 25. Oktober 2025 fand in der Rathausdiele Marktbreit ein internationales Benefizkonzert zum 200. Geburtstag des Walzerkönigs Johann Strauss statt, der am 25.10.1825 geboren wurde. Die Veeh-Harfengruppe „Querbeet“ (Leitung: Sigrid Schäfer), gemeinsam mit Solisten des Collegium Musicum Iuvenale Ochsenfurt (Leitung: Dr. Astrid Eitschberger) und Gästen aus Italien (Chiara Passudetti, Sopran, Silvano Ruffo, Tenor, sowie Mirko Ballico am Klavier und Andrea Vinco an der Gitarre) präsentierten ein unterhaltsames Programm mit Werken von Johann Strauss, seinem Bruder Josef und deren Zeitgenossen aus Italien und Spanien.
+                    Der Abend beruhte auf einer Kooperation mit dem Partnerschaftskomitee Marktbreit-Fléac und der Mittelschule Marktbreit. 
+                    Mittelschülerinnen erklärten in ihren Moderationen professionell die Hintergrundinformationen zu den Ausschnitten aus der Operette „Eine Nacht in Venedig“ und zu dem berühmten Walzer „An der schönen blauen Donau“. Ein besonderes Highlight war die Polka „Feuerfest!“, bei der Veeh-Harfenmusiker Klaus Schäfer als Schmied am Amboss auftrat und mit seinen Hammerschlägen den Rhythmus akzentuierte. In der Pause wurden die Gäste mit liebevoll vorbereiteten Häppchen verwöhnt, die von den Familien der Mittelschülerinnen und -schüler zusammen mit deren Klassenleiterin Frau Baur zubereitet worden waren. Die herzliche Atmosphäre, die engagierten Beiträge der Jugendlichen und großartigen solistischen Beiträge der italienischen Musiker machten den Abend zu einem besonderen Erlebnis. Die Spenden des Konzerts kommen den Mittelschülern für ihre Frankreichfahrt 2026 zugute.
+                </div>
+               <div class="charity-description" data-lang="en" style="display:none;text-align:left;">
+                On October 25, 2025, an international benefit concert for the 200th birthday of the Waltz King Johann Strauss took place in the Town Hall of Marktbreit, who was born on 25.10.1825. The Veeh harp group "Querbeet" (led by Sigrid Schäfer), together with soloists from Collegium Musicum Iuvenale Ochsenfurt (led by Dr. Astrid Eitschberger) and guests from Italy (Chiara Passudetti, soprano, Silvano Ruffo, tenor, as well as Mirko Ballico on piano and Andrea Vinco on guitar) presented an entertaining program with works by Johann Strauss, his brother Josef, and their contemporaries from Italy and Spain.
+                The evening was based on a cooperation with the Marktbreit-Fléac partnership committee and the Marktbreit secondary school.
+                Secondary school students professionally explained the background information in their presentations about excerpts from the operetta "A Night in Venice" and the famous waltz "The Blue Danube." A special highlight was the polka "Feuerfest!", in which Veeh harp musician Klaus Schäfer appeared as a blacksmith at the anvil and accentuated the rhythm with his hammer blows. During the break, guests were treated to lovingly prepared snacks made by the families of the students together with their class teacher Mrs. Baur. The warm atmosphere, the committed contributions of the young people, and the outstanding solo performances of the Italian musicians made the evening a special experience. The concert donations will benefit the students for their trip to France in 2026.
+            </div>
+            <div class="charity-description" data-lang="it" style="display:none;text-align:left;">
+                Il 25 ottobre 2025 si è tenuto nella Sala del Municipio di Marktbreit un concerto internazionale di beneficenza per il 200° compleanno del re del valzer Johann Strauss, nato il 25.10.1825. Il gruppo di arpe Veeh "Querbeet" (diretto da Sigrid Schäfer), insieme ai solisti del Collegium Musicum Iuvenale Ochsenfurt (diretto da Dr. Astrid Eitschberger) e agli ospiti dall'Italia (Chiara Passudetti, soprano, Silvano Ruffo, tenore, oltre a Mirko Ballico al pianoforte e Andrea Vinco alla chitarra) hanno presentato un programma divertente con opere di Johann Strauss, suo fratello Josef e loro contemporanei italiani e spagnoli.
+                La serata si è basata sulla collaborazione con il comitato di partenariato Marktbreit-Fléac e la scuola secondaria di Marktbreit.
+                Le studentesse della scuola secondaria hanno spiegato professionalmente le informazioni di background nelle loro presentazioni sugli estratti dall'operetta "Una notte a Venezia" e sul famoso valzer "Sul bel Danubio blu". Un momento speciale è stata la polka "Feuerfest!", in cui il musicista di arpa Veeh Klaus Schäfer si è esibito come fabbro sull'incudine accentuando il ritmo con i colpi di martello. Durante la pausa, gli ospiti sono stati coccolati con stuzzichini preparati con cura dalle famiglie degli studenti insieme alla loro insegnante, la signora Baur. L'atmosfera calorosa, i contributi impegnati dei giovani e le straordinarie esibizioni solistiche dei musicisti italiani hanno reso la serata un'esperienza speciale. Le donazioni del concerto saranno destinate al viaggio in Francia degli studenti nel 2026.
+            </div>
+            </div>
+        
+                <div style="width:100%;max-width:600px;margin:0 auto;overflow:hidden;display:flex;justify-content:center;align-items:center;">
+                    <img class="gruppenbild-img" src="bilder/strauss_marktbreit_251025.jpeg" alt="Benefizkonzert zum 200. Geburtstag Johann Strauß" style="width:100%;height:auto;max-height:340px;border-radius:16px;box-shadow:0 4px 18px rgba(0,0,0,0.12);display:block;object-fit:contain;background:#fff;" />
+                </div>
+        
+        </div>
+    </div>
+</section>
 <section class="charity-projects-section">
     <div class="charity-projects-container">
         <div class="charity-flex-row benefizkonzert-flex">
@@ -1285,13 +1346,13 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                 <div class="charity-meta" data-lang="de">10. August 2025 · Kapuzinerklosterkirche Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;">August 10, 2025 · Capuchin Monastery Church Ochsenfurt</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">10 agosto 2025 · Chiesa del Monastero dei Cappuccini Ochsenfurt</div>
-                <div class="charity-description" data-lang="de">
+                <div class="charity-description" data-lang="de" style="text-align:left;">
                     Das Collegium Musicum Iuvenale Ochsenfurt veranstaltete eine Ensemble-Kurswoche für Cellist:innen und andere Streicher:innen unter dem Titel „ConCello“. Unter der Leitung von Maestro Andrea Marcolini und Maestro Riccardo Paltanin aus Padua wurde ein vielfältiges Programm von der Romantik bis zur Filmmusik erarbeitet. Das Abschlusskonzert mit der französischen Sängerin Marika Marcuzzi fand am 10. August 2025 in der Klosterkirche Ochsenfurt statt. Der Eintritt war frei, es wurden 785 Euro an Spenden für die Renovierung der Klosterkirche gesammelt.
                 </div>
-                    <div class="charity-description" data-lang="en" style="display:none;">
+                    <div class="charity-description" data-lang="en" style="display:none;text-align:left;">
                         Collegium Musicum Iuvenale Ochsenfurt organized an ensemble course week for cellists and other string players under the title "ConCello." Under the direction of Maestro Andrea Marcolini and Maestro Riccardo Paltanin from Padua, a diverse program ranging from Romanticism to film music was developed. The final concert, featuring the French singer Marika Marcuzzi, took place on August 10, 2025, in the monastery church of Ochsenfurt. Admission was free, and €785 in donations were collected for the renovation of the monastery church.
                     </div>
-                    <div class="charity-description" data-lang="it" style="display:none;">
+                    <div class="charity-description" data-lang="it" style="display:none;text-align:left;">
                         Il Collegium Musicum Iuvenale Ochsenfurt ha organizzato una settimana di corso per ensemble di violoncellisti e altri strumentisti ad arco dal titolo "ConCello". Sotto la direzione del Maestro Andrea Marcolini e del Maestro Riccardo Paltanin da Padova è stato preparato un programma variegato dalla musica romantica alle colonne sonore. Il concerto finale con la cantante francese Marika Marcuzzi si è tenuto il 10 agosto 2025 nella chiesa del monastero di Ochsenfurt. L'ingresso era libero e sono stati raccolti 785 euro di donazioni per la ristrutturazione della chiesa del monastero.
                     </div>
             </div>
@@ -1390,7 +1451,7 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
         </div>
     </div>
 </section>
-<!-- Charity Card: 80 Jahre Kriegsende – 80 Jahre Frieden -->
+
 <section class="charity-projects-section">
     <div class="charity-projects-container">
         <div class="charity-flex-row frieden-flex">
