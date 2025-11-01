@@ -2,6 +2,12 @@
 .contact-info-section img[src$=".svg"] {
     filter: invert(1) brightness(1000%) grayscale(1) !important;
 }
+    .charity-description {
+        text-align: justify !important;
+        hyphens: auto !important;
+        -webkit-hyphens: auto !important;
+        -ms-hyphens: auto !important;
+    }
 @media (max-width: 600px) {
     .gruppenbild-container {
         margin-top: 18px !important;
