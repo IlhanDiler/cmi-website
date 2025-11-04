@@ -1,3 +1,15 @@
+/* Footer-Link-Container immer im Vordergrund, keine Überlagerung durch Overlays/Modals/Cookie-Banner */
+@media (max-width: 1024px) {
+    .site-footer > div {
+        position: relative;
+        z-index: 10000 !important;
+        pointer-events: auto !important;
+    }
+    .site-footer {
+        position: relative;
+        z-index: 9999 !important;
+    }
+}
 /* Footer-Links auf mobilen Geräten immer anklickbar */
 @media (max-width: 1024px) {
     footer a,
