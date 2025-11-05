@@ -30,6 +30,7 @@
 }
 .gruppenbild-container img.gruppenbild-img:nth-child(1) {
     object-fit: cover !important;
+    object-position:top !important;
 }
 
 
