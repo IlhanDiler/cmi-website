@@ -53,7 +53,7 @@
         <nav class="navbar">
             <!-- Mobile menu button: ganz links -->
             <button class="mobile-menu-btn" aria-label="Menü öffnen" aria-controls="mobile-menu" aria-expanded="false" tabindex="0" style="background:none;border:none;padding:0;display:flex;align-items:center;justify-content:center;min-width:48px;min-height:48px;cursor:pointer;">
-                <img src="files/icon.menu.button.svg" alt="Menü öffnen" class="menu-icon" style="width:40px;height:40px;pointer-events:none;">
+                <img src="files/icon.menu.button.svg" alt="Menü öffnen" class="menu-icon" style="width:40px;height:40px;">
             </button>
             <!-- Logo und Titel: mittig -->
             <div class="nav-brand" style="margin: 0 auto; display: flex; align-items: center; justify-content: center;">
@@ -296,426 +296,11 @@
             <div style="font-weight:700;color:#009688;margin-bottom:8px;display:none;" data-lang="it">Info e iscrizione:</div>
             <div style="background:#eafafc;border-radius:8px;padding:12px 18px;box-shadow:0 2px 8px rgba(0,184,148,0.07);display:inline-block;">
                 <span style="font-weight:600;">Astrid Eitschberger</span><br>
-                <a href="mailto:astrid.eitschberger@cmi-ochsenfurt.de" style="color:#00b894;text-decoration:underline;font-weight:500;">Astrid.Eitschberger@cmi-ochsenfurt.de</a>
+                <a href="mailto:astrid.eitschberger@cmi-ochsenfurt.de" style="color:#00b894;text-decoration:underline;font-weight:500;">astrid.eitschberger@cmi-ochsenfurt.de</a>
             </div>
         </div>
     </div>
 </section>
-<style>
-/* Voll responsive Rückblick-Abschnitt */
-.rueckblick-flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    align-items: flex-start;
-}
-.rueckblick-flex .charity-flex-left {
-    flex: 1 1 340px;
-    min-width: 260px;
-    max-width: 600px;
-    box-sizing: border-box;
-    padding: 18px 18px 18px 0;
-}
-.rueckblick-flex .charity-flex-right {
-    flex: 1 1 260px;
-    min-width: 180px;
-    max-width: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    padding: 18px 0 18px 18px;
-}
-.rueckblick-flex img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 18px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-}
-.charity-program-list {
-    font-size: 0.98em;
-    line-height: 1.5;
-    margin-left: 1.2em;
-    margin-bottom: 0.8em;
-}
-@media (max-width: 900px) {
-    .rueckblick-flex {
-        flex-direction: column;
-        gap: 24px;
-        align-items: stretch;
-    }
-    .rueckblick-flex .charity-flex-left,
-    .rueckblick-flex .charity-flex-right {
-        max-width: 100%;
-        min-width: 0;
-        padding: 0;
-    }
-    .rueckblick-flex img {
-        max-width: 98vw;
-        margin: 0 auto 18px auto;
-    }
-}
-@media (max-width: 600px) {
-    .rueckblick-flex {
-        gap: 16px;
-    }
-    .charity-program-list {
-        font-size: 0.95em;
-        margin-left: 1em;
-    }
-    .rueckblick-flex img {
-        max-width: 96vw;
-        border-radius: 12px;
-    }
-}
-@media (max-width: 400px) {
-    .rueckblick-flex {
-        gap: 8px;
-    }
-    .charity-program-list {
-        font-size: 0.92em;
-        margin-left: 0.6em;
-    }
-    .rueckblick-flex img {
-        max-width: 92vw;
-        border-radius: 8px;
-    }
-}
-
-
-
-
-/* Bullets mittig zum Text ausrichten */
-.musikalisches-repertoire-list li {
-    display: flex !important;
-    align-items: center !important;
-}
-.musikalisches-repertoire-list li::marker, .musikalisches-repertoire-list li > ::marker {
-    vertical-align: middle !important;
-}
-/* State-of-the-art design for music family section */
-.music-family-section {
-    font-family: 'Inter', Arial, sans-serif;
-}
-/* Responsive Schriftgröße für music-family-title */
-.music-family-title {
-    letter-spacing: -0.01em;
-    font-size: clamp(1.1em, 6vw, 2.5em) !important;
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
-    font-weight: 700 !important;
-    line-height: 1.15 !important;
-    word-break: break-word;
-}
-
-.music-family-group {
-    transition: box-shadow 0.2s;
-}
-.music-family-group:hover {
-    box-shadow: 0 8px 32px rgba(0,184,148,0.18);
-}
-.music-family-contact a {
-    transition: color 0.2s;
-}
-.music-family-contact a:hover {
-    color: #009688 !important;
-}
-@media (max-width: 900px) {
-    .music-family-container {
-        padding: 0 4vw;
-    }
-    .music-family-groups {
-        flex-direction: column;
-        gap: 24px;
-    }
-}
-@media (max-width: 600px) {
-@media (max-width: 600px) {
-    .music-family-logo-mobile img {
-        display: block !important;
-        margin: 0 auto !important;
-        height: 72px !important;
-        width: auto !important;
-    }
-}
-    .music-family-title {
-        font-size: 2em !important;
-    }
-    .music-family-group {
-        padding: 18px 8vw !important;
-    }
-}
-@media (max-width: 400px) {
-    .music-family-section .music-family-container > div[style*="display:flex"] {
-        flex-direction: column !important;
-        gap: 24px !important;
-        align-items: flex-start !important;
-    }
-    .music-family-section img[src*="logo_cmi1"] {
-        align-self: center !important;
-        margin-top: 18px !important;
-        margin-bottom: 0 !important;
-        height: 100px !important;
-        width: auto !important;
-        max-width: 80vw !important;
-    }
-}
-/* Modern Event Cards Responsive Design */
-.event-section {
-    padding: 32px 0 32px 0 !important;
-}
-.event-list {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    align-items: center;
-    width: 100%;
-}
-.event-card, .event-card.event-card-poster {
-    background: #fff;
-    border-radius: 22px;
-    box-shadow: 0 4px 24px rgba(25,211,197,0.08);
-    padding: 24px 32px;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 700px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.event-card-poster-flex {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-}
-.event-card-poster-image img {
-    border-radius: 18px;
-    box-shadow: 0 2px 12px rgba(25,211,197,0.10);
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-    margin: 0 auto;
-}
-.event-badge {
-    background: #19D3C5;
-    color: #fff;
-    border-radius: 16px;
-    padding: 12px 0;
-    text-align: center;
-    font-weight: 700;
-    font-size: 1.15em;
-    margin-bottom: 18px;
-    width: 100%;
-}
-.event-date, .event-time {
-    font-size: 1.08em;
-    font-weight: 600;
-}
-.event-headline {
-    font-size: 1.12em;
-    font-weight: 700;
-    margin-bottom: 0.5em;
-    color: #1a5c63;
-}
-.event-location {
-    font-size: 1em;
-    font-weight: 500;
-    margin-bottom: 0.5em;
-    color: #19D3C5;
-}
-.event-description {
-    font-size: 1em;
-    line-height: 1.6;
-    color: #222;
-    margin-bottom: 1em;
-}
-@media (max-width: 700px) {
-    .charity-svg-hero-container img {
-        width: 95vw !important;
-        height: 90vh !important;
-        max-width: 95vw !important;
-        max-height: 90vh !important;
-        object-fit: cover !important;
-        display: block !important;
-        margin: 0 auto !important;
-    }
-    .event-card, .event-card.event-card-poster {
-        max-width: 98vw !important;
-        padding: 18px 6vw !important;
-        border-radius: 18px !important;
-    }
-    .event-card-poster-image img {
-        max-width: 92vw !important;
-        border-radius: 14px !important;
-    }
-    .event-badge {
-        font-size: 1em !important;
-        border-radius: 12px !important;
-        padding: 10px 0 !important;
-    }
-    .event-headline {
-        font-size: 1.08em !important;
-    }
-    .event-location {
-        font-size: 0.98em !important;
-    }
-    .event-description {
-        font-size: 0.98em !important;
-    }
-}
-/* Responsive Timeline Section for Mobile */
-@media (max-width: 700px) {
-    .timeline-vertical-section {
-        padding: 24px 0 24px 0 !important;
-    }
-    .timeline-vertical-container {
-        width: 98vw !important;
-        max-width: 98vw !important;
-        margin: 0 auto !important;
-        padding: 0 2vw !important;
-    }
-    .timeline-vertical-title {
-        font-size: 1.45em !important;
-        text-align: center !important;
-        margin-bottom: 1.2em !important;
-    }
-    .timeline-vertical-list {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 32px !important;
-    }
-    .timeline-vertical-row {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        margin-bottom: 0 !important;
-        min-height: unset !important;
-        position: relative !important;
-        gap: 0 !important;
-    }
-    .timeline-vertical-col.left,
-    .timeline-vertical-col.right {
-        width: 100% !important;
-        max-width: 98vw !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    .timeline-vertical-card {
-        background: #f7fff7 !important;
-        border-radius: 18px !important;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.07) !important;
-        padding: 18px 12px !important;
-        margin: 0 0 18px 0 !important;
-        width: 98vw !important;
-        max-width: 98vw !important;
-        font-size: 1em !important;
-    }
-    .timeline-vertical-img img,
-    .timeline-vertical-img iframe {
-        width: 96vw !important;
-        max-width: 96vw !important;
-        height: auto !important;
-        border-radius: 16px !important;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.10) !important;
-        margin: 0 auto 18px auto !important;
-        display: block !important;
-    }
-    .timeline-vertical-year {
-        font-size: 1.15em !important;
-        font-weight: 700 !important;
-        color: #19D3C5 !important;
-        margin-bottom: 0.5em !important;
-        text-align: left !important;
-    }
-    .timeline-vertical-title-item {
-        font-size: 1.08em !important;
-        font-weight: 600 !important;
-        margin-bottom: 0.5em !important;
-        text-align: left !important;
-    }
-    .timeline-vertical-desc {
-        font-size: 1em !important;
-        line-height: 1.6 !important;
-        margin-bottom: 0.5em !important;
-        text-align: left !important;
-    }
-    .timeline-vertical-center {
-        display: none !important;
-    }
-    .timeline-vertical-dot {
-        display: none !important;
-    }
-    .timeline-vertical-line {
-        position: absolute;
-        left: 50%;
-        top: 170px;
-        transform: translateX(-50%);
-        width: 4px;
-        height: 55%;
-        background: linear-gradient(180deg,#19D3C5 0%,#eafafc 100%);
-        border-radius: 2px;
-        z-index: 1;
-        opacity: 0.7;
-        box-shadow: 0 2px 12px rgba(25,211,197,0.08);
-    }
-@media (max-width: 700px) {
-    .timeline-vertical-line {
-        display: block !important;
-        z-index: 0 !important;
-        opacity: 0.5 !important;
-        top: 170px !important;
-        left: 50% !important;
-        width: 4px !important;
-        height: 70% !important;
-        position: absolute !important;
-        transform: translateX(-50%) !important;
-        background: linear-gradient(180deg,#19D3C5 0%,#eafafc 100%) !important;
-        border-radius: 2px !important;
-        box-shadow: 0 2px 12px rgba(25,211,197,0.08) !important;
-    }
-    }
-}
-
-
-@media (max-width: 600px) {
-    .musik-bruecken-title {
-        font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
-        font-weight: 800 !important;
-        font-size: 1.45em !important;
-        letter-spacing: -0.01em !important;
-        text-align: center !important;
-        margin-bottom: 0.5em !important;
-    }
-    .musik-bruecken-text {
-        font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
-        font-size: 1.0em !important;
-        line-height: 1.6 !important;
-        letter-spacing: 0.01em !important;
-        text-align: center !important;
-        margin: 0 2vw !important;
-        text-align: justify !important;
-        hyphens: auto !important;
-        overflow-wrap: anywhere !important;
-        word-break: break-word !important;
-    }
-}
-</style>
-<style>
-/* Responsive Schriftgröße für Repertoire-Section */
-/* Dynamische Schriftgröße für musikalisches-repertoire-list */
-.musikalisches-repertoire-list,
-.musikalisches-repertoire-list li {
-    font-size: clamp(1em, 2.5vw, 1.08em) !important;
-    line-height: 1.6 !important;
-    font-weight: 400 !important;
-}
-
-</style>
-
 
 
 <!-- Neue Section: Musikalisches Repertoire -->
@@ -782,8 +367,8 @@
                                     <span>Unterstützung von Schulprojekten in Kinshasa/Kongo und Kathmandu/Nepal</span>
                                     <img src="bilder/kinshasa.jfif" alt="Schulprojekt Kinshasa Kongo Collegium Musicum Iuvenale Ochsenfurt" class="kinshasa-card-img" id="kinshasaPreviewImg" style="cursor:pointer;">
                                     <!-- Modal for Kinshasa image preview -->
-<div id="kinshasaModal" class="modal" style="display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;">
-    <span id="kinshasaModalClose" style="position:absolute;top:32px;right:48px;font-size:2.5em;color:#fff;cursor:pointer;font-weight:700;z-index:10001;">&times;</span>
+<div id="kinshasaModal" class="modal" style="display:none;position:fixed;z-index:1;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;">
+    <span id="kinshasaModalClose" style="position:absolute;top:32px;right:48px;font-size:2.5em;color:#fff;cursor:pointer;font-weight:700;z-index:1;">&times;</span>
     <img src="bilder/kinshasa.jfif" alt="Kinshasa groß" style="max-width:90vw;max-height:80vh;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.25);background:#fff;display:block;margin:auto;">
 <img src="bilder/kinshasa.jfif" alt="Schulprojekt Kinshasa Kongo groß Collegium Musicum Iuvenale Ochsenfurt" style="max-width:90vw;max-height:80vh;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.25);background:#fff;display:block;margin:auto;">
 </div>
@@ -846,99 +431,154 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
     </div>
 </section>
 
-<section class="timeline-section" id="timeline-section">
-    <div class="timeline-container">
-    <h2 class="timeline-title" data-lang="de" style="display:none;">Unsere Geschichte</h2>
-    <h2 class="timeline-title" data-lang="en" style="display:none;">Our History</h2>
-    <h2 class="timeline-title" data-lang="it" style="display:none;">La nostra storia</h2>
-        <div class="timeline-list timeline-has-bar">
-            <div class="timeline-bar"></div>
-            <div class="timeline-item" style="--timeline-index:0;">
-                <div class="timeline-year" data-lang="de"><span class="timeline-dot"></span>1981</div>
-                <div class="timeline-content">
-                    <div class="timeline-item-title" data-lang="de"><span>Gründung</span></div>
-                    <div class="timeline-item-title" data-lang="en" style="display:none;">Foundation</div>
-                    <div class="timeline-item-title" data-lang="it" style="display:none;">Fondazione</div>
-                    <div class="timeline-item-text" data-lang="de">Im Jahr 1981 entstand unser Orchester auf Initiative von Astrid Eitschberger und einer Gruppe musikbegeisterter Jugendlicher. Die ersten Konzerte fanden in privaten Rahmen statt.</div>
-                    <div class="timeline-item-text" data-lang="en" style="display:none;">In 1981, our orchestra was founded on the initiative of Astrid Eitschberger and a group of music-enthusiastic young people. The first concerts took place in private settings.</div>
-                    <div class="timeline-item-text" data-lang="it" style="display:none;">Nel 1981 la nostra orchestra è nata su iniziativa di Astrid Eitschberger e di un gruppo di giovani appassionati di musica. I primi concerti si sono svolti in ambito privato.</div>
-                </div>
-            </div>
-            <div class="timeline-item" style="--timeline-index:1;">
-                <div class="timeline-year" data-lang="de"><span class="timeline-dot"></span>1985</div>
-            
-                <div class="timeline-content">
-                    <div class="timeline-item-title" data-lang="de">Erste Konzerte</div>
-                    <div class="timeline-item-title" data-lang="en" style="display:none;">First Concerts</div>
-                    <div class="timeline-item-title" data-lang="it" style="display:none;">Primi concerti</div>
-                    <div class="timeline-item-text" data-lang="de">Seit 1985 treten wir unter unserem heutigen Namen Collegium Musicum Iuvenale bei öffentlichen und privaten Festen sowie Konzerten auf.</div>
-                    <div class="timeline-item-text" data-lang="en" style="display:none;">Since 1985, we have performed under our current name at public and private events as well as concerts.</div>
-                    <div class="timeline-item-text" data-lang="it" style="display:none;">Dal 1985 ci esibiamo con il nostro attuale nome Collegium Musicum Iuvenale in feste pubbliche e private e in concerti.</div>
-                </div>
-            </div>
-            <div class="timeline-item" style="--timeline-index:2;">
-                <div class="timeline-year"><span class="timeline-dot"></span>1992</div>
-                <div class="timeline-content">
-                    <div class="timeline-item-title" data-lang="de">Internationaler Austausch</div>
-                    <div class="timeline-item-title" data-lang="en" style="display:none;">First Project</div>
-                    <div class="timeline-item-title" data-lang="it" style="display:none;">Scambio internazionale</div>
-                    <div class="timeline-item-text" data-lang="de">Wir waren Mitinitiatoren des Projekts „EUROPEAN MUSIC MEETING“ in Padua, Pianiga und Ochsenfurt. Das CMI organisierte und führte zahlreiche gemeinsame Konzerte mit Orchestern und Chören aus Italien, Frankreich und England durch. Zudem förderten wir den internationalen Austausch durch Konzertreisen ins europäische Ausland und die Beherbergung ausländischer Musikgruppen in Ochsenfurt.</div>
-                    <div class="timeline-item-text" data-lang="en" style="display:none;">We were co-initiators of the "EUROPEAN MUSIC MEETING" project in Padua, Pianiga, and Ochsenfurt. We organized and held numerous joint concerts with orchestras and choirs from Italy, France, and England. We also promoted international exchange through concert tours abroad and by hosting foreign music groups in Ochsenfurt.</div>
-                    <div class="timeline-item-text" data-lang="it" style="display:none;">Siamo stati co-ideatori del progetto "EUROPEAN MUSIC MEETING" a Padova, Pianiga e Ochsenfurt. Il CMI ha organizzato e realizzato numerosi concerti con orchestre e cori provenienti da Italia, Francia e Inghilterra. Abbiamo inoltre promosso lo scambio internazionale attraverso tournée all'estero e l'ospitalità di gruppi musicali stranieri a Ochsenfurt.</div>
-                </div>
-            </div>
-            <div class="timeline-item" style="--timeline-index:3;">
-                <div class="timeline-year"><span class="timeline-dot"></span>1992</div>
-                <div class="timeline-content">
-                    <div class="timeline-item-title" data-lang="de">Gründung einer Anfängergruppe</div>
-                    <div class="timeline-item-title" data-lang="en" style="display:none;">Foundation of a Beginner Group</div>
-                    <div class="timeline-item-title" data-lang="it" style="display:none;">Fondazione di un gruppo principianti</div>
-                    <div class="timeline-item-text" data-lang="de">Im selben Jahr wurden eine Anfängergruppe gegründet, die jüngeren Mitspielern die Möglichkeit bietet, erste Erfahrungen im Zusammenspiel zu sammeln.</div>
-                    <div class="timeline-item-text" data-lang="en" style="display:none;">In the same year, we founded a beginner group, giving younger players the opportunity to gain their first experience in making music together.</div>
-                    <div class="timeline-item-text" data-lang="it" style="display:none;">Nello stesso anno è stato fondato un gruppo principianti che offre ai più giovani la possibilità di fare le prime esperienze di musica d'insieme.</div>
-                </div>
-            </div>
-            <div class="timeline-item" style="--timeline-index:3;">
-                <div class="timeline-year"><span class="timeline-dot"></span>2010</div>
-                <div class="timeline-content">
-                    <div class="timeline-item-title" data-lang="de" style="z-index:99999;pointer-events:auto;position:relative;">Erstes Benefizkonzert zugunsten <a href="https://www.mbonda-lokito.org/home.html" target="_blank" rel="noopener" style="z-index:99999;pointer-events:auto;position:relative;">Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a></div>
-                    <div class="timeline-item-title" data-lang="en" style="display:none;">First benefit concert in support of <a href="https://www.mbonda-lokito.org/home.html" target="_blank" rel="noopener" style="z-index:99999;pointer-events:auto;position:relative;">Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a></div>
-                    <div class="timeline-item-title" data-lang="it" style="display:none;">Primo concerto di beneficenza a favore di <a href="https://www.mbonda-lokito.org/home.html" target="_blank" rel="noopener">Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a></div>
-                    <div class="timeline-item-text" data-lang="de">Seit dem Konzert "Tor für Afrika" engagiert sich das CMI regelmäßig mit Konzertspenden für die Schule Vabatu Ngoma in Kingshasa.</div>
-                    <div class="timeline-item-text" data-lang="en" style="display:none;">In the same year, we founded a beginner group, giving younger players the opportunity to gain their first experience in making music together.</div>
-                    <div class="timeline-item-text" data-lang="it" style="display:none;">Dal concerto "Tor für Afrika" il CMI si impegna regolarmente con donazioni di concerti per la scuola Vabatu Ngoma a Kinshasa.</div>
-                </div>
-            </div>
-            <div class="timeline-item" style="--timeline-index:3;">
-                <div class="timeline-year"><span class="timeline-dot"></span>2011</div>
-                <div class="timeline-content">
-                    <div class="timeline-item-title" data-lang="de">30-jähriges Jubiläum</div>
-                    <div class="timeline-item-title" data-lang="en" style="display:none;">Foundation of a Beginner Group</div>
-                    <div class="timeline-item-title" data-lang="it" style="display:none;">30° anniversario</div>
-                    <div class="timeline-item-text" data-lang="de">Das dreißigjährige Bestehen feierte das Orchester mit einem außergewöhnlichem Konzert im Kaisersaal der Residenz Würzburg.</div>
-                    <div class="timeline-item-text" data-lang="en" style="display:none;">In the same year, we founded a beginner group, giving younger players the opportunity to gain their first experience in making music together.</div>
-                    <div class="timeline-item-text" data-lang="it" style="display:none;">Il trentesimo anniversario è stato celebrato con un concerto straordinario nella Kaisersaal della Residenz di Würzburg.</div>
-                </div>
-            </div>
-              <div class="timeline-item" style="--timeline-index:3;">
-                <div class="timeline-year"><span class="timeline-dot"></span>2021</div>
-                <div class="timeline-content">
-                    <div class="timeline-item-title" data-lang="de">40-jähriges Jubiläum</div>
-                    <div class="timeline-item-title" data-lang="en" style="display:none;">Foundation of a Beginner Group</div>
-                    <div class="timeline-item-title" data-lang="it" style="display:none;">40° anniversario</div>
-                    <div class="timeline-item-text" data-lang="de">Da im Lockdown kein reales Konzert stattfinden konnte, machte das CMI aus der Not eine Tugend: In aufwändigen Einzelsitzungen wurden Ton- und Videoaufnahmen erstellt, die Astrid Eitschberger zu einem Gesamtkunstwerk zusammenfügte.</div>
-                    <div class="timeline-item-text" data-lang="en" style="display:none;">In the same year, we founded a beginner group, giving younger players the opportunity to gain their first experience in making music together.</div>
-                    <div class="timeline-item-text" data-lang="it" style="display:none;">Poiché durante il lockdown non è stato possibile tenere un concerto reale, il CMI ha trasformato la necessità in virtù: in sessioni individuali elaborate sono state realizzate registrazioni audio e video che Astrid Eitschberger ha assemblato in un'opera d'arte totale.</div>
+<!-- Minimalistische Timeline -->
+<section class="simple-timeline" id="timeline-section">
+    <h2 class="timeline-section-title" style="font-size:clamp(2.2rem,4vw,3.2rem);font-weight:700;color:#176d6d;margin-bottom:2.2rem;text-align:center;line-height:1.1;">Chronik</h2>
+    <div class="timeline-entry">
+        <div class="timeline-content">
+            <div class="timeline-row">
+                                <div class="timeline-title">
+                                    <span data-lang="de">Gründung</span>
+                                    <span data-lang="en" style="display:none;">Foundation</span>
+                                    <span data-lang="it" style="display:none;">Fondazione</span>
+                                </div>
+                <div class="timeline-year">1981</div>
+                <div class="timeline-text">
+                    <span data-lang="de">Im Jahr 1981 entstand unser Orchester auf Initiative von Astrid Eitschberger und einer Gruppe musikbegeisterter Jugendlicher. Die ersten Konzerte fanden in privaten Rahmen statt.</span>
+                    <span data-lang="en" style="display:none;">In 1981, our orchestra was founded on the initiative of Astrid Eitschberger and a group of music-enthusiastic young people. The first concerts took place in private settings.</span>
+                    <span data-lang="it" style="display:none;">Nel 1981 la nostra orchestra è nata su iniziativa di Astrid Eitschberger e di un gruppo di giovani appassionati di musica. I primi concerti si sono svolti in ambito privato.</span>
                 </div>
             </div>
         </div>
     </div>
+    <div class="timeline-entry">
+        <div class="timeline-content">
+            <div class="timeline-row">
+                                <div class="timeline-title">
+                                    <span data-lang="de">Erste Konzerte</span>
+                                    <span data-lang="en" style="display:none;">First Concerts</span>
+                                    <span data-lang="it" style="display:none;">Primi Concerti</span>
+                                </div>
+                <div class="timeline-year">1985</div>
+                <div class="timeline-text">
+                    <span data-lang="de">Seit 1985 treten wir unter unserem heutigen Namen Collegium Musicum Iuvenale bei öffentlichen und privaten Festen sowie Konzerten auf.</span>
+                    <span data-lang="en" style="display:none;">Since 1985, we have performed under our current name at public and private events as well as concerts.</span>
+                    <span data-lang="it" style="display:none;">Dal 1985 ci esibiamo con il nostro attuale nome Collegium Musicum Iuvenale in feste pubbliche e private e in concerti.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-content">
+            <div class="timeline-row">
+                                <div class="timeline-title">
+                                    <span data-lang="de">Internationaler Austausch</span>
+                                    <span data-lang="en" style="display:none;">International Exchange</span>
+                                    <span data-lang="it" style="display:none;">Scambio Internazionale</span>
+                                </div>
+                <div class="timeline-year">1992</div>
+                <div class="timeline-text">
+                    <span data-lang="de">Wir waren Mitinitiatoren des Projekts „EUROPEAN MUSIC MEETING“ in Padua, Pianiga und Ochsenfurt. Das CMI organisierte und führte zahlreiche gemeinsame Konzerte mit Orchestern und Chören aus Italien, Frankreich und England durch. Zudem förderten wir den internationalen Austausch durch Konzertreisen ins europäische Ausland und die Beherbergung ausländischer Musikgruppen in Ochsenfurt.</span>
+                    <span data-lang="en" style="display:none;">We were co-initiators of the "EUROPEAN MUSIC MEETING" project in Padua, Pianiga, and Ochsenfurt. We organized and held numerous joint concerts with orchestras and choirs from Italy, France, and England. We also promoted international exchange through concert tours abroad and by hosting foreign music groups in Ochsenfurt.</span>
+                    <span data-lang="it" style="display:none;">Siamo stati co-ideatori del progetto "EUROPEAN MUSIC MEETING" a Padova, Pianiga e Ochsenfurt. Il CMI ha organizzato e realizzato numerosi concerti con orchestre e cori provenienti da Italia, Francia e Inghilterra. Abbiamo inoltre promosso lo scambio internazionale attraverso tournée all'estero e l'ospitalità di gruppi musicali stranieri a Ochsenfurt.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="timeline-entry">
+        <div class="timeline-content">
+            <div class="timeline-row">
+                                <div class="timeline-title">
+                                    <span data-lang="de">Gründung einer Anfängergruppe</span>
+                                    <span data-lang="en" style="display:none;">Foundation of a Beginner Group</span>
+                                    <span data-lang="it" style="display:none;">Fondazione di un gruppo principianti</span>
+                                </div>
+                <div class="timeline-year">1992</div>
+                <div class="timeline-text">
+                    <span data-lang="de">Im selben Jahr wurde eine Anfängergruppe gegründet, die jüngeren Mitspielern die Möglichkeit bietet, erste Erfahrungen im Zusammenspiel zu sammeln.</span>
+                    <span data-lang="en" style="display:none;">In the same year, we founded a beginner group, giving younger players the opportunity to gain their first experience in making music together.</span>
+                    <span data-lang="it" style="display:none;">Nello stesso anno è stato fondato un gruppo principianti che offre ai più giovani la possibilità di fare le prime esperienze di musica d'insieme.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="timeline-entry">
+            <div class="timeline-content">
+                <div class="timeline-row">
+                                        <div class="timeline-title">
+                                            <span data-lang="de">Erste Konzertreise nach Nepal</span>
+                                            <span data-lang="en" style="display:none;">First Concert Tour to Nepal</span>
+                                            <span data-lang="it" style="display:none;">Primo viaggio di concerti in Nepal</span>
+                                        </div>
+                    <div class="timeline-year">2001</div>
+                    <div class="timeline-text">
+                        <span data-lang="de">Die erste Konzertreise nach Nepal führte das CMI 2001 in die Hauptstadt Kathmandu. Dort wurden mehrere Konzerte gemeinsam mit dem dortigen Jugendorchester gegeben und ein Schulprojekt unterstützt.</span>
+                        <span data-lang="en" style="display:none;">The first concert tour to Nepal took place in 2001 in the capital Kathmandu. Several concerts were held there together with the local youth orchestra, and a school project was supported.</span>
+                        <span data-lang="it" style="display:none;">Il primo viaggio di concerti in Nepal si è svolto nel 2001 nella capitale Kathmandu. Sono stati tenuti diversi concerti insieme all'orchestra giovanile locale e sono stati sostenuti progetti scolastici.</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        
+   <div class="timeline-entry">
+            <div class="timeline-content">
+                <div class="timeline-row">
+                                        <div class="timeline-title">
+                                            <span data-lang="de">Erstes Benefizkonzert</span>
+                                            <span data-lang="en" style="display:none;">First Benefit Concert</span>
+                                            <span data-lang="it" style="display:none;">Primo Concerto di Beneficenza</span>
+                                        </div>
+                    <div class="timeline-year">2010</div>
+                    <div class="timeline-text">
+                        <a href="https://www.mbonda-lokito.org/home.html" target="_blank" rel="noopener" class="timeline-link">Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a>
+                            <span data-lang="de"> – Seit dem Konzert "Tor für Afrika" engagiert sich das CMI regelmäßig mit Konzertspenden für die Schule Vabatu Ngoma in Kingshasa.</span>
+                            <span data-lang="en" style="display:none;"> – Since the "Tor für Afrika" concert, CMI has regularly supported the Vabatu Ngoma school in Kinshasa with concert donations.</span>
+                                <span data-lang="it" style="display:none;"> – Dal concerto "Tor für Afrika" il CMI si impegna regolarmente con donazioni di concerti per la scuola Vabatu Ngoma a Kinshasa.</span>
+                    </div>
+                </div>
+            </div>
+     </div>
+
+        <div class="timeline-entry">
+            <div class="timeline-content">
+                <div class="timeline-row">
+                                        <div class="timeline-title">
+                                            <span data-lang="de">30-jähriges Jubiläum</span>
+                                            <span data-lang="en" style="display:none;">30th Anniversary</span>
+                                            <span data-lang="it" style="display:none;">30° Anniversario</span>
+                                        </div>
+                    <div class="timeline-year">2011</div>
+                    <div class="timeline-text">
+                        <span data-lang="de">Das dreißigjährige Bestehen feierte das Orchester mit einem außergewöhnlichem Konzert im Kaisersaal der Residenz Würzburg.</span>
+                        <span data-lang="en" style="display:none;">The thirtieth anniversary was celebrated with an extraordinary concert in the Kaisersaal of the Würzburg Residence.</span>
+                        <span data-lang="it" style="display:none;">Il trentesimo anniversario è stato celebrato con un concerto straordinario nella Kaisersaal della Residenz di Würzburg.</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+ <div class="timeline-entry">
+            <div class="timeline-content">
+                <div class="timeline-row">
+                                        <div class="timeline-title">
+                                            <span data-lang="de">40-jähriges Jubiläum</span>
+                                            <span data-lang="en" style="display:none;">40th Anniversary</span>
+                                            <span data-lang="it" style="display:none;">40° Anniversario</span>
+                                        </div>
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-text">
+                        <span data-lang="de">Da im Lockdown kein reales Konzert stattfinden konnte, machte das CMI aus der Not eine Tugend: In aufwändigen Einzelsitzungen wurden Ton- und Videoaufnahmen erstellt, die Astrid Eitschberger zu einem Gesamtkunstwerk zusammenfügte.</span>
+                        <span data-lang="en" style="display:none;">As no real concert could take place during the lockdown, CMI made a virtue out of necessity: elaborate individual sessions were used to create audio and video recordings, which Astrid Eitschberger assembled into a total work of art.</span>
+                        <span data-lang="it" style="display:none;">Poiché durante il lockdown non è stato possibile tenere un concerto reale, il CMI ha trasformato la necessità in virtù: in sessioni individuali elaborate sono state realizzate registrazioni audio e video che Astrid Eitschberger ha assemblato in un'opera d'arte totale.</span>
+                    </div>
+                </div>
+            </div>
+            </div>
 </section>
 <!-- Event Section: Kommende Konzerte & Events -->
 <section class="event-section" id="events">
 <!-- Lightbox Modal für Event-Bilder -->
-<div id="eventLightboxModal" style="display:none;position:fixed;z-index:99999;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;">
-    <button id="eventLightboxClose" tabindex="0" aria-label="Schließen" style="position:absolute;top:32px;right:48px;background:rgba(0,0,0,0.8);color:#fff;border:none;font-size:2.2em;padding:0 0.3em;line-height:1;border-radius:50%;cursor:pointer;z-index:100001;">&times;</button>
+<div id="eventLightboxModal" style="display:none;position:fixed;z-index:10;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;">
+    <button id="eventLightboxClose" tabindex="0" aria-label="Schließen" style="position:absolute;top:32px;right:48px;background:rgba(0,0,0,0.8);color:#fff;border:none;font-size:2.2em;padding:0 0.3em;line-height:1;border-radius:50%;cursor:pointer;z-index:10;">&times;</button>
     <img id="eventLightboxImg" src="" alt="Event Bild" style="max-width:90vw;max-height:90vh;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.25);background:#fff;" />
 </div>
     <h2 class="event-title" data-lang="de">Kommende Konzerte & Events</h2>
@@ -980,9 +620,9 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
             <div class="about-me-modern-subtitle" data-lang="en" style="display:none;">Founder of Collegium Musicum Iuvenale</div>
             <div class="about-me-modern-subtitle" data-lang="it" style="display:none;">Fondatrice del Collegium Musicum Iuvenale</div>
             <div class="about-me-modern-bio">
-                <div class="about-me-bio-text" data-lang="de">Astrid Eitschberger, lernte Klavier, Violoncello und später verschiedene Blasinstrumente. Sie verbrachte sieben Jahre ihrer Kindheit in Athen. 1981 gründete sie das Collegium Musicum Iuvenale Ochsenfurt. 2018 schloss sie die Ausbildung an der Nordbayerischen Bläserakademie als „Dirigentin von Blasorchestern im Laienmusizieren“ mit der staatlichen Anerkennung ab. Während ihrer Studienzeit in Padua schloss Astrid musikalische Freundschaften, die bis heute andauern. Seit 1999 unterrichtet die promovierte Germanistin am Matthias-Grünewald-Gymnasium Würzburg Latein und Deutsch. Sie sieht es als ihre Aufgabe, Menschen über Sprachgrenzen und unterschiedliche Traditionen hinweg einander begegnen zu lassen und verschiedene Stil- und Kunstrichtungen zu verbinden. Das zentrale Motiv für ihre musikalische Arbeit, die über all die Jahre hinweg rein ehrenamtlich erfolgt, liegt darin, anderen durch die Musik Freude zu bereiten und mit Benefizkonzerten die schwächeren Mitglieder unserer Gesellschaft zu unterstützen. 1998 erhielt sie dafür den Kulturpreis der Stadt Ochsenfurt, 2017 bekam sie von der Landtagspräsidentin die Bayerische Verfassungsmedaille in Silber verliehen, und 2024 folgte der Kulturpreis des Landkreises Würzburg.</div>
-                <div class="about-me-bio-text" style="display:none;" data-lang="en">Astrid Eitschberger, learned piano, cello, and later various wind instruments. She spent seven years of her childhood in Athens. In 1981, she founded Collegium Musicum Iuvenale Ochsenfurt. In 2018, she completed her training at the Nordbayerische Bläserakademie as a "conductor of wind orchestras in amateur music" with state recognition. During her studies in Padua, Astrid formed musical friendships that continue to this day. Since 1999, the PhD Germanist has been teaching Latin and German at the Matthias-Grünewald-Gymnasium in Würzburg. She sees it as her mission to bring people together across language barriers and different traditions and to connect various styles and art forms. The central motivation for her musical work, which has always been purely voluntary over the years, is to bring joy to others through music and to support the weaker members of our society with benefit concerts. In 1998, she received the Culture Prize of the City of Ochsenfurt, in 2017 the Bavarian Constitution Medal in Silver from the President of the State Parliament, and in 2024 the Culture Prize of the Würzburg district.</div>
-                <div class="about-me-bio-text" style="display:none;" data-lang="it">Astrid Eitschberger, ha imparato a suonare il pianoforte, il violoncello e successivamente vari strumenti a fiato. Ha trascorso sette anni della sua infanzia ad Atene. Nel 1981, ha fondato il Collegium Musicum Iuvenale Ochsenfurt. Nel 2018 ha completato la formazione presso la Nordbayerische Bläserakademie come "direttrice di orchestre di fiati nella musica amatoriale" con riconoscimento statale. Durante gli studi a Padova, Astrid ha stretto amicizie musicali che durano ancora oggi. Dal 1999 la germanista con dottorato insegna latino e tedesco al Matthias-Grünewald-Gymnasium di Würzburg. Considera sua missione far incontrare le persone oltre le barriere linguistiche e le diverse tradizioni, collegando vari stili e forme d'arte. La motivazione centrale per il suo lavoro musicale, che negli anni è sempre stato svolto in modo completamente volontario, è quella di portare gioia agli altri attraverso la musica e sostenere i membri più deboli della società con concerti di beneficenza. Nel 1998 ha ricevuto il Premio Cultura della città di Ochsenfurt, nel 2017 la Medaglia della Costituzione Bavarese in argento dalla Presidente del Parlamento regionale e nel 2024 il Premio Cultura del distretto di Würzburg.</div>
+                <div class="about-me-bio-text" data-lang="de">Astrid Eitschberger lernte Klavier, Violoncello und später verschiedene Blasinstrumente. Sie verbrachte sieben Jahre ihrer Kindheit in Athen. 1981 gründete sie das Collegium Musicum Iuvenale Ochsenfurt. 2018 schloss sie die Ausbildung an der Nordbayerischen Bläserakademie als „Dirigentin von Blasorchestern im Laienmusizieren“ mit der staatlichen Anerkennung ab. Während ihrer Studienzeit in Padua schloss Astrid musikalische Freundschaften, die bis heute andauern. Seit 1999 unterrichtet die promovierte Germanistin am Matthias-Grünewald-Gymnasium Würzburg Latein und Deutsch. Sie sieht es als ihre Aufgabe, Menschen über Sprachgrenzen und unterschiedliche Traditionen hinweg einander begegnen zu lassen und verschiedene Stil- und Kunstrichtungen zu verbinden. Das zentrale Motiv für ihre musikalische Arbeit, die über all die Jahre hinweg rein ehrenamtlich erfolgt, liegt darin, anderen durch die Musik Freude zu bereiten und mit Benefizkonzerten die schwächeren Mitglieder unserer Gesellschaft zu unterstützen. 1998 erhielt sie dafür den Kulturpreis der Stadt Ochsenfurt, 2017 bekam sie von der Landtagspräsidentin die Bayerische Verfassungsmedaille in Silber verliehen, und 2024 folgte der Kulturpreis des Landkreises Würzburg.</div>
+                <div class="about-me-bio-text" style="display:none;" data-lang="en">Astrid Eitschberger learned piano, cello, and later various wind instruments. She spent seven years of her childhood in Athens. In 1981, she founded Collegium Musicum Iuvenale Ochsenfurt. In 2018, she completed her training at the Nordbayerische Bläserakademie as a "conductor of wind orchestras in amateur music" with state recognition. During her studies in Padua, Astrid formed musical friendships that continue to this day. Since 1999, the PhD Germanist has been teaching Latin and German at the Matthias-Grünewald-Gymnasium in Würzburg. She sees it as her mission to bring people together across language barriers and different traditions and to connect various styles and art forms. The central motivation for her musical work, which has always been purely voluntary over the years, is to bring joy to others through music and to support the weaker members of our society with benefit concerts. In 1998, she received the Culture Prize of the City of Ochsenfurt, in 2017 the Bavarian Constitution Medal in Silver from the President of the State Parliament, and in 2024 the Culture Prize of the Würzburg district.</div>
+                <div class="about-me-bio-text" style="display:none;" data-lang="it">Astrid Eitschberger ha imparato a suonare il pianoforte, il violoncello e successivamente vari strumenti a fiato. Ha trascorso sette anni della sua infanzia ad Atene. Nel 1981, ha fondato il Collegium Musicum Iuvenale Ochsenfurt. Nel 2018 ha completato la formazione presso la Nordbayerische Bläserakademie come "direttrice di orchestre di fiati nella musica amatoriale" con riconoscimento statale. Durante gli studi a Padova, Astrid ha stretto amicizie musicali che durano ancora oggi. Dal 1999 la germanista con dottorato insegna latino e tedesco al Matthias-Grünewald-Gymnasium di Würzburg. Considera sua missione far incontrare le persone oltre le barriere linguistiche e le diverse tradizioni, collegando vari stili e forme d'arte. La motivazione centrale per il suo lavoro musicale, che negli anni è sempre stato svolto in modo completamente volontario, è quella di portare gioia agli altri attraverso la musica e sostenere i membri più deboli della società con concerti di beneficenza. Nel 1998 ha ricevuto il Premio Cultura della città di Ochsenfurt, nel 2017 la Medaglia della Costituzione Bavarese in argento dalla Presidente del Parlamento regionale e nel 2024 il Premio Cultura del distretto di Würzburg.</div>
             </div>
         </div>
         <div class="about-me-image-modern">
@@ -1039,11 +679,11 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                 </div>     
                 <div class="charity-description" data-lang="en" style="display:none;text-align:left;">
                  Exactly one day after the birthday of the Waltz King on October 25, 1825, the Veeh harp group "Querbeet" led by Sigrid Schäfer gave an international benefit concert on Sunday, October 26, 2025, in the festival hall of the "Meintz" hotel in Ochsenfurt. Together with soloists from Collegium Musicum Iuvenale Ochsenfurt (led by Dr. Astrid Eitschberger) and guests from Italy (Chiara Passudetti, soprano, Silvano Ruffo, tenor, as well as Mirko Ballico on piano and Andrea Vinco on guitar), they presented a lively program with music by Johann Strauss and his contemporaries. Admission was free, and generous donations of €1,183 were handed over to Joachim Gold, the city representative of Malteser in Würzburg, to finance missions of the Malteser Wish Ambulance. During the break and after the concert, guests had the opportunity to view and learn about this special ambulance from the inside.<br><br>
-                <a href="https://www.malteser.de/herzenswunsch-krankenwagen.html" target="_blank" rel="noopener" style="color:#19D3C5;font-weight:600;text-decoration:underline;z-index:99999;pointer-events:auto;position:relative;">More about Malteser Wish Ambulance</a>
+                <a href="https://www.malteser.de/herzenswunsch-krankenwagen.html" target="_blank" rel="noopener" style="color:#19D3C5;font-weight:600;text-decoration:underline;z-index:10;position:relative;">More about Malteser Wish Ambulance</a>
                  </div>
                 <div class="charity-description" data-lang="it" style="display:none;text-align:left; ">
                     Esattamente un giorno dopo il compleanno del re del valzer, il 25 ottobre 1825, il gruppo di arpe Veeh "Querbeet" diretto da Sigrid Schäfer ha tenuto un concerto internazionale di beneficenza domenica 26 ottobre 2025 nella sala delle feste dell'hotel "Meintz" a Ochsenfurt. Insieme ai solisti del Collegium Musicum Iuvenale Ochsenfurt (diretto da Dr. Astrid Eitschberger) e agli ospiti dall'Italia (Chiara Passudetti, soprano, Silvano Ruffo, tenore, oltre a Mirko Ballico al pianoforte e Andrea Vinco alla chitarra), hanno presentato un programma vivace con musiche di Johann Strauss e dei suoi contemporanei. L'ingresso era gratuito e le generose donazioni di 1.183 € sono state consegnate a Joachim Gold, rappresentante cittadino dei Malteser a Würzburg, per finanziare le missioni dell'ambulanza dei desideri Malteser. Durante la pausa e dopo il concerto, gli ospiti hanno avuto la possibilità di vedere e conoscere questo speciale veicolo di soccorso dall'interno.<br><br>
-                <a href="https://www.malteser.de/herzenswunsch-krankenwagen.html" target="_blank" rel="noopener" style="color:#19D3C5;font-weight:600;text-decoration:underline;z-index:99999;pointer-events:auto;position:relative;">Maggiori informazioni sull'Ambulanza dei Desideri Malteser</a>
+                <a href="https://www.malteser.de/herzenswunsch-krankenwagen.html" target="_blank" rel="noopener" style="color:#19D3C5;font-weight:600;text-decoration:underline;z-index:10;position:relative;">Maggiori informazioni sull'Ambulanza dei Desideri Malteser</a>
                 </div>
                 </div>
                 <div class="gruppenbild-container" style="width:100%;margin:88px auto 0 auto;display:block;">
