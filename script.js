@@ -1,5 +1,35 @@
+// Logge beim Laden der Seite alle Links im DOM (href und Text)
+document.addEventListener('DOMContentLoaded', function() {
+    var allLinks = document.querySelectorAll('a');
+    console.log('[DEBUG] Alle Links im DOM:', allLinks.length);
+    allLinks.forEach(function(link, idx) {
+        console.log('[DEBUG] Link #' + (idx+1) + ': href=' + link.getAttribute('href') + ', text=' + link.textContent.trim(), link);
+    });
+});
+// Logge beim Laden der Seite alle Mbonda Lokito Links im DOM
+document.addEventListener('DOMContentLoaded', function() {
+    var mbondaLinks = document.querySelectorAll('a[href="https://www.mbonda-lokito.org/home.html"]');
+    console.log('[DEBUG] Mbonda Lokito Links gefunden:', mbondaLinks.length);
+    mbondaLinks.forEach(function(link, idx) {
+        console.log('[DEBUG] Mbonda-Link #' + (idx+1) + ':', link, 'BoundingRect:', link.getBoundingClientRect());
+    });
+});
+// GLOBAL DEBUG: Logge alle Klicks und Touches auf der Seite
+document.addEventListener('click', function(e) {
+    var t = e.target;
+    var msg = '[DEBUG click] Tag: ' + t.tagName + ', class: ' + t.className + ', id: ' + t.id;
+    if (t.tagName === 'A') msg += ', href: ' + t.getAttribute('href');
+    console.log(msg, t);
+});
+document.addEventListener('touchend', function(e) {
+    var t = e.target;
+    var msg = '[DEBUG touchend] Tag: ' + t.tagName + ', class: ' + t.className + ', id: ' + t.id;
+    if (t.tagName === 'A') msg += ', href: ' + t.getAttribute('href');
+    console.log(msg, t);
+});
 // Lightbox für Event-Bilder
 document.addEventListener('DOMContentLoaded', function() {
+    // Entferne Test-Handler für Mbonda Lokito Link
     const lightboxModal = document.getElementById('eventLightboxModal');
     const lightboxImg = document.getElementById('eventLightboxImg');
     const lightboxCloseBtn = document.getElementById('eventLightboxClose');
@@ -376,23 +406,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 // Highlight active nav link on scroll
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.nav-link');
-    const sections = Array.from(navLinks).map(link => {
-        const id = link.getAttribute('href').replace('#','');
-        return document.getElementById(id);
-    });
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                navLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                const id = this.getAttribute('href').replace('#','');
-                const section = document.getElementById(id);
-                if (section) {
-                    section.scrollIntoView({behavior:'smooth'});
-                }
-            });
-        });
+    // Remove duplicate nav-link click handler, keep only smooth scrolling logic below
 });
 // Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
@@ -433,21 +447,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('a[href^="#"]');
+    // Smooth scrolling ONLY for navigation links (not all a[href^="#"])
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+            // Nur bei internen Links (href beginnt mit #) smooth scroll und preventDefault
+            if (targetId && targetId.startsWith('#')) {
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    e.preventDefault();
+                    const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
             }
+            // Externe Links: kein preventDefault, normales Verhalten
+            // (WICHTIG: KEIN e.preventDefault() für externe Links!)
         });
     });
 
@@ -505,7 +523,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     position: fixed;
                     top: 100px;
                     right: 20px;
-                    z-index: 10000;
+                    z-index: 10;
                     max-width: 400px;
                     background: white;
                     border-radius: 12px;
@@ -709,7 +727,7 @@ document.addEventListener('DOMContentLoaded', function() {
     mailPopupStyles.textContent = `
     .mail-popup-overlay {
         position: fixed;
-        z-index: 99999;
+        z-index: 10;
         inset: 0;
         background: rgba(0,0,0,0.4);
         display: flex;
@@ -861,7 +879,28 @@ function setLang(lang) {
     try {
         localStorage.setItem('siteLang', lang);
     } catch (e) {}
-    // Optionale Anpassung für Buttons, Banner etc. falls benötigt
+    // Entferne alle Event-Handler für Mbonda Lokito Link, damit Standardverhalten greift
+    var mbondaLinks = document.querySelectorAll('a[href="https://www.mbonda-lokito.org/home.html"]');
+    mbondaLinks.forEach(function(link) {
+        link.onclick = null;
+        link.removeAttribute('onclick');
+        // Normales Layout, aber pointer-events: auto und hoher z-index
+        link.style.position = 'relative';
+        link.style.left = '';
+        link.style.top = '';
+        link.style.width = '';
+        link.style.height = '';
+        link.style.zIndex = '2147483647';
+        link.style.pointerEvents = 'auto';
+        link.style.background = '';
+        link.style.outline = '';
+        link.style.color = '';
+        link.style.fontWeight = '';
+        link.style.display = 'inline-block';
+        link.style.fontSize = '';
+        link.style.textAlign = '';
+        link.style.lineHeight = '';
+    });
 }
 window.setLang = setLang;
 // Beim Laden der Seite: Sprache aus localStorage übernehmen
@@ -872,4 +911,25 @@ window.addEventListener('DOMContentLoaded', function() {
             setLang(lang);
         }
     } catch (e) {}
+
+    // EXPLIZIT: Für mobile Geräte - verhindere jegliche JS-Blockade für Mbonda Lokito Link in der Timeline
+    if (window.innerWidth <= 700) {
+        var mbondaLinks = document.querySelectorAll('.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]');
+        mbondaLinks.forEach(function(link) {
+            link.onclick = null;
+            link.removeAttribute('onclick');
+            link.addEventListener('click', function(e) {
+                // Lass alles durch, verhindere keine Events
+                e.stopPropagation = function(){};
+                e.stopImmediatePropagation = function(){};
+                // Kein preventDefault!
+            }, {capture: true});
+            link.addEventListener('touchend', function(e) {
+                e.stopPropagation = function(){};
+                e.stopImmediatePropagation = function(){};
+            }, {capture: true});
+            link.style.pointerEvents = 'auto';
+            link.style.zIndex = '2147483647';
+        });
+    }
 });
