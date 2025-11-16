@@ -452,7 +452,7 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
-            // Nur bei internen Links (href beginnt mit #) smooth scroll und preventDefault
+            // Only handle if href starts with # and target exists
             if (targetId && targetId.startsWith('#')) {
                 const targetSection = document.querySelector(targetId);
                 if (targetSection) {
@@ -464,8 +464,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
             }
-            // Externe Links: kein preventDefault, normales Verhalten
-            // (WICHTIG: KEIN e.preventDefault() für externe Links!)
         });
     });
 
@@ -665,122 +663,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    function validateField(field) {
-        const value = field.value.trim();
-        let isValid = true;
-        let errorMessage = '';
 
-        // Remove existing error styling
-        field.classList.remove('error');
-        const existingError = field.parentNode.querySelector('.error-message');
-        if (existingError) {
-            existingError.remove();
-        }
-
-        // Required field validation
-        if (field.hasAttribute('required') && !value) {
-            isValid = false;
-            errorMessage = 'Dieses Feld ist erforderlich.';
-        }
-
-        // Email validation
-        if (field.type === 'email' && value) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(value)) {
-                isValid = false;
-                errorMessage = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
-            }
-        }
-
-        // Show error if invalid
-        if (!isValid) {
-            field.classList.add('error');
-            const errorDiv = document.createElement('div');
-            errorDiv.className = 'error-message';
-            errorDiv.textContent = errorMessage;
-            field.parentNode.appendChild(errorDiv);
-        }
-
-        return isValid;
-    }
-
-    // Add error styles
-    const errorStyles = document.createElement('style');
-    errorStyles.textContent = `
-        .form-group input.error,
-        .form-group select.error,
-        .form-group textarea.error {
-            border-color: #ef4444;
-            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
-        }
-        
-        .error-message {
-            color: #ef4444;
-            font-size: 0.875rem;
-            margin-top: 4px;
-        }
-    `;
-    document.head.appendChild(errorStyles);
-
-    // Popup-Styles ergänzen
-    const mailPopupStyles = document.createElement('style');
-    mailPopupStyles.textContent = `
-    .mail-popup-overlay {
-        position: fixed;
-        z-index: 10;
-        inset: 0;
-        background: rgba(0,0,0,0.4);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .mail-popup {
-        background: #fff;
-        border-radius: 16px;
-        max-width: 420px;
-        width: 90%;
-        padding: 32px 24px 24px 24px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.18);
-        font-size: 1rem;
-        color: #222;
-        position: relative;
-    }
-    .mail-popup h2 {
-        margin-top: 0;
-        font-size: 1.3em;
-        margin-bottom: 12px;
-    }
-    .mail-popup-address, .mail-popup-subject {
-        margin-bottom: 8px;
-        word-break: break-all;
-    }
-    .mail-popup-body pre {
-        background: #f7f7f7;
-        padding: 8px;
-        border-radius: 8px;
-        font-size: 0.97em;
-        white-space: pre-wrap;
-        margin: 0;
-    }
-    .mail-popup-close {
-        margin-top: 18px;
-        padding: 8px 24px;
-        background: #00e0c6;
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        font-weight: bold;
-        cursor: pointer;
-        font-size: 1em;
-        transition: background 0.2s;
-    }
-    .mail-popup-close:hover {
-        background: #53e386;
-    }
-    `;
-    document.head.appendChild(mailPopupStyles);
-
-    console.log('CMI Orchester Website loaded successfully!');
 
     // Cookie Banner Logic
     const cookieBanner = document.getElementById('cookieBanner');
