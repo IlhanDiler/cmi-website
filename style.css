@@ -1,3 +1,36 @@
+/* Responsive styles for Christmas event image */
+.event-christmas-img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+    background: #fff;
+    display: block;
+    margin: 0 auto;
+    transition: box-shadow 0.2s;
+}
+
+@media (max-width: 900px) {
+    .event-christmas-img {
+        max-width: 98vw;
+        border-radius: 16px;
+    }
+}
+
+@media (max-width: 700px) {
+    .event-christmas-img {
+        max-width: 96vw;
+        border-radius: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    .event-christmas-img {
+        max-width: 92vw;
+        border-radius: 10px;
+    }
+}
 /* Modern External Link Design */
 .external-link {
     color: #19d3c5;
