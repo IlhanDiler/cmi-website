@@ -945,12 +945,9 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
 <section class="event-section" id="events">
 <!-- Lightbox Modal für Event-Bilder -->
 <div id="eventLightboxModal" style="display:none;position:fixed;z-index:10;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;">
-    <button id="eventLightboxClose" tabindex="0" aria-label="Schließen" style="position:absolute;top:32px;right:48px;background:rgba(0,0,0,0.8);color:#fff;border:none;font-size:2.2em;padding:0 0.3em;line-height:1;border-radius:50%;cursor:pointer;z-index:10;">&times;</button>
     <div style="position:relative;display:inline-block;">
         <img id="eventLightboxImg" src="" alt="Event Bild" style="max-width:90vw;max-height:90vh;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.25);background:#fff;display:block;" />
-        <span style="position:absolute;bottom:18px;right:18px;background:rgba(0,0,0,0.6);border-radius:50%;padding:10px;z-index:11;display:flex;align-items:center;justify-content:center;">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        </span>
+        <button id="eventLightboxClose" tabindex="0" aria-label="Schließen" style="position:absolute;bottom:18px;right:18px;width:48px;height:48px;background:rgba(0,0,0,0.7);color:#fff;border:none;font-size:2em;line-height:1;border-radius:50%;cursor:pointer;z-index:12;display:flex;align-items:center;justify-content:center;padding:0;">&times;</button>
     </div>
 </div>
     <h2 class="event-title" data-lang="de">Kommende Konzerte & Events</h2>
@@ -1083,11 +1080,14 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                     <div class="event-content-image">
                         <img src="bilder/christmette_25.png" alt="Weihnachten Konzert" class="event-christmas-img event-lightbox-trigger" style="cursor:zoom-in;" />
                     <script>
-                    // Lightbox für Event-Bilder mit Lupe
+                    // Lightbox für Event-Bilder mit X unten rechts
                     document.addEventListener('DOMContentLoaded', function() {
                         const modal = document.getElementById('eventLightboxModal');
                         const modalImg = document.getElementById('eventLightboxImg');
-                        const closeBtn = document.getElementById('eventLightboxClose');
+                        function closeLightbox() {
+                            modal.style.display = 'none';
+                            modalImg.src = '';
+                        }
                         document.querySelectorAll('.event-lightbox-trigger').forEach(function(img) {
                             img.addEventListener('click', function() {
                                 modal.style.display = 'flex';
@@ -1095,15 +1095,12 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                                 modalImg.alt = img.alt;
                             });
                         });
-                        closeBtn.addEventListener('click', function() {
-                            modal.style.display = 'none';
-                            modalImg.src = '';
+                        // Dynamisch das X-Button holen, da es jetzt im Modal-Bild ist
+                        modal.addEventListener('click', function(e) {
+                            if (e.target === modal) closeLightbox();
                         });
                         modal.addEventListener('click', function(e) {
-                            if (e.target === modal) {
-                                modal.style.display = 'none';
-                                modalImg.src = '';
-                            }
+                            if (e.target.id === 'eventLightboxClose') closeLightbox();
                         });
                     });
                     </script>
