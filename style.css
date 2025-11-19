@@ -16,12 +16,6 @@
         max-width: 96vw;
     }
 }
-.event-list .event-card {
-    margin-bottom: 38px;
-}
-.event-list .event-card:last-child {
-    margin-bottom: 0;
-}
 /* State-of-the-art responsive typography for event-section */
 .event-section .event-title {
     font-size: clamp(1.3em, 4vw, 2.2em);
