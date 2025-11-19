@@ -946,7 +946,12 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
 <!-- Lightbox Modal für Event-Bilder -->
 <div id="eventLightboxModal" style="display:none;position:fixed;z-index:10;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;">
     <button id="eventLightboxClose" tabindex="0" aria-label="Schließen" style="position:absolute;top:32px;right:48px;background:rgba(0,0,0,0.8);color:#fff;border:none;font-size:2.2em;padding:0 0.3em;line-height:1;border-radius:50%;cursor:pointer;z-index:10;">&times;</button>
-    <img id="eventLightboxImg" src="" alt="Event Bild" style="max-width:90vw;max-height:90vh;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.25);background:#fff;" />
+    <div style="position:relative;display:inline-block;">
+        <img id="eventLightboxImg" src="" alt="Event Bild" style="max-width:90vw;max-height:90vh;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.25);background:#fff;display:block;" />
+        <span style="position:absolute;bottom:18px;right:18px;background:rgba(0,0,0,0.6);border-radius:50%;padding:10px;z-index:11;display:flex;align-items:center;justify-content:center;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </span>
+    </div>
 </div>
     <h2 class="event-title" data-lang="de">Kommende Konzerte & Events</h2>
     <h2 class="event-title" data-lang="en" style="display:none;">Upcoming Concerts & Events</h2>
@@ -967,11 +972,9 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                         <div class="event-headline" data-lang="de">Weihnachtskonzert zum Mitsingen</div>
                         <div class="event-headline" data-lang="en" style="display:none;">Christmas Concert to Sing Along</div>
                         <div class="event-headline" data-lang="it" style="display:none;">Concerto di Natale da cantare insieme</div>
-                        <div class="event-headline" data-lang="en" style="display:none;">Grand Christmas Concert</div>
-                        <div class="event-headline" data-lang="it" style="display:none;">Grande Concerto di Natale</div>
                         <div class="event-location" data-lang="de">Spitalkirche Ochsenfurt</div>
-                        <div class="event-location" data-lang="en" style="display:none;">Spitalkirche Ochsenfurt</div>
-                        <div class="event-location" data-lang="it" style="display:none;">Spitalkirche Ochsenfurt</div>
+                                            <div class="event-location" data-lang="en" style="display:none;">Spitalkirche Ochsenfurt</div>
+                                            <div class="event-location" data-lang="it" style="display:none;">Spitalkirche Ochsenfurt</div>
                         <div class="event-description" data-lang="de" style="white-space:pre-line;">
                             Im Rahmen des Adventsgässles lädt das Collegium Musicum Iuvenale mit seiner Dirigentin Astrid Eitschberger am Samstag, den 13.12.2025 um 17.00 Uhr zu einem festlichen Weihnachtskonzert zum Mitsingen ein. Stimmen Sie mit ein bei „O du fröhliche“ und weiteren feierlichen Weihnachtsliedern! Sie dürfen aber auch gregorianischem Gesang und Blockflötenmusik aus der Renaissancezeit lauschen.
 
@@ -1025,12 +1028,13 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                         </div>
                     </div>
                     <div class="event-content-image">
-                        <img src="bilder/weihnachten.png" alt="Weihnachten Konzert" class="event-christmas-img" />
+                        <img src="bilder/weihnachten.png" alt="Weihnachten Konzert" class="event-christmas-img event-lightbox-trigger" style="cursor:zoom-in;" />
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</br>
       <div class="event-card">
             <div class="event-badge">
                 <div class="event-date" data-lang="de">Samstag, 29.11. und 06.12.2025</div>
@@ -1051,11 +1055,12 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                                     <div class="event-location" data-lang="it" style="display:none;">Alla Furt</div>
                     </div>
                     <div class="event-content-image">
-                        <img src="bilder/och_weihnachtsklaenge.jpg" alt="Weihnachten Konzert" class="event-christmas-img" />
+                        <img src="bilder/och_weihnachtsklaenge.jpg" alt="Weihnachten Konzert" class="event-christmas-img event-lightbox-trigger" style="cursor:zoom-in;" />
                     </div>
                 </div>
             </div>
         </div>
+    </br>
         <div class="event-card">
             <div class="event-badge">
                 <div class="event-date" data-lang="de">Mittwoch, 24.12.2025</div>
@@ -1076,7 +1081,32 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                                <div class="event-location" data-lang="it" style="display:none;">Chiesa di St. Thekla a Ochsenfurt</div>
                     </div>
                     <div class="event-content-image">
-                        <img src="bilder/christmette_25.png" alt="Weihnachten Konzert" class="event-christmas-img" />
+                        <img src="bilder/christmette_25.png" alt="Weihnachten Konzert" class="event-christmas-img event-lightbox-trigger" style="cursor:zoom-in;" />
+                    <script>
+                    // Lightbox für Event-Bilder mit Lupe
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const modal = document.getElementById('eventLightboxModal');
+                        const modalImg = document.getElementById('eventLightboxImg');
+                        const closeBtn = document.getElementById('eventLightboxClose');
+                        document.querySelectorAll('.event-lightbox-trigger').forEach(function(img) {
+                            img.addEventListener('click', function() {
+                                modal.style.display = 'flex';
+                                modalImg.src = img.src;
+                                modalImg.alt = img.alt;
+                            });
+                        });
+                        closeBtn.addEventListener('click', function() {
+                            modal.style.display = 'none';
+                            modalImg.src = '';
+                        });
+                        modal.addEventListener('click', function(e) {
+                            if (e.target === modal) {
+                                modal.style.display = 'none';
+                                modalImg.src = '';
+                            }
+                        });
+                    });
+                    </script>
                     </div>
                 </div>
             </div>
