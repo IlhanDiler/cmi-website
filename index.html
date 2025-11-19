@@ -945,8 +945,10 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
 <section class="event-section" id="events">
 <!-- Lightbox Modal für Event-Bilder -->
 <div id="eventLightboxModal" style="display:none;position:fixed;z-index:10;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;">
-    <button id="eventLightboxClose" tabindex="0" aria-label="Schließen" style="position:absolute;top:32px;right:48px;background:rgba(0,0,0,0.8);color:#fff;border:none;font-size:2.2em;padding:0 0.3em;line-height:1;border-radius:50%;cursor:pointer;z-index:10;">&times;</button>
-    <img id="eventLightboxImg" src="" alt="Event Bild" style="max-width:90vw;max-height:90vh;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.25);background:#fff;" />
+    <div style="position:relative;display:inline-block;">
+        <img id="eventLightboxImg" src="" alt="Event Bild" style="max-width:90vw;max-height:90vh;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.25);background:#fff;display:block;" />
+        <button id="eventLightboxClose" tabindex="0" aria-label="Schließen" style="position:absolute;bottom:18px;right:18px;width:48px;height:48px;background:rgba(0,0,0,0.7);color:#fff;border:none;font-size:2em;line-height:1;border-radius:50%;cursor:pointer;z-index:12;display:flex;align-items:center;justify-content:center;padding:0;">&times;</button>
+    </div>
 </div>
     <h2 class="event-title" data-lang="de">Kommende Konzerte & Events</h2>
     <h2 class="event-title" data-lang="en" style="display:none;">Upcoming Concerts & Events</h2>
@@ -967,65 +969,141 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                         <div class="event-headline" data-lang="de">Weihnachtskonzert zum Mitsingen</div>
                         <div class="event-headline" data-lang="en" style="display:none;">Christmas Concert to Sing Along</div>
                         <div class="event-headline" data-lang="it" style="display:none;">Concerto di Natale da cantare insieme</div>
-                        <div class="event-headline" data-lang="en" style="display:none;">Grand Christmas Concert</div>
-                        <div class="event-headline" data-lang="it" style="display:none;">Grande Concerto di Natale</div>
                         <div class="event-location" data-lang="de">Spitalkirche Ochsenfurt</div>
-                        <div class="event-location" data-lang="en" style="display:none;">Spitalkirche Ochsenfurt</div>
-                        <div class="event-location" data-lang="it" style="display:none;">Spitalkirche Ochsenfurt</div>
+                                            <div class="event-location" data-lang="en" style="display:none;">Spitalkirche Ochsenfurt</div>
+                                            <div class="event-location" data-lang="it" style="display:none;">Spitalkirche Ochsenfurt</div>
                         <div class="event-description" data-lang="de" style="white-space:pre-line;">
-Im Rahmen des Adventsgässles lädt das Collegium Musicum Iuvenale mit seiner Dirigentin Astrid Eitschberger am Samstag, den 13.12.2025 um 17.00 Uhr zu einem festlichen Weihnachtskonzert zum Mitsingen ein. Stimmen Sie mit ein bei „O du fröhliche“ und weiteren feierlichen Weihnachtsliedern! Sie dürfen aber auch gregorianischem Gesang und Blockflötenmusik aus der Renaissancezeit lauschen.
+                            Im Rahmen des Adventsgässles lädt das Collegium Musicum Iuvenale mit seiner Dirigentin Astrid Eitschberger am Samstag, den 13.12.2025 um 17.00 Uhr zu einem festlichen Weihnachtskonzert zum Mitsingen ein. Stimmen Sie mit ein bei „O du fröhliche“ und weiteren feierlichen Weihnachtsliedern! Sie dürfen aber auch gregorianischem Gesang und Blockflötenmusik aus der Renaissancezeit lauschen.
 
-Mitwirkende:
+                            Mitwirkende:
 
-Collegium Musicum Iuvenale Ochsenfurt
-Leitung: Astrid Eitschberger
+                            Collegium Musicum Iuvenale Ochsenfurt
+                            Leitung: Astrid Eitschberger
 
-Chor der Realschule am Maindreieck,
-Leitung: Antje Eckhoff
+                            Chor der Realschule am Maindreieck,
+                            Leitung: Antje Eckhoff
 
-Ukrainisches Vokalensemble „FAINO“
-Leitung: Viktoriia Hromova
+                            Ukrainisches Vokalensemble „FAINO“
+                            Leitung: Viktoriia Hromova
 
-Burkard Lutz, Orgel
-Antje Eckhoff, Sopran
+                            Burkard Lutz, Orgel
+                            Antje Eckhoff, Sopran
                         </div>
                         <div class="event-description" data-lang="en" style="white-space:pre-line; display:none;">
-As part of the Advent Alley, the Collegium Musicum Iuvenale and its conductor Astrid Eitschberger invite you to a festive Christmas concert to sing along on Saturday, December 13, 2025, at 5:00 p.m. Join in with “O du fröhliche” and other festive Christmas carols! You are also welcome to listen to Gregorian chant and recorder music from the Renaissance.
+                            As part of the Advent Alley, the Collegium Musicum Iuvenale and its conductor Astrid Eitschberger invite you to a festive Christmas concert to sing along on Saturday, December 13, 2025, at 5:00 p.m. Join in with “O du fröhliche” and other festive Christmas carols! You are also welcome to listen to Gregorian chant and recorder music from the Renaissance.
 
-Performers:
+                            Performers:
 
-Collegium Musicum Iuvenale Ochsenfurt
-Conductor: Astrid Eitschberger
+                            Collegium Musicum Iuvenale Ochsenfurt
+                            Conductor: Astrid Eitschberger
 
-Choir of the Realschule am Maindreieck,
-Conductor: Antje Eckhoff
+                            Choir of the Realschule am Maindreieck,
+                            Conductor: Antje Eckhoff
 
-Ukrainian vocal ensemble “FAINO”
-Conductor: Viktoriia Hromova
+                            Ukrainian vocal ensemble “FAINO”
+                            Conductor: Viktoriia Hromova
 
-Burkard Lutz, organ
-Antje Eckhoff, soprano
-                        </div>
+                            Burkard Lutz, organ
+                            Antje Eckhoff, soprano
+                                                    </div>
                         <div class="event-description" data-lang="it" style="white-space:pre-line; display:none;">
-Nell’ambito dell’Adventsgässle, il Collegium Musicum Iuvenale con la sua direttrice Astrid Eitschberger vi invita sabato 13 dicembre 2025 alle ore 17:00 a un festoso concerto di Natale da cantare insieme. Unitevi a noi per “O du fröhliche” e altri solenni canti natalizi! Potrete anche ascoltare canti gregoriani e musica per flauto dolce dal Rinascimento.
+                            Nell’ambito dell’Adventsgässle, il Collegium Musicum Iuvenale con la sua direttrice Astrid Eitschberger vi invita sabato 13 dicembre 2025 alle ore 17:00 a un festoso concerto di Natale da cantare insieme. Unitevi a noi per “O du fröhliche” e altri solenni canti natalizi! Potrete anche ascoltare canti gregoriani e musica per flauto dolce dal Rinascimento.
 
-Partecipanti:
+                            Partecipanti:
 
-Collegium Musicum Iuvenale Ochsenfurt
-Direzione: Astrid Eitschberger
+                            Collegium Musicum Iuvenale Ochsenfurt
+                            Direzione: Astrid Eitschberger
 
-Coro della Realschule am Maindreieck,
-Direzione: Antje Eckhoff
+                            Coro della Realschule am Maindreieck,
+                            Direzione: Antje Eckhoff
 
-Ensemble vocale ucraino “FAINO”
-Direzione: Viktoriia Hromova
+                            Ensemble vocale ucraino “FAINO”
+                            Direzione: Viktoriia Hromova
 
-Burkard Lutz, organo
-Antje Eckhoff, soprano
+                            Burkard Lutz, organo
+                            Antje Eckhoff, soprano
                         </div>
                     </div>
                     <div class="event-content-image">
-                        <img src="bilder/weihnachten.png" alt="Weihnachten Konzert" class="event-christmas-img" />
+                        <img src="bilder/weihnachten.png" alt="Weihnachten Konzert" class="event-christmas-img event-lightbox-trigger" style="cursor:zoom-in;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</br>
+      <div class="event-card">
+            <div class="event-badge">
+                <div class="event-date" data-lang="de">Samstag, 29.11. und 06.12.2025</div>
+                <div class="event-date" data-lang="en" style="display:none;">Saturday, Nov 29 and Dec 6, 2025</div>
+                <div class="event-date" data-lang="it" style="display:none;">Sabato 29 novembre e 6 dicembre 2025</div>
+                <div class="event-time" data-lang="de">13:00 Uhr bis 13:30 Uhr</div>
+                            <div class="event-time" data-lang="en" style="display:none;">1:00 pm to 1:30 pm</div>
+                            <div class="event-time" data-lang="it" style="display:none;">13:00 alle 13:30</div>
+            </div>
+            <div class="event-content">
+                <div class="event-content-flex">
+                    <div class="event-content-text">
+                        <div class="event-headline" data-lang="de">Ochsenfurter Weihnachtsklänge</div>
+                                        <div class="event-headline" data-lang="en" style="display:none;">Ochsenfurt Christmas Sounds</div>
+                                        <div class="event-headline" data-lang="it" style="display:none;">Suoni di Natale a Ochsenfurt</div>
+                        <div class="event-location" data-lang="de">An der Furt</div>
+                                    <div class="event-location" data-lang="en" style="display:none;">At the Furt</div>
+                                    <div class="event-location" data-lang="it" style="display:none;">Alla Furt</div>
+                    </div>
+                    <div class="event-content-image">
+                        <img src="bilder/och_weihnachtsklaenge.jpg" alt="Weihnachten Konzert" class="event-christmas-img event-lightbox-trigger" style="cursor:zoom-in;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </br>
+        <div class="event-card">
+            <div class="event-badge">
+                <div class="event-date" data-lang="de">Mittwoch, 24.12.2025</div>
+                <div class="event-date" data-lang="en" style="display:none;">Wednesday, Dec 24, 2025</div>
+                <div class="event-date" data-lang="it" style="display:none;">Mercoledì 24 dicembre 2025</div>
+                <div class="event-time" data-lang="de">18:00 Uhr</div>
+                            <div class="event-time" data-lang="en" style="display:none;">6:00 pm</div>
+                            <div class="event-time" data-lang="it" style="display:none;">18:00</div>
+            </div>
+            <div class="event-content">
+                <div class="event-content-flex">
+                    <div class="event-content-text">
+                        <div class="event-headline" data-lang="de">Christmette 2025</div>
+                        <div class="event-headline" data-lang="en" style="display:none;">Christmas Mass 2025</div>
+                        <div class="event-headline" data-lang="it" style="display:none;">Messa di Natale 2025</div>
+                        <div class="event-location" data-lang="de">St. Thekla Kirche in Ochsenfurt</div>
+                               <div class="event-location" data-lang="en" style="display:none;">St. Thekla Church in Ochsenfurt</div>
+                               <div class="event-location" data-lang="it" style="display:none;">Chiesa di St. Thekla a Ochsenfurt</div>
+                    </div>
+                    <div class="event-content-image">
+                        <img src="bilder/christmette_25.png" alt="Weihnachten Konzert" class="event-christmas-img event-lightbox-trigger" style="cursor:zoom-in;" />
+                    <script>
+                    // Lightbox für Event-Bilder mit X unten rechts
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const modal = document.getElementById('eventLightboxModal');
+                        const modalImg = document.getElementById('eventLightboxImg');
+                        function closeLightbox() {
+                            modal.style.display = 'none';
+                            modalImg.src = '';
+                        }
+                        document.querySelectorAll('.event-lightbox-trigger').forEach(function(img) {
+                            img.addEventListener('click', function() {
+                                modal.style.display = 'flex';
+                                modalImg.src = img.src;
+                                modalImg.alt = img.alt;
+                            });
+                        });
+                        // Dynamisch das X-Button holen, da es jetzt im Modal-Bild ist
+                        modal.addEventListener('click', function(e) {
+                            if (e.target === modal) closeLightbox();
+                        });
+                        modal.addEventListener('click', function(e) {
+                            if (e.target.id === 'eventLightboxClose') closeLightbox();
+                        });
+                    });
+                    </script>
                     </div>
                 </div>
             </div>
