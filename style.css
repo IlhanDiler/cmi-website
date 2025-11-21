@@ -1,3 +1,65 @@
+/* --- Dedicated Responsive Design for Rückblick Image (charity-svg-hero-container) --- */
+.charity-svg-hero-container#review {
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0 auto 48px auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+.charity-svg-hero-container#review img {
+    display: block;
+    width: 100%;
+    max-width: 100vw;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    object-position: center center;
+    margin: 0 auto;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    border-radius: 0;
+    background: #fff;
+}
+@media (max-width: 900px) {
+    .charity-svg-hero-container#review {
+        max-width: 100vw;
+        margin: 0 0 32px 0;
+        padding: 0;
+    }
+    .charity-svg-hero-container#review img {
+        max-width: 100vw;
+        max-height: 60vh;
+        border-radius: 0;
+    }
+}
+@media (max-width: 600px) {
+    .charity-svg-hero-container#review {
+        max-width: 100vw;
+        margin: 0 0 24px 0;
+        padding: 0;
+    }
+    .charity-svg-hero-container#review img {
+        max-width: 100vw;
+        max-height: 45vh;
+        border-radius: 0;
+    }
+}
+@media (max-width: 400px) {
+    .charity-svg-hero-container#review {
+        max-width: 100vw;
+        margin: 0 0 12px 0;
+        padding: 0;
+    }
+    .charity-svg-hero-container#review img {
+        max-width: 100vw;
+        max-height: 32vh;
+        border-radius: 0;
+    }
+}
 /* Event-Beschreibungstext für Desktop etwas kleiner */
 @media (min-width: 701px) {
     .event-section .event-description[data-lang="de"] {
@@ -367,7 +429,7 @@
     .gruppenbild-img {
         width: 100vw;
         max-width: 100vw;
-        height: auto;
+            object-fit: cover;
         margin: 0 -2vw 18px -2vw;
     }
 }
@@ -570,11 +632,10 @@
     .about-me-section-modern-inner {
         flex-direction: column;
         gap: 4px;
-        width: 100vw;
-        max-width: 100vw;
-        padding: 0;
-    }
-    .about-me-text-modern, .about-me-image-modern {
+        width: 100%;
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
         max-width: 100vw;
         width: 100vw;
         padding: 18px 2vw;
@@ -719,25 +780,23 @@
     box-sizing: border-box;
 }
 
-@media (max-width: 700px) {
-    .gruppenbild-img {
-        max-width: 96vw;
-        max-height: 38vh;
-    }
-}
-/* Rückblick image: always fully visible, never cropped */
-.rueckblick-img {
-        width: 100%;
-        height: auto;
-        max-width: 100vw;
-        max-height: 80vh;
-        object-fit: contain;
-        display: block;
-        margin: 0 auto;
-        
-        background: #fff;
-        
-}
+
+.charity-svg-hero-container {
+            max-width: 100vw !important;
+            width: 100vw !important;
+            height:auto !important;
+            margin: 0 auto 0 auto !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+        }
+        .charity-svg-hero-container img {
+            max-width: 100vw !important;
+            width: 100vw !important;
+            height: auto !important;
+            display: block !important;
+            margin: 0 auto !important;
+        }
+
 .charity-svg-hero-container {
             max-width: 100vw !important;
             width: 100vw !important;
@@ -752,30 +811,8 @@
             display: block !important;
             margin: 0 auto !important;
         }
+    
 
-@media (max-width: 600px) {
-    .charity-svg-hero-container {
-        max-width: 100vw !important;
-        width: 100vw !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        overflow-x: auto !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-    }
-    .rueckblick-img {
-        width: auto !important;
-        max-width: none !important;
-        height: 100vh !important;
-        max-height: 100vh !important;
-        display: block !important;
-        margin: 0 auto !important;
-        object-fit: contain !important;
-        box-shadow: none !important;
-        background: #fff !important;
-    }
-}
 /* Modern responsive layout for About Me section */
 .about-me-section-modern {
     width: 100%;
@@ -875,7 +912,6 @@
     }
     .about-me-image-modern {
         margin: 0 auto 8px auto !important;
-        border-radius: 16px !important;
         box-shadow: 0 2px 12px rgba(25,211,197,0.10);
         background: #fff !important;
         max-width: 96vw !important;
@@ -886,7 +922,6 @@
         padding: 8px 0 8px 0 !important;
     }
     .about-me-image-modern img {
-        border-radius: 12px !important;
         max-width: 92vw !important;
         max-height: 38vh !important;
         object-fit: contain !important;
@@ -931,8 +966,9 @@
     display: block;
     margin: 0 auto;
     background: #fff;
-   
 }
+
+
 @media (max-width: 900px) {
     .about-me-section-modern-inner {
         flex-direction: column;
