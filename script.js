@@ -253,6 +253,7 @@ function setHeroBgCrossfade(idx) {
         }
     } else {
     if (
+        heroGallery[idx].src.includes('bilder/Weihnachtskonzert Spitalkirche.png') ||
         heroGallery[idx].src.includes('bilder/Jubiläumskonzert_2016.jpg')||
         heroGallery[idx].src.includes('bilder/gruppe_2007.jpeg') ||
         heroGallery[idx].src.includes('bilder/Ochsenfurt 23.07.2005.JPG') ||
