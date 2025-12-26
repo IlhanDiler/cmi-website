@@ -301,343 +301,6 @@
         </div>
     </div>
 </section>
-<style>
-
-
-/* Bullets mittig zum Text ausrichten */
-.musikalisches-repertoire-list li {
-    display: flex !important;
-    align-items: center !important;
-}
-.musikalisches-repertoire-list li::marker, .musikalisches-repertoire-list li > ::marker {
-    vertical-align: middle !important;
-}
-/* State-of-the-art design for music family section */
-.music-family-section {
-    font-family: 'Inter', Arial, sans-serif;
-}
-/* Responsive Schriftgröße für music-family-title */
-.music-family-title {
-    letter-spacing: -0.01em;
-    font-size: clamp(1.1em, 6vw, 2.5em) !important;
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
-    font-weight: 700 !important;
-    line-height: 1.15 !important;
-    word-break: break-word;
-}
-
-.music-family-group {
-    transition: box-shadow 0.2s;
-}
-.music-family-group:hover {
-    box-shadow: 0 8px 32px rgba(0,184,148,0.18);
-}
-.music-family-contact a {
-    transition: color 0.2s;
-}
-.music-family-contact a:hover {
-    color: #009688 !important;
-}
-@media (max-width: 900px) {
-    .music-family-container {
-        padding: 0 4vw;
-    }
-    .music-family-groups {
-        flex-direction: column;
-        gap: 24px;
-    }
-}
-@media (max-width: 600px) {
-@media (max-width: 600px) {
-    .music-family-logo-mobile img {
-        display: block !important;
-        margin: 0 auto !important;
-        height: 72px !important;
-        width: auto !important;
-    }
-}
-    .music-family-title {
-        font-size: 2em !important;
-    }
-    .music-family-group {
-        padding: 18px 8vw !important;
-    }
-}
-@media (max-width: 400px) {
-    .music-family-section .music-family-container > div[style*="display:flex"] {
-        flex-direction: column !important;
-        gap: 24px !important;
-        align-items: flex-start !important;
-    }
-    .music-family-section img[src*="logo_cmi1"] {
-        align-self: center !important;
-        margin-top: 18px !important;
-        margin-bottom: 0 !important;
-        height: 100px !important;
-        width: auto !important;
-        max-width: 80vw !important;
-    }
-}
-/* Modern Event Cards Responsive Design */
-.event-section {
-    padding: 32px 0 32px 0 !important;
-}
-.event-list {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    align-items: center;
-    width: 100%;
-}
-.event-card, .event-card.event-card-poster {
-    background: #fff;
-    border-radius: 22px;
-    box-shadow: 0 4px 24px rgba(25,211,197,0.08);
-    padding: 24px 32px;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 700px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.event-card-poster-flex {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-}
-.event-card-poster-image img {
-    border-radius: 18px;
-    box-shadow: 0 2px 12px rgba(25,211,197,0.10);
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-    margin: 0 auto;
-}
-.event-badge {
-    background: #19D3C5;
-    color: #fff;
-    border-radius: 16px;
-    padding: 12px 0;
-    text-align: center;
-    font-weight: 700;
-    font-size: 1.15em;
-    margin-bottom: 18px;
-    width: 100%;
-}
-.event-date, .event-time {
-    font-size: 1.08em;
-    font-weight: 600;
-}
-.event-headline {
-    font-size: 1.12em;
-    font-weight: 700;
-    margin-bottom: 0.5em;
-    color: #1a5c63;
-}
-.event-location {
-    font-size: 1em;
-    font-weight: 500;
-    margin-bottom: 0.5em;
-    color: #19D3C5;
-}
-.event-description {
-    font-size: 1em;
-    line-height: 1.6;
-    color: #222;
-    margin-bottom: 1em;
-}
-@media (max-width: 700px) {
-    .charity-svg-hero-container img {
-        width: 95vw !important;
-        height: 90vh !important;
-        max-width: 95vw !important;
-        max-height: 90vh !important;
-        object-fit: cover !important;
-        display: block !important;
-        margin: 0 auto !important;
-    }
-    .event-card, .event-card.event-card-poster {
-        max-width: 98vw !important;
-        padding: 18px 6vw !important;
-        border-radius: 18px !important;
-    }
-    .event-card-poster-image img {
-        max-width: 92vw !important;
-        border-radius: 14px !important;
-    }
-    .event-badge {
-        font-size: 1em !important;
-        border-radius: 12px !important;
-        padding: 10px 0 !important;
-    }
-    .event-headline {
-        font-size: 1.08em !important;
-    }
-    .event-location {
-        font-size: 0.98em !important;
-    }
-    .event-description {
-        font-size: 0.98em !important;
-    }
-}
-/* Responsive Timeline Section for Mobile */
-@media (max-width: 700px) {
-    .timeline-vertical-section {
-        padding: 24px 0 24px 0 !important;
-    }
-    .timeline-vertical-container {
-        width: 98vw !important;
-        max-width: 98vw !important;
-        margin: 0 auto !important;
-        padding: 0 2vw !important;
-    }
-    .timeline-vertical-title {
-        font-size: 1.45em !important;
-        text-align: center !important;
-        margin-bottom: 1.2em !important;
-    }
-    .timeline-vertical-list {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 32px !important;
-    }
-    .timeline-vertical-row {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        margin-bottom: 0 !important;
-        min-height: unset !important;
-        position: relative !important;
-        gap: 0 !important;
-    }
-    .timeline-vertical-col.left,
-    .timeline-vertical-col.right {
-        width: 100% !important;
-        max-width: 98vw !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    .timeline-vertical-card {
-        background: #f7fff7 !important;
-        border-radius: 18px !important;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.07) !important;
-        padding: 18px 12px !important;
-        margin: 0 0 18px 0 !important;
-        width: 98vw !important;
-        max-width: 98vw !important;
-        font-size: 1em !important;
-    }
-    .timeline-vertical-img img,
-    .timeline-vertical-img iframe {
-        width: 96vw !important;
-        max-width: 96vw !important;
-        height: auto !important;
-        border-radius: 16px !important;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.10) !important;
-        margin: 0 auto 18px auto !important;
-        display: block !important;
-    }
-    .timeline-vertical-year {
-        font-size: 1.15em !important;
-        font-weight: 700 !important;
-        color: #19D3C5 !important;
-        margin-bottom: 0.5em !important;
-        text-align: left !important;
-    }
-    .timeline-vertical-title-item {
-        font-size: 1.08em !important;
-        font-weight: 600 !important;
-        margin-bottom: 0.5em !important;
-        text-align: left !important;
-    }
-    .timeline-vertical-desc {
-        font-size: 1em !important;
-        line-height: 1.6 !important;
-        margin-bottom: 0.5em !important;
-        text-align: left !important;
-    }
-    .timeline-vertical-center {
-        display: none !important;
-    }
-    .timeline-vertical-dot {
-        display: none !important;
-    }
-    .timeline-vertical-line {
-        position: absolute;
-        left: 50%;
-        top: 170px;
-        transform: translateX(-50%);
-        width: 4px;
-        height: 55%;
-        background: linear-gradient(180deg,#19D3C5 0%,#eafafc 100%);
-        border-radius: 2px;
-        z-index: 1;
-        opacity: 0.7;
-        box-shadow: 0 2px 12px rgba(25,211,197,0.08);
-    }
-@media (max-width: 700px) {
-    .timeline-vertical-line {
-        display: block !important;
-        z-index: 0 !important;
-        opacity: 0.5 !important;
-        top: 170px !important;
-        left: 50% !important;
-        width: 4px !important;
-        height: 70% !important;
-        position: absolute !important;
-        transform: translateX(-50%) !important;
-        background: linear-gradient(180deg,#19D3C5 0%,#eafafc 100%) !important;
-        border-radius: 2px !important;
-        box-shadow: 0 2px 12px rgba(25,211,197,0.08) !important;
-    }
-    }
-}
-
-
-@media (max-width: 600px) {
-    .musik-bruecken-title {
-        font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
-        font-weight: 800 !important;
-        font-size: 1.45em !important;
-        letter-spacing: -0.01em !important;
-        text-align: center !important;
-        margin-bottom: 0.5em !important;
-    }
-    .musik-bruecken-text {
-        font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
-        font-size: 1.0em !important;
-        line-height: 1.6 !important;
-        letter-spacing: 0.01em !important;
-        text-align: center !important;
-        margin: 0 2vw !important;
-        text-align: justify !important;
-        hyphens: auto !important;
-        overflow-wrap: anywhere !important;
-        word-break: break-word !important;
-    }
-}
-</style>
-
-
-<style>
-/* Responsive Schriftgröße für Repertoire-Section */
-/* Dynamische Schriftgröße für musikalisches-repertoire-list */
-.musikalisches-repertoire-list,
-.musikalisches-repertoire-list li {
-    font-size: clamp(1em, 2.5vw, 1.08em) !important;
-    line-height: 1.6 !important;
-    font-weight: 400 !important;
-}
-
-</style>
-
-
-
 <!-- Neue Section: Musikalisches Repertoire -->
 <section class="musikalisches-repertoire-section">
     <div class="musikalisches-repertoire-cards-wrapper">
@@ -779,160 +442,8 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
     <h2 class="event-title" data-lang="it" style="display:none;">Concerti ed eventi in programma</h2>
     <div class="event-list">
            <div class="event-card">
-            <div class="event-badge">
-                <div class="event-date" data-lang="de">Samstag, 29.11. und 06.12.2025</div>
-                <div class="event-date" data-lang="en" style="display:none;">Saturday, Nov 29 and Dec 6, 2025</div>
-                <div class="event-date" data-lang="it" style="display:none;">Sabato 29 novembre e 6 dicembre 2025</div>
-                <div class="event-time" data-lang="de">13:00 Uhr bis 13:30 Uhr</div>
-                            <div class="event-time" data-lang="en" style="display:none;">1:00 pm to 1:30 pm</div>
-                            <div class="event-time" data-lang="it" style="display:none;">13:00 alle 13:30</div>
-            </div>
-            <div class="event-content">
-                <div class="event-content-flex">
-                    <div class="event-content-text">
-                        <div class="event-headline" data-lang="de">Ochsenfurter Weihnachtsklänge</div>
-                                        <div class="event-headline" data-lang="en" style="display:none;">Ochsenfurt Christmas Sounds</div>
-                                        <div class="event-headline" data-lang="it" style="display:none;">Suoni di Natale a Ochsenfurt</div>
-                        <div class="event-location" data-lang="de">An der Furt</div>
-                                    <div class="event-location" data-lang="en" style="display:none;">At the Furt</div>
-                                    <div class="event-location" data-lang="it" style="display:none;">Alla Furt</div>
-                    </div>
-                    <div class="event-content-image">
-                        <img src="bilder/och_weihnachtsklaenge.jpg" alt="Weihnachten Konzert" class="event-christmas-img event-lightbox-trigger" style="cursor:zoom-in;" />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="event-card">
-            <div class="event-badge">
-                <div class="event-date" data-lang="de">13. Dezember 2025</div>
-                <div class="event-date" data-lang="en" style="display:none;">December 13, 2025</div>
-                <div class="event-date" data-lang="it" style="display:none;">13 dicembre 2025</div>
-                <div class="event-time" data-lang="de">17:00 Uhr</div>
-                <div class="event-time" data-lang="en" style="display:none;">5:00 pm</div>
-                <div class="event-time" data-lang="it" style="display:none;">17:00</div>
-            </div>
-            <div class="event-content">
-                <div class="event-content-flex">
-                    <div class="event-content-text">
-                        <div class="event-headline" data-lang="de">Weihnachtskonzert zum Mitsingen</div>
-                        <div class="event-headline" data-lang="en" style="display:none;">Christmas Concert to Sing Along</div>
-                        <div class="event-headline" data-lang="it" style="display:none;">Concerto di Natale da cantare insieme</div>
-                        <div class="event-location" data-lang="de">Spitalkirche Ochsenfurt</div>
-                                            <div class="event-location" data-lang="en" style="display:none;">Spitalkirche Ochsenfurt</div>
-                                            <div class="event-location" data-lang="it" style="display:none;">Spitalkirche Ochsenfurt</div>
-                        <div class="event-description" data-lang="de" style="white-space:pre-line;">
-                            Im Rahmen des Adventsgässles lädt das Collegium Musicum Iuvenale mit seiner Dirigentin Astrid Eitschberger am Samstag, den 13.12.2025 um 17.00 Uhr zu einem festlichen Weihnachtskonzert zum Mitsingen ein. Stimmen Sie mit ein bei „O du fröhliche“ und weiteren feierlichen Weihnachtsliedern! Sie dürfen aber auch gregorianischem Gesang und Blockflötenmusik aus der Renaissancezeit lauschen.
 
-                            Mitwirkende:
-
-                            Collegium Musicum Iuvenale Ochsenfurt
-                            Leitung: Astrid Eitschberger
-
-                            Chor der Realschule am Maindreieck,
-                            Leitung: Antje Eckhoff
-
-                            Ukrainisches Vokalensemble „FAINO“
-                            Leitung: Viktoriia Hromova
-
-                            Burkard Lutz, Orgel
-                            Antje Eckhoff, Sopran
-                        </div>
-                        <div class="event-description" data-lang="en" style="white-space:pre-line; display:none;">
-                            As part of the Advent Alley, the Collegium Musicum Iuvenale and its conductor Astrid Eitschberger invite you to a festive Christmas concert to sing along on Saturday, December 13, 2025, at 5:00 p.m. Join in with “O du fröhliche” and other festive Christmas carols! You are also welcome to listen to Gregorian chant and recorder music from the Renaissance.
-
-                            Performers:
-
-                            Collegium Musicum Iuvenale Ochsenfurt
-                            Conductor: Astrid Eitschberger
-
-                            Choir of the Realschule am Maindreieck,
-                            Conductor: Antje Eckhoff
-
-                            Ukrainian vocal ensemble “FAINO”
-                            Conductor: Viktoriia Hromova
-
-                            Burkard Lutz, organ
-                            Antje Eckhoff, soprano
-                                                    </div>
-                        <div class="event-description" data-lang="it" style="white-space:pre-line; display:none;">
-                            Nell’ambito dell’Adventsgässle, il Collegium Musicum Iuvenale con la sua direttrice Astrid Eitschberger vi invita sabato 13 dicembre 2025 alle ore 17:00 a un festoso concerto di Natale da cantare insieme. Unitevi a noi per “O du fröhliche” e altri solenni canti natalizi! Potrete anche ascoltare canti gregoriani e musica per flauto dolce dal Rinascimento.
-
-                            Partecipanti:
-
-                            Collegium Musicum Iuvenale Ochsenfurt
-                            Direzione: Astrid Eitschberger
-
-                            Coro della Realschule am Maindreieck,
-                            Direzione: Antje Eckhoff
-
-                            Ensemble vocale ucraino “FAINO”
-                            Direzione: Viktoriia Hromova
-
-                            Burkard Lutz, organo
-                            Antje Eckhoff, soprano
-                        </div>
-                    </div>
-                    <div class="event-content-image">
-                        <img src="bilder/weihnachten.png" alt="Weihnachten Konzert" class="event-christmas-img event-lightbox-trigger" style="cursor:zoom-in;" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</br>
    
-        <div class="event-card">
-            <div class="event-badge">
-                <div class="event-date" data-lang="de">Mittwoch, 24.12.2025</div>
-                <div class="event-date" data-lang="en" style="display:none;">Wednesday, Dec 24, 2025</div>
-                <div class="event-date" data-lang="it" style="display:none;">Mercoledì 24 dicembre 2025</div>
-                <div class="event-time" data-lang="de">18:00 Uhr</div>
-                            <div class="event-time" data-lang="en" style="display:none;">6:00 pm</div>
-                            <div class="event-time" data-lang="it" style="display:none;">18:00</div>
-            </div>
-            <div class="event-content">
-                <div class="event-content-flex">
-                    <div class="event-content-text">
-                        <div class="event-headline" data-lang="de">Christmette 2025</div>
-                        <div class="event-headline" data-lang="en" style="display:none;">Christmas Mass 2025</div>
-                        <div class="event-headline" data-lang="it" style="display:none;">Messa di Natale 2025</div>
-                        <div class="event-location" data-lang="de">St. Thekla Kirche in Ochsenfurt</div>
-                               <div class="event-location" data-lang="en" style="display:none;">St. Thekla Church in Ochsenfurt</div>
-                               <div class="event-location" data-lang="it" style="display:none;">Chiesa di St. Thekla a Ochsenfurt</div>
-                    </div>
-                    <div class="event-content-image">
-                        <img src="bilder/christmette_25.png" alt="Weihnachten Konzert" class="event-christmas-img event-lightbox-trigger" style="cursor:zoom-in;" />
-                    <script>
-                    // Lightbox für Event-Bilder mit X unten rechts
-                    document.addEventListener('DOMContentLoaded', function() {
-                        const modal = document.getElementById('eventLightboxModal');
-                        const modalImg = document.getElementById('eventLightboxImg');
-                        function closeLightbox() {
-                            modal.style.display = 'none';
-                            modalImg.src = '';
-                        }
-                        document.querySelectorAll('.event-lightbox-trigger').forEach(function(img) {
-                            img.addEventListener('click', function() {
-                                modal.style.display = 'flex';
-                                modalImg.src = img.src;
-                                modalImg.alt = img.alt;
-                            });
-                        });
-                        // Dynamisch das X-Button holen, da es jetzt im Modal-Bild ist
-                        modal.addEventListener('click', function(e) {
-                            if (e.target === modal) closeLightbox();
-                        });
-                        modal.addEventListener('click', function(e) {
-                            if (e.target.id === 'eventLightboxClose') closeLightbox();
-                        });
-                    });
-                    </script>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
 <section class="timeline-section" id="timeline-section">
     <div class="timeline-container">
@@ -1085,7 +596,153 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
     <div class="charity-projects-container">
         <div class="charity-flex-row frieden-flex">
             <div class="charity-flex-left">
+                <h2 class="charity-title" data-lang="de" style="margin-bottom:0.2em;">Christmette 2025</h2>
+                <h2 class="charity-title" data-lang="en" style="display:none;">Retrospective: Framing of the VdK Christmas Party</h2>
+                <h2 class="charity-title" data-lang="it" style="display:none;">Ritorno: incorniciatura della festa di Natale del VdK</h2>
+                <div class="charity-meta" data-lang="de">24. Dezember 2025 · St. Thekla Ochsenfurt</div>
+                <div class="charity-meta" data-lang="en" style="display:none;">December 24, 2025 · St. Thekla Ochsenfurt</div>
+                <div class="charity-meta" data-lang="it" style="display:none;">24 dicembre 2025 · St. Thekla Ochsenfurt</div>
+            
+                <div class="charity-description" data-lang="de" style="text-align:left;">
+         In den letzten Jahren ist es zu einer schönen Tradition geworden, dass das Cello-Ensemble des CMI die Christmette in St. Thekla musikalisch mitgestaltet. 2024 waren die Sängerinnen des ukrainischen Vokalensembles FAINO dazugekommen. Um 2025 die feierlichen Lieder um zwei neue Facetten zu bereichern, eröffnete das Blockflöten-Ensemble des CMI – größtenteils Streicher, die auch Blockflöte spielen – die Messe mit dem Renaissancesatz von Michael Prätorius „In dulci iubilo“. Eine weiteres neues Element war der vierstimmige Gesang in dem schwedischen Weihnachtslied „Härlig är jorden“, das in Deutschland auch unter dem Titel „Schönster Herr Jesu“ bekannt ist. Viktoriia Hromova und Iryna Suprun sangen dann zur Begleitung des Celloensembles das ukrainische Lied „Chedrik“. Bei den deutschen traditionellen Weihnachtsgesängen in abwechslungsreichen Arrangements verschmolzen die Instrumentalbegleitung, das Orgelspiel von Gerd Sikiera und der Gemeindegesang zu einem harmonischen Lobpreis Gottes.<br><br>
+                </div>
+                <div class="charity-description" data-lang="en" style="display:none;text-align:left;">
+In recent years, it has become a beautiful tradition for the CMI cello ensemble to musically accompany the Christmas Eve Mass at St. Thekla. In 2024, the singers of the Ukrainian vocal ensemble FAINO joined in. To enrich the festive songs with two new facets in 2025, the CMI recorder ensemble – mostly string players who also play recorder – opened the mass with the Renaissance piece "In dulci iubilo" by Michael Prätorius. Another new element was the four-part singing of the Swedish Christmas carol "Härlig är jorden," which is also known in Germany under the title "Schönster Herr Jesu." Viktoriia Hromova and Iryna Suprun then sang the Ukrainian song "Chedrik" accompanied by the cello ensemble. In the traditional German Christmas carols arranged in varied ways, the instrumental accompaniment, organ playing by Gerd Sikiera, and congregational singing merged into a harmonious praise of God.<br><br>
+                </div>
+                <div class="charity-description" data-lang="it" style="display:none;text-align:left;">
+Negli ultimi anni è diventata una bella tradizione che l'ensemble di violoncelli del CMI accompagni musicalmente la Messa di Mezzanotte a St. Thekla. Nel 2024 si sono unite le cantanti dell'ensemble vocale ucraino FAINO. Per arricchire i canti festivi con due nuove sfaccettature nel 2025, l'ensemble di flauti dolci del CMI – per lo più archi che suonano anche il flauto dolce – ha aperto la messa con il pezzo rinascimentale "In dulci iubilo" di Michael Prätorius. Un altro nuovo elemento è stato il canto a quattro voci del canto di Natale svedese "Härlig är jorden", noto in Germania anche con il titolo "Schönster Herr Jesu". Viktoriia Hromova e Iryna Suprun hanno poi cantato la canzone ucraina "Chedrik" accompagnate dall'ensemble di violoncelli. Nei tradizionali canti natalizi tedeschi arrangiati in modi diversi, l'accompagnamento strumentale, l'organo suonato da Gerd Sikiera e il canto congregazionale si sono fusi in una lode armoniosa a Dio.<br><br>
+                </div>
+                </div>
+                <div class="gruppenbild-container" style="width:100%;margin:88px auto 0 auto;display:block;">
+                    <img class="gruppenbild-img" src="bilder/christmette_2025.jpg" alt="Benefizkonzert zum 200. Geburtstag Johann Strauß" style="max-width:70%;height:auto;box-shadow:0 4px 18px rgba(0,0,0,0.12);display:block;background:#fff;" />
+                    <div style="font-size:0.98em;color:#222;margin:8px auto 18px auto;max-width:70%;text-align:center;font-style:italic;">Foto: Ilhan Diler</div>
+                </div>
+        </div>
+    </div>
+</section>
+<section class="charity-projects-section">
+    <div class="charity-projects-container">
+        <div class="charity-flex-row frieden-flex">
+            <div class="charity-flex-left">
                 <!-- Rückblick: Benefizkonzert zum 200. Geburtstag von Johann Strauß -->
+                <h2 class="charity-title" data-lang="de" style="margin-bottom:0.2em;">Nikolausfeier 2025</h2>
+               <h2 class="charity-title" data-lang="en" style="display:none;">Noel Celebration 2025</h2>
+                <h2 class="charity-title" data-lang="it" style="display:none;">Festa di San Nicola 2025</h2>
+                <div class="charity-meta" data-lang="de">20. Dezember 2025 · Bürgerkeller Ochsenfurt</div>
+                <div class="charity-meta" data-lang="en" style="display:none;">December 20, 2025 · Bürgerkeller Ochsenfurt</div>
+                <div class="charity-meta" data-lang="it" style="display:none;">20 dicembre 2025 · Bürgerkeller Ochsenfurt</div>
+                <div class="charity-description" data-lang="de" style="text-align:left;">
+               Die Kinder und Familien des CMI versammelten sich zum stimmungsvollen Jahresausklang. Gemeinsam blickte man bei einer liebevoll gestalteten Bilderpräsentation auf die vielen Highlights des Jahres 2025 zurück. Besonders in Erinnerung blieben die großen Benefizkonzerte sowie gemeinsame Ausflüge und Erlebnisse, die das Jahr so ereignisreich gemacht haben. Für die jüngsten Gäste gab es Spiele und eine kreative Bastelecke, in der die Kinder mit viel Freude Weihnachtsdekorationen gestalteten und bemalten. Verschiedene kulinarische Leckereien und weihnachtliches Gebäck luden zum Genießen ein. Der Höhepunkt des Vormittags war der Besuch des Nikolaus, alias Ilhan Diler: Jedes Kind erhielt einen persönlichen Spruch sowie eine herzliche Einladung zu einer gemeinsamen Kinovorstellung, inklusive Kinogutschein. Im Anschluss an die Nikolausfeier zog die fröhliche Gesellschaft gemeinsam weiter ins Kino und ließ so den Tag in geselliger Runde ausklingen. Ein herzliches Dankeschön an alle Helfer, Mitwirkenden und Gäste, die diesen Vormittag zu einem besonderen Erlebnis gemacht haben!
+</div>
+<div class="charity-description" data-lang="en" style="display:none;text-align:left;">
+The children and families of CMI gathered for a festive end-of-year celebration. Together, they looked back on the many highlights of 2025 with a lovingly prepared photo presentation. The major benefit concerts, as well as shared excursions and experiences, were especially memorable and made the year so eventful. For the youngest guests, there were games and a creative craft corner where the children joyfully created and painted Christmas decorations. Various culinary treats and Christmas pastries invited everyone to enjoy. The highlight of the morning was the visit from St. Nicholas, alias Ilhan Diler: Each child received a personal saying and a heartfelt invitation to a joint cinema screening, including a cinema voucher. After the Nikolaus celebration, the cheerful group went together to the cinema, ending the day in a convivial atmosphere. A heartfelt thank you to all helpers, participants, and guests who made this morning a special experience!
+</div>
+<div class="charity-description" data-lang="it" style="display:none;text-align:left;">
+I bambini e le famiglie del CMI si sono riuniti per una festa di fine anno ricca di atmosfera. Insieme, hanno ripercorso i tanti momenti salienti del 2025 con una presentazione fotografica preparata con cura. I grandi concerti di beneficenza, così come le escursioni e le esperienze condivise, sono rimasti particolarmente impressi e hanno reso l'anno così ricco di eventi. Per i più piccoli ospiti, ci sono stati giochi e un angolo creativo dove i bambini hanno creato e dipinto con gioia decorazioni natalizie. Diverse prelibatezze culinarie e dolci natalizi hanno invitato tutti a gustare. Il momento culminante della mattinata è stata la visita di San Nicola, alias Ilhan Diler: ogni bambino ha ricevuto un detto personale e un caloroso invito a una proiezione cinematografica comune, compreso un voucher per il cinema. Dopo la celebrazione di Nikolaus, il gruppo allegro si è diretto insieme al cinema, concludendo così la giornata in un'atmosfera conviviale. Un sentito ringraziamento a tutti gli aiutanti, partecipanti e ospiti che hanno reso questa mattina un'esperienza speciale!
+</div>
+                </div>
+                <div class="gruppenbild-container" style="width:100%;margin:88px auto 0 auto;display:block;">
+                    <img class="gruppenbild-img" src="bilder/nikolaus.jpeg" alt="Nikolausfeier 2025" style="max-width:70%;height:auto;box-shadow:0 4px 18px rgba(0,0,0,0.12);display:block;background:#fff;" />
+                    <div style="font-size:0.98em;color:#222;margin:8px auto 18px auto;max-width:70%;text-align:center;font-style:italic;">Foto: Hauke Pohl</div>
+                </div>
+        </div>
+    </div>
+</section>
+<section class="charity-projects-section">
+    <div class="charity-projects-container">
+        <div class="charity-flex-row frieden-flex">
+            <div class="charity-flex-left">
+                <!-- Rückblick: Benefizkonzert zum 200. Geburtstag von Johann Strauß -->
+                <h2 class="charity-title" data-lang="de" style="margin-bottom:0.2em;"> Weihnachtskonzert zum Mitsingen: Ein Fest voller Musik, Licht und Solidarität</h2>
+                <h2 class="charity-title" data-lang="en" style="display:none;">Retrospective: Framing of the VdK Christmas Party</h2>
+                <h2 class="charity-title" data-lang="it" style="display:none;">Ritorno: incorniciatura della festa di Natale del VdK</h2>
+                <div class="charity-meta" data-lang="de">13. Dezember 2025 · Spitalkirche Ochsenfurt</div>
+                <div class="charity-meta" data-lang="en" style="display:none;">Dezember 13, 2025 · Pfarrheim Goßmannsdorf</div>
+                <div class="charity-meta" data-lang="it" style="display:none;">29 novembre 2025 · Pfarrheim Goßmannsdorf</div>
+                <div class="charity-description" data-lang="de" style="text-align:left;">
+
+               Im Rahmen der „Adventsgässle“ der Stadt Ochsenfurt fand am 13. Dezember 2025 das festliche Weihnachtskonzert des Collegium Musicum Iuvenale Ochsenfurt (CMI) unter der Leitung von Dr. Astrid Eitschberger statt. Gemeinsam mit insgesamt 61 Mitwirken-den, darunter das ukrainische Vokalensemble FAINO (Leitung: Viktoriia Hromova) und der Chor der Realschule am Maindreieck (Leitung: Antje Eckhoff), wurde das Publikum zum Mitsingen eingeladen. Zwischen den traditionellen Weihnachtsliedern gab es solis-tische Beiträge vom mittelalterlichen gregorianischen Choral über Renaissancemusik auf Blockflöten bis hin zu modernen symphonischen Werken. Ein besonderes Highlight des Abends war die eindrucksvolle Beleuchtung von Michael Heep, die die festliche At-mosphäre besonders wirkungsvoll steigerte. Die an diesem Abend gesammelten Spen-den kommen der medizinischen Versorgung von Verwundeten in der Ukraine zu Gute. Ein herzlicher Dank gilt allen Mitwirkenden, Unterstützern und Gästen für diesen bewe-genden Abend der Musik, Gemeinschaft und gelebten Solidarität.<br><br>
+                </div>
+                <div class="charity-description" data-lang="en" style="display:none;text-align:left;">
+As part of the "Adventsgässle" in the city of Ochsenfurt, the festive Christmas concert of Collegium Musicum Iuvenale Ochsenfurt (CMI) took place on December 13, 2025, under the direction of Dr. Astrid Eitschberger. Together with a total of 61 participants, including the Ukrainian vocal ensemble FAINO (director: Viktoriia Hromova) and the choir of the Realschule am Maindreieck (director: Antje Eckhoff), the audience was invited to sing along. Between the traditional Christmas carols, there were solo performances ranging from medieval Gregorian chant and Renaissance music on recorders to modern symphonic works. A special highlight of the evening was the impressive lighting by Michael Heep, which made the festive atmosphere even more effective. The donations collected that evening will benefit the medical care of the wounded in Ukraine. A heartfelt thank you goes to all participants, supporters, and guests for this moving evening of music, community, and lived solidarity.<br><br>
+                </div>
+                <div class="charity-description" data-lang="it" style="display:none;text-align:left;">
+Nell'ambito dell'"Adventsgässle" della città di Ochsenfurt, il 13 dicembre 2025 si è tenuto il festoso concerto di Natale del Collegium Musicum Iuvenale Ochsenfurt (CMI) sotto la direzione della Dott.ssa Astrid Eitschberger. Insieme a un totale di 61 partecipanti, tra cui l'ensemble vocale ucraino FAINO (direttrice: Viktoriia Hromova) e il coro della Realschule am Maindreieck (direttrice: Antje Eckhoff), il pubblico è stato invitato a cantare insieme. Tra i tradizionali canti natalizi, si sono alternati contributi solistici che spaziavano dal canto gregoriano medievale alla musica rinascimentale con flauti dolci fino a opere sinfoniche moderne. Un momento speciale della serata è stato l'impressionante gioco di luci di Michael Heep, che ha reso l'atmosfera festiva ancora più suggestiva. Le donazioni raccolte durante la serata saranno destinate alle cure mediche dei feriti in Ucraina. Un sentito ringraziamento va a tutti i partecipanti, sostenitori e ospiti per questa emozionante serata di musica, comunità e solidarietà vissuta.<br><br>
+                </div>
+                </div>
+                <div class="gruppenbild-container" style="width:100%;margin:88px auto 0 auto;display:block;">
+                    <img class="gruppenbild-img" src="bilder/Weihnachtskonzert Spitalkirche 13.12.2025.jpeg" alt="Benefizkonzert zum 200. Geburtstag Johann Strauß" style="max-width:70%;height:auto;box-shadow:0 4px 18px rgba(0,0,0,0.12);display:block;background:#fff;" />
+                    <div style="font-size:0.98em;color:#222;margin:8px auto 18px auto;max-width:70%;text-align:center;font-style:italic;">Foto: Emil Korbmann</div>
+                </div>
+        </div>
+    </div>
+</section>
+<section class="charity-projects-section">
+    <div class="charity-projects-container">
+        <div class="charity-flex-row frieden-flex">
+            <div class="charity-flex-left">
+                <h2 class="charity-title" data-lang="de" style="margin-bottom:0.2em;">Weihnachtsklänge an der Furt</h2>
+                <h2 class="charity-title" data-lang="en" style="display:none;">Christmas Sounds at the Ford</h2>
+                <h2 class="charity-title" data-lang="it" style="display:none;">Suoni di Natale al guado</h2>
+                <div class="charity-meta" data-lang="de">06. Dezember 2025 · Furt Ochsenfurt</div>
+                <div class="charity-meta" data-lang="en" style="display:none;">December 6, 2025 · Spitalkirche Ochsenfurt</div>
+                <div class="charity-meta" data-lang="it" style="display:none;">6 dicembre 2025 · Spitalkirche Ochsenfurt</div>
+                <div class="charity-description" data-lang="de" style="text-align:left;">An der Furt in der Ochsenfurter Altstadt bot eine Gruppe von Musikerinnen und Musikern des Collegium Musicum Iuvenale Ochsenfurt (CMI) (Leitung: Astrid Eitschberger)  an zwei aufeinanderfolgenden Samstagen dem Publikum eine ganz besondere, warmherzige Einstimmung auf die Weihnachtszeit – und das trotz eisiger Temperaturen. Begleitet wurde die kleine Gruppe aus Bläsern und Streichern durch den Chor FAINO (Leitung: Viktoriia Hromova), der mit seinen festlichen Stimmen für eine besondere Atmosphäre sorgte. Die Zuschauerinnen und Zuschauer waren eingeladen, sich aktiv zu beteiligen: Eine Helferin hielt jeweils den Liedtext auf einem großen Plakat hoch, sodass alle Anwesenden gemeinsam mitsingen konnten. So entstand eine offene, herzliche Gemeinschaft, die sich gemeinsam musikalisch auf die bevorstehenden Festtage einstimmte. Die halbstündige Aktion endete mit einer Spendenbox, in der großzügig für einen guten Zweck gesammelt wurde. Die Spenden werden direkt an eine Ärztin in der Ukraine weitergeleitet, mit der eine unserer Chorsängerinnen persönlich in Kontakt steht. Auf diese Weise kommt die Unterstützung unmittelbar und gezielt dort an, wo medizinische Hilfe dringend benötigt wird.Ein herzliches Dankeschön an alle Mitwirkenden, Unterstützern und das Publikum, die trotz der winterlichen Kälte gemeinsam ein Zeichen der Solidarität und Menschlichkeit setzten!<br><br>
+                </div>
+                <div class="charity-description" data-lang="en" style="display:none;text-align:left;">
+                Christmas Concert in the Spitalkirche: A Celebration of Music, Light, and Solidarity
+                On December 13, 2025, as part of the Adventsgässle in the city of Ochsenfurt, the festive Christmas concert of the Collegium Musicum Iuvenale Ochsenfurt (CMI) took place under the direction of Dr. Astrid Eitschberger. Together with a total of 61 participants, including the Ukrainian vocal ensemble FAINO (director: Viktoriia Hromova) and the choir of the Realschule am Maindreieck (director: Antje Eckhoff), the audience was taken on a musical journey through atmospheric Christmas carols.
+                A special highlight of the evening was the impressive light show by Michael Heep, which further enhanced the festive atmosphere. Many of the traditional songs were sung together with the audience, creating a warm and unifying mood.
+                The donations collected that evening will benefit a group of Ukrainian soldiers, with whom one of our choir singers has personal contact through a doctor friend. This ensures that the help arrives directly and immediately where it is urgently needed.
+                A heartfelt thank you goes to all participants, supporters, and guests for this moving evening of music, community, and lived solidarity.<br><br>
+                </div>
+                <div class="charity-description" data-lang="it" style="display:none;text-align:left;">
+                Concerto di Natale nella Spitalkirche: Una festa di musica, luce e solidarietà
+                Il 13 dicembre 2025, nell'ambito dell'Adventsgässle della città di Ochsenfurt, si è tenuto il concerto di Natale del Collegium Musicum Iuvenale Ochsenfurt (CMI) sotto la direzione della Dott.ssa Astrid Eitschberger. Insieme a un totale di 61 partecipanti, tra cui l'ensemble vocale ucraino FAINO (direttrice: Viktoriia Hromova) e il coro della Realschule am Maindreieck (direttrice: Antje Eckhoff), il pubblico è stato accompagnato in un viaggio musicale attraverso suggestivi canti natalizi.
+                Un momento speciale della serata è stato lo spettacolo di luci impressionante di Michael Heep, che ha reso l'atmosfera ancora più festosa. Molti dei canti tradizionali sono stati cantati insieme al pubblico, creando un clima caloroso e di unione.
+                Le donazioni raccolte durante la serata saranno destinate a un gruppo di soldati ucraini, con cui una delle nostre coriste è in contatto personale tramite un'amica dottoressa. In questo modo, l'aiuto può arrivare direttamente e immediatamente dove è più necessario.
+                Un sentito ringraziamento a tutti i partecipanti, sostenitori e ospiti per questa serata emozionante di musica, comunità e solidarietà vissuta.<br><br>
+                </div>
+                </div>
+                <div class="gruppenbild-container" style="width:100%;margin:88px auto 0 auto;display:block;">
+                    <img class="gruppenbild-img" src="bilder/furtweihnachtsklaenge.jpg" alt="Musik an der Furt" style="max-width:70%;height:auto;box-shadow:0 4px 18px rgba(0,0,0,0.12);display:block;background:#fff;" />
+                    <div style="font-size:0.98em;color:#222;margin:8px auto 18px auto;max-width:70%;text-align:center;font-style:italic;">Foto:Gertrud Friedrich</div>
+                </div>
+        </div>
+    </div>
+</section>
+<section class="charity-projects-section">
+    <div class="charity-projects-container">
+        <div class="charity-flex-row frieden-flex">
+            <div class="charity-flex-left">
+                <!-- Rückblick: Benefizkonzert zum 200. Geburtstag von Johann Strauß -->
+                <h2 class="charity-title" data-lang="de" style="margin-bottom:0.2em;">Umrahmung der VdK-Weihnachtsfeier</h2>
+                <h2 class="charity-title" data-lang="en" style="display:none;">Retrospective: Framing of the VdK Christmas Party</h2>
+                <h2 class="charity-title" data-lang="it" style="display:none;">Ritorno: incorniciatura della festa di Natale del VdK</h2>
+                <div class="charity-meta" data-lang="de">29. November 2025 · Pfarrheim Goßmannsdorf</div>
+                <div class="charity-meta" data-lang="en" style="display:none;">October 29, 2025 · Pfarrheim Goßmannsdorf</div>
+                <div class="charity-meta" data-lang="it" style="display:none;">29 novembre 2025 · Pfarrheim Goßmannsdorf</div>
+                <div class="charity-description" data-lang="de" style="text-align:left;">
+               Am 29. November 2025 umrahmte das Blockflötenensemble des Collegium Musicum Iuvenale (Leitung: Astrid Eitschberger) gemeinsam mit der Bläsergruppe St. Andreas (Leitung: Alois Klüpfel) musikalisch die Adventsfeier des VdK Ochsenfurt im festlich ge-schmückten Pfarrheim Goßmannsdorf. Die zehnjährige Nina Eisenhauer setzte mit ih-rem Solo auf dem Saxophon einen besonderen Akzent; ihre Mutter begleitete sie dabei am Klavier. Blockflötenklänge aus der der Renaissancezeit und der warme Klange des Blechbläserquintetts von Alois Klüpfel wechselten sich ab und umrahmten die Reden und vorgetragenen Geschichten. Es war ein Nachmittag voller besinnlicher Momente, der gleichzeitig den Abschluss einer Ära markierte: Nach beeindruckenden 32 Jahren ehrenamtlicher Tätigkeit verabschiedete sich Herr Helmuth Gerbig als Ortsverbandsvor-sitzender. Wir danken dem VdK Ochsenfurt herzlich für die Einladung und freuen uns auf weitere gemeinsame Auftritte!<br><br>
+                </div>
+              <div class="charity-description" data-lang="en" style="display:none;text-align:left;">
+                On November 29, 2025, the recorder ensemble of the Collegium Musicum Iuvenale (led by Astrid Eitschberger) together with the brass group St. Andreas (led by Alois Klüpfel) musically framed the Advent celebration of the VdK Ochsenfurt in the festively decorated parish hall Goßmannsdorf. The ten-year-old Nina Eisenhauer set a special accent with her solo on the saxophone; her mother accompanied her on the piano. Recorder sounds from the Renaissance period and the warm sound of Alois Klüpfel's brass quintet alternated, framing the speeches and stories presented. It was an afternoon full of contemplative moments that also marked the end of an era: after an impressive 32 years of voluntary service, Mr. Helmuth Gerbig bid farewell as local association chairman. We sincerely thank VdK Ochsenfurt for the invitation and look forward to further joint performances!<br><br>  
+                </div>
+              <div class="charity-description" data-lang="it" style="display:none;text-align:left;">
+                    Il 29 novembre 2025, l'ensemble di flauti dolci del Collegium Musicum Iuvenale (diretto da Astrid Eitschberger) insieme al gruppo di ottoni St. Andreas (diretto da Alois Klüpfel) ha incorniciato musicalmente la celebrazione dell'Avvento del VdK Ochsenfurt nella sala parrocchiale di Goßmannsdorf, decorata in modo festoso. La dieci-enne Nina Eisenhauer ha dato un tocco speciale con il suo assolo di sassofono; sua madre l'ha accompagnata al pianoforte. I suoni dei flauti dolci del periodo rinascimentale e il caldo suono del quintetto di ottoni di Alois Klüpfel si sono alternati, incorniciando i discorsi e le storie presentate. È stato un pomeriggio pieno di momenti contemplativi che ha anche segnato la fine di un'era: dopo un'impressionante attività volontaria di 32 anni, il signor Helmuth Gerbig ha salutato come presidente dell'associazione locale. Ringraziamo sinceramente il VdK Ochsenfurt per l'invito e non vediamo l'ora di ulteriori esibizioni congiunte!<br><br>           
+                </div>
+            </div>
+                <div class="gruppenbild-container" style="width:100%;margin:88px auto 0 auto;display:block;">
+                    <img class="gruppenbild-img" src="bilder/vdk_ochsenfurt.jpg" alt="Benefizkonzert zum 200. Geburtstag Johann Strauß" style="max-width:70%;height:auto;box-shadow:0 4px 18px rgba(0,0,0,0.12);display:block;background:#fff;" />
+                    <div style="font-size:0.98em;color:#222;margin:8px auto 18px auto;max-width:70%;text-align:center;font-style:italic;">Foto: Helmut Gerbig</div>
+                </div>
+        </div>
+    </div>
+</section>
+<section class="charity-projects-section">
+    <div class="charity-projects-container">
+        <div class="charity-flex-row frieden-flex">
+            <div class="charity-flex-left">
                 <h2 class="charity-title" data-lang="de" style="margin-bottom:0.2em;">Benefizkonzert zum 200. Geburtstag von Johann Strauss</h2>
                 <h2 class="charity-title" data-lang="en" style="display:none;">Retrospective: Benefit Concert for the 200th Birthday of Johann Strauss</h2>
                 <h2 class="charity-title" data-lang="it" style="display:none;">Ritorno: Concerto di beneficenza per il 200° compleanno di Johann Strauss</h2>
@@ -1106,41 +763,7 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                 </div>
                 </div>
                 <div class="gruppenbild-container" style="width:100%;margin:88px auto 0 auto;display:block;">
-                    <img class="gruppenbild-img" src="bilder/Gruppenfoto 26.10.2025 a.jpg" alt="Benefizkonzert zum 200. Geburtstag Johann Strauß" style="max-width:70%;height:auto;box-shadow:0 4px 18px rgba(0,0,0,0.12);display:block;background:#fff;" />
-                    <div style="font-size:0.98em;color:#222;margin:8px auto 18px auto;max-width:70%;text-align:center;font-style:italic;">Foto (Bert Eitschberger): alle Mitwirkenden nach dem Konzert im Hotel Meintz, Ochsenfurt</div>
-                </div>
-        </div>
-    </div>
-</section>
-<section class="charity-projects-section">
-    <div class="charity-projects-container">
-        <div class="charity-flex-row frieden-flex">
-            <div class="charity-flex-left">
-                <!-- Rückblick: Benefizkonzert zum 200. Geburtstag von Johann Strauß -->
-                <h2 class="charity-title" data-lang="de" style="margin-bottom:0.2em;">Benefizkonzert zum 200. Geburtstag von Johann Strauss</h2>
-                <h2 class="charity-title" data-lang="en" style="display:none;">Retrospective: Benefit Concert for the 200th Birthday of Johann Strauss</h2>
-                <h2 class="charity-title" data-lang="it" style="display:none;">Ritorno: Concerto di beneficenza per il 200° compleanno di Johann Strauss</h2>
-                <div class="charity-meta" data-lang="de">25. Oktober 2025 · Rathausdiele Marktbreit</div>
-                <div class="charity-meta" data-lang="en" style="display:none;">October 25, 2025 · Town Hall Marktbreit</div>
-                <div class="charity-meta" data-lang="it" style="display:none;">25 ottobre 2025 · Sala del Municipio Marktbreit</div>
-                <div class="charity-description" data-lang="de" style="text-align:left;">
-                    Am 25. Oktober 2025 fand in der Rathausdiele Marktbreit ein internationales Benefizkonzert zum 200. Geburtstag des Walzerkönigs Johann Strauss statt, der am 25.10.1825 geboren wurde. Die Veeh-Harfengruppe „Querbeet“ (Leitung: Sigrid Schäfer), gemeinsam mit Solisten des Collegium Musicum Iuvenale Ochsenfurt (Leitung: Dr. Astrid Eitschberger) und Gästen aus Italien (Chiara Passudetti, Sopran, Silvano Ruffo, Tenor, sowie Mirko Ballico am Klavier und Andrea Vinco an der Gitarre) präsentierten ein unterhaltsames Programm mit Werken von Johann Strauss, seinem Bruder Josef und deren Zeitgenossen aus Italien und Spanien.
-                    Der Abend beruhte auf einer Kooperation mit dem Partnerschaftskomitee Marktbreit-Fléac und der Mittelschule Marktbreit. 
-                    Mittelschülerinnen erklärten in ihren Moderationen professionell die Hintergrundinformationen zu den Ausschnitten aus der Operette „Eine Nacht in Venedig“ und zu dem berühmten Walzer „An der schönen blauen Donau“. Ein besonderes Highlight war die Polka „Feuerfest!“, bei der Veeh-Harfenmusiker Klaus Schäfer als Schmied am Amboss auftrat und mit seinen Hammerschlägen den Rhythmus akzentuierte. In der Pause wurden die Gäste mit liebevoll vorbereiteten Häppchen verwöhnt, die von den Familien der Mittelschülerinnen und -schüler zusammen mit deren Klassenleiterin Frau Baur zubereitet worden waren. Die herzliche Atmosphäre, die engagierten Beiträge der Jugendlichen und großartigen solistischen Beiträge der italienischen Musiker machten den Abend zu einem besonderen Erlebnis. Die Spenden des Konzerts kommen den Mittelschülern für ihre Frankreichfahrt 2026 zugute.
-                </div>
-                <div class="charity-description" data-lang="en" style="display:none;text-align:left;">
-                    On October 25, 2025, an international benefit concert for the 200th birthday of the Waltz King Johann Strauss, who was born on October 25, 1825, took place in the town hall of Marktbreit. The Veeh harp group "Querbeet" (led by Sigrid Schäfer), together with soloists from Collegium Musicum Iuvenale Ochsenfurt (led by Dr. Astrid Eitschberger) and guests from Italy (Chiara Passudetti, soprano, Silvano Ruffo, tenor, as well as Mirko Ballico on piano and Andrea Vinco on guitar), presented an entertaining program with works by Johann Strauss, his brother Josef, and their contemporaries from Italy and Spain.
-                    The evening was based on a cooperation with the Marktbreit-Fléac partnership committee and the Marktbreit secondary school. 
-                    Secondary school students professionally explained background information in their presentations about excerpts from the operetta "A Night in Venice" and the famous waltz "The Blue Danube." A special highlight was the polka "Feuerfest!", in which Veeh harp musician Klaus Schäfer appeared as a blacksmith at the anvil and accentuated the rhythm with his hammer blows. During the break, guests were treated to lovingly prepared snacks made by the families of the students together with their class teacher Mrs. Baur. The warm atmosphere, the committed contributions of the young people, and the outstanding solo performances of the Italian musicians made the evening a special experience. The concert donations will benefit the students for their trip to France in 2026.
-                </div>
-                <div class="charity-description" data-lang="it" style="display:none;text-align:left;">
-                    Il 25 ottobre 2025 si è tenuto nella sala del municipio di Marktbreit un concerto di beneficenza internazionale per il 200° compleanno del re del valzer Johann Strauss, nato il 25.10.1825. Il gruppo di arpe Veeh "Querbeet" diretto da Sigrid Schäfer, insieme ai solisti del Collegium Musicum Iuvenale Ochsenfurt (diretto da Dr. Astrid Eitschberger) e agli ospiti dall'Italia (Chiara Passudetti, soprano, Silvano Ruffo, tenore, oltre a Mirko Ballico al pianoforte e Andrea Vinco alla chitarra), ha presentato un programma divertente con opere di Johann Strauss, suo fratello Josef e i loro contemporanei italiani e spagnoli.
-                    La serata si è basata sulla collaborazione con il comitato di gemellaggio Marktbreit-Fléac e la scuola secondaria di Marktbreit. 
-                    Le studentesse della scuola secondaria hanno spiegato professionalmente, nelle loro presentazioni, le informazioni di base sugli estratti dell'operetta "Una notte a Venezia" e sul famoso valzer "Sul bel Danubio blu". Un momento speciale è stata la polka "Feuerfest!", in cui il musicista di arpa Veeh Klaus Schäfer si è esibito come fabbro sull'incudine, accentuando il ritmo con i suoi colpi di martello. Durante la pausa, gli ospiti sono stati coccolati con stuzzichini preparati con cura dalle famiglie delle studentesse e degli studenti insieme alla loro insegnante, la signora Baur. L'atmosfera calorosa, i contributi impegnati dei giovani e le straordinarie esibizioni solistiche dei musicisti italiani hanno reso la serata un'esperienza speciale. Le donazioni del concerto andranno a beneficio degli studenti per il loro viaggio in Francia nel 2026.
-                </div>
-                </div>    
-                <div class="gruppenbild-container">
-                    <img class="gruppenbild-img" src="bilder/strauss_marktbreit_251025.jpeg" alt="Benefizkonzert zum 200. Geburtstag Johann Strauß" />
+                    <img class="gruppenbild-img" src="bilder/Gruppenfoto 26.10.2025 a.jpg" alt="Benefizkonzert zum 200. Geburtstag Johann Strauß" />
                     <img class="gruppenbild-img" src="bilder/strauss_marktbreit_cmi_251025.jpg" alt="Benefizkonzert zum 200. Geburtstag Johann Strauß" />
                 </div>
         </div>
@@ -1159,11 +782,11 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                 <div class="charity-description" data-lang="de">
                     Die Kinder des Collegium Musicum Iuvenale mit ihrer Dirigentin Astrid Eitschberger boten zusammen mit Schülerinnen und Schülern aus den 2. und 4. Klassen der Grundschule Ochsenfurt unter der Leitung von Annette Patrzek lebensfrohe Lieder dar, die sich abwechselten mit barocker Kammermusik aus Frankreich, Italien und Deutschland. Als Solisten waren Beate und Friedhelm Hoffmann, Renate Glauth, Johanna Griebel und Astrid Eitschberger zu hören. Eine Besonderheit bildete das achtköpfige Blockflötenensemble, das sich auf Renaissancemusik spezialisiert hat. Die Veranstaltung fand in Kooperation mit dem Arbeitskreis Geschichte statt. Ganz neu war dabei die Idee, dass Kinder aus dem Orchester eine kleine Einführung in die Geschichte der Klosterkirche geben. Nina Eisenhauer und Simon Streit, beide zehn Jahre alt, begeisterten die Zuhörer mit ihrer spontanen und natürlichen Art, wie sie die Welt der Kapuziner zum Leben erwecken. Es konnten  609 € Spenden für die Renovierung der Klosterkirche gesammelt werden.
                 </div>
-                <div class="charity-description" data-lang="en" style="display:none;">
+                <div class="charity-description" data-lang="en" style="display:none;text-align:left;">
                     The children of Collegium Musicum Iuvenale, together with their conductor Astrid Eitschberger and students from the 2nd and 4th grades of Ochsenfurt Elementary School under the direction of Annette Patrzek, performed lively songs alternating with baroque chamber music from France, Italy, and Germany. Soloists included Beate and Friedhelm Hoffmann, Renate Glauth, Johanna Griebel, and Astrid Eitschberger. A special highlight was the eight-member recorder ensemble specializing in Renaissance music. The event was held in cooperation with the History Working Group. A brand new idea was that children from the orchestra gave a short introduction to the history of the monastery church. Nina Eisenhauer and Simon Streit, both ten years old, delighted the audience with their spontaneous and natural way of bringing the world of the Capuchins to life. A total of €609 in donations was collected for the renovation of the monastery church.
                 </div>
-                <div class="charity-description" data-lang="it" style="display:none;">
-                    I bambini del Collegium Musicum Iuvenale, insieme alla loro direttrice Astrid Eitschberger e agli alunni delle classi 2a e 4a della scuola elementare di Ochsenfurt sotto la guida di Annette Patrzek, hanno presentato canzoni piene di vita alternate a musica da camera barocca proveniente da Francia, Italia e Germania. Tra i solisti si sono esibiti Beate e Friedhelm Hoffmann, Renate Glauth, Johanna Griebel e Astrid Eitschberger. Un momento speciale è stato l'ensemble di otto flautisti dolci specializzato in musica rinascimentale. L'evento si è svolto in collaborazione con il gruppo di lavoro di storia. Una novità assoluta è stata l'idea che alcuni bambini dell'orchestra presentassero una breve introduzione alla storia della chiesa del monastero. Nina Eisenhauer e Simon Streit, entrambi di dieci anni, hanno entusiasmato il pubblico con il loro modo spontaneo e naturale di far rivivere il mondo dei cappuccini. Sono stati raccolti in totale 609 € di donazioni per la ristrutturazione della chiesa del monastero.
+               <div class="charity-description" data-lang="it" style="display:none;text-align:left;">
+                   I bambini del Collegium Musicum Iuvenale, insieme alla loro direttrice Astrid Eitschberger e agli alunni delle classi 2a e 4a della scuola elementare di Ochsenfurt sotto la guida di Annette Patrzek, hanno presentato canzoni piene di vita alternate a musica da camera barocca proveniente da Francia, Italia e Germania. Tra i solisti si sono esibiti Beate e Friedhelm Hoffmann, Renate Glauth, Johanna Griebel e Astrid Eitschberger. Un momento speciale è stato l'ensemble di otto flautisti dolci specializzato in musica rinascimentale. L'evento si è svolto in collaborazione con il gruppo di lavoro di storia. Una novità assoluta è stata l'idea che alcuni bambini dell'orchestra presentassero una breve introduzione alla storia della chiesa del monastero. Nina Eisenhauer e Simon Streit, entrambi di dieci anni, hanno entusiasmato il pubblico con il loro modo spontaneo e naturale di far rivivere il mondo dei cappuccini. Sono stati raccolti in totale 609 € di donazioni per la ristrutturazione della chiesa del monastero.
                 </div>
             </div>
              <div class="gruppenbild-container" style="width:100%;margin:128px auto 0 auto;display:block;">
@@ -1188,7 +811,7 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                     Das Collegium Musicum Iuvenale Ochsenfurt veranstaltete eine Ensemble-Kurswoche für Cellist:innen und andere Streicher:innen unter dem Titel „ConCello“. Unter der Leitung von Maestro Andrea Marcolini und Maestro Riccardo Paltanin aus Padua wurde ein vielfältiges Programm von der Romantik bis zur Filmmusik erarbeitet. Das Abschlusskonzert mit der französischen Sängerin Marika Marcuzzi fand am 10. August 2025 in der Klosterkirche Ochsenfurt statt. Der Eintritt war frei, es wurden 785 Euro an Spenden für die Renovierung der Klosterkirche gesammelt.
                 </div>
                     <div class="charity-description" data-lang="en" style="display:none;text-align:left;">
-                        Collegium Musicum Iuvenale Ochsenfurt organized an ensemble course week for cellists and other string players under the title "ConCello." Under the direction of Maestro Andrea Marcolini and Maestro Riccardo Paltanin from Padua, a diverse program ranging from Romanticism to film music was developed. The final concert, featuring the French singer Marika Marcuzzi, took place on August 10, 2025, in the monastery church of Ochsenfurt. Admission was free, and €785 in donations were collected for the renovation of the monastery church.
+                        Collegium Musicum Iuvenale Ochsenfurt organized an ensemble course week for cellists and other string players under the title "ConCello". Under the direction of Maestro Andrea Marcolini and Maestro Riccardo Paltanin from Padua, a diverse program ranging from Romanticism to film music was developed. The final concert, featuring the French singer Marika Marcuzzi, took place on August 10, 2025, in the monastery church of Ochsenfurt. Admission was free, and €785 in donations were collected for the renovation of the monastery church.
                     </div>
                     <div class="charity-description" data-lang="it" style="display:none;text-align:left;">
                         Il Collegium Musicum Iuvenale Ochsenfurt ha organizzato una settimana di corso per ensemble di violoncellisti e altri strumentisti ad arco dal titolo "ConCello". Sotto la direzione del Maestro Andrea Marcolini e del Maestro Riccardo Paltanin da Padova è stato preparato un programma variegato dalla musica romantica alle colonne sonore. Il concerto finale con la cantante francese Marika Marcuzzi si è tenuto il 10 agosto 2025 nella chiesa del monastero di Ochsenfurt. L'ingresso era libero e sono stati raccolti 785 euro di donazioni per la ristrutturazione della chiesa del monastero.
@@ -1284,23 +907,24 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                <div class="charity-meta" data-lang="de">10. Mai 2025 · Hotel Meintz Ochsenfurt</div>
                <div class="charity-meta" data-lang="en" style="display:none;">May 10, 2025 · Hotel Meintz Ochsenfurt</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">10 maggio 2025 · Hotel Meintz Ochsenfurt</div>
-                <div class="charity-description" data-lang="de">
+                <div class="charity-description" data-lang="de" style="text-align:left;">
                     Am 10. Mai 2025 fand in der neuen Festhalle des Hotels Meintz ein internationales Benefizkonzert gemeinsam mit der Veeh-Harfen-Gruppe „Querbeet“ (Leitung: Sigrid Schäfer), Filarmonica Bibbienese „Sereni“ (Leitung: Marcello Biagini) aus der italienischen Partnerstadt Bibiena, Vokalensemble „FAINO“ (Leitung: Viktoriia Hromova), Kinder der 2. Klassen der Grundschule Ochsenfurt (Leitung: Renate Glauth), André Miabala und Studierende der Ethnomusikologie an der Universität Würzburg und dem Collegium Musicum Iuvenale „CMI" (Leitung Dr. Astrid Eitschberger) statt. Dies war das erste große Konzert in der kurz vorher eröffneten Halle. Durch die Bilderserie auf der doppelten Projektionsfläche entstand ein Erlebnis für alle Sinne. Das CMI bedankt sich sehr herzlich bei Joachim Beck und dem gesamten Team des Hotels Meintz für die professionelle Betreuung. Die begeisterten Zuschauer spendeten 1432,50 Euro für „Ärzte ohne Grenzen“.
                 </div>
-                    <div class="charity-description" data-lang="en" style="display:none;">
-                        On May 10, 2025, an international benefit concert took place in the newly opened Festhalle Meintz, featuring the Veeh harp group "Querbeet" (director: Sigrid Schäfer), Filarmonica Bibbienese "Sereni" (director: Marcello Biagini) from the Italian partner city Bibiena, vocal ensemble "FAINO" (director: Viktoriia Hromova), children from the 2nd grades of Ochsenfurt Elementary School (director: Renate Glauth), André Miabala and students of ethnomusicology at the University of Würzburg, and Collegium Musicum Iuvenale "CMI" (director: Dr. Astrid Eitschberger). This was the first major concert in the newly opened hall. The series of images on the double projection screen created an experience for all the senses. CMI would like to thank Joachim Beck and the entire team at Hotel Meintz for their professional support. The enthusiastic audience donated €1,432.50 to "Doctors Without Borders."
-                    </div>
-                    <div class="charity-description" data-lang="it" style="display:none;">
-                        Il 10 maggio 2025 si è tenuto nella nuova Festhalle Meintz un concerto internazionale di beneficenza con il gruppo di arpe Veeh "Querbeet" (direzione: Sigrid Schäfer), la Filarmonica Bibbienese "Sereni" (direzione: Marcello Biagini) dalla città gemellata italiana Bibiena, il gruppo vocale "FAINO" (direzione: Viktoriia Hromova), i bambini delle seconde classi della scuola elementare di Ochsenfurt (direzione: Renate Glauth), André Miabala e studenti di etnomusicologia dell'Università di Würzburg e il Collegium Musicum Iuvenale "CMI" (direzione: Dr. Astrid Eitschberger). Questo è stato il primo grande concerto nella sala appena inaugurata. La serie di immagini sulla doppia superficie di proiezione ha creato un'esperienza per tutti i sensi. Il CMI ringrazia di cuore Joachim Beck e tutto il team dell'Hotel Meintz per il supporto professionale. Gli spettatori entusiasti hanno donato 1.432,50 euro a "Medici Senza Frontiere".
-                    </div>  
-            </div>
-             <div class="gruppenbild-container" style="width:100%;margin:128px auto 0 auto;display:block;">
-              <img class="gruppenbild-img" src="bilder/Gruppenbild2.jpg" alt="Internationales Benefizkonzert 2025 Collegium Musicum Iuvenale" />
-            </div>
+                    <div class="charity-description" data-lang="en" style="display:none;text-align:left;">
+                 Exactly one day after the birthday of the Waltz King on October 25, 1825, the Veeh harp group "Querbeet" led by Sigrid Schäfer gave an international benefit concert on Sunday, October 26, 2025, in the festival hall of the "Meintz" hotel in Ochsenfurt. Together with soloists from Collegium Musicum Iuvenale Ochsenfurt (led by Dr. Astrid Eitschberger) and guests from Italy (Chiara Passudetti, soprano, Silvano Ruffo, tenor, as well as Mirko Ballico on piano and Andrea Vinco on guitar), they presented a lively program with music by Johann Strauss and his contemporaries. Admission was free, and generous donations of €1,183 were handed over to Joachim Gold, the city representative of Malteser in Würzburg, to finance missions of the Malteser Wish Ambulance. During the break and after the concert, guests had the opportunity to view and learn about this special ambulance from the inside.<br><br>
+                <a href="https://www.malteser.de/herzenswunsch-krankenwagen.html" target="_blank" rel="noopener" style="color:#19D3C5;font-weight:600;text-decoration:underline;z-index:10;position:relative;">More about Malteser Wish Ambulance</a>
+                 </div>
+                <div class="charity-description" data-lang="it" style="display:none;text-align:left;">
+                    Esattamente un giorno dopo il compleanno del re del valzer, il 25 ottobre 1825, il gruppo di arpe Veeh "Querbeet" diretto da Sigrid Schäfer ha tenuto un concerto internazionale di beneficenza domenica 26 ottobre 2025 nella sala delle feste dell'hotel "Meintz" a Ochsenfurt. Insieme ai solisti del Collegium Musicum Iuvenale Ochsenfurt (diretto da Dr. Astrid Eitschberger) e agli ospiti dall'Italia (Chiara Passudetti, soprano, Silvano Ruffo, tenore, oltre a Mirko Ballico al pianoforte e Andrea Vinco alla chitarra), hanno presentato un programma vivace con musiche di Johann Strauss e dei suoi contemporanei. L'ingresso era gratuito e le generose donazioni di 1.183 € sono state consegnate a Joachim Gold, rappresentante cittadino dei Malteser a Würzburg, per finanziare le missioni dell'ambulanza dei desideri Malteser. Durante la pausa e dopo il concerto, gli ospiti hanno avuto la possibilità di vedere e conoscere questo speciale veicolo di soccorso dall'interno.<br><br>
+                <a href="https://www.malteser.de/herzenswunsch-krankenwagen.html" target="_blank" rel="noopener" style="color:#19D3C5;font-weight:600;text-decoration:underline;z-index:10;position:relative;">Maggiori informazioni sull'Ambulanza dei Desideri Malteser</a>
+                </div>
+                </div>
+                <div class="gruppenbild-container" style="width:100%;margin:88px auto 0 auto;display:block;">
+                    <img class="gruppenbild-img" src="bilder/Gruppenbild2.jpg" alt="Internationales Benefizkonzert 2025 Collegium Musicum Iuvenale" />
+                </div>
        </div>   
     </div>
 </section>
-
 <section class="charity-projects-section">
     <div class="charity-projects-container">
         <div class="charity-flex-row frieden-flex">
@@ -1341,7 +965,7 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                 <div class="charity-description" data-lang="de">
                     Am 15. Februar 2025 fand in St. Thekla das Neujahrskonzert „Vom Barock bis Harry Potter“ statt. Das Collegium Musicum Iuvenale Ochsenfurt „CMI“ (Leitung: Dr. Astrid Eitschberger), das ukrainische Vokalensemble „FAINO“ (Leitung: Viktoriia Hromova) sowie Vorschulkinder des Kindergartens St. Thekla (Leitung: Petra Striffler) sorgten für ein abwechslungsreiches Programm. Die gesammelten Spenden in Höhe von 600 € kamen dem Kindergarten St. Thekla zugute, der damit zur Freude der Kinder Spielgerät für die Sommersaison kaufte.
                 </div>
-                    <div class="charity-description" data-lang="en" style="display:none;">
+                <div class="charity-description" data-lang="en" style="display:none;">
                         On February 15, 2025, the New Year's Concert "From Baroque to Harry Potter" took place at St. Thekla. Collegium Musicum Iuvenale Ochsenfurt (director: Dr. Astrid Eitschberger), the Ukrainian vocal ensemble FAINO (director: Viktoriia Hromova), and preschool children from the St. Thekla kindergarten (director: Petra Striffler) created a varied program. The collected donations benefited the St. Thekla kindergarten, which used them to support its activities.
                     </div>
                     <div class="charity-description" data-lang="it" style="display:none;">
