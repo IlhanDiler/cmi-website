@@ -163,7 +163,7 @@ window.addEventListener('DOMContentLoaded', function() {
 // Hero-BG Gallery/Slideshow
 const heroGallery = [
 
-     { src: 'bilder/Weihnachtskonzert Spitalkirche.jpg', title: '„Weihnachtskonzert zum Mitsingen 2025“ in der Spitalkirche Ochsenfurt' },
+     { src: 'bilder/Weihnachtskonzert Spitalkirche.png', title: '„Weihnachtskonzert zum Mitsingen 2025“ in der Spitalkirche Ochsenfurt' },
      { src: 'bilder/Gruppenbild2.jpg', title: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Hotel Meintz Ochsenfurt' },
      { src: 'bilder/gruppe_2007.jpeg', title: 'CMI 2009' },
      { src: 'bilder/peterbild.jpg', title: 'Gedenkfeier - „80 Jahre Kriegsende, 80 Jahre Frieden“ in Ochsenfurt 2025' },
@@ -174,7 +174,7 @@ const heroGallery = [
      { src: 'bilder/Jubiläumskonzert_2016.jpg', title: 'Jubiläumskonzert 2016' },
      { src: 'bilder/Gruppenfoto_St._Thekla_2022.jpg', title: 'CMI und BGS St. Thekla 2022' },
      { src: 'bilder/Scheunenkonzert 17.07.jpg',title:'' },
-     { src: 'bilder/Gruppe17.09.11.jpg', title: 'Jubiläumskonzert zum 30-jährigen Bestehen am 17.09.11' },
+     { src: 'bilder/Gruppe17.09.11.png', title: 'Jubiläumskonzert zum 30-jährigen Bestehen am 17.09.11' },
     
      //  { src: 'bilder/konzert.jpg', title: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Maintz Hotel Ochsenfurt' },
   //   { src: 'bilder/maria_schnee_neujahrskonzert_2023.png', title: 'Neujahrskonzert 2023' },
