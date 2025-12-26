@@ -2013,7 +2013,6 @@
     border-radius: 0 36px 36px 0;
     box-shadow: 0 2px 16px 0 rgba(26,54,93,0.10);
     background: #fff;
-    display: block;
 }
 @media (max-width: 1100px) {
     .event-modern-card-content {
@@ -2481,11 +2480,11 @@
     margin: 0;
     padding-left: 20px;
     color: #211A1D;
-    font-size: 1.15em;
+    font-size: 1.18em;
     line-height: 1.7;
     font-weight: 500;
     list-style: square inside;
-    max-width: 800px;
+    max-width: 900px;
 }
 
 /* Musikalisches Repertoire Section */
@@ -2551,7 +2550,7 @@
     object-fit: cover;
     align-self: stretch;
 }
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
     .charity-flex-row {
         flex-direction: column;
         gap: 16px;
@@ -2595,8 +2594,8 @@
     margin-bottom: 0;
 }
 .charity-projects-container {
-    max-width: 1400px;
-    width: 90vw;
+    max-width: 2800px;
+    width: 85vw;
     margin: 0 auto 18px auto;
     background: #fff;
     border-radius: 32px;
@@ -2619,22 +2618,22 @@
 .charity-meta {
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     color: #0D5C63;
-    font-size: 1.15em;
+    font-size: clamp(1em, 1vw + 0.9vh, 1.28em);
     font-weight: 500;
     margin-bottom: 18px;
-            text-align: justify;
+    text-align: justify;
 }
-
-    @media (max-width: 600px) {
-        .charity-meta {
-            text-align: left;
-        }
+@media (max-width: 600px) {
+    .charity-meta {
+        text-align: left;
+        font-size: clamp(0.98em, 2vw + 0.7vh, 1.08em);
     }
+}
 .charity-description {
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     color: #211A1D;
-    font-size: clamp(0.95em, 1vw + 1vh, 1.08em);
-    line-height: 1.6;
+    font-size: clamp(1.08em, 1.1vw + 1.5vh, 1.82em);
+    line-height: 1.65;
     font-weight: 400;
     text-align: justify;
     word-break: break-word;
@@ -2642,7 +2641,31 @@
     overflow-wrap: anywhere;
     margin-bottom: 18px;
 }
-
+@media (min-width: 1200px) {
+    .charity-description {
+        font-size: 1.42em;
+    }
+}
+@media (max-width: 1024px) {
+    .charity-description {
+        font-size: 1.12em;
+    }
+}
+@media (max-width: 700px) {
+    .charity-description {
+        font-size: 1em;
+    }
+}
+.gruppenbild-img-nikolaus {
+          width: auto !important;
+         height : 90vh !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
+        display: block !important;
+        margin: 0 auto 18px auto !important;
+        background: #fff !important;
+}
 .charity-footer {
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
     color: #0D5C63;
@@ -3567,7 +3590,6 @@ article, section, p, .project-card, .chronik-section, .next-section-content, .co
   color: #fff;
   text-align: center;
   padding: 40px 20px;
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 
 .hero-overlay h2 {
