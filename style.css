@@ -167,6 +167,22 @@
     transition: box-shadow 0.2s;
 }
 
+.event-preview-thumb {
+    width: 280px;
+    max-width: 100%;
+    height: 180px;
+    object-fit: contain;
+    background: #fff;
+    margin-top: 10px;
+}
+
+@media (min-width: 901px) {
+    .event-preview-thumb {
+        width: 400px;
+        height: 270px;
+    }
+}
+
 @media (max-width: 900px) {
     .event-christmas-img {
         max-width: 98vw;

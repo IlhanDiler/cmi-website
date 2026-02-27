@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightboxModal = document.getElementById('eventLightboxModal');
     const lightboxImg = document.getElementById('eventLightboxImg');
     const lightboxCloseBtn = document.getElementById('eventLightboxClose');
-    document.querySelectorAll('.event-lightbox-img').forEach(img => {
+    document.querySelectorAll('.event-lightbox-img, .event-lightbox-trigger').forEach(img => {
         img.addEventListener('click', function() {
             if (lightboxImg && lightboxModal) {
                 lightboxImg.src = this.src;
