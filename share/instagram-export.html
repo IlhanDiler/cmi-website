@@ -24,14 +24,14 @@
             <div class="export-guide__card">
                 <h2>Empfohlener Ablauf</h2>
                 <ol>
-                    <li>Beitrag auswaehlen und Bild oeffnen.</li>
+                    <li>Beitrag auswaehlen und das 4:5-Postformat als PNG exportieren.</li>
                     <li>Caption kopieren und in Instagram oder Meta Business Suite einfuegen.</li>
                     <li>Share-Link separat kopieren und spaeter in Bio, Story oder einen Link-Sammeldienst setzen.</li>
                 </ol>
             </div>
             <div class="export-guide__card export-guide__card--note">
                 <h2>Wichtig fuer Instagram</h2>
-                <p>Instagram macht Links in normalen Beitrags-Captions nicht klickbar. Darum erzeugt diese Seite standardmaessig eine Caption ohne rohe URL und bietet den Website-Link extra an.</p>
+                <p>Instagram macht Links in normalen Beitrags-Captions nicht klickbar. Darum erzeugt diese Seite standardmaessig eine Caption ohne rohe URL und bietet den Website-Link extra an. Der PNG-Export funktioniert am verlaesslichsten auf der live Website.</p>
             </div>
         </section>
 
@@ -56,10 +56,23 @@
                     <p class="post-card__meta"></p>
                     <h2 class="post-card__title"></h2>
                 </div>
+                <div class="insta-preview" aria-label="Instagram 4 zu 5 Vorschau">
+                    <div class="insta-preview__image-wrap">
+                        <img class="insta-preview__image" alt="">
+                        <div class="insta-preview__badge">Instagram 4:5</div>
+                    </div>
+                    <div class="insta-preview__body">
+                        <p class="insta-preview__brand">Collegium Musicum Iuvenale Ochsenfurt</p>
+                        <p class="insta-preview__meta"></p>
+                        <h3 class="insta-preview__title"></h3>
+                        <p class="insta-preview__text"></p>
+                    </div>
+                </div>
                 <p class="post-card__text"></p>
                 <div class="post-card__hashtags"></div>
                 <textarea class="post-card__caption" rows="8" readonly></textarea>
                 <div class="post-card__actions">
+                    <button class="export-button export-button--secondary post-card__export-image" type="button">PNG exportieren</button>
                     <button class="export-button export-button--primary post-card__copy-caption" type="button">Caption kopieren</button>
                     <button class="export-button export-button--secondary post-card__copy-link" type="button">Link kopieren</button>
                     <a class="export-button export-button--ghost post-card__open-image" target="_blank" rel="noopener noreferrer">Bild oeffnen</a>
