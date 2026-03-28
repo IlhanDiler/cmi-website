@@ -2542,43 +2542,73 @@
 .charity-flex-row {
     display: flex;
     flex-direction: row;
-    align-items: stretch;
-    gap: 0;
+    align-items: flex-start;
+    gap: clamp(24px, 3vw, 44px);
     width: 100%;
     min-height: 340px;
 }
 .charity-flex-left {
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 1 1 0;
+    max-width: none;
     min-width: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 0 3vw 0 0;
+    justify-content: flex-start;
+    padding: 0;
 }
-.charity-flex-right {
-    flex: 0 0 50%;
-    max-width: 50%;
-    min-width: 0;
+.charity-flex-right,
+.charity-flex-row > .gruppenbild-container {
+    flex: 0 1 42%;
+    max-width: clamp(320px, 42vw, 640px);
+    min-width: 280px;
+    width: auto !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    align-self: flex-start;
+    box-sizing: border-box;
+    padding: 0;
+}
+.charity-flex-row > .gruppenbild-container {
+    gap: 8px;
+}
+.charity-flex-row > .gruppenbild-container img,
+.charity-flex-right img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain;
+    border-radius: 0 !important;
+    display: block;
+    margin: 0 auto;
+    background: #fff;
+}
+.charity-flex-row > .gruppenbild-container > div {
     width: 100%;
-    aspect-ratio: 4/3;
-    border-radius: 18px;
-    object-fit: cover;
-    align-self: stretch;
+    max-width: 100% !important;
+    margin: 8px auto 0 auto !important;
+    text-align: center !important;
+    box-sizing: border-box;
 }
 @media (max-width: 1200px) {
     .charity-flex-row {
         flex-direction: column;
-        gap: 16px;
+        gap: 20px;
     }
     .charity-flex-left,
-    .charity-flex-right {
+    .charity-flex-right,
+    .charity-flex-row > .gruppenbild-container {
         max-width: 100%;
         flex: 1 1 100%;
         width: 100%;
         padding: 0;
+        min-width: 0;
     }
-    .charity-flex-right {
+    .charity-flex-right,
+    .charity-flex-row > .gruppenbild-container {
         margin: 0 auto;
     }
 }
@@ -4067,32 +4097,32 @@ html, body {
 .rueckblick-flex {
     display: flex;
     flex-wrap: wrap;
-    gap: 32px;
+    gap: clamp(24px, 3vw, 44px);
     align-items: flex-start;
 }
 .rueckblick-flex .charity-flex-left {
-    flex: 1 1 340px;
-    min-width: 260px;
-    max-width: 600px;
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: none;
     box-sizing: border-box;
-    padding: 18px 18px 18px 0;
+    padding: 0;
 }
 .rueckblick-flex .charity-flex-right {
-    flex: 1 1 260px;
-    min-width: 180px;
-    max-width: 500px;
+    flex: 0 1 42%;
+    min-width: 280px;
+    max-width: clamp(320px, 42vw, 640px);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
+    justify-content: flex-start;
     box-sizing: border-box;
-    padding: 18px 0 18px 18px;
+    padding: 0;
 }
 .rueckblick-flex img {
     width: 100%;
-    max-width: 500px;
+    max-width: 100%;
     height: auto;
-    border-radius: 18px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    border-radius: 0;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
 }
 .charity-program-list {
     font-size: 0.98em;
@@ -4113,8 +4143,8 @@ html, body {
         padding: 0;
     }
     .rueckblick-flex img {
-        max-width: 98vw;
-        margin: 0 auto 18px auto;
+        max-width: 100%;
+        margin: 0 auto;
     }
 }
 @media (max-width: 600px) {
@@ -4126,8 +4156,8 @@ html, body {
         margin-left: 1em;
     }
     .rueckblick-flex img {
-        max-width: 96vw;
-        border-radius: 12px;
+        max-width: 100%;
+        border-radius: 0;
     }
 }
 @media (max-width: 400px) {
