@@ -39,3 +39,21 @@ Hilfreiche Tools zum Aktualisieren der Vorschau:
 - Facebook Sharing Debugger
 - LinkedIn Post Inspector
 - Direkter Test ueber Messenger oder Social-App
+
+## Instagram-Workflow
+
+Instagram unterstuetzt keinen sauberen Direktimport von normalen Website-Inhalten. Darum gibt es fuer die bestehende Share-Struktur eine interne Export-Seite unter [share/instagram-export.html](share/instagram-export.html).
+
+- Die Export-Seite liest Bild, Titel, Kurztext und Share-Link direkt aus den vorhandenen Share-Seiten.
+- Fuer jeden Beitrag gibt es eine sofort nutzbare Instagram-Caption, einen separaten Link-Button und einen Direktzugriff auf das Bild.
+- Zusaetzlich kann die komplette Liste als JSON kopiert werden, falls spaeter ein Planungs- oder Automatisierungs-Tool angebunden wird.
+
+Empfohlener Ablauf:
+
+1. Export-Seite oeffnen.
+2. Beitrag auswaehlen.
+3. Bild oeffnen oder herunterladen.
+4. Caption in Instagram oder Meta Business Suite einfuegen.
+5. Share-Link separat in Bio, Story oder eine Link-Sammlung uebernehmen.
+
+Hinweis: Die Export-Seite funktioniert ueber HTTP/HTTPS, also auf der deployed Website oder ueber einen lokalen Webserver. Direktes Oeffnen per `file://` blockiert die notwendigen `fetch`-Aufrufe im Browser.
