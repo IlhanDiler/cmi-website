@@ -4015,7 +4015,7 @@ html, body {
 .masterclass-flex .masterclass-flex__media {
     flex-basis: 48%;
     max-width: min(48vw, 760px);
-    align-items: center;
+    display: block;
 }
 
 .masterclass-flex .masterclass-flex__image {
@@ -4044,8 +4044,36 @@ html, body {
     }
 
     .masterclass-flex .masterclass-flex__media {
-        flex-basis: 100%;
+        width: 100%;
+        flex-basis: auto;
         max-width: 100%;
+        display: block;
+        margin: 0;
+    }
+
+    .masterclass-flex .charity-flex-left {
+        width: 100%;
+        max-width: 100%;
+        align-self: stretch;
+    }
+
+    .masterclass-flex .masterclass-flex__image {
+        width: min(100%, 560px);
+        border-radius: 14px;
+    }
+
+    #review-masterclass-florian-meierott {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .masterclass-flex .charity-title,
+    .masterclass-flex .charity-meta,
+    .masterclass-flex .charity-description {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     .rueckblick-flex img {
@@ -4057,10 +4085,37 @@ html, body {
     .rueckblick-flex {
         gap: 16px;
     }
+
+    .masterclass-flex {
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .masterclass-flex .masterclass-flex__media {
+        margin: 0;
+    }
+
+    .masterclass-flex .masterclass-flex__image {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 12px;
+        margin: 0;
+    }
+
+    .masterclass-flex .charity-flex-left,
+    .masterclass-flex .charity-title,
+    .masterclass-flex .charity-meta,
+    .masterclass-flex .charity-description {
+        width: 100%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
     .charity-program-list {
         font-size: 0.95em;
         margin-left: 1em;
     }
+
     .rueckblick-flex img {
         max-width: 100%;
         border-radius: 0;
@@ -4077,6 +4132,11 @@ html, body {
     .rueckblick-flex img {
         max-width: 92vw;
         border-radius: 8px;
+    }
+
+    .masterclass-flex .masterclass-flex__image {
+        max-width: 100%;
+        border-radius: 10px;
     }
 }
 
