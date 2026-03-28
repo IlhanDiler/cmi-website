@@ -1,64 +1,51 @@
-// Logge beim Laden der Seite alle Links im DOM (href und Text)
-document.addEventListener('DOMContentLoaded', function() {
-    var allLinks = document.querySelectorAll('a');
-    console.log('[DEBUG] Alle Links im DOM:', allLinks.length);
-    allLinks.forEach(function(link, idx) {
-        console.log('[DEBUG] Link #' + (idx+1) + ': href=' + link.getAttribute('href') + ', text=' + link.textContent.trim(), link);
-    });
-});
-// Logge beim Laden der Seite alle Mbonda Lokito Links im DOM
-document.addEventListener('DOMContentLoaded', function() {
-    var mbondaLinks = document.querySelectorAll('a[href="https://www.mbonda-lokito.org/home.html"]');
-    console.log('[DEBUG] Mbonda Lokito Links gefunden:', mbondaLinks.length);
-    mbondaLinks.forEach(function(link, idx) {
-        console.log('[DEBUG] Mbonda-Link #' + (idx+1) + ':', link, 'BoundingRect:', link.getBoundingClientRect());
-    });
-});
-// GLOBAL DEBUG: Logge alle Klicks und Touches auf der Seite
-document.addEventListener('click', function(e) {
-    var t = e.target;
-    var msg = '[DEBUG click] Tag: ' + t.tagName + ', class: ' + t.className + ', id: ' + t.id;
-    if (t.tagName === 'A') msg += ', href: ' + t.getAttribute('href');
-    console.log(msg, t);
-});
-document.addEventListener('touchend', function(e) {
-    var t = e.target;
-    var msg = '[DEBUG touchend] Tag: ' + t.tagName + ', class: ' + t.className + ', id: ' + t.id;
-    if (t.tagName === 'A') msg += ', href: ' + t.getAttribute('href');
-    console.log(msg, t);
-});
 // Lightbox für Event-Bilder
 document.addEventListener('DOMContentLoaded', function() {
-    // Entferne Test-Handler für Mbonda Lokito Link
     const lightboxModal = document.getElementById('eventLightboxModal');
     const lightboxImg = document.getElementById('eventLightboxImg');
     const lightboxCloseBtn = document.getElementById('eventLightboxClose');
+    const openLightbox = function(image) {
+        if (!lightboxImg || !lightboxModal) {
+            return;
+        }
+
+        lightboxImg.src = image.src;
+        lightboxImg.alt = image.alt || 'Event Bild';
+        lightboxModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        if (lightboxCloseBtn) {
+            lightboxCloseBtn.focus();
+        }
+    };
+    const closeLightbox = function() {
+        if (!lightboxImg || !lightboxModal) {
+            return;
+        }
+
+        lightboxModal.style.display = 'none';
+        lightboxImg.src = '';
+        lightboxImg.alt = 'Event Bild';
+        document.body.style.overflow = '';
+    };
     document.querySelectorAll('.event-lightbox-img, .event-lightbox-trigger').forEach(img => {
         img.addEventListener('click', function() {
-            if (lightboxImg && lightboxModal) {
-                lightboxImg.src = this.src;
-                lightboxModal.style.display = 'flex';
-            }
+            openLightbox(this);
         });
     });
     if (lightboxCloseBtn && lightboxModal && lightboxImg) {
-        lightboxCloseBtn.addEventListener('click', function(e) {
-            lightboxModal.style.display = 'none';
-            lightboxImg.src = '';
+        lightboxCloseBtn.addEventListener('click', function() {
+            closeLightbox();
         });
     }
     if (lightboxModal) {
         lightboxModal.addEventListener('click', function(e) {
             if (e.target === lightboxModal || e.target === lightboxImg) {
-                lightboxModal.style.display = 'none';
-                lightboxImg.src = '';
+                closeLightbox();
             }
         });
     }
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && lightboxModal && lightboxModal.style.display === 'flex') {
-            lightboxModal.style.display = 'none';
-            lightboxImg.src = '';
+            closeLightbox();
         }
     });
 });
