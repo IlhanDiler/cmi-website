@@ -43,6 +43,20 @@ const state = {
     posts: []
 };
 
+const INSTAGRAM_EXPORT = {
+    width: 1080,
+    height: 1350,
+    imageHeight: 760,
+    bodyTop: 760,
+    bodyHeight: 590,
+    padding: 88,
+    logoSize: 78,
+    maxTitleLines: 3,
+    maxTextLines: 4
+};
+
+const BRAND_LOGO_URL = "https://www.cmi-ochsenfurt.de/files/logo_cmi1%20-%20schwarz.svg";
+
 const elements = {
     postGrid: document.getElementById("post-grid"),
     postSearch: document.getElementById("post-search"),
@@ -79,6 +93,18 @@ function buildCaption(post) {
     ].join("\n");
 }
 
+function buildExportFileName(post) {
+    return post.fileName.replace(/\.html$/i, "-instagram-4x5.png");
+}
+
+function shortenText(text, maxLength) {
+    if (text.length <= maxLength) {
+        return text;
+    }
+
+    return `${text.slice(0, maxLength - 1).trimEnd()}…`;
+}
+
 async function copyText(value, trigger, successLabel) {
     try {
         await navigator.clipboard.writeText(value);
@@ -89,6 +115,201 @@ async function copyText(value, trigger, successLabel) {
         }, 1500);
     } catch (error) {
         window.alert("Kopieren hat im Browser nicht funktioniert. Bitte den Text manuell kopieren.");
+    }
+}
+
+function loadImage(url) {
+    return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.crossOrigin = "anonymous";
+        image.onload = () => resolve(image);
+        image.onerror = () => reject(new Error(`Bild konnte nicht geladen werden: ${url}`));
+        image.src = url;
+    });
+}
+
+function drawRoundedRect(ctx, x, y, width, height, radius) {
+    const rounded = Math.min(radius, width / 2, height / 2);
+    ctx.beginPath();
+    ctx.moveTo(x + rounded, y);
+    ctx.lineTo(x + width - rounded, y);
+    ctx.quadraticCurveTo(x + width, y, x + width, y + rounded);
+    ctx.lineTo(x + width, y + height - rounded);
+    ctx.quadraticCurveTo(x + width, y + height, x + width - rounded, y + height);
+    ctx.lineTo(x + rounded, y + height);
+    ctx.quadraticCurveTo(x, y + height, x, y + height - rounded);
+    ctx.lineTo(x, y + rounded);
+    ctx.quadraticCurveTo(x, y, x + rounded, y);
+    ctx.closePath();
+}
+
+function drawCoverImage(ctx, image, x, y, width, height) {
+    const imageRatio = image.width / image.height;
+    const targetRatio = width / height;
+    let sourceWidth = image.width;
+    let sourceHeight = image.height;
+    let sourceX = 0;
+    let sourceY = 0;
+
+    if (imageRatio > targetRatio) {
+        sourceWidth = image.height * targetRatio;
+        sourceX = (image.width - sourceWidth) / 2;
+    } else {
+        sourceHeight = image.width / targetRatio;
+        sourceY = (image.height - sourceHeight) / 2;
+    }
+
+    ctx.drawImage(image, sourceX, sourceY, sourceWidth, sourceHeight, x, y, width, height);
+}
+
+function fitTextIntoLines(ctx, text, maxWidth, maxLines) {
+    const words = text.split(/\s+/).filter(Boolean);
+    const lines = [];
+    let currentLine = "";
+
+    for (const word of words) {
+        const candidate = currentLine ? `${currentLine} ${word}` : word;
+        if (ctx.measureText(candidate).width <= maxWidth) {
+            currentLine = candidate;
+            continue;
+        }
+
+        if (currentLine) {
+            lines.push(currentLine);
+        }
+
+        currentLine = word;
+
+        if (lines.length === maxLines - 1) {
+            break;
+        }
+    }
+
+    if (currentLine && lines.length < maxLines) {
+        lines.push(currentLine);
+    }
+
+    if (lines.length === maxLines) {
+        let lastLine = lines[maxLines - 1];
+        while (ctx.measureText(`${lastLine}…`).width > maxWidth && lastLine.includes(" ")) {
+            lastLine = lastLine.slice(0, lastLine.lastIndexOf(" "));
+        }
+
+        if (lastLine !== lines[maxLines - 1]) {
+            lines[maxLines - 1] = `${lastLine}…`;
+        }
+    }
+
+    return lines;
+}
+
+function drawTextBlock(ctx, options) {
+    const { text, x, y, maxWidth, lineHeight, maxLines, color, font } = options;
+    ctx.save();
+    ctx.fillStyle = color;
+    ctx.font = font;
+    const lines = fitTextIntoLines(ctx, text, maxWidth, maxLines);
+    lines.forEach((line, index) => {
+        ctx.fillText(line, x, y + index * lineHeight);
+    });
+    ctx.restore();
+    return lines.length;
+}
+
+async function exportInstagramImage(post, trigger) {
+    const originalLabel = trigger.textContent;
+    trigger.textContent = "Export laeuft...";
+    trigger.disabled = true;
+
+    try {
+        const [heroImage, logoImage] = await Promise.allSettled([
+            loadImage(post.image),
+            loadImage(BRAND_LOGO_URL)
+        ]);
+
+        if (heroImage.status !== "fulfilled") {
+            throw heroImage.reason;
+        }
+
+        const canvas = document.createElement("canvas");
+        canvas.width = INSTAGRAM_EXPORT.width;
+        canvas.height = INSTAGRAM_EXPORT.height;
+        const ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "#f4fbfa";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        const backgroundGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        backgroundGradient.addColorStop(0, "#ffffff");
+        backgroundGradient.addColorStop(1, "#eaf5f3");
+        ctx.fillStyle = backgroundGradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        drawCoverImage(ctx, heroImage.value, 0, 0, canvas.width, INSTAGRAM_EXPORT.imageHeight);
+
+        ctx.fillStyle = "rgba(8, 30, 27, 0.15)";
+        ctx.fillRect(0, INSTAGRAM_EXPORT.imageHeight - 140, canvas.width, 140);
+
+        drawRoundedRect(ctx, 0, INSTAGRAM_EXPORT.bodyTop - 16, canvas.width, INSTAGRAM_EXPORT.bodyHeight + 16, 38);
+        ctx.fillStyle = "rgba(255, 255, 255, 0.98)";
+        ctx.fill();
+
+        ctx.fillStyle = "#159b8c";
+        ctx.fillRect(INSTAGRAM_EXPORT.padding, INSTAGRAM_EXPORT.bodyTop + 62, 12, 180);
+
+        if (logoImage.status === "fulfilled") {
+            ctx.drawImage(logoImage.value, INSTAGRAM_EXPORT.padding, INSTAGRAM_EXPORT.bodyTop + 300, INSTAGRAM_EXPORT.logoSize, INSTAGRAM_EXPORT.logoSize);
+        }
+
+        ctx.fillStyle = "#11786d";
+        ctx.font = "700 28px 'Segoe UI', sans-serif";
+        ctx.fillText(post.meta, INSTAGRAM_EXPORT.padding + 34, INSTAGRAM_EXPORT.bodyTop + 88);
+
+        drawTextBlock(ctx, {
+            text: shortenText(post.title, 90),
+            x: INSTAGRAM_EXPORT.padding + 34,
+            y: INSTAGRAM_EXPORT.bodyTop + 160,
+            maxWidth: canvas.width - INSTAGRAM_EXPORT.padding * 2 - 34,
+            lineHeight: 72,
+            maxLines: INSTAGRAM_EXPORT.maxTitleLines,
+            color: "#17312d",
+            font: "700 62px 'Segoe UI', sans-serif"
+        });
+
+        drawTextBlock(ctx, {
+            text: shortenText(post.text, 170),
+            x: INSTAGRAM_EXPORT.padding,
+            y: INSTAGRAM_EXPORT.bodyTop + 430,
+            maxWidth: canvas.width - INSTAGRAM_EXPORT.padding * 2,
+            lineHeight: 44,
+            maxLines: INSTAGRAM_EXPORT.maxTextLines,
+            color: "#546d69",
+            font: "400 34px 'Segoe UI', sans-serif"
+        });
+
+        ctx.fillStyle = "#11786d";
+        ctx.font = "700 24px 'Segoe UI', sans-serif";
+        ctx.fillText("www.cmi-ochsenfurt.de", INSTAGRAM_EXPORT.padding + INSTAGRAM_EXPORT.logoSize + 18, INSTAGRAM_EXPORT.bodyTop + 348);
+
+        ctx.font = "600 22px 'Segoe UI', sans-serif";
+        ctx.fillStyle = "#6a807c";
+        ctx.fillText(post.hashtags.slice(0, 3).join("   "), INSTAGRAM_EXPORT.padding, canvas.height - 64);
+
+        const link = document.createElement("a");
+        link.href = canvas.toDataURL("image/png");
+        link.download = buildExportFileName(post);
+        link.click();
+
+        trigger.textContent = "PNG exportiert";
+    } catch (error) {
+        console.error(error);
+        window.alert("Der PNG-Export hat nicht funktioniert. Auf der live Website klappt das zuverlaessiger; lokal kannst du die Vorschau alternativ als Screenshot verwenden.");
+        trigger.textContent = originalLabel;
+    } finally {
+        window.setTimeout(() => {
+            trigger.textContent = originalLabel;
+            trigger.disabled = false;
+        }, 1600);
     }
 }
 
@@ -147,6 +368,11 @@ function renderPosts(posts) {
         const text = fragment.querySelector(".post-card__text");
         const hashtags = fragment.querySelector(".post-card__hashtags");
         const caption = fragment.querySelector(".post-card__caption");
+        const previewImage = fragment.querySelector(".insta-preview__image");
+        const previewMeta = fragment.querySelector(".insta-preview__meta");
+        const previewTitle = fragment.querySelector(".insta-preview__title");
+        const previewText = fragment.querySelector(".insta-preview__text");
+        const exportImageButton = fragment.querySelector(".post-card__export-image");
         const copyCaptionButton = fragment.querySelector(".post-card__copy-caption");
         const copyLinkButton = fragment.querySelector(".post-card__copy-link");
         const openImageLink = fragment.querySelector(".post-card__open-image");
@@ -159,12 +385,21 @@ function renderPosts(posts) {
         title.textContent = post.title;
         text.textContent = post.text;
         caption.value = post.caption;
+        previewImage.src = post.image;
+        previewImage.alt = post.title;
+        previewMeta.textContent = post.meta;
+        previewTitle.textContent = post.title;
+        previewText.textContent = post.text;
         openImageLink.href = post.image;
         openShareLink.href = post.shareUrl;
 
         for (const tag of post.hashtags) {
             hashtags.appendChild(createTag(tag));
         }
+
+        exportImageButton.addEventListener("click", () => {
+            exportInstagramImage(post, exportImageButton);
+        });
 
         copyCaptionButton.addEventListener("click", () => {
             copyText(post.caption, copyCaptionButton, "Caption kopiert");
