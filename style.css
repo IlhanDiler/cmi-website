@@ -4007,6 +4007,23 @@ html, body {
     border-radius: 0;
     box-shadow: 0 4px 18px rgba(0,0,0,0.12);
 }
+
+.masterclass-flex .charity-flex-left {
+    flex: 1 1 0;
+}
+
+.masterclass-flex .masterclass-flex__media {
+    flex-basis: 48%;
+    max-width: min(48vw, 760px);
+    align-items: center;
+}
+
+.masterclass-flex .masterclass-flex__image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
 .charity-program-list {
     font-size: 0.98em;
     line-height: 1.5;
@@ -4025,6 +4042,12 @@ html, body {
         min-width: 0;
         padding: 0;
     }
+
+    .masterclass-flex .masterclass-flex__media {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+
     .rueckblick-flex img {
         max-width: 100%;
         margin: 0 auto;
