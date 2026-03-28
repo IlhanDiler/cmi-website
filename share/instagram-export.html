@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Export | Collegium Musicum Iuvenale Ochsenfurt</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Interne Arbeitsseite zum Vorbereiten von Instagram-Posts auf Basis der bestehenden Share-Seiten.">
+    <link rel="stylesheet" href="instagram-export.css">
+</head>
+<body>
+    <main class="export-shell">
+        <section class="export-hero">
+            <p class="export-hero__eyebrow">Interne Social-Media-Werkbank</p>
+            <h1 class="export-hero__title">Instagram-Posts aus der Website vorbereiten</h1>
+            <p class="export-hero__text">Die Seite liest Titel, Kurztext, Bild und Share-Link direkt aus den vorhandenen Share-Seiten. So pflegt ihr die Inhalte nicht doppelt und habt trotzdem sofort nutzbare Captions fuer Instagram.</p>
+            <div class="export-hero__actions">
+                <button class="export-button export-button--primary" type="button" id="copy-all-json">Alle Daten als JSON kopieren</button>
+                <a class="export-button export-button--ghost" href="masterclass-florian-meierott.html">Beispiel-Share-Seite ansehen</a>
+            </div>
+        </section>
+
+        <section class="export-guide" aria-label="Empfohlener Workflow">
+            <div class="export-guide__card">
+                <h2>Empfohlener Ablauf</h2>
+                <ol>
+                    <li>Beitrag auswaehlen und Bild oeffnen.</li>
+                    <li>Caption kopieren und in Instagram oder Meta Business Suite einfuegen.</li>
+                    <li>Share-Link separat kopieren und spaeter in Bio, Story oder einen Link-Sammeldienst setzen.</li>
+                </ol>
+            </div>
+            <div class="export-guide__card export-guide__card--note">
+                <h2>Wichtig fuer Instagram</h2>
+                <p>Instagram macht Links in normalen Beitrags-Captions nicht klickbar. Darum erzeugt diese Seite standardmaessig eine Caption ohne rohe URL und bietet den Website-Link extra an.</p>
+            </div>
+        </section>
+
+        <section class="export-toolbar" aria-label="Filter und Status">
+            <label class="export-search">
+                <span>Suche</span>
+                <input id="post-search" type="search" placeholder="Titel, Ort oder Stichwort durchsuchen">
+            </label>
+            <p class="export-status" id="export-status">Share-Seiten werden geladen...</p>
+        </section>
+
+        <section class="export-grid" id="post-grid" aria-live="polite"></section>
+    </main>
+
+    <template id="post-card-template">
+        <article class="post-card">
+            <div class="post-card__media">
+                <img class="post-card__image" alt="">
+            </div>
+            <div class="post-card__body">
+                <div class="post-card__header">
+                    <p class="post-card__meta"></p>
+                    <h2 class="post-card__title"></h2>
+                </div>
+                <p class="post-card__text"></p>
+                <div class="post-card__hashtags"></div>
+                <textarea class="post-card__caption" rows="8" readonly></textarea>
+                <div class="post-card__actions">
+                    <button class="export-button export-button--primary post-card__copy-caption" type="button">Caption kopieren</button>
+                    <button class="export-button export-button--secondary post-card__copy-link" type="button">Link kopieren</button>
+                    <a class="export-button export-button--ghost post-card__open-image" target="_blank" rel="noopener noreferrer">Bild oeffnen</a>
+                    <a class="export-button export-button--ghost post-card__open-share" target="_blank" rel="noopener noreferrer">Share-Seite</a>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <script src="instagram-export.js"></script>
+</body>
+</html>
