@@ -220,6 +220,13 @@ body {
     gap: 14px;
 }
 
+.preview-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: flex-start;
+}
+
 .insta-preview {
     width: min(360px, 100%);
     border-radius: 28px;
@@ -309,6 +316,111 @@ body {
     overflow: hidden;
 }
 
+.story-preview {
+    position: relative;
+    width: min(260px, 100%);
+    aspect-ratio: 9 / 16;
+    border-radius: 30px;
+    overflow: hidden;
+    border: 1px solid rgba(23, 49, 45, 0.14);
+    background: linear-gradient(180deg, #dbeceb 0%, #eff8f7 100%);
+    box-shadow: 0 14px 32px rgba(18, 65, 58, 0.12);
+}
+
+.story-preview__image-wrap {
+    position: absolute;
+    inset: 0;
+}
+
+.story-preview__image {
+    width: 100%;
+    height: 58%;
+    object-fit: cover;
+    display: block;
+}
+
+.story-preview__badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    min-height: 32px;
+    padding: 0 12px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--export-accent-dark);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.story-preview__overlay {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    padding: 18px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 22px rgba(18, 65, 58, 0.16);
+}
+
+.story-preview__brand,
+.story-preview__meta,
+.story-preview__title,
+.story-preview__text,
+.story-preview__cta {
+    margin: 0;
+}
+
+.story-preview__brand {
+    color: var(--export-accent-dark);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.story-preview__meta {
+    margin-top: 8px;
+    color: var(--export-muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.story-preview__title {
+    margin-top: 8px;
+    font-size: 1.22rem;
+    line-height: 1.08;
+}
+
+.story-preview__text {
+    margin-top: 10px;
+    color: var(--export-muted);
+    font-size: 0.9rem;
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.story-preview__cta {
+    margin-top: 14px;
+    min-height: 38px;
+    padding: 0 14px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    background: rgba(21, 155, 140, 0.12);
+    color: var(--export-accent-dark);
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
 .post-card__meta {
     margin: 0 0 8px;
     color: var(--export-accent);
@@ -385,6 +497,10 @@ body {
     .insta-preview {
         width: 100%;
         max-width: 420px;
+    }
+
+    .story-preview {
+        width: min(320px, 100%);
     }
 }
 
