@@ -1,1 +1,41 @@
 # cmi-webseite
+
+## Social Share Links
+
+Diese Website ist im Kern eine Single-Page-Website. Social-Media-Plattformen wie WhatsApp, Facebook, LinkedIn oder X lesen fuer Link-Vorschaubilder jedoch nicht den sichtbaren SPA-Zustand, sondern nur das HTML der aufgerufenen URL.
+
+Darum gibt es fuer teilbare Inhalte eigene Share-Seiten im Ordner [share](share):
+
+- Jede Share-Seite hat eigene `og:*`- und `twitter:*`-Meta-Tags.
+- Jede Share-Seite zeigt eine kleine gebrandete Zwischenansicht.
+- Danach erfolgt eine automatische Weiterleitung auf den passenden Abschnitt der Startseite per Anker-Link.
+
+Beispiele:
+
+- [share/masterclass-florian-meierott.html](share/masterclass-florian-meierott.html)
+- [share/christmette-2025.html](share/christmette-2025.html)
+- [share/neujahrskonzert-2025.html](share/neujahrskonzert-2025.html)
+
+## Neue Share-Seite anlegen
+
+Wenn ein neuer Rueckblick oder Event gezielt teilbar sein soll:
+
+1. Dem Zielabschnitt in [index.html](index.html) eine stabile `id` geben.
+2. Eine neue Datei im Ordner [share](share) anlegen.
+3. In der Share-Datei passende Meta-Tags setzen:
+	`og:title`, `og:description`, `og:image`, `og:url`, `twitter:*`
+4. Fuer Bilder immer absolute URLs wie `https://www.cmi-ochsenfurt.de/bilder/...` verwenden.
+5. Die Weiterleitung auf den Zielabschnitt der Startseite setzen.
+6. Zum Gestalten die gemeinsame CSS-Datei [share/share-preview.css](share/share-preview.css) verwenden.
+
+## Wichtige Hinweise
+
+- Gepostet werden sollte immer die Share-URL, nicht nur ein Hash-Link wie `/#review-...`.
+- Das Vorschaubild sollte moeglichst gross sein, idealerweise im Bereich `1200x630`.
+- Manche Plattformen cachen Vorschauen. Nach Aenderungen muss der Link dort eventuell neu eingelesen werden.
+
+Hilfreiche Tools zum Aktualisieren der Vorschau:
+
+- Facebook Sharing Debugger
+- LinkedIn Post Inspector
+- Direkter Test ueber Messenger oder Social-App
