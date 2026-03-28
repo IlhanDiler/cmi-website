@@ -45,15 +45,15 @@ Hilfreiche Tools zum Aktualisieren der Vorschau:
 Instagram unterstuetzt keinen sauberen Direktimport von normalen Website-Inhalten. Darum gibt es fuer die bestehende Share-Struktur eine interne Export-Seite unter [share/instagram-export.html](share/instagram-export.html).
 
 - Die Export-Seite liest Bild, Titel, Kurztext und Share-Link direkt aus den vorhandenen Share-Seiten.
-- Fuer jeden Beitrag gibt es eine sofort nutzbare Instagram-Caption, einen separaten Link-Button und einen Direktzugriff auf das Bild.
+- Fuer jeden Beitrag gibt es eine sofort nutzbare Instagram-Caption, einen separaten Link-Button, einen Direktzugriff auf das Bild und einen 4:5-PNG-Export fuer Instagram-Posts.
 - Zusaetzlich kann die komplette Liste als JSON kopiert werden, falls spaeter ein Planungs- oder Automatisierungs-Tool angebunden wird.
 
 Empfohlener Ablauf:
 
 1. Export-Seite oeffnen.
 2. Beitrag auswaehlen.
-3. Bild oeffnen oder herunterladen.
+3. 4:5-PNG exportieren oder alternativ das Bild direkt oeffnen.
 4. Caption in Instagram oder Meta Business Suite einfuegen.
 5. Share-Link separat in Bio, Story oder eine Link-Sammlung uebernehmen.
 
-Hinweis: Die Export-Seite funktioniert ueber HTTP/HTTPS, also auf der deployed Website oder ueber einen lokalen Webserver. Direktes Oeffnen per `file://` blockiert die notwendigen `fetch`-Aufrufe im Browser.
+Hinweis: Die Export-Seite funktioniert ueber HTTP/HTTPS, also auf der deployed Website oder ueber einen lokalen Webserver. Direktes Oeffnen per `file://` blockiert die notwendigen `fetch`-Aufrufe im Browser. Der PNG-Export ist auf der live Website am verlaesslichsten, weil Browser lokale Cross-Origin-Bildquellen oft fuer Canvas blockieren.
