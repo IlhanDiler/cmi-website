@@ -1341,20 +1341,18 @@
     background: #FFFFFF;
     border-radius: 48px;
     box-shadow: none;
-    padding: 64px 48px 56px 48px;
+    width: min(70vw, 900px);
+    max-width: 900px;
+    margin: 0 auto;
+    min-width: 0;
+    min-height: 220px;
+    padding: 64px clamp(32px, 6vw, 54px) 56px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-}
-.musik-bruecken-title {
-    color: #211A1D;
-    font-size: 3.2rem;
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 24px;
-    letter-spacing: -1.5px;
-    line-height: 1.13;
-    font-family: var(--font-ui);
+    height: auto;
+    box-sizing: border-box;
 }
 .musik-bruecken-divider {
     width: 64px;
@@ -1364,18 +1362,33 @@
     margin-bottom: 32px;
 }
 .musik-bruecken-text {
+    width: min(70vw, 100%);
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 32px auto 40px auto;
+    padding: 0 2vw;
+    display: block;
     color: #211A1D;
-    font-size: 1.25rem;
+    font-size: clamp(1.05rem, 2vw, 1.22rem);
     font-weight: 400;
-    text-align: justify !important;
-    hyphens: auto !important;
-    overflow-wrap: anywhere !important;
-    word-break: break-word !important;
-    line-height: 1.55;
-    margin: 0;
+    text-align: center;
+    line-height: 1.7;
+    word-break: break-word;
+    hyphens: auto;
+    overflow-wrap: break-word;
     font-family: var(--font-ui);
 }
 
+
+@media (min-width: 700px) and (max-width: 900px) {
+    .musik-bruecken-text {
+        font-size: clamp(0.85rem, 1vw, 0.98rem);
+        text-align: justify !important;
+        hyphens: auto !important;
+        overflow-wrap: anywhere !important;
+        word-break: break-word !important;
+    }
+}
 
 @media (max-width: 700px) {
     .mint-section-dark {
@@ -1385,12 +1398,10 @@
         min-height: 220px;
     }
     .musik-bruecken-card {
+        width: 94vw;
         border-radius: 22px;
-        padding: 32px 10px 28px 10px;
-    }
-    .musik-bruecken-title {
-        font-size: 1.5rem;
-        margin-bottom: 14px;
+        min-height: 180px;
+        padding: 32px 4vw 28px;
     }
     .musik-bruecken-divider {
         width: 32px;
@@ -1398,12 +1409,33 @@
         margin-bottom: 14px;
     }
     .musik-bruecken-text {
+        width: 100%;
+        max-width: 98vw;
+        margin: 0;
+        padding: 0;
         font-size: 1.05rem;
         line-height: 1.55;
-           text-align: justify !important;
-    hyphens: auto !important;
-    overflow-wrap: anywhere !important;
-    word-break: break-word !important;
+        text-align: justify !important;
+        hyphens: auto !important;
+        overflow-wrap: anywhere !important;
+        word-break: break-word !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .musik-bruecken-card {
+        width: 98vw;
+        min-height: 120px;
+        padding-left: 2vw;
+        padding-right: 2vw;
+    }
+
+    .musik-bruecken-text {
+        width: 98vw;
+        margin: 18px auto 24px auto;
+        padding: 0 2vw;
+        font-size: clamp(0.92rem, 2vw, 1.05rem);
+        max-width: 100%;
     }
 }
 .musikalisches-repertoire-section {
@@ -2240,19 +2272,6 @@
    
         background: #fff !important;
     }
-    .musik-bruecken-text {
-        font-size: clamp(0.85rem, 1vw, 0.98rem);
-        text-align: justify !important;
-        hyphens: auto !important;
-        overflow-wrap: anywhere !important;
-        word-break: break-word !important;
-    }
-}
-
-@media (min-width: 600px) {
-    .musik-bruecken-card {
-        max-width: 900px;
-    }
 }
 .brand-text {
     display: block;
@@ -2862,76 +2881,6 @@
     flex-direction: column;
     align-items: center;
     box-shadow: 0 4px 24px rgba(26,54,93,0.10);
-}
-/* Musik baut Brücken Card: Responsive height and vertical centering */
-.musik-bruecken-card {
-    padding-left: 6vw !important;
-    padding-right: 6vw !important;
-    min-height: 220px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    box-sizing: border-box;
-    /* Let card grow with content, never clip */
-}
-@media (max-width: 900px) {
-    .musik-bruecken-card {
-        padding-left: 4vw !important;
-        padding-right: 4vw !important;
-        min-height: 180px;
-    }
-}
-@media (max-width: 600px) {
-    .musik-bruecken-card {
-        padding-left: 2vw !important;
-        padding-right: 2vw !important;
-        min-height: 120px;
-    }
-}
-/* Musik baut Brücken Text responsiv */
-/* Musik baut Brücken Text responsiv und optisch ansprechend */
-/* Musik baut Brücken Text: Responsive, fills card, never overflows */
-.musik-bruecken-text {
-    width: 70vw;
-    box-sizing: border-box;
-    margin: 32px auto 40px auto;
-    padding: 0 2vw;
-    display: block;
-    text-align: center;
-    line-height: 1.7;
-    font-size: clamp(1.05rem, 2vw, 1.22rem);
-    word-break: break-word;
-    hyphens: auto;
-    overflow-wrap: break-word;
-    max-width: 100%;
-}
-
-@media (max-width: 600px) {
-    .musik-bruecken-text {
-        width: 98vw;
-        margin: 18px auto 24px auto;
-        padding: 0 2vw;
-        font-size: clamp(0.92rem, 2vw, 1.05rem);
-        max-width: 100%;
-           text-align: justify !important;
-    hyphens: auto !important;
-    overflow-wrap: anywhere !important;
-    word-break: break-word !important;
-    }
-}
-/* Musik baut Brücken Card wie material-card responsiv */
-.musik-bruecken-card {
-    width: 70vw;
-    box-sizing: border-box;
-    margin: 0 auto;
-    min-width: 0;
-}
-@media (max-width: 600px) {
-    .musik-bruecken-card {
-        width: 98vw;
-    }
 }
 .material-card, .material-card p, .material-card li {
     text-align: justify;
