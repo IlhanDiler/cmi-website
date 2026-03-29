@@ -970,7 +970,6 @@
         max-width: 210px;
     }
     .charity-card-main-text {
-        font-size: 1rem;
         line-height: 1.56;
     }
     .charity-list-item {
@@ -1615,7 +1614,6 @@
 @media (max-width: 600px) {
     .charity-meta {
         text-align: left;
-        font-size: clamp(0.98em, 2vw + 0.7vh, 1.08em);
     }
 }
 .charity-description {
@@ -1652,13 +1650,11 @@
 }
 @media (max-width: 1200px) {
     .charity-title {
-        font-size: clamp(1.3em, 5vw, 2.1em);
         margin-bottom: 14px;
     }
 }
 @media (max-width: 600px) {
     .charity-title {
-        font-size: clamp(1.1em, 7vw, 1.5em);
         margin-bottom: 10px;
     }
 }
