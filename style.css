@@ -4543,11 +4543,6 @@
     word-break: break-word !important;
     }
 }
-@media (min-width: 1200px) {
-    .musik-bruecken-text {
-        width: 70vw;
-    }
-}
 /* Musik baut Brücken Card wie material-card responsiv */
 .musik-bruecken-card {
     width: 70vw;
@@ -4555,19 +4550,9 @@
     margin: 0 auto;
     min-width: 0;
 }
-@media (max-width: 900px) {
-    .musik-bruecken-card {
-        width: 70vw;
-    }
-}
 @media (max-width: 600px) {
     .musik-bruecken-card {
         width: 98vw;
-    }
-}
-@media (min-width: 1200px) {
-    .musik-bruecken-card {
-        width: 70vw;
     }
 }
 @media (min-width: 1200px) {
@@ -5089,16 +5074,8 @@
    
 /* Importiere die Inter-Schrift von Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-.project-card {
-    max-width: 700px;
-    min-width: 280px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    box-sizing: border-box;
-}
 @media (max-width: 900px) {
-    .repertoire-card, .engagement-card, .project-card {
+    .repertoire-card, .engagement-card {
         max-width: 98vw;
         min-width: 0;
         margin: 18px auto;
@@ -5171,8 +5148,6 @@ article, section, p, .project-card, .chronik-section, .next-section-content, .co
         padding-right: 1vw;
     }
 }
-/* Importiere die Inter-Schrift von Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 @media (max-width: 1200px) {
     .navbar {
