@@ -5199,7 +5199,7 @@ article, section, p, .project-card, .chronik-section, .next-section-content, .co
 
 @media (max-width: 1200px) {
     .navbar {
-        background: #000 !important;
+        background: rgba(7, 9, 13, 0.72) !important;
         color: #fff;
     }
     .mobile-menu-btn {
@@ -5477,11 +5477,9 @@ html, body {
     align-items: center;
     gap: clamp(10px, 1.4vw, 20px);
     padding: 10px clamp(12px, 2.2vw, 26px);
-    background: linear-gradient(180deg, rgba(7, 9, 13, 0.94), rgba(7, 9, 13, 0.82));
+    background: linear-gradient(180deg, rgba(7, 9, 13, 0.72), rgba(7, 9, 13, 0.42));
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
-    backdrop-filter: blur(18px) saturate(130%);
-    -webkit-backdrop-filter: blur(18px) saturate(130%);
     display: flex;
     justify-content: center;
     font-family: 'Plus Jakarta Sans', 'Inter', 'Segoe UI', 'Roboto', 'Arial', sans-serif;
