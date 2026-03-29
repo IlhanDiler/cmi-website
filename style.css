@@ -5966,7 +5966,6 @@ html[lang="it"] #langIt {
 /* Specific sizing for Nikolausfeier image */
 #review-nikolausfeier-2025 .charity-flex-row > .gruppenbild-container {
     width: min(39%, 430px) !important;
-    max-width: min(39%, 430px) !important;
     flex: 0 0 min(39%, 430px) !important;
     margin-top: 28px !important;
     align-self: flex-start;
@@ -5989,7 +5988,6 @@ html[lang="it"] #langIt {
 @media (max-width: 1200px) {
     #review-nikolausfeier-2025 .charity-flex-row > .gruppenbild-container {
         width: min(66%, 420px) !important;
-        max-width: min(66%, 420px) !important;
         flex-basis: auto !important;
         margin-top: 18px !important;
     }
@@ -5998,7 +5996,6 @@ html[lang="it"] #langIt {
 @media (max-width: 900px) {
     #review-nikolausfeier-2025 .charity-flex-row > .gruppenbild-container {
         width: min(80%, 360px) !important;
-        max-width: min(80%, 360px) !important;
     }
 
     #review-nikolausfeier-2025 .gruppenbild-img-nikolaus {
@@ -6009,7 +6006,6 @@ html[lang="it"] #langIt {
 @media (max-width: 600px) {
     #review-nikolausfeier-2025 .charity-flex-row > .gruppenbild-container {
         width: min(100%, 300px) !important;
-        max-width: min(100%, 300px) !important;
         margin-top: 12px !important;
     }
 
