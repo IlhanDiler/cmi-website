@@ -1406,6 +1406,19 @@
         margin-bottom: 10px;
     }
 }
+
+.charity-title--compact {
+    margin-bottom: 0.2em;
+}
+
+.charity-title--flush-top {
+    margin-top: 0;
+}
+
+.charity-description--left {
+    text-align: left !important;
+}
+
 /* Refined Timeline Section Design */
 .timeline-section {
     --timeline-section-padding: 88px 0;
