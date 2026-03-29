@@ -295,8 +295,7 @@
     line-height: 1.2;
     letter-spacing: -0.01em;
 }
-.contact-info-card-text,
-.contact-info-card-link {
+.contact-info-card-text {
     color: #18363b;
     font-family: var(--font-ui);
     font-size: clamp(0.98rem, 1vw, 1.04rem);
@@ -309,10 +308,16 @@
 }
 .contact-info-card-link {
     color: #0f9184;
+    font-family: var(--font-ui);
+    font-size: clamp(0.98rem, 1vw, 1.04rem);
     font-weight: 620;
+    line-height: 1.5;
+    letter-spacing: 0.002em;
+    text-align: left !important;
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 0.18em;
+    word-break: break-word;
 }
 @media (max-width: 900px) {
     .contact-info-section {
