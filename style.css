@@ -734,37 +734,6 @@
     }
 }
 
-@media (min-width: 1201px) and (max-width: 1300px) {
-    .navbar {
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        padding: 0 2vw !important;
-    }
-    .nav-brand {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        margin-right: 32px !important;
-        margin-bottom: 12px !important;
-        font-size: 0.92em !important;
-    }
-    .nav-menu {
-        flex-wrap: nowrap !important;
-        gap: 8px !important;
-        justify-content: flex-start !important;
-        margin-left: 380px !important;
-    }
-    .nav-link {
-        font-family: 'Plus Jakarta Sans', 'Inter', 'Segoe UI', Arial, sans-serif !important;
-        font-size: 0.84rem !important;
-        font-weight: 700 !important;
-        padding: 0.62em 0.82em !important;
-        letter-spacing: 0.07em !important;
-        text-transform: uppercase !important;
-    }
-}
-
 @media (max-width: 1300px) {
     .charity-title {
         font-size: 1.5em !important;
