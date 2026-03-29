@@ -1261,82 +1261,6 @@
     object-position: center top;
     box-shadow: 0 8px 22px rgba(18, 62, 70, 0.10);
 }
-@media (max-width: 600px) {
-    .about-me-section-modern-inner {
-        flex-direction: column;
-        gap: 18px;
-        width: 100vw;
-        max-width: 100vw;
-        padding: 0 0 0 0;
-        align-items: center;
-    }
-    .about-me-text-modern {
-        background: #fff;
-        border-radius: 18px;
-        box-shadow: 0 2px 16px rgba(25,211,197,0.13), 0 1.5px 6px rgba(0,0,0,0.04);
-        padding: 18px 10px 18px 10px;
-        margin: 0 8px;
-        width: 96vw;
-        max-width: 420px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .about-me-modern-title {
-        font-size: 1.4em !important;
-        text-align: center !important;
-        font-weight: 700 !important;
-        color: #009688 !important;
-        margin-bottom: 0.2em !important;
-        margin-top: 0.2em !important;
-        letter-spacing: -0.01em !important;
-    }
-    .about-me-modern-subtitle {
-        font-size: 1em !important;
-        text-align: center !important;
-        color: #1a5c63 !important;
-        margin-bottom: 1.1em !important;
-        margin-top: 0.1em !important;
-        font-weight: 500 !important;
-        letter-spacing: 0.01em !important;
-    }
-    .about-me-bio-text {
-        font-size: clamp(1em, 2vw, 1.15em);
-        line-height: 1.7;
-        color: #222;
-        margin-bottom: 0.8em;
-        font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-        word-break: break-word;
-        padding-left: 20px !important;
-        padding-right: 25px !important;
-        box-sizing: border-box !important;
-        background: none;
-        text-align: justify !important;
-        hyphens: auto !important;
-        -webkit-hyphens: auto !important;
-        -ms-hyphens: auto !important;
-    }
-    .about-me-image-modern {
-        margin: 0 auto 8px auto !important;
-        box-shadow: 0 2px 12px rgba(25,211,197,0.10);
-        background: #fff !important;
-        max-width: 96vw !important;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 8px 0 8px 0 !important;
-    }
-    .about-me-image-modern img {
-        max-width: 92vw !important;
-        max-height: 38vh !important;
-        object-fit: contain !important;
-        background: #fff !important;
-        margin: 0 auto !important;
-        display: block !important;
-    }
-}
 
 .about-me-bio-text {
     font-size: clamp(1em, 2vw, 1.15em);
@@ -1375,63 +1299,6 @@
     background: #fff;
 }
 
-
-@media (max-width: 900px) {
-    .about-me-section-modern-inner {
-        flex-direction: column;
-        gap: 4px;
-        width: 100vw;
-        max-width: 100vw;
-        padding: 0;
-    }
-    .about-me-text-modern, .about-me-image-modern {
-        max-width: 100vw;
-        width: 100vw;
-        padding: 18px 2vw;
-        height: auto;
-    }
-  
-    .about-me-image-modern img {
-        max-width: 98vw;
-        max-height: 60vh;
-    }
-}
-@media (max-width: 600px) {
-    .about-me-text-modern, .about-me-image-modern {
-        padding: 8px 1vw;
-        border-radius: 12px;
-        box-shadow: 0 2px 12px rgba(25,211,197,0.10);
-        height: auto;
-    }
-
-    .about-me-modern-title {
-        font-size: 1.5em !important;
-    }
-    .about-me-modern-subtitle {
-        font-size: 1em !important;
-    }
-    .about-me-image-modern img {
-        max-height: 40vh;
-    }
-    .about-me-bio-text {
-        font-size: 1em !important;
-        text-align: justify !important;
-        hyphens: auto !important;
-        -webkit-hyphens: auto !important;
-        -ms-hyphens: auto !important;
-    }
-
-    .about-me-mobile-image {
-        display: block;
-        width: 100%;
-        margin: 0 0 14px;
-    }
-
-    .about-me-image-modern {
-        display: none;
-    }
-}
-
 /* Unified mobile/tablet spacing for the Astrid section */
 @media (max-width: 900px) {
     .about-me-section-modern {
@@ -1439,6 +1306,7 @@
     }
 
     .about-me-section-modern-inner {
+        flex-direction: column;
         width: 100%;
         max-width: 100%;
         padding: 0 16px;
@@ -1455,8 +1323,10 @@
     }
 
     .about-me-text-modern {
+        background: #fff;
         padding: 22px 22px 18px;
         border-radius: 20px;
+        box-shadow: 0 2px 12px rgba(25,211,197,0.10);
         align-items: flex-start;
         text-align: left;
     }
@@ -1494,6 +1364,7 @@
 
     .about-me-image-modern img {
         max-width: 100% !important;
+        max-height: 60vh;
     }
 }
 
@@ -1504,8 +1375,36 @@
     }
 
     .about-me-text-modern {
+        display: flex;
+        flex-direction: column;
         padding: 20px 18px 16px;
         border-radius: 18px;
+    }
+
+    .about-me-modern-title {
+        font-size: 1.5em !important;
+    }
+
+    .about-me-modern-subtitle {
+        font-size: 1em !important;
+    }
+
+    .about-me-image-modern img {
+        max-height: 40vh;
+    }
+
+    .about-me-bio-text {
+        font-size: 1em !important;
+    }
+
+    .about-me-mobile-image {
+        display: block;
+        width: 100%;
+        margin: 0 0 14px;
+    }
+
+    .about-me-image-modern {
+        display: none;
     }
 }
 
