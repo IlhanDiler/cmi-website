@@ -149,10 +149,6 @@ function initEventLightbox() {
 
     lightboxModal.setAttribute('aria-hidden', 'true');
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    initEventLightbox();
-});
 // Dynamisch Abstand zwischen Gallery und nächster Section minimieren
 function minimizeGallerySectionGap() {
     const heroBg = document.querySelector('.hero-bg');
@@ -664,11 +660,6 @@ function initHeroGallery() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    initHeroLayout();
-    initHeroGallery();
-});
-
 window.addEventListener('resize', minimizeGallerySectionGap);
 window.addEventListener('resize', fitChristmetteImg);
 window.addEventListener('resize', syncHeroGalleryResponsiveState);
@@ -685,11 +676,6 @@ function revealOnScroll(selector) {
     }, { threshold: 0.15 });
     elements.forEach(el => observer.observe(el));
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    revealOnScroll('.modern-card');
-    revealOnScroll('.musikfamilie-card');
-});
 
 function initMobileNavigation() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -826,15 +812,6 @@ function updateYearsPassed() {
     yearsPassedEl.textContent = new Date().getFullYear() - 1981;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    initAccordion();
-    initMobileNavigation();
-    initNavbarScroll();
-    initShapeParallax();
-    initFieldValidation();
-    updateYearsPassed();
-});
-
 const supportedSiteLanguages = new Set(['de', 'en', 'it']);
 const mbondaTimelineLinkSelector = '.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]';
 
@@ -916,8 +893,21 @@ function initSiteLanguage() {
     applySiteLanguage(getCurrentSiteLanguage());
 }
 
-window.addEventListener('DOMContentLoaded', function() {
+function initSiteFeatures() {
+    initEventLightbox();
+    initHeroLayout();
+    initHeroGallery();
+    revealOnScroll('.modern-card');
+    revealOnScroll('.musikfamilie-card');
+    initAccordion();
+    initMobileNavigation();
+    initNavbarScroll();
+    initShapeParallax();
+    initFieldValidation();
+    updateYearsPassed();
     initSiteLanguage();
-});
+}
+
+document.addEventListener('DOMContentLoaded', initSiteFeatures);
 
 window.addEventListener('resize', ensureMbondaTimelineLinksAccessible);
