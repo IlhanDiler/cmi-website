@@ -39,29 +39,33 @@
     <link rel="shortcut icon" href="https://www.cmi-ochsenfurt.de/files/logo_cmi1%20-%20weiß.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="https://www.cmi-ochsenfurt.de/files/logo_cmi1%20-%20weiß.svg" type="image/svg+xml">
     <!--Stylesheets-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
     <h1 style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Collegium Musicum Iuvenale Ochsenfurt</h1>
-    <div class="hero-bg" style="position:relative;">
-        <div class="hero-bg-fade-container">
+    <div class="hero-bg" style="position:relative;" role="region" aria-label="Impressionen aus dem Collegium Musicum Iuvenale Ochsenfurt">
+        <div class="hero-bg-fade-container" id="heroGalleryViewport">
             <div class="hero-bg-fade hero-bg-fade-current" style="background-image:url('bilder/Gruppenbild2.jpg');background-size:100vw auto;background-position:center 8%;" aria-label="Gruppenbild Collegium Musicum Iuvenale Ochsenfurt"></div>
             <div class="hero-bg-fade hero-bg-fade-next"></div>
         </div>
         <nav class="navbar">
             <!-- Mobile menu button: ganz links -->
-            <button class="mobile-menu-btn" aria-label="Menü öffnen" aria-controls="mobile-menu" aria-expanded="false" tabindex="0" style="background:none;border:none;padding:0;display:flex;align-items:center;justify-content:center;min-width:48px;min-height:48px;cursor:pointer;">
-                <img src="files/icon.menu.button.svg" alt="Menü öffnen" class="menu-icon" style="width:40px;height:40px;">
+            <button class="mobile-menu-btn" aria-label="Menü öffnen" aria-controls="mobile-menu" aria-expanded="false" tabindex="0">
+                <img src="files/icon.menu.button.svg" alt="Menü öffnen" class="menu-icon">
             </button>
             <!-- Logo und Titel: mittig -->
-            <div class="nav-brand" style="margin: 0 auto; display: flex; align-items: center; justify-content: center;">
+            <div class="nav-brand">
                                 <a href="/" title="Startseite Collegium Musicum Iuvenale Ochsenfurt">
                                     <img id="mainLogo" src="files/logo_cmi1 - weiß.svg" alt="Logo Collegium Musicum Iuvenale Ochsenfurt Hauptlogo" class="nav-logo">
                                 </a>
                 <span class="brand-text">
-                    Collegium Musicum Iuvenale<br><span class="brand-sub">Ochsenfurt</span>
+                    <span class="brand-main">Collegium Musicum Iuvenale</span>
+                    <span class="brand-sub">Ochsenfurt</span>
                 </span>
             </div>
             <!-- Desktop Navigation jetzt links -->
@@ -88,16 +92,16 @@
                 <a href="#contact" class="nav-link" data-lang="it" style="display:none;">Contatto</a>
             </div>
             <!-- Sprachumschalter: jetzt ganz rechts -->
-            <div id="langSwitcher" style="display:flex;align-items:center;gap:4px;margin-left:auto;">
-                <button onclick="setLang('de')" id="langDe" style="padding:6px 14px;margin-right:4px;font-weight:600;border-radius:8px;border:none;background:rgba(255,255,255,0.85);color:#222;box-shadow:0 2px 8px rgba(0,0,0,0.08);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">
-                    <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right:4px;">
+            <div id="langSwitcher">
+                <button onclick="setLang('de')" id="langDe" class="lang-switch-button" aria-label="Deutsch">
+                    <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="21" height="14" fill="#000000"/>
                         <rect y="4.66667" width="21" height="4.66667" fill="#DD0000"/>
                         <rect y="9.33333" width="21" height="4.66667" fill="#FFCE00"/>
                     </svg>
                 </button>
-                <button onclick="setLang('en')" id="langEn" style="padding:6px 14px;font-weight:600;border-radius:8px;border:none;background:rgba(255,255,255,0.85);color:#222;box-shadow:0 2px 8px rgba(0,0,0,0.08);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">
-                    <svg width="21" height="14" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" style="margin-right:4px;">
+                <button onclick="setLang('en')" id="langEn" class="lang-switch-button" aria-label="English">
+                    <svg width="21" height="14" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
                         <rect width="1200" height="600" fill="#00247d"/>
                         <path d="M0,0L1200,600M1200,0L0,600" stroke="#fff" stroke-width="120"/>
                         <path d="M0,0L1200,600M1200,0L0,600" stroke="#cf142b" stroke-width="60"/>
@@ -109,8 +113,8 @@
                         <path d="M1080,0L1200,600L1080,600L960,0" stroke="#cf142b" stroke-width="30"/>
                     </svg>
                 </button>
-                <button onclick="setLang('it')" id="langIt" style="padding:6px 14px;font-weight:600;border-radius:8px;border:none;background:rgba(255,255,255,0.85);color:#222;box-shadow:0 2px 8px rgba(0,0,0,0.08);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">
-                    <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right:4px;">
+                <button onclick="setLang('it')" id="langIt" class="lang-switch-button" aria-label="Italiano">
+                    <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="7" height="14" x="0" y="0" fill="#008C45"/>
                         <rect width="7" height="14" x="7" y="0" fill="#F4F5F0"/>
                         <rect width="7" height="14" x="14" y="0" fill="#CD212A"/>
@@ -141,8 +145,31 @@
             </div>
         </nav>
       </nav>
-      <!-- Hero Gallery Pagination Dots -->
-        <div class="hero-gallery-pagination" role="tablist" aria-label="Hero Gallery Pagination"></div>
+        <div class="hero-gallery-ui" aria-label="Hero Gallery Controls">
+            <div class="hero-gallery-meta">
+                <div class="hero-gallery-counter" aria-live="polite">
+                    <span id="heroGalleryCurrent">01</span>
+                    <span class="hero-gallery-counter-separator">/</span>
+                    <span id="heroGalleryTotal">12</span>
+                </div>
+                <div class="hero-gallery-progress" aria-hidden="true">
+                    <span id="heroGalleryProgressBar" class="hero-gallery-progress-bar"></span>
+                </div>
+            </div>
+            <div class="hero-gallery-controls">
+                <button class="hero-gallery-control hero-gallery-control--prev" type="button" aria-label="Vorheriges Bild" aria-controls="heroGalleryViewport">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M14.5 5L8 12L14.5 19"></path>
+                    </svg>
+                </button>
+                <div class="hero-gallery-pagination" role="tablist" aria-label="Hero Gallery Pagination"></div>
+                <button class="hero-gallery-control hero-gallery-control--next" type="button" aria-label="Nächstes Bild" aria-controls="heroGalleryViewport">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M9.5 5L16 12L9.5 19"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
     </div>
      
 <!-- Material Design Section: Bild mit Unterschrift -->
@@ -170,46 +197,46 @@
     </div>
 </section>
 <!-- Moderne Section: Werde Teil unserer Musikfamilie -->
-<section id="music-family-section" class="music-family-section" style="background:linear-gradient(180deg,#eafafc 0%,#f7fff7 100%);padding:72px 0 72px 0;">
-    <div class="music-family-container" style="max-width:900px;margin:0 auto;padding:0 24px;">
-    <h2 class="music-family-title" data-lang="de" style="font-size:clamp(1.3em, 4vw, 2.5em);font-weight:700;color:#222;margin-bottom:18px;font-family:'Inter','Segoe UI',Arial,sans-serif;white-space:nowrap;">Werde Teil unserer </br><span style="color:#009688;">Musikfamilie</span></h2>
-    <h2 class="music-family-title" data-lang="en" style="display:none;font-size:clamp(1.3em, 4vw, 2.5em);font-weight:700;color:#222;margin-bottom:18px;font-family:'Inter','Segoe UI',Arial,sans-serif;white-space:nowrap;">Become Part of Our <span style="color:#009688;">Music Family</span></h2>
-    <h2 class="music-family-title" data-lang="it" style="display:none;font-size:clamp(1.3em, 4vw, 2.5em);font-weight:700;color:#222;margin-bottom:18px;font-family:'Inter','Segoe UI',Arial,sans-serif;white-space:nowrap;">Diventa parte della nostra <span style="color:#009688;">famiglia musicale</span></h2>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:18px;margin-bottom:32px;">
+<section id="music-family-section" class="music-family-section">
+    <div class="music-family-container">
+    <h2 class="music-family-title" data-lang="de">Werde Teil unserer <span class="music-family-title-accent">Musikfamilie</span></h2>
+    <h2 class="music-family-title" data-lang="en" style="display:none;">Become Part of Our <span class="music-family-title-accent">Music Family</span></h2>
+    <h2 class="music-family-title" data-lang="it" style="display:none;">Diventa parte della nostra <span class="music-family-title-accent">famiglia musicale</span></h2>
+        <div class="music-family-intro">
             <p class="music-family-desc" data-lang="de">Egal ob du erst angefangen hast oder schon Erfahrung mitbringst – bei uns findest du deinen Platz. Wir suchen motivierte Musiker aller Instrumente.</p>
             <p class="music-family-desc" data-lang="en" style="display:none;">Whether you are just starting out or already have experience – you will find your place with us. We are looking for motivated musicians of all instruments.</p>
             <p class="music-family-desc" data-lang="it" style="display:none;">Che tu abbia appena iniziato o abbia già esperienza – da noi troverai il tuo posto. Cerchiamo musicisti motivati di tutti gli strumenti.</p>
         </div>
-        <div style="display:flex;flex-wrap:wrap;gap:32px;justify-content:center;margin-bottom:38px;">
-    <ul class="music-family-benefits" data-lang="de" style="margin-bottom:38px;">
-        <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Wöchentliche Proben jeden Samstag Vormittag</li>
-        <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Kostenlose Teilnahme – nur deine Leidenschaft zählt</li>
-        <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Freundliche Atmosphäre und kompetente Leitung</li>
-        <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Regelmäßige Auftritte und besondere Events</li>
+        <div class="music-family-benefits-row">
+    <ul class="music-family-benefits" data-lang="de">
+        <li><span class="music-family-benefit-check">✓</span><span>Wöchentliche Proben jeden Samstag Vormittag</span></li>
+        <li><span class="music-family-benefit-check">✓</span><span>Kostenlose Teilnahme – nur deine Leidenschaft zählt</span></li>
+        <li><span class="music-family-benefit-check">✓</span><span>Freundliche Atmosphäre und kompetente Leitung</span></li>
+        <li><span class="music-family-benefit-check">✓</span><span>Regelmäßige Auftritte und besondere Events</span></li>
     </ul>
     <span class="music-family-logo-mobile">
     <img src="files/logo_cmi1 - schwarz.svg" alt="Logo Collegium Musicum Iuvenale Ochsenfurt schwarz" />
     </span>
-            <ul class="music-family-benefits" style="list-style:none;padding:0;margin:0;min-width:260px;display:none;" data-lang="en">
-                <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Weekly rehearsals every Saturday morning</li>
-                <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Free participation – only your passion counts</li>
-                <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Friendly atmosphere and competent leadership</li>
-                <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Regular performances and special events</li>
+            <ul class="music-family-benefits" style="display:none;" data-lang="en">
+                <li><span class="music-family-benefit-check">✓</span><span>Weekly rehearsals every Saturday morning</span></li>
+                <li><span class="music-family-benefit-check">✓</span><span>Free participation – only your passion counts</span></li>
+                <li><span class="music-family-benefit-check">✓</span><span>Friendly atmosphere and competent leadership</span></li>
+                <li><span class="music-family-benefit-check">✓</span><span>Regular performances and special events</span></li>
             </ul>
-            <ul class="music-family-benefits" style="list-style:none;padding:0;margin:0;min-width:260px;display:none;" data-lang="it">
-                <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Prove settimanali ogni sabato mattina</li>
-                <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Partecipazione gratuita – conta solo la tua passione</li>
-                <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Atmosfera amichevole e direzione competente</li>
-                <li><span style="color:#009688;font-size:1.2em;margin-right:8px;">✓</span>Esibizioni regolari ed eventi speciali</li>
+            <ul class="music-family-benefits" style="display:none;" data-lang="it">
+                <li><span class="music-family-benefit-check">✓</span><span>Prove settimanali ogni sabato mattina</span></li>
+                <li><span class="music-family-benefit-check">✓</span><span>Partecipazione gratuita – conta solo la tua passione</span></li>
+                <li><span class="music-family-benefit-check">✓</span><span>Atmosfera amichevole e direzione competente</span></li>
+                <li><span class="music-family-benefit-check">✓</span><span>Esibizioni regolari ed eventi speciali</span></li>
             </ul>
         </div>
-        <div class="music-family-groups" style="display:flex;flex-wrap:wrap;gap:32px;">
-            <div class="music-family-group" style="flex:1;min-width:280px;background:#fff;border-radius:18px;box-shadow:0 4px 24px rgba(0,184,148,0.08);padding:28px 22px;">
-                <h2 style="color:#009688;font-size:1.25em;font-weight:700;margin-bottom:14px;font-family:'Inter','Segoe UI',Arial,sans-serif;" data-lang="de">Anfängergruppe</h2>
-                <h2 style="color:#009688;font-size:1.25em;font-weight:700;margin-bottom:14px;display:none;font-family:'Inter','Segoe UI',Arial,sans-serif;" data-lang="it">Gruppo principianti</h2>
-                <h2 style="color:#009688;font-size:1.25em;font-weight:700;margin-bottom:14px;display:none;font-family:'Inter','Segoe UI',Arial,sans-serif;" data-lang="en">Beginner Group</h2>
+        <div class="music-family-groups">
+            <div class="music-family-group">
+                <h2 class="music-family-group-title" data-lang="de">Anfängergruppe</h2>
+                <h2 class="music-family-group-title" data-lang="it" style="display:none;">Gruppo principianti</h2>
+                <h2 class="music-family-group-title" data-lang="en" style="display:none;">Beginner Group</h2>
              
-                    <ul style="list-style:none;padding:0;font-size:1.08em;color:#222;font-family:'Inter','Segoe UI',Arial,sans-serif;" data-lang="de">
+                    <ul class="music-family-group-details" data-lang="de">
                         <li><b>Wann:</b> samstags von 10.00–11.00 Uhr</li>
                         <li><b>Wo:</b><br>
                             <span class="address-part">Rote Schule (VHS-Gebäude)</span><br>
@@ -221,7 +248,7 @@
                         <li><b>Kosten:</b> keine</li>
                         <li><b>Voraussetzung:</b> Instrument, Notenständer, Kenntnis von wenigstens zwei Tönen oder Freude am Singen</li>
                     </ul>
-                        <ul style="list-style:none;padding:0;font-size:1.08em;color:#222;font-family:'Inter','Segoe UI',Arial,sans-serif;display:none;" data-lang="it">
+                        <ul class="music-family-group-details" data-lang="it" style="display:none;">
                             <li><b>Quando:</b> sabato dalle 10:00 alle 11:00</li>
                             <li><b>Dove:</b><br>
                                 <span class="address-part">Rote Schule (edificio VHS)</span><br>
@@ -233,7 +260,7 @@
                             <li><b>Costo:</b> nessuno</li>
                             <li><b>Requisito:</b> Strumento, leggio, conoscenza di almeno due note oppure piacere di cantare</li>
                         </ul>
-                    <ul style="list-style:none;padding:0;font-size:1.08em;color:#222;font-family:'Inter','Segoe UI',Arial,sans-serif;display:none;" data-lang="en">
+                    <ul class="music-family-group-details" data-lang="en" style="display:none;">
                         <li><b>When:</b> Saturdays from 10:00–11:00 am</li>
                         <li><b>Where:</b><br>
                             <span class="address-part">Rote Schule (VHS building)</span><br>
@@ -248,11 +275,11 @@
                    
                   
             </div>
-            <div class="music-family-group" style="flex:1;min-width:280px;background:#fff;border-radius:18px;box-shadow:0 4px 24px rgba(0,184,148,0.08);padding:28px 22px;">
-                <h2 style="color:#009688;font-size:1.25em;font-weight:700;margin-bottom:14px;font-family:'Inter','Segoe UI',Arial,sans-serif;" data-lang="de">Für fortgeschrittene Jugendliche und Erwachsene (auch Neu-Einsteiger):</h2>
-                <h2 style="color:#009688;font-size:1.25em;font-weight:700;margin-bottom:14px;display:none;font-family:'Inter','Segoe UI',Arial,sans-serif;" data-lang="it">Per giovani avanzati e adulti (anche nuovi arrivati):</h2>
-                <h2 style="color:#009688;font-size:1.25em;font-weight:700;margin-bottom:14px;display:none;font-family:'Inter','Segoe UI',Arial,sans-serif;" data-lang="en">For Advanced Youth and Adults (also Newcomers):</h2>
-                <ul style="list-style:none;padding:0;font-size:1.08em;color:#222;font-family:'Inter','Segoe UI',Arial,sans-serif;" data-lang="de">
+            <div class="music-family-group">
+                <h2 class="music-family-group-title" data-lang="de">Für fortgeschrittene Jugendliche und Erwachsene (auch Neu-Einsteiger):</h2>
+                <h2 class="music-family-group-title" data-lang="it" style="display:none;">Per giovani avanzati e adulti (anche nuovi arrivati):</h2>
+                <h2 class="music-family-group-title" data-lang="en" style="display:none;">For Advanced Youth and Adults (also Newcomers):</h2>
+                <ul class="music-family-group-details" data-lang="de">
                     <li><b>Wann:</b> samstags von 11.00–12.30 Uhr</li>
                     <li><b>Wo:</b><br>
                         <span class="address-part">Rote Schule (VHS-Gebäude)</span><br>
@@ -264,7 +291,7 @@
                     <li><b>Kosten:</b> keine</li>
                     <li><b>Voraussetzung:</b> Instrument, Notenständer, ca. drei Jahre Erfahrung</li>
                 </ul>
-                <ul style="list-style:none;padding:0;font-size:1.08em;color:#222;font-family:'Inter','Segoe UI',Arial,sans-serif;display:none;" data-lang="it">
+                <ul class="music-family-group-details" data-lang="it" style="display:none;">
                     <li><b>Quando:</b> sabato dalle 11:00 alle 12:30</li>
                     <li><b>Dove:</b><br>
                         <span class="address-part">Rote Schule (edificio VHS)</span><br>
@@ -276,7 +303,7 @@
                     <li><b>Costo:</b> nessuno</li>
                     <li><b>Requisito:</b> Strumento, leggio, circa tre anni di esperienza</li>
                 </ul>
-                <ul style="list-style:none;padding:0;font-size:1.08em;color:#222;font-family:'Inter','Segoe UI',Arial,sans-serif;display:none;" data-lang="en">
+                <ul class="music-family-group-details" data-lang="en" style="display:none;">
                     <li><b>When:</b> Saturdays from 11:00–12:30 am</li>
                     <li><b>Where:</b><br>
                         <span class="address-part">Rote Schule (VHS building)</span><br>
@@ -290,13 +317,13 @@
                 </ul>
             </div>
         </div>
-        <div class="music-family-contact" style="margin-top:38px;font-size:1.08em;color:#222;">
-            <div style="font-weight:700;color:#009688;margin-bottom:8px;" data-lang="de">Info & Anmeldung:</div>
-            <div style="font-weight:700;color:#009688;margin-bottom:8px;display:none;" data-lang="en">Info & Registration:</div>
-            <div style="font-weight:700;color:#009688;margin-bottom:8px;display:none;" data-lang="it">Info e iscrizione:</div>
-            <div style="background:#eafafc;border-radius:8px;padding:12px 18px;box-shadow:0 2px 8px rgba(0,184,148,0.07);display:inline-block;">
-                <span style="font-weight:600;">Astrid Eitschberger</span><br>
-                <a href="mailto:astrid.eitschberger@cmi-ochsenfurt.de" style="color:#00b894;text-decoration:underline;font-weight:500;">astrid.eitschberger@cmi-ochsenfurt.de</a>
+        <div class="music-family-contact">
+            <div class="music-family-contact-title" data-lang="de">Info & Anmeldung:</div>
+            <div class="music-family-contact-title" data-lang="en" style="display:none;">Info & Registration:</div>
+            <div class="music-family-contact-title" data-lang="it" style="display:none;">Info e iscrizione:</div>
+            <div class="music-family-contact-card">
+                <span class="music-family-contact-name">Astrid Eitschberger</span><br>
+                <a href="mailto:astrid.eitschberger@cmi-ochsenfurt.de" class="music-family-contact-link">astrid.eitschberger@cmi-ochsenfurt.de</a>
             </div>
         </div>
     </div>
@@ -429,10 +456,20 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
     </div>
 </section>
 <section class="event-section" id="events">
-<div id="eventLightboxModal" role="dialog" aria-modal="true" aria-label="Eventbild in voller Ansicht" style="display:none;position:fixed;z-index:10;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;">
-    <div style="position:relative;display:inline-block;">
-        <img id="eventLightboxImg" src="" alt="Event Bild" style="max-width:90vw;max-height:90vh;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.25);background:#fff;display:block;" />
-        <button id="eventLightboxClose" tabindex="0" aria-label="Schließen" style="position:absolute;bottom:18px;right:18px;width:48px;height:48px;background:rgba(0,0,0,0.7);color:#fff;border:none;font-size:2em;line-height:1;border-radius:50%;cursor:pointer;z-index:12;display:flex;align-items:center;justify-content:center;padding:0;">&times;</button>
+<div id="eventLightboxModal" class="event-lightbox-modal" role="dialog" aria-modal="true" aria-label="Eventbild in voller Ansicht" style="display:none;">
+    <div class="event-lightbox-dialog">
+        <button id="eventLightboxClose" class="event-lightbox-close" tabindex="0" aria-label="Schließen">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M6 6L18 18"></path>
+                <path d="M18 6L6 18"></path>
+            </svg>
+        </button>
+        <img id="eventLightboxImg" class="event-lightbox-image" src="" alt="Event Bild" />
+        <div id="eventLightboxCaption" class="event-lightbox-caption" aria-live="polite">
+            <span id="eventLightboxCaptionKicker" class="event-lightbox-caption-kicker">Konzertplakat</span>
+            <span id="eventLightboxCaptionTitle" class="event-lightbox-caption-title"></span>
+            <span id="eventLightboxCaptionMeta" class="event-lightbox-caption-meta"></span>
+        </div>
     </div>
 </div>
     <h2 class="event-title" data-lang="de">Kommende Konzerte & Events</h2>
@@ -450,19 +487,31 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                 <div class="event-time" data-lang="it" style="display:none;">19:00</div>
             </div>
             <div class="event-content">
-                <div class="event-headline" data-lang="de">Internationales Galakonzert</div>
-                <div class="event-headline" data-lang="en" style="display:none;">International Gala Concert</div>
-                <div class="event-headline" data-lang="it" style="display:none;">Concerto di gala internazionale</div>
+                <div class="event-headline" data-lang="de">Internationales Benefiz-Jubiläumskonzert zum 45-jährigen Bestehen des CMI</div>
+                <div class="event-headline" data-lang="en" style="display:none;">International Benefit Anniversary Concert for the 45th Anniversary of CMI</div>
+                <div class="event-headline" data-lang="it" style="display:none;">Concerto internazionale benefico per il 45° anniversario del CMI</div>
 
                 <div class="event-location" data-lang="de">St. Thekla, Ochsenfurt</div>
                 <div class="event-location" data-lang="en" style="display:none;">St. Thekla, Ochsenfurt</div>
                 <div class="event-location" data-lang="it" style="display:none;">St. Thekla, Ochsenfurt</div>
 
-                <div class="event-description" data-lang="de">Internationales Galakonzert in der St. Thekla Ochsenfurt mit Coro Teatro Verdi di Padova, Streichern der Filarmonica di Padova, Blaskapelle Giebelstadt-Sulzdorf, Collegium Musicum Iuvenale Ochsenfurt, Liederkranz 1863 Giebelstadt e.V. und FAINO, dem ukrainischen Vokalensemble Wuerzburg. Eintritt frei.</div>
-                <div class="event-description" data-lang="en" style="display:none;">International gala concert at St. Thekla in Ochsenfurt with Coro Teatro Verdi di Padova, string players of the Filarmonica di Padova, Blaskapelle Giebelstadt-Sulzdorf, Collegium Musicum Iuvenale Ochsenfurt, Liederkranz 1863 Giebelstadt e.V., and FAINO, the Ukrainian vocal ensemble from Wuerzburg. Admission free.</div>
-                <div class="event-description" data-lang="it" style="display:none;">Concerto di gala internazionale nella chiesa di St. Thekla a Ochsenfurt con Coro Teatro Verdi di Padova, gli archi della Filarmonica di Padova, Blaskapelle Giebelstadt-Sulzdorf, Collegium Musicum Iuvenale Ochsenfurt, Liederkranz 1863 Giebelstadt e.V. e FAINO, ensemble vocale ucraino di Wuerzburg. Ingresso libero.</div>
+                <div class="event-description" data-lang="de">Internationales Benefiz-Jubiläumskonzert zum 45-jährigen Bestehen des CMI in St. Thekla Ochsenfurt mit Coro Teatro Verdi di Padova, Streichern der Filarmonica di Padova, Blaskapelle Giebelstadt-Sulzdorf, Collegium Musicum Iuvenale Ochsenfurt, Liederkranz 1863 Giebelstadt e.V. und FAINO, dem ukrainischen Vokalensemble Wuerzburg. Eintritt frei. Spenden zugunsten von <a href="https://www.mbonda-lokito.org/home.html" target="_blank" rel="noopener" class="external-link">Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a> und der <a href="https://mrija-ua.de/" target="_blank" rel="noopener" class="external-link">Würzburger Ukraine-Hilfe</a>.</div>
+                <div class="event-description" data-lang="en" style="display:none;">International benefit anniversary concert for the 45th anniversary of CMI at St. Thekla in Ochsenfurt with Coro Teatro Verdi di Padova, string players of the Filarmonica di Padova, Blaskapelle Giebelstadt-Sulzdorf, Collegium Musicum Iuvenale Ochsenfurt, Liederkranz 1863 Giebelstadt e.V., and FAINO, the Ukrainian vocal ensemble from Wuerzburg. Admission free. Donations in support of <a href="https://www.mbonda-lokito.org/home.html" target="_blank" rel="noopener" class="external-link">Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a> and <a href="https://mrija-ua.de/" target="_blank" rel="noopener" class="external-link">Wuerzburg Ukraine Aid</a>.</div>
+                <div class="event-description" data-lang="it" style="display:none;">Concerto internazionale benefico per il 45° anniversario del CMI nella chiesa di St. Thekla a Ochsenfurt con Coro Teatro Verdi di Padova, gli archi della Filarmonica di Padova, Blaskapelle Giebelstadt-Sulzdorf, Collegium Musicum Iuvenale Ochsenfurt, Liederkranz 1863 Giebelstadt e.V. e FAINO, ensemble vocale ucraino di Wuerzburg. Ingresso libero. Offerte a favore di <a href="https://www.mbonda-lokito.org/home.html" target="_blank" rel="noopener" class="external-link">Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a> e dell'<a href="https://mrija-ua.de/" target="_blank" rel="noopener" class="external-link">Aiuto Ucraina di Wuerzburg</a>.</div>
 
-                <img src="bilder/Plakat 01.05.2026.jpg" alt="Plakat Internationales Galakonzert am 01.05.2026" class="event-christmas-img event-preview-thumb event-lightbox-trigger" loading="lazy" decoding="async" style="cursor:zoom-in;margin-top:18px;" />
+                <div class="event-poster-stage">
+                    <img src="bilder/cmi-benefiz-jubilaeumskonzert-45-jahre-ochsenfurt-2026-05-01-preview.jpg" data-lightbox-src="bilder/cmi-benefiz-jubilaeumskonzert-45-jahre-ochsenfurt-2026-05-01.jpg" alt="Plakat Internationales Benefiz-Jubiläumskonzert zum 45-jährigen Bestehen des CMI am 01.05.2026" class="event-christmas-img event-preview-thumb event-lightbox-trigger event-poster-image" loading="lazy" decoding="async" width="900" height="1040" />
+                    <div class="event-poster-hint">
+                        <span class="event-poster-hint-text" data-lang="de">Zur Großansicht anklicken oder antippen</span>
+                        <span class="event-poster-hint-text" data-lang="en" style="display:none;">Tap or click to enlarge</span>
+                        <span class="event-poster-hint-text" data-lang="it" style="display:none;">Tocca o fai clic per ingrandire</span>
+                    </div>
+                    <div class="event-poster-actions">
+                        <a href="bilder/cmi-benefiz-jubilaeumskonzert-45-jahre-ochsenfurt-2026-05-01.pdf" download="CMI-Benefiz-Jubilaeumskonzert-45-Jahre-Ochsenfurt-2026-05-01.pdf" class="event-poster-download" data-lang="de">Jubiläumskonzert-Plakat herunterladen (PDF)</a>
+                        <a href="bilder/cmi-benefiz-jubilaeumskonzert-45-jahre-ochsenfurt-2026-05-01.pdf" download="CMI-Benefit-Anniversary-Concert-Ochsenfurt-2026-05-01.pdf" class="event-poster-download" data-lang="en" style="display:none;">Download anniversary concert poster (PDF)</a>
+                        <a href="bilder/cmi-benefiz-jubilaeumskonzert-45-jahre-ochsenfurt-2026-05-01.pdf" download="CMI-Concerto-Benefico-Anniversario-Ochsenfurt-2026-05-01.pdf" class="event-poster-download" data-lang="it" style="display:none;">Scarica il poster del concerto anniversario (PDF)</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="event-card" id="event-galakonzert-giebelstadt-2026">
@@ -483,20 +532,40 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                 <div class="event-location" data-lang="en" style="display:none;">Mehrzweckhalle, Giebelstadt</div>
                 <div class="event-location" data-lang="it" style="display:none;">Mehrzweckhalle, Giebelstadt</div>
 
-                <div class="event-description" data-lang="de">Mit Coro Teatro Verdi di Padova, Streichern der Filarmonica di Padova, Blaskapelle Giebelstadt-Sulzdorf, Collegium Musicum Iuvenale Ochsenfurt, Liederkranz 1863 Giebelstadt e.V. und FAINO, dem ukrainischen Vokalensemble Wuerzburg. Eintritt frei.</div>
-                <div class="event-description" data-lang="en" style="display:none;">With Coro Teatro Verdi di Padova, string players of the Filarmonica di Padova, Blaskapelle Giebelstadt-Sulzdorf, Collegium Musicum Iuvenale Ochsenfurt, Liederkranz 1863 Giebelstadt e.V., and FAINO, the Ukrainian vocal ensemble from Wuerzburg. Admission free.</div>
-                <div class="event-description" data-lang="it" style="display:none;">Con Coro Teatro Verdi di Padova, gli archi della Filarmonica di Padova, Blaskapelle Giebelstadt-Sulzdorf, Collegium Musicum Iuvenale Ochsenfurt, Liederkranz 1863 Giebelstadt e.V. e FAINO, ensemble vocale ucraino di Wuerzburg. Ingresso libero.</div>
+                <div class="event-description" data-lang="de">Mit Coro Teatro Verdi di Padova, Streichern der Filarmonica di Padova, Blaskapelle Giebelstadt-Sulzdorf, Collegium Musicum Iuvenale Ochsenfurt, Liederkranz 1863 Giebelstadt e.V. und FAINO, dem ukrainischen Vokalensemble Wuerzburg. Eintritt frei. Spenden zugunsten von <a href="https://www.mbonda-lokito.org/home.html" target="_blank" rel="noopener" class="external-link">Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a> und der <a href="https://mrija-ua.de/" target="_blank" rel="noopener" class="external-link">Würzburger Ukraine-Hilfe</a>.</div>
+                <div class="event-description" data-lang="en" style="display:none;">With Coro Teatro Verdi di Padova, string players of the Filarmonica di Padova, Blaskapelle Giebelstadt-Sulzdorf, Collegium Musicum Iuvenale Ochsenfurt, Liederkranz 1863 Giebelstadt e.V., and FAINO, the Ukrainian vocal ensemble from Wuerzburg. Admission free. Donations in support of <a href="https://www.mbonda-lokito.org/home.html" target="_blank" rel="noopener" class="external-link">Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a> and <a href="https://mrija-ua.de/" target="_blank" rel="noopener" class="external-link">Wuerzburg Ukraine Aid</a>.</div>
+                <div class="event-description" data-lang="it" style="display:none;">Con Coro Teatro Verdi di Padova, gli archi della Filarmonica di Padova, Blaskapelle Giebelstadt-Sulzdorf, Collegium Musicum Iuvenale Ochsenfurt, Liederkranz 1863 Giebelstadt e.V. e FAINO, ensemble vocale ucraino di Wuerzburg. Ingresso libero. Offerte a favore di <a href="https://www.mbonda-lokito.org/home.html" target="_blank" rel="noopener" class="external-link">Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a> e dell'<a href="https://mrija-ua.de/" target="_blank" rel="noopener" class="external-link">Aiuto Ucraina di Wuerzburg</a>.</div>
 
-                <img src="bilder/Plakat 02.05.2026 aktualisiert.jpg" alt="Plakat Internationales Galakonzert am 02.05.2026" class="event-christmas-img event-preview-thumb event-lightbox-trigger" loading="lazy" decoding="async" style="cursor:zoom-in;margin-top:18px;" />
+                <div class="event-poster-stage">
+                    <img src="bilder/cmi-internationales-galakonzert-giebelstadt-2026-05-02-preview.jpg" data-lightbox-src="bilder/cmi-internationales-galakonzert-giebelstadt-2026-05-02.jpg" alt="Plakat Internationales Galakonzert am 02.05.2026" class="event-christmas-img event-preview-thumb event-lightbox-trigger event-poster-image" loading="lazy" decoding="async" width="900" height="1040" />
+                    <div class="event-poster-hint">
+                        <span class="event-poster-hint-text" data-lang="de">Zur Großansicht anklicken oder antippen</span>
+                        <span class="event-poster-hint-text" data-lang="en" style="display:none;">Tap or click to enlarge</span>
+                        <span class="event-poster-hint-text" data-lang="it" style="display:none;">Tocca o fai clic per ingrandire</span>
+                    </div>
+                    <div class="event-poster-actions">
+                        <a href="bilder/cmi-internationales-galakonzert-giebelstadt-2026-05-02.pdf" download="CMI-Internationales-Galakonzert-Giebelstadt-2026-05-02.pdf" class="event-poster-download" data-lang="de">Galakonzert-Plakat herunterladen (PDF)</a>
+                        <a href="bilder/cmi-internationales-galakonzert-giebelstadt-2026-05-02.pdf" download="CMI-International-Gala-Concert-Giebelstadt-2026-05-02.pdf" class="event-poster-download" data-lang="en" style="display:none;">Download gala concert poster (PDF)</a>
+                        <a href="bilder/cmi-internationales-galakonzert-giebelstadt-2026-05-02.pdf" download="CMI-Concerto-di-Gala-Internazionale-Giebelstadt-2026-05-02.pdf" class="event-poster-download" data-lang="it" style="display:none;">Scarica il poster del concerto di gala (PDF)</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 <section class="timeline-section" id="timeline-section">
     <div class="timeline-container">
+    <div class="timeline-header">
+    <div class="timeline-eyebrow" data-lang="de" style="display:none;">Seit 1981</div>
+    <div class="timeline-eyebrow" data-lang="en" style="display:none;">Since 1981</div>
+    <div class="timeline-eyebrow" data-lang="it" style="display:none;">Dal 1981</div>
     <h2 class="timeline-title" data-lang="de" style="display:none;">Unsere Geschichte</h2>
     <h2 class="timeline-title" data-lang="en" style="display:none;">Our History</h2>
     <h2 class="timeline-title" data-lang="it" style="display:none;">La nostra storia</h2>
+    <p class="timeline-intro" data-lang="de" style="display:none;">Seit der Gründung verbindet das CMI Generationen, Kulturen und musikalische Wege durch gemeinsames Musizieren, internationale Begegnungen und Benefizprojekte.</p>
+    <p class="timeline-intro" data-lang="en" style="display:none;">Since its foundation, CMI has connected generations, cultures, and musical paths through shared music-making, international exchange, and charity projects.</p>
+    <p class="timeline-intro" data-lang="it" style="display:none;">Fin dalla sua fondazione, il CMI unisce generazioni, culture e percorsi musicali attraverso la musica condivisa, gli incontri internazionali e i progetti di beneficenza.</p>
+    </div>
         <div class="timeline-list timeline-has-bar">
             <div class="timeline-bar"></div>
             <div class="timeline-item" style="--timeline-index:0;">
@@ -595,6 +664,9 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
             <div class="about-me-modern-subtitle" data-lang="de">Gründerin Collegium Musicum Iuvenale</div>
             <div class="about-me-modern-subtitle" data-lang="en" style="display:none;">Founder of Collegium Musicum Iuvenale</div>
             <div class="about-me-modern-subtitle" data-lang="it" style="display:none;">Fondatrice del Collegium Musicum Iuvenale</div>
+            <div class="about-me-mobile-image">
+                <img src="bilder/Astrid var.jpg" alt="Astrid Eitschberger">
+            </div>
             <div class="about-me-modern-bio">
                 <div class="about-me-bio-text" data-lang="de">Astrid Eitschberger lernte Klavier, Violoncello und später verschiedene Blasinstrumente. Sie verbrachte sieben Jahre ihrer Kindheit in Athen. 1981 gründete sie das Collegium Musicum Iuvenale Ochsenfurt. 2018 schloss sie die Ausbildung an der Nordbayerischen Bläserakademie als „Dirigentin von Blasorchestern im Laienmusizieren“ mit der staatlichen Anerkennung ab. Während ihrer Studienzeit in Padua schloss Astrid musikalische Freundschaften, die bis heute andauern. Seit 1999 unterrichtet die promovierte Germanistin am Matthias-Grünewald-Gymnasium Würzburg Latein und Deutsch. Sie sieht es als ihre Aufgabe, Menschen über Sprachgrenzen und unterschiedliche Traditionen hinweg einander begegnen zu lassen und verschiedene Stil- und Kunstrichtungen zu verbinden. Das zentrale Motiv für ihre musikalische Arbeit, die über all die Jahre hinweg rein ehrenamtlich erfolgt, liegt darin, anderen durch die Musik Freude zu bereiten und mit Benefizkonzerten die schwächeren Mitglieder unserer Gesellschaft zu unterstützen. 1998 erhielt sie dafür den Kulturpreis der Stadt Ochsenfurt, 2017 bekam sie von der Landtagspräsidentin die Bayerische Verfassungsmedaille in Silber verliehen, und 2024 folgte der Kulturpreis des Landkreises Würzburg.</div>
                 <div class="about-me-bio-text" style="display:none;" data-lang="en">Astrid Eitschberger learned piano, cello, and later various wind instruments. She spent seven years of her childhood in Athens. In 1981, she founded Collegium Musicum Iuvenale Ochsenfurt. In 2018, she completed her training at the Nordbayerische Bläserakademie as a "conductor of wind orchestras in amateur music" with state recognition. During her studies in Padua, Astrid formed musical friendships that continue to this day. Since 1999, the PhD Germanist has been teaching Latin and German at the Matthias-Grünewald-Gymnasium in Würzburg. She sees it as her mission to bring people together across language barriers and different traditions and to connect various styles and art forms. The central motivation for her musical work, which has always been purely voluntary over the years, is to bring joy to others through music and to support the weaker members of our society with benefit concerts. In 1998, she received the Culture Prize of the City of Ochsenfurt, in 2017 the Bavarian Constitution Medal in Silver from the President of the State Parliament, and in 2024 the Culture Prize of the Würzburg district.</div>
@@ -620,17 +692,18 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                 <div class="charity-meta" data-lang="en" style="display:none;">March 14, 2026</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">14 marzo 2026</div>
                 <div class="charity-description" data-lang="de" style="text-align:left;">
-                    Am 14. März 2026 hatte die Streichergruppe des CMI das Vergnügen, im Rahmen einer Masterclass gemeinsam mit dem erfahrenen Konzertmeister und Violinpädagogen Florian Meierott an ausgewählten Stücken zu arbeiten. Als Gründer einer eigenen Violinschule und Autor eigener Lehrmaterialien gab er den Teilnehmerinnen und Teilnehmern hilfreiche Anregungen für Technik, Zusammenspiel und Ausdruck. Die gemeinsame Arbeit war zugleich eine gute Vorbereitung auf die kommenden CMI-Konzerte, insbesondere auf das Internationale Galakonzert. Dabei kam auch der Spaß nicht zu kurz. Ein herzlicher Dank gilt Florian Meierott für diese lehrreiche Stunde. Wer Interesse hat, ist herzlich eingeladen: Am 18. April 2026 findet gemeinsam mit allen Streichern ein weiteres Registertreffen statt.
+                    Am 14. März 2026 hatte die Streichergruppe des CMI das Vergnügen, im Rahmen einer Masterclass gemeinsam mit dem erfahrenen Konzertmeister und Violinpädagogen Florian Meierott an ausgewählten Stücken zu arbeiten. Als Gründer seiner <a href="https://www.meierott.de/" target="_blank" rel="noopener" class="external-link">Violinschule „Villa Paganini“</a> und Autor eigener Lehrmaterialien gab er den Teilnehmerinnen und Teilnehmern hilfreiche Anregungen für Technik, Zusammenspiel und Ausdruck. Die gemeinsame Arbeit war zugleich eine gute Vorbereitung auf die kommenden CMI-Konzerte, insbesondere auf das Internationale Galakonzert. Dabei kam auch der Spaß nicht zu kurz. Ein herzlicher Dank gilt Florian Meierott für diese lehrreiche Stunde. Wer Interesse hat, ist herzlich eingeladen: Am 18. April 2026 findet gemeinsam mit allen Streichern ein weiteres Registertreffen statt.
                 </div>
                 <div class="charity-description" data-lang="en" style="display:none;text-align:left;">
-                    On March 14, 2026, the CMI string group had the pleasure of working on selected pieces together with the experienced concertmaster and violin pedagogue Florian Meierott as part of a masterclass. As the founder of his own violin school and the author of his own teaching materials, he gave the participants helpful suggestions for technique, ensemble playing, and expression. The joint work also served as good preparation for the upcoming CMI concerts, especially the International Gala Concert. There was no shortage of enjoyment either. Our heartfelt thanks go to Florian Meierott for this instructive lesson. Anyone interested is warmly invited: on April 18, 2026, another sectional meeting with all string players will take place.
+                    On March 14, 2026, the CMI string group had the pleasure of working on selected pieces together with the experienced concertmaster and violin pedagogue Florian Meierott as part of a masterclass. As the founder of his <a href="https://www.meierott.de/" target="_blank" rel="noopener" class="external-link">violin school "Villa Paganini"</a> and the author of his own teaching materials, he gave the participants helpful suggestions for technique, ensemble playing, and expression. The joint work also served as good preparation for the upcoming CMI concerts, especially the International Gala Concert. There was no shortage of enjoyment either. Our heartfelt thanks go to Florian Meierott for this instructive lesson. Anyone interested is warmly invited: on April 18, 2026, another sectional meeting with all string players will take place.
                 </div>
                 <div class="charity-description" data-lang="it" style="display:none;text-align:left;">
-                    Il 14 marzo 2026 il gruppo degli archi del CMI ha avuto il piacere di lavorare su alcuni brani scelti insieme all'esperto concertmaster e pedagogo del violino Florian Meierott nell'ambito di una masterclass. Fondatore di una propria scuola di violino e autore di propri materiali didattici, ha dato ai partecipanti utili suggerimenti su tecnica, musica d'insieme ed espressione. Il lavoro comune è stato anche una buona preparazione per i prossimi concerti del CMI, in particolare per il Concerto di Gala Internazionale. Anche il divertimento non è mancato. Un sentito ringraziamento a Florian Meierott per questa lezione istruttiva. Chi fosse interessato è cordialmente invitato: il 18 aprile 2026 si terrà un ulteriore incontro di sezione insieme a tutti gli archi.
+                    Il 14 marzo 2026 il gruppo degli archi del CMI ha avuto il piacere di lavorare su alcuni brani scelti insieme all'esperto concertmaster e pedagogo del violino Florian Meierott nell'ambito di una masterclass. Fondatore della sua <a href="https://www.meierott.de/" target="_blank" rel="noopener" class="external-link">scuola di violino "Villa Paganini"</a> e autore di propri materiali didattici, ha dato ai partecipanti utili suggerimenti su tecnica, musica d'insieme ed espressione. Il lavoro comune è stato anche una buona preparazione per i prossimi concerti del CMI, in particolare per il Concerto di Gala Internazionale. Anche il divertimento non è mancato. Un sentito ringraziamento a Florian Meierott per questa lezione istruttiva. Chi fosse interessato è cordialmente invitato: il 18 aprile 2026 si terrà un ulteriore incontro di sezione insieme a tutti gli archi.
                 </div>
             </div>
             <div class="charity-flex-right masterclass-flex__media">
                 <img class="masterclass-flex__image" src="bilder/Masterclass_Meierott_14032026.jpeg" alt="Masterclass mit Florian Meierott" />
+                <div class="masterclass-flex__credit">Foto: Astrid Eitschberger</div>
             </div>
         </div>
     </div>
@@ -659,6 +732,7 @@ Negli ultimi anni è diventata una bella tradizione che l'ensemble di violoncell
             </div>
             <div class="gruppenbild-container" style="width:100%;margin:28px auto 0 auto;display:block;">
                <img class="gruppenbild-img" src="bilder/christmette_2025.jpg" alt="Christmette St. Thekla Ochsenfurt 2025 Collegium Musicum Iuvenale" />
+               <div style="font-size:0.98em;color:#222;margin:8px auto 18px auto;max-width:100%;text-align:center;font-style:italic;">Foto: Ilhan Diler</div>
             </div>  
         </div>
     </div>
@@ -684,8 +758,8 @@ The children and families of CMI gathered for a festive end-of-year celebration.
 I bambini e le famiglie del CMI si sono riuniti per una festa di fine anno ricca di atmosfera. Insieme, hanno ripercorso i tanti momenti salienti del 2025 con una presentazione fotografica preparata con cura. I grandi concerti di beneficenza, così come le escursioni e le esperienze condivise, sono rimasti particolarmente impressi e hanno reso l'anno così ricco di eventi. Per i più piccoli ospiti, ci sono stati giochi e un angolo creativo dove i bambini hanno creato e dipinto con gioia decorazioni natalizie. Diverse prelibatezze culinarie e dolci natalizi hanno invitato tutti a gustare. Il momento culminante della mattinata è stata la visita di San Nicola, alias Ilhan Diler: ogni bambino ha ricevuto un detto personale e un caloroso invito a una proiezione cinematografica comune, compreso un voucher per il cinema. Dopo la celebrazione di Nikolaus, il gruppo allegro si è diretto insieme al cinema, concludendo così la giornata in un'atmosfera conviviale. Un sentito ringraziamento a tutti gli aiutanti, partecipanti e ospiti che hanno reso questa mattina un'esperienza speciale!
 </div>
             </div>
-            <div class="gruppenbild-container" style="width:90%;margin:88px auto 0 auto;display:block;">
-               <img class="gruppenbild-img-nikolaus" src="bilder/nikolaus.jpeg" alt="Nikolausfeier 2025" style="max-width:90%;max-height:520px;height:auto;object-fit:cover;box-shadow:0 4px 18px rgba(0,0,0,0.12);display:block;background:#fff;" />
+                <div class="gruppenbild-container" style="width:82%;margin:72px auto 0 auto;display:block;">
+                    <img class="gruppenbild-img-nikolaus no-lightbox" src="bilder/nikolaus.jpeg" alt="Nikolausfeier 2025" style="max-width:88%;max-height:500px;height:auto;object-fit:cover;display:block;cursor:default;" />
                 <div style="font-size:0.98em;color:#222;margin:8px auto 18px auto;max-width:70%;text-align:center;font-style:italic;">Foto: Astrid Eitschberger</div>
             </div>
         </div>
@@ -785,16 +859,13 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 <div class="charity-meta" data-lang="en" style="display:none;">October 26, 2025 · Hotel Meintz Ochsenfurt</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">26 ottobre 2025 · Meintz Ochsenfurt</div>
                 <div class="charity-description" data-lang="de" style="text-align:left;">
-                Genau einen Tag nach dem Geburtstag des Walzerkönigs am 25.10.1825 gab die Veeh-Harfengruppe „Querbeet“ unter der Leitung von Sigrid Schäfer am Sonntag, den 26.10.2025 ein internationales Benefiz-Konzert in der Festhalle des Hotels „Meintz“ in Ochsenfurt. Gemeinsam mit Solisten des Collegium Musicum Iuvenale Ochsenfurt (Leitung: Dr. Astrid Eitschberger) und Gästen aus Italien (Chiara Passudetti, Sopran, Silvano Ruffo, Tenor, sowie Mirko Ballico am Klavier und Andrea Vinco an der Gitarre) brachten sie ein beschwingtes Programm mit Musik von Johann Strauss und dessen Zeitgenossen zu Gehör. Der Eintritt war frei, die großzügigen Spenden von 1.183 € wurden im Anschluss an Joachim Gold, den Stadtbeauftragten der Malteser in Würzburg, übergeben, um damit Einsätze des Herzenswunsch-Krankenwagens der Malteser zu finanzieren. Während der Pause und nach dem Konzert bestand die Möglichkeit, sich diesen besonderen Krankentransportwagen von innen anzusehen und erklären zu lassen.<br><br>
-                <a href="https://www.malteser.de/herzenswunsch-krankenwagen.html" target="_blank" rel="noopener" style="color:#19D3C5;font-weight:600;text-decoration:underline;">Mehr zu Malteser Herzenswunsch-Krankenwagen</a>
+                Genau einen Tag nach dem Geburtstag des Walzerkönigs am 25.10.1825 gab die Veeh-Harfengruppe „Querbeet“ unter der Leitung von Sigrid Schäfer am Sonntag, den 26.10.2025 ein internationales Benefiz-Konzert in der Festhalle des Hotels „Meintz“ in Ochsenfurt. Gemeinsam mit Solisten des Collegium Musicum Iuvenale Ochsenfurt (Leitung: Dr. Astrid Eitschberger) und Gästen aus Italien (Chiara Passudetti, Sopran, Silvano Ruffo, Tenor, sowie Mirko Ballico am Klavier und Andrea Vinco an der Gitarre) brachten sie ein beschwingtes Programm mit Musik von Johann Strauss und dessen Zeitgenossen zu Gehör. Der Eintritt war frei, die großzügigen Spenden von 1.183 € wurden im Anschluss an Joachim Gold, den Stadtbeauftragten der Malteser in Würzburg, übergeben, um damit Einsätze des <a href="https://www.malteser.de/herzenswunsch-krankenwagen.html" target="_blank" rel="noopener" class="external-link">Herzenswunsch-Krankenwagens der Malteser</a> zu finanzieren. Während der Pause und nach dem Konzert bestand die Möglichkeit, sich diesen besonderen Krankentransportwagen von innen anzusehen und erklären zu lassen.
                 </div>     
                 <div class="charity-description" data-lang="en" style="display:none;text-align:left;">
-                 Exactly one day after the birthday of the Waltz King on October 25, 1825, the Veeh harp group "Querbeet" led by Sigrid Schäfer gave an international benefit concert on Sunday, October 26, 2025, in the festival hall of the "Meintz" hotel in Ochsenfurt. Together with soloists from Collegium Musicum Iuvenale Ochsenfurt (led by Dr. Astrid Eitschberger) and guests from Italy (Chiara Passudetti, soprano, Silvano Ruffo, tenor, as well as Mirko Ballico on piano and Andrea Vinco on guitar), they presented a lively program with music by Johann Strauss and his contemporaries. Admission was free, and generous donations of €1,183 were handed over to Joachim Gold, the city representative of Malteser in Würzburg, to finance missions of the Malteser Wish Ambulance. During the break and after the concert, guests had the opportunity to view and learn about this special ambulance from the inside.<br><br>
-                <a href="https://www.malteser.de/herzenswunsch-krankenwagen.html" target="_blank" rel="noopener" style="color:#19D3C5;font-weight:600;text-decoration:underline;z-index:10;position:relative;">More about Malteser Wish Ambulance</a>
+                 Exactly one day after the birthday of the Waltz King on October 25, 1825, the Veeh harp group "Querbeet" led by Sigrid Schäfer gave an international benefit concert on Sunday, October 26, 2025, in the festival hall of the "Meintz" hotel in Ochsenfurt. Together with soloists from Collegium Musicum Iuvenale Ochsenfurt (led by Dr. Astrid Eitschberger) and guests from Italy (Chiara Passudetti, soprano, Silvano Ruffo, tenor, as well as Mirko Ballico on piano and Andrea Vinco on guitar), they presented a lively program with music by Johann Strauss and his contemporaries. Admission was free, and generous donations of €1,183 were handed over to Joachim Gold, the city representative of Malteser in Würzburg, to finance missions of the <a href="https://www.malteser.de/herzenswunsch-krankenwagen.html" target="_blank" rel="noopener" class="external-link">Malteser Wish Ambulance</a>. During the break and after the concert, guests had the opportunity to view and learn about this special ambulance from the inside.
                  </div>
                 <div class="charity-description" data-lang="it" style="display:none;text-align:left; ">
-                    Esattamente un giorno dopo il compleanno del re del valzer, il 25 ottobre 1825, il gruppo di arpe Veeh "Querbeet" diretto da Sigrid Schäfer ha tenuto un concerto internazionale di beneficenza domenica 26 ottobre 2025 nella sala delle feste dell'hotel "Meintz" a Ochsenfurt. Insieme ai solisti del Collegium Musicum Iuvenale Ochsenfurt (diretto da Dr. Astrid Eitschberger) e agli ospiti dall'Italia (Chiara Passudetti, soprano, Silvano Ruffo, tenore, oltre a Mirko Ballico al pianoforte e Andrea Vinco alla chitarra), hanno presentato un programma vivace con musiche di Johann Strauss e dei suoi contemporanei. L'ingresso era gratuito e le generose donazioni di 1.183 € sono state consegnate a Joachim Gold, rappresentante cittadino dei Malteser a Würzburg, per finanziare le missioni dell'ambulanza dei desideri Malteser. Durante la pausa e dopo il concerto, gli ospiti hanno avuto la possibilità di vedere e conoscere questo speciale veicolo di soccorso dall'interno.<br><br>
-                <a href="https://www.malteser.de/herzenswunsch-krankenwagen.html" target="_blank" rel="noopener" style="color:#19D3C5;font-weight:600;text-decoration:underline;z-index:10;position:relative;">Maggiori informazioni sull'Ambulanza dei Desideri Malteser</a>
+                    Esattamente un giorno dopo il compleanno del re del valzer, il 25 ottobre 1825, il gruppo di arpe Veeh "Querbeet" diretto da Sigrid Schäfer ha tenuto un concerto internazionale di beneficenza domenica 26 ottobre 2025 nella sala delle feste dell'hotel "Meintz" a Ochsenfurt. Insieme ai solisti del Collegium Musicum Iuvenale Ochsenfurt (diretto da Dr. Astrid Eitschberger) e agli ospiti dall'Italia (Chiara Passudetti, soprano, Silvano Ruffo, tenore, oltre a Mirko Ballico al pianoforte e Andrea Vinco alla chitarra), hanno presentato un programma vivace con musiche di Johann Strauss e dei suoi contemporanei. L'ingresso era gratuito e le generose donazioni di 1.183 € sono state consegnate a Joachim Gold, rappresentante cittadino dei Malteser a Würzburg, per finanziare le missioni dell'<a href="https://www.malteser.de/herzenswunsch-krankenwagen.html" target="_blank" rel="noopener" class="external-link">Ambulanza dei Desideri Malteser</a>. Durante la pausa e dopo il concerto, gli ospiti hanno avuto la possibilità di vedere e conoscere questo speciale veicolo di soccorso dall'interno.
                 </div>
                 </div>
                 <div class="gruppenbild-container" style="width:100%;margin:88px auto 0 auto;display:block;">
@@ -833,6 +904,7 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 </div>    
                 <div class="gruppenbild-container">
                     <img class="gruppenbild-img" src="bilder/strauss_marktbreit_251025.jpeg" alt="Benefizkonzert zum 200. Geburtstag Johann Strauß" />
+                    <div style="font-size:0.98em;color:#222;margin:8px auto 18px auto;max-width:100%;text-align:center;font-style:italic;">Foto: Ilhan Diler</div>
                     <img class="gruppenbild-img" src="bilder/strauss_marktbreit_cmi_251025.jpg" alt="Benefizkonzert zum 200. Geburtstag Johann Strauß" />
                 </div>
         </div>
@@ -858,8 +930,9 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                     I bambini del Collegium Musicum Iuvenale, insieme alla loro direttrice Astrid Eitschberger e agli alunni delle classi 2a e 4a della scuola elementare di Ochsenfurt sotto la guida di Annette Patrzek, hanno presentato canzoni piene di vita alternate a musica da camera barocca proveniente da Francia, Italia e Germania. Tra i solisti si sono esibiti Beate e Friedhelm Hoffmann, Renate Glauth, Johanna Griebel e Astrid Eitschberger. Un momento speciale è stato l'ensemble di otto flautisti dolci specializzato in musica rinascimentale. L'evento si è svolto in collaborazione con il gruppo di lavoro di storia. Una novità assoluta è stata l'idea che alcuni bambini dell'orchestra presentassero una breve introduzione alla storia della chiesa del monastero. Nina Eisenhauer e Simon Streit, entrambi di dieci anni, hanno entusiasmato il pubblico con il loro modo spontaneo e naturale di far rivivere il mondo dei cappuccini. Sono stati raccolti in totale 609 € di donazioni per la ristrutturazione della chiesa del monastero.
                 </div>
             </div>
-             <div class="gruppenbild-container" style="width:100%;margin:128px auto 0 auto;display:block;">
-                    <img class="gruppenbild-img" src="bilder/blockfloetenensemble_2025.jpg" alt="Blockflötenensemble in der Klosterkirche Ochsenfurt 2025" />
+                  <div class="gruppenbild-container" style="width:100%;margin:128px auto 0 auto;display:block;">
+                      <img class="gruppenbild-img" src="bilder/blockfloetenensemble_2025.jpg" alt="Blockflötenensemble in der Klosterkirche Ochsenfurt 2025" />
+                      <div style="font-size:0.98em;color:#222;margin:8px auto 18px auto;max-width:100%;text-align:center;font-style:italic;">Foto: Ilhan Diler</div>
                 </div>
            
         </div>
@@ -1102,55 +1175,55 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
         </div>
     </div>
 </section>
-<section class="contact-info-section" id="contact" style="background:linear-gradient(180deg,#f7fff7 0%,#eafafc 100%);padding:48px 0 32px 0;text-align:center;font-family:'Inter',Arial,sans-serif;">
-    <div style="max-width:800px;margin:0 auto;padding:0 16px;">
-        <h2 data-lang="de" style="color:#2b2c28;font-size:2em;margin-bottom:10px;font-weight:700;">Kontakt</h2>
-        <h2 data-lang="en" style="color:#2b2c28;font-size:2em;margin-bottom:10px;font-weight:700;display:none;">Contact</h2>
-        <h2 data-lang="it" style="color:#2b2c28;font-size:2em;margin-bottom:10px;font-weight:700;display:none;">Contatto</h2>
-        <p data-lang="de" style="color:#2b2c28;font-size:1.15em;margin-bottom:32px;">Hast du Fragen oder möchtest uns besuchen? Wir freuen uns auf deine Nachricht!</p>
-        <p data-lang="en" style="color:#2b2c28;font-size:1.15em;margin-bottom:32px;display:none;">Do you have questions or would like to visit us? We look forward to your message!</p>
-        <p data-lang="it" style="color:#2b2c28;font-size:1.15em;margin-bottom:32px;display:none;">Hai domande o vuoi venirci a trovare? Attendiamo con piacere il tuo messaggio!</p>
-        <h3 data-lang="de" style="color:#2b2c28;font-size:1.5em;text-align:left;margin-bottom:24px;font-weight:700;">Probenzeiten & Ort & E-Mail</h3>
-        <h3 data-lang="en" style="color:#2b2c28;font-size:1.5em;text-align:left;margin-bottom:24px;font-weight:700;display:none;">Rehearsal Times & Location & Email</h3>
-        <h3 data-lang="it" style="color:#2b2c28;font-size:1.5em;text-align:left;margin-bottom:24px;font-weight:700;display:none;">Orari delle prove, luogo ed e-mail</h3>
-        <div style="display:flex;flex-direction:column;gap:32px;">
-            <div style="background:#fff;border-radius:18px;box-shadow:0 4px 24px rgba(0,184,148,0.08);padding:24px 32px;display:flex;align-items:center;gap:24px;">
-                <div style="background:#0D5C63;border-radius:12px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;">
-                    <img src="files/icon.calendar.svg" alt="Calendar" style="width:32px;height:32px;filter:invert(1);">
+<section class="contact-info-section" id="contact">
+    <div class="contact-info-container">
+        <h2 class="contact-info-title" data-lang="de">Kontakt</h2>
+        <h2 class="contact-info-title" data-lang="en" style="display:none;">Contact</h2>
+        <h2 class="contact-info-title" data-lang="it" style="display:none;">Contatto</h2>
+        <p class="contact-info-intro" data-lang="de">Hast du Fragen oder möchtest uns besuchen? Wir freuen uns auf deine Nachricht!</p>
+        <p class="contact-info-intro" data-lang="en" style="display:none;">Do you have questions or would like to visit us? We look forward to your message!</p>
+        <p class="contact-info-intro" data-lang="it" style="display:none;">Hai domande o vuoi venirci a trovare? Attendiamo con piacere il tuo messaggio!</p>
+        <h3 class="contact-info-subtitle" data-lang="de">Probenzeiten & Ort & E-Mail</h3>
+        <h3 class="contact-info-subtitle" data-lang="en" style="display:none;">Rehearsal Times & Location & Email</h3>
+        <h3 class="contact-info-subtitle" data-lang="it" style="display:none;">Orari delle prove, luogo ed e-mail</h3>
+        <div class="contact-info-grid">
+            <div class="contact-info-card contact-info-card--time">
+                <div class="contact-info-icon-wrap contact-info-icon-wrap--time">
+                    <img src="files/icon.calendar.svg" alt="Calendar" class="contact-info-icon">
                 </div>
-                <div style="text-align:left;">
-                    <div data-lang="de" style="font-size:1.15em;font-weight:700;color:#2b2c28;margin-bottom:6px;">Probezeiten</div>
-                    <div data-lang="en" style="font-size:1.15em;font-weight:700;color:#2b2c28;margin-bottom:6px;display:none;">Rehearsal Times</div>
-                    <div data-lang="it" style="font-size:1.15em;font-weight:700;color:#2b2c28;margin-bottom:6px;display:none;">Orari delle prove</div>
-                    <div data-lang="de" style="color:#222;font-size:1em;">Jeden Samstag<br>Anfänger: 10:00 - 11:00 Uhr<br>Fortgeschrittene: 11:00 - 12:30 Uhr</div>
-                    <div data-lang="en" style="color:#222;font-size:1em;display:none;">Every Saturday<br>Beginners: 10:00 am - 11:00 am<br>Advanced: 11:00 am - 12:30 pm</div>
-                    <div data-lang="it" style="color:#222;font-size:1em;display:none;">Ogni sabato<br>Principianti: 10:00 - 11:00<br>Avanzati: 11:00 - 12:30</div>
-                </div>
-            </div>
-            <div style="background:#fff;border-radius:18px;box-shadow:0 4px 24px rgba(0,184,148,0.08);padding:24px 32px;display:flex;align-items:center;gap:24px;">
-                <div style="background:#0D5C63;border-radius:12px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;">
-                    <img src="files/icon.position.svg" alt="Location" style="width:32px;height:32px;filter:invert(1);">
-                </div>
-                <div style="text-align:left;">
-                    <div data-lang="de" style="font-size:1.15em;font-weight:700;color:#2b2c28;margin-bottom:6px;">Proberaum</div>
-                    <div data-lang="en" style="font-size:1.15em;font-weight:700;color:#2b2c28;margin-bottom:6px;display:none;">Rehearsal Room</div>
-                    <div data-lang="it" style="font-size:1.15em;font-weight:700;color:#2b2c28;margin-bottom:6px;display:none;">Sala prove</div>
-                    <div data-lang="de" style="color:#222;font-size:1em;">Kirchplatz 2<br>Rote Schule (VHS Gebäude) – Raum 4<br>97199 Ochsenfurt</div>
-                    <div data-lang="en" style="color:#222;font-size:1em;display:none;">Kirchplatz 2<br>Rote Schule (VHS building) – Room 4<br>97199 Ochsenfurt</div>
-                    <div data-lang="it" style="color:#222;font-size:1em;display:none;">Kirchplatz 2<br>Rote Schule (edificio VHS) – Stanza 4<br>97199 Ochsenfurt</div>
+                <div class="contact-info-card-body">
+                    <div class="contact-info-card-title" data-lang="de">Probezeiten</div>
+                    <div class="contact-info-card-title" data-lang="en" style="display:none;">Rehearsal Times</div>
+                    <div class="contact-info-card-title" data-lang="it" style="display:none;">Orari delle prove</div>
+                    <div class="contact-info-card-text" data-lang="de">Jeden Samstag<br>Anfänger: 10:00 - 11:00 Uhr<br>Fortgeschrittene: 11:00 - 12:30 Uhr</div>
+                    <div class="contact-info-card-text" data-lang="en" style="display:none;">Every Saturday<br>Beginners: 10:00 am - 11:00 am<br>Advanced: 11:00 am - 12:30 pm</div>
+                    <div class="contact-info-card-text" data-lang="it" style="display:none;">Ogni sabato<br>Principianti: 10:00 - 11:00<br>Avanzati: 11:00 - 12:30</div>
                 </div>
             </div>
-            <div style="background:#fff;border-radius:18px;box-shadow:0 4px 24px rgba(67, 177, 155, 0.425);padding:24px 32px;display:flex;align-items:center;gap:24px;">
-                <div style="background:#0D5C63;border-radius:12px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;">
-                    <img src="files/icon.mail.svg" alt="Mail" style="width:32px;height:32px;filter:invert(1);">
+            <div class="contact-info-card contact-info-card--location">
+                <div class="contact-info-icon-wrap contact-info-icon-wrap--location">
+                    <img src="files/icon.position.svg" alt="Location" class="contact-info-icon">
                 </div>
-                <div style="text-align:left;">
-                    <div data-lang="de" style="font-size:1.15em;font-weight:700;color:#2b2c28;margin-bottom:6px;">Email</div>
-                    <div data-lang="en" style="font-size:1.15em;font-weight:700;color:#2b2c28;margin-bottom:6px;display:none;">Email</div>
-                    <div data-lang="it" style="font-size:1.15em;font-weight:700;color:#2b2c28;margin-bottom:6px;display:none;">Email</div>
-                    <div data-lang="de" style="color:#222;font-size:1em;">astrid.eitschberger@cmi-ochsenfurt.de</div>
-                    <div data-lang="en" style="color:#222;font-size:1em;display:none;">astrid.eitschberger@cmi-ochsenfurt.de</div>
-                    <div data-lang="it" style="color:#222;font-size:1em;display:none;">astrid.eitschberger@cmi-ochsenfurt.de</div>
+                <div class="contact-info-card-body">
+                    <div class="contact-info-card-title" data-lang="de">Proberaum</div>
+                    <div class="contact-info-card-title" data-lang="en" style="display:none;">Rehearsal Room</div>
+                    <div class="contact-info-card-title" data-lang="it" style="display:none;">Sala prove</div>
+                    <div class="contact-info-card-text" data-lang="de">Kirchplatz 2<br>Rote Schule (VHS Gebäude) – Raum 4<br>97199 Ochsenfurt</div>
+                    <div class="contact-info-card-text" data-lang="en" style="display:none;">Kirchplatz 2<br>Rote Schule (VHS building) – Room 4<br>97199 Ochsenfurt</div>
+                    <div class="contact-info-card-text" data-lang="it" style="display:none;">Kirchplatz 2<br>Rote Schule (edificio VHS) – Stanza 4<br>97199 Ochsenfurt</div>
+                </div>
+            </div>
+            <div class="contact-info-card contact-info-card--mail">
+                <div class="contact-info-icon-wrap contact-info-icon-wrap--mail">
+                    <img src="files/icon.mail.svg" alt="Mail" class="contact-info-icon">
+                </div>
+                <div class="contact-info-card-body">
+                    <div class="contact-info-card-title" data-lang="de">Email</div>
+                    <div class="contact-info-card-title" data-lang="en" style="display:none;">Email</div>
+                    <div class="contact-info-card-title" data-lang="it" style="display:none;">Email</div>
+                    <a class="contact-info-card-link" href="mailto:astrid.eitschberger@cmi-ochsenfurt.de" data-lang="de">astrid.eitschberger@cmi-ochsenfurt.de</a>
+                    <a class="contact-info-card-link" href="mailto:astrid.eitschberger@cmi-ochsenfurt.de" data-lang="en" style="display:none;">astrid.eitschberger@cmi-ochsenfurt.de</a>
+                    <a class="contact-info-card-link" href="mailto:astrid.eitschberger@cmi-ochsenfurt.de" data-lang="it" style="display:none;">astrid.eitschberger@cmi-ochsenfurt.de</a>
                 </div>
             </div>
         </div>
