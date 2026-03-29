@@ -5896,7 +5896,6 @@ html[lang="it"] #langIt {
     .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img,
     .charity-projects-section[id^="review-"] .charity-flex-right img {
         margin: 0 auto !important;
-        display: block;
     }
 
     .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container > div {
