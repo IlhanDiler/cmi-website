@@ -1281,6 +1281,34 @@
     text-align: center !important;
     box-sizing: border-box;
 }
+
+.review-media-block {
+    width: 100% !important;
+}
+
+.review-media-block--top-28 {
+    margin: 28px auto 0 auto !important;
+}
+
+.review-media-block--top-88 {
+    margin: 88px auto 0 auto !important;
+}
+
+.review-media-block--top-128 {
+    margin: 128px auto 0 auto !important;
+}
+
+.review-media-caption {
+    margin: 8px auto 18px auto !important;
+    color: #222;
+    font-size: 0.98em !important;
+    text-align: center !important;
+    font-style: italic;
+}
+
+.review-media-caption--narrow {
+    max-width: 70% !important;
+}
 /* Charity Projects Section (Material Design) */
 .charity-projects-section {
     background: #eafafc;
