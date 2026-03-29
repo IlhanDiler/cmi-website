@@ -1,64 +1,121 @@
-// Logge beim Laden der Seite alle Links im DOM (href und Text)
-document.addEventListener('DOMContentLoaded', function() {
-    var allLinks = document.querySelectorAll('a');
-    console.log('[DEBUG] Alle Links im DOM:', allLinks.length);
-    allLinks.forEach(function(link, idx) {
-        console.log('[DEBUG] Link #' + (idx+1) + ': href=' + link.getAttribute('href') + ', text=' + link.textContent.trim(), link);
-    });
-});
-// Logge beim Laden der Seite alle Mbonda Lokito Links im DOM
-document.addEventListener('DOMContentLoaded', function() {
-    var mbondaLinks = document.querySelectorAll('a[href="https://www.mbonda-lokito.org/home.html"]');
-    console.log('[DEBUG] Mbonda Lokito Links gefunden:', mbondaLinks.length);
-    mbondaLinks.forEach(function(link, idx) {
-        console.log('[DEBUG] Mbonda-Link #' + (idx+1) + ':', link, 'BoundingRect:', link.getBoundingClientRect());
-    });
-});
-// GLOBAL DEBUG: Logge alle Klicks und Touches auf der Seite
-document.addEventListener('click', function(e) {
-    var t = e.target;
-    var msg = '[DEBUG click] Tag: ' + t.tagName + ', class: ' + t.className + ', id: ' + t.id;
-    if (t.tagName === 'A') msg += ', href: ' + t.getAttribute('href');
-    console.log(msg, t);
-});
-document.addEventListener('touchend', function(e) {
-    var t = e.target;
-    var msg = '[DEBUG touchend] Tag: ' + t.tagName + ', class: ' + t.className + ', id: ' + t.id;
-    if (t.tagName === 'A') msg += ', href: ' + t.getAttribute('href');
-    console.log(msg, t);
-});
 // Lightbox für Event-Bilder
 document.addEventListener('DOMContentLoaded', function() {
-    // Entferne Test-Handler für Mbonda Lokito Link
     const lightboxModal = document.getElementById('eventLightboxModal');
     const lightboxImg = document.getElementById('eventLightboxImg');
     const lightboxCloseBtn = document.getElementById('eventLightboxClose');
+    const lightboxCaptionKicker = document.getElementById('eventLightboxCaptionKicker');
+    const lightboxCaptionTitle = document.getElementById('eventLightboxCaptionTitle');
+    const lightboxCaptionMeta = document.getElementById('eventLightboxCaptionMeta');
+    const lightboxLanguageLabels = {
+        de: { kicker: 'Konzertplakat' },
+        en: { kicker: 'Concert Poster' },
+        it: { kicker: 'Manifesto del concerto' }
+    };
+    const getVisibleNodeText = function(container, selector) {
+        if (!container) {
+            return '';
+        }
+
+        const matchingNode = Array.from(container.querySelectorAll(selector)).find(function(node) {
+            return window.getComputedStyle(node).display !== 'none';
+        });
+
+        return matchingNode ? matchingNode.textContent.trim() : '';
+    };
+    const getActiveLanguage = function(image) {
+        const eventCard = image ? image.closest('.event-card') : null;
+        if (!eventCard) {
+            return 'de';
+        }
+
+        const visibleHeadline = Array.from(eventCard.querySelectorAll('.event-headline[data-lang]')).find(function(node) {
+            return window.getComputedStyle(node).display !== 'none';
+        });
+
+        return visibleHeadline ? visibleHeadline.getAttribute('data-lang') || 'de' : 'de';
+    };
+    const getLightboxCaption = function(image) {
+        if (!image) {
+            return { title: '', meta: '', language: 'de' };
+        }
+
+        if (image.dataset.lightboxCaption) {
+            return {
+                title: image.dataset.lightboxCaption,
+                meta: '',
+                language: getActiveLanguage(image)
+            };
+        }
+
+        const eventCard = image.closest('.event-card');
+        const headline = getVisibleNodeText(eventCard, '.event-headline');
+        const date = getVisibleNodeText(eventCard, '.event-date');
+        const location = getVisibleNodeText(eventCard, '.event-location');
+        return {
+            title: headline,
+            meta: [location, date].filter(Boolean).join(' • '),
+            language: getActiveLanguage(image)
+        };
+    };
+    const openLightbox = function(image) {
+        if (!lightboxImg || !lightboxModal) {
+            return;
+        }
+
+        lightboxImg.src = image.dataset.lightboxSrc || image.src;
+        lightboxImg.alt = image.alt || 'Event Bild';
+        const caption = getLightboxCaption(image);
+        if (lightboxCaptionKicker) {
+            lightboxCaptionKicker.textContent = (lightboxLanguageLabels[caption.language] || lightboxLanguageLabels.de).kicker;
+        }
+        if (lightboxCaptionTitle) {
+            lightboxCaptionTitle.textContent = caption.title || lightboxImg.alt;
+        }
+        if (lightboxCaptionMeta) {
+            lightboxCaptionMeta.textContent = caption.meta || '';
+        }
+        lightboxModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        if (lightboxCloseBtn) {
+            lightboxCloseBtn.focus();
+        }
+    };
+    const closeLightbox = function() {
+        if (!lightboxImg || !lightboxModal) {
+            return;
+        }
+
+        lightboxModal.style.display = 'none';
+        lightboxImg.src = '';
+        lightboxImg.alt = 'Event Bild';
+        if (lightboxCaptionTitle) {
+            lightboxCaptionTitle.textContent = '';
+        }
+        if (lightboxCaptionMeta) {
+            lightboxCaptionMeta.textContent = '';
+        }
+        document.body.style.overflow = '';
+    };
     document.querySelectorAll('.event-lightbox-img, .event-lightbox-trigger').forEach(img => {
         img.addEventListener('click', function() {
-            if (lightboxImg && lightboxModal) {
-                lightboxImg.src = this.src;
-                lightboxModal.style.display = 'flex';
-            }
+            openLightbox(this);
         });
     });
     if (lightboxCloseBtn && lightboxModal && lightboxImg) {
-        lightboxCloseBtn.addEventListener('click', function(e) {
-            lightboxModal.style.display = 'none';
-            lightboxImg.src = '';
+        lightboxCloseBtn.addEventListener('click', function() {
+            closeLightbox();
         });
     }
     if (lightboxModal) {
         lightboxModal.addEventListener('click', function(e) {
             if (e.target === lightboxModal || e.target === lightboxImg) {
-                lightboxModal.style.display = 'none';
-                lightboxImg.src = '';
+                closeLightbox();
             }
         });
     }
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && lightboxModal && lightboxModal.style.display === 'flex') {
-            lightboxModal.style.display = 'none';
-            lightboxImg.src = '';
+            closeLightbox();
         }
     });
 });
@@ -161,20 +218,41 @@ window.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', fitHeroImg);
 });
 // Hero-BG Gallery/Slideshow
+const heroGalleryUiLabels = {
+    de: {
+        image: 'Bild',
+        previous: 'Vorheriges Bild',
+        next: 'Nächstes Bild',
+        pagination: 'Hero Gallery Pagination'
+    },
+    en: {
+        image: 'Image',
+        previous: 'Previous image',
+        next: 'Next image',
+        pagination: 'Hero gallery pagination'
+    },
+    it: {
+        image: 'Immagine',
+        previous: 'Immagine precedente',
+        next: 'Immagine successiva',
+        pagination: 'Paginazione galleria hero'
+    }
+};
+
 const heroGallery = [
 
-     { src: 'bilder/Weihnachtskonzert Spitalkirche.png', title: '„Weihnachtskonzert zum Mitsingen 2025“ in der Spitalkirche Ochsenfurt' },
-     { src: 'bilder/Gruppenbild2.jpg', title: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Hotel Meintz Ochsenfurt' },
-     { src: 'bilder/gruppe_2007.jpeg', title: 'CMI 2009' },
-     { src: 'bilder/peterbild.jpg', title: 'Gedenkfeier - „80 Jahre Kriegsende, 80 Jahre Frieden“ in Ochsenfurt 2025' },
-     { src: 'bilder/concello.jfif', title: 'ConCello 2025 in der Klosterkirche Ochsenfurt' },
-     { src: 'bilder/gruppemitflagge.jpg', title: 'CMI und Veeh-Harfengruppe Querbeet 2025' },
-     { src: 'bilder/klosterkirche.jpg', title: 'Klosterkirche 2024' },
-     { src: 'bilder/salboro_santa_maria_assunta_2024.jpg', title: 'Salboro Santa Maria Assunta 2024' },
-     { src: 'bilder/Jubiläumskonzert_2016.jpg', title: 'Jubiläumskonzert 2016' },
-     { src: 'bilder/Gruppenfoto_St._Thekla_2022.jpg', title: 'CMI und BGS St. Thekla 2022' },
-     { src: 'bilder/Scheunenkonzert 17.07.jpg',title:'' },
-     { src: 'bilder/Gruppe17.09.11.png', title: 'Jubiläumskonzert zum 30-jährigen Bestehen am 17.09.11' },
+    { src: 'bilder/Weihnachtskonzert Spitalkirche.png', title: { de: '„Weihnachtskonzert zum Mitsingen 2025“ in der Spitalkirche Ochsenfurt', en: '"Christmas Sing-Along Concert 2025" at Spitalkirche Ochsenfurt', it: '"Concerto di Natale da cantare insieme 2025" nella Spitalkirche di Ochsenfurt' }, shortTitle: { de: 'Weihnachtskonzert 2025 in Ochsenfurt', en: 'Christmas Sing-Along 2025 in Ochsenfurt', it: 'Concerto di Natale 2025 a Ochsenfurt' } },
+    { src: 'bilder/Gruppenbild2.jpg', title: { de: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Hotel Meintz Ochsenfurt', en: 'Benefit concert for "Doctors Without Borders" 2025 at Hotel Meintz Ochsenfurt', it: 'Concerto benefico per "Medici Senza Frontiere" 2025 all\'Hotel Meintz di Ochsenfurt' }, shortTitle: { de: 'Benefizkonzert 2025 im Hotel Meintz', en: 'Benefit concert 2025 at Hotel Meintz', it: 'Concerto benefico 2025 all\'Hotel Meintz' } },
+     { src: 'bilder/gruppe_2007.jpeg', title: { de: 'CMI 2009', en: 'CMI 2009', it: 'CMI 2009' } },
+    { src: 'bilder/peterbild.jpg', title: { de: 'Gedenkfeier - „80 Jahre Kriegsende, 80 Jahre Frieden“ in Ochsenfurt 2025', en: 'Commemorative event - "80 Years Since the End of War, 80 Years of Peace" in Ochsenfurt 2025', it: 'Cerimonia commemorativa - "80 anni dalla fine della guerra, 80 anni di pace" a Ochsenfurt 2025' }, shortTitle: { de: 'Gedenkfeier 80 Jahre Frieden 2025', en: '80 Years of Peace commemoration 2025', it: 'Commemorazione 80 anni di pace 2025' } },
+    { src: 'bilder/concello.jfif', title: { de: 'ConCello 2025 in der Klosterkirche Ochsenfurt', en: 'ConCello 2025 at Klosterkirche Ochsenfurt', it: 'ConCello 2025 nella Klosterkirche di Ochsenfurt' }, shortTitle: { de: 'ConCello 2025 in Ochsenfurt', en: 'ConCello 2025 in Ochsenfurt', it: 'ConCello 2025 a Ochsenfurt' } },
+    { src: 'bilder/gruppemitflagge.jpg', title: { de: 'CMI und Veeh-Harfengruppe Querbeet 2025', en: 'CMI and the Veeh Harp Ensemble Querbeet 2025', it: 'CMI e il gruppo di arpe Veeh Querbeet 2025' }, shortTitle: { de: 'CMI und Querbeet 2025', en: 'CMI and Querbeet 2025', it: 'CMI e Querbeet 2025' } },
+     { src: 'bilder/klosterkirche.jpg', title: { de: 'Klosterkirche 2024', en: 'Klosterkirche 2024', it: 'Klosterkirche 2024' } },
+     { src: 'bilder/salboro_santa_maria_assunta_2024.jpg', title: { de: 'Salboro Santa Maria Assunta 2024', en: 'Salboro Santa Maria Assunta 2024', it: 'Salboro Santa Maria Assunta 2024' } },
+     { src: 'bilder/Jubiläumskonzert_2016.jpg', title: { de: 'Jubiläumskonzert 2016', en: 'Anniversary Concert 2016', it: 'Concerto anniversario 2016' } },
+     { src: 'bilder/Gruppenfoto_St._Thekla_2022.jpg', title: { de: 'CMI und BGS St. Thekla 2022', en: 'CMI and BGS St. Thekla 2022', it: 'CMI e BGS St. Thekla 2022' } },
+     { src: 'bilder/Scheunenkonzert 17.07.jpg',title: { de: '', en: '', it: '' } },
+    { src: 'bilder/Gruppe17.09.11.png', title: { de: 'Jubiläumskonzert zum 30-jährigen Bestehen am 17.09.11', en: '30th anniversary concert on 17 September 2011', it: 'Concerto per il 30° anniversario il 17.09.11' }, shortTitle: { de: 'Jubiläumskonzert 30 Jahre CMI', en: '30th anniversary concert', it: 'Concerto per i 30 anni del CMI' } },
     
      //  { src: 'bilder/konzert.jpg', title: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Maintz Hotel Ochsenfurt' },
   //   { src: 'bilder/maria_schnee_neujahrskonzert_2023.png', title: 'Neujahrskonzert 2023' },
@@ -211,9 +289,189 @@ const heroGallery = [
     
 ];
 let heroIndex = 0;
-const fadeDuration = 7000;
+const heroSlideDuration = 6500;
+const heroFadeDuration = 1400;
+const heroInteractionPauseDuration = 12000;
 let fadeToggle = false;
 let isFading = false;
+let heroGalleryTimeout = null;
+let heroGalleryResponsiveRefreshFrame = null;
+let heroGalleryUiVisibilityTimeout = null;
+
+function getCurrentSiteLanguage() {
+    try {
+        const storedLanguage = localStorage.getItem('siteLang');
+        if (storedLanguage === 'de' || storedLanguage === 'en' || storedLanguage === 'it') {
+            return storedLanguage;
+        }
+    } catch (e) {}
+
+    const htmlLanguage = document.documentElement.getAttribute('lang');
+    if (htmlLanguage === 'de' || htmlLanguage === 'en' || htmlLanguage === 'it') {
+        return htmlLanguage;
+    }
+
+    return 'de';
+}
+
+function isCompactHeroGalleryViewport() {
+    return window.matchMedia('(max-width: 700px)').matches;
+}
+
+function getHeroGalleryTitle(entry, language = getCurrentSiteLanguage(), preferCompact = false) {
+    if (!entry) {
+        return '';
+    }
+
+    if (typeof entry.title === 'string') {
+        return entry.title;
+    }
+
+    if (preferCompact && entry.shortTitle) {
+        return entry.shortTitle[language] || entry.shortTitle.de || entry.title[language] || entry.title.de || '';
+    }
+
+    return entry.title[language] || entry.title.de || '';
+}
+
+function formatHeroGalleryIndex(index) {
+    return String(index + 1).padStart(2, '0');
+}
+
+function updateHeroGalleryProgress(duration) {
+    const progressBar = document.getElementById('heroGalleryProgressBar');
+    if (!progressBar) return;
+    progressBar.style.transition = 'none';
+    progressBar.style.transform = 'scaleX(0)';
+    if (!duration || duration <= 0) return;
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            progressBar.style.transition = `transform ${duration}ms linear`;
+            progressBar.style.transform = 'scaleX(1)';
+        });
+    });
+}
+
+function updateHeroGalleryMeta() {
+    const current = document.getElementById('heroGalleryCurrent');
+    const total = document.getElementById('heroGalleryTotal');
+    if (current) current.textContent = formatHeroGalleryIndex(heroIndex);
+    if (total) total.textContent = String(heroGallery.length).padStart(2, '0');
+}
+
+function updateHeroGalleryA11yLabels() {
+    const language = getCurrentSiteLanguage();
+    const labels = heroGalleryUiLabels[language] || heroGalleryUiLabels.de;
+    const prevButton = document.querySelector('.hero-gallery-control--prev');
+    const nextButton = document.querySelector('.hero-gallery-control--next');
+    const pagination = document.querySelector('.hero-gallery-pagination');
+
+    if (prevButton) {
+        prevButton.setAttribute('aria-label', labels.previous);
+        prevButton.setAttribute('title', labels.previous);
+    }
+
+    if (nextButton) {
+        nextButton.setAttribute('aria-label', labels.next);
+        nextButton.setAttribute('title', labels.next);
+    }
+
+    if (pagination) {
+        pagination.setAttribute('aria-label', labels.pagination);
+    }
+}
+
+function refreshHeroGalleryCaption() {
+    const title = getHeroGalleryTitle(heroGallery[heroIndex], getCurrentSiteLanguage(), isCompactHeroGalleryViewport());
+    document.querySelectorAll('.hero-bg-fade .fadein-text').forEach(function(captionNode) {
+        captionNode.textContent = title;
+        captionNode.style.opacity = title ? '1' : '0';
+        captionNode.style.transform = title ? 'translateY(0)' : 'translateY(34px)';
+        captionNode.style.transition = title ? '' : 'none';
+    });
+}
+
+function syncHeroGalleryResponsiveState() {
+    if (heroGalleryResponsiveRefreshFrame !== null) {
+        return;
+    }
+
+    heroGalleryResponsiveRefreshFrame = requestAnimationFrame(function() {
+        heroGalleryResponsiveRefreshFrame = null;
+        refreshHeroGalleryUi();
+    });
+}
+
+function refreshHeroGalleryUi() {
+    updateHeroGalleryA11yLabels();
+    refreshHeroGalleryCaption();
+    renderHeroGalleryDots();
+    updateHeroGalleryMeta();
+}
+
+function clearHeroGalleryUiVisibilityTimeout() {
+    if (heroGalleryUiVisibilityTimeout) {
+        clearTimeout(heroGalleryUiVisibilityTimeout);
+        heroGalleryUiVisibilityTimeout = null;
+    }
+}
+
+function showHeroGalleryUi(duration = 2600) {
+    const galleryUi = document.querySelector('.hero-gallery-ui');
+    if (!galleryUi) {
+        return;
+    }
+
+    galleryUi.classList.add('hero-gallery-ui--active');
+    clearHeroGalleryUiVisibilityTimeout();
+
+    if (!duration || duration <= 0) {
+        return;
+    }
+
+    heroGalleryUiVisibilityTimeout = setTimeout(function() {
+        if (!galleryUi.matches(':focus-within')) {
+            galleryUi.classList.remove('hero-gallery-ui--active');
+        }
+        heroGalleryUiVisibilityTimeout = null;
+    }, duration);
+}
+
+function hideHeroGalleryUi() {
+    const galleryUi = document.querySelector('.hero-gallery-ui');
+    if (!galleryUi || galleryUi.matches(':focus-within')) {
+        return;
+    }
+
+    clearHeroGalleryUiVisibilityTimeout();
+    galleryUi.classList.remove('hero-gallery-ui--active');
+}
+
+function clearHeroGalleryAuto() {
+    if (heroGalleryTimeout) {
+        clearTimeout(heroGalleryTimeout);
+        heroGalleryTimeout = null;
+    }
+}
+
+function scheduleHeroGalleryAuto(delay = heroSlideDuration) {
+    clearHeroGalleryAuto();
+    updateHeroGalleryProgress(delay);
+    heroGalleryTimeout = setTimeout(() => {
+        nextHeroBgImage();
+        scheduleHeroGalleryAuto(heroSlideDuration);
+    }, delay);
+}
+
+function pauseHeroGalleryAuto() {
+    scheduleHeroGalleryAuto(heroInteractionPauseDuration);
+}
+
+function stopHeroGalleryAuto() {
+    clearHeroGalleryAuto();
+    updateHeroGalleryProgress(0);
+}
+
 function setHeroBgCrossfade(idx) {
     if (isFading) return;
     isFading = true;
@@ -223,10 +481,11 @@ function setHeroBgCrossfade(idx) {
     const fadeB = fadeContainer.children[1];
     const current = fadeToggle ? fadeA : fadeB;
     const next = fadeToggle ? fadeB : fadeA;
+    const heroTitle = getHeroGalleryTitle(heroGallery[idx]);
     // Set next image and bring to front
     next.style.backgroundImage = `url('${heroGallery[idx].src}')`;
     next.style.opacity = '0';
-    next.style.transition = `opacity ${fadeDuration/1000}s cubic-bezier(.77,0,.18,1)`;
+    next.style.transition = `opacity ${heroFadeDuration / 1000}s cubic-bezier(.22,1,.36,1)`;
     // Set or update fadein-text overlay
     let fadeinDiv = next.querySelector('.fadein-text');
     if (!fadeinDiv) {
@@ -234,12 +493,14 @@ function setHeroBgCrossfade(idx) {
         fadeinDiv.className = 'fadein-text';
         next.appendChild(fadeinDiv);
     }
-    fadeinDiv.textContent = heroGallery[idx].title;
-    if (heroGallery[idx].title === '') {
+    fadeinDiv.textContent = heroTitle;
+    if (heroTitle === '') {
         fadeinDiv.style.opacity = '0';
+        fadeinDiv.style.transform = 'translateY(34px)';
         fadeinDiv.style.transition = 'none';
     } else {
         fadeinDiv.style.opacity = '0';
+        fadeinDiv.style.transform = 'translateY(46px)';
         fadeinDiv.style.transition = '';
     }
     // Individual background position logic (existing)
@@ -283,49 +544,60 @@ function setHeroBgCrossfade(idx) {
     setTimeout(() => {
         next.style.opacity = '1';
         current.style.opacity = '0';
-        current.style.transition = `opacity ${fadeDuration/1000}s cubic-bezier(.77,0,.18,1)`;
+        current.style.transition = `opacity ${heroFadeDuration / 1000}s cubic-bezier(.22,1,.36,1)`;
         // Fade in fadein-text overlay nur wenn nicht leer
-        if (heroGallery[idx].title !== '') {
+        if (heroTitle !== '') {
             setTimeout(() => {
                 fadeinDiv.style.opacity = '1';
-            }, 600);
+                fadeinDiv.style.transform = 'translateY(0)';
+            }, 180);
         } else {
             fadeinDiv.style.opacity = '0';
+            fadeinDiv.style.transform = 'translateY(34px)';
         }
         // Hide previous fadein-text
         let prevFadein = current.querySelector('.fadein-text');
-        if (prevFadein) prevFadein.style.opacity = '0';
+        if (prevFadein) {
+            prevFadein.style.opacity = '0';
+            prevFadein.style.transform = 'translateY(20px)';
+        }
         setTimeout(() => {
             fadeToggle = !fadeToggle;
             isFading = false;
-        }, 700); // Delay toggle until fade animation is done
+        }, heroFadeDuration);
     }, 50);
 }
 function nextHeroBgImage() {
     heroIndex = (heroIndex + 1) % heroGallery.length;
     setHeroBgCrossfade(heroIndex);
 }
-let heroGalleryInterval = null;
-let heroGalleryTimeout = null;
+
+function prevHeroBgImage() {
+    heroIndex = (heroIndex - 1 + heroGallery.length) % heroGallery.length;
+    setHeroBgCrossfade(heroIndex);
+}
 
 function renderHeroGalleryDots() {
     const pagination = document.querySelector('.hero-gallery-pagination');
     if (!pagination) return;
+    const language = getCurrentSiteLanguage();
+    const labels = heroGalleryUiLabels[language] || heroGalleryUiLabels.de;
     // Remove all children
     pagination.innerHTML = '';
     for (let i = 0; i < heroGallery.length; i++) {
+        const heroTitle = getHeroGalleryTitle(heroGallery[i], language);
         const btn = document.createElement('button');
         btn.className = 'hero-gallery-dot';
         btn.setAttribute('role', 'tab');
-        btn.setAttribute('aria-label', `Bild ${i+1}`);
+        btn.setAttribute('aria-label', heroTitle ? `${labels.image} ${i + 1}: ${heroTitle}` : `${labels.image} ${i + 1}`);
         btn.setAttribute('tabindex', i === heroIndex ? '0' : '-1');
         btn.setAttribute('aria-selected', i === heroIndex ? 'true' : 'false');
+        btn.setAttribute('title', heroTitle || `${labels.image} ${i + 1}`);
         if (i === heroIndex) btn.classList.add('active');
         btn.addEventListener('click', function() {
             if (heroIndex !== i) {
                 heroIndex = i;
                 setHeroBgCrossfade(heroIndex);
-                renderHeroGalleryDots();
                 pauseHeroGalleryAuto();
             }
         });
@@ -346,32 +618,77 @@ function renderHeroGalleryDots() {
     }
 }
 
-function pauseHeroGalleryAuto() {
-    if (heroGalleryInterval) clearInterval(heroGalleryInterval);
-    if (heroGalleryTimeout) clearTimeout(heroGalleryTimeout);
-    // Resume auto after 12s
-    heroGalleryTimeout = setTimeout(() => {
-        heroGalleryInterval = setInterval(() => {
-            nextHeroBgImage();
-            renderHeroGalleryDots();
-        }, fadeDuration);
-    }, 12000);
-}
-
 document.addEventListener('DOMContentLoaded', function() {
+    const heroBg = document.querySelector('.hero-bg');
+    const prevButton = document.querySelector('.hero-gallery-control--prev');
+    const nextButton = document.querySelector('.hero-gallery-control--next');
     setHeroBgCrossfade(heroIndex);
-    renderHeroGalleryDots();
-    heroGalleryInterval = setInterval(() => {
-        nextHeroBgImage();
-        renderHeroGalleryDots();
-    }, fadeDuration);
+    scheduleHeroGalleryAuto(heroSlideDuration);
+
+    if (prevButton) {
+        prevButton.addEventListener('click', function() {
+            showHeroGalleryUi();
+            prevHeroBgImage();
+            pauseHeroGalleryAuto();
+        });
+    }
+
+    if (nextButton) {
+        nextButton.addEventListener('click', function() {
+            showHeroGalleryUi();
+            nextHeroBgImage();
+            pauseHeroGalleryAuto();
+        });
+    }
+
+    if (heroBg) {
+        let touchStartX = 0;
+        heroBg.addEventListener('mouseenter', function() {
+            showHeroGalleryUi(0);
+            stopHeroGalleryAuto();
+        });
+        heroBg.addEventListener('mouseleave', function() {
+            hideHeroGalleryUi();
+            scheduleHeroGalleryAuto(heroSlideDuration);
+        });
+        heroBg.addEventListener('pointerdown', function() {
+            showHeroGalleryUi();
+        }, { passive: true });
+        heroBg.addEventListener('focusin', function() {
+            showHeroGalleryUi(0);
+        });
+        heroBg.addEventListener('focusout', function() {
+            requestAnimationFrame(function() {
+                if (!heroBg.matches(':focus-within')) {
+                    hideHeroGalleryUi();
+                }
+            });
+        });
+        heroBg.addEventListener('touchstart', function(event) {
+            if (!event.changedTouches || !event.changedTouches[0]) return;
+            touchStartX = event.changedTouches[0].clientX;
+            showHeroGalleryUi();
+        }, { passive: true });
+        heroBg.addEventListener('touchend', function(event) {
+            if (!event.changedTouches || !event.changedTouches[0]) return;
+            const deltaX = event.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(deltaX) < 40) return;
+            if (deltaX > 0) {
+                prevHeroBgImage();
+            } else {
+                nextHeroBgImage();
+            }
+            showHeroGalleryUi();
+            pauseHeroGalleryAuto();
+        }, { passive: true });
+    }
 });
 
 // Update dots on manual/auto change
 const origSetHeroBgCrossfade = setHeroBgCrossfade;
 setHeroBgCrossfade = function(idx) {
     origSetHeroBgCrossfade(idx);
-    renderHeroGalleryDots();
+    refreshHeroGalleryUi();
 };
 // Dynamisch Hintergrundlayer für about-me-section je nach Screengröße
 function updateAboutMeBackground() {
@@ -385,6 +702,7 @@ function updateAboutMeBackground() {
 }
 
 window.addEventListener('resize', updateAboutMeBackground);
+window.addEventListener('resize', syncHeroGalleryResponsiveState);
 window.addEventListener('DOMContentLoaded', updateAboutMeBackground);
 // Scroll-Reveal für Cards
 function revealOnScroll(selector) {
@@ -758,16 +1076,18 @@ function setLang(lang) {
             el.style.display = 'none';
         }
     });
+    document.documentElement.setAttribute('lang', lang);
     // Sprache persistent speichern
     try {
         localStorage.setItem('siteLang', lang);
     } catch (e) {}
+    refreshHeroGalleryUi();
     // Entferne alle Event-Handler für Mbonda Lokito Link, damit Standardverhalten greift
-    var mbondaLinks = document.querySelectorAll('a[href="https://www.mbonda-lokito.org/home.html"]');
+    var mbondaLinks = document.querySelectorAll('.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]');
     mbondaLinks.forEach(function(link) {
         link.onclick = null;
         link.removeAttribute('onclick');
-        // Normales Layout, aber pointer-events: auto und hoher z-index
+        // Nur der Timeline-Link braucht diese Sicherheitsbehandlung.
         link.style.position = 'relative';
         link.style.left = '';
         link.style.top = '';
