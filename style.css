@@ -91,10 +91,6 @@
 
 .event-section .event-christmas-img {
     max-width: 340px;
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
 }
 @media (max-width: 700px) {
     .event-section .event-christmas-img {
