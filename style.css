@@ -81,51 +81,40 @@
     text-decoration: underline;
 }
 
-.charity-description .external-link {
+.charity-description .external-link,
+.event-section .event-description .external-link {
     display: inline;
     padding: 0;
     margin: 0;
     background: none;
     border-radius: 0;
     box-shadow: none;
+    text-decoration: underline;
+    white-space: normal;
+}
+
+.charity-description .external-link {
     color: inherit;
     font-weight: inherit;
-    text-decoration: underline;
     text-decoration-color: rgba(21, 155, 140, 0.78);
     text-decoration-thickness: 0.085em;
     text-underline-offset: 0.13em;
-    white-space: normal;
     transition: color 0.18s ease, text-decoration-color 0.18s ease;
 }
 
 .charity-description .external-link:hover,
-.charity-description .external-link:focus {
-    color: #14353b;
+.charity-description .external-link:focus,
+.event-section .event-description .external-link:hover,
+.event-section .event-description .external-link:focus {
     background: none;
     box-shadow: none;
     text-decoration-color: currentColor;
     outline: none;
 }
-.external-link-icon {
-    margin-left: 6px;
-    display: inline-flex;
-    vertical-align: middle;
-}
-.external-link-hint {
-    font-size: 0.98em;
-    color: var(--color-accent-dark);
-    font-weight: 500;
-    margin-left: 8px;
-    vertical-align: middle;
-    display: inline-block;
-}
 
-.external-link-hint svg {
-    vertical-align: middle;
-    margin-right: 3px;
-    width: 16px;
-    height: 16px;
-    fill: var(--color-accent);
+.charity-description .external-link:hover,
+.charity-description .external-link:focus {
+    color: #14353b;
 }
 
 /* Footer-Link-Container immer im Vordergrund, keine Überlagerung durch Overlays/Modals/Cookie-Banner */
