@@ -1,5 +1,5 @@
 // Lightbox für Event-Bilder
-document.addEventListener('DOMContentLoaded', function() {
+function initEventLightbox() {
     const lightboxModal = document.getElementById('eventLightboxModal');
     const lightboxImg = document.getElementById('eventLightboxImg');
     const lightboxCloseBtn = document.getElementById('eventLightboxClose');
@@ -11,7 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
         en: { kicker: 'Concert Poster' },
         it: { kicker: 'Manifesto del concerto' }
     };
-    const getVisibleNodeText = function(container, selector) {
+    let lastTrigger = null;
+
+    if (!lightboxModal || !lightboxImg) {
+        return;
+    }
+
+    function getVisibleNodeText(container, selector) {
         if (!container) {
             return '';
         }
@@ -21,8 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         return matchingNode ? matchingNode.textContent.trim() : '';
-    };
-    const getActiveLanguage = function(image) {
+    }
+
+    function getActiveLanguage(image) {
         const eventCard = image ? image.closest('.event-card') : null;
         if (!eventCard) {
             return 'de';
@@ -33,8 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         return visibleHeadline ? visibleHeadline.getAttribute('data-lang') || 'de' : 'de';
-    };
-    const getLightboxCaption = function(image) {
+    }
+
+    function getLightboxCaption(image) {
         if (!image) {
             return { title: '', meta: '', language: 'de' };
         }
@@ -56,14 +64,21 @@ document.addEventListener('DOMContentLoaded', function() {
             meta: [location, date].filter(Boolean).join(' • '),
             language: getActiveLanguage(image)
         };
-    };
-    const openLightbox = function(image) {
-        if (!lightboxImg || !lightboxModal) {
+    }
+
+    function isLightboxOpen() {
+        return lightboxModal.style.display === 'flex';
+    }
+
+    function openLightbox(image) {
+        if (!image) {
             return;
         }
 
+        lastTrigger = image;
         lightboxImg.src = image.dataset.lightboxSrc || image.src;
         lightboxImg.alt = image.alt || 'Event Bild';
+
         const caption = getLightboxCaption(image);
         if (lightboxCaptionKicker) {
             lightboxCaptionKicker.textContent = (lightboxLanguageLabels[caption.language] || lightboxLanguageLabels.de).kicker;
@@ -74,18 +89,22 @@ document.addEventListener('DOMContentLoaded', function() {
         if (lightboxCaptionMeta) {
             lightboxCaptionMeta.textContent = caption.meta || '';
         }
+
         lightboxModal.style.display = 'flex';
+        lightboxModal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
         if (lightboxCloseBtn) {
             lightboxCloseBtn.focus();
         }
-    };
-    const closeLightbox = function() {
-        if (!lightboxImg || !lightboxModal) {
+    }
+
+    function closeLightbox() {
+        if (!isLightboxOpen()) {
             return;
         }
 
         lightboxModal.style.display = 'none';
+        lightboxModal.setAttribute('aria-hidden', 'true');
         lightboxImg.src = '';
         lightboxImg.alt = 'Event Bild';
         if (lightboxCaptionTitle) {
@@ -95,29 +114,44 @@ document.addEventListener('DOMContentLoaded', function() {
             lightboxCaptionMeta.textContent = '';
         }
         document.body.style.overflow = '';
-    };
-    document.querySelectorAll('.event-lightbox-img, .event-lightbox-trigger').forEach(img => {
-        img.addEventListener('click', function() {
-            openLightbox(this);
-        });
+        if (lastTrigger && typeof lastTrigger.focus === 'function') {
+            lastTrigger.focus();
+        }
+        lastTrigger = null;
+    }
+
+    document.addEventListener('click', function(event) {
+        const trigger = event.target.closest('.event-lightbox-img, .event-lightbox-trigger');
+        if (!trigger) {
+            return;
+        }
+
+        openLightbox(trigger);
     });
-    if (lightboxCloseBtn && lightboxModal && lightboxImg) {
+
+    if (lightboxCloseBtn) {
         lightboxCloseBtn.addEventListener('click', function() {
             closeLightbox();
         });
     }
-    if (lightboxModal) {
-        lightboxModal.addEventListener('click', function(e) {
-            if (e.target === lightboxModal || e.target === lightboxImg) {
-                closeLightbox();
-            }
-        });
-    }
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && lightboxModal && lightboxModal.style.display === 'flex') {
+
+    lightboxModal.addEventListener('click', function(event) {
+        if (event.target === lightboxModal || event.target === lightboxImg) {
             closeLightbox();
         }
     });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && isLightboxOpen()) {
+            closeLightbox();
+        }
+    });
+
+    lightboxModal.setAttribute('aria-hidden', 'true');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initEventLightbox();
 });
 // Dynamisch Abstand zwischen Gallery und nächster Section minimieren
 function minimizeGallerySectionGap() {
