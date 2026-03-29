@@ -5854,7 +5854,6 @@ html[lang="it"] #langIt {
 
     .charity-projects-section[id^="review-"] .charity-projects-container {
         width: min(calc(100vw - 32px), 720px);
-        max-width: 720px;
         margin: 0 auto 10px;
         padding: 22px 22px 18px;
         border-radius: 20px;
