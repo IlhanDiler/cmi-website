@@ -1,4 +1,6 @@
-const SHARE_PAGES = [
+const SHARE_MANIFEST_URL = "share-pages.json";
+
+const FALLBACK_SHARE_PAGES = [
     "internationales-galakonzert-ochsenfurt-2026.html",
     "internationales-galakonzert-giebelstadt-2026.html",
     "masterclass-florian-meierott.html",
@@ -40,7 +42,8 @@ const KEYWORD_TAGS = [
 ];
 
 const state = {
-    posts: []
+    posts: [],
+    sharePages: []
 };
 
 const INSTAGRAM_EXPORT = {
@@ -483,8 +486,44 @@ async function loadPost(fileName) {
     };
 }
 
+async function loadSharePageList() {
+    try {
+        const response = await fetch(SHARE_MANIFEST_URL, { cache: "no-store" });
+        if (!response.ok) {
+            throw new Error(`Manifest konnte nicht geladen werden: ${SHARE_MANIFEST_URL}`);
+        }
+
+        const manifest = await response.json();
+        const pages = Array.isArray(manifest) ? manifest : manifest?.pages;
+
+        if (!Array.isArray(pages)) {
+            throw new Error("Manifest hat kein gueltiges pages-Array.");
+        }
+
+        const cleanedPages = pages
+            .map((entry) => collapseWhitespace(typeof entry === "string" ? entry : ""))
+            .filter((entry) => entry && /\.html$/i.test(entry) && entry !== "instagram-export.html");
+
+        if (!cleanedPages.length) {
+            throw new Error("Manifest enthaelt keine gueltigen Share-Seiten.");
+        }
+
+        return {
+            pages: cleanedPages,
+            source: "manifest"
+        };
+    } catch (error) {
+        console.warn("Share-Manifest fehlt oder ist ungueltig, Fallback-Liste wird verwendet.", error);
+        return {
+            pages: FALLBACK_SHARE_PAGES,
+            source: "fallback"
+        };
+    }
+}
+
 async function loadPosts() {
-    const results = await Promise.allSettled(SHARE_PAGES.map(loadPost));
+    const { pages, source } = await loadSharePageList();
+    const results = await Promise.allSettled(pages.map(loadPost));
     const posts = [];
     const failedFiles = [];
 
@@ -494,11 +533,11 @@ async function loadPosts() {
             return;
         }
 
-        failedFiles.push(SHARE_PAGES[index]);
+        failedFiles.push(pages[index]);
         console.error(result.reason);
     });
 
-    return { posts, failedFiles };
+    return { posts, failedFiles, sharePages: pages, source };
 }
 
 function createTag(label) {
@@ -598,8 +637,9 @@ function applySearchFilter() {
 
 async function initialize() {
     try {
-        const { posts, failedFiles } = await loadPosts();
+        const { posts, failedFiles, sharePages, source } = await loadPosts();
         state.posts = posts;
+        state.sharePages = sharePages;
         renderPosts(posts);
 
         if (!posts.length) {
@@ -608,8 +648,8 @@ async function initialize() {
         }
 
         elements.exportStatus.textContent = failedFiles.length
-            ? `${posts.length} Beitraege geladen, ${failedFiles.length} Datei(en) uebersprungen`
-            : `${posts.length} Beitraege geladen`;
+            ? `${posts.length} Beitraege geladen, ${failedFiles.length} Datei(en) uebersprungen${source === "fallback" ? " (Fallback-Liste aktiv)" : ""}`
+            : `${posts.length} Beitraege geladen${source === "fallback" ? " (Fallback-Liste aktiv)" : ""}`;
     } catch (error) {
         elements.exportStatus.textContent = "Die Share-Seiten konnten nicht geladen werden. Die Export-Seite funktioniert nur ueber einen Webserver und nicht ueber file://.";
         console.error(error);

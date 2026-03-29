@@ -27,6 +27,7 @@ Wenn ein neuer Rueckblick oder Event gezielt teilbar sein soll:
 4. Fuer Bilder immer absolute URLs wie `https://www.cmi-ochsenfurt.de/bilder/...` verwenden.
 5. Die Weiterleitung auf den Zielabschnitt der Startseite setzen.
 6. Zum Gestalten die gemeinsame CSS-Datei [share/share-preview.css](share/share-preview.css) verwenden.
+7. Den Dateinamen in [share/share-pages.json](share/share-pages.json) eintragen, damit der Instagram-Export den Beitrag automatisch findet.
 
 ## Wichtige Hinweise
 
@@ -45,6 +46,7 @@ Hilfreiche Tools zum Aktualisieren der Vorschau:
 Instagram unterstuetzt keinen sauberen Direktimport von normalen Website-Inhalten. Darum gibt es fuer die bestehende Share-Struktur eine interne Export-Seite unter [share/instagram-export.html](share/instagram-export.html).
 
 - Die Export-Seite liest Bild, Titel, Kurztext und Share-Link direkt aus den vorhandenen Share-Seiten.
+- Die Liste der beruecksichtigten Share-Seiten kommt aus [share/share-pages.json](share/share-pages.json).
 - Fuer jeden Beitrag gibt es eine sofort nutzbare Instagram-Caption, einen separaten Link-Button, einen Direktzugriff auf das Bild sowie PNG-Exporte fuer Feed im Format 4:5 und Story im Format 9:16.
 - Zusaetzlich kann die komplette Liste als JSON kopiert werden, falls spaeter ein Planungs- oder Automatisierungs-Tool angebunden wird.
 
