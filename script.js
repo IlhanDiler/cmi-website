@@ -122,101 +122,46 @@ document.addEventListener('DOMContentLoaded', function() {
 // Dynamisch Abstand zwischen Gallery und nächster Section minimieren
 function minimizeGallerySectionGap() {
     const heroBg = document.querySelector('.hero-bg');
-    // Finde die nächste Section nach .hero-bg
+    if (!heroBg) {
+        return;
+    }
+
     let nextSection = heroBg;
     while (nextSection && nextSection.nextElementSibling && nextSection.nextElementSibling.nodeType !== 1) {
         nextSection = nextSection.nextElementSibling;
     }
     nextSection = nextSection && nextSection.nextElementSibling;
     if (nextSection) {
-        // Setze einen festen Abstand, z.B. 8vw, damit der Abstand zur Navbar und zur Section gleich ist
         nextSection.style.marginTop = '8vw';
     }
 }
-window.addEventListener('resize', minimizeGallerySectionGap);
-window.addEventListener('DOMContentLoaded', minimizeGallerySectionGap);
-// Bild in .hero-bg immer vollständig anzeigen, unabhängig von der Screen-Größe
-window.addEventListener('DOMContentLoaded', function() {
-    // Dynamisch hero-bg-Containerhöhe an Bildhöhe für mobile Screens anpassen
-    function setHeroBgHeightResponsive() {
-        const heroBg = document.querySelector('.hero-bg');
-        if (!heroBg) return;
-        let heroImg = heroBg.querySelector('img');
-        if (window.innerWidth <= 900 && heroImg && heroImg.complete && heroImg.naturalHeight) {
-            // Für mobile und Tablet: Containerhöhe exakt wie Bildhöhe, aber max 100vh
-            let imgRatio = heroImg.naturalWidth / heroImg.naturalHeight;
-            let containerWidth = heroBg.offsetWidth;
-            let newHeight = containerWidth / imgRatio;
-            if (newHeight > window.innerHeight) newHeight = window.innerHeight;
-            heroBg.style.height = newHeight + 'px';
-            heroBg.style.minHeight = '0';
-        } else {
-            // Für größere Screens: Standardhöhe (z.B. 100vh)
-            heroBg.style.height = '';
-            heroBg.style.minHeight = '100vh';
-        }
-    }
-    setHeroBgHeightResponsive();
-    window.addEventListener('resize', setHeroBgHeightResponsive);
-    const heroBgImg = document.querySelector('.hero-bg img');
-    if (heroBgImg) heroBgImg.onload = setHeroBgHeightResponsive;
 
-    // Charity-Projekt: Christmette 2024 Bild auf mobilen Screens volle Breite und flexible Höhe
-    function fitChristmetteImg() {
-        var christmetteImg = document.querySelector('.christmette-img-tall');
-        if (!christmetteImg) return;
-        if (window.innerWidth <= 600) {
-            christmetteImg.style.width = '100vw';
-            christmetteImg.style.height = 'auto';
-            christmetteImg.style.objectFit = 'cover';
-            christmetteImg.style.display = 'block';
-            christmetteImg.style.margin = '0 auto';
-        } else {
-            christmetteImg.style.width = '';
-            christmetteImg.style.height = '';
-            christmetteImg.style.objectFit = '';
-            christmetteImg.style.display = '';
-            christmetteImg.style.margin = '';
-        }
+function fitChristmetteImg() {
+    const christmetteImg = document.querySelector('.christmette-img-tall');
+    if (!christmetteImg) {
+        return;
     }
+
+    if (window.innerWidth <= 600) {
+        christmetteImg.style.width = '100vw';
+        christmetteImg.style.height = 'auto';
+        christmetteImg.style.objectFit = 'cover';
+        christmetteImg.style.display = 'block';
+        christmetteImg.style.margin = '0 auto';
+        return;
+    }
+
+    christmetteImg.style.width = '';
+    christmetteImg.style.height = '';
+    christmetteImg.style.objectFit = '';
+    christmetteImg.style.display = '';
+    christmetteImg.style.margin = '';
+}
+
+function initHeroLayout() {
+    minimizeGallerySectionGap();
     fitChristmetteImg();
-    window.addEventListener('resize', fitChristmetteImg);
-    const heroBg = document.querySelector('.hero-bg');
-    if (!heroBg) return;
-    const heroImg = heroBg.querySelector('img');
-    if (!heroImg) return;
-
-    function fitHeroImg() {
-        // Setze das Bild so, dass es immer komplett sichtbar ist
-        heroImg.style.width = '';
-        heroImg.style.height = '';
-        heroImg.style.maxWidth = '100%';
-        heroImg.style.maxHeight = '100vh';
-        heroImg.style.objectFit = 'contain';
-        heroImg.style.display = 'block';
-        heroImg.style.margin = '0 auto';
-        // Optional: Passe Höhe an, falls Container kleiner als Bild ist
-        const containerRect = heroBg.getBoundingClientRect();
-        if (heroImg.naturalWidth && heroImg.naturalHeight) {
-            const aspect = heroImg.naturalWidth / heroImg.naturalHeight;
-            let newWidth = containerRect.width;
-            let newHeight = newWidth / aspect;
-            if (newHeight > window.innerHeight) {
-                newHeight = window.innerHeight;
-                newWidth = newHeight * aspect;
-            }
-            heroImg.style.width = newWidth + 'px';
-            heroImg.style.height = newHeight + 'px';
-        }
-    }
-
-    if (heroImg.complete) {
-        fitHeroImg();
-    } else {
-        heroImg.onload = fitHeroImg;
-    }
-    window.addEventListener('resize', fitHeroImg);
-});
+}
 // Hero-BG Gallery/Slideshow
 const heroGalleryUiLabels = {
     de: {
@@ -288,6 +233,14 @@ const heroGallery = [
 //{ src: 'bilder/Ochsenfurt 23.07.2005.JPG', title: 'Ochsenfurt 23.07.2005' }, 
     
 ];
+    const heroGalleryDesktopFocusImages = new Set([
+        'bilder/Weihnachtskonzert Spitalkirche.png',
+        'bilder/Jubiläumskonzert_2016.jpg',
+        'bilder/gruppe_2007.jpeg',
+        'bilder/peterbild.jpg',
+        'bilder/klosterkirche.jpg',
+        'bilder/concello.jfif'
+    ]);
 let heroIndex = 0;
 const heroSlideDuration = 6500;
 const heroFadeDuration = 1400;
@@ -472,6 +425,24 @@ function stopHeroGalleryAuto() {
     updateHeroGalleryProgress(0);
 }
 
+function getHeroGallerySlideStyle(entry, index) {
+    if (!entry) {
+        return { backgroundPosition: 'center 10%', backgroundSize: '' };
+    }
+
+    if (window.innerWidth <= 600) {
+        return {
+            backgroundPosition: index === 2 ? 'center 8%' : 'center 10%',
+            backgroundSize: '100vw auto'
+        };
+    }
+
+    return {
+        backgroundPosition: heroGalleryDesktopFocusImages.has(entry.src) ? 'center 60%' : 'center 10%',
+        backgroundSize: ''
+    };
+}
+
 function setHeroBgCrossfade(idx) {
     if (isFading) return;
     isFading = true;
@@ -481,12 +452,16 @@ function setHeroBgCrossfade(idx) {
     const fadeB = fadeContainer.children[1];
     const current = fadeToggle ? fadeA : fadeB;
     const next = fadeToggle ? fadeB : fadeA;
-    const heroTitle = getHeroGalleryTitle(heroGallery[idx]);
-    // Set next image and bring to front
-    next.style.backgroundImage = `url('${heroGallery[idx].src}')`;
+    const currentEntry = heroGallery[idx];
+    const heroTitle = getHeroGalleryTitle(currentEntry);
+    const slideStyle = getHeroGallerySlideStyle(currentEntry, idx);
+
+    next.style.backgroundImage = `url('${currentEntry.src}')`;
     next.style.opacity = '0';
     next.style.transition = `opacity ${heroFadeDuration / 1000}s cubic-bezier(.22,1,.36,1)`;
-    // Set or update fadein-text overlay
+    next.style.backgroundPosition = slideStyle.backgroundPosition;
+    next.style.backgroundSize = slideStyle.backgroundSize;
+
     let fadeinDiv = next.querySelector('.fadein-text');
     if (!fadeinDiv) {
         fadeinDiv = document.createElement('div');
@@ -503,49 +478,15 @@ function setHeroBgCrossfade(idx) {
         fadeinDiv.style.transform = 'translateY(46px)';
         fadeinDiv.style.transition = '';
     }
-    // Individual background position logic (existing)
-    if (window.innerWidth <= 600) {
-        if (idx === 2) {
-            next.style.backgroundPosition = 'center 8%';
-            next.style.backgroundSize = '100vw auto';
-        } else {
-            next.style.backgroundPosition = 'center 10%';
-            next.style.backgroundSize = '100vw auto';
-        }
-    } else {
-    if (
-        heroGallery[idx].src.includes('bilder/Weihnachtskonzert Spitalkirche.png') ||
-        heroGallery[idx].src.includes('bilder/Jubiläumskonzert_2016.jpg')||
-        heroGallery[idx].src.includes('bilder/gruppe_2007.jpeg') ||
-        heroGallery[idx].src.includes('bilder/Ochsenfurt 23.07.2005.JPG') ||
-        heroGallery[idx].src.includes('bilder/Opern-Gala-BGS - 20 von 44.jpg') ||
-        heroGallery[idx].src.includes('bilder/Ochsenfurt 05.03.2011.JPG') ||
-        heroGallery[idx].src.includes('bilder/CMI in chiesa St.Wolfgang.jpg') ||
-        heroGallery[idx].src.includes('bilder/Totale.jpg') ||
-        heroGallery[idx].src.includes('bilder/6 Gruppe 05.01.2013.jpg') ||
-        heroGallery[idx].src.includes('bilder/DSC_4255.JPG') ||
-        heroGallery[idx].src.includes('bilder/Gruppenbild 2022.jpg') ||
-        heroGallery[idx].src.includes('bilder/salboro_santa_maria_assunta_2024.jpg') ||
-        heroGallery[idx].src.includes('bilder/salboro_santa_maria_assunta_2024_2.jpg') ||
-        heroGallery[idx].src.includes('bilder/peterbild.jpg') ||
-        heroGallery[idx].src.includes('bilder/klosterkirche.jpg') ||
-        heroGallery[idx].src.includes('salboro_santa_maria_assunta_2024.jpg') ||
-        heroGallery[idx].src.includes('salboro_santa_maria_assunta_2024_2.jpg') ||
-        heroGallery[idx].src.includes('christuskirche_27_april_2024.jpg') ||
-        heroGallery[idx].src.includes('christuskirche_27_april_2024_2.jpg') ||
-        heroGallery[idx].src.includes('concello.jfif')
-    ) {
-        next.style.backgroundPosition = 'center 60%';
-    } else   {
-        next.style.backgroundPosition = 'center 10%';
-    } 
-}
+
+    refreshHeroGalleryUi();
+
     // Start fade in
     setTimeout(() => {
         next.style.opacity = '1';
         current.style.opacity = '0';
         current.style.transition = `opacity ${heroFadeDuration / 1000}s cubic-bezier(.22,1,.36,1)`;
-        // Fade in fadein-text overlay nur wenn nicht leer
+
         if (heroTitle !== '') {
             setTimeout(() => {
                 fadeinDiv.style.opacity = '1';
@@ -555,7 +496,7 @@ function setHeroBgCrossfade(idx) {
             fadeinDiv.style.opacity = '0';
             fadeinDiv.style.transform = 'translateY(34px)';
         }
-        // Hide previous fadein-text
+
         let prevFadein = current.querySelector('.fadein-text');
         if (prevFadein) {
             prevFadein.style.opacity = '0';
@@ -618,10 +559,15 @@ function renderHeroGalleryDots() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+function initHeroGallery() {
     const heroBg = document.querySelector('.hero-bg');
+    const fadeContainer = document.querySelector('.hero-bg-fade-container');
     const prevButton = document.querySelector('.hero-gallery-control--prev');
     const nextButton = document.querySelector('.hero-gallery-control--next');
+    if (!heroBg || !fadeContainer || fadeContainer.children.length < 2 || !heroGallery.length) {
+        return;
+    }
+
     setHeroBgCrossfade(heroIndex);
     scheduleHeroGalleryAuto(heroSlideDuration);
 
@@ -682,28 +628,16 @@ document.addEventListener('DOMContentLoaded', function() {
             pauseHeroGalleryAuto();
         }, { passive: true });
     }
-});
-
-// Update dots on manual/auto change
-const origSetHeroBgCrossfade = setHeroBgCrossfade;
-setHeroBgCrossfade = function(idx) {
-    origSetHeroBgCrossfade(idx);
-    refreshHeroGalleryUi();
-};
-// Dynamisch Hintergrundlayer für about-me-section je nach Screengröße
-function updateAboutMeBackground() {
-    const aboutMeSection = document.querySelector('.about-me-section');
-    if (!aboutMeSection) return;
-    if (window.innerWidth <= 600) {
-        aboutMeSection.style.background = 'none';
-    } else {
-        aboutMeSection.style.background = "url('bilder/Astrid var.jpg') center center/cover no-repeat";
-    }
 }
 
-window.addEventListener('resize', updateAboutMeBackground);
+document.addEventListener('DOMContentLoaded', function() {
+    initHeroLayout();
+    initHeroGallery();
+});
+
+window.addEventListener('resize', minimizeGallerySectionGap);
+window.addEventListener('resize', fitChristmetteImg);
 window.addEventListener('resize', syncHeroGalleryResponsiveState);
-window.addEventListener('DOMContentLoaded', updateAboutMeBackground);
 // Scroll-Reveal für Cards
 function revealOnScroll(selector) {
     const elements = document.querySelectorAll(selector);
@@ -1039,22 +973,6 @@ document.addEventListener('DOMContentLoaded', function() {
     updateYearsPassed();
 });
 
-// Dynamische Anpassung des Hintergrundbildes
-function updateHeroBg() {
-    const heroBg = document.querySelector('.hero-bg');
-    if (!heroBg) return;
-    if (window.innerWidth <= 900) {
-        heroBg.style.backgroundSize = '120vw 100vh';
-        heroBg.style.backgroundPosition = '60% 35%';
-        heroBg.style.backgroundRepeat = 'no-repeat';
-    } else {
-        heroBg.style.backgroundSize = 'cover';
-        heroBg.style.backgroundPosition = 'center 35%';
-        heroBg.style.backgroundRepeat = 'no-repeat';
-    }
-}
-window.addEventListener('resize', updateHeroBg);
-window.addEventListener('DOMContentLoaded', updateHeroBg);
 // Sprachumschalter: Zeige nur die passende Sprache
 function setLang(lang) {
     document.querySelectorAll('[data-lang]').forEach(el => {
