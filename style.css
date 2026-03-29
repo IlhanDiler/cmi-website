@@ -1019,6 +1019,7 @@
     max-width: clamp(120px, 11vw, 150px) !important;
     height: auto !important;
     width: auto !important;
+    margin-top: 0 !important;
     filter: saturate(0) contrast(1.08);
 }
 .music-family-logo-mobile {
@@ -1037,14 +1038,6 @@
 @media (min-width: 901px) {
     .music-family-title {
         margin-bottom: 16px;
-    }
-    .music-family-logo-mobile {
-        flex-direction: row;
-        justify-content: center;
-        margin-left: 0;
-    }
-    .music-family-logo-mobile img {
-        margin-top: 0 !important;
     }
 }
 
@@ -1078,14 +1071,10 @@
     }
     .music-family-logo-mobile {
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
         width: 100%;
         min-height: 0;
-        margin-left: 0;
     }
     .music-family-logo-mobile img {
-        margin-top: 0 !important;
         max-width: 118px !important;
     }
 }
