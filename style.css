@@ -625,36 +625,22 @@
     background: #fff;
 }
 
-/* Unified mobile/tablet spacing for the Astrid section */
+/* Shared responsive layout for the Astrid section */
 @media (max-width: 900px) {
     .about-me-section-modern {
-        padding: 28px 0 28px 0;
+        padding: 28px 0;
     }
 
     .about-me-section-modern-inner {
-        flex-direction: column;
         width: 100%;
         max-width: 100%;
         padding: 0 16px;
-        gap: 16px;
         box-sizing: border-box;
     }
 
     .about-me-text-modern,
     .about-me-image-modern {
-        width: 100%;
-        max-width: 720px;
-        margin: 0 auto;
         box-sizing: border-box;
-    }
-
-    .about-me-text-modern {
-        background: #fff;
-        padding: 22px 22px 18px;
-        border-radius: 20px;
-        box-shadow: 0 2px 12px rgba(25,211,197,0.10);
-        align-items: flex-start;
-        text-align: left;
     }
 
     .about-me-modern-title {
@@ -688,21 +674,31 @@
 
     .about-me-image-modern img {
         max-width: 100% !important;
-        max-height: 60vh;
     }
 }
 
 @media (max-width: 600px) {
     .about-me-section-modern-inner {
+        flex-direction: column;
         padding: 0 12px;
         gap: 14px;
+    }
+
+    .about-me-text-modern,
+    .about-me-image-modern {
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
     }
 
     .about-me-text-modern {
         display: flex;
         flex-direction: column;
+        background: #fff;
         padding: 20px 18px 16px;
         border-radius: 18px;
+        box-shadow: 0 2px 12px rgba(25,211,197,0.10);
+        text-align: left;
     }
 
     .about-me-modern-title {
@@ -741,24 +737,22 @@
 
     .about-me-text-modern {
         flex: 1 1 56%;
-        max-width: none;
         width: auto;
+        max-width: none;
         margin: 0;
-        padding: 12px 0 12px;
+        padding: 12px 0;
         border-radius: 0;
         background: transparent;
         box-shadow: none;
+        text-align: left;
     }
 
     .about-me-image-modern {
         flex: 0 0 40%;
-        max-width: 40%;
         width: auto;
+        max-width: 40%;
         margin: 0;
         align-self: stretch;
-        border-radius: 0;
-        overflow: hidden;
-        background: #fff;
         box-shadow: 0 8px 22px rgba(18, 62, 70, 0.10);
     }
 
