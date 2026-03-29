@@ -3890,7 +3890,6 @@ html[lang="it"] #langIt {
 @media (max-width: 900px) {
     .masterclass-flex .masterclass-flex__image {
         width: min(100%, 560px);
-        border-radius: 14px;
     }
 }
 @media (max-width: 600px) {
@@ -3901,16 +3900,9 @@ html[lang="it"] #langIt {
 
     .masterclass-flex .masterclass-flex__image {
         width: 100%;
-        border-radius: 12px;
         margin: 0;
     }
 }
-@media (max-width: 400px) {
-    .masterclass-flex .masterclass-flex__image {
-        border-radius: 10px;
-    }
-}
-
 /* Unified responsive spacing for all review cards */
 @media (max-width: 1200px) {
     .charity-projects-section[id^="review-"] {
@@ -3981,13 +3973,6 @@ html[lang="it"] #langIt {
         margin: 0 auto !important;
     }
 
-    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container > div {
-        margin-left: auto !important;
-        margin-right: auto !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        box-sizing: border-box;
-    }
 }
 
 @media (max-width: 600px) {
@@ -4020,11 +4005,6 @@ html[lang="it"] #langIt {
 
     .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
         margin-top: 12px !important;
-    }
-
-    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img,
-    .charity-projects-section[id^="review-"] .charity-flex-right img {
-        border-radius: 14px;
     }
 }
 
