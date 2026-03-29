@@ -168,10 +168,6 @@
         z-index: 9;
     }
 }
-.gruppenbild-container img.gruppenbild-img:nth-child(1) {
-    object-fit: cover !important;
-    object-position: top !important;
-}
 
 @media (max-width: 600px) {
     .charity-description {
@@ -181,46 +177,6 @@
         margin-left: 0 !important;
         margin-right: 0 !important;
         margin-bottom: 2px !important;
-    }
-
-    .gruppenbild-container img.gruppenbild-img {
-        width: 80vw !important;
-        max-width: 100vw !important;
-        display: block !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-
-    .gruppenbild-container img.gruppenbild-img:nth-child(2) {
-        margin-top: 18px !important;
-        object-fit: cover !important;
-        width: 80vw !important;
-        max-width: 100vw !important;
-        display: block !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-}
-/* Gruppenbild: Responsive Bilddarstellung für verschiedene Screens */
-.gruppenbild-container {
-    width: 100%;
-    margin: 2px auto 0 auto;
-    display: block;
-}
-.gruppenbild-img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    box-shadow: var(--shadow-image);
-    display: block;
-    background: var(--color-white);
-}
-@media (max-width: 600px) {
-    .gruppenbild-img {
-        width: 100vw;
-        max-width: 100vw;
-            object-fit: cover;
-        margin: 0 -2vw 18px -2vw;
     }
 }
 
@@ -448,11 +404,6 @@
         line-height: 1.44;
     }
 }
-@media (max-width: 600px) {
-    .gruppenbild-container {
-        margin-top: 18px !important;
-    }
-}
 @media (min-width: 1200px) {
     #langSwitcher {
         padding-right: 2.5vw;
@@ -574,31 +525,6 @@
         line-height: 1.38;
     }
 }
-@media (min-width: 900px) {
-    .gruppenbild-img {
-        max-width: 35vw !important;
-        max-height: 100vh !important;
-        width: auto !important;
-        height: auto !important;
-        object-fit: contain !important;
-        display: block !important;
-        margin: 0 auto 18px auto !important;
-        background: #fff !important;
-    }
-}
-@media (min-width: 701px) and (max-width: 1024px) {
-    .gruppenbild-img {
-        max-width: 90vw !important;
-        max-height: 340px !important;
-        width: auto !important;
-        height: auto !important;
-        object-fit: contain !important;
-        display: block !important;
-        margin: 0 auto 18px auto !important;
-       
-        background: #fff !important;
-    }
-}
 /* Inline list: no gaps between ensemble names */
 .ensemble-inline-list {
     display: flex;
@@ -613,20 +539,6 @@
     display: inline-block;
     white-space: nowrap;
 }
-/* Gruppenbild: immer voll sichtbar, nie überstehend */
-.gruppenbild-img {
-    width: 100%;
-    max-width: 45%;
-    max-height: 380px;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    margin: auto;
-    background: #fff;
-    box-sizing: border-box;
-}
-
-
 /* Modern responsive layout for About Me section */
 .about-me-section-modern {
     width: 100%;
@@ -2260,19 +2172,6 @@
 }
 
 
-@media (min-width: 700px) and (max-width: 900px) {
-    .gruppenbild-img {
-        max-width: 75vw !important;
-        max-height: 60vh !important;
-        width: auto !important;
-        height: auto !important;
-        object-fit: contain !important;
-        display: block !important;
-        margin: 0 auto 18px auto !important;
-   
-        background: #fff !important;
-    }
-}
 .brand-text {
     display: block;
     font-family: 'Plus Jakarta Sans', 'Inter', 'Segoe UI', Arial, sans-serif;
