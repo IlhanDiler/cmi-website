@@ -893,23 +893,6 @@
         max-width: 98vw;
         max-height: 60vh;
     }
-@media (max-width: 600px) {
-    .music-family-benefits {
-        padding-left: 0 !important;
-    }
-    .music-family-benefits li {
-        font-size: 1em !important;
-        padding-right: 0 !important;
-        padding-left: 0 !important;
-        text-indent: 0 !important;
-        word-break: break-word !important;
-        overflow-wrap: break-word !important;
-        white-space: normal !important;
-        hyphens: auto !important;
-        text-align: left !important;
-    }
-}
-
 /* Vertically center bullets in musikalisches-repertoire-list */
 .musikalisches-repertoire-list li {
     display: flex !important;
@@ -1035,6 +1018,120 @@
     border-radius: 18px;
 }
 
+.music-family-groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.music-family-group {
+    min-width: 0;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(18, 62, 70, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 12px 24px rgba(18, 62, 70, 0.06);
+    padding: 22px 22px 20px;
+}
+
+.music-family-group-title {
+    margin: 0 0 12px;
+    color: #0f9184;
+    font-family: var(--font-ui) !important;
+    font-size: clamp(1.1rem, 1.28vw, 1.28rem) !important;
+    font-weight: 780 !important;
+    line-height: 1.14 !important;
+    letter-spacing: -0.02em !important;
+    text-align: left;
+    text-wrap: balance;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    word-break: break-word;
+}
+
+.music-family-group-details {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-ui);
+}
+
+.music-family-group-details li {
+    margin: 0;
+    padding: 9px 0;
+    color: #112f35;
+    font-size: clamp(0.97rem, 0.96vw, 1.02rem);
+    line-height: 1.44;
+    letter-spacing: 0.002em;
+    border-top: 1px solid rgba(18, 62, 70, 0.06);
+    text-wrap: pretty;
+}
+
+.music-family-group-details li:first-child {
+    padding-top: 0;
+    border-top: 0;
+}
+
+.music-family-group-details li b {
+    display: inline-block;
+    margin-right: 0.32em;
+    color: #0f2e34;
+    font-weight: 760;
+    letter-spacing: 0.01em;
+}
+
+.music-family-group-details .address-part {
+    display: block;
+    color: #35525a;
+    line-height: 1.36;
+}
+
+.music-family-contact {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.music-family-contact-title {
+    margin-bottom: 8px;
+    color: #0f9184;
+    font-family: var(--font-ui);
+    font-size: clamp(1rem, 1.05vw, 1.08rem);
+    font-weight: 750;
+    letter-spacing: 0.01em;
+}
+
+.music-family-contact-card {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: min(100%, 360px);
+    padding: 14px 20px;
+    background: linear-gradient(135deg, rgba(234, 250, 252, 0.96), rgba(247, 255, 247, 0.92));
+    border: 1px solid rgba(15, 145, 132, 0.12);
+    border-radius: 16px;
+    box-shadow: 0 10px 18px rgba(18, 62, 70, 0.06);
+}
+
+.music-family-contact-name {
+    color: #11333a;
+    font-family: var(--font-ui);
+    font-size: clamp(1rem, 1vw, 1.08rem);
+    font-weight: 720;
+    letter-spacing: 0.005em;
+}
+
+.music-family-contact-link {
+    color: #0f9184;
+    font-family: var(--font-ui);
+    font-size: clamp(0.96rem, 0.96vw, 1rem);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    word-break: break-word;
+}
+
 @media (min-width: 901px) {
     .music-family-title {
         margin-bottom: 16px;
@@ -1077,6 +1174,29 @@
     .music-family-logo-mobile img {
         max-width: 118px !important;
     }
+    .music-family-groups {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .music-family-group {
+        padding: 20px 20px 18px;
+        border-radius: 18px;
+    }
+    .music-family-group-title {
+        margin-bottom: 12px;
+        font-size: clamp(1.06rem, 3vw, 1.22rem) !important;
+        line-height: 1.18 !important;
+    }
+    .music-family-group-details li {
+        font-size: 0.98rem;
+        line-height: 1.42;
+    }
+    .music-family-contact {
+        margin-top: 22px;
+    }
+    .music-family-contact-card {
+        width: min(100%, 380px);
+    }
 }
 @media (max-width: 600px) {
     .music-family-section {
@@ -1104,9 +1224,20 @@
         line-height: 1.54 !important;
         letter-spacing: 0.004em !important;
     }
+    .music-family-benefits {
+        padding-left: 0 !important;
+    }
     .music-family-benefits li {
         font-size: 1rem !important;
         line-height: 1.4 !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        text-indent: 0 !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+        hyphens: auto !important;
+        text-align: left !important;
     }
     .music-family-benefits-row {
         gap: 12px;
@@ -1120,6 +1251,46 @@
     .music-family-logo-mobile {
         padding: 10px 12px;
         border-radius: 16px;
+    }
+    .music-family-groups {
+        gap: 16px;
+    }
+    .music-family-group {
+        padding: 18px 16px 16px;
+        border-radius: 18px;
+    }
+    .music-family-group-title {
+        font-size: 1.02rem !important;
+        line-height: 1.2 !important;
+    }
+    .music-family-group-details li {
+        padding: 8px 0;
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+    .music-family-group-details li b {
+        display: block;
+        margin-bottom: 0.12em;
+    }
+    .music-family-contact {
+        margin-top: 20px;
+    }
+    .music-family-contact-title {
+        margin-bottom: 8px;
+        font-size: 0.98rem;
+    }
+    .music-family-contact-card {
+        width: 100%;
+        min-width: 0;
+        padding: 12px 14px;
+        border-radius: 16px;
+    }
+    .music-family-contact-name {
+        font-size: 0.98rem;
+    }
+    .music-family-contact-link {
+        font-size: 0.93rem;
+        line-height: 1.38;
     }
 }
 @media (min-width: 900px) {
@@ -1485,176 +1656,6 @@
         right: 0.5vw !important;
         bottom: 4px !important;
         border-radius: 8px 10px 8px 10px !important;
-    }
-}
-.music-family-groups {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-}
-.music-family-group {
-    min-width: 0;
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(18, 62, 70, 0.08);
-    border-radius: 20px;
-    box-shadow: 0 12px 24px rgba(18, 62, 70, 0.06);
-    padding: 22px 22px 20px;
-}
-.music-family-group-title {
-    margin: 0 0 12px;
-    color: #0f9184;
-    font-family: var(--font-ui) !important;
-    font-size: clamp(1.1rem, 1.28vw, 1.28rem) !important;
-    font-weight: 780 !important;
-    line-height: 1.14 !important;
-    letter-spacing: -0.02em !important;
-    text-align: left;
-    text-wrap: balance;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
-    word-break: break-word;
-}
-.music-family-group-details {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-family: var(--font-ui);
-}
-.music-family-group-details li {
-    margin: 0;
-    padding: 9px 0;
-    color: #112f35;
-    font-size: clamp(0.97rem, 0.96vw, 1.02rem);
-    line-height: 1.44;
-    letter-spacing: 0.002em;
-    border-top: 1px solid rgba(18, 62, 70, 0.06);
-    text-wrap: pretty;
-}
-.music-family-group-details li:first-child {
-    padding-top: 0;
-    border-top: 0;
-}
-.music-family-group-details li b {
-    display: inline-block;
-    margin-right: 0.32em;
-    color: #0f2e34;
-    font-weight: 760;
-    letter-spacing: 0.01em;
-}
-.music-family-group-details .address-part {
-    display: block;
-    color: #35525a;
-    line-height: 1.36;
-}
-.music-family-contact {
-    margin-top: 24px;
-    text-align: center;
-}
-.music-family-contact-title {
-    margin-bottom: 8px;
-    color: #0f9184;
-    font-family: var(--font-ui);
-    font-size: clamp(1rem, 1.05vw, 1.08rem);
-    font-weight: 750;
-    letter-spacing: 0.01em;
-}
-.music-family-contact-card {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    min-width: min(100%, 360px);
-    padding: 14px 20px;
-    background: linear-gradient(135deg, rgba(234, 250, 252, 0.96), rgba(247, 255, 247, 0.92));
-    border: 1px solid rgba(15, 145, 132, 0.12);
-    border-radius: 16px;
-    box-shadow: 0 10px 18px rgba(18, 62, 70, 0.06);
-}
-.music-family-contact-name {
-    color: #11333a;
-    font-family: var(--font-ui);
-    font-size: clamp(1rem, 1vw, 1.08rem);
-    font-weight: 720;
-    letter-spacing: 0.005em;
-}
-.music-family-contact-link {
-    color: #0f9184;
-    font-family: var(--font-ui);
-    font-size: clamp(0.96rem, 0.96vw, 1rem);
-    font-weight: 600;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.18em;
-    word-break: break-word;
-}
-
-@media (max-width: 900px) {
-    .music-family-groups {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
-    .music-family-group {
-        padding: 20px 20px 18px;
-        border-radius: 18px;
-    }
-    .music-family-group-title {
-        margin-bottom: 12px;
-        font-size: clamp(1.06rem, 3vw, 1.22rem) !important;
-        line-height: 1.18 !important;
-    }
-    .music-family-group-details li {
-        font-size: 0.98rem;
-        line-height: 1.42;
-    }
-    .music-family-contact {
-        margin-top: 22px;
-    }
-    .music-family-contact-card {
-        width: min(100%, 380px);
-    }
-}
-
-@media (max-width: 600px) {
-    .music-family-groups {
-        gap: 16px;
-    }
-    .music-family-group {
-        padding: 18px 16px 16px;
-        border-radius: 18px;
-    }
-    .music-family-group-title {
-        font-size: 1.02rem !important;
-        line-height: 1.2 !important;
-    }
-    .music-family-group-details li {
-        padding: 8px 0;
-        font-size: 0.95rem;
-        line-height: 1.4;
-    }
-    .music-family-group-details li b {
-        display: block;
-        margin-bottom: 0.12em;
-    }
-    .music-family-contact {
-        margin-top: 20px;
-    }
-    .music-family-contact-title {
-        margin-bottom: 8px;
-        font-size: 0.98rem;
-    }
-    .music-family-contact-card {
-        width: 100%;
-        min-width: 0;
-        padding: 12px 14px;
-        border-radius: 16px;
-    }
-    .music-family-contact-name {
-        font-size: 0.98rem;
-    }
-    .music-family-contact-link {
-        font-size: 0.93rem;
-        line-height: 1.38;
     }
 }
 
