@@ -3172,25 +3172,6 @@
     text-align: center !important;
     box-sizing: border-box;
 }
-@media (max-width: 1200px) {
-    .charity-flex-row {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .charity-flex-left,
-    .charity-flex-right,
-    .charity-flex-row > .gruppenbild-container {
-        max-width: 100%;
-        flex: 1 1 100%;
-        width: 100%;
-        padding: 0;
-        min-width: 0;
-    }
-    .charity-flex-right,
-    .charity-flex-row > .gruppenbild-container {
-        margin: 0 auto;
-    }
-}
 /* Charity-Image modern und responsiv */
 .charity-image {
     width: 100%;
@@ -3312,28 +3293,12 @@
     letter-spacing: 0.2px;
 }
 @media (max-width: 1200px) {
-    .charity-projects-section {
-        padding: 24px 0 18px 0;
-    }
-    .charity-projects-container {
-        padding: 18px 8vw 14px 8vw;
-        border-radius: 20px;
-        margin-bottom: 10px;
-    }
     .charity-title {
         font-size: clamp(1.3em, 5vw, 2.1em);
         margin-bottom: 14px;
     }
 }
 @media (max-width: 600px) {
-    .charity-projects-section {
-        padding: 12px 0 10px 0;
-    }
-    .charity-projects-container {
-        padding: 10px 2vw 10px 2vw;
-        border-radius: 12px;
-        margin-bottom: 6px;
-    }
     .charity-title {
         font-size: clamp(1.1em, 7vw, 1.5em);
         margin-bottom: 10px;
@@ -5725,6 +5690,39 @@ html[lang="it"] #langIt {
 }
 
 /* Unified responsive spacing for all review cards */
+@media (max-width: 1200px) {
+    .charity-projects-section[id^="review-"] {
+        padding: 24px 0 18px 0;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-projects-container {
+        padding: 18px 8vw 14px;
+        border-radius: 20px;
+        margin-bottom: 10px;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-left,
+    .charity-projects-section[id^="review-"] .charity-flex-right,
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
+        max-width: 100% !important;
+        flex: 1 1 100%;
+        width: 100% !important;
+        padding: 0 !important;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-right,
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
+        margin: 0 auto !important;
+    }
+}
+
 @media (max-width: 900px) {
     .charity-projects-section[id^="review-"] {
         padding: 20px 0 16px 0;
@@ -5732,26 +5730,13 @@ html[lang="it"] #langIt {
 
     .charity-projects-section[id^="review-"] .charity-projects-container {
         width: min(calc(100vw - 32px), 720px);
-        margin: 0 auto 10px;
         padding: 22px 22px 18px;
-        border-radius: 20px;
         box-sizing: border-box;
     }
 
     .charity-projects-section[id^="review-"] .charity-flex-row {
         gap: 16px;
         align-items: stretch;
-    }
-
-    .charity-projects-section[id^="review-"] .charity-flex-left,
-    .charity-projects-section[id^="review-"] .charity-flex-right,
-    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0;
-        margin: 0 auto !important;
-        padding: 0 !important;
-        box-sizing: border-box;
     }
 
     .charity-projects-section[id^="review-"] .charity-title,
