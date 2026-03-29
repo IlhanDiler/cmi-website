@@ -656,23 +656,6 @@ document.addEventListener('DOMContentLoaded', function() {
     revealOnScroll('.modern-card');
     revealOnScroll('.musikfamilie-card');
 });
-function initAccordion() {
-    document.addEventListener('click', function(event) {
-        const button = event.target.closest('.accordion-toggle');
-        if (!button || !button.parentElement) {
-            return;
-        }
-
-        const content = button.parentElement.querySelector('.accordion-content');
-        if (!content) {
-            return;
-        }
-
-        const expanded = button.getAttribute('aria-expanded') === 'true';
-        button.setAttribute('aria-expanded', String(!expanded));
-        content.style.display = expanded ? 'none' : 'block';
-    });
-}
 
 function showNotification(message, type = 'info') {
     const existingNotifications = document.querySelectorAll('.notification');
@@ -973,72 +956,89 @@ document.addEventListener('DOMContentLoaded', function() {
     updateYearsPassed();
 });
 
-// Sprachumschalter: Zeige nur die passende Sprache
-function setLang(lang) {
-    document.querySelectorAll('[data-lang]').forEach(el => {
-        if (el.getAttribute('data-lang') === lang) {
-            el.style.display = '';
-        } else {
-            el.style.display = 'none';
+const supportedSiteLanguages = new Set(['de', 'en', 'it']);
+const mbondaTimelineLinkSelector = '.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]';
+
+function isSupportedSiteLanguage(lang) {
+    return supportedSiteLanguages.has(lang);
+}
+
+function getMbondaTimelineLinks() {
+    return document.querySelectorAll(mbondaTimelineLinkSelector);
+}
+
+function normalizeMbondaTimelineLink(link) {
+    link.onclick = null;
+    link.removeAttribute('onclick');
+    link.style.position = 'relative';
+    link.style.left = '';
+    link.style.top = '';
+    link.style.width = '';
+    link.style.height = '';
+    link.style.zIndex = '2147483647';
+    link.style.pointerEvents = 'auto';
+    link.style.background = '';
+    link.style.outline = '';
+    link.style.color = '';
+    link.style.fontWeight = '';
+    link.style.display = 'inline-block';
+    link.style.fontSize = '';
+    link.style.textAlign = '';
+    link.style.lineHeight = '';
+}
+
+function installMbondaMobilePassthrough(link) {
+    if (link.dataset.mbondaPassthroughInstalled === 'true') {
+        return;
+    }
+
+    const allowNativeNavigation = function(event) {
+        event.stopPropagation = function() {};
+        event.stopImmediatePropagation = function() {};
+    };
+
+    link.addEventListener('click', allowNativeNavigation, { capture: true });
+    link.addEventListener('touchend', allowNativeNavigation, { capture: true });
+    link.dataset.mbondaPassthroughInstalled = 'true';
+}
+
+function ensureMbondaTimelineLinksAccessible() {
+    const isMobileViewport = window.innerWidth <= 700;
+    getMbondaTimelineLinks().forEach(function(link) {
+        normalizeMbondaTimelineLink(link);
+        if (isMobileViewport) {
+            installMbondaMobilePassthrough(link);
         }
     });
+}
+
+function applySiteLanguage(lang) {
+    if (!isSupportedSiteLanguage(lang)) {
+        return;
+    }
+
+    document.querySelectorAll('[data-lang]').forEach(function(element) {
+        element.style.display = element.getAttribute('data-lang') === lang ? '' : 'none';
+    });
+
     document.documentElement.setAttribute('lang', lang);
-    // Sprache persistent speichern
+
     try {
         localStorage.setItem('siteLang', lang);
     } catch (e) {}
-    refreshHeroGalleryUi();
-    // Entferne alle Event-Handler für Mbonda Lokito Link, damit Standardverhalten greift
-    var mbondaLinks = document.querySelectorAll('.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]');
-    mbondaLinks.forEach(function(link) {
-        link.onclick = null;
-        link.removeAttribute('onclick');
-        // Nur der Timeline-Link braucht diese Sicherheitsbehandlung.
-        link.style.position = 'relative';
-        link.style.left = '';
-        link.style.top = '';
-        link.style.width = '';
-        link.style.height = '';
-        link.style.zIndex = '2147483647';
-        link.style.pointerEvents = 'auto';
-        link.style.background = '';
-        link.style.outline = '';
-        link.style.color = '';
-        link.style.fontWeight = '';
-        link.style.display = 'inline-block';
-        link.style.fontSize = '';
-        link.style.textAlign = '';
-        link.style.lineHeight = '';
-    });
-}
-window.setLang = setLang;
-// Beim Laden der Seite: Sprache aus localStorage übernehmen
-window.addEventListener('DOMContentLoaded', function() {
-    try {
-        var lang = localStorage.getItem('siteLang');
-        if (lang && (lang === 'de' || lang === 'en' || lang === 'it')) {
-            setLang(lang);
-        }
-    } catch (e) {}
 
-    // EXPLIZIT: Für mobile Geräte - verhindere jegliche JS-Blockade für Mbonda Lokito Link in der Timeline
-    if (window.innerWidth <= 700) {
-        var mbondaLinks = document.querySelectorAll('.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]');
-        mbondaLinks.forEach(function(link) {
-            link.onclick = null;
-            link.removeAttribute('onclick');
-            link.addEventListener('click', function(e) {
-                // Lass alles durch, verhindere keine Events
-                e.stopPropagation = function(){};
-                e.stopImmediatePropagation = function(){};
-                // Kein preventDefault!
-            }, {capture: true});
-            link.addEventListener('touchend', function(e) {
-                e.stopPropagation = function(){};
-                e.stopImmediatePropagation = function(){};
-            }, {capture: true});
-            link.style.pointerEvents = 'auto';
-            link.style.zIndex = '2147483647';
-        });
-    }
+    refreshHeroGalleryUi();
+    ensureMbondaTimelineLinksAccessible();
+}
+
+window.setLang = applySiteLanguage;
+
+function initSiteLanguage() {
+    applySiteLanguage(getCurrentSiteLanguage());
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+    initSiteLanguage();
 });
+
+window.addEventListener('resize', ensureMbondaTimelineLinksAccessible);
