@@ -691,95 +691,6 @@ document.addEventListener('DOMContentLoaded', function() {
     revealOnScroll('.musikfamilie-card');
 });
 
-function showNotification(message, type = 'info') {
-    const existingNotifications = document.querySelectorAll('.notification');
-    existingNotifications.forEach(notification => notification.remove());
-
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-info-circle'}"></i>
-            <span>${message}</span>
-            <button class="notification-close">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-    `;
-
-    if (!document.getElementById('notification-styles')) {
-        const style = document.createElement('style');
-        style.id = 'notification-styles';
-        style.textContent = `
-            .notification {
-                position: fixed;
-                top: 100px;
-                right: 20px;
-                z-index: 10;
-                max-width: 400px;
-                background: white;
-                border-radius: 12px;
-                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-                transform: translateX(100%);
-                transition: transform 0.3s ease-in-out;
-            }
-            .notification.show {
-                transform: translateX(0);
-            }
-            .notification-success {
-                border-left: 4px solid var(--accent-green);
-            }
-            .notification-content {
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                padding: 16px 20px;
-            }
-            .notification-content i:first-child {
-                color: var(--accent-green);
-                font-size: 18px;
-            }
-            .notification-content span {
-                flex: 1;
-                color: var(--dark);
-                font-weight: 500;
-            }
-            .notification-close {
-                background: none;
-                border: none;
-                color: var(--gray-400);
-                cursor: pointer;
-                padding: 4px;
-                border-radius: 4px;
-                transition: color 0.2s;
-            }
-            .notification-close:hover {
-                color: var(--gray-600);
-            }
-        `;
-        document.head.appendChild(style);
-    }
-
-    document.body.appendChild(notification);
-
-    setTimeout(() => {
-        notification.classList.add('show');
-    }, 100);
-
-    const closeBtn = notification.querySelector('.notification-close');
-    closeBtn.addEventListener('click', () => {
-        notification.classList.remove('show');
-        setTimeout(() => notification.remove(), 300);
-    });
-
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.classList.remove('show');
-            setTimeout(() => notification.remove(), 300);
-        }
-    }, 5000);
-}
-
 function initMobileNavigation() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const mobileMenu = document.querySelector('.mobile-menu');
@@ -906,71 +817,6 @@ function initFieldValidation() {
     });
 }
 
-function initCookieBanner() {
-    const cookieBanner = document.getElementById('cookieBanner');
-    const cookieAcceptBtn = document.getElementById('cookieAcceptBtn');
-    const cookieDeclineBtn = document.getElementById('cookieDeclineBtn');
-    if (!cookieBanner || !cookieAcceptBtn || !cookieDeclineBtn) {
-        return;
-    }
-
-    function setCookie(name, value, days) {
-        let expires = '';
-        if (days) {
-            const date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            expires = '; expires=' + date.toUTCString();
-        }
-        document.cookie = name + '=' + (value || '') + expires + '; path=/';
-    }
-
-    function getCookie(name) {
-        const nameEq = name + '=';
-        const cookies = document.cookie.split(';');
-        for (let index = 0; index < cookies.length; index += 1) {
-            let cookie = cookies[index];
-            while (cookie.charAt(0) === ' ') {
-                cookie = cookie.substring(1, cookie.length);
-            }
-            if (cookie.indexOf(nameEq) === 0) {
-                return cookie.substring(nameEq.length, cookie.length);
-            }
-        }
-        return null;
-    }
-
-    function setCookieConsent(value) {
-        setCookie('cookieAccepted', value === 'accepted' ? 'true' : '', 365);
-        setCookie('cookieDeclined', value === 'declined' ? 'true' : '', 365);
-        localStorage.setItem('cookieConsent', value);
-    }
-
-    function getCookieConsent() {
-        if (getCookie('cookieAccepted')) {
-            return 'accepted';
-        }
-        if (getCookie('cookieDeclined')) {
-            return 'declined';
-        }
-        return localStorage.getItem('cookieConsent');
-    }
-
-    if (getCookieConsent()) {
-        cookieBanner.style.display = 'none';
-        return;
-    }
-
-    cookieBanner.style.display = 'flex';
-    cookieAcceptBtn.addEventListener('click', function() {
-        setCookieConsent('accepted');
-        cookieBanner.style.display = 'none';
-    });
-    cookieDeclineBtn.addEventListener('click', function() {
-        setCookieConsent('declined');
-        cookieBanner.style.display = 'none';
-    });
-}
-
 function updateYearsPassed() {
     const yearsPassedEl = document.getElementById('yearsPassed');
     if (!yearsPassedEl) {
@@ -986,7 +832,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavbarScroll();
     initShapeParallax();
     initFieldValidation();
-    initCookieBanner();
     updateYearsPassed();
 });
 
