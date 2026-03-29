@@ -755,47 +755,6 @@
     }
 }
 
-
-/* FadeIn-Text unten rechts im hero-bg Bereich */
-.fadein-text {
-    position: absolute;
-    right: 2vw;
-    bottom: 8px;
-    background: rgba(34,34,34,0.65);
-    color: #fff;
-    font-size: 1em;
-    font-weight: 500;
-    padding: 6px 14px;
-    border-radius: 12px 18px 12px 18px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-    max-width: 60vw;
-    z-index: 10;
-    /* pointer-events: none; entfernt, damit Links klickbar bleiben */
-    opacity: 0.92;
-    text-align: right;
-}
-@media (max-width: 700px) {
-    .fadein-text {
-        font-size: 0.65em !important;
-        padding: 4px 6vw 4px 6vw !important;
-        max-width: 92vw !important;
-        right: 1vw !important;
-        bottom: 6px !important;
-        border-radius: 10px 14px 10px 14px !important;
-        text-align: right !important;
-    }
-}
-@media (max-width: 400px) {
-    .fadein-text {
-        font-size: 0.55em !important;
-        padding: 3px 2vw 3px 2vw !important;
-        max-width: 98vw !important;
-        right: 0.5vw !important;
-        bottom: 4px !important;
-        border-radius: 8px 10px 8px 10px !important;
-    }
-}
-
 /* Charity & Benefiz Card Layout */
 .charity-card {
     display: flex;
@@ -2679,6 +2638,8 @@
 }
 
 .fadein-text {
+    position: absolute;
+    z-index: 10;
     left: clamp(18px, 4vw, 42px);
     right: auto;
     bottom: clamp(110px, 12vw, 136px);
