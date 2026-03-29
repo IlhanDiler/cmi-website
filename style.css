@@ -5980,9 +5980,7 @@ html[lang="it"] #langIt {
 
 #review-nikolausfeier-2025 .gruppenbild-img-nikolaus {
     max-height: 390px !important;
-    object-fit: contain !important;
     margin: 0 auto 10px auto !important;
-    border-radius: 0 !important;
     box-shadow: none !important;
     background: transparent !important;
     border: 0 !important;
