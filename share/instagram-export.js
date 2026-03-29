@@ -30,13 +30,13 @@ const DEFAULT_HASHTAGS = [
 ];
 
 const KEYWORD_TAGS = [
-    { pattern: /galakonzert/i, tags: ["#Galakonzert", "#LiveMusik"] },
-    { pattern: /masterclass/i, tags: ["#Masterclass", "#Streicher"] },
-    { pattern: /benefiz/i, tags: ["#Benefizkonzert", "#MusikFuerDenGutenZweck"] },
-    { pattern: /weihnacht|christmette|nikolaus/i, tags: ["#Weihnachtsmusik", "#Adventszeit"] },
-    { pattern: /neujahr/i, tags: ["#Neujahrskonzert", "#Jahresauftakt"] },
-    { pattern: /frieden/i, tags: ["#Frieden", "#Erinnerungskultur"] },
-    { pattern: /symphonic|kurswoche|wir musizieren/i, tags: ["#Orchester", "#GemeinsamMusizieren"] }
+    { pattern: /galakonzert|gala concert|concerto di gala/, tags: ["#Galakonzert", "#LiveMusik"] },
+    { pattern: /masterclass|workshop|meierott/, tags: ["#Workshop", "#Streicher"] },
+    { pattern: /benefiz|benefit|benefico/, tags: ["#Benefizkonzert", "#MusikFuerDenGutenZweck"] },
+    { pattern: /weihnacht|christmette|nikolaus|natale/, tags: ["#Weihnachtsmusik", "#Adventszeit"] },
+    { pattern: /neujahr|new year|capodanno/, tags: ["#Neujahrskonzert", "#Jahresauftakt"] },
+    { pattern: /frieden|peace|pace/, tags: ["#Frieden", "#Erinnerungskultur"] },
+    { pattern: /symphonic|kurswoche|wir musizieren|orchester|orchestra/, tags: ["#Orchester", "#GemeinsamMusizieren"] }
 ];
 
 const state = {
@@ -81,13 +81,26 @@ function getMetaContent(doc, selector) {
     return doc.querySelector(selector)?.getAttribute("content")?.trim() || "";
 }
 
+function collapseWhitespace(value) {
+    return (value || "").replace(/\s+/g, " ").trim();
+}
+
+function normalizeText(value) {
+    return collapseWhitespace(value)
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase();
+}
+
 function uniqueTags(tags) {
     return [...new Set(tags.filter(Boolean))].slice(0, 8);
 }
 
 function buildHashtags(title, text) {
+    const normalizedTitle = normalizeText(title);
+    const normalizedText = normalizeText(text);
     const derived = KEYWORD_TAGS
-        .filter((entry) => entry.pattern.test(title) || entry.pattern.test(text))
+        .filter((entry) => entry.pattern.test(normalizedTitle) || entry.pattern.test(normalizedText))
         .flatMap((entry) => entry.tags);
 
     return uniqueTags([...DEFAULT_HASHTAGS, ...derived]);
@@ -97,12 +110,24 @@ function buildCaption(post) {
     return [
         post.title,
         "",
+        post.meta,
+        "",
         post.text,
         "",
         "Mehr dazu auf unserer Website. Den passenden Link legen wir in Bio, Story oder Link-Sammlung.",
         "",
         post.hashtags.join(" ")
     ].join("\n");
+}
+
+function buildSearchIndex(post) {
+    return normalizeText([
+        post.title,
+        post.meta,
+        post.text,
+        post.fileName,
+        post.hashtags.join(" ")
+    ].join(" "));
 }
 
 function buildExportFileName(post, suffix) {
@@ -437,12 +462,12 @@ async function loadPost(fileName) {
 
     const html = await response.text();
     const doc = new DOMParser().parseFromString(html, "text/html");
-    const title = getMetaContent(doc, 'meta[property="og:title"]') || doc.title.trim();
-    const description = getMetaContent(doc, 'meta[name="description"]') || getMetaContent(doc, 'meta[property="og:description"]');
+    const title = collapseWhitespace(getMetaContent(doc, 'meta[property="og:title"]') || doc.title.trim());
+    const description = collapseWhitespace(getMetaContent(doc, 'meta[name="description"]') || getMetaContent(doc, 'meta[property="og:description"]'));
     const image = getMetaContent(doc, 'meta[property="og:image"]') || doc.querySelector(".share-card__hero")?.getAttribute("src") || "";
     const shareUrl = getMetaContent(doc, 'meta[property="og:url"]') || new URL(fileName, window.location.href).href;
-    const meta = doc.querySelector(".share-card__meta")?.textContent?.trim() || "Share-Beitrag";
-    const text = doc.querySelector(".share-card__text")?.textContent?.trim() || description;
+    const meta = collapseWhitespace(doc.querySelector(".share-card__meta")?.textContent) || "Share-Beitrag";
+    const text = collapseWhitespace(doc.querySelector(".share-card__text")?.textContent) || description;
     const hashtags = buildHashtags(title, `${description} ${text}`);
 
     return {
@@ -454,8 +479,26 @@ async function loadPost(fileName) {
         meta,
         text,
         hashtags,
-        caption: buildCaption({ title, text, hashtags })
+        caption: buildCaption({ title, meta, text, hashtags })
     };
+}
+
+async function loadPosts() {
+    const results = await Promise.allSettled(SHARE_PAGES.map(loadPost));
+    const posts = [];
+    const failedFiles = [];
+
+    results.forEach((result, index) => {
+        if (result.status === "fulfilled") {
+            posts.push(result.value);
+            return;
+        }
+
+        failedFiles.push(SHARE_PAGES[index]);
+        console.error(result.reason);
+    });
+
+    return { posts, failedFiles };
 }
 
 function createTag(label) {
@@ -499,7 +542,7 @@ function renderPosts(posts) {
         const openImageLink = fragment.querySelector(".post-card__open-image");
         const openShareLink = fragment.querySelector(".post-card__open-share");
 
-        card.dataset.search = `${post.title} ${post.meta} ${post.text}`.toLowerCase();
+        card.dataset.search = buildSearchIndex(post);
         image.src = post.image;
         image.alt = post.title;
         meta.textContent = post.meta;
@@ -544,10 +587,10 @@ function renderPosts(posts) {
 }
 
 function applySearchFilter() {
-    const query = elements.postSearch.value.trim().toLowerCase();
+    const query = normalizeText(elements.postSearch.value);
     const filtered = !query
         ? state.posts
-        : state.posts.filter((post) => `${post.title} ${post.meta} ${post.text}`.toLowerCase().includes(query));
+        : state.posts.filter((post) => buildSearchIndex(post).includes(query));
 
     renderPosts(filtered);
     elements.exportStatus.textContent = `${filtered.length} von ${state.posts.length} Beitraegen sichtbar`;
@@ -555,10 +598,18 @@ function applySearchFilter() {
 
 async function initialize() {
     try {
-        const posts = await Promise.all(SHARE_PAGES.map(loadPost));
+        const { posts, failedFiles } = await loadPosts();
         state.posts = posts;
         renderPosts(posts);
-        elements.exportStatus.textContent = `${posts.length} Beitraege geladen`;
+
+        if (!posts.length) {
+            elements.exportStatus.textContent = "Keine Share-Seiten konnten geladen werden. Die Export-Seite funktioniert nur ueber einen Webserver und nicht ueber file://.";
+            return;
+        }
+
+        elements.exportStatus.textContent = failedFiles.length
+            ? `${posts.length} Beitraege geladen, ${failedFiles.length} Datei(en) uebersprungen`
+            : `${posts.length} Beitraege geladen`;
     } catch (error) {
         elements.exportStatus.textContent = "Die Share-Seiten konnten nicht geladen werden. Die Export-Seite funktioniert nur ueber einen Webserver und nicht ueber file://.";
         console.error(error);
