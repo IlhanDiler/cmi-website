@@ -1309,6 +1309,17 @@
 .review-media-caption--narrow {
     max-width: 70% !important;
 }
+
+.review-media-image-card {
+    height: auto !important;
+    display: block;
+    background: #fff;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+}
+
+.review-media-image-card--narrow {
+    max-width: 70% !important;
+}
 /* Charity Projects Section (Material Design) */
 .charity-projects-section {
     background: #eafafc;
