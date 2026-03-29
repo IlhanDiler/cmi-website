@@ -91,6 +91,35 @@ body {
     color: var(--share-muted);
     line-height: 1.6;
     font-size: 1rem;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+}
+
+.share-card__text .external-link {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    color: #116f65;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(21, 155, 140, 0.65);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.12em;
+    white-space: normal;
+}
+
+.share-card__text .external-link:hover,
+.share-card__text .external-link:focus {
+    color: #0c5e55;
+    background: none;
+    box-shadow: none;
+    text-decoration: underline;
+    text-decoration-color: currentColor;
 }
 
 .share-card__actions {
