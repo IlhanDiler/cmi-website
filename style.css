@@ -1524,10 +1524,6 @@
         padding: 20px 18px 16px;
         border-radius: 18px;
     }
-
-    .about-me-image-modern {
-        border-radius: 0;
-    }
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
