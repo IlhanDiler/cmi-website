@@ -1585,24 +1585,6 @@
     text-align: center !important;
     box-sizing: border-box;
 }
-/* Charity-Image modern und responsiv */
-.charity-image {
-    width: 100%;
-    max-width: 100%;
-    max-height: 420px;
-    border-radius: 18px;
-    margin: 24px 0 0 0;
-    display: block;
-    object-fit: contain;
-    box-sizing: border-box;
-    background: #fff;
-}
-@media (max-width: 600px) {
-    .charity-image {
-        border-radius: 10px;
-        margin: 14px 0 0 0;
-    }
-}
 /* Charity Projects Section (Material Design) */
 .charity-projects-section {
     background: #eafafc;
@@ -1694,15 +1676,6 @@
     .charity-card-main-text {
         font-size: 0.98em !important;
     }
-}
-
-.charity-footer {
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-    color: #0D5C63;
-    font-size: 1.08em;
-    font-weight: 700;
-    margin-top: 12px;
-    letter-spacing: 0.2px;
 }
 @media (max-width: 1200px) {
     .charity-title {
