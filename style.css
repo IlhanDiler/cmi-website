@@ -3189,22 +3189,6 @@ html[lang="it"] #langIt {
     text-align: center;
     font-style: italic;
 }
-@media (max-width: 900px) {
-    .masterclass-flex .masterclass-flex__image {
-        width: min(100%, 560px);
-    }
-}
-@media (max-width: 600px) {
-    .masterclass-flex {
-        gap: 12px;
-        align-items: stretch;
-    }
-
-    .masterclass-flex .masterclass-flex__image {
-        width: 100%;
-        margin: 0;
-    }
-}
 /* Unified responsive spacing for all review cards */
 @media (max-width: 1200px) {
     .charity-projects-section[id^="review-"] {
@@ -3215,10 +3199,12 @@ html[lang="it"] #langIt {
         padding: 18px 8vw 14px;
         border-radius: 20px;
         margin-bottom: 10px;
+        box-sizing: border-box;
     }
 
     .charity-projects-section[id^="review-"] .charity-flex-row {
         flex-direction: column;
+        align-items: stretch;
         gap: 20px;
     }
 
@@ -3237,23 +3223,6 @@ html[lang="it"] #langIt {
     .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
         margin: 0 auto !important;
     }
-}
-
-@media (max-width: 900px) {
-    .charity-projects-section[id^="review-"] {
-        padding: 20px 0 16px 0;
-    }
-
-    .charity-projects-section[id^="review-"] .charity-projects-container {
-        width: min(calc(100vw - 32px), 720px);
-        padding: 22px 22px 18px;
-        box-sizing: border-box;
-    }
-
-    .charity-projects-section[id^="review-"] .charity-flex-row {
-        gap: 16px;
-        align-items: stretch;
-    }
 
     .charity-projects-section[id^="review-"] .charity-title,
     .charity-projects-section[id^="review-"] .charity-meta,
@@ -3266,18 +3235,46 @@ html[lang="it"] #langIt {
         box-sizing: border-box;
     }
 
-    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
-        margin-top: 14px !important;
-    }
-
     .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img,
     .charity-projects-section[id^="review-"] .charity-flex-right img {
         margin: 0 auto !important;
     }
+}
 
+@media (max-width: 900px) {
+    .masterclass-flex .masterclass-flex__image {
+        width: min(100%, 560px);
+    }
+
+    .charity-projects-section[id^="review-"] {
+        padding: 20px 0 16px 0;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-projects-container {
+        width: min(calc(100vw - 32px), 720px);
+        padding: 22px 22px 18px;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-row {
+        gap: 16px;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
+        margin-top: 14px !important;
+    }
 }
 
 @media (max-width: 600px) {
+    .masterclass-flex {
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .masterclass-flex .masterclass-flex__image {
+        width: 100%;
+        margin: 0;
+    }
+
     .charity-projects-section[id^="review-"] {
         padding: 12px 0 10px 0;
     }
