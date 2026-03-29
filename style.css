@@ -5784,6 +5784,9 @@ html[lang="it"] #langIt {
     .nav-menu {
         display: none !important;
     }
+    .nav-brand {
+        transform: translateY(2px);
+    }
     .mobile-menu-btn {
         display: flex !important;
         min-width: 56px;
