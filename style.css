@@ -2666,15 +2666,10 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .hero-bg:hover .hero-gallery-ui,
-    .hero-bg:focus-within .hero-gallery-ui,
-    .hero-gallery-ui.hero-gallery-ui--active {
+    .hero-bg:hover .hero-gallery-ui {
         opacity: 1;
         pointer-events: auto;
         transform: translateX(-50%) translateY(0);
-        background: linear-gradient(180deg, rgba(12, 19, 28, 0.10), rgba(12, 19, 28, 0.34));
-        border-color: rgba(255, 255, 255, 0.12);
-        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
     }
 }
 
