@@ -1,0 +1,159 @@
+:root {
+    --share-bg: linear-gradient(180deg, #f6fbff 0%, #eef7f5 100%);
+    --share-card-bg: rgba(255, 255, 255, 0.94);
+    --share-border: rgba(14, 83, 74, 0.12);
+    --share-text: #17312d;
+    --share-muted: #49635f;
+    --share-accent: #159b8c;
+    --share-shadow: 0 18px 50px rgba(18, 65, 58, 0.16);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+    background: var(--share-bg);
+    color: var(--share-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 18px;
+}
+
+.share-card {
+    width: min(760px, 100%);
+    background: var(--share-card-bg);
+    border: 1px solid var(--share-border);
+    border-radius: 24px;
+    box-shadow: var(--share-shadow);
+    overflow: hidden;
+}
+
+.share-card__hero {
+    width: 100%;
+    aspect-ratio: 1200 / 630;
+    object-fit: cover;
+    display: block;
+    background: #dfeceb;
+}
+
+.share-card__body {
+    padding: 24px;
+}
+
+.share-card__brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.share-card__logo {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: #fff;
+    padding: 6px;
+    border: 1px solid rgba(21, 155, 140, 0.14);
+}
+
+.share-card__eyebrow {
+    margin: 0;
+    color: var(--share-muted);
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.share-card__title {
+    margin: 0 0 10px;
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+    line-height: 1.08;
+}
+
+.share-card__meta {
+    margin: 0 0 12px;
+    color: var(--share-accent);
+    font-weight: 700;
+    font-size: 0.98rem;
+}
+
+.share-card__text {
+    margin: 0 0 20px;
+    color: var(--share-muted);
+    line-height: 1.6;
+    font-size: 1rem;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+}
+
+.share-card__text .external-link {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    color: #116f65;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(21, 155, 140, 0.65);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.12em;
+    white-space: normal;
+}
+
+.share-card__text .external-link:hover,
+.share-card__text .external-link:focus {
+    color: #0c5e55;
+    background: none;
+    box-shadow: none;
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+}
+
+.share-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.share-card__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 18px;
+    border-radius: 999px;
+    background: var(--share-accent);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.share-card__hint {
+    margin: 0;
+    color: var(--share-muted);
+    font-size: 0.94rem;
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 14px;
+    }
+
+    .share-card__body {
+        padding: 18px;
+    }
+}
