@@ -140,101 +140,6 @@
     fill: var(--color-accent);
 }
 
-.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"] {
-    display: inline-block !important;
-    align-items: baseline;
-    font-size: 0.98em !important;
-    color: #17998c !important;
-    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(33, 201, 188, 0) 48%, rgba(33, 201, 188, 0.16) 48%, rgba(33, 201, 188, 0.16) 100%) !important;
-    border-radius: 0 !important;
-    font-weight: 700 !important;
-    text-decoration: none !important;
-    padding: 0 2px 1px !important;
-    margin: 0 !important;
-    box-shadow: none !important;
-    border: 0 !important;
-    vertical-align: baseline;
-    text-decoration-line: underline !important;
-    text-decoration-color: rgba(23, 153, 140, 0.45) !important;
-    text-decoration-thickness: 0.08em !important;
-    text-underline-offset: 0.14em !important;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-    white-space: nowrap !important;
-    z-index: 20 !important;
-}
-
-.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]:hover,
-.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]:focus {
-    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(33, 201, 188, 0) 42%, rgba(33, 201, 188, 0.22) 42%, rgba(33, 201, 188, 0.22) 100%) !important;
-    color: #127d73 !important;
-    text-decoration-color: rgba(18, 125, 115, 0.55) !important;
-    box-shadow: none !important;
-    outline: none !important;
-}
-
-@media (max-width: 700px) {
-    .timeline-item-title a {
-        display: inline-block !important;
-        font-size: 1em !important;
-        padding: 4px 10px !important;
-        background: linear-gradient(90deg, var(--color-bg-soft) 0%, var(--color-white) 100%) !important;
-        color: var(--color-accent-dark) !important;
-        border-radius: 8px !important;
-        font-weight: 700 !important;
-        text-decoration: underline !important;
-        margin: 2px 0 !important;
-        transition: background 0.2s, color 0.2s !important;
-        z-index: 10000 !important;
-    }
-    .timeline-item-title a:hover, .timeline-item-title a:focus {
-        color: var(--color-white) !important;
-        background: var(--color-accent-dark) !important;
-        text-decoration: none !important;
-        outline: none !important;
-        z-index: 10000 !important;
-    }
-
-    .timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"] {
-        display: inline-block !important;
-        font-size: 0.96em !important;
-        padding: 0 2px 1px !important;
-        margin: 0 !important;
-        border-radius: 0 !important;
-        background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(33, 201, 188, 0) 48%, rgba(33, 201, 188, 0.18) 48%, rgba(33, 201, 188, 0.18) 100%) !important;
-        color: #17998c !important;
-        border: 0 !important;
-        box-shadow: none !important;
-        text-decoration-line: underline !important;
-        text-decoration-color: rgba(23, 153, 140, 0.45) !important;
-        white-space: nowrap !important;
-    }
-
-    .timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]:hover,
-    .timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]:focus {
-        color: #127d73 !important;
-        background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(33, 201, 188, 0) 42%, rgba(33, 201, 188, 0.24) 42%, rgba(33, 201, 188, 0.24) 100%) !important;
-        text-decoration-color: rgba(18, 125, 115, 0.55) !important;
-        outline: none !important;
-        z-index: 10000 !important;
-    }
-}
-/* Deutlicher Style für Links in Timeline-Items */
-.timeline-item-title a {
-    color: var(--color-accent-dark);
-    font-weight: 700;
-    text-decoration: underline;
-    background: linear-gradient(90deg, var(--color-bg-soft) 0%, var(--color-white) 100%);
-    padding: 2px 6px;
-    border-radius: 6px;
-    transition: background 0.2s, color 0.2s;
-}
-.timeline-item-title a:hover, .timeline-item-title a:focus {
-    color: var(--color-white);
-    background: var(--color-accent-dark);
-    text-decoration: none;
-    outline: none;
-}
 /* Footer-Link-Container immer im Vordergrund, keine Überlagerung durch Overlays/Modals/Cookie-Banner */
 @media (max-width: 1024px) {
     .site-footer > div {
@@ -548,17 +453,6 @@
         margin-top: 18px !important;
     }
 }
-/* Timeline link style for visibility */
-.timeline-item-title a {
-    color: #039be5;
-    text-decoration: underline;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-.timeline-item-title a:hover {
-    color: #01579b;
-    text-decoration: underline;
-}
 @media (min-width: 1200px) {
     #langSwitcher {
         padding-right: 2.5vw;
@@ -611,281 +505,6 @@
     padding: 12px 18px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0.24));
     border: 1px solid rgba(17, 52, 58, 0.06);
-    border-radius: 22px;
-}
-.music-family-benefits {
-    margin: 0;
-    padding: 0;
-    min-width: 0;
-    list-style: none;
-}
-.music-family-benefits li {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    align-items: start;
-    column-gap: 10px;
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
-    margin: 0 0 0.56em;
-    font-size: clamp(1rem, 1.03vw, 1.08rem) !important;
-    line-height: 1.36 !important;
-    color: #11343a !important;
-    font-weight: 560 !important;
-    letter-spacing: 0.005em !important;
-    text-wrap: pretty;
-}
-.music-family-benefits li:last-child {
-    margin-bottom: 0;
-}
-.music-family-benefit-check {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.1rem;
-    color: #0f9184;
-    font-size: 1.06rem;
-    font-weight: 800;
-    line-height: 1;
-    transform: translateY(0.08em);
-}
-/* Responsive style for music-family-desc */
-.music-family-desc {
-    max-width: 58ch;
-    margin: 0 !important;
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
-    font-size: clamp(1.02rem, 1.28vw, 1.15rem) !important;
-    line-height: 1.56 !important;
-    color: #16383e !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.008em !important;
-    text-align: center;
-    text-wrap: pretty;
-}
-.music-family-logo-mobile img {
-    max-width: clamp(120px, 11vw, 150px) !important;
-    height: auto !important;
-    width: auto !important;
-    margin-top: 0 !important;
-    filter: saturate(0) contrast(1.08);
-}
-.music-family-logo-mobile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-self: start;
-    gap: 14px;
-    min-height: 100%;
-    padding: 12px 14px;
-    background: rgba(255, 255, 255, 0.72);
-    border: 1px solid rgba(17, 52, 58, 0.07);
-    border-radius: 18px;
-}
-
-.music-family-groups {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-}
-
-.music-family-group {
-    min-width: 0;
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(18, 62, 70, 0.08);
-    border-radius: 20px;
-    box-shadow: 0 12px 24px rgba(18, 62, 70, 0.06);
-    padding: 22px 22px 20px;
-}
-
-.music-family-group-title {
-    margin: 0 0 12px;
-    color: #0f9184;
-    font-family: var(--font-ui) !important;
-    font-size: clamp(1.1rem, 1.28vw, 1.28rem) !important;
-    font-weight: 780 !important;
-    line-height: 1.14 !important;
-    letter-spacing: -0.02em !important;
-    text-align: left;
-    text-wrap: balance;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
-    word-break: break-word;
-}
-
-.music-family-group-details {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-family: var(--font-ui);
-}
-
-.music-family-group-details li {
-    margin: 0;
-    padding: 9px 0;
-    color: #112f35;
-    font-size: clamp(0.97rem, 0.96vw, 1.02rem);
-    line-height: 1.44;
-    letter-spacing: 0.002em;
-    border-top: 1px solid rgba(18, 62, 70, 0.06);
-    text-wrap: pretty;
-}
-
-.music-family-group-details li:first-child {
-    padding-top: 0;
-    border-top: 0;
-}
-
-.music-family-group-details li b {
-    display: inline-block;
-    margin-right: 0.32em;
-    color: #0f2e34;
-    font-weight: 760;
-    letter-spacing: 0.01em;
-}
-
-.music-family-group-details .address-part {
-    display: block;
-    color: #35525a;
-    line-height: 1.36;
-}
-
-.music-family-contact {
-    margin-top: 24px;
-    text-align: center;
-}
-
-.music-family-contact-title {
-    margin-bottom: 8px;
-    color: #0f9184;
-    font-family: var(--font-ui);
-    font-size: clamp(1rem, 1.05vw, 1.08rem);
-    font-weight: 750;
-    letter-spacing: 0.01em;
-}
-
-.music-family-contact-card {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    min-width: min(100%, 360px);
-    padding: 14px 20px;
-    background: linear-gradient(135deg, rgba(234, 250, 252, 0.96), rgba(247, 255, 247, 0.92));
-    border: 1px solid rgba(15, 145, 132, 0.12);
-    border-radius: 16px;
-    box-shadow: 0 10px 18px rgba(18, 62, 70, 0.06);
-}
-
-.music-family-contact-name {
-    color: #11333a;
-    font-family: var(--font-ui);
-    font-size: clamp(1rem, 1vw, 1.08rem);
-    font-weight: 720;
-    letter-spacing: 0.005em;
-}
-
-.music-family-contact-link {
-    color: #0f9184;
-    font-family: var(--font-ui);
-    font-size: clamp(0.96rem, 0.96vw, 1rem);
-    font-weight: 600;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.18em;
-    word-break: break-word;
-}
-
-@media (min-width: 901px) {
-    .music-family-title {
-        margin-bottom: 16px;
-    }
-}
-
-@media (max-width: 900px) {
-    .music-family-section {
-        padding: 48px 0 44px;
-    }
-    .music-family-container {
-        padding: 0 20px;
-    }
-    .music-family-title {
-        max-width: 13ch;
-        font-size: clamp(1.85rem, 7.2vw, 2.7rem) !important;
-        line-height: 1.04 !important;
-    }
-    .music-family-intro {
-        margin-bottom: 20px;
-        gap: 10px;
-    }
-    .music-family-desc {
-        max-width: 44ch;
-        font-size: 1.05rem !important;
-        line-height: 1.56 !important;
-    }
-    .music-family-benefits-row {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        margin-bottom: 18px;
-        padding: 12px 14px;
-        border-radius: 18px;
-    }
-    .music-family-logo-mobile {
-        flex-direction: column;
-        width: 100%;
-        min-height: 0;
-    }
-    .music-family-logo-mobile img {
-        max-width: 118px !important;
-    }
-    .music-family-groups {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
-    .music-family-group {
-        padding: 20px 20px 18px;
-        border-radius: 18px;
-    }
-    .music-family-group-title {
-        margin-bottom: 12px;
-        font-size: clamp(1.06rem, 3vw, 1.22rem) !important;
-        line-height: 1.18 !important;
-    }
-    .music-family-group-details li {
-        font-size: 0.98rem;
-        line-height: 1.42;
-    }
-    .music-family-contact {
-        margin-top: 22px;
-    }
-    .music-family-contact-card {
-        width: min(100%, 380px);
-    }
-}
-@media (max-width: 600px) {
-    .music-family-section {
-        padding: 42px 0 40px;
-    }
-    .music-family-container {
-        padding: 0 16px;
-    }
-    .music-family-title {
-        max-width: 11ch;
-        margin-bottom: 14px;
-        font-size: clamp(1.7rem, 8.8vw, 2.3rem) !important;
-        letter-spacing: -0.035em !important;
-    }
-    .music-family-title-accent {
-        margin-top: 0.1em;
-    }
-    .music-family-intro {
-        margin-bottom: 18px;
-        gap: 8px;
-    }
-    .music-family-desc {
-        max-width: 32ch;
-        font-size: 1rem !important;
-        line-height: 1.54 !important;
-        letter-spacing: 0.004em !important;
-    }
     .music-family-benefits {
         padding-left: 0 !important;
     }
@@ -1524,281 +1143,6 @@
     opacity: 1;
     transform: translateY(0);
     animation: heroTitleFadeUp 2.8s cubic-bezier(.77,0,.18,1) forwards;
-}
-.timeline-vertical-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    min-height: 180px;
-    position: relative;
-    margin-bottom: 48px;
-    z-index: 1;
-}
-.timeline-vertical-col {
-    flex: 1 1 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-.timeline-vertical-col.right {
-    justify-content: flex-start;
-}
-.timeline-vertical-center {
-    flex: 0 0 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 2;
-}
-.timeline-vertical-content {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-}
-.timeline-vertical-item.left .timeline-vertical-content {
-    flex-direction: row;
-}
-.timeline-vertical-item.right .timeline-vertical-content {
-    flex-direction: row-reverse;
-}
-/* Vertikale Timeline mit zentraler Linie und Cards */
-.timeline-vertical-section {
-    background: linear-gradient(120deg, #f7fafc 0%, #e3f0ff 100%);
-    padding: 80px 0 80px 0;
-}
-.timeline-vertical-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-    position: relative;
-    position: relative;
-}
-.timeline-vertical-title {
-    color: #0D5C63;
-    font-size: 1.35em;
-    text-align: center;
-    margin-bottom: 16px;
-    font-weight: 800;
-    letter-spacing: -1px;
-   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-}
-.timeline-vertical-list {
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
-    position: relative;
-}
-.timeline-vertical-item {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    position: relative;
-    min-height: 180px;
-}
-.timeline-vertical-item.left {
-    flex-direction: row;
-    justify-content: flex-start;
-}
-.timeline-vertical-item.right {
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-}
-.timeline-vertical-card {
-    background: #fff;
-    border-radius: 24px;
-    box-shadow: 0 4px 24px rgba(26,54,93,0.10);
-    padding: 32px 28px 32px 28px;
-    min-width: 320px;
-    max-width: 420px;
-    z-index: 2;
-}
-.timeline-vertical-img {
-    flex: 0 0 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-}
-.timeline-vertical-img img {
-    width: 100%;
-    max-width: 340px;
-    border-radius: 20px;
-    box-shadow: 0 4px 24px 0 rgba(26,54,93,0.13);
-    background: #fff;
-    display: block;
-}
-.timeline-vertical-dot {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 28px;
-    height: 28px;
-    background: #19d3c5;
-    border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(26,54,93,0.10);
-    border: 4px solid #fff;
-    z-index: 3;
-    margin: 0 0 32px 0;
-}
-@media (max-width: 900px) {
-    .timeline-vertical-dot {
-        width: 18px;
-        height: 18px;
-        border-width: 2px;
-        margin: 0 0 18px 0;
-    }
-}
-.timeline-vertical-line {
-    position: absolute;
-    left: 50%;
-    top: 70px; /* Startet unterhalb des Titels */
-    width: 6px;
-    height: calc(100% - 70px); /* Höhe ab Offset */
-    background: linear-gradient(180deg, #e3f0ff 0%, #19d3c5 100%);
-    transform: translateX(-50%);
-    z-index: 1;
-    border-radius: 3px;
-}
-.timeline-vertical-year {
-    font-size: 1.15em;
-    color: #19d3c5;
-    font-weight: 700;
-    margin-bottom: 0.2em;
-}
-.timeline-vertical-title-item {
-    font-size: 1.35em;
-    color: #0D5C63;
-    font-weight: 700;
-    margin-bottom: 0.2em;
-}
-.timeline-vertical-desc {
-    font-size: 1.08em;
-    color: #22384a;
-    line-height: 1.6;
-}
-@media (max-width: 900px) {
-    .timeline-vertical-list {
-        gap: 38px;
-    }
-    .timeline-vertical-item,
-    .timeline-vertical-item.left,
-    .timeline-vertical-item.right {
-        flex-direction: column;
-        gap: 18px;
-        min-height: 0;
-        align-items: flex-start;
-    }
-    .timeline-vertical-card {
-        min-width: 0;
-        max-width: 98vw;
-        padding: 18px 10px 18px 10px;
-    }
-    .timeline-vertical-img {
-        max-width: 100%;
-    }
-    .timeline-vertical-img img {
-        max-width: 100%;
-        border-radius: 12px;
-    }
-    .timeline-vertical-dot {
-        width: 18px;
-        height: 18px;
-        border-width: 2px;
-    }
-    .timeline-vertical-line {
-        width: 4px;
-        border-radius: 2px;
-    }
-}
-/* Moderne Timeline-Section mit Bild/Text-Kombi */
-.timeline-modern-section {
-    background: linear-gradient(120deg, #f7fafc 0%, #e3f0ff 100%);
-    padding: 80px 0 80px 0;
-}
-.timeline-modern-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-.timeline-modern-title {
-    color: #0D5C63;
-    font-size: 2.2em;
-    text-align: center;
-    margin-bottom: 48px;
-    font-weight: 800;
-    letter-spacing: -1px;
-   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-}
-.timeline-modern-list {
-    display: flex;
-    flex-direction: column;
-    gap: 38px;
-}
-.timeline-modern-item {
-    display: flex;
-    flex-direction: row;
-    background: #fff;
-    border-radius: 28px;
-    box-shadow: 0 4px 24px rgba(26,54,93,0.10);
-    padding: 32px 32px 32px 32px;
-    align-items: center;
-    gap: 38px;
-    transition: box-shadow 0.2s, transform 0.2s;
-}
-.timeline-modern-item:hover {
-    box-shadow: 0 8px 32px rgba(26,54,93,0.16);
-    transform: translateY(-2px) scale(1.01);
-}
-.timeline-modern-img {
-    flex: 1 1 0;
-    min-width: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.timeline-modern-img img {
-    width: 100%;
-    max-width: 260px;
-    border-radius: 18px;
-    box-shadow: 0 2px 16px 0 rgba(26,54,93,0.10);
-    background: #fff;
-    display: block;
-}
-.timeline-modern-text {
-    flex: 2 1 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-}
-.timeline-modern-year {
-    font-size: 1.15em;
-    color: #19d3c5;
-    font-weight: 700;
-    margin-bottom: 0.2em;
-}
-.timeline-modern-title-item {
-    font-size: 1.35em;
-    color: #0D5C63;
-    font-weight: 700;
-    margin-bottom: 0.2em;
-}
-.timeline-modern-desc {
-    font-size: 1.08em;
-    color: #22384a;
-    line-height: 1.6;
-}
-@media (max-width: 900px) {
-    .timeline-modern-item {
-        flex-direction: column;
-        gap: 18px;
-        padding: 18px 10px 18px 10px;
-    }
-    .timeline-modern-img img {
-        max-width: 100%;
-        border-radius: 12px;
-    }
 }
 /* Moderne Info-Section mit Bild */
 
@@ -2809,6 +2153,57 @@
     text-wrap: pretty;
 }
 
+.timeline-item-title a {
+    display: inline-block;
+    color: var(--color-accent-dark);
+    font-weight: 700;
+    text-decoration: underline;
+    background: linear-gradient(90deg, var(--color-bg-soft) 0%, var(--color-white) 100%);
+    padding: 2px 6px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.timeline-item-title a:hover,
+.timeline-item-title a:focus {
+    color: var(--color-white);
+    background: var(--color-accent-dark);
+    text-decoration: none;
+    outline: none;
+}
+
+.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"] {
+    align-items: baseline;
+    font-size: 0.98em !important;
+    color: #17998c !important;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(33, 201, 188, 0) 48%, rgba(33, 201, 188, 0.16) 48%, rgba(33, 201, 188, 0.16) 100%) !important;
+    border-radius: 0 !important;
+    text-decoration: none !important;
+    padding: 0 2px 1px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    vertical-align: baseline;
+    text-decoration-line: underline !important;
+    text-decoration-color: rgba(23, 153, 140, 0.45) !important;
+    text-decoration-thickness: 0.08em !important;
+    text-underline-offset: 0.14em !important;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    white-space: nowrap !important;
+    z-index: 20 !important;
+}
+
+.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]:hover,
+.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]:focus {
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(33, 201, 188, 0) 42%, rgba(33, 201, 188, 0.22) 42%, rgba(33, 201, 188, 0.22) 100%) !important;
+    color: #127d73 !important;
+    text-decoration-color: rgba(18, 125, 115, 0.55) !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
 .timeline-item-text {
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif !important;
     color: #314649 !important;
@@ -2927,6 +2322,36 @@
     .timeline-item-title {
         font-size: 1.06em !important;
         max-width: 100%;
+    }
+
+    .timeline-item-title a {
+        font-size: 1em !important;
+        padding: 4px 10px !important;
+        border-radius: 8px !important;
+        margin: 2px 0 !important;
+        z-index: 10000 !important;
+    }
+
+    .timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"] {
+        font-size: 0.96em !important;
+        padding: 0 2px 1px !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(33, 201, 188, 0) 48%, rgba(33, 201, 188, 0.18) 48%, rgba(33, 201, 188, 0.18) 100%) !important;
+        color: #17998c !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        text-decoration-line: underline !important;
+        text-decoration-color: rgba(23, 153, 140, 0.45) !important;
+        white-space: nowrap !important;
+    }
+
+    .timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]:hover,
+    .timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]:focus {
+        color: #127d73 !important;
+        background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(33, 201, 188, 0) 42%, rgba(33, 201, 188, 0.24) 42%, rgba(33, 201, 188, 0.24) 100%) !important;
+        text-decoration-color: rgba(18, 125, 115, 0.55) !important;
+        z-index: 10000 !important;
     }
 
     .timeline-item-text {
