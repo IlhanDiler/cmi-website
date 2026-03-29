@@ -734,50 +734,46 @@
     }
 }
 
-@media (max-width: 1300px) {
-        .navbar {
-            flex-direction: row !important;
-            align-items: center !important;
-            justify-content: flex-start !important;
-            padding: 0 2vw !important;
-        }
-        .nav-brand {
-            margin-bottom: 0 !important;
-            margin-right: 32px !important;
-            justify-content: flex-start !important;
-            align-items: center !important;
-            display: flex !important;
-        }
-            .nav-menu {
-                flex-wrap: nowrap !important;
-                gap: 8px !important;
-                justify-content: flex-start !important;
-                margin-left: 380px !important;
-            }
-        
-        .nav-link {
-                        font-family: 'Plus Jakarta Sans', 'Inter', 'Segoe UI', Arial, sans-serif !important;
-                        font-size: 0.84rem !important;
-                        font-weight: 700 !important;
-                        padding: 0.62em 0.82em !important;
-                        letter-spacing: 0.07em !important;
-                        text-transform: uppercase !important;
-        }
-    .nav-brand {
-        margin-bottom: 12px !important;
+@media (min-width: 1201px) and (max-width: 1300px) {
+    .navbar {
+        flex-direction: row !important;
+        align-items: center !important;
         justify-content: flex-start !important;
-                 font-size: 0.92em !important;
+        padding: 0 2vw !important;
     }
-      .charity-title
-      {
-        font-size:1.5em!important;
-      }
+    .nav-brand {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        margin-right: 32px !important;
+        margin-bottom: 12px !important;
+        font-size: 0.92em !important;
+    }
+    .nav-menu {
+        flex-wrap: nowrap !important;
+        gap: 8px !important;
+        justify-content: flex-start !important;
+        margin-left: 380px !important;
+    }
+    .nav-link {
+        font-family: 'Plus Jakarta Sans', 'Inter', 'Segoe UI', Arial, sans-serif !important;
+        font-size: 0.84rem !important;
+        font-weight: 700 !important;
+        padding: 0.62em 0.82em !important;
+        letter-spacing: 0.07em !important;
+        text-transform: uppercase !important;
+    }
+}
+
+@media (max-width: 1300px) {
+    .charity-title {
+        font-size: 1.5em !important;
+    }
     .charity-meta,
     .charity-description,
     .charity-card-main-text {
         font-size: 0.98em !important;
     }
-
 }
 
 /* Kinshasa preview inside social commitment */
