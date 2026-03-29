@@ -3186,6 +3186,19 @@
     padding-left: 2.1em;
     margin-bottom: 0.7em;
 }
+.musikalisches-repertoire-list li.charity-list-item {
+    display: block !important;
+    align-items: flex-start !important;
+    min-width: 0;
+}
+.musikalisches-repertoire-list li.charity-list-item > span {
+    display: block;
+    max-width: 100%;
+}
+.musikalisches-repertoire-list li.charity-list-item .kinshasa-card-img {
+    display: block;
+    margin-top: 12px;
+}
 .musikalisches-repertoire-list li::before {
     content: '';
     position: absolute;
