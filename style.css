@@ -73,155 +73,6 @@
         border-radius: 0;
     }
 }
-/* Event-Beschreibungstext für Desktop etwas kleiner */
-@media (min-width: 701px) {
-    .event-section .event-description[data-lang="de"] {
-        font-size: 1em;
-    }
-}
-
-.event-section .event-title,
-.event-section .event-headline,
-.event-section .event-location,
-.event-section .event-description,
-.event-section .event-date,
-.event-section .event-time {
-    font-family: var(--font-ui);
-}
-
-.event-section .event-christmas-img {
-    max-width: 340px;
-}
-@media (max-width: 700px) {
-    .event-section .event-christmas-img {
-        max-width: 96vw;
-    }
-}
-/* State-of-the-art responsive typography for event-section */
-.event-section .event-title {
-    font-size: clamp(1.3em, 4vw, 2.2em);
-    font-weight: 800;
-    line-height: 1.15;
-    color: #123E46;
-    margin-bottom: 0.7em;
-    letter-spacing: -0.01em;
-    text-align: center;
-}
-.event-section .event-headline {
-    font-size: clamp(1.15em, 2.5vw, 1.5em);
-    font-weight: 700;
-    line-height: 1.18;
-    color: #123E46;
-    margin-bottom: 0.5em;
-    letter-spacing: -0.01em;
-}
-.event-section .event-location {
-    font-size: clamp(1em, 2vw, 1.15em);
-    font-weight: 500;
-    color: #51767A;
-    margin-bottom: 0.5em;
-}
-.event-section .event-description {
-    font-size: clamp(0.98em, 1.7vw, 1.13em);
-    line-height: 1.6;
-    color: var(--color-text);
-    margin-bottom: 1em;
-    letter-spacing: 0.01em;
-    text-align: justify;
-    text-justify: inter-word;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-}
-.event-section .event-date, .event-section .event-time {
-    font-size: clamp(1em, 2vw, 1.15em);
-    font-weight: 600;
-}
-
-@media (max-width: 700px) {
-    .event-section .event-title {
-        font-size: clamp(1.2em, 6vw, 2em);
-    }
-    .event-section .event-headline {
-        font-size: clamp(1.05em, 4vw, 1.2em);
-    }
-    .event-section .event-location {
-        font-size: clamp(0.95em, 3vw, 1.05em);
-    }
-    .event-section .event-description {
-        font-size: clamp(0.95em, 2.5vw, 1.05em);
-    }
-    .event-section .event-date, .event-section .event-time {
-        font-size: clamp(0.95em, 2.5vw, 1.05em);
-    }
-}
-
-@media (max-width: 400px) {
-    .event-section .event-title {
-        font-size: 1.1em;
-    }
-    .event-section .event-headline {
-        font-size: 1em;
-    }
-    .event-section .event-location {
-        font-size: 0.95em;
-    }
-    .event-section .event-description {
-        font-size: 0.95em;
-    }
-    .event-section .event-date, .event-section .event-time {
-        font-size: 0.95em;
-    }
-}
-/* Responsive styles for Christmas event image */
-.event-christmas-img {
-    width: 100%;
-    max-width: 700px;
-    height: auto;
-    border-radius: 18px;
-    box-shadow: var(--shadow-image);
-    background: var(--color-white);
-    display: block;
-    margin: 0 auto;
-    transition: box-shadow 0.2s;
-}
-
-.event-preview-thumb {
-    width: 280px;
-    max-width: 100%;
-    height: 180px;
-    object-fit: contain;
-    background: var(--color-white);
-    margin-top: 10px;
-}
-
-@media (min-width: 901px) {
-    .event-preview-thumb {
-        width: 400px;
-        height: 270px;
-    }
-}
-
-@media (max-width: 900px) {
-    .event-christmas-img {
-        max-width: 98vw;
-        border-radius: 16px;
-    }
-}
-
-@media (max-width: 700px) {
-    .event-christmas-img {
-        max-width: 96vw;
-        border-radius: 14px;
-    }
-}
-
-@media (max-width: 500px) {
-    .event-christmas-img {
-        max-width: 92vw;
-        border-radius: 10px;
-    }
-}
 /* Modern External Link Design */
 .external-link {
     color: var(--color-accent);
@@ -240,32 +91,6 @@
     color: var(--color-accent-deep);
     box-shadow: var(--shadow-soft-strong);
     text-decoration: underline;
-}
-
-.event-section .event-description .external-link {
-    display: inline;
-    padding: 0;
-    margin: 0;
-    background: none;
-    border-radius: 0;
-    box-shadow: none;
-    color: #159B8C;
-    font-weight: 600;
-    text-decoration: underline;
-    text-decoration-color: rgba(21, 155, 140, 0.65);
-    text-decoration-thickness: 0.08em;
-    text-underline-offset: 0.12em;
-    white-space: normal;
-}
-
-.event-section .event-description .external-link:hover,
-.event-section .event-description .external-link:focus {
-    color: #123E46;
-    background: none;
-    box-shadow: none;
-    text-decoration: underline;
-    text-decoration-color: currentColor;
-    outline: none;
 }
 
 .charity-description .external-link {
@@ -873,9 +698,6 @@
     }
     .musikalisches-repertoire-list li:last-child {
         margin-bottom: 0 !important;
-    }
-    .event-date {
-        margin-left: 18px !important;
     }
     .about-me-section-modern-inner {
         flex-direction: column;
@@ -1861,62 +1683,6 @@
     transform: translateY(0);
     animation: heroTitleFadeUp 2.8s cubic-bezier(.77,0,.18,1) forwards;
 }
-/* Event Card with Poster Layout */
-.event-card-poster {
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    border-radius: 24px;
-    box-shadow: 0 4px 24px rgba(26,54,93,0.10);
-    margin-bottom: 32px;
-    padding: 0;
-    overflow: hidden;
-}
-.event-card-poster-flex {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    gap: 0;
-}
-.event-card-poster-text {
-    flex: 1 1 0;
-    padding: 32px 28px 32px 28px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.event-card-poster-image {
-    flex: 0 0 340px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f7fafc;
-    padding: 24px 24px 24px 0;
-}
-.event-card-poster-image img {
-    max-width: 320px;
-    width: 100%;
-    border-radius: 18px;
-    box-shadow: 0 4px 24px rgba(26,54,93,0.13);
-    border: 1.5px solid #e3f0ff;
-    background: #fff;
-}
-@media (max-width: 900px) {
-    .event-card-poster-flex {
-        flex-direction: column;
-    }
-    .event-card-poster-image {
-        padding: 18px 18px 0 18px;
-        justify-content: flex-start;
-    }
-    .event-card-poster-image img {
-        max-width: 98vw;
-        border-radius: 12px;
-    }
-    .event-card-poster-text {
-        padding: 18px 10px 18px 10px;
-    }
-}
 .timeline-vertical-row {
     display: flex;
     flex-direction: row;
@@ -2370,123 +2136,6 @@
  
     z-index: 1;
     border-radius: inherit;
-}
-/* Modernes Redesign für Konzert-Event-Cards */
-.event-modern-section {
-    background: linear-gradient(120deg, #e3f0ff 0%, #f7fafc 100%);
-    padding: 70px 0 70px 0;
-    width: 100%;
-}
-.event-modern-card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.event-modern-card {
-    display: flex;
-    flex-direction: row;
-    background: #fff;
-    border-radius: 36px;
-    box-shadow: 0 8px 36px 0 rgba(26,54,93,0.13), 0 2px 8px 0 rgba(33,26,29,0.06);
-    max-width: 1200px;
-    width: 98vw;
-    min-height: 340px;
-    overflow: hidden;
-    margin-bottom: 32px;
-}
-.event-modern-card-content {
-    flex: 2 1 0;
-    padding: 56px 40px 48px 56px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-width: 0;
-}
-.event-modern-title {
-    color: #0D5C63;
-    font-size: 2.6em;
-    font-weight: 800;
-    margin-bottom: 0.2em;
-    letter-spacing: -1.2px;
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-}
-.event-modern-date {
-    color: #19D3C5;
-    font-size: 1.15em;
-    font-weight: 700;
-    margin-bottom: 1.2em;
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-}
-.event-modern-desc {
-    color: #222;
-    font-size: 1.13em;
-    line-height: 1.7;
-    margin-bottom: 0;
-    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-}
-.event-modern-link {
-    color: #0D5C63;
-    font-size: 1.08em;
-    font-weight: 700;
-    margin-top: 2.2em;
-    text-decoration: underline;
-    transition: color 0.2s;
-    display: inline-block;
-}
-.event-modern-link:hover {
-    color: #19D3C5;
-}
-.event-modern-card-image {
-    flex: 1 1 0;
-    min-width: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #e3f0ff;
-}
-.event-modern-card-image img {
-    width: 100%;
-    max-width: 540px;
-    height: 380px;
-    max-height: 420px;
-    object-fit: cover;
-    border-radius: 0 36px 36px 0;
-    box-shadow: 0 2px 16px 0 rgba(26,54,93,0.10);
-    background: #fff;
-}
-@media (max-width: 1100px) {
-    .event-modern-card-content {
-        padding: 36px 18px 32px 18px;
-    }
-    .event-modern-card-image img {
-        max-width: 100%;
-        height: 220px;
-        max-height: 260px;
-        border-radius: 0 24px 24px 0;
-    }
-    .event-modern-card {
-        border-radius: 24px;
-        min-height: 220px;
-    }
-}
-@media (max-width: 700px) {
-    .event-modern-card {
-        flex-direction: column;
-        border-radius: 18px;
-        min-height: 0;
-    }
-    .event-modern-card-content {
-        padding: 18px 8px 12px 8px;
-    }
-    .event-modern-card-image img {
-        border-radius: 0 0 18px 18px;
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        max-height: none;
-        object-fit: unset;
-        display: block;
-    }
 }
 /* Moderne Section für Musikalisches Repertoire */
 .repertoire-modern-section {
@@ -3512,6 +3161,15 @@
     padding: 64px 0 64px 0;
 }
 
+.event-title,
+.event-headline,
+.event-location,
+.event-description,
+.event-date,
+.event-time {
+    font-family: var(--font-ui);
+}
+
 .event-lightbox-modal {
     position: fixed;
     inset: 0;
@@ -3624,13 +3282,13 @@
 }
 
 .event-title {
-    color: #0D5C63;
-    font-size: clamp(1.5rem, 2.5vw, 2.4rem);
-    font-weight: 600;
-    margin-bottom: 32px;
+    color: #123E46;
+    font-size: clamp(1.3em, 4vw, 2.2em);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 0.7em;
     text-align: center;
-    letter-spacing: -1px;
-   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    letter-spacing: -0.01em;
 }
 .event-list {
     display: flex;
@@ -3704,16 +3362,16 @@
 }
 
 .event-date {
-    font-size: 1.15em;
-    font-weight: 800;
+    font-size: clamp(1em, 2vw, 1.15em);
+    font-weight: 600;
     margin-bottom: 8px;
     line-height: 1.25;
     text-align: center;
 }
 
 .event-time {
-    font-size: 1em;
-    font-weight: 700;
+    font-size: clamp(1em, 2vw, 1.15em);
+    font-weight: 600;
     opacity: 0.95;
 }
 
@@ -3727,30 +3385,65 @@
 }
 
 .event-headline {
-    color: #211A1D;
-    font-size: clamp(1.22em, 1.7vw, 1.42em);
-    font-weight: 750;
-    margin-bottom: 8px;
+    color: #123E46;
+    font-size: clamp(1.15em, 2.5vw, 1.5em);
+    font-weight: 700;
+    margin-bottom: 0.5em;
     text-align: left;
     letter-spacing: -0.01em;
-    line-height: 1.2;
+    line-height: 1.18;
 }
 
 .event-location {
-    color: #0D5C63;
-    font-size: 1.02em;
-    font-weight: 700;
-    margin-bottom: 14px;
-    letter-spacing: 0.01em;
+    color: #51767A;
+    font-size: clamp(1em, 2vw, 1.15em);
+    font-weight: 500;
+    margin-bottom: 0.5em;
 }
 
 .event-description {
-    color: #211A1D;
-    font-size: 1.03em;
-    line-height: 1.68;
+    color: var(--color-text);
+    font-size: clamp(0.98em, 1.7vw, 1.13em);
+    line-height: 1.6;
     text-align: justify;
+    text-justify: inter-word;
     hyphens: auto;
-    margin-bottom: 0;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    margin-bottom: 1em;
+    letter-spacing: 0.01em;
+}
+
+.event-section .event-description .external-link {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    color: #159B8C;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(21, 155, 140, 0.65);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.12em;
+    white-space: normal;
+}
+
+.event-section .event-description .external-link:hover,
+.event-section .event-description .external-link:focus {
+    color: #123E46;
+    background: none;
+    box-shadow: none;
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    outline: none;
+}
+
+@media (min-width: 701px) {
+    .event-description[data-lang="de"] {
+        font-size: 1em;
+    }
 }
 
 .event-poster-stage {
@@ -3822,9 +3515,9 @@
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 100%;
+    max-width: min(100%, 340px);
     height: auto;
-    margin-top: 0;
+    margin: 0 auto;
     border-radius: 24px;
     background: transparent;
     box-shadow: 0 26px 38px rgba(26, 34, 48, 0.18), 0 10px 18px rgba(26, 34, 48, 0.08);
@@ -3839,6 +3532,34 @@
     transform: perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(-4px) scale(1.01);
     box-shadow: 0 28px 42px rgba(26, 34, 48, 0.24), 0 10px 20px rgba(26, 34, 48, 0.12);
     filter: saturate(1.03) contrast(1.02);
+}
+
+@media (max-width: 700px) {
+    .event-title {
+        font-size: clamp(1.2em, 6vw, 2em);
+    }
+
+    .event-headline {
+        font-size: clamp(1.05em, 4vw, 1.2em);
+    }
+
+    .event-location {
+        font-size: clamp(0.95em, 3vw, 1.05em);
+    }
+
+    .event-description {
+        font-size: clamp(0.95em, 2.5vw, 1.05em);
+    }
+
+    .event-date,
+    .event-time {
+        font-size: clamp(0.95em, 2.5vw, 1.05em);
+    }
+
+    .event-poster-image {
+        max-width: 100%;
+        border-radius: 14px;
+    }
 }
 
 @media (max-width: 900px) {
@@ -3897,7 +3618,6 @@
         padding: 32px 0 32px 0;
     }
     .event-title {
-        font-size: 1.7em;
         margin-bottom: 18px;
     }
     .event-card {
@@ -3966,6 +3686,27 @@
     .event-poster-image {
         border-radius: 20px;
         transform: none;
+    }
+}
+
+@media (max-width: 400px) {
+    .event-title {
+        font-size: 1.1em;
+    }
+
+    .event-headline {
+        font-size: 1em;
+    }
+
+    .event-location,
+    .event-description,
+    .event-date,
+    .event-time {
+        font-size: 0.95em;
+    }
+
+    .event-poster-image {
+        border-radius: 10px;
     }
 }
 .image-caption-card {
