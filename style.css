@@ -3292,16 +3292,24 @@ html[lang="it"] #langIt {
 }
 
 /* Specific sizing for Nikolausfeier image */
+#review-nikolausfeier-2025 {
+    --review-nikolaus-media-width: min(39%, 430px);
+    --review-nikolaus-media-flex: 0 0 min(39%, 430px);
+    --review-nikolaus-media-margin-top: 28px;
+    --review-nikolaus-image-max-width: min(78%, 420px);
+    --review-nikolaus-image-max-height: 390px;
+}
+
 #review-nikolausfeier-2025 .charity-flex-row > .gruppenbild-container {
-    width: min(39%, 430px) !important;
-    flex: 0 0 min(39%, 430px) !important;
-    margin-top: 28px !important;
+    width: var(--review-nikolaus-media-width) !important;
+    flex: var(--review-nikolaus-media-flex) !important;
+    margin-top: var(--review-nikolaus-media-margin-top) !important;
     align-self: flex-start;
 }
 
 #review-nikolausfeier-2025 .gruppenbild-img-nikolaus {
-    max-width: min(78%, 420px) !important;
-    max-height: 390px !important;
+    max-width: var(--review-nikolaus-image-max-width) !important;
+    max-height: var(--review-nikolaus-image-max-height) !important;
     width: auto !important;
     height: auto !important;
     object-fit: contain !important;
@@ -3319,33 +3327,27 @@ html[lang="it"] #langIt {
 }
 
 @media (max-width: 1200px) {
-    #review-nikolausfeier-2025 .charity-flex-row > .gruppenbild-container {
-        width: min(66%, 420px) !important;
-        flex-basis: auto !important;
-        margin-top: 18px !important;
+    #review-nikolausfeier-2025 {
+        --review-nikolaus-media-width: min(66%, 420px);
+        --review-nikolaus-media-flex: 1 1 auto;
+        --review-nikolaus-media-margin-top: 18px;
     }
 }
 
 @media (max-width: 900px) {
-    #review-nikolausfeier-2025 .charity-flex-row > .gruppenbild-container {
-        width: min(80%, 360px) !important;
-    }
-
-    #review-nikolausfeier-2025 .gruppenbild-img-nikolaus {
-        max-width: min(86%, 360px) !important;
-        max-height: 320px !important;
+    #review-nikolausfeier-2025 {
+        --review-nikolaus-media-width: min(80%, 360px);
+        --review-nikolaus-image-max-width: min(86%, 360px);
+        --review-nikolaus-image-max-height: 320px;
     }
 }
 
 @media (max-width: 600px) {
-    #review-nikolausfeier-2025 .charity-flex-row > .gruppenbild-container {
-        width: min(100%, 300px) !important;
-        margin-top: 12px !important;
-    }
-
-    #review-nikolausfeier-2025 .gruppenbild-img-nikolaus {
-        max-width: min(100%, 300px) !important;
-        max-height: 280px !important;
+    #review-nikolausfeier-2025 {
+        --review-nikolaus-media-width: min(100%, 300px);
+        --review-nikolaus-media-margin-top: 12px;
+        --review-nikolaus-image-max-width: min(100%, 300px);
+        --review-nikolaus-image-max-height: 280px;
     }
 }
 
