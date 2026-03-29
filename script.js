@@ -722,333 +722,321 @@ document.addEventListener('DOMContentLoaded', function() {
     revealOnScroll('.modern-card');
     revealOnScroll('.musikfamilie-card');
 });
-// Highlight active nav link on scroll
-document.addEventListener('DOMContentLoaded', function() {
-    // Remove duplicate nav-link click handler, keep only smooth scrolling logic below
-});
-// Mobile Menu Toggle
-document.addEventListener('DOMContentLoaded', function() {
+function initAccordion() {
+    document.addEventListener('click', function(event) {
+        const button = event.target.closest('.accordion-toggle');
+        if (!button || !button.parentElement) {
+            return;
+        }
+
+        const content = button.parentElement.querySelector('.accordion-content');
+        if (!content) {
+            return;
+        }
+
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!expanded));
+        content.style.display = expanded ? 'none' : 'block';
+    });
+}
+
+function showNotification(message, type = 'info') {
+    const existingNotifications = document.querySelectorAll('.notification');
+    existingNotifications.forEach(notification => notification.remove());
+
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-info-circle'}"></i>
+            <span>${message}</span>
+            <button class="notification-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    `;
+
+    if (!document.getElementById('notification-styles')) {
+        const style = document.createElement('style');
+        style.id = 'notification-styles';
+        style.textContent = `
+            .notification {
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                z-index: 10;
+                max-width: 400px;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            .notification.show {
+                transform: translateX(0);
+            }
+            .notification-success {
+                border-left: 4px solid var(--accent-green);
+            }
+            .notification-content {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 16px 20px;
+            }
+            .notification-content i:first-child {
+                color: var(--accent-green);
+                font-size: 18px;
+            }
+            .notification-content span {
+                flex: 1;
+                color: var(--dark);
+                font-weight: 500;
+            }
+            .notification-close {
+                background: none;
+                border: none;
+                color: var(--gray-400);
+                cursor: pointer;
+                padding: 4px;
+                border-radius: 4px;
+                transition: color 0.2s;
+            }
+            .notification-close:hover {
+                color: var(--gray-600);
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+
+    const closeBtn = notification.querySelector('.notification-close');
+    closeBtn.addEventListener('click', () => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+    });
+
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
+        }
+    }, 5000);
+}
+
+function initMobileNavigation() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
 
-    // Toggle mobile menu
-    mobileMenuBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        mobileMenu.classList.toggle('active');
-        mobileMenuBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (mobileMenu.classList.contains('active')) {
-            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            }
+    function closeMobileMenu() {
+        if (!mobileMenu || !mobileMenuBtn) {
+            return;
         }
-    });
 
-    // Close mobile menu when clicking on a link
+        mobileMenu.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function(event) {
+            event.stopPropagation();
+            mobileMenu.classList.toggle('active');
+            mobileMenuBtn.setAttribute('aria-expanded', String(mobileMenu.classList.contains('active')));
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!mobileMenu.classList.contains('active')) {
+                return;
+            }
+
+            if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 700) {
+                closeMobileMenu();
+            }
+        });
+    }
+
     mobileNavLinks.forEach(link => {
         link.addEventListener('click', function() {
-            mobileMenu.classList.remove('active');
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            closeMobileMenu();
         });
     });
 
-    // Keyboard accessibility: close menu with Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-            mobileMenu.classList.remove('active');
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
-        }
-    });
-
-    // Smooth scrolling ONLY for navigation links (not all a[href^="#"])
-    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function(event) {
             const targetId = this.getAttribute('href');
-            // Only handle if href starts with # and target exists
-            if (targetId && targetId.startsWith('#')) {
-                const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    e.preventDefault();
-                    const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
+            if (!targetId || !targetId.startsWith('#')) {
+                return;
             }
+
+            const targetSection = document.querySelector(targetId);
+            if (!targetSection) {
+                return;
+            }
+
+            event.preventDefault();
+            closeMobileMenu();
+            window.scrollTo({
+                top: targetSection.offsetTop - 80,
+                behavior: 'smooth'
+            });
         });
     });
+}
 
-    // Form Submissions
-    const joinForm = document.getElementById('joinForm');
-    const contactForm = document.getElementById('contactForm');
-
-    // Hilfsfunktion für Mail-Popup
-    // Accordion für Chronik-Timeline
-    function initAccordion() {
-        // Event Delegation für maximale Zuverlässigkeit
-        document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('accordion-toggle')) {
-                const btn = e.target;
-                const content = btn.parentElement.querySelector('.accordion-content');
-                const expanded = btn.getAttribute('aria-expanded') === 'true';
-                btn.setAttribute('aria-expanded', !expanded);
-                if (expanded) {
-                    content.style.display = 'none';
-                } else {
-                    content.style.display = 'block';
-                }
-            }
-        });
-    }
-    window.addEventListener('DOMContentLoaded', function() {
-        initAccordion();
-    });
-
-    // Notification system
-    function showNotification(message, type = 'info') {
-        // Remove existing notifications
-        const existingNotifications = document.querySelectorAll('.notification');
-        existingNotifications.forEach(notification => notification.remove());
-
-        // Create notification element
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.innerHTML = `
-            <div class="notification-content">
-                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-info-circle'}"></i>
-                <span>${message}</span>
-                <button class="notification-close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-        `;
-
-        // Add styles for notification only once
-        if (!document.getElementById('notification-styles')) {
-            const style = document.createElement('style');
-            style.id = 'notification-styles';
-            style.textContent = `
-                .notification {
-                    position: fixed;
-                    top: 100px;
-                    right: 20px;
-                    z-index: 10;
-                    max-width: 400px;
-                    background: white;
-                    border-radius: 12px;
-                    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-                    transform: translateX(100%);
-                    transition: transform 0.3s ease-in-out;
-                }
-                .notification.show {
-                    transform: translateX(0);
-                }
-                .notification-success {
-                    border-left: 4px solid var(--accent-green);
-                }
-                .notification-content {
-                    display: flex;
-                    align-items: center;
-                    gap: 12px;
-                    padding: 16px 20px;
-                }
-                .notification-content i:first-child {
-                    color: var(--accent-green);
-                    font-size: 18px;
-                }
-                .notification-content span {
-                    flex: 1;
-                    color: var(--dark);
-                    font-weight: 500;
-                }
-                .notification-close {
-                    background: none;
-                    border: none;
-                    color: var(--gray-400);
-                    cursor: pointer;
-                    padding: 4px;
-                    border-radius: 4px;
-                    transition: color 0.2s;
-                }
-                .notification-close:hover {
-                    color: var(--gray-600);
-                }
-            `;
-            document.head.appendChild(style);
-        }
-
-        // Add to page
-        document.body.appendChild(notification);
-
-        // Show notification
-        setTimeout(() => {
-            notification.classList.add('show');
-        }, 100);
-
-        // Close button functionality
-        const closeBtn = notification.querySelector('.notification-close');
-        closeBtn.addEventListener('click', () => {
-            notification.classList.remove('show');
-            setTimeout(() => notification.remove(), 300);
-        });
-
-        // Auto remove after 5 seconds
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.classList.remove('show');
-                setTimeout(() => notification.remove(), 300);
-            }
-        }, 5000);
-    }
-
-    // Join form submission
-
-
-
-    // Navbar background on scroll
+function initNavbarScroll() {
     const navbar = document.querySelector('.navbar');
-    let lastScrollTop = 0;
-
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        // Add/remove background based on scroll position
-        if (scrollTop > 50) {
-            navbar.style.background = '#000';
-            navbar.style.zindex = '5000';
-        } else {
-            navbar.style.background = 'transparent';
-        }
-        lastScrollTop = scrollTop;
-    });
+    if (!navbar) {
+        return;
+    }
 
     function setNavbarStyle(isScrolled) {
-        const navbar = document.querySelector('.navbar');
-        if (!navbar) return;
-        if (isScrolled) {
-            navbar.style.background = '#222';
-            navbar.style.zIndex = '5000';
-        } else {
-            navbar.style.background = 'transparent';
-            navbar.style.zIndex = '5000'; // Optional: keep high z-index always
-        }
+        navbar.style.background = isScrolled ? '#222' : 'transparent';
+        navbar.style.zIndex = '5000';
+    }
+
+    function handleNavbarScroll() {
+        setNavbarStyle(window.scrollY > 40);
+    }
+
+    handleNavbarScroll();
+    window.addEventListener('scroll', handleNavbarScroll, { passive: true });
+}
+
+function initShapeParallax() {
+    const shapes = document.querySelectorAll('.shape');
+    if (!shapes.length) {
+        return;
     }
 
     window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (!navbar) return;
-        if (window.scrollY > 40) {
-            setNavbarStyle(true);
-        } else {
-            setNavbarStyle(false);
-        }
-    });
-
-    // Parallax effect for hero shapes
-    window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
-        const shapes = document.querySelectorAll('.shape');
-        
         shapes.forEach((shape, index) => {
             const speed = (index + 1) * 0.5;
             shape.style.transform = `translateY(${scrolled * speed}px)`;
         });
-    });
+    }, { passive: true });
+}
 
-    // Add hover effects to cards
-    const cards = document.querySelectorAll('.stat-card, .cause-card, .event-card');
-    cards.forEach(card => {
-        // Removed hover effect for flat design
-    });
+function initFieldValidation() {
+    if (typeof validateField !== 'function') {
+        return;
+    }
 
-    // Form validation enhancements
     const inputs = document.querySelectorAll('input, select, textarea');
     inputs.forEach(input => {
         input.addEventListener('blur', function() {
             validateField(this);
         });
-        
+
         input.addEventListener('input', function() {
             if (this.classList.contains('error')) {
                 validateField(this);
             }
         });
     });
+}
 
-
-
-    // Cookie Banner Logic
+function initCookieBanner() {
     const cookieBanner = document.getElementById('cookieBanner');
     const cookieAcceptBtn = document.getElementById('cookieAcceptBtn');
     const cookieDeclineBtn = document.getElementById('cookieDeclineBtn');
+    if (!cookieBanner || !cookieAcceptBtn || !cookieDeclineBtn) {
+        return;
+    }
+
     function setCookie(name, value, days) {
         let expires = '';
         if (days) {
             const date = new Date();
-            date.setTime(date.getTime() + (days*24*60*60*1000));
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
             expires = '; expires=' + date.toUTCString();
         }
-        document.cookie = name + '=' + (value || '')  + expires + '; path=/';
+        document.cookie = name + '=' + (value || '') + expires + '; path=/';
     }
+
     function getCookie(name) {
-        const nameEQ = name + '=';
-        const ca = document.cookie.split(';');
-        for(let i=0;i < ca.length;i++) {
-            let c = ca[i];
-            while (c.charAt(0)==' ') c = c.substring(1,c.length);
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        const nameEq = name + '=';
+        const cookies = document.cookie.split(';');
+        for (let index = 0; index < cookies.length; index += 1) {
+            let cookie = cookies[index];
+            while (cookie.charAt(0) === ' ') {
+                cookie = cookie.substring(1, cookie.length);
+            }
+            if (cookie.indexOf(nameEq) === 0) {
+                return cookie.substring(nameEq.length, cookie.length);
+            }
         }
         return null;
     }
+
     function setCookieConsent(value) {
         setCookie('cookieAccepted', value === 'accepted' ? 'true' : '', 365);
         setCookie('cookieDeclined', value === 'declined' ? 'true' : '', 365);
         localStorage.setItem('cookieConsent', value);
     }
+
     function getCookieConsent() {
-        if (getCookie('cookieAccepted')) return 'accepted';
-        if (getCookie('cookieDeclined')) return 'declined';
+        if (getCookie('cookieAccepted')) {
+            return 'accepted';
+        }
+        if (getCookie('cookieDeclined')) {
+            return 'declined';
+        }
         return localStorage.getItem('cookieConsent');
     }
-    if (cookieBanner && cookieAcceptBtn && cookieDeclineBtn) {
-        if (getCookieConsent()) {
-            cookieBanner.style.display = 'none';
-        } else {
-            cookieBanner.style.display = 'flex';
-            cookieAcceptBtn.addEventListener('click', function() {
-                setCookieConsent('accepted');
-                cookieBanner.style.display = 'none';
-            });
-            cookieDeclineBtn.addEventListener('click', function() {
-                setCookieConsent('declined');
-                cookieBanner.style.display = 'none';
-            });
-        }
+
+    if (getCookieConsent()) {
+        cookieBanner.style.display = 'none';
+        return;
     }
 
-    // Zeitspanne seit gründung berechnen
-    const currentYear = new Date().getFullYear();
-    const yearsSince1981 = currentYear - 1981;
-    const yearsPassedEl = document.getElementById("yearsPassed");
-    if (yearsPassedEl) {
-        yearsPassedEl.textContent = yearsSince1981;
-    }
-});
+    cookieBanner.style.display = 'flex';
+    cookieAcceptBtn.addEventListener('click', function() {
+        setCookieConsent('accepted');
+        cookieBanner.style.display = 'none';
+    });
+    cookieDeclineBtn.addEventListener('click', function() {
+        setCookieConsent('declined');
+        cookieBanner.style.display = 'none';
+    });
+}
 
-const hamburger = document.getElementById('navbarHamburger');
-const mobileMenu = document.getElementById('navbarMobileMenu');
-hamburger && hamburger.addEventListener('click', () => {
-    mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
-});
-window.addEventListener('resize', () => {
-    const mobileMenu = document.querySelector('.mobile-menu');
-    if (window.innerWidth > 700 && mobileMenu) mobileMenu.style.display = 'none';
+function updateYearsPassed() {
+    const yearsPassedEl = document.getElementById('yearsPassed');
+    if (!yearsPassedEl) {
+        return;
+    }
+
+    yearsPassedEl.textContent = new Date().getFullYear() - 1981;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initAccordion();
+    initMobileNavigation();
+    initNavbarScroll();
+    initShapeParallax();
+    initFieldValidation();
+    initCookieBanner();
+    updateYearsPassed();
 });
 
 // Dynamische Anpassung des Hintergrundbildes
