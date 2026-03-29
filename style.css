@@ -5880,7 +5880,6 @@ html[lang="it"] #langIt {
     .charity-projects-section[id^="review-"] .charity-meta,
     .charity-projects-section[id^="review-"] .charity-description {
         width: 100%;
-        max-width: 100%;
         padding-left: 0 !important;
         padding-right: 0 !important;
         margin-left: 0 !important;
