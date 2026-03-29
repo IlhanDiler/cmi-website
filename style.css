@@ -652,17 +652,15 @@
         text-align: left;
     }
 
-    .about-me-modern-title,
-    .about-me-modern-subtitle {
+    .about-me-modern-title {
         width: 100%;
         text-align: left !important;
-    }
-
-    .about-me-modern-title {
         margin: 0 0 0.25em !important;
     }
 
     .about-me-modern-subtitle {
+        width: 100%;
+        text-align: left !important;
         margin: 0 0 1em !important;
     }
 
@@ -1262,10 +1260,8 @@
     justify-content: flex-start;
     align-self: flex-start;
     box-sizing: border-box;
-    padding: 0;
-}
-.charity-flex-row > .gruppenbild-container {
     gap: 8px;
+    padding: 0;
 }
 .charity-flex-row > .gruppenbild-container img,
 .charity-flex-right img {
