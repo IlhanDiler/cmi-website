@@ -131,7 +131,6 @@
 
     /* Footer-Links auf mobilen Geräten immer anklickbar */
     footer a,
-    .footer-link,
     a[href*="impressum"],
     a[href*="datenschutz"],
     a[data-lang="de"],
@@ -2922,14 +2921,6 @@ html, body {
     padding-bottom: 16px !important;
     background: #222 !important;
 }
-/* Full-width nav container, no margin or padding */
-.nav-container {
-        margin: 0;
-        padding: 0;
-        width: 100vw;
-        left: 0;
-        right: 0;
-}
 
 @media (prefers-color-scheme: dark) {
     .mobile-menu.active {
@@ -2942,9 +2933,7 @@ html, body {
 }
 
 /* Flaches Design für Desktop-Dropdown-Menüs */
-.nav-menu,
-.nav-dropdown,
-.nav-submenu {
+.nav-menu {
     box-shadow: none !important;
 }
 .navbar {
@@ -3015,8 +3004,7 @@ html, body {
     flex-shrink: 1;
 }
 
-.nav-brand img,
-.footer-logo img {
+.nav-brand img {
     width: clamp(46px, 3vw, 56px);
     height: clamp(46px, 3vw, 56px);
     object-fit: contain;
