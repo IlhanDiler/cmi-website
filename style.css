@@ -5418,36 +5418,6 @@ html, body {
     }
 }
 
-@media (min-width: 900px) {
-    .nav-menu {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 0.8em;
-        flex-wrap: nowrap !important;
-        width: auto !important;
-        margin-left: 2vw;
-        margin-right: 0;
-        padding: 0;
-    }
-    .nav-link {
-        font-size: 1.15em;
-        letter-spacing: 0.02em;
-        font-weight: 600;
-        text-transform: uppercase;
-        transition: color 0.2s, background 0.2s, box-shadow 0.2s, font-size 0.2s;
-        border-radius: 8px;
-        padding: 0.8em 1.4em;
-        white-space: nowrap;
-        margin: 0;
-        line-height: 1.1;
-        min-width: unset;
-        max-width: unset;
-    }
-}
-
-
 /* Flaches Design für Desktop-Dropdown-Menüs */
 .nav-menu,
 .nav-dropdown,
@@ -5500,6 +5470,8 @@ html, body {
         transition: color 0.2s, background 0.2s, box-shadow 0.2s, font-size 0.2s;
         border-radius: 999px;
         padding: 0.72em 0.96em;
+        white-space: nowrap;
+        line-height: 1.1;
     }
     .nav-link:hover {
         background: rgba(255,255,255,0.08);
