@@ -1999,8 +1999,10 @@
     border-radius: 28px;
     box-shadow: 0 18px 40px rgba(13, 92, 99, 0.10);
     width: 100%;
-    max-width: 540px;
-    min-width: 260px;
+    max-width: 700px;
+    min-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -2240,6 +2242,7 @@
     .event-card {
         max-width: 98vw;
         min-width: 0;
+        margin: 18px auto;
         transform: none;
     }
 }
@@ -2759,21 +2762,6 @@
 
 /* Importiere die Inter-Schrift von Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-.event-card {
-    max-width: 700px;
-    min-width: 280px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    box-sizing: border-box;
-}
-@media (max-width: 900px) {
-    .event-card {
-        max-width: 98vw;
-        min-width: 0;
-        margin: 18px auto;
-    }
-}
 .hero-bg-fade-container {
 
     position: absolute;
