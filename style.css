@@ -5206,20 +5206,6 @@ article, section, p, .project-card, .chronik-section, .next-section-content, .co
         padding-right: 1vw;
     }
 }
-/* Language Switcher Buttons transparent */
-#langSwitcher {
-    margin-left: auto !important;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-#langSwitcher button {
-    background: transparent !important;
-}
-
-
-
-
 /* Importiere die Inter-Schrift von Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
@@ -5227,10 +5213,6 @@ article, section, p, .project-card, .chronik-section, .next-section-content, .co
     .navbar {
         background: rgba(7, 9, 13, 0.72) !important;
         color: #fff;
-    }
-    .mobile-menu-btn {
-        background: #000 !important;
-        border-radius: 8px;
     }
     .menu-icon {
         filter: brightness(0) invert(1);
@@ -5476,23 +5458,6 @@ html, body {
 .nav-submenu {
     box-shadow: none !important;
 }
-@media (max-width: 1200px) {
-    .nav-menu {
-        display: none !important;
-    }
-    .mobile-menu-btn {
-        display: flex !important;
-    }
-    .mobile-menu {
-        display: block !important;
-    }
-}
-.nav-link.active {
-    color: var(--primary);
-    border-bottom: 3px solid var(--primary);
-    font-weight: 700;
-}
-
 .navbar {
     position: fixed;
     top: 0;
@@ -5570,27 +5535,6 @@ html, body {
     min-width: 36px;
     min-height: 36px;
 }
-
-@media (min-width: 768px) {
-    .nav-menu {
-        display: flex;
-        gap: clamp(4px, 0.7vw, 12px);
-        flex-wrap: wrap;
-        align-items: center;
-        padding: 0.35em 0;
-    }
-    .nav-link {
-        font-family: 'Plus Jakarta Sans', 'Inter', 'Segoe UI', Arial, sans-serif;
-        font-size: clamp(0.88rem, 0.78rem + 0.22vw, 0.98rem);
-        letter-spacing: 0.01em;
-        font-weight: 650;
-        text-transform: none;
-        transition: color 0.2s, background 0.2s, box-shadow 0.2s, font-size 0.2s;
-        border-radius: 999px;
-        padding: 0.72em 0.96em;
-    }
-}
-
 
 .nav-link {
     color: rgba(255, 255, 255, 0.86);
