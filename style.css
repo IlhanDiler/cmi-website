@@ -2890,50 +2890,9 @@
     }
 }
 
-
-.repertoire-card ul, .engagement-card ul {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-}
-.repertoire-card ul li, .engagement-card ul li {
-    position: relative;
-    padding-left: 28px;
-    margin-bottom: 14px;
-    font-size: 1.08em;
-    line-height: 1.6;
-    color: #222;
-    letter-spacing: 0.01em;
-    transition: background 0.2s;
-    border-radius: 8px;
-    text-align: left;
-    word-break: break-word;
-    hyphens: auto;
-}
-.repertoire-card ul li:last-child, .engagement-card ul li:last-child {
-    margin-bottom: 0;
-}
-.repertoire-card ul li::before, .engagement-card ul li::before {
-    content: '';
-    position: absolute;
-    left: 6px;
-    top: 10px;
-    width: 8px;
-    height: 8px;
-    background: linear-gradient(135deg, #00b894 60%, #009688 100%);
-    border-radius: 50%;
-}
-   
 /* Importiere die Inter-Schrift von Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-@media (max-width: 900px) {
-    .repertoire-card, .engagement-card {
-        max-width: 98vw;
-        min-width: 0;
-        margin: 18px auto;
-    }
-}
-.project-card, .event-card, .stat-card, .cause-card, .chronik-section {
+.event-card {
     max-width: 700px;
     min-width: 280px;
     width: 100%;
@@ -2942,7 +2901,7 @@
     box-sizing: border-box;
 }
 @media (max-width: 900px) {
-    .project-card, .event-card, .stat-card, .cause-card, .chronik-section {
+    .event-card {
         max-width: 98vw;
         min-width: 0;
         margin: 18px auto;
@@ -2981,20 +2940,20 @@
 
 
 /* Globale Blocksatz- und Responsive-Regel für alle Haupttextbereiche */
-article, section, p, .project-card, .chronik-section, .contact-info-section, .site-footer {
+article, section, p, .contact-info-section, .site-footer {
     text-align: justify;
     word-break: break-word;
     hyphens: auto;
 }
 @media (max-width: 900px) {
-    article, section, p, .project-card, .chronik-section, .contact-info-section, .site-footer {
+    article, section, p, .contact-info-section, .site-footer {
         font-size: 1em;
         padding-left: 2vw;
         padding-right: 2vw;
     }
 }
 @media (max-width: 600px) {
-    article, section, p, .project-card, .chronik-section, .contact-info-section, .site-footer {
+    article, section, p, .contact-info-section, .site-footer {
         font-size: 0.98em;
         padding-left: 1vw;
         padding-right: 1vw;
@@ -3364,17 +3323,6 @@ html[lang="it"] #langIt {
         box-shadow: 0 18px 40px rgba(0,0,0,0.24);
         overflow: hidden;
     }
-}
-
-/* Projektkarten-Bilder: gleiche Ausrichtung wie Text */
-.project-card img {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-    display: block;
-    margin: 0;
-    padding: 0;
 }
 /* Rückblick/Masterclass nutzt das Charity-Layout mit wenigen Abweichungen. */
 .rueckblick-flex {
