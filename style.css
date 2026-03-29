@@ -2119,15 +2119,28 @@
     line-height: 1.58 !important;
     letter-spacing: 0.003em !important;
     text-wrap: pretty;
+    display: block !important;
+    min-width: 0;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto;
 }
 .charity-list-item + .charity-list-item {
     margin-top: 0.28em;
+}
+.charity-list-item::before {
+    top: 0.82em;
+    transform: translateY(-50%);
 }
 .charity-list-item > span {
     display: block;
     margin-bottom: 0.1em;
     color: #14353b;
     font-weight: 620;
+    max-width: 100%;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
 }
 @media (max-width: 900px) {
     .charity-card {
