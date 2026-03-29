@@ -1397,15 +1397,6 @@
     }
 }
 @media (max-width: 600px) {
-    .about-me-section-modern {
-        padding: 24px 0 24px 0;
-    }
-    .about-me-section-modern-inner {
-        gap: 12px;
-        width: 100vw;
-        max-width: 100vw;
-        padding: 0;
-    }
     .about-me-text-modern, .about-me-image-modern {
         padding: 8px 1vw;
         border-radius: 12px;
@@ -1415,20 +1406,16 @@
 
     .about-me-modern-title {
         font-size: 1.5em !important;
-        text-align: center !important;
     }
     .about-me-modern-subtitle {
         font-size: 1em !important;
-        text-align: center !important;
     }
     .about-me-image-modern img {
-        max-width: 98vw;
         max-height: 40vh;
     }
     .about-me-bio-text {
         font-size: 1em !important;
         text-align: justify !important;
-        margin-bottom: 0.6em !important;
         hyphens: auto !important;
         -webkit-hyphens: auto !important;
         -ms-hyphens: auto !important;
