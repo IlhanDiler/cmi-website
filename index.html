@@ -41,107 +41,107 @@
     <!--Stylesheets-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
     <h1 style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Collegium Musicum Iuvenale Ochsenfurt</h1>
+    <nav class="navbar">
+        <!-- Mobile menu button: ganz links -->
+        <button class="mobile-menu-btn" aria-label="Menü öffnen" aria-controls="mobile-menu" aria-expanded="false" tabindex="0">
+            <img src="files/icon.menu.button.svg" alt="Menü öffnen" class="menu-icon">
+        </button>
+        <!-- Logo und Titel: mittig -->
+        <div class="nav-brand">
+                            <a href="/" title="Startseite Collegium Musicum Iuvenale Ochsenfurt">
+                                <img id="mainLogo" src="files/logo_cmi1 - weiß.svg" alt="Logo Collegium Musicum Iuvenale Ochsenfurt Hauptlogo" class="nav-logo">
+                            </a>
+            <span class="brand-text">
+                <span class="brand-main">Collegium Musicum Iuvenale</span>
+                <span class="brand-sub">Ochsenfurt</span>
+            </span>
+        </div>
+        <!-- Desktop Navigation jetzt links -->
+        <div class="nav-menu">
+            <a href="#music-family-section" class="nav-link" data-lang="de">MITMACHEN</a>
+            <a href="#music-family-section" class="nav-link" data-lang="en" style="display:none;">JOIN US</a>
+            <a href="#music-family-section" class="nav-link" data-lang="it" style="display:none;">PARTECIPA</a>
+            <a href="#about" class="nav-link" data-lang="de">Über uns</a>
+            <a href="#about" class="nav-link" data-lang="en" style="display:none;">About us</a>
+            <a href="#about" class="nav-link" data-lang="it" style="display:none;">Chi siamo</a>
+            <a href="#events" class="nav-link" data-lang="de">Termine</a>
+            <a href="#events" class="nav-link" data-lang="en" style="display:none;">Events</a>
+            <a href="#events" class="nav-link" data-lang="it" style="display:none;">Eventi</a>
+            <a href="#timeline-section" class="nav-link" data-lang="de">Chronik</a>
+            <a href="#timeline-section" class="nav-link" data-lang="en" style="display:none;">Timeline</a>
+            <a href="#timeline-section" class="nav-link" data-lang="it" style="display:none;">Cronologia</a>
+            <a href="#review" class="nav-link" data-lang="de">Rückblick</a>
+            <a href="#review" class="nav-link" data-lang="en" style="display:none;">Review</a>
+            <a href="#review" class="nav-link" data-lang="it" style="display:none;">Riepilogo</a>
+            <a href="#contact" class="nav-link" data-lang="de">Kontakt</a>
+            <a href="#contact" class="nav-link" data-lang="en" style="display:none;">Contact</a>
+            <a href="#contact" class="nav-link" data-lang="it" style="display:none;">Contatto</a>
+        </div>
+        <!-- Sprachumschalter: jetzt ganz rechts -->
+        <div id="langSwitcher">
+            <button onclick="setLang('de')" id="langDe" class="lang-switch-button" aria-label="Deutsch">
+                <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="21" height="14" fill="#000000"/>
+                    <rect y="4.66667" width="21" height="4.66667" fill="#DD0000"/>
+                    <rect y="9.33333" width="21" height="4.66667" fill="#FFCE00"/>
+                </svg>
+            </button>
+            <button onclick="setLang('en')" id="langEn" class="lang-switch-button" aria-label="English">
+                <svg width="21" height="14" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="1200" height="600" fill="#00247d"/>
+                    <path d="M0,0L1200,600M1200,0L0,600" stroke="#fff" stroke-width="120"/>
+                    <path d="M0,0L1200,600M1200,0L0,600" stroke="#cf142b" stroke-width="60"/>
+                    <path d="M600,0L600,600M0,300L1200,300" stroke="#fff" stroke-width="120"/>
+                    <path d="M600,0L600,600M0,300L1200,300" stroke="#cf142b" stroke-width="60"/>
+                    <path d="M120,600L0,0L120,0L240,600" fill="#fff"/>
+                    <path d="M120,600L0,0L120,0L240,600" stroke="#cf142b" stroke-width="30"/>
+                    <path d="M1080,0L1200,600L1080,600L960,0" fill="#fff"/>
+                    <path d="M1080,0L1200,600L1080,600L960,0" stroke="#cf142b" stroke-width="30"/>
+                </svg>
+            </button>
+            <button onclick="setLang('it')" id="langIt" class="lang-switch-button" aria-label="Italiano">
+                <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="7" height="14" x="0" y="0" fill="#008C45"/>
+                    <rect width="7" height="14" x="7" y="0" fill="#F4F5F0"/>
+                    <rect width="7" height="14" x="14" y="0" fill="#CD212A"/>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu">
+            <a href="#music-family-section" class="mobile-nav-link" data-lang="de" style="display:none;">MITMACHEN</a>
+            <a href="#music-family-section" class="mobile-nav-link" data-lang="en" style="display:none;">JOIN US</a>
+            <a href="#music-family-section" class="mobile-nav-link" data-lang="it" style="display:none;">PARTECIPA</a>
+            <a href="#about" class="mobile-nav-link" data-lang="de">Über uns</a>
+            <a href="#about" class="mobile-nav-link" data-lang="en" style="display:none;">About us</a>
+            <a href="#about" class="mobile-nav-link" data-lang="it" style="display:none;">Chi siamo</a>
+             <a href="#events" class="mobile-nav-link" data-lang="de">Termine</a>
+            <a href="#events" class="mobile-nav-link" data-lang="en" style="display:none;">Events</a>
+            <a href="#events" class="mobile-nav-link" data-lang="it" style="display:none;">Eventi</a>
+            <a href="#timeline-section" class="mobile-nav-link" data-lang="de">Chronik</a>
+            <a href="#timeline-section" class="mobile-nav-link" data-lang="en" style="display:none;">Timeline</a>
+            <a href="#timeline-section" class="mobile-nav-link" data-lang="it" style="display:none;">Cronologia</a>
+            <a href="#review" class="mobile-nav-link" data-lang="de">Rückblick</a>
+            <a href="#review" class="mobile-nav-link" data-lang="en" style="display:none">Review</a>
+            <a href="#review" class="mobile-nav-link" data-lang="it" style="display:none">Riepilogo</a>
+            <a href="#contact" class="mobile-nav-link" data-lang="de">Kontakt</a>
+            <a href="#contact" class="mobile-nav-link" data-lang="en" style="display:none;">Contact</a>
+            <a href="#contact" class="mobile-nav-link" data-lang="it" style="display:none;">Contatto</a>
+           
+        </div>
+    </nav>
     <div class="hero-bg" style="position:relative;" role="region" aria-label="Impressionen aus dem Collegium Musicum Iuvenale Ochsenfurt">
         <div class="hero-bg-fade-container" id="heroGalleryViewport">
-            <div class="hero-bg-fade hero-bg-fade-current" style="background-image:url('bilder/Gruppenbild2.jpg');background-size:100vw auto;background-position:center 8%;" aria-label="Gruppenbild Collegium Musicum Iuvenale Ochsenfurt"></div>
+            <div class="hero-bg-fade hero-bg-fade-current" style="background-image:url('bilder/Gruppenbild2.jpg');background-size:cover;background-position:center 8%;" aria-label="Gruppenbild Collegium Musicum Iuvenale Ochsenfurt"></div>
             <div class="hero-bg-fade hero-bg-fade-next"></div>
         </div>
-        <nav class="navbar">
-            <!-- Mobile menu button: ganz links -->
-            <button class="mobile-menu-btn" aria-label="Menü öffnen" aria-controls="mobile-menu" aria-expanded="false" tabindex="0">
-                <img src="files/icon.menu.button.svg" alt="Menü öffnen" class="menu-icon">
-            </button>
-            <!-- Logo und Titel: mittig -->
-            <div class="nav-brand">
-                                <a href="/" title="Startseite Collegium Musicum Iuvenale Ochsenfurt">
-                                    <img id="mainLogo" src="files/logo_cmi1 - weiß.svg" alt="Logo Collegium Musicum Iuvenale Ochsenfurt Hauptlogo" class="nav-logo">
-                                </a>
-                <span class="brand-text">
-                    <span class="brand-main">Collegium Musicum Iuvenale</span>
-                    <span class="brand-sub">Ochsenfurt</span>
-                </span>
-            </div>
-            <!-- Desktop Navigation jetzt links -->
-            <div class="nav-menu">
-                <a href="#music-family-section" class="nav-link" data-lang="de">MITMACHEN</a>
-                <a href="#music-family-section" class="nav-link" data-lang="en" style="display:none;">JOIN US</a>
-                <a href="#music-family-section" class="nav-link" data-lang="it" style="display:none;">PARTECIPA</a>
-                <a href="#about" class="nav-link" data-lang="de">Über uns</a>
-                <a href="#about" class="nav-link" data-lang="en" style="display:none;">About us</a>
-                <a href="#about" class="nav-link" data-lang="it" style="display:none;">Chi siamo</a>
-                <a href="#events" class="nav-link" data-lang="de">Termine</a>
-                <a href="#events" class="nav-link" data-lang="en" style="display:none;">Events</a>
-                <a href="#events" class="nav-link" data-lang="it" style="display:none;">Eventi</a>
-                <a href="#timeline-section" class="nav-link" data-lang="de">Chronik</a>
-                <a href="#timeline-section" class="nav-link" data-lang="en" style="display:none;">Timeline</a>
-                <a href="#timeline-section" class="nav-link" data-lang="it" style="display:none;">Cronologia</a>
-                <a href="#review" class="nav-link" data-lang="de">Rückblick</a>
-                <a href="#review" class="nav-link" data-lang="en" style="display:none;">Review</a>
-                <a href="#review" class="nav-link" data-lang="it" style="display:none;">Riepilogo</a>
-                <a href="#contact" class="nav-link" data-lang="de">Kontakt</a>
-                <a href="#contact" class="nav-link" data-lang="en" style="display:none;">Contact</a>
-                <a href="#contact" class="nav-link" data-lang="it" style="display:none;">Contatto</a>
-            </div>
-            <!-- Sprachumschalter: jetzt ganz rechts -->
-            <div id="langSwitcher">
-                <button onclick="setLang('de')" id="langDe" class="lang-switch-button" aria-label="Deutsch">
-                    <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="21" height="14" fill="#000000"/>
-                        <rect y="4.66667" width="21" height="4.66667" fill="#DD0000"/>
-                        <rect y="9.33333" width="21" height="4.66667" fill="#FFCE00"/>
-                    </svg>
-                </button>
-                <button onclick="setLang('en')" id="langEn" class="lang-switch-button" aria-label="English">
-                    <svg width="21" height="14" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="1200" height="600" fill="#00247d"/>
-                        <path d="M0,0L1200,600M1200,0L0,600" stroke="#fff" stroke-width="120"/>
-                        <path d="M0,0L1200,600M1200,0L0,600" stroke="#cf142b" stroke-width="60"/>
-                        <path d="M600,0L600,600M0,300L1200,300" stroke="#fff" stroke-width="120"/>
-                        <path d="M600,0L600,600M0,300L1200,300" stroke="#cf142b" stroke-width="60"/>
-                        <path d="M120,600L0,0L120,0L240,600" fill="#fff"/>
-                        <path d="M120,600L0,0L120,0L240,600" stroke="#cf142b" stroke-width="30"/>
-                        <path d="M1080,0L1200,600L1080,600L960,0" fill="#fff"/>
-                        <path d="M1080,0L1200,600L1080,600L960,0" stroke="#cf142b" stroke-width="30"/>
-                    </svg>
-                </button>
-                <button onclick="setLang('it')" id="langIt" class="lang-switch-button" aria-label="Italiano">
-                    <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="7" height="14" x="0" y="0" fill="#008C45"/>
-                        <rect width="7" height="14" x="7" y="0" fill="#F4F5F0"/>
-                        <rect width="7" height="14" x="14" y="0" fill="#CD212A"/>
-                    </svg>
-                </button>
-            </div>
-            <!-- Mobile Navigation -->
-            <div class="mobile-menu">
-                <a href="#music-family-section" class="mobile-nav-link" data-lang="de" style="display:none;">MITMACHEN</a>
-                <a href="#music-family-section" class="mobile-nav-link" data-lang="en" style="display:none;">JOIN US</a>
-                <a href="#music-family-section" class="mobile-nav-link" data-lang="it" style="display:none;">PARTECIPA</a>
-                <a href="#about" class="mobile-nav-link" data-lang="de">Über uns</a>
-                <a href="#about" class="mobile-nav-link" data-lang="en" style="display:none;">About us</a>
-                <a href="#about" class="mobile-nav-link" data-lang="it" style="display:none;">Chi siamo</a>
-                 <a href="#events" class="mobile-nav-link" data-lang="de">Termine</a>
-                <a href="#events" class="mobile-nav-link" data-lang="en" style="display:none;">Events</a>
-                <a href="#events" class="mobile-nav-link" data-lang="it" style="display:none;">Eventi</a>
-                <a href="#timeline-section" class="mobile-nav-link" data-lang="de">Chronik</a>
-                <a href="#timeline-section" class="mobile-nav-link" data-lang="en" style="display:none;">Timeline</a>
-                <a href="#timeline-section" class="mobile-nav-link" data-lang="it" style="display:none;">Cronologia</a>
-                <a href="#review" class="mobile-nav-link" data-lang="de">Rückblick</a>
-                <a href="#review" class="mobile-nav-link" data-lang="en" style="display:none">Review</a>
-                <a href="#review" class="mobile-nav-link" data-lang="it" style="display:none">Riepilogo</a>
-                <a href="#contact" class="mobile-nav-link" data-lang="de">Kontakt</a>
-                <a href="#contact" class="mobile-nav-link" data-lang="en" style="display:none;">Contact</a>
-                <a href="#contact" class="mobile-nav-link" data-lang="it" style="display:none;">Contatto</a>
-               
-            </div>
-        </nav>
         <div class="hero-gallery-ui" aria-label="Hero Gallery Controls">
             <div class="hero-gallery-meta">
                 <div class="hero-gallery-counter" aria-live="polite">
@@ -328,23 +328,29 @@
 <!-- Neue Section: Musikalisches Repertoire -->
 <section class="musikalisches-repertoire-section">
     <div class="musikalisches-repertoire-cards-wrapper">
-        <div class="musikalisches-repertoire-card">
+        <div class="musikalisches-repertoire-card musikalisches-repertoire-card--repertoire">
             <div class="musikalisches-repertoire-card-header">
                 <h2 class="musikalisches-repertoire-title" data-lang="de">Musikalisches Repertoire</h2>
                 <h2 class="musikalisches-repertoire-title" data-lang="en" style="display:none;">Musical Repertoire</h2>
                 <h2 class="musikalisches-repertoire-title" data-lang="it" style="display:none;">Repertorio Musicale</h2>
                 <div class="musikalisches-repertoire-divider"></div>
             </div>
+            <p class="musikalisches-repertoire-intro" data-lang="de">Ein breites Repertoire zwischen Orchesterklang, Kammermusik und thematischen Ensembles praegt die musikalische Arbeit des CMI.</p>
+            <p class="musikalisches-repertoire-intro" data-lang="en" style="display:none;">A broad repertoire between orchestral sound, chamber music, and dedicated ensembles shapes the musical work of CMI.</p>
+            <p class="musikalisches-repertoire-intro" data-lang="it" style="display:none;">Un ampio repertorio tra suono orchestrale, musica da camera e gruppi tematici caratterizza il lavoro musicale del CMI.</p>
             <ul class="musikalisches-repertoire-list" data-lang="de">
                 <li>Alle Stilrichtungen von der Renaissance bis zur Moderne</li>
                 <li>Im großen Orchester sowie in kammermusikalischen Besetzungen</li>
-                <li class="ensemble-inline-list">Musizieren in bestimmten Instrumentengruppen:</br>
-                    <span>Celloensemble,</span>
-                    <span>Blockflötenensemble,</span>
-                    <span>Ocarinaensemble,</span>
-                    <span>Saxophonensemble,</span>
-                    <span>Tiefblechensemble</span>
-                    </li>
+                <li class="ensemble-inline-list">
+                    <span class="ensemble-inline-list__label">Musizieren in bestimmten Instrumentengruppen</span>
+                    <span class="ensemble-chip-list">
+                        <span class="ensemble-chip">Celloensemble</span>
+                        <span class="ensemble-chip">Blockflötenensemble</span>
+                        <span class="ensemble-chip">Ocarinaensemble</span>
+                        <span class="ensemble-chip">Saxophonensemble</span>
+                        <span class="ensemble-chip">Tiefblechensemble</span>
+                    </span>
+                </li>
                 <li>Internationale Folklore, Unterhaltungsmusik und eigene Produktionen</li>
                 <li>Chöre, Blaskapellen und verschiedene Instrumentalgruppen als Kooperationspartner</li>
                 <li>Singen von schwungvollen Kinderliedern mit den Kindern der Anfängergruppe</li>
@@ -352,7 +358,16 @@
             <ul class="musikalisches-repertoire-list" data-lang="en" style="display:none;">
                 <li>From the Renaissance to the Modern Era</li>
                 <li>Performing in large orchestras and chamber ensembles</li>
-                <li>Playing in dedicated instrument groups:<br>Cello ensemble, recorder ensemble, ocarina ensemble, saxophone ensemble, low brass ensemble</li>
+                <li class="ensemble-inline-list">
+                    <span class="ensemble-inline-list__label">Playing in dedicated instrument groups</span>
+                    <span class="ensemble-chip-list">
+                        <span class="ensemble-chip">Cello ensemble</span>
+                        <span class="ensemble-chip">Recorder ensemble</span>
+                        <span class="ensemble-chip">Ocarina ensemble</span>
+                        <span class="ensemble-chip">Saxophone ensemble</span>
+                        <span class="ensemble-chip">Low brass ensemble</span>
+                    </span>
+                </li>
                 <li>International folklore, popular music, and original compositions</li>
                 <li>Choirs, brass bands, and various instrumental groups as partners</li>
                 <li>Singing lively children's songs with the beginner group</li>
@@ -360,71 +375,62 @@
             <ul class="musikalisches-repertoire-list" data-lang="it" style="display:none;">
                 <li>Dalla Rinascenza all’epoca moderna</li>
                 <li>In grandi orchestre e in formazioni da camera</li>
-                <li>Suonare in gruppi strumentali dedicati:<br>Ensemble di violoncelli, ensemble di flauti dolci, ensemble di ocarine, ensemble di sassofoni, ensemble di ottoni gravi</li>
+                <li class="ensemble-inline-list">
+                    <span class="ensemble-inline-list__label">Suonare in gruppi strumentali dedicati</span>
+                    <span class="ensemble-chip-list">
+                        <span class="ensemble-chip">Ensemble di violoncelli</span>
+                        <span class="ensemble-chip">Ensemble di flauti dolci</span>
+                        <span class="ensemble-chip">Ensemble di ocarine</span>
+                        <span class="ensemble-chip">Ensemble di sassofoni</span>
+                        <span class="ensemble-chip">Ensemble di ottoni gravi</span>
+                    </span>
+                </li>
                 <li>Folklore internazionale, musica popolare e produzioni originali</li>
                 <li>Cori, bande e vari gruppi strumentali come partner</li>
                 <li>Cantare vivaci canzoni per bambini con il gruppo principianti</li>
             </ul>
         </div>
-        <div class="musikalisches-repertoire-card">
+        <div class="musikalisches-repertoire-card musikalisches-repertoire-card--engagement">
             <div class="musikalisches-repertoire-card-header">
                 <h2 class="musikalisches-repertoire-title" data-lang="de">Soziales Engagement</h2>
                 <h2 class="musikalisches-repertoire-title" data-lang="en" style="display:none;">Social Commitment</h2>
                 <h2 class="musikalisches-repertoire-title" data-lang="it" style="display:none;">Impegno Sociale</h2>
                 <div class="musikalisches-repertoire-divider"></div>
             </div>
-             <div class="charity-card">
-        <div class="charity-card-text">
-            <p class="charity-card-main-text" data-lang="de">Unsere Konzerte unterstützen regelmäßig soziale Projekte – von lokalen Initiativen bis zu internationalen Hilfsaktionen. Gemeinsam helfen wir dort, wo Musik Brücken baut. </p>
-            <p class="charity-card-main-text" data-lang="en" style="display:none;">Our concerts regularly support social projects – from local initiatives to international relief efforts. Together, we help where music builds bridges.</p>
-            <p class="charity-card-main-text" data-lang="it" style="display:none;">I nostri concerti sostengono regolarmente progetti sociali – dalle iniziative locali alle azioni di aiuto internazionale. Insieme aiutiamo là dove la musica costruisce ponti.</p>
-        </div>
-        <div class="charity-card-image">
-            <img src="bilder/spende_aerzte_ohne_grenzen.jpeg" alt="Spendenübergabe an Ärzte ohne Grenzen durch Collegium Musicum Iuvenale Ochsenfurt">
-        </div>
-    </div>
+            <div class="charity-card">
+                <div class="charity-card-text">
+                    <p class="charity-card-main-text" data-lang="de">Unsere Konzerte unterstützen regelmäßig soziale Projekte – von lokalen Initiativen bis zu internationalen Hilfsaktionen. Gemeinsam helfen wir dort, wo Musik Brücken baut.</p>
+                    <p class="charity-card-main-text" data-lang="en" style="display:none;">Our concerts regularly support social projects – from local initiatives to international relief efforts. Together, we help where music builds bridges.</p>
+                    <p class="charity-card-main-text" data-lang="it" style="display:none;">I nostri concerti sostengono regolarmente progetti sociali – dalle iniziative locali alle azioni di aiuto internazionale. Insieme aiutiamo là dove la musica costruisce ponti.</p>
+                </div>
+                <div class="charity-card-image">
+                    <img src="bilder/spende_aerzte_ohne_grenzen.jpeg" alt="Spendenübergabe an Ärzte ohne Grenzen durch Collegium Musicum Iuvenale Ochsenfurt">
+                </div>
+            </div>
             <ul class="musikalisches-repertoire-list" data-lang="de">
                 <li class="charity-list-item">Benefizkonzerte zugunsten von sozialen Institutionen wie Lebenshilfe, Caritas, Krankenhausseelsorge, Kindergärten, Ärzte ohne Grenzen, Herzenswunschkrankenwagen der Malteser</li>
-                                <li class="charity-list-item">
-                                    <span>Unterstützung von Schulprojekten in Kinshasa/Kongo und Kathmandu/Nepal</span>
-                                    <img src="bilder/kinshasa.jfif" alt="Schulprojekt Kinshasa Kongo Collegium Musicum Iuvenale Ochsenfurt" class="kinshasa-card-img" id="kinshasaPreviewImg" style="cursor:pointer;">
-                                    <!-- Modal for Kinshasa image preview -->
-<div id="kinshasaModal" class="modal" style="display:none;position:fixed;z-index:1;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;">
-    <span id="kinshasaModalClose" style="position:absolute;top:32px;right:48px;font-size:2.5em;color:#fff;cursor:pointer;font-weight:700;z-index:1;">&times;</span>
-    <img src="bilder/kinshasa.jfif" alt="Kinshasa groß" style="max-width:90vw;max-height:80vh;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.25);background:#fff;display:block;margin:auto;">
-<img src="bilder/kinshasa.jfif" alt="Schulprojekt Kinshasa Kongo groß Collegium Musicum Iuvenale Ochsenfurt" style="max-width:90vw;max-height:80vh;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.25);background:#fff;display:block;margin:auto;">
-</div>
-</script>
-<script>
-// Kinshasa image preview modal logic
-const kinshasaImg = document.getElementById('kinshasaPreviewImg');
-const kinshasaModal = document.getElementById('kinshasaModal');
-const kinshasaModalClose = document.getElementById('kinshasaModalClose');
-if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
-    kinshasaImg.addEventListener('click', function() {
-        kinshasaModal.style.display = 'flex';
-    });
-    kinshasaModalClose.addEventListener('click', function() {
-        kinshasaModal.style.display = 'none';
-    });
-    kinshasaModal.addEventListener('click', function(e) {
-        if (e.target === kinshasaModal) kinshasaModal.style.display = 'none';
-    });
-}
-</script>
-                                </li>
+                <li class="charity-list-item charity-list-item--project">
+                    <span>Unterstützung von Schulprojekten in Kinshasa/Kongo und Kathmandu/Nepal</span>
+                    <img src="bilder/kinshasa.jfif" alt="Schulprojekt Kinshasa Kongo Collegium Musicum Iuvenale Ochsenfurt" class="kinshasa-card-img">
+                </li>
                 <li class="charity-list-item">Unterstützung verschiedener Hilfsprojekte in der Ukraine</li>
                 <li class="charity-list-item">Integratives Musizieren mit Menschen unterschiedlicher Begabungen, jahrelange Zusammenarbeit mit Hermann Veeh, dem Erfinder der Veeh-Harfe</li>
             </ul>
             <ul class="musikalisches-repertoire-list" data-lang="en" style="display:none;">
                 <li class="charity-list-item">Benefit concerts for social institutions such as Lebenshilfe, Caritas, hospital chaplaincy, kindergartens, Doctors Without Borders, Malteser Heart's Desire Ambulance</li>
-                <li class="charity-list-item">Support for school projects in Kinshasa/Congo and Kathmandu/Nepal</li>
+                <li class="charity-list-item charity-list-item--project">
+                    <span>Support for school projects in Kinshasa/Congo and Kathmandu/Nepal</span>
+                    <img src="bilder/kinshasa.jfif" alt="School project Kinshasa Congo Collegium Musicum Iuvenale Ochsenfurt" class="kinshasa-card-img">
+                </li>
                 <li class="charity-list-item">Support for various aid projects in Ukraine</li>
                 <li class="charity-list-item">Inclusive music-making with people of different abilities, long-term collaboration with Hermann Veeh, the inventor of the Veeh harp</li>
-          </ul>
+            </ul>
             <ul class="musikalisches-repertoire-list" data-lang="it" style="display:none;">
                 <li class="charity-list-item">Concerti di beneficenza a favore di istituzioni sociali come Lebenshilfe, Caritas, cappellania ospedaliera, asili nido, Medici Senza Frontiere, Ambulanza del Desiderio del Cuore dei Malteser</li>
-                <li class="charity-list-item">Sostegno a progetti scolastici a Kinshasa/Congo e Kathmandu/Nepal</li>
+                <li class="charity-list-item charity-list-item--project">
+                    <span>Sostegno a progetti scolastici a Kinshasa/Congo e Kathmandu/Nepal</span>
+                    <img src="bilder/kinshasa.jfif" alt="Progetto scolastico Kinshasa Congo Collegium Musicum Iuvenale Ochsenfurt" class="kinshasa-card-img">
+                </li>
                 <li class="charity-list-item">Sostegno a vari progetti di aiuto in Ucraina</li>
                 <li class="charity-list-item">Musica inclusiva con persone di diverse abilità, collaborazione a lungo termine con Hermann Veeh, l'inventore dell'arpa Veeh</li>
             </ul>
@@ -434,21 +440,28 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
 <section class="mint-section-dark" id="about">
     <div class="mint-section-dark-flex">
         <div class="musik-bruecken-card">
-        <img src="bilder/musik_baut_bruecken.jpeg" alt="Musik baut Brücken – Collegium Musicum Iuvenale Ochsenfurt" style="width:100%;max-width:600px;display:block;margin:0 auto 18px auto;border-radius:18px;box-shadow:0 4px 24px rgba(0,0,0,0.10);" />
+            <div class="musik-bruecken-media">
+                <img class="musik-bruecken-image" src="bilder/musik_baut_bruecken.jpeg" alt="Musik baut Brücken – Collegium Musicum Iuvenale Ochsenfurt" />
+            </div>
+            <div class="musik-bruecken-kicker" data-lang="de">Seit 45 Jahren</div>
+            <div class="musik-bruecken-kicker" data-lang="en" style="display:none;">For 45 years</div>
+            <div class="musik-bruecken-kicker" data-lang="it" style="display:none;">Da 45 anni</div>
+            <h2 class="musik-bruecken-title" data-lang="de">Musik baut Brücken</h2>
+            <h2 class="musik-bruecken-title" data-lang="en" style="display:none;">Music Builds Bridges</h2>
+            <h2 class="musik-bruecken-title" data-lang="it" style="display:none;">La musica costruisce ponti</h2>
             <div class="musik-bruecken-divider"></div>
-            <p class="musik-bruecken-text" data-lang="de">
-                Das Collegium Musicum Iuvenale Ochsenfurt bringt seit 45 Jahren Menschen durch die Kraft der Musik zusammen.<br>
-                Wir sind eine Gemeinschaft von Musikbegeisterten, die ihre Freude am gemeinsamen Musizieren an das Publikum weitervermitteln, gleichzeitig durch Benefizprojekte sozial engagiert sind und durch internationale Freundschaften kulturelle Kontakte pflegen.
-            <p class="musik-bruecken-text" data-lang="en" style="display:none;">
-                For 45 years, Collegium Musicum Iuvenale Ochsenfurt has been bringing people together through the power of music.<br>
-                We are a community of music enthusiasts who share the joy of making music together with the audience, are socially committed through benefit projects, and cultivate cultural connections through international friendships.
-            </p>
-            
-            </p>
-            <p class="musik-bruecken-text" data-lang="it" style="display:none;">
-                Da 45 anni il Collegium Musicum Iuvenale Ochsenfurt unisce le persone attraverso la forza della musica.<br>
-                Siamo una comunità di appassionati di musica che trasmette la gioia del fare musica insieme al pubblico, si impegna in progetti benefici e coltiva amicizie internazionali attraverso lo scambio culturale.
-            </p>
+            <div class="musik-bruecken-copy-group" data-lang="de">
+                <p class="musik-bruecken-text musik-bruecken-text--lead">Das Collegium Musicum Iuvenale Ochsenfurt bringt seit 45 Jahren Menschen durch die Kraft der Musik zusammen.</p>
+                <p class="musik-bruecken-text">Wir sind eine Gemeinschaft von Musikbegeisterten, die ihre Freude am gemeinsamen Musizieren an das Publikum weitervermitteln, gleichzeitig durch Benefizprojekte sozial engagiert sind und durch internationale Freundschaften kulturelle Kontakte pflegen.</p>
+            </div>
+            <div class="musik-bruecken-copy-group" data-lang="en" style="display:none;">
+                <p class="musik-bruecken-text musik-bruecken-text--lead">For 45 years, Collegium Musicum Iuvenale Ochsenfurt has been bringing people together through the power of music.</p>
+                <p class="musik-bruecken-text">We are a community of music enthusiasts who share the joy of making music together with the audience, are socially committed through benefit projects, and cultivate cultural connections through international friendships.</p>
+            </div>
+            <div class="musik-bruecken-copy-group" data-lang="it" style="display:none;">
+                <p class="musik-bruecken-text musik-bruecken-text--lead">Da 45 anni il Collegium Musicum Iuvenale Ochsenfurt unisce le persone attraverso la forza della musica.</p>
+                <p class="musik-bruecken-text">Siamo una comunità di appassionati di musica che trasmette la gioia del fare musica insieme al pubblico, si impegna in progetti benefici e coltiva amicizie internazionali attraverso lo scambio culturale.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -508,6 +521,27 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                         <a href="bilder/cmi-benefiz-jubilaeumskonzert-45-jahre-ochsenfurt-2026-05-01.pdf" download="CMI-Benefit-Anniversary-Concert-Ochsenfurt-2026-05-01.pdf" class="event-poster-download" data-lang="en" style="display:none;">Download anniversary concert poster (PDF)</a>
                         <a href="bilder/cmi-benefiz-jubilaeumskonzert-45-jahre-ochsenfurt-2026-05-01.pdf" download="CMI-Concerto-Benefico-Anniversario-Ochsenfurt-2026-05-01.pdf" class="event-poster-download" data-lang="it" style="display:none;">Scarica il poster del concerto anniversario (PDF)</a>
                     </div>
+                    <div class="event-social-actions" aria-label="Social Media Aktionen">
+                        <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Finternationales-galakonzert-ochsenfurt-2026.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path>
+                                <path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path>
+                            </svg>
+                            <span data-lang="de">WhatsApp</span>
+                            <span data-lang="en" style="display:none;">WhatsApp</span>
+                            <span data-lang="it" style="display:none;">WhatsApp</span>
+                        </a>
+                        <a href="share/instagram-export.html?post=internationales-galakonzert-ochsenfurt-2026.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+                                <circle cx="12" cy="12" r="3.8"></circle>
+                                <circle cx="17.2" cy="6.8" r="1"></circle>
+                            </svg>
+                            <span data-lang="de">Instagram</span>
+                            <span data-lang="en" style="display:none;">Instagram</span>
+                            <span data-lang="it" style="display:none;">Instagram</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -545,6 +579,27 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                         <a href="bilder/cmi-internationales-galakonzert-giebelstadt-2026-05-02.pdf" download="CMI-International-Gala-Concert-Giebelstadt-2026-05-02.pdf" class="event-poster-download" data-lang="en" style="display:none;">Download gala concert poster (PDF)</a>
                         <a href="bilder/cmi-internationales-galakonzert-giebelstadt-2026-05-02.pdf" download="CMI-Concerto-di-Gala-Internazionale-Giebelstadt-2026-05-02.pdf" class="event-poster-download" data-lang="it" style="display:none;">Scarica il poster del concerto di gala (PDF)</a>
                     </div>
+                    <div class="event-social-actions" aria-label="Social Media Aktionen">
+                        <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Finternationales-galakonzert-giebelstadt-2026.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path>
+                                <path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path>
+                            </svg>
+                            <span data-lang="de">WhatsApp</span>
+                            <span data-lang="en" style="display:none;">WhatsApp</span>
+                            <span data-lang="it" style="display:none;">WhatsApp</span>
+                        </a>
+                        <a href="share/instagram-export.html?post=internationales-galakonzert-giebelstadt-2026.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+                                <circle cx="12" cy="12" r="3.8"></circle>
+                                <circle cx="17.2" cy="6.8" r="1"></circle>
+                            </svg>
+                            <span data-lang="de">Instagram</span>
+                            <span data-lang="en" style="display:none;">Instagram</span>
+                            <span data-lang="it" style="display:none;">Instagram</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -556,9 +611,9 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
     <div class="timeline-eyebrow" data-lang="de" style="display:none;">Seit 1981</div>
     <div class="timeline-eyebrow" data-lang="en" style="display:none;">Since 1981</div>
     <div class="timeline-eyebrow" data-lang="it" style="display:none;">Dal 1981</div>
-    <h2 class="timeline-title" data-lang="de" style="display:none;">Unsere Geschichte</h2>
-    <h2 class="timeline-title" data-lang="en" style="display:none;">Our History</h2>
-    <h2 class="timeline-title" data-lang="it" style="display:none;">La nostra storia</h2>
+    <h2 class="timeline-title" data-lang="de">Chronik</h2>
+    <h2 class="timeline-title" data-lang="en" style="display:none;">Timeline</h2>
+    <h2 class="timeline-title" data-lang="it" style="display:none;">Cronologia</h2>
     <p class="timeline-intro" data-lang="de" style="display:none;">Seit der Gründung verbindet das CMI Generationen, Kulturen und musikalische Wege durch gemeinsames Musizieren, internationale Begegnungen und Benefizprojekte.</p>
     <p class="timeline-intro" data-lang="en" style="display:none;">Since its foundation, CMI has connected generations, cultures, and musical paths through shared music-making, international exchange, and charity projects.</p>
     <p class="timeline-intro" data-lang="it" style="display:none;">Fin dalla sua fondazione, il CMI unisce generazioni, culture e percorsi musicali attraverso la musica condivisa, gli incontri internazionali e i progetti di beneficenza.</p>
@@ -688,6 +743,10 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                     <div class="charity-meta" data-lang="de">14. März 2026, 11:00 - 13:00 Uhr</div>
                     <div class="charity-meta" data-lang="en" style="display:none;">March 14, 2026, 11:00 am - 1:00 pm</div>
                     <div class="charity-meta" data-lang="it" style="display:none;">14 marzo 2026, ore 11:00 - 13:00</div>
+                    <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                        <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fmasterclass-florian-meierott.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                        <a href="share/instagram-export.html?post=masterclass-florian-meierott.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+                    </div>
                 <div class="charity-description charity-description--left" data-lang="de">
                     Am 14. März 2026 hatte die Streichergruppe des CMI von 11:00 bis 13:00 Uhr das Vergnügen, im Rahmen eines Workshops gemeinsam mit dem erfahrenen Konzertmeister und Violinpädagogen Florian Meierott an ausgewählten Stücken zu arbeiten. Als Gründer seiner <a href="https://www.meierott.de/" target="_blank" rel="noopener" class="external-link">Violinschule „Villa Paganini“</a> und Autor eigener Lehrmaterialien gab er den Teilnehmerinnen und Teilnehmern hilfreiche Anregungen für Technik, Zusammenspiel und Ausdruck. Die gemeinsame Arbeit war zugleich eine gute Vorbereitung auf die kommenden CMI-Konzerte, insbesondere auf die beiden internationalen Konzerte im Mai. Dabei kam auch der Spaß nicht zu kurz. Ein herzlicher Dank gilt Florian Meierott für diese lehrreiche Stunde. Wer Interesse hat, ist herzlich eingeladen: Am 18. April 2026 von 11:00 Uhr bis 13:00 Uhr findet gemeinsam mit allen Streichern ein weiteres Registertreffen statt. Anmeldung bei Astrid Eitschberger.
                 </div>
@@ -720,6 +779,10 @@ if (kinshasaImg && kinshasaModal && kinshasaModalClose) {
                 <div class="charity-meta" data-lang="de">24. Dezember 2025 · St. Thekla Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;">December 24, 2025 · St. Thekla Ochsenfurt</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">24 dicembre 2025 · St. Thekla Ochsenfurt</div>
+                <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                    <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fchristmette-2025.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                    <a href="share/instagram-export.html?post=christmette-2025.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+                </div>
             
                 <div class="charity-description charity-description--left" data-lang="de">
          In den letzten Jahren ist es zu einer schönen Tradition geworden, dass das Cello-Ensemble des CMI die Christmette in St. Thekla musikalisch mitgestaltet. 2024 waren die Sängerinnen des ukrainischen Vokalensembles FAINO dazugekommen. Um 2025 die feierlichen Lieder um zwei neue Facetten zu bereichern, eröffnete das Blockflöten-Ensemble des CMI – größtenteils Streicher, die auch Blockflöte spielen – die Messe mit dem Renaissancesatz von Michael Prätorius „In dulci iubilo“. Eine weiteres neues Element war der vierstimmige Gesang in dem schwedischen Weihnachtslied „Härlig är jorden“, das in Deutschland auch unter dem Titel „Schönster Herr Jesu“ bekannt ist. Viktoriia Hromova und Iryna Suprun sangen dann zur Begleitung des Celloensembles das ukrainische Lied „Chedrik“. Bei den deutschen traditionellen Weihnachtsgesängen in abwechslungsreichen Arrangements verschmolzen die Instrumentalbegleitung, das Orgelspiel von Gerd Sikiera und der Gemeindegesang zu einem harmonischen Lobpreis Gottes.<br><br>
@@ -753,6 +816,10 @@ Negli ultimi anni è diventata una bella tradizione che l'ensemble di violoncell
                 <div class="charity-meta" data-lang="de">20. Dezember 2025 · Bürgerkeller Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;">December 20, 2025 · Bürgerkeller Ochsenfurt</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">20 dicembre 2025 · Bürgerkeller Ochsenfurt</div>
+                <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                    <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fnikolausfeier-2025.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                    <a href="share/instagram-export.html?post=nikolausfeier-2025.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+                </div>
                 <div class="charity-description charity-description--left" data-lang="de">
                Die Kinder und Familien des CMI versammelten sich zum stimmungsvollen Jahresausklang. Gemeinsam blickte man bei einer liebevoll gestalteten Bilderpräsentation auf die vielen Highlights des Jahres 2025 zurück. Besonders in Erinnerung blieben die großen Benefizkonzerte sowie gemeinsame Ausflüge und Erlebnisse, die das Jahr so ereignisreich gemacht haben. Für die jüngsten Gäste gab es Spiele und eine kreative Bastelecke, in der die Kinder mit viel Freude Weihnachtsdekorationen gestalteten und bemalten. Verschiedene kulinarische Leckereien und weihnachtliches Gebäck luden zum Genießen ein. Der Höhepunkt des Vormittags war der Besuch des Nikolaus, alias Ilhan Diler: Jedes Kind erhielt einen persönlichen Spruch sowie eine herzliche Einladung zu einer gemeinsamen Kinovorstellung, inklusive Kinogutschein. Im Anschluss an die Nikolausfeier zog die fröhliche Gesellschaft gemeinsam weiter ins Kino und ließ so den Tag in geselliger Runde ausklingen. Ein herzliches Dankeschön an alle Helfer, Mitwirkenden und Gäste, die diesen Vormittag zu einem besonderen Erlebnis gemacht haben!
 </div>
@@ -785,6 +852,10 @@ I bambini e le famiglie del CMI si sono riuniti per una festa di fine anno ricca
                 <div class="charity-meta" data-lang="de">13. Dezember 2025 · Spitalkirche Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;">December 13, 2025 · Spitalkirche Ochsenfurt</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">13 dicembre 2025 · Spitalkirche Ochsenfurt</div>
+                <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                    <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fweihnachtskonzert-zum-mitsingen-2025.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                    <a href="share/instagram-export.html?post=weihnachtskonzert-zum-mitsingen-2025.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+                </div>
                 <div class="charity-description charity-description--left" data-lang="de">
 
                Im Rahmen der „Adventsgässle“ der Stadt Ochsenfurt fand am 13. Dezember 2025 das festliche Weihnachtskonzert des Collegium Musicum Iuvenale Ochsenfurt (CMI) unter der Leitung von Dr. Astrid Eitschberger statt. Gemeinsam mit insgesamt 61 Mitwirken-den, darunter das ukrainische Vokalensemble FAINO (Leitung: Viktoriia Hromova) und der Chor der Realschule am Maindreieck (Leitung: Antje Eckhoff), wurde das Publikum zum Mitsingen eingeladen. Zwischen den traditionellen Weihnachtsliedern gab es solistische Beiträge vom mittelalterlichen gregorianischen Choral über Renaissancemusik auf Blockflöten bis hin zu modernen symphonischen Werken. Ein besonderes Highlight des Abends war die eindrucksvolle Beleuchtung von Michael Heep, die die festliche Atmosphäre besonders wirkungsvoll steigerte. Die an diesem Abend gesammelten Spenden kommen der medizinischen Versorgung von Verwundeten in der Ukraine zu Gute. Ein herzlicher Dank gilt allen Mitwirkenden, Unterstützern und Gästen für diesen bewegenden Abend der Musik, Gemeinschaft und gelebten Solidarität.<br><br>
@@ -817,6 +888,10 @@ I bambini e le famiglie del CMI si sono riuniti per una festa di fine anno ricca
                 <div class="charity-meta" data-lang="de"> 29. November und 06. Dezember 2025 · Furt Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;">December 6, 2025 · Spitalkirche Ochsenfurt</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">6 dicembre 2025 · Spitalkirche Ochsenfurt</div>
+                <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                    <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fweihnachtsklaenge-an-der-furt-2025.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                    <a href="share/instagram-export.html?post=weihnachtsklaenge-an-der-furt-2025.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+                </div>
                 <div class="charity-description charity-description--left" data-lang="de">Seit über zehn Jahren findet die sommerliche Reihe „Musik an der Furt“ statt. Einige Mitspieler des Collegium Musicum Iuvenale Ochsenfurt (CMI) unter der Leitung von Astrid Eitschberger waren erstmalig auf die Idee gekommen, auch eine winterliche Ausgabe zu kreieren, und so gab es an zwei aufeinanderfolgenden Samstagen eine Einstimmung auf die Weihnachtszeit. Eine kleine Gruppe aus Bläsern und Streichern musizierten zusammen mit dem ukrainischen Vokalensemble FAINO (Leitung: Viktoriia Hromova). Das Publikum war eingeladen, sich aktiv zu beteiligen: Durch vorbereitete Plakate mit den einzelnen Liedstrophen konnten alle Anwesenden gemeinsam mitsingen. Der Beitrag aus der Spendenbox wurde direkt an eine Ärztin in der Ukraine weitergeleitet, mit der eine der Chorsängerinnen persönlich in Kontakt steht. Ein herzliches Dankeschön an alle Mitwirkenden, Unterstützer und spontanen Mitsänger, die trotz der winterlichen Witterung gemeinsam ein Zeichen der Solidarität und Menschlichkeit setzten!<br><br>
                 </div>
                 <div class="charity-description charity-description--left" data-lang="en" style="display:none;">
@@ -847,6 +922,10 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 <div class="charity-meta" data-lang="de">29. November 2025 · Pfarrheim Goßmannsdorf</div>
                 <div class="charity-meta" data-lang="en" style="display:none;">October 29, 2025 · Pfarrheim Goßmannsdorf</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">29 novembre 2025 · Pfarrheim Goßmannsdorf</div>
+                <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                    <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fvdk-weihnachtsfeier-2025.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                    <a href="share/instagram-export.html?post=vdk-weihnachtsfeier-2025.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+                </div>
                 <div class="charity-description charity-description--left" data-lang="de">
                Am 29. November 2025 umrahmte das Blockflötenensemble des Collegium Musicum Iuvenale (Leitung: Astrid Eitschberger) gemeinsam mit der Bläsergruppe St. Andreas (Leitung: Alois Klüpfel) musikalisch die Adventsfeier des VdK Ochsenfurt im festlich ge-schmückten Pfarrheim Goßmannsdorf. Die zehnjährige Nina Eisenhauer setzte mit ih-rem Solo auf dem Saxophon einen besonderen Akzent; ihre Mutter begleitete sie dabei am Klavier. Blockflötenklänge aus der der Renaissancezeit und der warme Klange des Blechbläserquintetts von Alois Klüpfel wechselten sich ab und umrahmten die Reden und vorgetragenen Geschichten. Es war ein Nachmittag voller besinnlicher Momente, der gleichzeitig den Abschluss einer Ära markierte: Nach beeindruckenden 32 Jahren ehrenamtlicher Tätigkeit verabschiedete sich Herr Helmuth Gerbig als Ortsverbandsvorsitzender. Wir danken dem VdK Ochsenfurt herzlich für die Einladung und freuen uns auf weitere gemeinsame Auftritte!<br><br>
                 </div>
@@ -879,6 +958,10 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 <div class="charity-meta" data-lang="de">26. Oktober 2025 · Hotel Meintz Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;">October 26, 2025 · Hotel Meintz Ochsenfurt</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">26 ottobre 2025 · Meintz Ochsenfurt</div>
+                <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                    <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fjohann-strauss-meintz-2025.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                    <a href="share/instagram-export.html?post=johann-strauss-meintz-2025.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+                </div>
                 <div class="charity-description charity-description--left" data-lang="de">
                 Genau einen Tag nach dem Geburtstag des Walzerkönigs am 25.10.1825 gab die Veeh-Harfengruppe „Querbeet“ unter der Leitung von Sigrid Schäfer am Sonntag, den 26.10.2025 ein internationales Benefiz-Konzert in der Festhalle des Hotels „Meintz“ in Ochsenfurt. Gemeinsam mit Solisten des Collegium Musicum Iuvenale Ochsenfurt (Leitung: Dr. Astrid Eitschberger) und Gästen aus Italien (Chiara Passudetti, Sopran, Silvano Ruffo, Tenor, sowie Mirko Ballico am Klavier und Andrea Vinco an der Gitarre) brachten sie ein beschwingtes Programm mit Musik von Johann Strauss und dessen Zeitgenossen zu Gehör. Der Eintritt war frei, die großzügigen Spenden von 1.183 € wurden im Anschluss an Joachim Gold, den Stadtbeauftragten der Malteser in Würzburg, übergeben, um damit Einsätze des <a href="https://www.malteser.de/herzenswunsch-krankenwagen.html" target="_blank" rel="noopener" class="external-link">Herzenswunsch-Krankenwagens der Malteser</a> zu finanzieren. Während der Pause und nach dem Konzert bestand die Möglichkeit, sich diesen besonderen Krankentransportwagen von innen anzusehen und erklären zu lassen.
                 </div>     
@@ -911,6 +994,10 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 <div class="charity-meta" data-lang="de">25. Oktober 2025 · Rathausdiele Marktbreit</div>
                 <div class="charity-meta" data-lang="en" style="display:none;">October 25, 2025 · Town Hall Marktbreit</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">25 ottobre 2025 · Sala del Municipio Marktbreit</div>
+                <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                    <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fjohann-strauss-marktbreit-2025.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                    <a href="share/instagram-export.html?post=johann-strauss-marktbreit-2025.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+                </div>
                 <div class="charity-description charity-description--left" data-lang="de">
                     Am 25. Oktober 2025 fand in der Rathausdiele Marktbreit ein internationales Benefizkonzert zum 200. Geburtstag des Walzerkönigs Johann Strauss statt, der am 25.10.1825 geboren wurde. Die Veeh-Harfengruppe „Querbeet“ (Leitung: Sigrid Schäfer), gemeinsam mit Solisten des Collegium Musicum Iuvenale Ochsenfurt (Leitung: Dr. Astrid Eitschberger) und Gästen aus Italien (Chiara Passudetti, Sopran, Silvano Ruffo, Tenor, sowie Mirko Ballico am Klavier und Andrea Vinco an der Gitarre) präsentierten ein unterhaltsames Programm mit Werken von Johann Strauss, seinem Bruder Josef und deren Zeitgenossen aus Italien und Spanien.
                     Der Abend beruhte auf einer Kooperation mit dem Partnerschaftskomitee Marktbreit-Fléac und der Mittelschule Marktbreit. 
@@ -949,6 +1036,10 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 <div class="charity-meta" data-lang="de">12. Oktober 2025 · Kapuzinerklosterkirche Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;">October 12, 2025 · Capuchin Monastery Church Ochsenfurt</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">12 ottobre 2025 · Chiesa del Monastero dei Cappuccini Ochsenfurt</div>
+                <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                    <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fwir-musizieren-gemeinsam-2025.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                    <a href="share/instagram-export.html?post=wir-musizieren-gemeinsam-2025.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+                </div>
                 <div class="charity-description charity-description--left" data-lang="de">
                     Die Kinder des Collegium Musicum Iuvenale mit ihrer Dirigentin Astrid Eitschberger boten zusammen mit Schülerinnen und Schülern aus den 2. und 4. Klassen der Grundschule Ochsenfurt unter der Leitung von Annette Patrzek lebensfrohe Lieder dar, die sich abwechselten mit barocker Kammermusik aus Frankreich, Italien und Deutschland. Als Solisten waren Beate und Friedhelm Hoffmann, Renate Glauth, Johanna Griebel und Astrid Eitschberger zu hören. Eine Besonderheit bildete das achtköpfige Blockflötenensemble, das sich auf Renaissancemusik spezialisiert hat. Die Veranstaltung fand in Kooperation mit dem Arbeitskreis Geschichte statt. Ganz neu war dabei die Idee, dass Kinder aus dem Orchester eine kleine Einführung in die Geschichte der Klosterkirche geben. Nina Eisenhauer und Simon Streit, beide zehn Jahre alt, begeisterten die Zuhörer mit ihrer spontanen und natürlichen Art, wie sie die Welt der Kapuziner zum Leben erwecken. Es konnten  609 € Spenden für die Renovierung der Klosterkirche gesammelt werden.
                 </div>
@@ -982,6 +1073,10 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 <div class="charity-meta" data-lang="de">10. August 2025 · Kapuzinerklosterkirche Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;">August 10, 2025 · Capuchin Monastery Church Ochsenfurt</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">10 agosto 2025 · Chiesa del Monastero dei Cappuccini Ochsenfurt</div>
+                <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                    <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fconcello-kurswoche-2025.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                    <a href="share/instagram-export.html?post=concello-kurswoche-2025.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+                </div>
                 <div class="charity-description charity-description--left" data-lang="de">
                     Das Collegium Musicum Iuvenale Ochsenfurt veranstaltete eine Ensemble-Kurswoche für Cellist:innen und andere Streicher:innen unter dem Titel „ConCello“. Unter der Leitung von Maestro Andrea Marcolini und Maestro Riccardo Paltanin aus Padua wurde ein vielfältiges Programm von der Romantik bis zur Filmmusik erarbeitet. Das Abschlusskonzert mit der französischen Sängerin Marika Marcuzzi fand am 10. August 2025 in der Klosterkirche Ochsenfurt statt. Der Eintritt war frei, es wurden 785 Euro an Spenden für die Renovierung der Klosterkirche gesammelt.
                 </div>
@@ -1009,6 +1104,10 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 <div class="charity-meta" data-lang="de">12. Juli 2025 · Bad Kissingen</div>
                 <div class="charity-meta" data-lang="en" style="display:none;">12 July 2025 · Bad Kissingen</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">12 luglio 2025 · Bad Kissingen</div>
+                <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                    <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fsymphonic-mob-kissinger-sommer-2025.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                    <a href="share/instagram-export.html?post=symphonic-mob-kissinger-sommer-2025.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+                </div>
                 <div class="charity-description" data-lang="de">Mitglieder des CMI und des Liederkranzes Ochsenfurt haben am „Symphonic Mob“ in Bad Kissingen teilgenommen und gemeinsam mit Profimusikerinnen und -musikern des Deutschen Symphonie-Orchesters Berlin unter der Leitung von Aurélien Bello ein beeindruckendes Programm dargeboten. Diese Veranstaltung war ein großartiges Gemeinschaftserlebnis. Zusammen mit den Profis musizieren zu dürfen hat uns begeistert und beflügelt.</div>
                 <div class="charity-description" data-lang="en" style="display:none;">Members of CMI and the Liederkranz Ochsenfurt participated in the "Symphonic Mob" in Bad Kissingen and, together with professional musicians from the Deutsches Symphonie-Orchester Berlin under the direction of Aurélien Bello, presented an impressive program. This event was a wonderful community experience. Being able to make music together with the professionals inspired and motivated us.</div>
                 <div class="charity-description" data-lang="it" style="display:none;">I membri del CMI e del Liederkranz Ochsenfurt hanno partecipato al "Symphonic Mob" a Bad Kissingen e, insieme a musicisti professionisti della Deutsches Symphonie-Orchester Berlin sotto la direzione di Aurélien Bello, hanno presentato un programma impressionante. Questo evento è stato una meravigliosa esperienza di comunità. Poter fare musica insieme ai professionisti ci ha ispirato e motivato.</div>
@@ -1029,6 +1128,10 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                <div class="charity-meta" data-lang="de">28. Juni 2025 · Nürnberg</div>
                <div class="charity-meta" data-lang="en" style="display:none">June 28, 2025 · Nuremberg</div>
                <div class="charity-meta" data-lang="it" style="display:none">28 giugno 2025 · Nürnberg</div>
+               <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                   <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fausflug-nuernberg-2025.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                   <a href="share/instagram-export.html?post=ausflug-nuernberg-2025.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+               </div>
                <div class="charity-description" data-lang="de">
                    Die CMI-Gruppe verbrachte einen abwechslungsreichen Tag in Nürnberg. Die Erwachsenen tauchten bei einer Führung mit Prof. Dr. Teresa Bischoff im Germanischen Nationalmuseum in die Kunstgeschichte ein, während die Kinder mit einem „Museumskit“ spielerisch die Mitmachstationen erkundeten. Nach einem Gruppenfoto vor dem Museum machten wir uns – zu Fuß – auf den Weg zum Erfahrungsfeld der Sinne. Besonders spannend war das Klangzelt, in dem vor allem die Kinder mit großer Neugier verschiedene Klangarten ausprobierten und entdeckten. Für eine Stärkung gingen wir in den Biergarten nebenan, wo wir gemeinsam Mittagessen oder eine Kaffeepause genossen. Ein schöner Tag voller Entdeckungen, Spaß und Gemeinschaft!
                 </div>
@@ -1057,6 +1160,10 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 <div class="charity-meta" data-lang="de">7. Juni 2025 · Altstadt Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;">June 7, 2025 · Old Town Ochsenfurt</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">7 giugno 2025 · Centro storico di Ochsenfurt</div>
+                <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                    <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fmusik-an-der-furt-2025.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                    <a href="share/instagram-export.html?post=musik-an-der-furt-2025.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+                </div>
                 <div class="charity-description" data-lang="de">
                     Die Konzertreihe „Musik an der Furt“ findet jedes Jahr von Ende April bis Anfang August in der idyllischen Altstadt von Ochsenfurt statt. Jeden Samstag von 14 bis 15 Uhr sorgen verschiedene Gruppen aus der Region für musikalische Unterhaltung, darunter auch das „CMI“ (Leitung: Dr. Astrid Eitschberger), das am Samstag, den 7. Juni 2025 zusammen mit der Blaskapelle Giebelstadt-Sulzdorf (Leitung: Robert Schmitt) und dem ukrainischen Vokalensemble „FAINO“ (Leitung: Viktoriia Hromova) mitgewirkt hat. Mit der Spendenbox während der Darbietungen wurde das Hilfsprojekt von Oxana Ruban unterstützt, die als Ärztin in der Ukraine an der Front arbeitet und versucht, verletzten Soldaten eine Überlebenschance zu ermöglichen. Gleichzeitig boten Helferinnen ukrainische Spezialitäten an, um für die Charity foundation „Headquarters Heart“ Mittel beitragen zu können. Diese musikalisch-kulinarische Kombination hat sich seit 2024 bewährt und machte auch das Konzert an der Furt zu einem vollen Erfolg.
                 </div>
@@ -1083,6 +1190,10 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                <div class="charity-meta" data-lang="de">10. Mai 2025 · Hotel Meintz Ochsenfurt</div>
                <div class="charity-meta" data-lang="en" style="display:none;">May 10, 2025 · Hotel Meintz Ochsenfurt</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">10 maggio 2025 · Hotel Meintz Ochsenfurt</div>
+                <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                    <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Finternationales-benefizkonzert-2025.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                    <a href="share/instagram-export.html?post=internationales-benefizkonzert-2025.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+                </div>
                 <div class="charity-description" data-lang="de">
                     Am 10. Mai 2025 fand in der neuen Festhalle des Hotels Meintz ein internationales Benefizkonzert gemeinsam mit der Veeh-Harfen-Gruppe „Querbeet“ (Leitung: Sigrid Schäfer), Filarmonica Bibbienese „Sereni“ (Leitung: Marcello Biagini) aus der italienischen Partnerstadt Bibiena, Vokalensemble „FAINO“ (Leitung: Viktoriia Hromova), Kinder der 2. Klassen der Grundschule Ochsenfurt (Leitung: Renate Glauth), André Miabala und Studierende der Ethnomusikologie an der Universität Würzburg und dem Collegium Musicum Iuvenale „CMI" (Leitung Dr. Astrid Eitschberger) statt. Dies war das erste große Konzert in der kurz vorher eröffneten Halle. Durch die Bilderserie auf der doppelten Projektionsfläche entstand ein Erlebnis für alle Sinne. Das CMI bedankt sich sehr herzlich bei Joachim Beck und dem gesamten Team des Hotels Meintz für die professionelle Betreuung. Die begeisterten Zuschauer spendeten 1432,50 Euro für „Ärzte ohne Grenzen“.
                 </div>
@@ -1110,6 +1221,10 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 <div class="charity-meta" data-lang="de">9. Mai 2025 · Altstadt Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;">May 9, 2025 · Old Town Ochsenfurt</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">9 maggio 2025 · Centro storico di Ochsenfurt</div>
+                <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                    <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2F80-jahre-frieden-2025.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                    <a href="share/instagram-export.html?post=80-jahre-frieden-2025.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+                </div>
                 <div class="charity-description" data-lang="de">
                     Am 09. Mai 2025 organisierte die Stadt Ochsenfurt eine Gedenkveranstaltung „80 Jahre Kriegsende – 80 Jahre Frieden“, die vom Collegium Musicum Iuvenale Ochsenfurt „CMI“ (Leitung: Dr. Astrid Eitschberger) gemeinsam mit Gästen aus der italienischen Partnerstadt Bibbiena Filarmonica Bibbienese „Sereni“ (Leitung: Marcello Biagini) und dem ukrainischen Vokalensemble „FAINO“ (Leitung: Viktoriia Hromova), sowie der französischen Sängerin Marika Marcuzzi umrahmt wurde. Ein bewegender Abend für Frieden und Völkerverständigung.
                 </div>
@@ -1137,6 +1252,10 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 <div class="charity-meta" data-lang="de">15. Februar 2025 · St. Thekla Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none">February 15, 2025 · St. Thekla Ochsenfurt</div>
                 <div class="charity-meta" data-lang="it" style="display:none">15 febbraio 2025 · St. Thekla Ochsenfurt</div>
+                <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                    <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fneujahrskonzert-2025.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                    <a href="share/instagram-export.html?post=neujahrskonzert-2025.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+                </div>
                 <div class="charity-description" data-lang="de">
                     Am 15. Februar 2025 fand in St. Thekla das Neujahrskonzert „Vom Barock bis Harry Potter“ statt. Das Collegium Musicum Iuvenale Ochsenfurt „CMI“ (Leitung: Dr. Astrid Eitschberger), das ukrainische Vokalensemble „FAINO“ (Leitung: Viktoriia Hromova) sowie Vorschulkinder des Kindergartens St. Thekla (Leitung: Petra Striffler) sorgten für ein abwechslungsreiches Programm. Die gesammelten Spenden in Höhe von 600 € kamen dem Kindergarten St. Thekla zugute, der damit zur Freude der Kinder Spielgerät für die Sommersaison kaufte.
                 </div>
@@ -1164,6 +1283,10 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 <div class="charity-meta" data-lang="de">9. Januar 2025 · Altstadt Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;">January 9, 2025 · Old Town Ochsenfurt</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">9 gennaio 2025 · Centro storico di Ochsenfurt</div>
+                <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                    <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fkauzensitzung-2025.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                    <a href="share/instagram-export.html?post=kauzensitzung-2025.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+                </div>
                 <div class="charity-description" data-lang="de">
                     Am 9. Januar 2025 war das Saxophonsensemble des Collegium Musicum Iuvenale für die musikalische Umrahmung der traditionellen Kauzensitzung im Sitzungssaal des Rathauses in Ochsenfurt vom Bürgermeister eingeladen worden. Die Musikerinnen begeisterten das Publikum mit einem abwechslungsreichen Programm und trugen zur feierlichen Atmosphäre der Veranstaltung bei.
                 </div>
@@ -1192,6 +1315,10 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 <div class="charity-meta" data-lang="de">24. Dezember 2024 · St. Thekla Ochsenfurt</div>
                 <div class="charity-meta" data-lang="en" style="display:none;">December 24, 2024 · St. Thekla Ochsenfurt</div>
                 <div class="charity-meta" data-lang="it" style="display:none;">24 dicembre 2024 · St. Thekla Ochsenfurt</div>
+                <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+                    <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fchristmette-2024.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+                    <a href="share/instagram-export.html?post=christmette-2024.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+                </div>
                 <div class="charity-description" data-lang="de">
                     Am 24. Dezember 2024 gestalteten die Cellistinnen des Collegium Musicum Iuvenale gemeinsam mit dem ukrainischen Vokalensemble FAINO die Christmette in der Kirche St. Thekla Ochsenfurt musikalisch aus. Mit deutschen sowie ukrainischen Weihnachtsliedern und Instrumentalstücken trugen sie zu der feierlichen Atmosphäre des Weihnachtsgottesdienstes bei.
                 </div>
@@ -1262,34 +1389,36 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
         </div>
     </div>
 </section>
-<footer class="site-footer" style="background:#222;color:#fff;padding:32px 0 16px 0;text-align:center;font-family:'Inter',Arial,sans-serif;">
-    <div style="max-width:900px;margin:0 auto;padding:0 16px;">
-        <div style="margin-bottom:18px;">
-            <img src="files/logo_cmi1 - weiß.svg" alt="CMI Logo" style="height:48px;margin-bottom:12px;">
-            <div style="font-size:1.1em;font-weight:600;" data-lang="de">Collegium Musicum Iuvenale Ochsenfurt</div>
-            <div style="font-size:1.1em;font-weight:600;display:none;" data-lang="en">Collegium Musicum Iuvenale Ochsenfurt</div>
-            <div style="font-size:1.1em;font-weight:600;display:none;" data-lang="it">Collegium Musicum Iuvenale Ochsenfurt</div>
-            <div style="font-size:0.95em;margin-top:4px;" data-lang="de">Musik verbindet Menschen seit 1981</div>
-            <div style="font-size:0.95em;margin-top:4px;display:none;" data-lang="en">Music connects people since 1981</div>
-            <div style="font-size:0.95em;margin-top:4px;display:none;" data-lang="it">La musica unisce le persone dal 1981</div>
+<footer class="site-footer">
+    <div class="site-footer__inner">
+        <div class="site-footer__brand">
+            <img src="files/logo_cmi1 - weiß.svg" alt="CMI Logo" class="site-footer__logo">
+            <div class="site-footer__title" data-lang="de">Collegium Musicum Iuvenale Ochsenfurt</div>
+            <div class="site-footer__title" data-lang="en" style="display:none;">Collegium Musicum Iuvenale Ochsenfurt</div>
+            <div class="site-footer__title" data-lang="it" style="display:none;">Collegium Musicum Iuvenale Ochsenfurt</div>
+            <div class="site-footer__subtitle" data-lang="de">Musik verbindet Menschen seit 1981</div>
+            <div class="site-footer__subtitle" data-lang="en" style="display:none;">Music connects people since 1981</div>
+            <div class="site-footer__subtitle" data-lang="it" style="display:none;">La musica unisce le persone dal 1981</div>
         </div>
-        <div style="margin-bottom:12px;font-size:0.98em;position:relative;z-index:99999;pointer-events:auto;">
-            <a href="impressum.html" style="color:#fff;text-decoration:underline;margin:0 10px;z-index:99999;pointer-events:auto;position:relative;" data-lang="de">Impressum</a>
-            <a href="impressum.html" style="color:#fff;text-decoration:underline;margin:0 10px;display:none;z-index:99999;pointer-events:auto;position:relative;" data-lang="en">Legal Notice</a>
-            <a href="impressum.html" style="color:#fff;text-decoration:underline;margin:0 10px;display:none;z-index:99999;pointer-events:auto;position:relative;" data-lang="it">Note legali</a>
-            <a href="datenschutz.html" style="color:#fff;text-decoration:underline;margin:0 10px;z-index:99999;pointer-events:auto;position:relative;" data-lang="de">Datenschutz</a>
-            <a href="datenschutz.html" style="color:#fff;text-decoration:underline;margin:0 10px;display:none;z-index:99999;pointer-events:auto;position:relative;" data-lang="en">Privacy Policy</a>
-            <a href="datenschutz.html" style="color:#fff;text-decoration:underline;margin:0 10px;display:none;z-index:99999;pointer-events:auto;position:relative;" data-lang="it">Informativa sulla privacy</a>
-            <a href="#timeline-section" style="color:#fff;text-decoration:underline;margin:0 10px;z-index:99999;pointer-events:auto;position:relative;" data-lang="de">Chronik</a>
-            <a href="#timeline-section" style="color:#fff;text-decoration:underline;margin:0 10px;display:none;z-index:99999;pointer-events:auto;position:relative;" data-lang="en">History</a>
-            <a href="#timeline-section" style="color:#fff;text-decoration:underline;margin:0 10px;display:none;z-index:99999;pointer-events:auto;position:relative;" data-lang="it">Storia</a>
+        <div class="site-footer__links">
+            <a href="impressum.html" class="site-footer__link" data-lang="de">Impressum</a>
+            <a href="impressum.html" class="site-footer__link" data-lang="en" style="display:none;">Legal Notice</a>
+            <a href="impressum.html" class="site-footer__link" data-lang="it" style="display:none;">Note legali</a>
+            <a href="datenschutz.html" class="site-footer__link" data-lang="de">Datenschutz</a>
+            <a href="datenschutz.html" class="site-footer__link" data-lang="en" style="display:none;">Privacy Policy</a>
+            <a href="datenschutz.html" class="site-footer__link" data-lang="it" style="display:none;">Informativa sulla privacy</a>
+            <a href="#timeline-section" class="site-footer__link" data-lang="de">Chronik</a>
+            <a href="#timeline-section" class="site-footer__link" data-lang="en" style="display:none;">History</a>
+            <a href="#timeline-section" class="site-footer__link" data-lang="it" style="display:none;">Storia</a>
         </div>
-        <div style="font-size:0.92em;color:#bbb;" data-lang="de">&copy; 1981–2025 Collegium Musicum Iuvenale Ochsenfurt. Alle Rechte vorbehalten.</div>
-        <div style="font-size:0.92em;color:#bbb;display:none;" data-lang="en">&copy; 1981–2025 Collegium Musicum Iuvenale Ochsenfurt. All rights reserved.</div>
-    <div style="font-size:0.92em;color:#bbb;display:none;" data-lang="it">&copy; 1981–2025 Collegium Musicum Iuvenale Ochsenfurt. Tutti i diritti riservati.</div>
-    <div style="font-size:0.92em;color:#bbb;margin-top:6px;" data-lang="de">Webdesign: Ilhan Diler | Designidee: Richard Ullmann</div>
-    <div style="font-size:0.92em;color:#bbb;margin-top:6px;display:none;" data-lang="en">Webdesign: Ilhan Diler | Design idea: Richard Ullmann</div>
-    <div style="font-size:0.92em;color:#bbb;margin-top:6px;display:none;" data-lang="it">Webdesign: Ilhan Diler | Idea di design: Richard Ullmann</div>
+        <div class="site-footer__meta">
+            <div class="site-footer__meta-line" data-lang="de">&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. Alle Rechte vorbehalten.</div>
+            <div class="site-footer__meta-line" data-lang="en" style="display:none;">&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. All rights reserved.</div>
+            <div class="site-footer__meta-line" data-lang="it" style="display:none;">&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. Tutti i diritti riservati.</div>
+            <div class="site-footer__meta-line" data-lang="de">Webdesign: Ilhan Diler | Designidee: Richard Ullmann</div>
+            <div class="site-footer__meta-line" data-lang="en" style="display:none;">Webdesign: Ilhan Diler | Design idea: Richard Ullmann</div>
+            <div class="site-footer__meta-line" data-lang="it" style="display:none;">Webdesign: Ilhan Diler | Idea di design: Richard Ullmann</div>
+        </div>
     </div>
 </footer>
 <script type="text/javascript" charset="UTF-8" src="https://cdn.cookie-script.com/s/e2339902bc70c6b4887f38770587d9d3.js"></script>
