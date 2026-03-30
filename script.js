@@ -457,19 +457,19 @@ function stopHeroGalleryAuto() {
 
 function getHeroGallerySlideStyle(entry, index) {
     if (!entry) {
-        return { backgroundPosition: 'center 10%', backgroundSize: '' };
+        return { backgroundPosition: 'center 10%', backgroundSize: 'cover' };
     }
 
-    if (window.innerWidth <= 600) {
+    if (window.innerWidth <= 700) {
         return {
-            backgroundPosition: index === 2 ? 'center 8%' : 'center 10%',
-            backgroundSize: '100vw auto'
+            backgroundPosition: 'center center',
+            backgroundSize: 'contain'
         };
     }
 
     return {
         backgroundPosition: heroGalleryDesktopFocusImages.has(entry.src) ? 'center 60%' : 'center 10%',
-        backgroundSize: ''
+        backgroundSize: 'cover'
     };
 }
 
@@ -752,17 +752,30 @@ function initMobileNavigation() {
 
 function initNavbarScroll() {
     const navbar = document.querySelector('.navbar');
-    if (!navbar) {
+    if (!navbar || navbar.dataset.scrollInit === 'true') {
         return;
     }
 
+    navbar.dataset.scrollInit = 'true';
+
     function setNavbarStyle(isScrolled) {
-        navbar.style.background = isScrolled ? '#222' : 'transparent';
-        navbar.style.zIndex = '5000';
+        navbar.classList.toggle('navbar-scrolled', isScrolled);
+
+        if (isScrolled) {
+            navbar.style.setProperty('background', 'rgba(1, 3, 4, 0.98)', 'important');
+            navbar.style.setProperty('border-bottom-color', 'rgba(255, 255, 255, 0.18)', 'important');
+            navbar.style.setProperty('box-shadow', '0 10px 24px rgba(0, 0, 0, 0.26)', 'important');
+            return;
+        }
+
+        navbar.style.removeProperty('background');
+        navbar.style.removeProperty('border-bottom-color');
+        navbar.style.removeProperty('box-shadow');
     }
 
     function handleNavbarScroll() {
-        setNavbarStyle(window.scrollY > 40);
+        const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        setNavbarStyle(scrollTop > 12);
     }
 
     handleNavbarScroll();
@@ -909,5 +922,8 @@ function initSiteFeatures() {
 }
 
 document.addEventListener('DOMContentLoaded', initSiteFeatures);
+document.addEventListener('DOMContentLoaded', initNavbarScroll);
+
+window.addEventListener('load', initNavbarScroll);
 
 window.addEventListener('resize', ensureMbondaTimelineLinksAccessible);

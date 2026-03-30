@@ -71,6 +71,7 @@ const INSTAGRAM_STORY_EXPORT = {
 };
 
 const BRAND_LOGO_URL = "https://www.cmi-ochsenfurt.de/files/logo_cmi1%20-%20schwarz.svg";
+const initialSearchParams = new URLSearchParams(window.location.search);
 
 const elements = {
     postGrid: document.getElementById("post-grid"),
@@ -135,6 +136,21 @@ function buildSearchIndex(post) {
 
 function buildExportFileName(post, suffix) {
     return post.fileName.replace(/\.html$/i, `${suffix}.png`);
+}
+
+function getInitialSearchQuery() {
+    return collapseWhitespace(initialSearchParams.get("post") || initialSearchParams.get("search") || "");
+}
+
+function scrollToFirstVisiblePost() {
+    const firstCard = elements.postGrid.querySelector(".post-card");
+    if (!firstCard) {
+        return;
+    }
+
+    window.requestAnimationFrame(() => {
+        firstCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
 }
 
 function shortenText(text, maxLength) {
@@ -644,6 +660,14 @@ async function initialize() {
 
         if (!posts.length) {
             elements.exportStatus.textContent = "Keine Share-Seiten konnten geladen werden. Die Export-Seite funktioniert nur ueber einen Webserver und nicht ueber file://.";
+            return;
+        }
+
+        const initialSearchQuery = getInitialSearchQuery();
+        if (initialSearchQuery) {
+            elements.postSearch.value = initialSearchQuery;
+            applySearchFilter();
+            scrollToFirstVisiblePost();
             return;
         }
 
