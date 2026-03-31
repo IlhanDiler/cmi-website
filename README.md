@@ -9,6 +9,7 @@ Darum gibt es fuer teilbare Inhalte eigene Share-Seiten im Ordner [share](share)
 - Jede Share-Seite hat eigene `og:*`- und `twitter:*`-Meta-Tags.
 - Jede Share-Seite zeigt eine kleine gebrandete Zwischenansicht.
 - Danach erfolgt eine automatische Weiterleitung auf den passenden Abschnitt der Startseite per Anker-Link.
+- Die Link-Vorschau nutzt direkt das jeweilige Originalbild aus `bilder/`, damit keine zusaetzlichen PNG-Ablagen auf dem Server noetig sind.
 
 Beispiele:
 
@@ -28,15 +29,16 @@ Wenn ein neuer Rueckblick oder Event gezielt teilbar sein soll:
 5. Die Weiterleitung auf den Zielabschnitt der Startseite setzen.
 6. Zum Gestalten die gemeinsame CSS-Datei [share/share-preview.css](share/share-preview.css) verwenden.
 7. Den Dateinamen in [share/share-pages.json](share/share-pages.json) eintragen, damit der Instagram-Export den Beitrag automatisch findet.
-8. Fuer die Querformat-Linkvorschauen und Hochkant-Statusbilder bei Bedarf `share/generate-share-preview-images.ps1` ausfuehren.
+8. `og:image` und `twitter:image` direkt auf das vorhandene Hauptbild der Share-Seite zeigen lassen.
+9. Optional kann fuer Social-Posts lokal `share/generate-share-preview-images.ps1` ausgefuehrt werden, ohne die erzeugten Dateien mit zu deployen.
 
 ## Wichtige Hinweise
 
 - Gepostet werden sollte immer die Share-URL, nicht nur ein Hash-Link wie `/#review-...`.
 - Das Vorschaubild fuer Link-Previews sollte moeglichst gross sein, idealerweise im Bereich `1200x630`.
-- Die generierten WhatsApp-/Open-Graph-Vorschaubilder liegen unter `share/preview-images/`.
-- Die separaten Hochkantbilder fuer WhatsApp-Status liegen unter `share/status-images/` im Format `1080x1920`.
-- Die Statusbilder werden nicht automatisch als Link-Vorschau genutzt, sondern sind fuer manuelles Posten im Status gedacht.
+- Es werden keine generierten Vorschaubilder mehr auf dem Server vorgehalten; Link-Vorschauen verwenden die bestehenden Bilder aus `bilder/`.
+- Falls lokal Status- oder Social-Bilder erzeugt werden, liegen sie unter `share/preview-images/` und `share/status-images/`, sind aber nicht fuer das Deployment gedacht.
+- Die Statusbilder werden nicht automatisch als Link-Vorschau genutzt, sondern sind nur fuer manuelles Posten im Status gedacht.
 - Manche Plattformen cachen Vorschauen. Nach Aenderungen muss der Link dort eventuell neu eingelesen werden.
 
 Hilfreiche Tools zum Aktualisieren der Vorschau:
