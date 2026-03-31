@@ -1,5 +1,5 @@
 // Lightbox für Event-Bilder
-document.addEventListener('DOMContentLoaded', function() {
+function initEventLightbox() {
     const lightboxModal = document.getElementById('eventLightboxModal');
     const lightboxImg = document.getElementById('eventLightboxImg');
     const lightboxCloseBtn = document.getElementById('eventLightboxClose');
@@ -11,7 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
         en: { kicker: 'Concert Poster' },
         it: { kicker: 'Manifesto del concerto' }
     };
-    const getVisibleNodeText = function(container, selector) {
+    let lastTrigger = null;
+
+    if (!lightboxModal || !lightboxImg) {
+        return;
+    }
+
+    function getVisibleNodeText(container, selector) {
         if (!container) {
             return '';
         }
@@ -21,8 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         return matchingNode ? matchingNode.textContent.trim() : '';
-    };
-    const getActiveLanguage = function(image) {
+    }
+
+    function getActiveLanguage(image) {
         const eventCard = image ? image.closest('.event-card') : null;
         if (!eventCard) {
             return 'de';
@@ -33,8 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         return visibleHeadline ? visibleHeadline.getAttribute('data-lang') || 'de' : 'de';
-    };
-    const getLightboxCaption = function(image) {
+    }
+
+    function getLightboxCaption(image) {
         if (!image) {
             return { title: '', meta: '', language: 'de' };
         }
@@ -56,14 +64,21 @@ document.addEventListener('DOMContentLoaded', function() {
             meta: [location, date].filter(Boolean).join(' • '),
             language: getActiveLanguage(image)
         };
-    };
-    const openLightbox = function(image) {
-        if (!lightboxImg || !lightboxModal) {
+    }
+
+    function isLightboxOpen() {
+        return lightboxModal.style.display === 'flex';
+    }
+
+    function openLightbox(image) {
+        if (!image) {
             return;
         }
 
+        lastTrigger = image;
         lightboxImg.src = image.dataset.lightboxSrc || image.src;
         lightboxImg.alt = image.alt || 'Event Bild';
+
         const caption = getLightboxCaption(image);
         if (lightboxCaptionKicker) {
             lightboxCaptionKicker.textContent = (lightboxLanguageLabels[caption.language] || lightboxLanguageLabels.de).kicker;
@@ -74,18 +89,22 @@ document.addEventListener('DOMContentLoaded', function() {
         if (lightboxCaptionMeta) {
             lightboxCaptionMeta.textContent = caption.meta || '';
         }
+
         lightboxModal.style.display = 'flex';
+        lightboxModal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
         if (lightboxCloseBtn) {
             lightboxCloseBtn.focus();
         }
-    };
-    const closeLightbox = function() {
-        if (!lightboxImg || !lightboxModal) {
+    }
+
+    function closeLightbox() {
+        if (!isLightboxOpen()) {
             return;
         }
 
         lightboxModal.style.display = 'none';
+        lightboxModal.setAttribute('aria-hidden', 'true');
         lightboxImg.src = '';
         lightboxImg.alt = 'Event Bild';
         if (lightboxCaptionTitle) {
@@ -95,128 +114,84 @@ document.addEventListener('DOMContentLoaded', function() {
             lightboxCaptionMeta.textContent = '';
         }
         document.body.style.overflow = '';
-    };
-    document.querySelectorAll('.event-lightbox-img, .event-lightbox-trigger').forEach(img => {
-        img.addEventListener('click', function() {
-            openLightbox(this);
-        });
+        if (lastTrigger && typeof lastTrigger.focus === 'function') {
+            lastTrigger.focus();
+        }
+        lastTrigger = null;
+    }
+
+    document.addEventListener('click', function(event) {
+        const trigger = event.target.closest('.event-lightbox-img, .event-lightbox-trigger');
+        if (!trigger) {
+            return;
+        }
+
+        openLightbox(trigger);
     });
-    if (lightboxCloseBtn && lightboxModal && lightboxImg) {
+
+    if (lightboxCloseBtn) {
         lightboxCloseBtn.addEventListener('click', function() {
             closeLightbox();
         });
     }
-    if (lightboxModal) {
-        lightboxModal.addEventListener('click', function(e) {
-            if (e.target === lightboxModal || e.target === lightboxImg) {
-                closeLightbox();
-            }
-        });
-    }
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && lightboxModal && lightboxModal.style.display === 'flex') {
+
+    lightboxModal.addEventListener('click', function(event) {
+        if (event.target === lightboxModal || event.target === lightboxImg) {
             closeLightbox();
         }
     });
-});
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && isLightboxOpen()) {
+            closeLightbox();
+        }
+    });
+
+    lightboxModal.setAttribute('aria-hidden', 'true');
+}
 // Dynamisch Abstand zwischen Gallery und nächster Section minimieren
 function minimizeGallerySectionGap() {
     const heroBg = document.querySelector('.hero-bg');
-    // Finde die nächste Section nach .hero-bg
+    if (!heroBg) {
+        return;
+    }
+
     let nextSection = heroBg;
     while (nextSection && nextSection.nextElementSibling && nextSection.nextElementSibling.nodeType !== 1) {
         nextSection = nextSection.nextElementSibling;
     }
     nextSection = nextSection && nextSection.nextElementSibling;
     if (nextSection) {
-        // Setze einen festen Abstand, z.B. 8vw, damit der Abstand zur Navbar und zur Section gleich ist
-        nextSection.style.marginTop = '8vw';
+        nextSection.style.marginTop = '0';
     }
 }
-window.addEventListener('resize', minimizeGallerySectionGap);
-window.addEventListener('DOMContentLoaded', minimizeGallerySectionGap);
-// Bild in .hero-bg immer vollständig anzeigen, unabhängig von der Screen-Größe
-window.addEventListener('DOMContentLoaded', function() {
-    // Dynamisch hero-bg-Containerhöhe an Bildhöhe für mobile Screens anpassen
-    function setHeroBgHeightResponsive() {
-        const heroBg = document.querySelector('.hero-bg');
-        if (!heroBg) return;
-        let heroImg = heroBg.querySelector('img');
-        if (window.innerWidth <= 900 && heroImg && heroImg.complete && heroImg.naturalHeight) {
-            // Für mobile und Tablet: Containerhöhe exakt wie Bildhöhe, aber max 100vh
-            let imgRatio = heroImg.naturalWidth / heroImg.naturalHeight;
-            let containerWidth = heroBg.offsetWidth;
-            let newHeight = containerWidth / imgRatio;
-            if (newHeight > window.innerHeight) newHeight = window.innerHeight;
-            heroBg.style.height = newHeight + 'px';
-            heroBg.style.minHeight = '0';
-        } else {
-            // Für größere Screens: Standardhöhe (z.B. 100vh)
-            heroBg.style.height = '';
-            heroBg.style.minHeight = '100vh';
-        }
-    }
-    setHeroBgHeightResponsive();
-    window.addEventListener('resize', setHeroBgHeightResponsive);
-    const heroBgImg = document.querySelector('.hero-bg img');
-    if (heroBgImg) heroBgImg.onload = setHeroBgHeightResponsive;
 
-    // Charity-Projekt: Christmette 2024 Bild auf mobilen Screens volle Breite und flexible Höhe
-    function fitChristmetteImg() {
-        var christmetteImg = document.querySelector('.christmette-img-tall');
-        if (!christmetteImg) return;
-        if (window.innerWidth <= 600) {
-            christmetteImg.style.width = '100vw';
-            christmetteImg.style.height = 'auto';
-            christmetteImg.style.objectFit = 'cover';
-            christmetteImg.style.display = 'block';
-            christmetteImg.style.margin = '0 auto';
-        } else {
-            christmetteImg.style.width = '';
-            christmetteImg.style.height = '';
-            christmetteImg.style.objectFit = '';
-            christmetteImg.style.display = '';
-            christmetteImg.style.margin = '';
-        }
+function fitChristmetteImg() {
+    const christmetteImg = document.querySelector('.christmette-img-tall');
+    if (!christmetteImg) {
+        return;
     }
+
+    if (window.innerWidth <= 600) {
+        christmetteImg.style.width = '100vw';
+        christmetteImg.style.height = 'auto';
+        christmetteImg.style.objectFit = 'cover';
+        christmetteImg.style.display = 'block';
+        christmetteImg.style.margin = '0 auto';
+        return;
+    }
+
+    christmetteImg.style.width = '';
+    christmetteImg.style.height = '';
+    christmetteImg.style.objectFit = '';
+    christmetteImg.style.display = '';
+    christmetteImg.style.margin = '';
+}
+
+function initHeroLayout() {
+    minimizeGallerySectionGap();
     fitChristmetteImg();
-    window.addEventListener('resize', fitChristmetteImg);
-    const heroBg = document.querySelector('.hero-bg');
-    if (!heroBg) return;
-    const heroImg = heroBg.querySelector('img');
-    if (!heroImg) return;
-
-    function fitHeroImg() {
-        // Setze das Bild so, dass es immer komplett sichtbar ist
-        heroImg.style.width = '';
-        heroImg.style.height = '';
-        heroImg.style.maxWidth = '100%';
-        heroImg.style.maxHeight = '100vh';
-        heroImg.style.objectFit = 'contain';
-        heroImg.style.display = 'block';
-        heroImg.style.margin = '0 auto';
-        // Optional: Passe Höhe an, falls Container kleiner als Bild ist
-        const containerRect = heroBg.getBoundingClientRect();
-        if (heroImg.naturalWidth && heroImg.naturalHeight) {
-            const aspect = heroImg.naturalWidth / heroImg.naturalHeight;
-            let newWidth = containerRect.width;
-            let newHeight = newWidth / aspect;
-            if (newHeight > window.innerHeight) {
-                newHeight = window.innerHeight;
-                newWidth = newHeight * aspect;
-            }
-            heroImg.style.width = newWidth + 'px';
-            heroImg.style.height = newHeight + 'px';
-        }
-    }
-
-    if (heroImg.complete) {
-        fitHeroImg();
-    } else {
-        heroImg.onload = fitHeroImg;
-    }
-    window.addEventListener('resize', fitHeroImg);
-});
+}
 // Hero-BG Gallery/Slideshow
 const heroGalleryUiLabels = {
     de: {
@@ -288,6 +263,14 @@ const heroGallery = [
 //{ src: 'bilder/Ochsenfurt 23.07.2005.JPG', title: 'Ochsenfurt 23.07.2005' }, 
     
 ];
+    const heroGalleryDesktopFocusImages = new Set([
+        'bilder/Weihnachtskonzert Spitalkirche.png',
+        'bilder/Jubiläumskonzert_2016.jpg',
+        'bilder/gruppe_2007.jpeg',
+        'bilder/peterbild.jpg',
+        'bilder/klosterkirche.jpg',
+        'bilder/concello.jfif'
+    ]);
 let heroIndex = 0;
 const heroSlideDuration = 6500;
 const heroFadeDuration = 1400;
@@ -386,8 +369,8 @@ function refreshHeroGalleryCaption() {
     document.querySelectorAll('.hero-bg-fade .fadein-text').forEach(function(captionNode) {
         captionNode.textContent = title;
         captionNode.style.opacity = title ? '1' : '0';
-        captionNode.style.transform = title ? 'translateY(0)' : 'translateY(34px)';
-        captionNode.style.transition = title ? '' : 'none';
+        captionNode.style.transform = 'none';
+        captionNode.style.transition = 'none';
     });
 }
 
@@ -424,27 +407,16 @@ function showHeroGalleryUi(duration = 2600) {
 
     galleryUi.classList.add('hero-gallery-ui--active');
     clearHeroGalleryUiVisibilityTimeout();
-
-    if (!duration || duration <= 0) {
-        return;
-    }
-
-    heroGalleryUiVisibilityTimeout = setTimeout(function() {
-        if (!galleryUi.matches(':focus-within')) {
-            galleryUi.classList.remove('hero-gallery-ui--active');
-        }
-        heroGalleryUiVisibilityTimeout = null;
-    }, duration);
 }
 
 function hideHeroGalleryUi() {
     const galleryUi = document.querySelector('.hero-gallery-ui');
-    if (!galleryUi || galleryUi.matches(':focus-within')) {
+    if (!galleryUi) {
         return;
     }
 
     clearHeroGalleryUiVisibilityTimeout();
-    galleryUi.classList.remove('hero-gallery-ui--active');
+    galleryUi.classList.add('hero-gallery-ui--active');
 }
 
 function clearHeroGalleryAuto() {
@@ -472,6 +444,24 @@ function stopHeroGalleryAuto() {
     updateHeroGalleryProgress(0);
 }
 
+function getHeroGallerySlideStyle(entry, index) {
+    if (!entry) {
+        return { backgroundPosition: 'center 10%', backgroundSize: 'cover' };
+    }
+
+    if (window.innerWidth <= 700) {
+        return {
+            backgroundPosition: 'center center',
+            backgroundSize: 'contain'
+        };
+    }
+
+    return {
+        backgroundPosition: heroGalleryDesktopFocusImages.has(entry.src) ? 'center 60%' : 'center 10%',
+        backgroundSize: 'cover'
+    };
+}
+
 function setHeroBgCrossfade(idx) {
     if (isFading) return;
     isFading = true;
@@ -481,12 +471,16 @@ function setHeroBgCrossfade(idx) {
     const fadeB = fadeContainer.children[1];
     const current = fadeToggle ? fadeA : fadeB;
     const next = fadeToggle ? fadeB : fadeA;
-    const heroTitle = getHeroGalleryTitle(heroGallery[idx]);
-    // Set next image and bring to front
-    next.style.backgroundImage = `url('${heroGallery[idx].src}')`;
+    const currentEntry = heroGallery[idx];
+    const heroTitle = getHeroGalleryTitle(currentEntry);
+    const slideStyle = getHeroGallerySlideStyle(currentEntry, idx);
+
+    next.style.backgroundImage = `url('${currentEntry.src}')`;
     next.style.opacity = '0';
     next.style.transition = `opacity ${heroFadeDuration / 1000}s cubic-bezier(.22,1,.36,1)`;
-    // Set or update fadein-text overlay
+    next.style.backgroundPosition = slideStyle.backgroundPosition;
+    next.style.backgroundSize = slideStyle.backgroundSize;
+
     let fadeinDiv = next.querySelector('.fadein-text');
     if (!fadeinDiv) {
         fadeinDiv = document.createElement('div');
@@ -496,70 +490,34 @@ function setHeroBgCrossfade(idx) {
     fadeinDiv.textContent = heroTitle;
     if (heroTitle === '') {
         fadeinDiv.style.opacity = '0';
-        fadeinDiv.style.transform = 'translateY(34px)';
+        fadeinDiv.style.transform = 'none';
         fadeinDiv.style.transition = 'none';
     } else {
-        fadeinDiv.style.opacity = '0';
-        fadeinDiv.style.transform = 'translateY(46px)';
-        fadeinDiv.style.transition = '';
+        fadeinDiv.style.opacity = '1';
+        fadeinDiv.style.transform = 'none';
+        fadeinDiv.style.transition = 'none';
     }
-    // Individual background position logic (existing)
-    if (window.innerWidth <= 600) {
-        if (idx === 2) {
-            next.style.backgroundPosition = 'center 8%';
-            next.style.backgroundSize = '100vw auto';
-        } else {
-            next.style.backgroundPosition = 'center 10%';
-            next.style.backgroundSize = '100vw auto';
-        }
-    } else {
-    if (
-        heroGallery[idx].src.includes('bilder/Weihnachtskonzert Spitalkirche.png') ||
-        heroGallery[idx].src.includes('bilder/Jubiläumskonzert_2016.jpg')||
-        heroGallery[idx].src.includes('bilder/gruppe_2007.jpeg') ||
-        heroGallery[idx].src.includes('bilder/Ochsenfurt 23.07.2005.JPG') ||
-        heroGallery[idx].src.includes('bilder/Opern-Gala-BGS - 20 von 44.jpg') ||
-        heroGallery[idx].src.includes('bilder/Ochsenfurt 05.03.2011.JPG') ||
-        heroGallery[idx].src.includes('bilder/CMI in chiesa St.Wolfgang.jpg') ||
-        heroGallery[idx].src.includes('bilder/Totale.jpg') ||
-        heroGallery[idx].src.includes('bilder/6 Gruppe 05.01.2013.jpg') ||
-        heroGallery[idx].src.includes('bilder/DSC_4255.JPG') ||
-        heroGallery[idx].src.includes('bilder/Gruppenbild 2022.jpg') ||
-        heroGallery[idx].src.includes('bilder/salboro_santa_maria_assunta_2024.jpg') ||
-        heroGallery[idx].src.includes('bilder/salboro_santa_maria_assunta_2024_2.jpg') ||
-        heroGallery[idx].src.includes('bilder/peterbild.jpg') ||
-        heroGallery[idx].src.includes('bilder/klosterkirche.jpg') ||
-        heroGallery[idx].src.includes('salboro_santa_maria_assunta_2024.jpg') ||
-        heroGallery[idx].src.includes('salboro_santa_maria_assunta_2024_2.jpg') ||
-        heroGallery[idx].src.includes('christuskirche_27_april_2024.jpg') ||
-        heroGallery[idx].src.includes('christuskirche_27_april_2024_2.jpg') ||
-        heroGallery[idx].src.includes('concello.jfif')
-    ) {
-        next.style.backgroundPosition = 'center 60%';
-    } else   {
-        next.style.backgroundPosition = 'center 10%';
-    } 
-}
+
+    refreshHeroGalleryUi();
+
     // Start fade in
     setTimeout(() => {
         next.style.opacity = '1';
         current.style.opacity = '0';
         current.style.transition = `opacity ${heroFadeDuration / 1000}s cubic-bezier(.22,1,.36,1)`;
-        // Fade in fadein-text overlay nur wenn nicht leer
+
         if (heroTitle !== '') {
-            setTimeout(() => {
-                fadeinDiv.style.opacity = '1';
-                fadeinDiv.style.transform = 'translateY(0)';
-            }, 180);
+            fadeinDiv.style.opacity = '1';
+            fadeinDiv.style.transform = 'none';
         } else {
             fadeinDiv.style.opacity = '0';
-            fadeinDiv.style.transform = 'translateY(34px)';
+            fadeinDiv.style.transform = 'none';
         }
-        // Hide previous fadein-text
+
         let prevFadein = current.querySelector('.fadein-text');
         if (prevFadein) {
             prevFadein.style.opacity = '0';
-            prevFadein.style.transform = 'translateY(20px)';
+            prevFadein.style.transform = 'none';
         }
         setTimeout(() => {
             fadeToggle = !fadeToggle;
@@ -618,10 +576,20 @@ function renderHeroGalleryDots() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+function initHeroGallery() {
     const heroBg = document.querySelector('.hero-bg');
+    const fadeContainer = document.querySelector('.hero-bg-fade-container');
+    const galleryUi = document.querySelector('.hero-gallery-ui');
     const prevButton = document.querySelector('.hero-gallery-control--prev');
     const nextButton = document.querySelector('.hero-gallery-control--next');
+    if (!heroBg || !fadeContainer || fadeContainer.children.length < 2 || !heroGallery.length) {
+        return;
+    }
+
+    if (galleryUi) {
+        galleryUi.classList.add('hero-gallery-ui--active');
+    }
+
     setHeroBgCrossfade(heroIndex);
     scheduleHeroGalleryAuto(heroSlideDuration);
 
@@ -644,30 +612,18 @@ document.addEventListener('DOMContentLoaded', function() {
     if (heroBg) {
         let touchStartX = 0;
         heroBg.addEventListener('mouseenter', function() {
-            showHeroGalleryUi(0);
-            stopHeroGalleryAuto();
         });
         heroBg.addEventListener('mouseleave', function() {
-            hideHeroGalleryUi();
-            scheduleHeroGalleryAuto(heroSlideDuration);
         });
         heroBg.addEventListener('pointerdown', function() {
-            showHeroGalleryUi();
         }, { passive: true });
         heroBg.addEventListener('focusin', function() {
-            showHeroGalleryUi(0);
         });
         heroBg.addEventListener('focusout', function() {
-            requestAnimationFrame(function() {
-                if (!heroBg.matches(':focus-within')) {
-                    hideHeroGalleryUi();
-                }
-            });
         });
         heroBg.addEventListener('touchstart', function(event) {
             if (!event.changedTouches || !event.changedTouches[0]) return;
             touchStartX = event.changedTouches[0].clientX;
-            showHeroGalleryUi();
         }, { passive: true });
         heroBg.addEventListener('touchend', function(event) {
             if (!event.changedTouches || !event.changedTouches[0]) return;
@@ -678,32 +634,14 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 nextHeroBgImage();
             }
-            showHeroGalleryUi();
             pauseHeroGalleryAuto();
         }, { passive: true });
     }
-});
-
-// Update dots on manual/auto change
-const origSetHeroBgCrossfade = setHeroBgCrossfade;
-setHeroBgCrossfade = function(idx) {
-    origSetHeroBgCrossfade(idx);
-    refreshHeroGalleryUi();
-};
-// Dynamisch Hintergrundlayer für about-me-section je nach Screengröße
-function updateAboutMeBackground() {
-    const aboutMeSection = document.querySelector('.about-me-section');
-    if (!aboutMeSection) return;
-    if (window.innerWidth <= 600) {
-        aboutMeSection.style.background = 'none';
-    } else {
-        aboutMeSection.style.background = "url('bilder/Astrid var.jpg') center center/cover no-repeat";
-    }
 }
 
-window.addEventListener('resize', updateAboutMeBackground);
+window.addEventListener('resize', minimizeGallerySectionGap);
+window.addEventListener('resize', fitChristmetteImg);
 window.addEventListener('resize', syncHeroGalleryResponsiveState);
-window.addEventListener('DOMContentLoaded', updateAboutMeBackground);
 // Scroll-Reveal für Cards
 function revealOnScroll(selector) {
     const elements = document.querySelectorAll(selector);
@@ -718,421 +656,255 @@ function revealOnScroll(selector) {
     elements.forEach(el => observer.observe(el));
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    revealOnScroll('.modern-card');
-    revealOnScroll('.musikfamilie-card');
-});
-// Highlight active nav link on scroll
-document.addEventListener('DOMContentLoaded', function() {
-    // Remove duplicate nav-link click handler, keep only smooth scrolling logic below
-});
-// Mobile Menu Toggle
-document.addEventListener('DOMContentLoaded', function() {
+function initMobileNavigation() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
 
-    // Toggle mobile menu
-    mobileMenuBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        mobileMenu.classList.toggle('active');
-        mobileMenuBtn.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (mobileMenu.classList.contains('active')) {
-            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            }
+    function closeMobileMenu() {
+        if (!mobileMenu || !mobileMenuBtn) {
+            return;
         }
-    });
 
-    // Close mobile menu when clicking on a link
+        mobileMenu.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function(event) {
+            event.stopPropagation();
+            mobileMenu.classList.toggle('active');
+            mobileMenuBtn.setAttribute('aria-expanded', String(mobileMenu.classList.contains('active')));
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!mobileMenu.classList.contains('active')) {
+                return;
+            }
+
+            if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 700) {
+                closeMobileMenu();
+            }
+        });
+    }
+
     mobileNavLinks.forEach(link => {
         link.addEventListener('click', function() {
-            mobileMenu.classList.remove('active');
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            closeMobileMenu();
         });
     });
 
-    // Keyboard accessibility: close menu with Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-            mobileMenu.classList.remove('active');
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
-        }
-    });
-
-    // Smooth scrolling ONLY for navigation links (not all a[href^="#"])
-    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function(event) {
             const targetId = this.getAttribute('href');
-            // Only handle if href starts with # and target exists
-            if (targetId && targetId.startsWith('#')) {
-                const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    e.preventDefault();
-                    const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
+            if (!targetId || !targetId.startsWith('#')) {
+                return;
             }
+
+            const targetSection = document.querySelector(targetId);
+            if (!targetSection) {
+                return;
+            }
+
+            event.preventDefault();
+            closeMobileMenu();
+            window.scrollTo({
+                top: targetSection.offsetTop - 80,
+                behavior: 'smooth'
+            });
         });
     });
+}
 
-    // Form Submissions
-    const joinForm = document.getElementById('joinForm');
-    const contactForm = document.getElementById('contactForm');
-
-    // Hilfsfunktion für Mail-Popup
-    // Accordion für Chronik-Timeline
-    function initAccordion() {
-        // Event Delegation für maximale Zuverlässigkeit
-        document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('accordion-toggle')) {
-                const btn = e.target;
-                const content = btn.parentElement.querySelector('.accordion-content');
-                const expanded = btn.getAttribute('aria-expanded') === 'true';
-                btn.setAttribute('aria-expanded', !expanded);
-                if (expanded) {
-                    content.style.display = 'none';
-                } else {
-                    content.style.display = 'block';
-                }
-            }
-        });
-    }
-    window.addEventListener('DOMContentLoaded', function() {
-        initAccordion();
-    });
-
-    // Notification system
-    function showNotification(message, type = 'info') {
-        // Remove existing notifications
-        const existingNotifications = document.querySelectorAll('.notification');
-        existingNotifications.forEach(notification => notification.remove());
-
-        // Create notification element
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.innerHTML = `
-            <div class="notification-content">
-                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-info-circle'}"></i>
-                <span>${message}</span>
-                <button class="notification-close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-        `;
-
-        // Add styles for notification only once
-        if (!document.getElementById('notification-styles')) {
-            const style = document.createElement('style');
-            style.id = 'notification-styles';
-            style.textContent = `
-                .notification {
-                    position: fixed;
-                    top: 100px;
-                    right: 20px;
-                    z-index: 10;
-                    max-width: 400px;
-                    background: white;
-                    border-radius: 12px;
-                    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-                    transform: translateX(100%);
-                    transition: transform 0.3s ease-in-out;
-                }
-                .notification.show {
-                    transform: translateX(0);
-                }
-                .notification-success {
-                    border-left: 4px solid var(--accent-green);
-                }
-                .notification-content {
-                    display: flex;
-                    align-items: center;
-                    gap: 12px;
-                    padding: 16px 20px;
-                }
-                .notification-content i:first-child {
-                    color: var(--accent-green);
-                    font-size: 18px;
-                }
-                .notification-content span {
-                    flex: 1;
-                    color: var(--dark);
-                    font-weight: 500;
-                }
-                .notification-close {
-                    background: none;
-                    border: none;
-                    color: var(--gray-400);
-                    cursor: pointer;
-                    padding: 4px;
-                    border-radius: 4px;
-                    transition: color 0.2s;
-                }
-                .notification-close:hover {
-                    color: var(--gray-600);
-                }
-            `;
-            document.head.appendChild(style);
-        }
-
-        // Add to page
-        document.body.appendChild(notification);
-
-        // Show notification
-        setTimeout(() => {
-            notification.classList.add('show');
-        }, 100);
-
-        // Close button functionality
-        const closeBtn = notification.querySelector('.notification-close');
-        closeBtn.addEventListener('click', () => {
-            notification.classList.remove('show');
-            setTimeout(() => notification.remove(), 300);
-        });
-
-        // Auto remove after 5 seconds
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.classList.remove('show');
-                setTimeout(() => notification.remove(), 300);
-            }
-        }, 5000);
-    }
-
-    // Join form submission
-
-
-
-    // Navbar background on scroll
+function initNavbarScroll() {
     const navbar = document.querySelector('.navbar');
-    let lastScrollTop = 0;
+    if (!navbar || navbar.dataset.scrollInit === 'true') {
+        return;
+    }
 
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        // Add/remove background based on scroll position
-        if (scrollTop > 50) {
-            navbar.style.background = '#000';
-            navbar.style.zindex = '5000';
-        } else {
-            navbar.style.background = 'transparent';
-        }
-        lastScrollTop = scrollTop;
-    });
+    navbar.dataset.scrollInit = 'true';
 
     function setNavbarStyle(isScrolled) {
-        const navbar = document.querySelector('.navbar');
-        if (!navbar) return;
+        navbar.classList.toggle('navbar-scrolled', isScrolled);
+
         if (isScrolled) {
-            navbar.style.background = '#222';
-            navbar.style.zIndex = '5000';
-        } else {
-            navbar.style.background = 'transparent';
-            navbar.style.zIndex = '5000'; // Optional: keep high z-index always
+            navbar.style.setProperty('background', 'rgba(1, 3, 4, 0.98)', 'important');
+            navbar.style.setProperty('border-bottom-color', 'rgba(255, 255, 255, 0.18)', 'important');
+            navbar.style.setProperty('box-shadow', '0 10px 24px rgba(0, 0, 0, 0.26)', 'important');
+            return;
         }
+
+        navbar.style.removeProperty('background');
+        navbar.style.removeProperty('border-bottom-color');
+        navbar.style.removeProperty('box-shadow');
+    }
+
+    function handleNavbarScroll() {
+        const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        setNavbarStyle(scrollTop > 12);
+    }
+
+    handleNavbarScroll();
+    window.addEventListener('scroll', handleNavbarScroll, { passive: true });
+}
+
+function initShapeParallax() {
+    const shapes = document.querySelectorAll('.shape');
+    if (!shapes.length) {
+        return;
     }
 
     window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (!navbar) return;
-        if (window.scrollY > 40) {
-            setNavbarStyle(true);
-        } else {
-            setNavbarStyle(false);
-        }
-    });
-
-    // Parallax effect for hero shapes
-    window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
-        const shapes = document.querySelectorAll('.shape');
-        
         shapes.forEach((shape, index) => {
             const speed = (index + 1) * 0.5;
             shape.style.transform = `translateY(${scrolled * speed}px)`;
         });
-    });
+    }, { passive: true });
+}
 
-    // Add hover effects to cards
-    const cards = document.querySelectorAll('.stat-card, .cause-card, .event-card');
-    cards.forEach(card => {
-        // Removed hover effect for flat design
-    });
+function initFieldValidation() {
+    if (typeof validateField !== 'function') {
+        return;
+    }
 
-    // Form validation enhancements
     const inputs = document.querySelectorAll('input, select, textarea');
     inputs.forEach(input => {
         input.addEventListener('blur', function() {
             validateField(this);
         });
-        
+
         input.addEventListener('input', function() {
             if (this.classList.contains('error')) {
                 validateField(this);
             }
         });
     });
-
-
-
-    // Cookie Banner Logic
-    const cookieBanner = document.getElementById('cookieBanner');
-    const cookieAcceptBtn = document.getElementById('cookieAcceptBtn');
-    const cookieDeclineBtn = document.getElementById('cookieDeclineBtn');
-    function setCookie(name, value, days) {
-        let expires = '';
-        if (days) {
-            const date = new Date();
-            date.setTime(date.getTime() + (days*24*60*60*1000));
-            expires = '; expires=' + date.toUTCString();
-        }
-        document.cookie = name + '=' + (value || '')  + expires + '; path=/';
-    }
-    function getCookie(name) {
-        const nameEQ = name + '=';
-        const ca = document.cookie.split(';');
-        for(let i=0;i < ca.length;i++) {
-            let c = ca[i];
-            while (c.charAt(0)==' ') c = c.substring(1,c.length);
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-        }
-        return null;
-    }
-    function setCookieConsent(value) {
-        setCookie('cookieAccepted', value === 'accepted' ? 'true' : '', 365);
-        setCookie('cookieDeclined', value === 'declined' ? 'true' : '', 365);
-        localStorage.setItem('cookieConsent', value);
-    }
-    function getCookieConsent() {
-        if (getCookie('cookieAccepted')) return 'accepted';
-        if (getCookie('cookieDeclined')) return 'declined';
-        return localStorage.getItem('cookieConsent');
-    }
-    if (cookieBanner && cookieAcceptBtn && cookieDeclineBtn) {
-        if (getCookieConsent()) {
-            cookieBanner.style.display = 'none';
-        } else {
-            cookieBanner.style.display = 'flex';
-            cookieAcceptBtn.addEventListener('click', function() {
-                setCookieConsent('accepted');
-                cookieBanner.style.display = 'none';
-            });
-            cookieDeclineBtn.addEventListener('click', function() {
-                setCookieConsent('declined');
-                cookieBanner.style.display = 'none';
-            });
-        }
-    }
-
-    // Zeitspanne seit gründung berechnen
-    const currentYear = new Date().getFullYear();
-    const yearsSince1981 = currentYear - 1981;
-    const yearsPassedEl = document.getElementById("yearsPassed");
-    if (yearsPassedEl) {
-        yearsPassedEl.textContent = yearsSince1981;
-    }
-});
-
-const hamburger = document.getElementById('navbarHamburger');
-const mobileMenu = document.getElementById('navbarMobileMenu');
-hamburger && hamburger.addEventListener('click', () => {
-    mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
-});
-window.addEventListener('resize', () => {
-    const mobileMenu = document.querySelector('.mobile-menu');
-    if (window.innerWidth > 700 && mobileMenu) mobileMenu.style.display = 'none';
-});
-
-// Dynamische Anpassung des Hintergrundbildes
-function updateHeroBg() {
-    const heroBg = document.querySelector('.hero-bg');
-    if (!heroBg) return;
-    if (window.innerWidth <= 900) {
-        heroBg.style.backgroundSize = '120vw 100vh';
-        heroBg.style.backgroundPosition = '60% 35%';
-        heroBg.style.backgroundRepeat = 'no-repeat';
-    } else {
-        heroBg.style.backgroundSize = 'cover';
-        heroBg.style.backgroundPosition = 'center 35%';
-        heroBg.style.backgroundRepeat = 'no-repeat';
-    }
 }
-window.addEventListener('resize', updateHeroBg);
-window.addEventListener('DOMContentLoaded', updateHeroBg);
-// Sprachumschalter: Zeige nur die passende Sprache
-function setLang(lang) {
-    document.querySelectorAll('[data-lang]').forEach(el => {
-        if (el.getAttribute('data-lang') === lang) {
-            el.style.display = '';
-        } else {
-            el.style.display = 'none';
+
+function updateYearsPassed() {
+    const yearsPassedEl = document.getElementById('yearsPassed');
+    if (!yearsPassedEl) {
+        return;
+    }
+
+    yearsPassedEl.textContent = new Date().getFullYear() - 1981;
+}
+
+const supportedSiteLanguages = new Set(['de', 'en', 'it']);
+const mbondaTimelineLinkSelector = '.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]';
+
+function isSupportedSiteLanguage(lang) {
+    return supportedSiteLanguages.has(lang);
+}
+
+function getMbondaTimelineLinks() {
+    return document.querySelectorAll(mbondaTimelineLinkSelector);
+}
+
+function normalizeMbondaTimelineLink(link) {
+    link.onclick = null;
+    link.removeAttribute('onclick');
+    link.style.position = 'relative';
+    link.style.left = '';
+    link.style.top = '';
+    link.style.width = '';
+    link.style.height = '';
+    link.style.zIndex = '2147483647';
+    link.style.pointerEvents = 'auto';
+    link.style.background = '';
+    link.style.outline = '';
+    link.style.color = '';
+    link.style.fontWeight = '';
+    link.style.display = 'inline-block';
+    link.style.fontSize = '';
+    link.style.textAlign = '';
+    link.style.lineHeight = '';
+}
+
+function installMbondaMobilePassthrough(link) {
+    if (link.dataset.mbondaPassthroughInstalled === 'true') {
+        return;
+    }
+
+    const allowNativeNavigation = function(event) {
+        event.stopPropagation = function() {};
+        event.stopImmediatePropagation = function() {};
+    };
+
+    link.addEventListener('click', allowNativeNavigation, { capture: true });
+    link.addEventListener('touchend', allowNativeNavigation, { capture: true });
+    link.dataset.mbondaPassthroughInstalled = 'true';
+}
+
+function ensureMbondaTimelineLinksAccessible() {
+    const isMobileViewport = window.innerWidth <= 700;
+    getMbondaTimelineLinks().forEach(function(link) {
+        normalizeMbondaTimelineLink(link);
+        if (isMobileViewport) {
+            installMbondaMobilePassthrough(link);
         }
     });
+}
+
+function applySiteLanguage(lang) {
+    if (!isSupportedSiteLanguage(lang)) {
+        return;
+    }
+
+    document.querySelectorAll('[data-lang]').forEach(function(element) {
+        element.style.display = element.getAttribute('data-lang') === lang ? '' : 'none';
+    });
+
     document.documentElement.setAttribute('lang', lang);
-    // Sprache persistent speichern
+
     try {
         localStorage.setItem('siteLang', lang);
     } catch (e) {}
-    refreshHeroGalleryUi();
-    // Entferne alle Event-Handler für Mbonda Lokito Link, damit Standardverhalten greift
-    var mbondaLinks = document.querySelectorAll('.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]');
-    mbondaLinks.forEach(function(link) {
-        link.onclick = null;
-        link.removeAttribute('onclick');
-        // Nur der Timeline-Link braucht diese Sicherheitsbehandlung.
-        link.style.position = 'relative';
-        link.style.left = '';
-        link.style.top = '';
-        link.style.width = '';
-        link.style.height = '';
-        link.style.zIndex = '2147483647';
-        link.style.pointerEvents = 'auto';
-        link.style.background = '';
-        link.style.outline = '';
-        link.style.color = '';
-        link.style.fontWeight = '';
-        link.style.display = 'inline-block';
-        link.style.fontSize = '';
-        link.style.textAlign = '';
-        link.style.lineHeight = '';
-    });
-}
-window.setLang = setLang;
-// Beim Laden der Seite: Sprache aus localStorage übernehmen
-window.addEventListener('DOMContentLoaded', function() {
-    try {
-        var lang = localStorage.getItem('siteLang');
-        if (lang && (lang === 'de' || lang === 'en' || lang === 'it')) {
-            setLang(lang);
-        }
-    } catch (e) {}
 
-    // EXPLIZIT: Für mobile Geräte - verhindere jegliche JS-Blockade für Mbonda Lokito Link in der Timeline
-    if (window.innerWidth <= 700) {
-        var mbondaLinks = document.querySelectorAll('.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]');
-        mbondaLinks.forEach(function(link) {
-            link.onclick = null;
-            link.removeAttribute('onclick');
-            link.addEventListener('click', function(e) {
-                // Lass alles durch, verhindere keine Events
-                e.stopPropagation = function(){};
-                e.stopImmediatePropagation = function(){};
-                // Kein preventDefault!
-            }, {capture: true});
-            link.addEventListener('touchend', function(e) {
-                e.stopPropagation = function(){};
-                e.stopImmediatePropagation = function(){};
-            }, {capture: true});
-            link.style.pointerEvents = 'auto';
-            link.style.zIndex = '2147483647';
-        });
+    refreshHeroGalleryUi();
+    ensureMbondaTimelineLinksAccessible();
+}
+
+window.setLang = applySiteLanguage;
+
+function initSiteLanguage() {
+    applySiteLanguage(getCurrentSiteLanguage());
+}
+
+function initSiteFeatures() {
+    initEventLightbox();
+    initHeroLayout();
+    initHeroGallery();
+    revealOnScroll('.modern-card');
+    revealOnScroll('.musikfamilie-card');
+    if (typeof initAccordion === 'function') {
+        initAccordion();
     }
-});
+    initMobileNavigation();
+    initNavbarScroll();
+    initShapeParallax();
+    initFieldValidation();
+    updateYearsPassed();
+    initSiteLanguage();
+}
+
+document.addEventListener('DOMContentLoaded', initSiteFeatures);
+document.addEventListener('DOMContentLoaded', initNavbarScroll);
+
+window.addEventListener('load', initNavbarScroll);
+
+window.addEventListener('resize', ensureMbondaTimelineLinksAccessible);
