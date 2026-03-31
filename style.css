@@ -1107,13 +1107,15 @@
     font-weight: 450;
     letter-spacing: -0.01em;
     margin-bottom: var(--about-me-bio-margin-bottom);
-    text-align: left !important;
+    text-align: justify !important;
+    text-justify: inter-word;
     text-wrap: pretty;
     hyphens: auto !important;
     -webkit-hyphens: auto !important;
     -ms-hyphens: auto !important;
     hyphens: auto;
-    word-break: break-word;
+    word-break: normal;
+    overflow-wrap: break-word;
 }
 .about-me-image-modern {
     --about-me-image-display: flex;
@@ -1874,7 +1876,14 @@
     font-size: clamp(1rem, 1.1vw, 1.08rem);
     line-height: 1.7;
     font-weight: 450;
-    text-align: left;
+    text-align: justify !important;
+    text-justify: auto !important;
+    text-wrap: pretty !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
 }
 
 .musikalisches-repertoire-card--repertoire .musikalisches-repertoire-intro {
@@ -1911,9 +1920,14 @@
     margin: 0;
     font-size: inherit;
     line-height: 1.6;
-    word-break: break-word;
-    hyphens: auto;
-    text-align: left;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    text-align: justify !important;
+    text-justify: auto !important;
+    text-wrap: pretty !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
 }
 
 .musikalisches-repertoire-list li:last-child {
@@ -2156,7 +2170,7 @@
     }
 
     .musikalisches-repertoire-list {
-        --repertoire-list-font-size: clamp(1.08rem, 3.7vw, 1.14rem);
+        --repertoire-list-font-size: clamp(1.02rem, 3.45vw, 1.08rem);
         --repertoire-list-max-width: 100%;
         width: 100%;
         gap: 8px;
@@ -2166,13 +2180,13 @@
         width: 100%;
         max-width: 100%;
         padding-left: 20px;
-        line-height: 1.42;
+        line-height: 1.5;
     }
 
     .musikalisches-repertoire-intro {
         margin-bottom: 12px;
-        font-size: 1.08rem;
-        line-height: 1.48;
+        font-size: 1.04rem;
+        line-height: 1.56;
     }
 
     .ensemble-chip-list {
@@ -2912,7 +2926,11 @@
     font-size: var(--timeline-intro-font-size);
     line-height: var(--timeline-intro-line-height);
     font-weight: 470;
-    text-wrap: balance;
+    text-align: justify;
+    text-justify: inter-word;
+    text-wrap: pretty;
+    hyphens: auto;
+    overflow-wrap: break-word;
 }
 
 .timeline-list {
@@ -3099,7 +3117,9 @@
     margin-top: 0.2em !important;
     max-width: var(--timeline-item-text-max-width);
     text-align: justify;
-    word-break: break-word;
+    text-justify: inter-word;
+    word-break: normal;
+    overflow-wrap: break-word;
     hyphens: auto;
     text-wrap: pretty;
 }
@@ -3172,12 +3192,6 @@
         --timeline-item-text-line-height: 1.68;
     }
 
-    .timeline-intro {
-        text-align: justify;
-        text-justify: inter-word;
-        text-wrap: pretty;
-    }
-
     .timeline-item {
         flex-direction: column;
         align-items: flex-start;
@@ -3189,10 +3203,6 @@
 
     .timeline-content {
         width: 100%;
-    }
-
-    .timeline-item-text {
-        text-align: left;
     }
 
     .timeline-item-title a {
@@ -3714,14 +3724,14 @@
 .event-social-actions {
     --event-poster-controls-margin-top: 12px;
     --event-poster-download-color: #16464d;
-    --event-social-gap: 16px;
-    --event-social-button-size: 54px;
+    --event-social-gap: 18px;
+    --event-social-button-size: 58px;
     --event-social-button-bg: rgba(255, 255, 255, 0.98);
     --event-social-button-border-color: rgba(13, 92, 99, 0.14);
-    --event-social-button-shadow: 0 10px 22px rgba(16, 47, 54, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.7);
-    --event-social-button-shadow-hover: 0 12px 26px rgba(16, 47, 54, 0.11), inset 0 1px 0 rgba(255, 255, 255, 0.78);
+    --event-social-button-shadow: 0 12px 24px rgba(16, 47, 54, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.78);
+    --event-social-button-shadow-hover: 0 14px 28px rgba(16, 47, 54, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.84);
     --event-social-button-transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-    --event-social-icon-size: 26px;
+    --event-social-icon-size: 28px;
     --event-social-whatsapp-color: #147a57;
     --event-social-whatsapp-color-hover: #0f6a4b;
     --event-social-whatsapp-bg: rgba(20, 122, 87, 0.14);
@@ -3743,15 +3753,20 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    isolation: isolate;
     flex-wrap: nowrap;
-    flex: 0 0 auto;
+    flex: 0 0 var(--event-social-button-size);
     gap: 0;
     width: var(--event-social-button-size);
     height: var(--event-social-button-size);
+    min-width: var(--event-social-button-size);
     min-height: var(--event-social-button-size);
+    max-width: var(--event-social-button-size);
+    max-height: var(--event-social-button-size);
+    aspect-ratio: 1 / 1;
     padding: 0;
     border: 1px solid var(--event-social-button-border-color);
-    border-radius: 50%;
+    border-radius: 999px;
     background: var(--event-social-button-bg);
     color: var(--event-poster-download-color);
     font-size: 0;
@@ -3761,6 +3776,7 @@
     text-decoration: none;
     box-shadow: var(--event-social-button-shadow);
     transition: var(--event-social-button-transition);
+    overflow: hidden;
     white-space: nowrap;
     word-break: normal;
     overflow-wrap: normal;
@@ -3769,9 +3785,21 @@
     -ms-hyphens: manual;
 }
 
+.event-social-button::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.18));
+    pointer-events: none;
+    z-index: 0;
+}
+
 .event-social-button svg {
     width: var(--event-social-icon-size);
     height: var(--event-social-icon-size);
+    position: relative;
+    z-index: 1;
     flex: 0 0 auto;
     stroke: currentColor;
     stroke-width: 2.05;
@@ -5555,7 +5583,7 @@ html[lang="it"] #langIt {
         letter-spacing: 0.01em;
         box-shadow: none;
         text-wrap: pretty;
-        text-align: center;
+        text-align: left;
     }
 
     .charity-projects-section[id^="review-"] .charity-description {
@@ -5575,19 +5603,19 @@ html[lang="it"] #langIt {
     }
 
     .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button {
-        width: 46px;
-        height: 46px;
-        min-height: 46px;
+        width: 50px;
+        height: 50px;
+        min-height: 50px;
         aspect-ratio: 1 / 1;
         border-radius: 999px;
         padding: 0;
-        flex: 0 0 46px;
+        flex: 0 0 50px;
     }
 
     .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button svg {
-        width: 22px;
-        height: 22px;
-        flex: 0 0 22px;
+        width: 24px;
+        height: 24px;
+        flex: 0 0 24px;
     }
 
     .charity-projects-section[id^="review-"] .review-media-caption {
