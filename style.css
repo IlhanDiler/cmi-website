@@ -2159,6 +2159,10 @@
     background: rgba(244, 252, 251, 0.82);
     border-color: rgba(23, 54, 60, 0.12);
     box-shadow: none;
+    --repertoire-feature-surface: rgba(255, 255, 255, 0.78);
+    --repertoire-detail-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.64));
+    --repertoire-detail-border: rgba(18, 62, 70, 0.07);
+    --repertoire-detail-shadow: 0 10px 26px rgba(17, 33, 42, 0.04);
 }
 
 .musikalisches-repertoire-card--engagement {
@@ -2167,9 +2171,9 @@
     --repertoire-bullet-color: #25a8a0;
     --repertoire-bullet-shadow: 0 0 0 4px rgba(37, 168, 160, 0.14);
     display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-    column-gap: 34px;
-    row-gap: 18px;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    column-gap: 28px;
+    row-gap: 16px;
     align-items: start;
 }
 
@@ -2245,6 +2249,12 @@
     background: rgba(255, 255, 255, 0.74);
 }
 
+.repertoire-highlight-card {
+    border-color: rgba(18, 62, 70, 0.06);
+    background: var(--repertoire-feature-surface);
+    box-shadow: 0 8px 18px rgba(17, 33, 42, 0.03);
+}
+
 .engagement-focus-card {
     background: rgba(255, 255, 255, 0.6);
 }
@@ -2287,9 +2297,13 @@
 
 .musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list {
     --repertoire-list-max-width: 100%;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
     width: 100%;
+}
+
+.musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list > li {
+    grid-column: span 3;
 }
 
 .musikalisches-repertoire-list li {
@@ -2309,13 +2323,21 @@
     -ms-hyphens: auto !important;
 }
 
-.musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list li,
+.musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list li {
+    min-height: 100%;
+    padding: 28px 22px 20px;
+    border-radius: 22px;
+    border: 1px solid var(--repertoire-detail-border);
+    background: var(--repertoire-detail-surface);
+    box-shadow: var(--repertoire-detail-shadow);
+}
+
 .musikalisches-repertoire-card--engagement > .musikalisches-repertoire-list li {
     min-height: 100%;
-    padding: 18px 18px 18px 44px;
+    padding: 18px 20px 18px 24px;
     border-radius: 20px;
     border: 1px solid rgba(18, 62, 70, 0.08);
-    background: rgba(255, 255, 255, 0.62);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.68));
 }
 
 .musikalisches-repertoire-list li > span {
@@ -2339,6 +2361,10 @@
 .musikalisches-repertoire-list li.ensemble-inline-list {
     padding-left: 48px;
     grid-column: 1 / -1;
+}
+
+.musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list li.ensemble-inline-list {
+    padding-left: 22px;
 }
 
 .musikalisches-repertoire-list li.ensemble-inline-list,
@@ -2419,24 +2445,105 @@
     box-shadow: var(--repertoire-bullet-shadow);
 }
 
+.musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list li::before {
+    left: 22px;
+    top: 16px;
+    width: 44px;
+    height: 3px;
+    transform: none;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(37, 156, 152, 0.95), rgba(37, 156, 152, 0.3));
+    box-shadow: none;
+}
+
+.musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list li > span {
+    margin-bottom: 8px;
+}
+
 .musikalisches-repertoire-card--engagement .musikalisches-repertoire-list {
     margin-top: 6px;
 }
 
 .musikalisches-repertoire-card--engagement .musikalisches-repertoire-card-header {
     grid-column: 1 / -1;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .musikalisches-repertoire-card--engagement .engagement-focus-grid {
     grid-column: 1 / -1;
-    margin-bottom: 6px;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.95fr);
+    grid-template-areas:
+        "primary secondary-top"
+        "primary secondary-bottom";
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 2px;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+    padding: 16px 16px 14px;
+    background: rgba(255, 255, 255, 0.68);
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card--primary {
+    grid-area: primary;
+    grid-row: 1 / span 2;
+    align-items: flex-start;
+    padding: 20px 20px 18px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7));
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card--secondary {
+    justify-content: space-between;
+    gap: 10px;
+    padding: 18px 18px 16px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.68));
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card--secondary-top {
+    grid-area: secondary-top;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card--secondary-bottom {
+    grid-area: secondary-bottom;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card--primary .engagement-focus-title {
+    font-size: clamp(1.16rem, 1.45vw, 1.34rem);
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card--primary .engagement-focus-copy {
+    margin-top: 8px;
+    font-size: 0.99rem;
+    line-height: 1.6;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-copy {
+    margin-top: 6px;
+    line-height: 1.54;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card--secondary .engagement-focus-title {
+    max-width: 16ch;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card--secondary .engagement-focus-copy {
+    margin-top: 0;
+    max-width: 30ch;
+    font-size: 0.94rem;
+    line-height: 1.5;
 }
 
 .musikalisches-repertoire-card--engagement .charity-card {
     grid-column: 1;
     display: grid;
     grid-template-columns: 1fr;
+    gap: 14px;
     align-items: stretch;
     background: transparent;
     border-color: transparent;
@@ -2444,6 +2551,7 @@
     box-shadow: none;
     margin-bottom: 0;
     min-width: 0;
+    max-width: 430px;
 }
 
 .musikalisches-repertoire-card--engagement .charity-card-image {
@@ -2453,34 +2561,48 @@
 }
 
 .musikalisches-repertoire-card--engagement .charity-card-image img {
-    max-width: min(100%, 360px);
-    width: min(100%, 360px);
+    max-width: min(100%, 336px);
+    width: min(100%, 336px);
     height: auto;
     max-height: clamp(280px, 31vw, 420px);
     min-height: auto;
     border: 0;
-    border-radius: 22px;
-    box-shadow: 0 16px 36px rgba(17, 33, 42, 0.12);
+    border-radius: 20px;
+    box-shadow: 0 14px 30px rgba(17, 33, 42, 0.1);
     background: transparent;
     object-fit: contain;
     object-position: center center;
 }
 
 .musikalisches-repertoire-card--engagement .musikalisches-repertoire-list li::before {
-    width: 10px;
-    height: 10px;
-    top: 0.84em;
-    box-shadow: var(--repertoire-bullet-shadow);
+    left: 12px;
+    width: 3px;
+    height: 28px;
+    top: 17px;
+    transform: none;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(37, 156, 152, 0.92), rgba(37, 156, 152, 0.28));
+    box-shadow: none;
+}
+
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-list li > span {
+    margin-bottom: 4px;
+    font-size: 0.99em;
+    line-height: 1.28;
 }
 
 .musikalisches-repertoire-card--engagement .charity-card-text {
     display: flex;
     align-items: center;
-    padding: 24px 28px 28px;
+    padding: 2px 4px 0;
 }
 
 .musikalisches-repertoire-card--engagement .charity-card-main-text {
-    max-width: 42ch;
+    max-width: 39ch;
+    margin: 0;
+    color: var(--repertoire-copy-soft);
+    font-size: 0.98rem;
+    line-height: 1.62;
 }
 
 .musikalisches-repertoire-card--engagement > .musikalisches-repertoire-list {
@@ -2489,13 +2611,19 @@
     margin-top: 0;
     max-width: none;
     min-width: 0;
-    gap: 12px;
+    gap: 10px;
+    padding-top: 2px;
+}
+
+.musikalisches-repertoire-card--engagement > .musikalisches-repertoire-list li {
+    padding: 16px 18px 16px 22px;
+    line-height: 1.56;
 }
 
 .musikalisches-repertoire-card--engagement .charity-list-item--project {
     display: grid !important;
-    grid-template-columns: minmax(0, 1fr) minmax(200px, 240px);
-    gap: 20px;
+    grid-template-columns: minmax(0, 1fr) minmax(180px, 220px);
+    gap: 16px;
     align-items: start;
 }
 
@@ -2507,6 +2635,8 @@
     width: 100%;
     max-width: none;
     margin: 0;
+    border-radius: 18px;
+    box-shadow: 0 12px 24px rgba(17, 33, 42, 0.08);
 }
 
 @media (max-width: 1180px) {
@@ -2524,12 +2654,40 @@
     .musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list {
         grid-template-columns: 1fr;
     }
+
+    .musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list > li {
+        grid-column: auto;
+    }
 }
 
 @media (max-width: 980px) {
     .musikalisches-repertoire-card--engagement {
         grid-template-columns: 1fr;
         row-gap: 22px;
+    }
+
+    .musikalisches-repertoire-card--engagement .engagement-focus-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "primary"
+            "secondary-top"
+            "secondary-bottom";
+        grid-template-rows: auto;
+    }
+
+    .musikalisches-repertoire-card--engagement .engagement-focus-card--primary {
+        grid-row: auto;
+        padding: 16px 16px 14px;
+    }
+
+    .musikalisches-repertoire-card--engagement .engagement-focus-card--secondary {
+        gap: 6px;
+        padding: 16px 16px 14px;
+    }
+
+    .musikalisches-repertoire-card--engagement .engagement-focus-card--secondary .engagement-focus-title,
+    .musikalisches-repertoire-card--engagement .engagement-focus-card--secondary .engagement-focus-copy {
+        max-width: none;
     }
 
     .musikalisches-repertoire-card--engagement > .musikalisches-repertoire-list {
@@ -2592,10 +2750,27 @@
         line-height: 1.5;
     }
 
-    .musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list li,
-    .musikalisches-repertoire-card--engagement > .musikalisches-repertoire-list li {
-        padding: 14px 14px 14px 34px;
+    .musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list li {
+        padding: 22px 14px 14px;
         border-radius: 16px;
+    }
+
+    .musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list li::before {
+        left: 14px;
+        top: 12px;
+        width: 34px;
+    }
+
+    .musikalisches-repertoire-card--engagement > .musikalisches-repertoire-list li {
+        padding: 14px 14px 14px 18px;
+        border-radius: 16px;
+    }
+
+    .musikalisches-repertoire-card--engagement .musikalisches-repertoire-list li::before {
+        left: 8px;
+        top: 14px;
+        width: 3px;
+        height: 22px;
     }
 
     .musikalisches-repertoire-intro {
@@ -2657,6 +2832,10 @@
         box-sizing: border-box;
     }
 
+    .musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list li.ensemble-inline-list {
+        padding-left: 14px;
+    }
+
     .musikalisches-repertoire-list li.ensemble-inline-list span,
     .musikalisches-repertoire-list .ensemble-inline-list__label,
     .musikalisches-repertoire-list .ensemble-chip-list {
@@ -2667,12 +2846,12 @@
     }
 
     .musikalisches-repertoire-card--engagement .charity-card-text {
-        padding: 8px 4px 10px;
+        padding: 4px 2px 8px;
     }
 
     .musikalisches-repertoire-card--engagement .charity-card-main-text {
         font-size: clamp(1.13rem, 4.4vw, 1.24rem);
-        line-height: 1.58;
+        line-height: 1.54;
         max-width: none;
     }
 
@@ -2681,8 +2860,8 @@
     }
 
     .musikalisches-repertoire-card--engagement .charity-card-image img {
-        width: min(100%, 300px);
-        max-width: min(100%, 300px);
+        width: min(100%, 286px);
+        max-width: min(100%, 286px);
         border-radius: 18px;
     }
 
@@ -2700,16 +2879,16 @@
 
     .musikalisches-repertoire-card--engagement .charity-list-item {
         font-size: clamp(1.03rem, 3.5vw, 1.1rem) !important;
-        line-height: 1.5 !important;
+        line-height: 1.46 !important;
     }
 
     .musikalisches-repertoire-card--engagement .charity-list-item--project {
-        gap: 10px;
+        gap: 8px;
     }
 
     .musikalisches-repertoire-card--engagement .charity-list-item--project .kinshasa-card-img {
-        width: min(100%, 250px);
-        max-width: min(100%, 250px);
+        width: min(100%, 232px);
+        max-width: min(100%, 232px);
         justify-self: center;
     }
 }
@@ -4710,12 +4889,12 @@
 }
 
 .image-caption-shell {
-    max-width: 1240px;
+    max-width: 1360px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 18px;
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-    gap: 28px;
+    grid-template-columns: minmax(0, 1.18fr) minmax(360px, 0.98fr);
+    gap: 24px;
     align-items: stretch;
 }
 
@@ -4727,10 +4906,10 @@
 }
 
 .image-caption-copy-card {
-    padding: 34px;
-    background: linear-gradient(180deg, var(--surface-panel-bg-strong), rgba(248, 244, 237, 0.9));
-    border: 1px solid var(--surface-panel-border-soft);
-    box-shadow: var(--shadow-panel);
+    padding: 40px 38px 34px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.985), rgba(246, 242, 235, 0.96));
+    border: 1px solid rgba(18, 62, 70, 0.12);
+    box-shadow: 0 22px 52px rgba(17, 33, 42, 0.1);
 }
 
 .image-caption-kicker,
@@ -4740,9 +4919,9 @@
     align-items: center;
     padding: 0.5em 0.9em;
     border-radius: 999px;
-    background: rgba(46, 138, 126, 0.08);
-    border: 1px solid rgba(46, 138, 126, 0.12);
-    color: #305157;
+    background: rgba(46, 138, 126, 0.1);
+    border: 1px solid rgba(30, 97, 89, 0.18);
+    color: #27454d;
     font-family: var(--font-ui-modern);
     font-size: 0.86rem;
     font-weight: 800;
@@ -4751,13 +4930,14 @@
 }
 
 .image-caption-video-kicker {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.14);
-    color: rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.96);
 }
 
 .image-caption-title {
     margin: 18px 0 14px;
+    max-width: 11.2ch;
     color: #102a32;
     font-family: var(--font-display);
     font-size: clamp(2rem, 3vw, 3.2rem);
@@ -4769,38 +4949,104 @@
 
 .image-caption-copy {
     margin: 0 0 24px;
-    max-width: 60ch;
-    color: #365157;
+    max-width: 58ch;
+    color: #29454c;
     font-family: var(--font-ui-modern);
     font-size: 1.05rem;
-    font-weight: 520;
+    font-weight: 560;
     line-height: 1.78;
     text-wrap: pretty;
 }
 
 .image-caption-metrics {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
-    margin-bottom: 18px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.18fr);
+    gap: 16px;
+    margin-bottom: 20px;
 }
 
 .image-caption-metric,
 .image-caption-pillar {
-    padding: 18px 18px 16px;
+    position: relative;
+    padding: 20px 20px 18px;
     border-radius: calc(var(--surface-panel-radius) - 4px);
-    background: rgba(255, 255, 255, 0.82);
-    border: 1px solid var(--surface-panel-border-soft);
-    box-shadow: var(--shadow-soft);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(18, 62, 70, 0.1);
+    box-shadow: 0 14px 30px rgba(17, 33, 42, 0.06);
 }
+
+.image-caption-metric {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 6px;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(241, 248, 245, 0.96));
+    border-color: rgba(21, 75, 82, 0.12);
+    box-shadow: 0 16px 36px rgba(17, 33, 42, 0.07);
+}
+
+    .image-caption-metric:nth-child(2),
+    .image-caption-metric:nth-child(3) {
+        padding-top: 22px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.985), rgba(236, 246, 244, 0.98));
+        border-color: rgba(23, 84, 88, 0.18);
+        box-shadow: 0 20px 40px rgba(17, 33, 42, 0.09);
+    }
+
+.image-caption-metric::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 54px;
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(29, 102, 95, 0.96), rgba(46, 138, 126, 0.38));
+}
+
+    .image-caption-metric:nth-child(2)::before,
+    .image-caption-metric:nth-child(3)::before {
+        width: 46px;
+        background: linear-gradient(90deg, rgba(27, 95, 88, 0.9), rgba(46, 138, 126, 0.26));
+    }
+
+.image-caption-metric:first-child {
+    padding-top: 24px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(231, 246, 241, 0.98));
+    border-color: rgba(29, 102, 95, 0.24);
+    box-shadow: 0 22px 42px rgba(17, 33, 42, 0.11);
+}
+
+.image-caption-metric:first-child .image-caption-metric-value {
+    color: #0c2e36;
+    font-size: clamp(1.56rem, 2.2vw, 2.08rem);
+}
+
+.image-caption-metric:first-child .image-caption-metric-label {
+    color: #24464d;
+    font-weight: 680;
+}
+
+    .image-caption-metric:nth-child(2) .image-caption-metric-value,
+    .image-caption-metric:nth-child(3) .image-caption-metric-value {
+        color: #123740;
+        font-size: clamp(1.3rem, 1.9vw, 1.74rem);
+    }
+
+    .image-caption-metric:nth-child(2) .image-caption-metric-label,
+    .image-caption-metric:nth-child(3) .image-caption-metric-label {
+        color: #284951;
+        font-weight: 670;
+    }
 
 .image-caption-metric-value {
     display: block;
-    margin-bottom: 8px;
-    color: #133941;
+    margin-bottom: 0;
+    color: #102f37;
     font-family: var(--font-display);
     font-size: clamp(1.22rem, 1.8vw, 1.62rem);
-    font-weight: 700;
+    font-weight: 760;
     letter-spacing: -0.04em;
 }
 
@@ -4812,55 +5058,76 @@
 }
 
 .image-caption-metric-label {
-    color: #425d61;
+    color: #36565d;
     font-size: 0.96rem;
     line-height: 1.55;
-    font-weight: 600;
+    font-weight: 650;
+    max-width: 18ch;
 }
 
 .image-caption-pillars {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
+    gap: 16px;
+}
+
+.image-caption-pillar {
+    padding-top: 22px;
+    background: rgba(255, 255, 255, 0.86);
+    border-color: rgba(21, 75, 82, 0.08);
+    box-shadow: 0 12px 28px rgba(17, 33, 42, 0.045);
+}
+
+.image-caption-pillar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 40px;
+    height: 2px;
+    border-radius: 999px;
+    background: rgba(46, 138, 126, 0.3);
 }
 
 .image-caption-pillar-title {
     margin: 0 0 8px;
-    color: #112e35;
+    color: #0f2b33;
     font-family: var(--font-display);
     font-size: 1.08rem;
-    font-weight: 700;
+    font-weight: 720;
     letter-spacing: -0.02em;
 }
 
 .image-caption-pillar-copy {
     margin: 0;
-    color: #486268;
+    color: #355057;
     font-size: 0.95rem;
     line-height: 1.62;
-    font-weight: 540;
+    font-weight: 580;
+    max-width: 24ch;
 }
 
 .image-caption-video-card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 18px;
-    padding: 26px;
+    justify-content: flex-start;
+    gap: 22px;
+    padding: 28px 28px 24px;
     background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 30%),
-        linear-gradient(160deg, #0f171b, #14313a 56%, #1e605f 130%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 30%),
+        linear-gradient(160deg, #0d1519, #112c34 54%, #1c5757 124%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: var(--shadow-surface-strong);
 }
 
 .image-caption-video-title {
     color: #ffffff;
     font-family: var(--font-display);
-    font-size: clamp(1.46rem, 2.1vw, 2.08rem);
+    max-width: 13ch;
+    font-size: clamp(1.34rem, 1.9vw, 1.9rem);
     font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
+    line-height: 1.08;
+    letter-spacing: -0.038em;
     text-wrap: balance;
 }
 
@@ -4869,6 +5136,7 @@
     display: block;
     border-radius: 24px;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: var(--shadow-image);
     transition: transform 0.24s ease, box-shadow 0.24s ease;
 }
@@ -4915,10 +5183,12 @@
 }
 
 .image-caption-card-footer {
-    color: rgba(255, 255, 255, 0.84);
-    font-size: 0.98rem;
-    font-weight: 650;
-    line-height: 1.55;
+    max-width: 28ch;
+    margin-top: auto;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.94rem;
+    font-weight: 660;
+    line-height: 1.6;
     letter-spacing: -0.015em;
     text-wrap: balance;
 }
@@ -4931,6 +5201,22 @@
     .image-caption-copy-card,
     .image-caption-video-card {
         padding: 26px;
+    }
+
+    .image-caption-video-title,
+    .image-caption-card-footer {
+        max-width: none;
+    }
+
+    .image-caption-title,
+    .image-caption-copy,
+    .image-caption-pillar-copy,
+    .image-caption-metric-label {
+        max-width: none;
+    }
+
+    .image-caption-metrics {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
@@ -4950,18 +5236,44 @@
         padding: 20px 18px;
     }
 
+    .image-caption-video-card {
+        gap: 18px;
+    }
+
     .image-caption-title {
         font-size: clamp(1.72rem, 8vw, 2.28rem);
+        max-width: none;
+    }
+
+    .image-caption-video-title,
+    .image-caption-card-footer {
+        max-width: none;
     }
 
     .image-caption-copy {
         font-size: 0.98rem;
         line-height: 1.68;
+        max-width: none;
     }
 
     .image-caption-metrics,
     .image-caption-pillars {
         grid-template-columns: 1fr;
+    }
+
+    .image-caption-metric,
+    .image-caption-pillar {
+        padding: 18px 16px 16px;
+    }
+
+    .image-caption-metric::before,
+    .image-caption-pillar::before {
+        left: 16px;
+    }
+
+    .image-caption-metric-label,
+    .image-caption-pillar-copy {
+        max-width: none;
     }
 
     .image-caption-card-play {
@@ -4993,7 +5305,7 @@
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    background: linear-gradient(90deg, rgba(7, 11, 16, 0.78) 0%, rgba(7, 11, 16, 0.48) 38%, rgba(7, 11, 16, 0.22) 64%, rgba(7, 11, 16, 0.44) 100%);
+    background: linear-gradient(90deg, rgba(6, 10, 14, 0.84) 0%, rgba(6, 10, 14, 0.58) 38%, rgba(6, 10, 14, 0.3) 64%, rgba(6, 10, 14, 0.5) 100%);
 }
 
 .hero-story-shell {
@@ -5012,9 +5324,9 @@
     max-width: min(52vw, 720px);
     padding: 28px 30px 24px;
     border-radius: 34px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: linear-gradient(180deg, rgba(12, 23, 31, 0.82), rgba(12, 23, 31, 0.64));
-    box-shadow: 0 30px 70px rgba(3, 10, 14, 0.26);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: linear-gradient(180deg, rgba(11, 22, 30, 0.9), rgba(11, 22, 30, 0.76));
+    box-shadow: 0 30px 70px rgba(3, 10, 14, 0.3);
     backdrop-filter: blur(18px) saturate(130%);
     -webkit-backdrop-filter: blur(18px) saturate(130%);
     pointer-events: auto;
@@ -5025,9 +5337,9 @@
     align-items: center;
     padding: 0.58em 0.92em;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    color: rgba(243, 251, 250, 0.82);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: rgba(246, 252, 251, 0.94);
     font-family: var(--font-ui-modern);
     font-size: 0.82rem;
     font-weight: 800;
@@ -5049,10 +5361,10 @@
 .hero-story-copy {
     margin: 0;
     max-width: 58ch;
-    color: rgba(240, 246, 247, 0.84);
+    color: rgba(244, 249, 249, 0.92);
     font-family: var(--font-ui-modern);
     font-size: clamp(1.02rem, 1.4vw, 1.18rem);
-    font-weight: 520;
+    font-weight: 560;
     line-height: 1.74;
 }
 
@@ -5083,12 +5395,12 @@
 }
 
 .hero-story-button--secondary {
-    --cta-bg: rgba(255, 255, 255, 0.08);
-    --cta-bg-hover: rgba(255, 255, 255, 0.14);
+    --cta-bg: rgba(255, 255, 255, 0.14);
+    --cta-bg-hover: rgba(255, 255, 255, 0.2);
     --cta-color: #ffffff;
     --cta-color-hover: #ffffff;
-    --cta-border-color: rgba(255, 255, 255, 0.16);
-    --cta-border-color-hover: rgba(255, 255, 255, 0.24);
+    --cta-border-color: rgba(255, 255, 255, 0.22);
+    --cta-border-color-hover: rgba(255, 255, 255, 0.3);
     --cta-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
     --cta-shadow-hover: 0 16px 30px rgba(0, 0, 0, 0.18);
 }
@@ -5096,33 +5408,54 @@
 .hero-story-highlights {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 20px;
+    gap: 14px;
+    margin-top: 22px;
 }
 
 .hero-story-highlight {
+    position: relative;
     display: grid;
-    gap: 8px;
-    padding: 16px 16px 14px;
+    align-content: start;
+    gap: 6px;
+    min-height: 112px;
+    padding: 18px 18px 16px;
     border-radius: 22px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(180deg, rgba(11, 24, 31, 0.74), rgba(11, 24, 31, 0.56));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 14px 32px rgba(2, 10, 16, 0.16);
+    backdrop-filter: blur(12px) saturate(118%);
+    -webkit-backdrop-filter: blur(12px) saturate(118%);
+}
+
+.hero-story-highlight::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 18px;
+    width: 42px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(164, 246, 222, 0.92), rgba(164, 246, 222, 0.18));
 }
 
 .hero-story-highlight-value {
-    color: #ffffff;
+    color: #f7fffd;
     font-family: var(--font-display);
-    font-size: clamp(1.12rem, 1.5vw, 1.42rem);
-    font-weight: 700;
-    letter-spacing: -0.04em;
+    font-size: clamp(1.16rem, 1.55vw, 1.5rem);
+    font-weight: 720;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
 }
 
 .hero-story-highlight-label {
-    color: rgba(239, 245, 245, 0.76);
+    color: rgba(241, 250, 249, 0.96);
     font-family: var(--font-ui-modern);
-    font-size: 0.9rem;
-    font-weight: 560;
-    line-height: 1.48;
+    font-size: 0.88rem;
+    font-weight: 670;
+    line-height: 1.52;
+    letter-spacing: 0.01em;
+    text-wrap: pretty;
 }
 
 .hero-story-visual {
@@ -5133,8 +5466,8 @@
     align-self: center;
     padding: 18px;
     border-radius: 30px;
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(255, 255, 255, 0.52);
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.68);
     box-shadow: 0 28px 72px rgba(4, 11, 16, 0.22);
     pointer-events: none;
 }
@@ -5155,10 +5488,10 @@
 }
 
 .hero-story-visual-caption {
-    color: #17353d;
+    color: #102d35;
     font-family: var(--font-ui-modern);
     font-size: 0.98rem;
-    font-weight: 620;
+    font-weight: 660;
     line-height: 1.55;
     text-wrap: balance;
 }
