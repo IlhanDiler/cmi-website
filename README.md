@@ -28,11 +28,15 @@ Wenn ein neuer Rueckblick oder Event gezielt teilbar sein soll:
 5. Die Weiterleitung auf den Zielabschnitt der Startseite setzen.
 6. Zum Gestalten die gemeinsame CSS-Datei [share/share-preview.css](share/share-preview.css) verwenden.
 7. Den Dateinamen in [share/share-pages.json](share/share-pages.json) eintragen, damit der Instagram-Export den Beitrag automatisch findet.
+8. Fuer die Querformat-Linkvorschauen und Hochkant-Statusbilder bei Bedarf `share/generate-share-preview-images.ps1` ausfuehren.
 
 ## Wichtige Hinweise
 
 - Gepostet werden sollte immer die Share-URL, nicht nur ein Hash-Link wie `/#review-...`.
-- Das Vorschaubild sollte moeglichst gross sein, idealerweise im Bereich `1200x630`.
+- Das Vorschaubild fuer Link-Previews sollte moeglichst gross sein, idealerweise im Bereich `1200x630`.
+- Die generierten WhatsApp-/Open-Graph-Vorschaubilder liegen unter `share/preview-images/`.
+- Die separaten Hochkantbilder fuer WhatsApp-Status liegen unter `share/status-images/` im Format `1080x1920`.
+- Die Statusbilder werden nicht automatisch als Link-Vorschau genutzt, sondern sind fuer manuelles Posten im Status gedacht.
 - Manche Plattformen cachen Vorschauen. Nach Aenderungen muss der Link dort eventuell neu eingelesen werden.
 
 Hilfreiche Tools zum Aktualisieren der Vorschau:

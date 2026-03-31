@@ -5,106 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impressum | CMI Ochsenfurt</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700,900&display=swap" rel="stylesheet">
-    <style>
-      body {
-        background: linear-gradient(180deg,#eafafc 0%,#f7fff7 100%);
-        font-family: 'Inter', Arial, sans-serif;
-        margin: 0;
-        color: #222;
-      }
-      .legal-main {
-        min-height: 100vh;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        padding: 48px 0 48px 0;
-      }
-      .container {
-        max-width: 700px;
-        width: 100%;
-        margin: 0 auto;
-        padding: 0 16px;
-      }
-      .impressum-title {
-        font-size: 2.5em;
-        font-weight: 900;
-        color: #00796b;
-        margin-bottom: 32px;
-        letter-spacing: -0.01em;
-        text-align: left;
-      }
-      .impressum-card {
-        background: #fff;
-        border-radius: 22px;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-        margin-bottom: 32px;
-        padding: 32px 32px 24px 32px;
-        transition: box-shadow 0.2s;
-        border: none;
-        position: relative;
-      }
-      .impressum-card h2 {
-        font-size: 1.35em;
-        font-weight: 700;
-        color: #009688;
-        margin-bottom: 12px;
-        margin-top: 0;
-        letter-spacing: -0.01em;
-      }
-      .impressum-card h3 {
-        font-size: 1.08em;
-        font-weight: 600;
-        color: #19D3C5;
-        margin-bottom: 8px;
-        margin-top: 18px;
-        letter-spacing: -0.01em;
-      }
-      .impressum-card p {
-        font-size: 1.05em;
-        line-height: 1.7;
-        margin: 0 0 16px 0;
-        color: #222;
-      }
-      .impressum-icon {
-        width: 22px;
-        height: 22px;
-        vertical-align: middle;
-        margin-right: 8px;
-        opacity: 0.85;
-      }
-      .impressum-link {
-        color: #009688;
-        text-decoration: underline;
-        font-weight: 600;
-        transition: color 0.2s;
-      }
-      .impressum-link:hover {
-        color: #19D3C5;
-      }
-      @media (max-width: 600px) {
-        .container {
-          padding: 0 2vw;
-        }
-        .impressum-title {
-          font-size: 2em;
-          text-align: center;
-        }
-        .impressum-card {
-          padding: 18px 8vw 16px 8vw;
-        }
-        .impressum-card h2 {
-          font-size: 1.12em;
-        }
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
-  <main class="legal-main">
-    <div class="container">
-  <h1 class="impressum-title" data-lang="de">Impressum</h1>
-  <h1 class="impressum-title" data-lang="en" style="display:none;">Legal Notice</h1>
-  <h1 class="impressum-title" data-lang="it" style="display:none;">Note legali</h1>
+<body class="subpage-body">
+  <header class="subpage-topbar">
+    <div class="subpage-topbar__inner">
+      <a class="subpage-topbar__brand" href="index.html">
+        <img src="files/logo_cmi1.svg" alt="CMI Logo">
+        <span class="subpage-topbar__brand-text">
+          <span class="subpage-topbar__brand-title">CMI Ochsenfurt</span>
+          <span class="subpage-topbar__brand-subtitle" data-lang="de">Musik baut Brücken</span>
+          <span class="subpage-topbar__brand-subtitle" data-lang="en" style="display:none;">Music builds bridges</span>
+          <span class="subpage-topbar__brand-subtitle" data-lang="it" style="display:none;">La musica costruisce ponti</span>
+        </span>
+      </a>
+      <div class="subpage-topbar__links">
+        <a class="subpage-topbar__link" href="index.html" data-lang="de">Startseite</a>
+        <a class="subpage-topbar__link" href="index.html" data-lang="en" style="display:none;">Home</a>
+        <a class="subpage-topbar__link" href="index.html" data-lang="it" style="display:none;">Home</a>
+        <a class="subpage-topbar__link" href="index.html#contact" data-lang="de">Kontakt</a>
+        <a class="subpage-topbar__link" href="index.html#contact" data-lang="en" style="display:none;">Contact</a>
+        <a class="subpage-topbar__link" href="index.html#contact" data-lang="it" style="display:none;">Contatto</a>
+        <a class="subpage-topbar__link" href="datenschutz.html" data-lang="de">Datenschutz</a>
+        <a class="subpage-topbar__link" href="datenschutz.html" data-lang="en" style="display:none;">Privacy</a>
+        <a class="subpage-topbar__link" href="datenschutz.html" data-lang="it" style="display:none;">Privacy</a>
+      </div>
+    </div>
+  </header>
+  <main class="subpage-main">
+    <section class="subpage-hero">
+      <div class="subpage-hero__eyebrow" data-lang="de">Rechtliches</div>
+      <div class="subpage-hero__eyebrow" data-lang="en" style="display:none;">Legal</div>
+      <div class="subpage-hero__eyebrow" data-lang="it" style="display:none;">Note legali</div>
+      <h1 class="subpage-hero__title" data-lang="de">Impressum</h1>
+      <h1 class="subpage-hero__title" data-lang="en" style="display:none;">Legal Notice</h1>
+      <h1 class="subpage-hero__title" data-lang="it" style="display:none;">Note legali</h1>
+      <p class="subpage-hero__intro" data-lang="de">Hier finden Sie die rechtlich erforderlichen Angaben zum Collegium Musicum Iuvenale Ochsenfurt sowie Hinweise zu Verantwortlichkeit, Kontakt und Haftung.</p>
+      <p class="subpage-hero__intro" data-lang="en" style="display:none;">This page contains the legally required information about Collegium Musicum Iuvenale Ochsenfurt, including responsibility, contact details, and liability notices.</p>
+      <p class="subpage-hero__intro" data-lang="it" style="display:none;">Qui trovi le informazioni legali richieste sul Collegium Musicum Iuvenale Ochsenfurt, inclusi responsabilità, contatti e note sulla responsabilità.</p>
+    </section>
+    <section class="legal-document">
+      <div class="legal-document__content">
       <div class="impressum-card">
         <h2 data-lang="de">Orchester</h2>
         <h2 data-lang="en" style="display:none;">Orchestra</h2>
@@ -162,8 +105,63 @@
         <p data-lang="en" style="display:none;">The content and works created by the site operators on these pages are subject to German copyright law. Duplication, processing, distribution, and any kind of exploitation outside the limits of copyright law require the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use. Insofar as the content on this site was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is marked as such. Should you nevertheless become aware of a copyright infringement, please inform us accordingly. If we become aware of any legal violations, we will remove such content immediately.</p>
         <p data-lang="it" style="display:none;">I contenuti e le opere creati dagli operatori di questo sito sono soggetti al diritto d'autore tedesco. La duplicazione, l'elaborazione, la distribuzione e qualsiasi tipo di utilizzo al di fuori dei limiti del diritto d'autore richiedono il consenso scritto del rispettivo autore o creatore. Download e copie di questo sito sono consentiti solo per uso privato e non commerciale. Nella misura in cui i contenuti di questo sito non sono stati creati dall'operatore, vengono rispettati i diritti d'autore di terzi. In particolare, i contenuti di terzi sono contrassegnati come tali. Se dovessi comunque venire a conoscenza di una violazione del diritto d'autore, ti preghiamo di informarci di conseguenza. Se veniamo a conoscenza di violazioni legali, rimuoveremo immediatamente tali contenuti.</p>
       </div>
-    </div>
+        </div>
+      </section>
   </main>
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__grid">
+          <div class="site-footer__brand">
+            <img src="files/logo_cmi1 - weiß.svg" alt="CMI Logo" class="site-footer__logo">
+            <div class="site-footer__title" data-lang="de">Collegium Musicum Iuvenale Ochsenfurt</div>
+            <div class="site-footer__title" data-lang="en" style="display:none;">Collegium Musicum Iuvenale Ochsenfurt</div>
+            <div class="site-footer__title" data-lang="it" style="display:none;">Collegium Musicum Iuvenale Ochsenfurt</div>
+            <div class="site-footer__subtitle" data-lang="de">Musik verbindet Menschen seit 1981</div>
+            <div class="site-footer__subtitle" data-lang="en" style="display:none;">Music connects people since 1981</div>
+            <div class="site-footer__subtitle" data-lang="it" style="display:none;">La musica unisce le persone dal 1981</div>
+          </div>
+          <div class="site-footer__contact-card">
+            <div class="site-footer__contact-kicker" data-lang="de">Direkter Kontakt</div>
+            <div class="site-footer__contact-kicker" data-lang="en" style="display:none;">Direct Contact</div>
+            <div class="site-footer__contact-kicker" data-lang="it" style="display:none;">Contatto diretto</div>
+            <h3 class="site-footer__contact-title" data-lang="de">Fragen zum Ensemble oder zu Auftritten</h3>
+            <h3 class="site-footer__contact-title" data-lang="en" style="display:none;">Questions about the ensemble or performances</h3>
+            <h3 class="site-footer__contact-title" data-lang="it" style="display:none;">Domande sull'ensemble o sulle esibizioni</h3>
+            <p class="site-footer__contact-copy" data-lang="de">Für Mitspielanfragen, Kooperationen oder Benefizideen erreichen Sie uns direkt per E-Mail.</p>
+            <p class="site-footer__contact-copy" data-lang="en" style="display:none;">For participation requests, collaborations, or benefit ideas, you can reach us directly by email.</p>
+            <p class="site-footer__contact-copy" data-lang="it" style="display:none;">Per richieste di partecipazione, collaborazioni o idee benefiche puoi contattarci direttamente via e-mail.</p>
+            <a href="mailto:astrid.eitschberger@cmi-ochsenfurt.de" class="site-footer__contact-link">astrid.eitschberger@cmi-ochsenfurt.de</a>
+          </div>
+          <div class="site-footer__nav">
+            <div class="site-footer__nav-title" data-lang="de">Schnellzugang</div>
+            <div class="site-footer__nav-title" data-lang="en" style="display:none;">Quick Access</div>
+            <div class="site-footer__nav-title" data-lang="it" style="display:none;">Accesso rapido</div>
+            <div class="site-footer__links">
+              <a href="index.html#events" class="site-footer__link" data-lang="de">Konzerte</a>
+              <a href="index.html#events" class="site-footer__link" data-lang="en" style="display:none;">Concerts</a>
+              <a href="index.html#events" class="site-footer__link" data-lang="it" style="display:none;">Concerti</a>
+              <a href="index.html#review" class="site-footer__link" data-lang="de">Rückblick</a>
+              <a href="index.html#review" class="site-footer__link" data-lang="en" style="display:none;">Review</a>
+              <a href="index.html#review" class="site-footer__link" data-lang="it" style="display:none;">Riepilogo</a>
+              <a href="chronik.html" class="site-footer__link" data-lang="de">Chronik</a>
+              <a href="chronik.html" class="site-footer__link" data-lang="en" style="display:none;">History</a>
+              <a href="chronik.html" class="site-footer__link" data-lang="it" style="display:none;">Storia</a>
+              <a href="datenschutz.html" class="site-footer__link" data-lang="de">Datenschutz</a>
+              <a href="datenschutz.html" class="site-footer__link" data-lang="en" style="display:none;">Privacy Policy</a>
+              <a href="datenschutz.html" class="site-footer__link" data-lang="it" style="display:none;">Informativa sulla privacy</a>
+            </div>
+          </div>
+        </div>
+        <div class="site-footer__meta">
+          <div class="site-footer__meta-line" data-lang="de">&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. Alle Rechte vorbehalten.</div>
+          <div class="site-footer__meta-line" data-lang="en" style="display:none;">&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. All rights reserved.</div>
+          <div class="site-footer__meta-line" data-lang="it" style="display:none;">&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. Tutti i diritti riservati.</div>
+          <div class="site-footer__meta-line" data-lang="de">Webdesign: Ilhan Diler | Designidee: Richard Ullmann</div>
+          <div class="site-footer__meta-line" data-lang="en" style="display:none;">Webdesign: Ilhan Diler | Design idea: Richard Ullmann</div>
+          <div class="site-footer__meta-line" data-lang="it" style="display:none;">Webdesign: Ilhan Diler | Idea di design: Richard Ullmann</div>
+        </div>
+      </div>
+    </footer>
 <script src="script.js"></script>
 </body>
 </html>
