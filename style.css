@@ -1930,11 +1930,30 @@
     padding-left: 34px;
 }
 
+.musikalisches-repertoire-list li.ensemble-inline-list,
+.musikalisches-repertoire-list li.ensemble-inline-list span,
+.musikalisches-repertoire-list .ensemble-inline-list__label,
+.musikalisches-repertoire-list .ensemble-chip-list,
+.musikalisches-repertoire-list .ensemble-chip {
+    max-width: 100%;
+    min-width: 0;
+}
+
+.musikalisches-repertoire-list li.ensemble-inline-list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+}
+
 .ensemble-inline-list__label {
     display: block;
     margin-bottom: 12px;
     color: var(--repertoire-title-color);
     font-weight: 560;
+}
+
+.musikalisches-repertoire-list .ensemble-inline-list__label {
+    white-space: normal;
 }
 
 .ensemble-chip-list {
@@ -2180,6 +2199,24 @@
         display: block !important;
         width: 100%;
         max-width: 100%;
+    }
+
+    .musikalisches-repertoire-list li.ensemble-inline-list {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 8px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .musikalisches-repertoire-list li.ensemble-inline-list span,
+    .musikalisches-repertoire-list .ensemble-inline-list__label,
+    .musikalisches-repertoire-list .ensemble-chip-list {
+        width: 100%;
+        max-width: 100%;
+        white-space: normal !important;
+        box-sizing: border-box;
     }
 
     .musikalisches-repertoire-card--engagement .charity-card-text {
@@ -2543,13 +2580,14 @@
     display: inline-block;
     width: fit-content;
     max-width: min(100%, 42rem);
-    padding: 0.64em 1em;
+    padding: 0;
     line-height: 1.45;
     letter-spacing: 0.015em;
     text-transform: none;
-    background: var(--review-meta-bg);
-    border-color: var(--review-meta-border);
-    box-shadow: 0 10px 26px rgba(25, 48, 55, 0.05);
+    border-radius: 0;
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
 }
 
 .charity-projects-section[id^="review-"] .charity-title--compact {
@@ -3134,6 +3172,12 @@
         --timeline-item-text-line-height: 1.68;
     }
 
+    .timeline-intro {
+        text-align: justify;
+        text-justify: inter-word;
+        text-wrap: pretty;
+    }
+
     .timeline-item {
         flex-direction: column;
         align-items: flex-start;
@@ -3670,22 +3714,22 @@
 .event-social-actions {
     --event-poster-controls-margin-top: 12px;
     --event-poster-download-color: #16464d;
-    --event-social-gap: 14px;
-    --event-social-button-size: 50px;
-    --event-social-button-bg: rgba(255, 255, 255, 0.94);
-    --event-social-button-border-color: rgba(13, 92, 99, 0.18);
-    --event-social-button-shadow: none;
-    --event-social-button-shadow-hover: none;
-    --event-social-button-transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-    --event-social-icon-size: 24px;
+    --event-social-gap: 16px;
+    --event-social-button-size: 54px;
+    --event-social-button-bg: rgba(255, 255, 255, 0.98);
+    --event-social-button-border-color: rgba(13, 92, 99, 0.14);
+    --event-social-button-shadow: 0 10px 22px rgba(16, 47, 54, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    --event-social-button-shadow-hover: 0 12px 26px rgba(16, 47, 54, 0.11), inset 0 1px 0 rgba(255, 255, 255, 0.78);
+    --event-social-button-transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    --event-social-icon-size: 26px;
     --event-social-whatsapp-color: #147a57;
     --event-social-whatsapp-color-hover: #0f6a4b;
-    --event-social-whatsapp-bg: rgba(20, 122, 87, 0.12);
-    --event-social-whatsapp-bg-hover: rgba(20, 122, 87, 0.18);
+    --event-social-whatsapp-bg: rgba(20, 122, 87, 0.14);
+    --event-social-whatsapp-bg-hover: rgba(20, 122, 87, 0.2);
     --event-social-instagram-color: #9a2f69;
     --event-social-instagram-color-hover: #7f2356;
-    --event-social-instagram-bg: rgba(154, 47, 105, 0.12);
-    --event-social-instagram-bg-hover: rgba(154, 47, 105, 0.18);
+    --event-social-instagram-bg: rgba(154, 47, 105, 0.14);
+    --event-social-instagram-bg-hover: rgba(154, 47, 105, 0.2);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -3694,9 +3738,11 @@
 }
 
 .event-social-button {
+    --interaction-transform: translateY(-1px);
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     flex-wrap: nowrap;
     flex: 0 0 auto;
     gap: 0;
@@ -3728,7 +3774,7 @@
     height: var(--event-social-icon-size);
     flex: 0 0 auto;
     stroke: currentColor;
-    stroke-width: 1.9;
+    stroke-width: 2.05;
     stroke-linecap: round;
     stroke-linejoin: round;
     fill: none;
@@ -5516,29 +5562,32 @@ html[lang="it"] #langIt {
         margin-bottom: var(--review-description-margin-bottom) !important;
         font-size: clamp(0.95rem, 3.15vw, 1rem) !important;
         line-height: 1.58;
+        text-align: justify !important;
+        text-justify: inter-word;
+        text-wrap: pretty;
     }
 
     .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions {
-        gap: 8px;
+        gap: 10px;
         margin-top: 4px;
         margin-bottom: 12px;
         align-items: center;
     }
 
     .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button {
-        width: 40px;
-        height: 40px;
-        min-height: 40px;
+        width: 46px;
+        height: 46px;
+        min-height: 46px;
         aspect-ratio: 1 / 1;
         border-radius: 999px;
         padding: 0;
-        flex: 0 0 40px;
+        flex: 0 0 46px;
     }
 
     .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button svg {
-        width: 20px;
-        height: 20px;
-        flex: 0 0 20px;
+        width: 22px;
+        height: 22px;
+        flex: 0 0 22px;
     }
 
     .charity-projects-section[id^="review-"] .review-media-caption {
@@ -5733,6 +5782,17 @@ html body *:focus-visible::after,
 html body *:active::before,
 html body *:active::after {
     transform: var(--interaction-transform, none) !important;
+}
+
+html body .event-social-button {
+    box-shadow: var(--event-social-button-shadow) !important;
+    transition: var(--event-social-button-transition) !important;
+}
+
+html body .event-social-button:hover,
+html body .event-social-button:focus-visible,
+html body .event-social-button:active {
+    box-shadow: var(--event-social-button-shadow-hover) !important;
 }
 
 
