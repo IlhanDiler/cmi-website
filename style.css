@@ -4435,7 +4435,7 @@
     .fadein-text {
         --hero-fadein-left: 14px;
         right: auto !important;
-        --hero-fadein-bottom: 72px;
+        --hero-fadein-bottom: 112px;
         --hero-fadein-max-width: min(68vw, 300px);
         --hero-fadein-padding: 8px 11px 9px;
         --hero-fadein-font-size: 0.92rem;
@@ -4474,7 +4474,7 @@
     }
 
     .fadein-text {
-        --hero-fadein-bottom: 64px;
+        --hero-fadein-bottom: 120px;
         --hero-fadein-max-width: min(72vw, 260px);
         --hero-fadein-font-size: 0.82rem;
         --hero-fadein-line-height: 1.14;
