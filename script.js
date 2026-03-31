@@ -162,7 +162,7 @@ function minimizeGallerySectionGap() {
     }
     nextSection = nextSection && nextSection.nextElementSibling;
     if (nextSection) {
-        nextSection.style.marginTop = '8vw';
+        nextSection.style.marginTop = '0';
     }
 }
 
@@ -912,7 +912,9 @@ function initSiteFeatures() {
     initHeroGallery();
     revealOnScroll('.modern-card');
     revealOnScroll('.musikfamilie-card');
-    initAccordion();
+    if (typeof initAccordion === 'function') {
+        initAccordion();
+    }
     initMobileNavigation();
     initNavbarScroll();
     initShapeParallax();
