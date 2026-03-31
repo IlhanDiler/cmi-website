@@ -381,6 +381,7 @@ function syncHeroGalleryResponsiveState() {
 
     heroGalleryResponsiveRefreshFrame = requestAnimationFrame(function() {
         heroGalleryResponsiveRefreshFrame = null;
+        syncHeroGalleryActiveSlideStyle();
         refreshHeroGalleryUi();
     });
 }
@@ -446,20 +447,53 @@ function stopHeroGalleryAuto() {
 
 function getHeroGallerySlideStyle(entry, index) {
     if (!entry) {
-        return { backgroundPosition: 'center 10%', backgroundSize: 'cover' };
+        return {
+            backgroundPosition: 'center 10%',
+            backgroundSize: 'cover',
+            blurBackgroundPosition: 'center 10%',
+            blurBackgroundSize: 'cover'
+        };
     }
 
     if (window.innerWidth <= 700) {
         return {
             backgroundPosition: 'center center',
-            backgroundSize: 'contain'
+            backgroundSize: 'contain',
+            blurBackgroundPosition: 'center center',
+            blurBackgroundSize: 'cover'
         };
     }
 
+    const desktopPosition = heroGalleryDesktopFocusImages.has(entry.src) ? 'center 60%' : 'center 10%';
+
     return {
-        backgroundPosition: heroGalleryDesktopFocusImages.has(entry.src) ? 'center 60%' : 'center 10%',
-        backgroundSize: 'cover'
+        backgroundPosition: desktopPosition,
+        backgroundSize: 'cover',
+        blurBackgroundPosition: desktopPosition,
+        blurBackgroundSize: 'cover'
     };
+}
+
+function applyHeroGallerySlideStyle(layer, entry, slideStyle) {
+    if (!layer || !entry || !slideStyle) {
+        return;
+    }
+
+    layer.style.setProperty('--hero-fade-image-url', `url('${entry.src}')`);
+    layer.style.setProperty('--hero-fade-image-focus-position', slideStyle.backgroundPosition);
+    layer.style.setProperty('--hero-fade-image-size', slideStyle.backgroundSize);
+    layer.style.setProperty('--hero-fade-blur-position', slideStyle.blurBackgroundPosition || slideStyle.backgroundPosition);
+    layer.style.setProperty('--hero-fade-blur-size', slideStyle.blurBackgroundSize || 'cover');
+}
+
+function syncHeroGalleryActiveSlideStyle() {
+    const fadeContainer = document.querySelector('.hero-bg-fade-container');
+    if (!fadeContainer || fadeContainer.children.length < 2 || !heroGallery.length) {
+        return;
+    }
+
+    const activeLayer = fadeToggle ? fadeContainer.children[0] : fadeContainer.children[1];
+    applyHeroGallerySlideStyle(activeLayer, heroGallery[heroIndex], getHeroGallerySlideStyle(heroGallery[heroIndex], heroIndex));
 }
 
 function setHeroBgCrossfade(idx) {
@@ -475,11 +509,9 @@ function setHeroBgCrossfade(idx) {
     const heroTitle = getHeroGalleryTitle(currentEntry);
     const slideStyle = getHeroGallerySlideStyle(currentEntry, idx);
 
-    next.style.backgroundImage = `url('${currentEntry.src}')`;
     next.style.opacity = '0';
     next.style.transition = `opacity ${heroFadeDuration / 1000}s cubic-bezier(.22,1,.36,1)`;
-    next.style.backgroundPosition = slideStyle.backgroundPosition;
-    next.style.backgroundSize = slideStyle.backgroundSize;
+    applyHeroGallerySlideStyle(next, currentEntry, slideStyle);
 
     let fadeinDiv = next.querySelector('.fadein-text');
     if (!fadeinDiv) {
@@ -662,20 +694,27 @@ function initMobileNavigation() {
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
     const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
 
+    function syncMobileMenuState(isOpen) {
+        document.body.classList.toggle('mobile-menu-open', Boolean(isOpen));
+        if (mobileMenuBtn) {
+            mobileMenuBtn.setAttribute('aria-expanded', String(Boolean(isOpen)));
+        }
+    }
+
     function closeMobileMenu() {
         if (!mobileMenu || !mobileMenuBtn) {
             return;
         }
 
         mobileMenu.classList.remove('active');
-        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        syncMobileMenuState(false);
     }
 
     if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.addEventListener('click', function(event) {
             event.stopPropagation();
             mobileMenu.classList.toggle('active');
-            mobileMenuBtn.setAttribute('aria-expanded', String(mobileMenu.classList.contains('active')));
+            syncMobileMenuState(mobileMenu.classList.contains('active'));
         });
 
         document.addEventListener('click', function(event) {
@@ -700,6 +739,8 @@ function initMobileNavigation() {
             }
         });
     }
+
+    syncMobileMenuState(false);
 
     mobileNavLinks.forEach(link => {
         link.addEventListener('click', function() {
@@ -736,28 +777,33 @@ function initNavbarScroll() {
     }
 
     navbar.dataset.scrollInit = 'true';
+    let isScrolled = false;
+    let scrollFrame = null;
 
-    function setNavbarStyle(isScrolled) {
-        navbar.classList.toggle('navbar-scrolled', isScrolled);
-
-        if (isScrolled) {
-            navbar.style.setProperty('background', 'rgba(1, 3, 4, 0.98)', 'important');
-            navbar.style.setProperty('border-bottom-color', 'rgba(255, 255, 255, 0.18)', 'important');
-            navbar.style.setProperty('box-shadow', '0 10px 24px rgba(0, 0, 0, 0.26)', 'important');
+    function setNavbarStyle(nextScrolled) {
+        if (isScrolled === nextScrolled) {
             return;
         }
 
-        navbar.style.removeProperty('background');
-        navbar.style.removeProperty('border-bottom-color');
-        navbar.style.removeProperty('box-shadow');
+        isScrolled = nextScrolled;
+        navbar.classList.toggle('navbar-scrolled', nextScrolled);
+    }
+
+    function updateNavbarScrollState() {
+        scrollFrame = null;
+        const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        setNavbarStyle(scrollTop > 18);
     }
 
     function handleNavbarScroll() {
-        const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        setNavbarStyle(scrollTop > 12);
+        if (scrollFrame !== null) {
+            return;
+        }
+
+        scrollFrame = requestAnimationFrame(updateNavbarScrollState);
     }
 
-    handleNavbarScroll();
+    updateNavbarScrollState();
     window.addEventListener('scroll', handleNavbarScroll, { passive: true });
 }
 
