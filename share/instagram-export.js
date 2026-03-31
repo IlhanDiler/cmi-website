@@ -483,7 +483,7 @@ async function loadPost(fileName) {
     const doc = new DOMParser().parseFromString(html, "text/html");
     const title = collapseWhitespace(getMetaContent(doc, 'meta[property="og:title"]') || doc.title.trim());
     const description = collapseWhitespace(getMetaContent(doc, 'meta[name="description"]') || getMetaContent(doc, 'meta[property="og:description"]'));
-    const image = getMetaContent(doc, 'meta[property="og:image"]') || doc.querySelector(".share-card__hero")?.getAttribute("src") || "";
+    const image = doc.querySelector(".share-card__hero")?.getAttribute("src") || getMetaContent(doc, 'meta[property="og:image"]') || "";
     const shareUrl = getMetaContent(doc, 'meta[property="og:url"]') || new URL(fileName, window.location.href).href;
     const meta = collapseWhitespace(doc.querySelector(".share-card__meta")?.textContent) || "Share-Beitrag";
     const text = collapseWhitespace(doc.querySelector(".share-card__text")?.textContent) || description;

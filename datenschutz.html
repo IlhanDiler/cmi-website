@@ -5,123 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datenschutz | CMI Ochsenfurt</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700,900&display=swap" rel="stylesheet">
-    <style>
-      body {
-        background: linear-gradient(180deg,#eafafc 0%,#f7fff7 100%);
-        font-family: 'Inter', Arial, sans-serif;
-        margin: 0;
-        color: #222;
-      }
-      .privacy-main {
-        min-height: 100vh;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        padding: 48px 0 48px 0;
-      }
-      .privacy-container {
-        max-width: 800px;
-        width: 100%;
-        margin: 0 auto;
-        padding: 0 16px;
-      }
-      .privacy-title {
-        font-size: 2.5em;
-        font-weight: 900;
-        color: #00796b;
-        margin-bottom: 32px;
-        letter-spacing: -0.01em;
-        text-align: left;
-      }
-      .md-card {
-        background: #fff;
-        border-radius: 22px;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-        margin-bottom: 32px;
-        padding: 32px 32px 24px 32px;
-        transition: box-shadow 0.2s;
-        border: none;
-        position: relative;
-      }
-      .md-card h2 {
-        font-size: 1.35em;
-        font-weight: 700;
-        color: #009688;
-        margin-bottom: 12px;
-        margin-top: 0;
-        letter-spacing: -0.01em;
-        display: flex;
-        align-items: center;
-        gap: 0.5em;
-      }
-      .md-card h3 {
-        font-size: 1.08em;
-        font-weight: 600;
-        color: #19D3C5;
-        margin-bottom: 8px;
-        margin-top: 18px;
-        letter-spacing: -0.01em;
-        display: flex;
-        align-items: center;
-        gap: 0.5em;
-      }
-      .md-card h4 {
-        font-size: 1em;
-        font-weight: 600;
-        color: #009688;
-        margin-bottom: 6px;
-        margin-top: 14px;
-        letter-spacing: -0.01em;
-      }
-      .md-card p, .md-card ul, .md-card li {
-        font-size: 1.05em;
-        line-height: 1.7;
-        color: #222;
-      }
-      .md-card ul {
-        margin-bottom: 12px;
-      }
-      .md-icon {
-        display: inline-flex;
-        vertical-align: middle;
-        width: 1.3em;
-        height: 1.3em;
-        margin-right: 0.1em;
-        color: #009688;
-      }
-      .privacy-link {
-        color: #009688;
-        text-decoration: underline;
-        font-weight: 600;
-        transition: color 0.2s;
-      }
-      .privacy-link:hover {
-        color: #19D3C5;
-      }
-      @media (max-width: 600px) {
-        .privacy-container {
-          padding: 0 2vw;
-        }
-        .privacy-title {
-          font-size: 2em;
-          text-align: center;
-        }
-        .md-card {
-          padding: 18px 4vw 16px 4vw;
-        }
-        .md-card h2 {
-          font-size: 1.12em;
-        }
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
-<main class="privacy-main">
-  <div class="privacy-container">
-    <h1 class="privacy-title" data-lang="de">Datenschutzerklärung</h1>
-    <h1 class="privacy-title" data-lang="en" style="display:none;">Privacy Policy</h1>
-    <h1 class="privacy-title" data-lang="it" style="display:none;">Informativa sulla privacy</h1>
+<body class="subpage-body">
+<header class="subpage-topbar">
+  <div class="subpage-topbar__inner">
+    <a class="subpage-topbar__brand" href="index.html">
+      <img src="files/logo_cmi1.svg" alt="CMI Logo">
+      <span class="subpage-topbar__brand-text">
+        <span class="subpage-topbar__brand-title">CMI Ochsenfurt</span>
+        <span class="subpage-topbar__brand-subtitle" data-lang="de">Musik baut Brücken</span>
+        <span class="subpage-topbar__brand-subtitle" data-lang="en" style="display:none;">Music builds bridges</span>
+        <span class="subpage-topbar__brand-subtitle" data-lang="it" style="display:none;">La musica costruisce ponti</span>
+      </span>
+    </a>
+    <div class="subpage-topbar__links">
+      <a class="subpage-topbar__link" href="index.html" data-lang="de">Startseite</a>
+      <a class="subpage-topbar__link" href="index.html" data-lang="en" style="display:none;">Home</a>
+      <a class="subpage-topbar__link" href="index.html" data-lang="it" style="display:none;">Home</a>
+      <a class="subpage-topbar__link" href="index.html#contact" data-lang="de">Kontakt</a>
+      <a class="subpage-topbar__link" href="index.html#contact" data-lang="en" style="display:none;">Contact</a>
+      <a class="subpage-topbar__link" href="index.html#contact" data-lang="it" style="display:none;">Contatto</a>
+      <a class="subpage-topbar__link" href="impressum.html" data-lang="de">Impressum</a>
+      <a class="subpage-topbar__link" href="impressum.html" data-lang="en" style="display:none;">Legal Notice</a>
+      <a class="subpage-topbar__link" href="impressum.html" data-lang="it" style="display:none;">Note legali</a>
+    </div>
+  </div>
+</header>
+<main class="subpage-main">
+  <section class="subpage-hero">
+    <div class="subpage-hero__eyebrow" data-lang="de">Datenschutz</div>
+    <div class="subpage-hero__eyebrow" data-lang="en" style="display:none;">Privacy</div>
+    <div class="subpage-hero__eyebrow" data-lang="it" style="display:none;">Privacy</div>
+    <h1 class="subpage-hero__title" data-lang="de">Datenschutzerklärung</h1>
+    <h1 class="subpage-hero__title" data-lang="en" style="display:none;">Privacy Policy</h1>
+    <h1 class="subpage-hero__title" data-lang="it" style="display:none;">Informativa sulla privacy</h1>
+    <p class="subpage-hero__intro" data-lang="de">Diese Seite erläutert transparent, welche Daten auf der Website verarbeitet werden, auf welcher Grundlage dies geschieht und welche Rechte Besucherinnen und Besucher haben.</p>
+    <p class="subpage-hero__intro" data-lang="en" style="display:none;">This page explains transparently which data is processed on this website, on which legal basis, and which rights visitors have.</p>
+    <p class="subpage-hero__intro" data-lang="it" style="display:none;">Questa pagina spiega in modo trasparente quali dati vengono trattati su questo sito, su quale base giuridica e quali diritti hanno i visitatori.</p>
+  </section>
+  <section class="legal-document">
+    <div class="legal-document__content">
     <div class="md-card" aria-label="Datenschutz auf einen Blick">
       <h2 data-lang="de"><span class="md-icon" aria-hidden="true">&#128065;</span>1. Datenschutz auf einen Blick</h2>
       <h2 data-lang="en" style="display:none;"><span class="md-icon" aria-hidden="true">&#128065;</span>1. Data Protection at a Glance</h2>
@@ -135,7 +61,7 @@
       <h3 data-lang="de"><span class="md-icon" aria-hidden="true">&#128187;</span>Datenerfassung auf dieser Website</h3>
       <h3 data-lang="en" style="display:none;"><span class="md-icon" aria-hidden="true">&#128187;</span>Data Collection on this Website</h3>
       <h3 data-lang="it" style="display:none;"><span class="md-icon" aria-hidden="true">&#128187;</span>Raccolta dei dati su questo sito web</h3>
-      <div style="margin-left:1.5em;">
+      <div class="legal-detail-block">
         <h4 data-lang="de">Wer ist verantwortlich für die Datenerfassung auf dieser Website?</h4>
         <h4 data-lang="en" style="display:none;">Who is responsible for data collection on this website?</h4>
         <h4 data-lang="it" style="display:none;">Chi è responsabile della raccolta dei dati su questo sito web?</h4>
@@ -145,32 +71,32 @@
         <h4 data-lang="de">Wie erfassen wir Ihre Daten?</h4>
         <h4 data-lang="en" style="display:none;">How do we collect your data?</h4>
         <h4 data-lang="it" style="display:none;">Come raccogliamo i tuoi dati?</h4>
-        <ul style="margin-left:1em;" data-lang="de">
+        <ul class="legal-detail-list" data-lang="de">
           <li>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen (z. B. Daten im Kontaktformular).</li>
           <li>Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst (z. B. Internetbrowser, Betriebssystem, Uhrzeit des Seitenaufrufs).</li>
         </ul>
-        <ul style="margin-left:1em;display:none;" data-lang="en">
+        <ul class="legal-detail-list" style="display:none;" data-lang="en">
           <li>Your data is collected on the one hand by you providing it to us (e.g., data entered in a contact form).</li>
           <li>Other data is collected automatically or after your consent when visiting the website by our IT systems (e.g., internet browser, operating system, time of page access).</li>
         </ul>
-        <ul style="margin-left:1em;display:none;" data-lang="it">
+        <ul class="legal-detail-list" style="display:none;" data-lang="it">
           <li>I tuoi dati vengono raccolti da un lato quando ce li comunichi (ad esempio, dati inseriti nel modulo di contatto).</li>
           <li>Altri dati vengono raccolti automaticamente o dopo il tuo consenso durante la visita al sito web dai nostri sistemi IT (ad esempio, browser Internet, sistema operativo, orario di accesso alla pagina).</li>
         </ul>
         <h4 data-lang="de">Wofür nutzen wir Ihre Daten?</h4>
         <h4 data-lang="en" style="display:none;">What do we use your data for?</h4>
         <h4 data-lang="it" style="display:none;">Per cosa utilizziamo i tuoi dati?</h4>
-        <ul style="margin-left:1em;" data-lang="de">
+        <ul class="legal-detail-list" data-lang="de">
           <li>Fehlerfreie Bereitstellung der Website</li>
           <li>Analyse Ihres Nutzerverhaltens</li>
           <li>Vertragsangebote, Bestellungen oder sonstige Auftragsanfragen</li>
         </ul>
-        <ul style="margin-left:1em;display:none;" data-lang="en">
+        <ul class="legal-detail-list" style="display:none;" data-lang="en">
           <li>Error-free provision of the website</li>
           <li>Analysis of your user behavior</li>
           <li>Contract offers, orders, or other inquiries</li>
         </ul>
-        <ul style="margin-left:1em;display:none;" data-lang="it">
+        <ul class="legal-detail-list" style="display:none;" data-lang="it">
           <li>Fornitura senza errori del sito web</li>
           <li>Analisi del comportamento dell'utente</li>
           <li>Offerte contrattuali, ordini o altre richieste</li>
@@ -178,21 +104,21 @@
         <h4 data-lang="de">Welche Rechte haben Sie bezüglich Ihrer Daten?</h4>
         <h4 data-lang="en" style="display:none;">What rights do you have regarding your data?</h4>
         <h4 data-lang="it" style="display:none;">Quali diritti hai riguardo ai tuoi dati?</h4>
-        <ul style="margin-left:1em;" data-lang="de">
+        <ul class="legal-detail-list" data-lang="de">
           <li>Unentgeltliche Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten</li>
           <li>Berichtigung oder Löschung dieser Daten</li>
           <li>Widerruf einer Einwilligung zur Datenverarbeitung für die Zukunft</li>
           <li>Einschränkung der Verarbeitung Ihrer personenbezogenen Daten unter bestimmten Umständen</li>
           <li>Beschwerderecht bei der zuständigen Aufsichtsbehörde</li>
         </ul>
-        <ul style="margin-left:1em;display:none;" data-lang="en">
+        <ul class="legal-detail-list" style="display:none;" data-lang="en">
           <li>Free information about the origin, recipient, and purpose of your stored personal data</li>
           <li>Correction or deletion of this data</li>
           <li>Revocation of consent to data processing for the future</li>
           <li>Restriction of the processing of your personal data under certain circumstances</li>
           <li>Right to lodge a complaint with the competent supervisory authority</li>
         </ul>
-        <ul style="margin-left:1em;display:none;" data-lang="it">
+        <ul class="legal-detail-list" style="display:none;" data-lang="it">
           <li>Informazioni gratuite sull'origine, il destinatario e lo scopo dei tuoi dati personali memorizzati</li>
           <li>Correzione o cancellazione di questi dati</li>
           <li>Revoca del consenso al trattamento dei dati per il futuro</li>
@@ -531,8 +457,62 @@
     <p data-lang="en" style="display:none;">The company is certified according to the "EU-US Data Privacy Framework" (DPF). The DPF is an agreement between the European Union and the USA that is intended to ensure compliance with European data protection standards for data processing in the USA. Every company certified under the DPF undertakes to comply with these data protection standards. Further information can be obtained from the provider at the following link: <a href="https://www.dataprivacyframework.gov/participant/5780" target="_blank" rel="noopener noreferrer">https://www.dataprivacyframework.gov/participant/5780</a>.</p>
     </div>
   </div>
-
+    </section>
 </main>
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <img src="files/logo_cmi1 - weiß.svg" alt="CMI Logo" class="site-footer__logo">
+          <div class="site-footer__title" data-lang="de">Collegium Musicum Iuvenale Ochsenfurt</div>
+          <div class="site-footer__title" data-lang="en" style="display:none;">Collegium Musicum Iuvenale Ochsenfurt</div>
+          <div class="site-footer__title" data-lang="it" style="display:none;">Collegium Musicum Iuvenale Ochsenfurt</div>
+          <div class="site-footer__subtitle" data-lang="de">Musik verbindet Menschen seit 1981</div>
+          <div class="site-footer__subtitle" data-lang="en" style="display:none;">Music connects people since 1981</div>
+          <div class="site-footer__subtitle" data-lang="it" style="display:none;">La musica unisce le persone dal 1981</div>
+        </div>
+        <div class="site-footer__contact-card">
+          <div class="site-footer__contact-kicker" data-lang="de">Direkter Kontakt</div>
+          <div class="site-footer__contact-kicker" data-lang="en" style="display:none;">Direct Contact</div>
+          <div class="site-footer__contact-kicker" data-lang="it" style="display:none;">Contatto diretto</div>
+          <h3 class="site-footer__contact-title" data-lang="de">Fragen zur Website oder zu Auftritten</h3>
+          <h3 class="site-footer__contact-title" data-lang="en" style="display:none;">Questions about the website or performances</h3>
+          <h3 class="site-footer__contact-title" data-lang="it" style="display:none;">Domande sul sito o sulle esibizioni</h3>
+          <p class="site-footer__contact-copy" data-lang="de">Für Rückfragen zu Inhalten, Auftritten oder Kooperationen erreichen Sie uns direkt per E-Mail.</p>
+          <p class="site-footer__contact-copy" data-lang="en" style="display:none;">For questions about content, performances, or collaborations, you can reach us directly by email.</p>
+          <p class="site-footer__contact-copy" data-lang="it" style="display:none;">Per domande su contenuti, esibizioni o collaborazioni puoi contattarci direttamente via e-mail.</p>
+          <a href="mailto:astrid.eitschberger@cmi-ochsenfurt.de" class="site-footer__contact-link">astrid.eitschberger@cmi-ochsenfurt.de</a>
+        </div>
+        <div class="site-footer__nav">
+          <div class="site-footer__nav-title" data-lang="de">Schnellzugang</div>
+          <div class="site-footer__nav-title" data-lang="en" style="display:none;">Quick Access</div>
+          <div class="site-footer__nav-title" data-lang="it" style="display:none;">Accesso rapido</div>
+          <div class="site-footer__links">
+            <a href="index.html#events" class="site-footer__link" data-lang="de">Konzerte</a>
+            <a href="index.html#events" class="site-footer__link" data-lang="en" style="display:none;">Concerts</a>
+            <a href="index.html#events" class="site-footer__link" data-lang="it" style="display:none;">Concerti</a>
+            <a href="index.html#review" class="site-footer__link" data-lang="de">Rückblick</a>
+            <a href="index.html#review" class="site-footer__link" data-lang="en" style="display:none;">Review</a>
+            <a href="index.html#review" class="site-footer__link" data-lang="it" style="display:none;">Riepilogo</a>
+            <a href="chronik.html" class="site-footer__link" data-lang="de">Chronik</a>
+            <a href="chronik.html" class="site-footer__link" data-lang="en" style="display:none;">History</a>
+            <a href="chronik.html" class="site-footer__link" data-lang="it" style="display:none;">Storia</a>
+            <a href="impressum.html" class="site-footer__link" data-lang="de">Impressum</a>
+            <a href="impressum.html" class="site-footer__link" data-lang="en" style="display:none;">Legal Notice</a>
+            <a href="impressum.html" class="site-footer__link" data-lang="it" style="display:none;">Note legali</a>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__meta">
+        <div class="site-footer__meta-line" data-lang="de">&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. Alle Rechte vorbehalten.</div>
+        <div class="site-footer__meta-line" data-lang="en" style="display:none;">&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. All rights reserved.</div>
+        <div class="site-footer__meta-line" data-lang="it" style="display:none;">&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. Tutti i diritti riservati.</div>
+        <div class="site-footer__meta-line" data-lang="de">Webdesign: Ilhan Diler | Designidee: Richard Ullmann</div>
+        <div class="site-footer__meta-line" data-lang="en" style="display:none;">Webdesign: Ilhan Diler | Design idea: Richard Ullmann</div>
+        <div class="site-footer__meta-line" data-lang="it" style="display:none;">Webdesign: Ilhan Diler | Idea di design: Richard Ullmann</div>
+      </div>
+    </div>
+  </footer>
 <script src="script.js"></script>
 </body>
 </html>
