@@ -5745,6 +5745,29 @@ html[lang="it"] #langIt {
     font-weight: var(--font-weight-body) !important;
 }
 
+.contact-info-intro,
+.contact-info-card-text,
+.contact-info-card-link,
+.music-family-group-details li,
+.about-me-bio-text,
+.musikalisches-repertoire-intro,
+.musikalisches-repertoire-list li,
+.charity-card-main-text,
+.charity-list-item,
+.charity-description,
+.timeline-intro,
+.timeline-item-text,
+.event-description,
+.review-media-caption,
+.site-footer__meta-line {
+    text-align: justify !important;
+    text-justify: inter-word;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    overflow-wrap: break-word !important;
+}
+
 .nav-link,
 .mobile-nav-link,
 .lang-switch-button,
