@@ -53,6 +53,7 @@
     inset: 18px auto auto 50%;
     width: min(72vw, 540px);
     height: clamp(120px, 24vw, 190px);
+        --interaction-transform: translateX(-50%);
     transform: translateX(-50%);
     border-radius: 999px;
     background: none;
@@ -577,6 +578,8 @@
 }
 
 .music-family-benefits {
+    grid-column: 1;
+    grid-row: 1;
     margin: 0;
     padding-left: 0 !important;
     list-style: none;
@@ -623,6 +626,9 @@
     --music-family-logo-mobile-radius: 20px;
     --music-family-logo-mobile-bg: rgba(255, 255, 255, 0.72);
     --music-family-logo-mobile-shadow: 0 10px 22px rgba(18, 62, 70, 0.08);
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -809,6 +815,12 @@
         --music-family-benefits-columns: minmax(0, 1fr);
     }
 
+    .music-family-benefits,
+    .music-family-logo-mobile {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
     .music-family-logo-mobile {
         width: fit-content;
         justify-self: center;
@@ -821,7 +833,7 @@
 
 @media (max-width: 600px) {
     .music-family-section {
-        padding: 44px 0 38px;
+        padding: 36px 0 30px;
     }
 
     .music-family-section::before {
@@ -839,7 +851,7 @@
     }
 
     .music-family-container {
-        padding: 0 14px;
+        padding: 0 10px;
     }
 
     .music-family-title {
@@ -848,8 +860,8 @@
 
     .music-family-desc {
         max-width: 32ch;
-        font-size: 1rem;
-        line-height: 1.52;
+        font-size: 1.06rem;
+        line-height: 1.46;
     }
 
     .music-family-benefits-row {
@@ -869,27 +881,28 @@
     }
 
     .music-family-groups {
-        --music-family-groups-gap: 16px;
+        --music-family-groups-gap: 12px;
     }
 
     .music-family-group {
-        --music-family-group-padding: 18px 16px 16px;
+        --music-family-group-padding: 14px 14px 12px;
         --music-family-group-radius: 18px;
     }
 
     .music-family-group-title {
-        --music-family-group-title-font-size: 1.02rem;
+        --music-family-group-title-font-size: 1.2rem;
+        --music-family-group-title-margin-bottom: 10px;
     }
 
     .music-family-group-details li {
-        --music-family-group-detail-padding-block: 8px;
-        --music-family-group-detail-font-size: 1rem;
-        --music-family-group-detail-line-height: 1.4;
+        --music-family-group-detail-padding-block: 7px;
+        --music-family-group-detail-font-size: 1.08rem;
+        --music-family-group-detail-line-height: 1.36;
     }
 
     .music-family-group-details li b {
-        display: block;
-        margin-bottom: 0.12em;
+        display: inline;
+        margin-bottom: 0;
     }
 
     .music-family-contact {
@@ -973,13 +986,12 @@
 }
 
 .about-me-section-modern-inner {
-    --about-me-inner-direction: row;
-    --about-me-inner-gap: 14px;
-    --about-me-inner-width: min(99vw, 1460px);
-    --about-me-inner-max-width: 1460px;
-    --about-me-inner-padding: 0 4px;
-    display: flex;
-    flex-direction: var(--about-me-inner-direction);
+    --about-me-inner-gap: 24px;
+    --about-me-inner-width: min(98vw, 1680px);
+    --about-me-inner-max-width: 1680px;
+    --about-me-inner-padding: 0 18px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(520px, 1fr);
     align-items: center;
     justify-content: center;
     gap: var(--about-me-inner-gap);
@@ -992,14 +1004,16 @@
 }
 .about-me-text-modern,
 .about-me-image-modern {
-    width: auto;
-    min-width: 320px;
+    width: 100%;
+    min-width: 0;
 }
 .about-me-text-modern {
-    flex: 1 1 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     max-width: none;
-    --about-me-text-padding: 32px 22px 30px 1vw;
-    --about-me-text-margin-bottom: 0.2em;
+    --about-me-text-padding: 40px 42px 38px;
+    --about-me-text-margin-bottom: 0;
     --about-me-text-align: left;
     position: relative;
     padding: var(--about-me-text-padding);
@@ -1008,7 +1022,7 @@
     text-align: var(--about-me-text-align);
     background: var(--about-me-panel-bg);
     border: 1px solid var(--about-me-panel-border);
-    border-radius: 26px;
+    border-radius: var(--radius-card-large);
     box-shadow: var(--about-me-panel-shadow);
     overflow: hidden;
 }
@@ -1055,8 +1069,8 @@
     text-align: var(--about-me-subtitle-text-align);
 }
 .about-me-modern-bio {
-    max-width: 82ch;
-    margin-top: 0.7em;
+    max-width: 78ch;
+    margin-top: 0.4em;
 }
 
 .about-me-mobile-image {
@@ -1103,9 +1117,8 @@
 }
 .about-me-image-modern {
     --about-me-image-display: flex;
-    --about-me-image-padding: 4px;
-    flex: 0 0 43%;
-    max-width: 700px;
+    --about-me-image-padding: 0;
+    max-width: none;
     display: var(--about-me-image-display);
     align-items: center;
     justify-content: center;
@@ -1114,9 +1127,9 @@
     background: var(--about-me-panel-bg);
     padding: var(--about-me-image-padding);
     box-sizing: border-box;
-    height: auto;
+    min-height: 0;
     border: 1px solid var(--about-me-panel-border);
-    border-radius: 28px;
+    border-radius: var(--radius-card-large);
     box-shadow: var(--about-me-panel-shadow);
     overflow: hidden;
 }
@@ -1141,21 +1154,22 @@
     --about-me-image-object-position: center top;
     height: auto;
     max-width: 100%;
-    max-height: var(--about-me-image-max-height);
+    max-height: min(78vh, 840px);
     object-fit: contain;
     object-position: var(--about-me-image-object-position);
     margin: 0 auto;
     background: var(--about-me-panel-bg);
-    border-radius: 22px;
+    border-radius: calc(var(--radius-card-large) - 8px);
 }
 
 /* Shared responsive layout for the Astrid section */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .about-me-section-modern {
         --about-me-section-padding: 28px 0;
     }
 
     .about-me-section-modern-inner {
+        grid-template-columns: 1fr;
         --about-me-inner-width: 100%;
         --about-me-inner-max-width: 100%;
         --about-me-inner-padding: 0 16px;
@@ -1193,24 +1207,27 @@
     }
 
     .about-me-image-modern {
-        --about-me-image-padding: 0;
+        --about-me-image-padding: 8px;
         padding: var(--about-me-image-padding) !important;
         overflow: hidden;
         border-radius: 24px;
         background: var(--about-me-panel-bg);
-        flex: 0 0 43%;
-        max-width: 43%;
+        max-width: none;
+        min-height: 0;
+        margin: 0 auto;
     }
 
     .about-me-image-modern img {
         max-width: 100% !important;
         height: auto !important;
+        max-height: min(62vh, 720px) !important;
+        object-fit: contain;
     }
 }
 
 @media (max-width: 600px) {
     .about-me-section-modern-inner {
-        --about-me-inner-direction: column;
+        grid-template-columns: 1fr;
         --about-me-inner-padding: 0 12px;
         --about-me-inner-gap: 14px;
     }
@@ -1226,7 +1243,7 @@
         display: flex;
         flex-direction: column;
         background: var(--about-me-panel-bg);
-        --about-me-text-padding: 20px 18px 16px;
+        --about-me-text-padding: 22px 18px 18px;
         border-radius: 18px;
         box-shadow: none;
     }
@@ -1250,6 +1267,9 @@
     .about-me-image-modern img {
         --about-me-image-max-height: 52vh;
         border-radius: 18px;
+        height: auto !important;
+        max-height: var(--about-me-image-max-height);
+        object-fit: cover;
     }
 
     .about-me-bio-text {
@@ -1271,37 +1291,34 @@
 
 @media (min-width: 601px) and (max-width: 900px) {
     .about-me-section-modern-inner {
-        --about-me-inner-direction: row;
-        align-items: center;
+        grid-template-columns: 1fr;
+        align-items: start;
         --about-me-inner-gap: 12px;
     }
 
     .about-me-text-modern {
-        flex: 1 1 60%;
         width: auto;
         max-width: none;
         margin: 0;
-        --about-me-text-padding: 12px 0;
-        border-radius: 0;
-        background: transparent;
+        --about-me-text-padding: 26px 24px;
+        border-radius: 24px;
+        background: var(--about-me-panel-bg);
         box-shadow: none;
         --about-me-text-align: left;
     }
 
     .about-me-image-modern {
-        flex: 0 0 43%;
-        width: auto;
-        max-width: 43%;
-        margin: 0;
-        align-self: center;
-        box-shadow: var(--about-me-image-shadow);
+        width: 100%;
+        max-width: 760px;
+        margin: 0 auto;
+        align-self: start;
+        box-shadow: none;
     }
 
     .about-me-image-modern img {
         width: 100%;
         height: auto;
-        --about-me-image-max-height: none;
-        max-height: var(--about-me-image-max-height) !important;
+        max-height: min(62vh, 720px) !important;
         object-fit: contain;
         --about-me-image-object-position: center top;
         object-position: var(--about-me-image-object-position);
@@ -1396,6 +1413,7 @@
 }
 .charity-list-item::before {
     top: 0.82em;
+    --interaction-transform: translateY(-50%);
     transform: translateY(-50%);
 }
 .charity-card-main-text,
@@ -1706,6 +1724,7 @@
     }
     .musik-bruecken-copy-group {
         gap: 10px;
+        justify-items: center;
     }
     .musik-bruecken-text {
         --musik-bruecken-text-width: 100%;
@@ -1714,6 +1733,9 @@
         --musik-bruecken-text-padding: 0;
         --musik-bruecken-text-font-size: 1rem;
         --musik-bruecken-text-line-height: 1.62;
+        text-align: center !important;
+        overflow-wrap: break-word !important;
+        word-break: normal !important;
     }
 }
 
@@ -1958,6 +1980,7 @@
     position: absolute;
     left: 0;
     top: 0.74em;
+    --interaction-transform: translateY(-50%);
     transform: translateY(-50%);
     width: 10px;
     height: 10px;
@@ -2081,23 +2104,25 @@
 @media (max-width: 700px) {
     .musikalisches-repertoire-section {
         --repertoire-section-min-height: auto;
-        --repertoire-section-padding: 42px 0 46px;
+        --repertoire-section-padding: 34px 0 38px;
         align-items: flex-start;
         overflow-y: visible;
     }
 
     .musikalisches-repertoire-card {
-        --repertoire-card-padding: 24px 18px 22px;
+        --repertoire-card-padding: 16px 14px 14px;
         --repertoire-card-radius: 20px;
-        --repertoire-card-font-size: 0.98rem;
+        --repertoire-card-font-size: 1.08rem;
+        align-items: stretch;
+        border-color: transparent;
     }
 
     .musikalisches-repertoire-cards-wrapper {
-        padding: 0 12px;
+        padding: 0 8px;
     }
 
     .musikalisches-repertoire-title {
-        --repertoire-title-font-size: clamp(1.34rem, 5vw, 1.56rem);
+        --repertoire-title-font-size: clamp(1.58rem, 5.6vw, 1.86rem);
         --repertoire-title-margin-bottom: 8px;
         --repertoire-title-line-height: 1.12;
     }
@@ -2112,46 +2137,95 @@
     }
 
     .musikalisches-repertoire-list {
-        --repertoire-list-font-size: clamp(0.98rem, 3vw, 1.02rem);
+        --repertoire-list-font-size: clamp(1.08rem, 3.7vw, 1.14rem);
         --repertoire-list-max-width: 100%;
+        width: 100%;
+        gap: 8px;
     }
 
     .musikalisches-repertoire-list li {
-        padding-left: 24px;
-        line-height: 1.56;
+        width: 100%;
+        max-width: 100%;
+        padding-left: 20px;
+        line-height: 1.42;
     }
 
     .musikalisches-repertoire-intro {
-        margin-bottom: 18px;
+        margin-bottom: 12px;
+        font-size: 1.08rem;
+        line-height: 1.48;
     }
 
     .ensemble-chip-list {
-        gap: 7px;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 6px;
         width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        white-space: normal !important;
     }
 
     .ensemble-chip {
-        min-height: 30px;
-        padding: 5px 9px;
-        font-size: 0.88em;
+        display: inline-flex;
+        min-height: 0;
+        padding: 5px 8px;
+        font-size: 0.8em;
+        line-height: 1.18;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .ensemble-inline-list {
+        display: block !important;
+        width: 100%;
+        max-width: 100%;
     }
 
     .musikalisches-repertoire-card--engagement .charity-card-text {
-        padding: 14px 16px 16px;
+        padding: 8px 4px 10px;
     }
 
     .musikalisches-repertoire-card--engagement .charity-card-main-text {
-        font-size: clamp(1.08rem, 4.1vw, 1.18rem);
-        line-height: 1.72;
+        font-size: clamp(1.13rem, 4.4vw, 1.24rem);
+        line-height: 1.58;
         max-width: none;
     }
 
     .musikalisches-repertoire-card--engagement .charity-card-image {
-        padding: 0 16px 2px;
+        padding: 0 4px 2px;
     }
 
     .musikalisches-repertoire-card--engagement .charity-card-image img {
-        width: min(100%, 320px);
+        width: min(100%, 300px);
+        max-width: min(100%, 300px);
+    }
+
+    .musikalisches-repertoire-card--engagement {
+        row-gap: 14px;
+    }
+
+    .musikalisches-repertoire-card--engagement .musikalisches-repertoire-card-header {
+        margin-bottom: 0;
+    }
+
+    .musikalisches-repertoire-card--engagement > .musikalisches-repertoire-list {
+        margin-top: 0;
+    }
+
+    .musikalisches-repertoire-card--engagement .charity-list-item {
+        font-size: clamp(1.03rem, 3.5vw, 1.1rem) !important;
+        line-height: 1.5 !important;
+    }
+
+    .musikalisches-repertoire-card--engagement .charity-list-item--project {
+        gap: 10px;
+    }
+
+    .musikalisches-repertoire-card--engagement .charity-list-item--project .kinshasa-card-img {
+        width: min(100%, 250px);
+        max-width: min(100%, 250px);
+        justify-self: center;
     }
 }
 
@@ -2184,18 +2258,19 @@
     .musikalisches-repertoire-card--engagement .charity-card-image img {
         min-height: auto;
         height: auto;
-        width: min(100%, 380px);
+        width: min(100%, 300px);
+        max-width: min(100%, 300px);
         border-radius: 0;
     }
 
     .musikalisches-repertoire-card--engagement .charity-card-text {
-        padding: 18px 22px 18px;
+        padding: 12px 14px 14px;
     }
 
     .musikalisches-repertoire-card--engagement .charity-card-main-text {
         max-width: none;
-        font-size: clamp(1.06rem, 2.3vw, 1.14rem);
-        line-height: 1.7;
+        font-size: clamp(1.08rem, 2.5vw, 1.16rem);
+        line-height: 1.6;
     }
 
     .musikalisches-repertoire-card--engagement .charity-list-item--project {
@@ -2579,9 +2654,9 @@
 .timeline-section {
     --timeline-section-padding: 88px 0;
     --timeline-section-bg: var(--section-tone-b);
-    --timeline-title-color: #123e46;
-    --timeline-intro-color: #5e7276;
-    --timeline-copy-color: #3a4f53;
+    --timeline-title-color: #0f3640;
+    --timeline-intro-color: #425c61;
+    --timeline-copy-color: #263f45;
     --timeline-intro-max-width: 62ch;
     --timeline-orb-top-size: 420px;
     --timeline-orb-top-offset-block-start: -180px;
@@ -2608,7 +2683,7 @@
     --timeline-header-accent-bg: rgba(91, 135, 129, 0.75);
     --timeline-eyebrow-bg: rgba(91, 135, 129, 0.08);
     --timeline-eyebrow-border-color: rgba(91, 135, 129, 0.16);
-    --timeline-eyebrow-color: #4d6b68;
+    --timeline-eyebrow-color: #35545a;
     --timeline-eyebrow-padding: 8px 14px;
     --timeline-eyebrow-margin-bottom: 14px;
     --timeline-eyebrow-font-size: 0.88rem;
@@ -2647,29 +2722,29 @@
     --timeline-year-shadow: none;
     --timeline-year-bg: #f4f7f5;
     --timeline-year-border-color: rgba(91, 135, 129, 0.18);
-    --timeline-year-color: #355258;
+    --timeline-year-color: #244148;
     --timeline-dot-size: 13px;
     --timeline-dot-border-width: 3px;
     --timeline-dot-bg: #ffffff;
     --timeline-dot-border-color: rgba(91, 135, 129, 0.42);
     --timeline-dot-ring-shadow: none;
-    --timeline-link-color: #355258;
-    --timeline-link-color-hover: #22393d;
+    --timeline-link-color: #244148;
+    --timeline-link-color-hover: #162d34;
     --timeline-link-bg: transparent;
     --timeline-link-bg-hover: transparent;
     --timeline-link-padding: 0;
     --timeline-link-radius: 0;
     --timeline-link-transition: color 0.2s ease, text-decoration-color 0.2s ease;
-    --timeline-highlight-link-color: #355258;
-    --timeline-highlight-link-color-hover: #22393d;
+    --timeline-highlight-link-color: #244148;
+    --timeline-highlight-link-color-hover: #162d34;
     --timeline-highlight-link-font-size: 0.98em;
     --timeline-highlight-link-bg: transparent;
     --timeline-highlight-link-bg-hover: transparent;
     --timeline-highlight-link-radius: 0;
     --timeline-highlight-link-padding: 0;
     --timeline-highlight-link-margin: 0;
-    --timeline-highlight-link-decoration-color: rgba(53, 82, 88, 0.38);
-    --timeline-highlight-link-decoration-color-hover: rgba(34, 57, 61, 0.5);
+    --timeline-highlight-link-decoration-color: rgba(36, 65, 72, 0.42);
+    --timeline-highlight-link-decoration-color-hover: rgba(22, 45, 52, 0.56);
     --timeline-highlight-link-decoration-thickness: 0.08em;
     --timeline-highlight-link-underline-offset: 0.14em;
     --timeline-item-title-font-size: 1.12em;
@@ -3176,7 +3251,7 @@
     --event-card-overlay-bg: transparent;
     --event-card-topline: rgba(88, 119, 115, 0.74);
     --event-card-transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
-    --event-title-color: #123e46;
+    --event-title-color: #0f3640;
     --event-title-font-size: clamp(2rem, 3.4vw, 2.55rem);
     --event-title-margin-bottom: 0.8em;
     --event-title-letter-spacing: -0.02em;
@@ -3196,12 +3271,12 @@
     --event-date-margin-right: 0;
     --event-date-text-align: center;
     --event-content-padding: 32px 28px 28px;
-    --event-headline-color: #123e46;
+    --event-headline-color: #0f3640;
     --event-headline-font-size: clamp(1.22rem, 1.8vw, 1.52rem);
     --event-headline-margin-bottom: 0.5em;
     --event-headline-letter-spacing: -0.015em;
     --event-headline-line-height: 1.12;
-    --event-location-color: #4d6d73;
+    --event-location-color: #35545a;
     --event-location-font-size: clamp(1em, 2vw, 1.15em);
     --event-location-margin-bottom: 0.5em;
     --event-description-font-size: clamp(0.98em, 1.7vw, 1.13em);
@@ -3430,14 +3505,7 @@
 }
 
 .event-card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 118px;
-    right: 0;
-    height: 2px;
-    background: var(--event-card-topline);
-    pointer-events: none;
+    content: none;
 }
 
 .event-card:hover,
@@ -3524,7 +3592,7 @@
 }
 
 .event-description {
-    color: #21414a;
+    color: #18373f;
     font-size: var(--event-description-font-size);
     line-height: var(--event-description-line-height);
     text-align: justify;
@@ -3762,9 +3830,10 @@
 
     .event-list {
         flex-direction: column;
+        padding: 0 10px;
     }
     .event-card {
-        margin: 18px auto;
+        margin: 12px auto;
         transform: none;
     }
 }
@@ -3820,8 +3889,8 @@
         --event-lightbox-caption-radius: 16px;
         --event-lightbox-close-top: 6px;
         --event-lightbox-close-right: 4px;
-        --event-card-radius: 16px;
-        --event-card-max-width: 99vw;
+        --event-card-radius: 18px;
+        --event-card-max-width: 100%;
         --event-card-shadow: none;
         --event-badge-min-width: 0;
         --event-badge-padding: 16px 14px 12px 16px;
@@ -3832,7 +3901,7 @@
         --event-date-margin-bottom: 0;
         --event-date-margin-right: 18px;
         --event-date-text-align: left;
-        --event-content-padding: 20px 14px 18px;
+        --event-content-padding: 18px 14px 16px;
         --event-title-margin-bottom: 18px;
         --event-poster-image-radius: 20px;
         --event-poster-image-transform: none;
@@ -3843,14 +3912,11 @@
         --event-poster-hint-font-size: 0.8rem;
         --event-poster-download-padding: 10px 14px;
         --event-poster-download-font-size: 0.9rem;
-        padding: 32px 0 32px 0;
+        padding: 28px 0 28px 0;
     }
     .event-card {
         flex-direction: column;
-    }
-
-    .event-card::after {
-        left: 0;
+        border-color: transparent;
     }
 
     .event-badge {
@@ -4005,6 +4071,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    --interaction-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     background: var(--image-caption-link-overlay-bg);
     border-radius: 50%;
@@ -4074,7 +4141,8 @@
 
 .hero-gallery-ui {
     --hero-gallery-ui-bottom: clamp(18px, 2vw, 28px);
-    --hero-gallery-ui-translate-y: 14px;
+    --hero-gallery-ui-translate-y: 0px;
+    --interaction-transform: translateX(-50%);
     --hero-gallery-ui-width: min(92vw, 860px);
     --hero-gallery-ui-gap: 10px;
     --hero-gallery-ui-padding: 10px 12px 12px;
@@ -4084,7 +4152,7 @@
     --hero-gallery-ui-shadow: var(--glass-dark-shadow);
     --hero-gallery-ui-backdrop-blur: 16px;
     --hero-gallery-ui-backdrop-saturate: 128%;
-    --hero-gallery-ui-transition: opacity 0.24s ease, transform 0.24s ease, background 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+    --hero-gallery-ui-transition: none;
     --hero-gallery-ui-z-index: 20;
     --hero-gallery-meta-columns: auto 1fr;
     --hero-gallery-meta-gap: 12px;
@@ -4121,7 +4189,7 @@
     position: absolute;
     left: 50%;
     bottom: var(--hero-gallery-ui-bottom);
-    transform: translateX(-50%) translateY(var(--hero-gallery-ui-translate-y));
+    transform: translateX(-50%);
     width: var(--hero-gallery-ui-width);
     display: grid;
     gap: var(--hero-gallery-ui-gap);
@@ -4141,7 +4209,7 @@
 
 .hero-gallery-ui.hero-gallery-ui--active,
 .hero-bg:focus-within .hero-gallery-ui {
-    transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%);
 }
 
 .hero-gallery-meta {
@@ -4238,7 +4306,7 @@
     background: var(--hero-gallery-control-bg-hover);
     border-color: var(--hero-gallery-control-border-color-hover);
     color: var(--hero-gallery-control-color-hover);
-    transform: translateY(-1px);
+    transform: none;
     outline: none;
 }
 
@@ -4267,7 +4335,7 @@
     border: 0;
     background: var(--hero-gallery-dot-bg);
     box-shadow: none;
-    transition: transform 0.2s ease, background 0.2s ease, width 0.2s ease;
+    transition: none;
 }
 
 .hero-gallery-dot:focus-visible {
@@ -4286,6 +4354,7 @@
     --hero-fadein-left: clamp(18px, 4vw, 42px);
     --hero-fadein-bottom: clamp(116px, 12vw, 142px);
     --hero-fadein-max-width: min(70vw, 820px);
+    --interaction-transform: translateY(var(--hero-fadein-translate-y));
     --hero-fadein-padding: 16px 20px 17px;
     --hero-fadein-radius: 24px 24px 24px 8px;
     --hero-fadein-bg: var(--glass-dark-bg);
@@ -4297,8 +4366,8 @@
     --hero-fadein-border-color: var(--glass-dark-border);
     --hero-fadein-backdrop-blur: 16px;
     --hero-fadein-backdrop-saturate: 128%;
-    --hero-fadein-translate-y: 34px;
-    --hero-fadein-transition: opacity 0.52s cubic-bezier(.16,1,.3,1), transform 0.9s cubic-bezier(.16,1,.3,1);
+    --hero-fadein-translate-y: 0px;
+    --hero-fadein-transition: none;
     position: absolute;
     z-index: 6;
     left: var(--hero-fadein-left);
@@ -4321,18 +4390,10 @@
     -webkit-backdrop-filter: blur(var(--hero-fadein-backdrop-blur)) saturate(var(--hero-fadein-backdrop-saturate));
     text-wrap: pretty;
     transform: translateY(var(--hero-fadein-translate-y));
-    opacity: 0;
+    opacity: 1;
     transition: var(--hero-fadein-transition);
-    will-change: opacity, transform;
+    will-change: auto;
     text-shadow: 0 10px 28px rgba(0, 0, 0, 0.26);
-}
-
-@media (hover: hover) and (pointer: fine) {
-    .hero-bg:hover .hero-gallery-ui {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateX(-50%) translateY(0);
-    }
 }
 
 @media (max-width: 700px) {
@@ -4355,7 +4416,7 @@
     .hero-gallery-ui {
         --hero-gallery-ui-width: min(94vw, 430px);
         --hero-gallery-ui-bottom: 12px;
-        --hero-gallery-ui-translate-y: 12px;
+        --hero-gallery-ui-translate-y: 0px;
         --hero-gallery-ui-gap: 8px;
         --hero-gallery-ui-padding: 8px 10px 10px;
         --hero-gallery-ui-radius: 18px;
@@ -4401,7 +4462,7 @@
     .hero-gallery-ui {
         --hero-gallery-ui-width: min(96vw, 360px);
         --hero-gallery-ui-bottom: 10px;
-        --hero-gallery-ui-translate-y: 10px;
+        --hero-gallery-ui-translate-y: 0px;
         --hero-gallery-ui-padding: 7px 8px 9px;
         --hero-gallery-meta-columns: 1fr;
         --hero-gallery-meta-gap: 8px;
@@ -4543,6 +4604,19 @@ html, body {
     box-shadow: none;
     text-align: center;
     font-family: var(--font-ui-modern);
+    position: relative;
+    z-index: 2;
+}
+
+.site-footer::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 100svh;
+    background: var(--site-footer-surface);
+    pointer-events: none;
 }
 
 .site-footer__inner {
@@ -4810,6 +4884,7 @@ html, body {
     .nav-menu {
         flex: 1 1 auto;
         display: flex;
+        --interaction-transform: translateZ(0);
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
@@ -5641,6 +5716,7 @@ html[lang="it"] #langIt {
 html body *,
 html body *::before,
 html body *::after {
+    --interaction-transform: initial;
     box-shadow: none !important;
     text-shadow: none !important;
     transition: none !important;
@@ -5656,7 +5732,7 @@ html body *:focus-visible::before,
 html body *:focus-visible::after,
 html body *:active::before,
 html body *:active::after {
-    transform: none !important;
+    transform: var(--interaction-transform, none) !important;
 }
 
 
