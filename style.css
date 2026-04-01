@@ -3995,11 +3995,11 @@
 /* Refined Timeline Section Design */
 .timeline-section {
     --timeline-section-padding: 104px 0;
-    --timeline-section-bg: linear-gradient(180deg, #edf7f4 0%, #f9fcfb 46%, #eef8f4 100%);
-    --timeline-title-color: #0f3640;
-    --timeline-item-title-color: #0f3640;
-    --timeline-intro-color: #355057;
-    --timeline-copy-color: #263f45;
+    --timeline-section-bg: #edf3f0;
+    --timeline-title-color: #142f36;
+    --timeline-item-title-color: #17343b;
+    --timeline-intro-color: #28454d;
+    --timeline-copy-color: #1d373e;
     --timeline-intro-max-width: 62ch;
     --timeline-orb-top-size: 420px;
     --timeline-orb-top-offset-block-start: -180px;
@@ -4015,19 +4015,19 @@
     --timeline-container-border-color: transparent;
     --timeline-container-shadow: none;
     --timeline-container-blur: 0px;
-    --timeline-border-color: rgba(18, 62, 70, 0.10);
-    --timeline-accent: #83d5c5;
-    --timeline-section-orb-top-bg: radial-gradient(circle, rgba(131, 213, 197, 0.16) 0%, rgba(131, 213, 197, 0) 72%);
-    --timeline-section-orb-bottom-bg: radial-gradient(circle, rgba(98, 182, 190, 0.12) 0%, rgba(98, 182, 190, 0) 74%);
+    --timeline-border-color: rgba(20, 58, 64, 0.16);
+    --timeline-accent: #2c7b72;
+    --timeline-section-orb-top-bg: transparent;
+    --timeline-section-orb-bottom-bg: transparent;
     --timeline-header-max-width: 760px;
     --timeline-header-margin-bottom: 34px;
     --timeline-header-accent-width: 62px;
     --timeline-header-accent-height: 2px;
     --timeline-header-accent-margin-top: 22px;
-    --timeline-header-accent-bg: linear-gradient(90deg, rgba(131, 213, 197, 0.96), rgba(131, 213, 197, 0.22));
-    --timeline-eyebrow-bg: rgba(255, 255, 255, 0.88);
-    --timeline-eyebrow-border-color: rgba(30, 97, 89, 0.12);
-    --timeline-eyebrow-color: #234149;
+    --timeline-header-accent-bg: #2c7b72;
+    --timeline-eyebrow-bg: #ffffff;
+    --timeline-eyebrow-border-color: rgba(26, 85, 77, 0.18);
+    --timeline-eyebrow-color: #1a3a41;
     --timeline-eyebrow-padding: 8px 14px;
     --timeline-eyebrow-margin-bottom: 14px;
     --timeline-eyebrow-font-size: 0.88rem;
@@ -4039,16 +4039,16 @@
     --timeline-list-gap: 22px;
     --timeline-bar-left: 50px;
     --timeline-bar-width: 2px;
-    --timeline-bar-bg: linear-gradient(180deg, rgba(131, 213, 197, 0.18), rgba(131, 213, 197, 0.7), rgba(131, 213, 197, 0.16));
+    --timeline-bar-bg: rgba(44, 123, 114, 0.36);
     --timeline-item-gap: 26px;
     --timeline-item-padding: 24px 26px;
     --timeline-item-radius: 24px;
-    --timeline-item-shadow: 0 18px 44px rgba(4, 17, 21, 0.18);
-    --timeline-item-before-bg: linear-gradient(180deg, rgba(131, 213, 197, 0.86), rgba(91, 135, 129, 0.46));
+    --timeline-item-shadow: 0 14px 30px rgba(10, 29, 33, 0.09);
+    --timeline-item-before-bg: #2c7b72;
     --timeline-item-surface: #ffffff;
-    --timeline-item-surface-alt: #ffffff;
+    --timeline-item-surface-alt: #fdfefe;
     --timeline-item-overlay-bg: transparent;
-    --timeline-item-border-color-hover: rgba(24, 84, 92, 0.18);
+    --timeline-item-border-color-hover: rgba(20, 73, 81, 0.28);
     --timeline-item-hover-translate-y: 0px;
     --timeline-item-before-top: 18px;
     --timeline-item-before-bottom: 18px;
@@ -4064,31 +4064,31 @@
     --timeline-year-justify: center;
     --timeline-year-gap: 10px;
     --timeline-year-shadow: none;
-    --timeline-year-bg: #eef7f5;
-    --timeline-year-border-color: rgba(91, 135, 129, 0.22);
-    --timeline-year-color: #244148;
+    --timeline-year-bg: #e2eeea;
+    --timeline-year-border-color: rgba(44, 123, 114, 0.26);
+    --timeline-year-color: #19363c;
     --timeline-dot-size: 13px;
     --timeline-dot-border-width: 3px;
     --timeline-dot-bg: #ffffff;
-    --timeline-dot-border-color: rgba(91, 135, 129, 0.42);
+    --timeline-dot-border-color: rgba(44, 123, 114, 0.54);
     --timeline-dot-ring-shadow: none;
-    --timeline-link-color: #244148;
-    --timeline-link-color-hover: #162d34;
+    --timeline-link-color: #183841;
+    --timeline-link-color-hover: #10262d;
     --timeline-link-bg: transparent;
     --timeline-link-bg-hover: transparent;
     --timeline-link-padding: 0;
     --timeline-link-radius: 0;
     --timeline-link-transition: color 0.2s ease, text-decoration-color 0.2s ease;
-    --timeline-highlight-link-color: #244148;
-    --timeline-highlight-link-color-hover: #162d34;
+    --timeline-highlight-link-color: #183841;
+    --timeline-highlight-link-color-hover: #10262d;
     --timeline-highlight-link-font-size: 0.98em;
     --timeline-highlight-link-bg: transparent;
     --timeline-highlight-link-bg-hover: transparent;
     --timeline-highlight-link-radius: 0;
     --timeline-highlight-link-padding: 0;
     --timeline-highlight-link-margin: 0;
-    --timeline-highlight-link-decoration-color: rgba(36, 65, 72, 0.42);
-    --timeline-highlight-link-decoration-color-hover: rgba(22, 45, 52, 0.56);
+    --timeline-highlight-link-decoration-color: rgba(24, 56, 65, 0.58);
+    --timeline-highlight-link-decoration-color-hover: rgba(16, 38, 45, 0.72);
     --timeline-highlight-link-decoration-thickness: 0.08em;
     --timeline-highlight-link-underline-offset: 0.14em;
     --timeline-item-title-font-size: var(--type-card-title-font-size);
@@ -4098,10 +4098,10 @@
     --timeline-item-text-line-height: var(--type-body-line-height);
     --timeline-item-text-max-width: 64ch;
     --timeline-content-gap: 8px;
-    --timeline-summary-card-bg: rgba(255, 255, 255, 0.88);
-    --timeline-summary-card-border-color: rgba(24, 84, 92, 0.1);
-    --timeline-summary-value-color: #123740;
-    --timeline-summary-copy-color: #45616a;
+    --timeline-summary-card-bg: #ffffff;
+    --timeline-summary-card-border-color: rgba(20, 73, 81, 0.14);
+    --timeline-summary-value-color: #122f37;
+    --timeline-summary-copy-color: #34525a;
     background: var(--timeline-section-bg) !important;
     padding: var(--timeline-section-padding) !important;
     width: 100% !important;
@@ -4202,7 +4202,7 @@
 
 .timeline-title {
     color: var(--timeline-title-color) !important;
-    font-weight: 620 !important;
+    font-weight: 640 !important;
     font-size: var(--timeline-title-font-size) !important;
     line-height: var(--type-title-line-height) !important;
     letter-spacing: var(--type-title-letter-spacing) !important;
@@ -4214,6 +4214,7 @@
 
 .timeline-item-title {
     color: var(--timeline-item-title-color) !important;
+    font-weight: 640 !important;
 }
 
 .timeline-intro {
@@ -4222,7 +4223,7 @@
     color: var(--timeline-intro-color);
     font-size: var(--timeline-intro-font-size);
     line-height: var(--timeline-intro-line-height);
-    font-weight: 470;
+    font-weight: 520;
     letter-spacing: var(--type-lead-letter-spacing);
     text-align: left;
     text-wrap: pretty;
@@ -4263,6 +4264,7 @@
     font-size: var(--type-body-font-size);
     line-height: var(--type-body-line-height);
     letter-spacing: var(--type-body-letter-spacing);
+    font-weight: 500;
 }
 
 .timeline-list {
@@ -4387,7 +4389,7 @@
 
 .timeline-item-title {
     font-size: var(--timeline-item-title-font-size) !important;
-    font-weight: 620 !important;
+    font-weight: 640 !important;
     line-height: var(--type-card-title-line-height) !important;
     margin: var(--timeline-item-title-margin) !important;
     max-width: var(--timeline-item-title-max-width);
@@ -4449,6 +4451,7 @@
     margin-top: 0.2em !important;
     max-width: var(--timeline-item-text-max-width);
     letter-spacing: var(--type-body-letter-spacing);
+    font-weight: 500;
     text-align: left;
     word-break: normal;
     overflow-wrap: break-word;
