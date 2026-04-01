@@ -931,6 +931,145 @@ function initSiteLanguage() {
     applySiteLanguage(getCurrentSiteLanguage());
 }
 
+function initReviewArchiveToggle() {
+    const archive = document.getElementById('reviewArchive');
+    const toggle = document.querySelector('.review-archive-toggle');
+
+    if (!archive || !toggle) {
+        return;
+    }
+
+    const collapsedLabels = toggle.querySelectorAll('[data-state="collapsed"]');
+    const expandedLabels = toggle.querySelectorAll('[data-state="expanded"]');
+
+    function setArchiveExpanded(isExpanded) {
+        archive.hidden = !isExpanded;
+        archive.classList.toggle('review-archive--open', isExpanded);
+        toggle.setAttribute('aria-expanded', String(isExpanded));
+
+        collapsedLabels.forEach(function(label) {
+            label.hidden = isExpanded;
+        });
+
+        expandedLabels.forEach(function(label) {
+            label.hidden = !isExpanded;
+        });
+    }
+
+    function expandArchiveForHash() {
+        const hash = window.location.hash ? window.location.hash.slice(1) : '';
+        if (!hash) {
+            return;
+        }
+
+        const target = document.getElementById(hash);
+        if (target && archive.contains(target)) {
+            setArchiveExpanded(true);
+        }
+    }
+
+    toggle.addEventListener('click', function() {
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        setArchiveExpanded(!isExpanded);
+    });
+
+    setArchiveExpanded(false);
+    expandArchiveForHash();
+    window.addEventListener('hashchange', expandArchiveForHash);
+}
+
+function initReviewCardToggles() {
+    const archiveCards = document.querySelectorAll('.review-archive .charity-projects-section[id^="review-"]');
+
+    if (!archiveCards.length) {
+        return;
+    }
+
+    function setCardExpanded(section, isExpanded) {
+        const toggle = section.querySelector('.review-card-toggle');
+        if (!toggle) {
+            return;
+        }
+
+        section.classList.toggle('review-card--expanded', isExpanded);
+        toggle.setAttribute('aria-expanded', String(isExpanded));
+
+        toggle.querySelectorAll('[data-state="collapsed"]').forEach(function(label) {
+            label.hidden = isExpanded;
+        });
+
+        toggle.querySelectorAll('[data-state="expanded"]').forEach(function(label) {
+            label.hidden = !isExpanded;
+        });
+    }
+
+    function createToggle(section) {
+        const textColumn = section.querySelector('.charity-flex-left');
+        const descriptions = Array.from(section.querySelectorAll('.charity-description'));
+        const lastDescription = descriptions[descriptions.length - 1];
+
+        if (!textColumn || !lastDescription) {
+            return;
+        }
+
+        const hasLongContent = descriptions.some(function(description) {
+            return description.textContent.trim().length > 280;
+        });
+
+        if (!hasLongContent || section.querySelector('.review-card-toggle')) {
+            return;
+        }
+
+        const toggleWrap = document.createElement('div');
+        toggleWrap.className = 'review-card-toggle-wrap';
+
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'review-card-toggle contact-info-secondary-link';
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-controls', section.id);
+        toggle.innerHTML = [
+            '<span class="review-card-toggle__label" data-state="collapsed">',
+            '<span data-lang="de">Mehr lesen</span>',
+            '<span data-lang="en" style="display:none;">Read more</span>',
+            '<span data-lang="it" style="display:none;">Leggi di piu</span>',
+            '</span>',
+            '<span class="review-card-toggle__label" data-state="expanded" hidden>',
+            '<span data-lang="de">Weniger anzeigen</span>',
+            '<span data-lang="en" style="display:none;">Show less</span>',
+            '<span data-lang="it" style="display:none;">Mostra meno</span>',
+            '</span>'
+        ].join('');
+
+        toggle.addEventListener('click', function() {
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+            setCardExpanded(section, !isExpanded);
+        });
+
+        toggleWrap.appendChild(toggle);
+        lastDescription.insertAdjacentElement('afterend', toggleWrap);
+        setCardExpanded(section, false);
+    }
+
+    function expandCardForHash() {
+        const hash = window.location.hash ? window.location.hash.slice(1) : '';
+        if (!hash) {
+            return;
+        }
+
+        const target = document.getElementById(hash);
+        const section = target && target.closest('.review-archive .charity-projects-section[id^="review-"]');
+
+        if (section) {
+            setCardExpanded(section, true);
+        }
+    }
+
+    archiveCards.forEach(createToggle);
+    expandCardForHash();
+    window.addEventListener('hashchange', expandCardForHash);
+}
+
 function initSiteFeatures() {
     initEventLightbox();
     initHeroLayout();
@@ -945,6 +1084,8 @@ function initSiteFeatures() {
     initShapeParallax();
     initFieldValidation();
     updateYearsPassed();
+    initReviewArchiveToggle();
+    initReviewCardToggles();
     initSiteLanguage();
 }
 
