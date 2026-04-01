@@ -32,6 +32,7 @@ body {
     width: min(760px, 100%);
     background: var(--share-card-bg);
     border: 1px solid var(--share-border);
+    border-top-color: transparent;
     border-radius: 24px;
     box-shadow: var(--share-shadow);
     overflow: hidden;
@@ -68,22 +69,26 @@ body {
 .share-card__eyebrow {
     margin: 0;
     color: var(--share-muted);
-    font-size: 0.92rem;
-    letter-spacing: 0.04em;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
 }
 
 .share-card__title {
     margin: 0 0 10px;
-    font-size: clamp(1.8rem, 4vw, 2.7rem);
-    line-height: 1.08;
+    font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.32rem);
+    font-weight: 560;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
 }
 
 .share-card__meta {
     margin: 0 0 12px;
     color: var(--share-accent);
-    font-weight: 700;
-    font-size: 0.98rem;
+    font-weight: 560;
+    font-size: 0.96rem;
 }
 
 .share-card__text {
