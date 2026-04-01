@@ -4927,13 +4927,7 @@
 }
 
 .event-badge::after {
-    content: "";
-    position: absolute;
-    top: var(--event-badge-divider-top);
-    left: var(--event-badge-divider-inline);
-    right: var(--event-badge-divider-inline);
-    height: 1px;
-    background: var(--event-badge-divider-bg);
+    content: none;
 }
 
 #event-galakonzert-giebelstadt-2026 .event-badge {
@@ -9360,7 +9354,7 @@ html[lang="it"] #langIt {
 
 .event-title,
 .event-headline {
-    font-weight: 580 !important;
+    font-weight: 560 !important;
 }
 
 .contact-info-intro,
@@ -9927,17 +9921,20 @@ html body .event-time {
 
 html body .event-content {
     display: grid !important;
-    grid-template-columns: minmax(0, 1fr) minmax(250px, 320px);
+    grid-template-columns: minmax(0, 1.04fr) minmax(240px, 292px);
     column-gap: 32px;
     row-gap: 8px;
-    align-items: start;
-    padding: 30px 30px 26px !important;
+    align-items: center;
+    padding: 28px 28px 24px !important;
 }
 
 html body .event-copy {
-    display: grid;
-    align-content: start;
-    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    height: auto;
+    gap: 12px;
     min-width: 0;
 }
 
@@ -9955,26 +9952,29 @@ html body .event-location {
 
 html body .event-description {
     max-width: 62ch;
-    margin-bottom: 0;
+    margin-bottom: 2px;
     color: #1b3941;
     line-height: 1.66;
 }
 
 html body .event-program {
     max-width: 62ch;
-    margin-bottom: 12px;
+    margin-bottom: 2px;
 }
 
 html body .event-note {
     max-width: 62ch;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
 }
 
 html body .event-poster-stage {
     grid-column: 2;
     grid-row: 1;
-    width: 100%;
+    width: min(100%, 292px);
     margin: 0 !important;
-    align-self: start;
+    align-self: center;
 }
 
 html body .event-poster-image {
@@ -9987,6 +9987,7 @@ html body .event-poster-hint,
 html body .event-poster-actions,
 html body .event-social-actions {
     justify-content: flex-start;
+    margin-top: 8px;
 }
 
 html body .event-poster-hint-text {
@@ -9995,20 +9996,22 @@ html body .event-poster-hint-text {
 
 html body .event-poster-download {
     width: 100%;
+    min-height: 40px;
+    padding: 9px 14px;
 }
 
 html body .event-social-actions {
-    gap: 12px;
+    gap: 10px;
 }
 
 html body .event-social-button {
-    width: 54px;
-    height: 54px;
-    min-width: 54px;
-    min-height: 54px;
-    max-width: 54px;
-    max-height: 54px;
-    flex-basis: 54px;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    flex-basis: 50px;
 }
 
 html body .event-poster-download,
@@ -10120,7 +10123,8 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
     }
 
     html body .event-copy {
-        gap: 9px;
+        justify-content: flex-start;
+        align-self: start;
     }
 
     html body .event-poster-stage {
@@ -10138,7 +10142,14 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
     }
 
     html body .event-description {
+        margin-bottom: 12px;
         max-width: 100%;
+    }
+
+    html body .event-note {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: 0;
     }
 
     html body .event-program,
