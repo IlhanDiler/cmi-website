@@ -2356,8 +2356,14 @@
 }
 
 .musikalisches-repertoire-card--repertoire .musikalisches-repertoire-intro {
-    max-width: 62ch;
+    max-width: none;
+    width: 100%;
     color: var(--repertoire-copy-color);
+}
+
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-intro {
+    max-width: none;
+    width: 100%;
 }
 
 .musikalisches-repertoire-card--repertoire .repertoire-story-grid {
@@ -3357,11 +3363,11 @@
 }
 
 .review-overview-shell {
-    width: min(100%, 1200px);
+    width: min(100%, 1280px);
     margin: 0 auto;
     padding: 0 clamp(20px, 4vw, 42px);
     display: grid;
-    grid-template-columns: minmax(0, 1.14fr) minmax(360px, 0.86fr);
+    grid-template-columns: minmax(0, 1.28fr) minmax(320px, 0.72fr);
     gap: 34px;
     align-items: center;
     position: relative;
@@ -3407,7 +3413,7 @@
 }
 
 .review-overview-intro {
-    max-width: 52ch;
+    max-width: 58ch;
     margin: 0;
     color: rgba(240, 247, 246, 0.92);
     font-size: var(--type-lead-font-size);
@@ -4242,7 +4248,7 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 14px;
-    width: min(100%, 860px);
+    width: 100%;
     margin-top: 24px;
 }
 
@@ -4905,50 +4911,12 @@
     letter-spacing: var(--type-lead-letter-spacing);
     text-align: center;
     font-weight: 560;
-}
-
-.event-section-highlights {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
-    margin-top: 22px;
-}
-
-.event-section-highlight {
-    position: relative;
-    padding: 18px 18px 16px;
-    background: #ffffff;
-    border: 1px solid rgba(18, 62, 70, 0.12);
-    border-radius: 20px;
-    text-align: left;
-}
-
-.event-section-highlight::before {
-    content: "";
-    display: block;
-    width: 42px;
-    height: 3px;
-    margin-bottom: 12px;
-    border-radius: 999px;
-    background: var(--color-secondary);
-}
-
-.event-section-highlight-title {
-    color: #163f46;
-    font-family: var(--font-display);
-    font-size: var(--type-card-title-font-size);
-    font-weight: 620;
-    line-height: var(--type-card-title-line-height);
-    letter-spacing: var(--type-card-title-letter-spacing);
-}
-
-.event-section-highlight-copy {
-    margin: 8px 0 0;
-    color: #34565d;
-    font-size: var(--type-body-font-size);
-    line-height: var(--type-body-line-height);
-    letter-spacing: var(--type-body-letter-spacing);
-    font-weight: 560;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    word-break: normal;
+    overflow-wrap: normal;
+    text-wrap: pretty;
 }
 .event-list {
     display: flex;
@@ -5346,10 +5314,6 @@
     .event-section-intro {
         margin-bottom: 26px;
         padding: 24px 20px;
-    }
-
-    .event-section-highlights {
-        grid-template-columns: 1fr;
     }
 
     .event-section {
@@ -9902,7 +9866,6 @@ html body .hero-story-visual,
 html body .hero-gallery-ui,
 html body .hero-story-button,
 html body .event-section-intro,
-html body .event-section-highlight,
 html body .event-card,
 html body .event-poster-download,
 html body .review-overview-copy,
@@ -10035,17 +9998,6 @@ html body .event-section-intro::before {
 
 html body .event-section-copy {
     max-width: 58ch !important;
-}
-
-html body .event-section-highlights {
-    gap: 16px !important;
-    margin-top: 24px !important;
-}
-
-html body .event-section-highlight {
-    background: #ffffff !important;
-    border-color: rgba(18, 62, 70, 0.12) !important;
-    box-shadow: none !important;
 }
 
 html body .event-card {
@@ -10497,11 +10449,6 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
         max-width: 50px;
         max-height: 50px;
         flex-basis: 50px;
-    }
-
-    html body .event-section-highlight {
-        background: #ffffff !important;
-        box-shadow: none !important;
     }
 
     html body .review-overview-section {
