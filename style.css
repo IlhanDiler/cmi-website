@@ -6525,11 +6525,11 @@
     .hero-bg {
         --hero-bg-height: min(62vh, calc(100vw * 0.68));
         min-height: 620px;
-        background: #1b4144;
+        background: #000000;
     }
 
     .hero-bg::after {
-        background: rgba(7, 15, 20, 0.58);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.28) 18%, rgba(0, 0, 0, 0.28) 82%, rgba(0, 0, 0, 0.92) 100%);
     }
 
     .hero-story-shell {
@@ -6588,10 +6588,10 @@
         --hero-fade-image-focus-position: center center;
         --hero-fade-blur-size: cover;
         --hero-fade-blur-position: center center;
-        --hero-fade-blur-opacity: 1;
-        --hero-fade-blur-filter: blur(84px) saturate(104%) brightness(0.9);
-        --hero-fade-blur-scale: 1.46;
-        background-color: #0f1720;
+        --hero-fade-blur-opacity: 0;
+        --hero-fade-blur-filter: blur(0px) saturate(100%) brightness(1);
+        --hero-fade-blur-scale: 1;
+        background-color: #000000;
     }
 
     .hero-gallery-ui {
@@ -6627,7 +6627,7 @@
         --hero-fadein-line-height: 1.24;
         --hero-fadein-letter-spacing: -0.01em;
         --hero-fadein-radius: 16px;
-        --hero-fadein-bg: rgba(13, 20, 30, 0.42);
+        --hero-fadein-bg: #000000;
         --hero-fadein-translate-y: 0px;
         display: -webkit-box !important;
         line-clamp: 2;
@@ -6669,7 +6669,7 @@
 
 .hero-bg-fade-container {
     --hero-fade-layer-inset: 0;
-    --hero-fade-layer-bg: #0f1720;
+    --hero-fade-layer-bg: #000000;
     --hero-fade-layer-z-index: 10;
     position: absolute;
     inset: var(--hero-fade-layer-inset);
@@ -6741,10 +6741,10 @@
         --hero-fade-image-focus-position: center center;
         --hero-fade-blur-size: cover;
         --hero-fade-blur-position: center center;
-        --hero-fade-blur-opacity: 1;
-        --hero-fade-blur-filter: blur(84px) saturate(108%) brightness(0.92);
-        --hero-fade-blur-scale: 1.46;
-        background-color: #0f1720;
+        --hero-fade-blur-opacity: 0;
+        --hero-fade-blur-filter: blur(0px) saturate(100%) brightness(1);
+        --hero-fade-blur-scale: 1;
+        background-color: #000000;
     }
 }
 
@@ -10267,6 +10267,8 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
     html body .hero-gallery-ui {
         width: min(90vw, 336px);
         padding: 7px 9px 8px;
+        background: #000000 !important;
+        border-color: rgba(255, 255, 255, 0.14) !important;
         box-shadow: none !important;
     }
 
