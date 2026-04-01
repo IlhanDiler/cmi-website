@@ -1390,13 +1390,13 @@
 }
 /* Modern responsive layout for About Me section */
 .about-me-section-modern {
-    --about-me-accent: #587773;
-    --about-me-panel-bg: var(--surface-panel-bg-strong);
+    --about-me-accent: var(--color-secondary);
+    --about-me-panel-bg: #ffffff;
     --about-me-image-shadow: none;
-    --about-me-section-bg: var(--section-tone-a);
+    --about-me-section-bg: var(--section-tone-b);
     --about-me-section-padding: 6px 0 64px 0;
-    --about-me-panel-border: var(--surface-panel-border);
-    --about-me-panel-shadow: var(--shadow-panel);
+    --about-me-panel-border: rgba(18, 62, 70, 0.14);
+    --about-me-panel-shadow: none;
     position: relative;
     overflow: hidden;
     isolation: isolate;
@@ -1467,7 +1467,7 @@
     background: var(--about-me-panel-bg);
     border: 1px solid var(--about-me-panel-border);
     border-radius: var(--radius-card-large);
-    border-top-color: transparent;
+    border-top: 4px solid var(--color-secondary);
     box-shadow: var(--about-me-panel-shadow);
     overflow: hidden;
 }
@@ -1477,12 +1477,12 @@
 .about-me-modern-title {
     --about-me-title-font-size: clamp(2.2rem, 4vw, 3rem);
     --about-me-title-line-height: 1.08;
-    --about-me-title-color: #11323a;
+    --about-me-title-color: var(--color-primary);
     margin: 0 0 0.24em;
     color: var(--about-me-title-color);
     font-family: var(--font-ui-modern);
     font-size: var(--about-me-title-font-size);
-    font-weight: 560;
+    font-weight: 680;
     line-height: var(--about-me-title-line-height);
     letter-spacing: -0.028em;
     text-wrap: balance;
@@ -1500,7 +1500,7 @@
     border: 0;
     font-family: var(--font-ui);
     font-size: 0.82rem;
-    font-weight: 520;
+    font-weight: 760;
     color: var(--about-me-accent);
     margin-bottom: var(--about-me-subtitle-margin-bottom);
     letter-spacing: 0.14em;
@@ -1537,13 +1537,13 @@
 .about-me-bio-text {
     --about-me-bio-font-size: clamp(1.04rem, 1.42vw, 1.18rem);
     --about-me-bio-line-height: 1.86;
-    --about-me-bio-color: #173941;
+    --about-me-bio-color: #1f3e45;
     --about-me-bio-margin-bottom: 0.8em;
     font-family: var(--font-ui);
     font-size: var(--about-me-bio-font-size);
     line-height: var(--about-me-bio-line-height);
     color: var(--about-me-bio-color);
-    font-weight: 450;
+    font-weight: 520;
     letter-spacing: -0.01em;
     margin-bottom: var(--about-me-bio-margin-bottom);
     text-align: justify !important;
@@ -1570,7 +1570,7 @@
     box-sizing: border-box;
     min-height: 0;
     border: 1px solid var(--about-me-panel-border);
-    border-top-color: transparent;
+    border-top: 4px solid var(--color-primary);
     border-radius: var(--radius-card-large);
     box-shadow: var(--about-me-panel-shadow);
     overflow: hidden;
@@ -1657,6 +1657,7 @@
         max-width: none;
         min-height: 0;
         margin: 0 auto;
+        box-shadow: none;
     }
 
     .about-me-image-modern img {
@@ -1687,7 +1688,7 @@
         background: var(--about-me-panel-bg);
         --about-me-text-padding: 22px 18px 18px;
         border-radius: 18px;
-        box-shadow: var(--shadow-soft);
+        box-shadow: none;
     }
 
     .about-me-text-modern::before {
@@ -1745,7 +1746,7 @@
         --about-me-text-padding: 26px 24px;
         border-radius: 24px;
         background: var(--about-me-panel-bg);
-        box-shadow: var(--shadow-soft);
+        box-shadow: none;
         --about-me-text-align: left;
     }
 
@@ -1754,7 +1755,7 @@
         max-width: 760px;
         margin: 0 auto;
         align-self: start;
-        box-shadow: var(--shadow-soft);
+        box-shadow: none;
     }
 
     .about-me-image-modern img {
