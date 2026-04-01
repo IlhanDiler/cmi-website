@@ -3100,6 +3100,8 @@
     max-width: none;
     min-width: 0;
     display: flex;
+    padding-right: clamp(8px, 1vw, 16px);
+    box-sizing: border-box;
 }
 .charity-flex-right,
 .charity-flex-row > .gruppenbild-container {
@@ -3385,11 +3387,12 @@
     width: min(100%, 456px);
     max-width: 100%;
     display: block;
+    height: auto;
     border-radius: 22px;
     border: 1px solid rgba(226, 242, 239, 0.28);
     box-shadow: 0 18px 34px rgba(8, 27, 32, 0.12);
-    max-height: 620px;
-    object-fit: cover;
+    max-height: none;
+    object-fit: contain;
     object-position: center top;
 }
 
@@ -3517,6 +3520,7 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 7;
+    line-clamp: 7;
     overflow: hidden;
 }
 
@@ -3580,6 +3584,7 @@
 
 .review-featured .charity-flex-left {
     justify-content: flex-start;
+    padding-right: clamp(12px, 1.4vw, 22px);
 }
 
 .review-featured .charity-title {
@@ -3607,7 +3612,7 @@
 }
 
 .review-featured .charity-flex-row > .gruppenbild-container {
-    align-self: stretch;
+    align-self: flex-start;
     padding: 12px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 249, 248, 0.96));
     border-color: rgba(18, 62, 70, 0.08);
@@ -3615,12 +3620,13 @@
 
 .review-featured .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
 .review-featured .charity-flex-right img:not(.gruppenbild-img-nikolaus) {
-    min-height: 320px;
-    height: 100% !important;
-    object-fit: cover;
-    object-position: center center;
+    min-height: 0;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain;
+    object-position: center top;
     border-radius: 24px !important;
-    background: #f7fbfa !important;
+    background: transparent !important;
 }
 
 .review-featured#review-masterclass-florian-meierott .masterclass-flex__image {
@@ -6796,6 +6802,9 @@ html, body {
     }
 
     .site-footer__links {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
         gap: 8px;
     }
 
@@ -6810,6 +6819,8 @@ html, body {
         width: 100%;
         max-width: 320px;
         font-size: 0.94rem;
+        justify-content: center;
+        text-align: center;
     }
 
     .site-footer__meta-line {
@@ -8774,10 +8785,12 @@ html[lang="it"] #langIt {
     .charity-projects-section[id^="review-"] .charity-flex-left,
     .charity-projects-section[id^="review-"] .charity-flex-right {
         padding: 0 !important;
+        padding-right: clamp(8px, 2vw, 16px) !important;
     }
 
     .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
         padding: var(--review-media-frame-padding) !important;
+        padding-right: clamp(12px, 2.2vw, 18px) !important;
     }
 
     .charity-projects-section[id^="review-"] .charity-flex-right,
@@ -8998,6 +9011,7 @@ html[lang="it"] #langIt {
 
     .review-archive .charity-projects-section[id^="review-"]:not(.review-card--expanded) .charity-description {
         -webkit-line-clamp: 6;
+        line-clamp: 6;
     }
 
     .review-card-toggle-wrap {
@@ -9018,13 +9032,15 @@ html[lang="it"] #langIt {
 
     .review-overview-image {
         width: 100%;
-        max-height: 520px;
+        height: auto;
+        max-height: none;
         border-radius: 22px;
     }
 
     .review-overview-image {
         width: 100%;
-        max-height: 500px;
+        height: auto;
+        max-height: none;
     }
 
     .masterclass-flex {
@@ -9040,7 +9056,7 @@ html[lang="it"] #langIt {
 
     .charity-projects-section[id^="review-"] {
         --review-section-padding: 18px 0 10px;
-        --review-container-width: calc(100vw - 24px);
+        --review-container-width: auto;
         --review-container-padding: 18px 16px 14px;
         --review-container-radius: 18px;
         --review-container-margin-bottom: 8px;
@@ -9984,18 +10000,21 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
     html body .event-content {
         grid-template-columns: 1fr;
         row-gap: 0;
-        padding: 22px 18px 18px !important;
+        padding: 20px 17px 17px !important;
     }
 
     html body .event-copy {
-        gap: 10px;
+        gap: 9px;
     }
 
     html body .event-poster-stage {
         grid-column: 1;
         grid-row: auto;
-        width: min(100%, 380px);
-        margin-top: 18px !important;
+        display: grid;
+        justify-self: center;
+        justify-items: center;
+        width: min(100%, 360px);
+        margin: 16px auto 0 !important;
     }
 
     html body .event-headline {
@@ -10062,67 +10081,112 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
     }
 
     html body .event-badge {
-        gap: 10px;
-        padding: 14px 14px 12px !important;
+        min-width: 0;
+        gap: 12px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 14px 11px !important;
+        border-radius: 20px 20px 0 0;
     }
 
     html body .event-badge::after {
-        top: 50%;
-        left: auto;
-        right: 14px;
-        width: 1px;
-        height: 26px;
-        transform: translateY(-50%);
+        content: none;
     }
 
     html body .event-card {
+        border-radius: 20px !important;
         box-shadow: 0 18px 38px rgba(24, 55, 63, 0.1) !important;
         border-color: rgba(13, 92, 99, 0.1) !important;
     }
 
     html body .event-content {
-        padding: 18px 14px 16px !important;
+        padding: 16px 13px 14px !important;
+    }
+
+    html body .event-copy {
+        gap: 8px;
+    }
+
+    html body .event-date,
+    html body .event-time {
+        margin-right: 0 !important;
+        font-size: 0.96rem;
+        line-height: 1.2;
     }
 
     html body .event-headline {
         max-width: 100%;
-        font-size: clamp(1.12rem, 5vw, 1.34rem);
-        line-height: 1.14;
+        font-size: clamp(1.1rem, 4.9vw, 1.28rem);
+        line-height: 1.12;
     }
 
     html body .event-location {
-        margin-bottom: 10px;
-        font-size: 0.82rem;
+        margin-bottom: 8px;
+        font-size: 0.79rem;
         letter-spacing: 0.07em;
     }
 
     html body .event-description {
-        font-size: 0.96rem;
-        line-height: 1.58;
-    }
-
-    html body .event-program li {
-        padding-left: 16px;
-        font-size: 0.93rem;
-        line-height: 1.46;
-    }
-
-    html body .event-program li + li {
-        margin-top: 7px;
-    }
-
-    html body .event-note {
-        font-size: 0.92rem;
+        font-size: 0.94rem;
         line-height: 1.52;
     }
 
+    html body .event-program {
+        margin-bottom: 10px;
+    }
+
+    html body .event-program li {
+        padding-left: 15px;
+        font-size: 0.91rem;
+        line-height: 1.42;
+    }
+
+    html body .event-program li + li {
+        margin-top: 6px;
+    }
+
+    html body .event-note {
+        padding-top: 10px;
+        border-top: 1px solid rgba(13, 92, 99, 0.1);
+        font-size: 0.9rem;
+        line-height: 1.48;
+    }
+
     html body .event-poster-stage {
-        width: min(100%, 330px);
-        margin-top: 16px !important;
+        display: grid;
+        justify-self: center;
+        justify-items: center;
+        text-align: center;
+        width: min(100%, 300px);
+        margin: 14px auto 0 !important;
+    }
+
+    html body .event-poster-image {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    html body .event-poster-hint {
+        margin-top: 8px;
+    }
+
+    html body .event-poster-hint-text {
+        font-size: 0.76rem;
+        line-height: 1.32;
+    }
+
+    html body .event-poster-actions,
+    html body .event-social-actions {
+        margin-top: 10px;
     }
 
     html body .event-poster-download {
         max-width: 100%;
+        min-height: 44px;
+        padding: 10px 13px;
+        font-size: 0.88rem;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     html body .event-social-button {
@@ -10179,7 +10243,8 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
     }
 
     html body .review-overview-image {
-        max-height: 320px !important;
+        height: auto !important;
+        max-height: none !important;
         border-radius: 18px !important;
     }
 
@@ -10188,14 +10253,29 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
     }
 
     html body .charity-projects-section[id^="review-"] .charity-projects-container {
-        width: calc(100vw - 20px) !important;
-        padding: 18px 14px 14px !important;
+        width: auto !important;
+        max-width: none !important;
+        margin: 0 14px 8px !important;
+        padding: 18px 16px 14px !important;
         border-radius: 18px !important;
         box-shadow: none !important;
+        box-sizing: border-box !important;
     }
 
     html body .charity-projects-section[id^="review-"] .charity-flex-row {
         gap: 12px !important;
+    }
+
+    html body .charity-projects-section[id^="review-"] .charity-flex-left {
+        padding-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    html body .charity-projects-section[id^="review-"] .charity-title,
+    html body .charity-projects-section[id^="review-"] .charity-meta,
+    html body .charity-projects-section[id^="review-"] .charity-description {
+        padding-right: 0 !important;
+        box-sizing: border-box !important;
     }
 
     html body .charity-projects-section[id^="review-"] .charity-meta {
