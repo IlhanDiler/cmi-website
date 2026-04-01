@@ -800,11 +800,11 @@
 .music-family-section {
     --music-family-heading: #123e46;
     --music-family-accent: #0e8c82;
-    --music-family-copy: #173941;
-    --music-family-copy-soft: #244e57;
-    --music-family-card-border: rgba(17, 52, 58, 0.12);
-    --music-family-card-shadow: var(--shadow-panel);
-    --music-family-card-highlight: var(--surface-panel-bg);
+    --music-family-copy: #193940;
+    --music-family-copy-soft: #315159;
+    --music-family-card-border: rgba(18, 62, 70, 0.14);
+    --music-family-card-shadow: none;
+    --music-family-card-highlight: #ffffff;
     position: relative;
     overflow: hidden;
     isolation: isolate;
@@ -852,10 +852,9 @@
     color: var(--music-family-heading) !important;
     font-family: var(--font-display) !important;
     font-size: clamp(2.35rem, 4.9vw, 3.95rem) !important;
-    font-weight: 700 !important;
+    font-weight: 680 !important;
     letter-spacing: -0.04em !important;
     text-align: center;
-    text-shadow: 0 6px 16px rgba(17, 50, 58, 0.05);
     text-wrap: balance;
 }
 
@@ -879,11 +878,27 @@
 }
 
 .music-family-highlight-card {
+    position: relative;
+    overflow: hidden;
     padding: 18px 18px 16px;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.78);
-    border: 1px solid rgba(17, 52, 58, 0.1);
-    box-shadow: 0 14px 30px rgba(17, 33, 42, 0.05);
+    background: #ffffff;
+    border: 1px solid rgba(18, 62, 70, 0.14);
+    box-shadow: none;
+}
+
+.music-family-highlight-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--color-secondary);
+}
+
+.music-family-highlights > .music-family-highlight-card:nth-child(2n)::before {
+    background: var(--color-primary);
 }
 
 .music-family-highlight-title {
@@ -899,16 +914,16 @@
     margin: 0;
     color: var(--music-family-copy-soft);
     font-size: 0.95rem;
-    font-weight: 560;
+    font-weight: 580;
     line-height: 1.58;
 }
 
 .music-family-desc {
     margin: 0;
-    color: var(--music-family-copy-soft);
+    color: var(--music-family-copy);
     font-family: var(--font-ui-modern);
     font-size: 1.05rem;
-    font-weight: 560;
+    font-weight: 580;
     line-height: 1.68;
     letter-spacing: -0.008em;
     text-align: center;
@@ -976,8 +991,8 @@
 .music-family-logo-mobile {
     --music-family-logo-mobile-padding: 14px 16px;
     --music-family-logo-mobile-radius: 20px;
-    --music-family-logo-mobile-bg: rgba(255, 255, 255, 0.8);
-    --music-family-logo-mobile-shadow: var(--shadow-soft);
+    --music-family-logo-mobile-bg: #ffffff;
+    --music-family-logo-mobile-shadow: none;
     grid-column: 2;
     grid-row: 1;
     justify-self: center;
@@ -988,7 +1003,8 @@
     border-radius: var(--music-family-logo-mobile-radius);
     background: var(--music-family-logo-mobile-bg);
     box-shadow: var(--music-family-logo-mobile-shadow);
-    border: 1px solid rgba(17, 52, 58, 0.08);
+    border: 1px solid rgba(18, 62, 70, 0.14);
+    border-top: 4px solid var(--color-primary);
     position: relative;
     overflow: hidden;
 }
@@ -1011,6 +1027,7 @@
     --music-family-group-padding: 24px 22px 20px;
     --music-family-group-radius: var(--surface-panel-radius);
     --music-family-group-bg: var(--music-family-card-highlight);
+    --music-family-group-accent: var(--color-secondary);
     background: var(--music-family-group-bg);
     padding: var(--music-family-group-padding);
     border-radius: var(--music-family-group-radius);
@@ -1018,14 +1035,18 @@
     box-shadow: var(--music-family-card-shadow);
     position: relative;
     overflow: hidden;
-    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    transition: border-color 0.22s ease, background 0.22s ease;
+}
+
+.music-family-group:nth-child(2n) {
+    --music-family-group-accent: var(--color-primary);
 }
 
 .music-family-group:hover,
 .music-family-group:focus-within {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-surface-strong);
-    border-color: rgba(17, 52, 58, 0.18);
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(18, 62, 70, 0.22);
 }
 
 .music-family-group::after {
@@ -1035,7 +1056,7 @@
     top: 0;
     width: 100%;
     height: 4px;
-    background: #0e8c82;
+    background: var(--music-family-group-accent);
 }
 
 .music-family-group-title {
@@ -1056,7 +1077,7 @@
     margin: -2px 0 14px;
     color: var(--music-family-copy-soft);
     font-size: 0.98rem;
-    font-weight: 560;
+    font-weight: 580;
     line-height: 1.56;
     text-wrap: pretty;
 }
@@ -1073,12 +1094,12 @@
     gap: 4px;
     padding: 12px 12px 11px;
     border-radius: 16px;
-    background: rgba(255, 255, 255, 0.74);
-    border: 1px solid rgba(17, 52, 58, 0.08);
+    background: #f7fbfa;
+    border: 1px solid rgba(18, 62, 70, 0.12);
 }
 
 .music-family-group-fact-label {
-    color: #557078;
+    color: var(--color-secondary);
     font-size: 0.76rem;
     font-weight: 760;
     letter-spacing: 0.08em;
@@ -1106,9 +1127,9 @@
     color: var(--music-family-copy);
     font-family: var(--font-ui-modern);
     font-size: var(--music-family-group-detail-font-size);
-    font-weight: 530;
+    font-weight: 550;
     line-height: var(--music-family-group-detail-line-height);
-    border-bottom: 1px solid rgba(17, 52, 58, 0.08);
+    border-bottom: 1px solid rgba(18, 62, 70, 0.12);
 }
 
 .music-family-group-details li:last-child {
@@ -1136,7 +1157,7 @@
     color: var(--music-family-heading);
     font-family: var(--font-display);
     font-size: var(--music-family-contact-title-font-size);
-    font-weight: 800;
+    font-weight: 760;
     letter-spacing: -0.04em;
     text-align: center;
 }
@@ -1145,8 +1166,8 @@
     --music-family-contact-card-width: min(100%, 420px);
     --music-family-contact-card-padding: 16px 20px;
     --music-family-contact-card-radius: 22px;
-    --music-family-contact-card-bg: var(--surface-panel-bg-strong);
-    --music-family-contact-card-shadow: var(--shadow-panel);
+    --music-family-contact-card-bg: #ffffff;
+    --music-family-contact-card-shadow: none;
     width: var(--music-family-contact-card-width);
     min-width: 0;
     padding: var(--music-family-contact-card-padding);
@@ -1154,17 +1175,18 @@
     background: var(--music-family-contact-card-bg);
     border: 1px solid var(--music-family-card-border);
     box-shadow: var(--music-family-contact-card-shadow);
+    border-top: 4px solid var(--color-primary);
     text-align: center;
     position: relative;
     overflow: hidden;
-    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    transition: border-color 0.22s ease, background 0.22s ease;
 }
 
 .music-family-contact-card:hover,
 .music-family-contact-card:focus-within {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-panel-strong);
-    border-color: rgba(17, 52, 58, 0.18);
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(18, 62, 70, 0.22);
 }
 
 .music-family-contact-card::before {
