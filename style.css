@@ -4,7 +4,7 @@
     --font-display: 'Sora', 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
     --font-weight-body: 500;
     --font-weight-label: 600;
-    --font-weight-heading: 700;
+    --font-weight-heading: 600;
     --section-tone-a: #edf2ee;
     --section-tone-b: #e3ebe5;
     --color-primary: #123e46;
@@ -2439,7 +2439,7 @@
     color: var(--repertoire-title-color);
     font-family: var(--font-display);
     font-size: clamp(1.04rem, 1.24vw, 1.2rem);
-    font-weight: 610;
+    font-weight: 540;
     line-height: 1.15;
     letter-spacing: -0.016em;
 }
@@ -4575,14 +4575,14 @@
     --event-card-border-color: rgba(13, 92, 99, 0.12);
     --event-card-border-color-hover: rgba(13, 92, 99, 0.12);
     --event-card-radius: 24px;
-    --event-card-shadow: var(--shadow-surface);
-    --event-card-shadow-hover: var(--shadow-surface-strong);
+    --event-card-shadow: none;
+    --event-card-shadow-hover: none;
     --event-card-max-width: 700px;
     --event-card-min-width: 280px;
-    --event-card-hover-translate-y: -3px;
+    --event-card-hover-translate-y: 0px;
     --event-card-overlay-bg: transparent;
     --event-card-topline: rgba(88, 119, 115, 0.74);
-    --event-card-transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    --event-card-transition: none;
     --event-title-color: #0f3640;
     --event-title-font-size: var(--type-title-font-size);
     --event-title-margin-bottom: 0.8em;
@@ -4640,9 +4640,9 @@
     --event-poster-download-color: #16464d;
     --event-poster-download-color-hover: #0d5c63;
     --event-poster-download-font-size: 0.92rem;
-    --event-poster-download-shadow: 0 8px 18px rgba(25, 48, 55, 0.06);
-    --event-poster-download-shadow-hover: var(--shadow-surface);
-    --event-poster-download-transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    --event-poster-download-shadow: none;
+    --event-poster-download-shadow-hover: none;
+    --event-poster-download-transition: none;
     --event-social-gap: 14px;
     --event-social-button-size: 50px;
     --event-social-button-min-height: 42px;
@@ -4650,9 +4650,9 @@
     --event-social-button-radius: 999px;
     --event-social-button-bg: rgba(255, 255, 255, 0.94);
     --event-social-button-border-color: rgba(13, 92, 99, 0.18);
-    --event-social-button-shadow: 0 8px 18px rgba(25, 48, 55, 0.06);
-    --event-social-button-shadow-hover: 0 14px 30px rgba(25, 48, 55, 0.10);
-    --event-social-button-transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    --event-social-button-shadow: none;
+    --event-social-button-shadow-hover: none;
+    --event-social-button-transition: none;
     --event-social-icon-size: 24px;
     --event-social-whatsapp-color: #147a57;
     --event-social-whatsapp-color-hover: #0f6a4b;
@@ -4805,10 +4805,10 @@
     width: min(100% - 32px, 1040px);
     margin: 0 auto 32px;
     padding: 30px clamp(22px, 3vw, 34px);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(248, 252, 251, 0.98));
+    background: rgba(255, 255, 255, 0.94);
     border: 1px solid rgba(13, 92, 99, 0.08);
     border-radius: 28px;
-    box-shadow: 0 18px 42px rgba(24, 55, 63, 0.08);
+    box-shadow: none;
 }
 
 .event-section-kicker {
@@ -4904,8 +4904,8 @@
 
 .event-card:hover,
 .event-card:focus-within {
-    transform: translateY(var(--event-card-hover-translate-y));
-    box-shadow: var(--event-card-shadow-hover);
+    transform: none;
+    box-shadow: none;
     border-color: var(--event-card-border-color-hover);
 }
 
@@ -5026,8 +5026,8 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #19d3c5, #5b8781);
-    box-shadow: 0 0 0 4px rgba(25, 211, 197, 0.12);
+    background: #2aaaa0;
+    box-shadow: none;
 }
 
 .event-note {
@@ -5092,10 +5092,10 @@
 
 .event-poster-download:hover,
 .event-poster-download:focus-visible {
-    background: var(--event-poster-download-bg-hover);
-    color: var(--event-poster-download-color-hover);
-    box-shadow: var(--event-poster-download-shadow-hover);
-    transform: translateY(-1px);
+    background: var(--event-poster-download-bg);
+    color: var(--event-poster-download-color);
+    box-shadow: none;
+    transform: none;
     outline: none;
 }
 
@@ -5106,9 +5106,9 @@
     --event-social-button-size: 58px;
     --event-social-button-bg: rgba(255, 255, 255, 0.98);
     --event-social-button-border-color: rgba(13, 92, 99, 0.14);
-    --event-social-button-shadow: 0 12px 24px rgba(16, 47, 54, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.78);
-    --event-social-button-shadow-hover: 0 14px 28px rgba(16, 47, 54, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.84);
-    --event-social-button-transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    --event-social-button-shadow: none;
+    --event-social-button-shadow-hover: none;
+    --event-social-button-transition: none;
     --event-social-icon-size: 28px;
     --event-social-whatsapp-color: #147a57;
     --event-social-whatsapp-color-hover: #0f6a4b;
@@ -5164,13 +5164,7 @@
 }
 
 .event-social-button::before {
-    content: "";
-    position: absolute;
-    inset: 1px;
-    border-radius: inherit;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.18));
-    pointer-events: none;
-    z-index: 0;
+    content: none;
 }
 
 .event-social-button svg {
@@ -5211,23 +5205,23 @@
 
 .event-social-button:hover,
 .event-social-button:focus-visible {
-    background: #ffffff;
-    border-color: rgba(13, 92, 99, 0.28);
-    box-shadow: var(--event-social-button-shadow-hover);
-    transform: translateY(-1px);
+    background: var(--event-social-button-bg);
+    border-color: var(--event-social-button-border-color);
+    box-shadow: none;
+    transform: none;
     outline: none;
 }
 
 .event-social-button--whatsapp:hover,
 .event-social-button--whatsapp:focus-visible {
-    background: var(--event-social-whatsapp-bg-hover);
-    color: var(--event-social-whatsapp-color-hover);
+    background: var(--event-social-whatsapp-bg);
+    color: var(--event-social-whatsapp-color);
 }
 
 .event-social-button--instagram:hover,
 .event-social-button--instagram:focus-visible {
-    background: var(--event-social-instagram-bg-hover);
-    color: var(--event-social-instagram-color-hover);
+    background: var(--event-social-instagram-bg);
+    color: var(--event-social-instagram-color);
 }
 
 .event-poster-stage::before {
@@ -9354,7 +9348,7 @@ html[lang="it"] #langIt {
 
 .event-title,
 .event-headline {
-    font-weight: 560 !important;
+    font-weight: 540 !important;
 }
 
 .contact-info-intro,
@@ -9429,7 +9423,7 @@ html[lang="it"] #langIt {
 .review-overview-title,
 .charity-projects-section[id^="review-"] .charity-title {
     font-family: var(--font-ui-modern) !important;
-    font-weight: 560 !important;
+    font-weight: 540 !important;
     letter-spacing: -0.03em !important;
 }
 
@@ -9471,7 +9465,7 @@ html[lang="it"] #langIt {
     color: #16333a;
     font-family: var(--font-ui-modern);
     font-size: clamp(1.78rem, 2.25vw, 2.2rem) !important;
-    font-weight: 620;
+    font-weight: 560;
     line-height: 1.08 !important;
     letter-spacing: -0.024em !important;
     text-wrap: balance;
@@ -9495,7 +9489,7 @@ html[lang="it"] #langIt {
 .review-overview-title {
     font-family: var(--font-ui-modern) !important;
     font-size: clamp(1.82rem, 2.35vw, 2.34rem) !important;
-    font-weight: 620 !important;
+    font-weight: 560 !important;
     line-height: 1.08 !important;
     letter-spacing: -0.028em !important;
 }
@@ -9503,7 +9497,7 @@ html[lang="it"] #langIt {
 .hero-story-title {
     font-family: var(--font-ui-modern) !important;
     font-size: clamp(2.2rem, 3.9vw, 3.08rem) !important;
-    font-weight: 620 !important;
+    font-weight: 560 !important;
     line-height: 1.02 !important;
     letter-spacing: -0.034em !important;
 }
@@ -9514,7 +9508,7 @@ html[lang="it"] #langIt {
 .engagement-focus-title,
 .review-overview-highlight-title {
     font-family: var(--font-ui-modern) !important;
-    font-weight: 600 !important;
+    font-weight: 540 !important;
     letter-spacing: -0.016em !important;
 }
 
@@ -9530,26 +9524,30 @@ html[lang="it"] #langIt {
 .contact-info-subtitle {
     font-family: var(--font-ui-modern) !important;
     font-size: 0.98rem !important;
-    font-weight: 560 !important;
+    font-weight: 520 !important;
     line-height: 1.35 !important;
     letter-spacing: 0.04em !important;
     text-transform: uppercase;
 }
 
 .site-footer__title {
-    font-weight: 660 !important;
+    font-weight: 460 !important;
 }
 
 .site-footer__nav-title,
 .site-footer__contact-kicker,
 .site-footer__contact-title {
-    font-weight: 560 !important;
+    font-weight: 500 !important;
+}
+
+.site-footer__contact-title {
+    font-weight: 480 !important;
 }
 
 .site-footer__subtitle,
 .site-footer__contact-copy,
 .site-footer__meta-line {
-    font-weight: 470 !important;
+    font-weight: 430 !important;
 }
 
 .site-footer__link,
@@ -9564,8 +9562,15 @@ html[lang="it"] #langIt {
 
 .music-family-title {
     font-size: var(--type-title-display-font-size) !important;
+    font-weight: 560 !important;
     line-height: var(--type-title-display-line-height) !important;
     letter-spacing: var(--type-title-display-letter-spacing) !important;
+}
+
+.music-family-highlight-title,
+.music-family-group-title,
+.music-family-contact-title {
+    font-weight: 520 !important;
 }
 
 .contact-info-intro,
@@ -9889,12 +9894,12 @@ html body .event-card {
     max-width: min(100%, 1040px);
     overflow: hidden;
     border-color: rgba(13, 92, 99, 0.12) !important;
-    box-shadow: 0 22px 54px rgba(24, 55, 63, 0.12) !important;
+    box-shadow: none !important;
 }
 
 html body .event-card:hover,
 html body .event-card:focus-within {
-    box-shadow: 0 28px 70px rgba(24, 55, 63, 0.16) !important;
+    box-shadow: none !important;
 }
 
 html body .event-badge {
@@ -9991,13 +9996,14 @@ html body .event-social-actions {
 }
 
 html body .event-poster-hint-text {
-    box-shadow: 0 10px 22px rgba(24, 55, 63, 0.07);
+    box-shadow: none;
 }
 
 html body .event-poster-download {
     width: 100%;
     min-height: 40px;
     padding: 9px 14px;
+    box-shadow: none !important;
 }
 
 html body .event-social-actions {
@@ -10026,7 +10032,7 @@ html body .event-poster-download {
 html body .event-poster-download:hover,
 html body .event-poster-download:focus-visible,
 html body .event-poster-download:active {
-    box-shadow: var(--event-poster-download-shadow-hover) !important;
+    box-shadow: none !important;
 }
 
 html body .review-overview-section {
