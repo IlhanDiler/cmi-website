@@ -3545,6 +3545,10 @@
 
 .review-archive-toggle {
     --interaction-transform: translateY(-2px);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.72rem;
+    min-height: 48px;
     cursor: pointer;
     box-shadow: none !important;
     transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease, color 0.22s ease !important;
@@ -3560,6 +3564,25 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+}
+
+.review-archive-toggle__label[hidden] {
+    display: none !important;
+}
+
+.review-archive-toggle::after {
+    content: "";
+    width: 0.6rem;
+    height: 0.6rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg) translateY(-1px);
+    transform-origin: center;
+    transition: transform 0.22s ease;
+}
+
+.review-archive-toggle[aria-expanded="true"]::after {
+    transform: rotate(-135deg) translateY(-1px);
 }
 
 .review-archive[hidden] {
@@ -3669,7 +3692,7 @@
     color: #547078 !important;
 }
 
-.review-archive .charity-projects-section[id^="review-"]:not(.review-card--expanded) .charity-description {
+.review-archive .charity-projects-section[id^="review-"].review-card--collapsible:not(.review-card--expanded) .charity-description {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 7;
@@ -3685,6 +3708,10 @@
 
 .review-card-toggle {
     --interaction-transform: translateY(-2px);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.72rem;
+    min-height: 46px;
     cursor: pointer;
     box-shadow: none !important;
     transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease, color 0.22s ease !important;
@@ -3702,8 +3729,43 @@
     justify-content: center;
 }
 
+.review-card-toggle__label[hidden] {
+    display: none !important;
+}
+
+.review-card-toggle::after {
+    content: "";
+    width: 0.58rem;
+    height: 0.58rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg) translateY(-1px);
+    transform-origin: center;
+    transition: transform 0.22s ease;
+}
+
+.review-card-toggle[aria-expanded="true"]::after {
+    transform: rotate(-135deg) translateY(-1px);
+}
+
 .review-card--expanded .review-card-toggle {
     --interaction-transform: translateY(-1px);
+}
+
+.review-card--collapsible:not(.review-card--expanded) .review-card-toggle-wrap {
+    position: relative;
+    padding-top: 12px;
+}
+
+.review-card--collapsible:not(.review-card--expanded) .review-card-toggle-wrap::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -24px;
+    height: 28px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0), #ffffff 80%);
+    pointer-events: none;
 }
 
 .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container {
@@ -9211,7 +9273,7 @@ html[lang="it"] #langIt {
         max-width: 100%;
     }
 
-    .review-archive .charity-projects-section[id^="review-"]:not(.review-card--expanded) .charity-description {
+    .review-archive .charity-projects-section[id^="review-"].review-card--collapsible:not(.review-card--expanded) .charity-description {
         -webkit-line-clamp: 6;
         line-clamp: 6;
     }
@@ -9222,6 +9284,12 @@ html[lang="it"] #langIt {
 
     .review-card-toggle {
         width: 100%;
+        justify-content: center;
+    }
+
+    .review-archive-toggle {
+        width: 100%;
+        justify-content: center;
     }
 
     .review-overview-media {
