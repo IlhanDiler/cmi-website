@@ -765,7 +765,7 @@
 }
 
 .music-family-container {
-    max-width: 1040px;
+    max-width: 1120px;
     margin: 0 auto;
     padding: 0 24px;
     position: relative;
@@ -788,8 +788,8 @@
 }
 
 .music-family-intro {
-    max-width: 820px;
-    margin: 0 auto 26px;
+    max-width: 760px;
+    margin: 0 auto 22px;
     display: flex;
     justify-content: center;
 }
@@ -847,9 +847,9 @@
     margin: 0;
     color: var(--music-family-copy);
     font-family: var(--font-ui-modern);
-    font-size: 1.05rem;
+    font-size: 1.02rem;
     font-weight: 580;
-    line-height: 1.68;
+    line-height: 1.62;
     letter-spacing: -0.008em;
     text-align: center;
     text-wrap: balance;
@@ -1198,7 +1198,7 @@
     }
 
     .music-family-container {
-        padding: 0 10px;
+        padding: 0 12px;
     }
 
     .music-family-title {
@@ -1206,9 +1206,9 @@
     }
 
     .music-family-desc {
-        max-width: 32ch;
-        font-size: 1.06rem;
-        line-height: 1.46;
+        max-width: 34ch;
+        font-size: 1rem;
+        line-height: 1.52;
     }
 
     .music-family-benefits-row {
@@ -3496,7 +3496,7 @@
 }
 
 .review-archive-intro__inner {
-    width: min(85vw, 1080px);
+    width: min(85vw, 1120px);
     margin: 0 auto;
     padding: 22px 24px 24px;
     border-radius: 28px;
@@ -5584,7 +5584,7 @@
     margin: 0 auto;
     padding: 0 18px;
     display: grid;
-    grid-template-columns: minmax(0, 1.02fr) minmax(420px, 0.92fr);
+    grid-template-columns: 1fr;
     gap: 22px;
     align-items: start;
 }
@@ -5597,10 +5597,24 @@
 }
 
 .image-caption-copy-card {
+    display: grid;
+    gap: 22px;
     padding: 34px 34px 28px;
     background: #ffffff;
     border: 1px solid rgba(18, 62, 70, 0.12);
     box-shadow: none;
+}
+
+.image-caption-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(280px, 430px);
+    gap: 24px;
+    align-items: start;
+}
+
+.image-caption-copy-main {
+    display: grid;
+    align-content: start;
 }
 
 .image-caption-copy-card::before,
@@ -5661,33 +5675,37 @@
 
 .image-caption-copy-group {
     display: grid;
-    gap: 10px;
-    margin: 0 0 18px;
+    gap: 12px;
+    margin: 0;
 }
 
 .image-caption-copy {
     margin: 0;
-    max-width: 60ch;
+    max-width: 56ch;
     color: #24434a;
     font-family: var(--font-ui-modern);
     font-size: 1.05rem;
     font-weight: 560;
-    line-height: 1.72;
+    line-height: 1.66;
     text-wrap: pretty;
 }
 
 .image-caption-copy--lead {
     color: #14353b;
     font-weight: 600;
+    max-width: 34ch;
+    font-size: clamp(1.14rem, 1.45vw, 1.34rem);
+    line-height: 1.46;
 }
 
 .image-caption-photo-stage {
-    margin: 8px 0 0;
+    margin: 0;
     padding: 0;
     border-radius: 24px;
     background: transparent;
     border: 0;
     box-shadow: none;
+    align-self: stretch;
 }
 
 .image-caption-photo {
@@ -5806,7 +5824,7 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
-    margin: 0 0 18px;
+    margin: 0;
 }
 
 .image-caption-pillar {
@@ -5845,20 +5863,33 @@
 }
 
 .image-caption-video-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 18px;
+    width: min(100%, 1080px);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
+    grid-template-areas:
+        "kicker media"
+        "title media"
+        "footer media";
+    column-gap: 28px;
+    row-gap: 12px;
+    align-items: start;
     padding: 28px 28px 24px;
     background: #ffffff;
     border: 1px solid rgba(18, 62, 70, 0.12);
     box-shadow: none;
 }
 
+.image-caption-video-kicker {
+    grid-area: kicker;
+    align-self: end;
+}
+
 .image-caption-video-title {
+    grid-area: title;
     color: #14353b;
     font-family: var(--font-ui-modern);
-    max-width: 29ch;
+    max-width: 34ch;
     font-size: clamp(1.02rem, 1.45vw, 1.28rem);
     font-weight: 580;
     line-height: 1.48;
@@ -5867,8 +5898,10 @@
 }
 
 .image-caption-card-link {
+    grid-area: media;
     position: relative;
     display: block;
+    width: 100%;
     border-radius: 22px;
     overflow: hidden;
     border: 1px solid rgba(18, 62, 70, 0.12);
@@ -5917,8 +5950,9 @@
 }
 
 .image-caption-card-footer {
-    max-width: 30ch;
-    margin-top: auto;
+    grid-area: footer;
+    max-width: 34ch;
+    margin-top: 4px;
     color: #48636d;
     font-size: 0.9rem;
     font-weight: 620;
@@ -5932,14 +5966,35 @@
         grid-template-columns: 1fr;
     }
 
+    .image-caption-hero {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
     .image-caption-copy-card,
     .image-caption-video-card {
         padding: 26px;
     }
 
+    .image-caption-video-card {
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "kicker"
+            "title"
+            "media"
+            "footer";
+        column-gap: 0;
+        row-gap: 16px;
+    }
+
     .image-caption-video-title,
     .image-caption-card-footer {
         max-width: none;
+    }
+
+    .image-caption-copy-group {
+        margin: 0;
     }
 
     .image-caption-title,
@@ -5974,9 +6029,19 @@
         gap: 16px;
     }
 
+    .image-caption-hero {
+        gap: 16px;
+    }
+
     .image-caption-title {
         font-size: clamp(1.72rem, 8vw, 2.28rem);
         max-width: none;
+    }
+
+    .image-caption-copy--lead {
+        max-width: none;
+        font-size: clamp(1.06rem, 5vw, 1.2rem);
+        line-height: 1.44;
     }
 
     .image-caption-video-title,
@@ -9037,12 +9102,12 @@ html[lang="it"] #langIt {
     .charity-projects-section[id^="review-"] .charity-flex-left,
     .charity-projects-section[id^="review-"] .charity-flex-right {
         padding: 0 !important;
-        padding-right: clamp(8px, 2vw, 16px) !important;
+        padding-right: 0 !important;
     }
 
     .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
         padding: var(--review-media-frame-padding) !important;
-        padding-right: clamp(12px, 2.2vw, 18px) !important;
+        padding-right: var(--review-media-frame-padding) !important;
     }
 
     .charity-projects-section[id^="review-"] .charity-flex-right,
@@ -9256,7 +9321,7 @@ html[lang="it"] #langIt {
     }
 
     .review-archive-intro__copy {
-        max-width: 32ch;
+        max-width: none;
         font-size: 0.96rem;
         line-height: 1.56;
     }
