@@ -992,6 +992,7 @@ function initReviewCardToggles() {
         }
 
         section.classList.toggle('review-card--expanded', isExpanded);
+        toggle.classList.toggle('review-card-toggle--expanded', isExpanded);
         toggle.setAttribute('aria-expanded', String(isExpanded));
 
         toggle.querySelectorAll('[data-state="collapsed"]').forEach(function(label) {
@@ -1019,6 +1020,8 @@ function initReviewCardToggles() {
         if (!hasLongContent || section.querySelector('.review-card-toggle')) {
             return;
         }
+
+        section.classList.add('review-card--collapsible');
 
         const toggleWrap = document.createElement('div');
         toggleWrap.className = 'review-card-toggle-wrap';
