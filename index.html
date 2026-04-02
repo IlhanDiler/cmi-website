@@ -44,11 +44,16 @@
 
 </head>
 <body>
+    <a href="#main-content" class="skip-link">
+        <span data-lang="de">Zum Inhalt springen</span>
+        <span data-lang="en" style="display:none;">Skip to main content</span>
+        <span data-lang="it" style="display:none;">Vai al contenuto principale</span>
+    </a>
     <h1 class="visually-hidden">Collegium Musicum Iuvenale Ochsenfurt</h1>
     <nav class="navbar">
         <!-- Mobile menu button: ganz links -->
         <button type="button" class="mobile-menu-btn" aria-label="Menü öffnen" aria-controls="mobile-menu" aria-expanded="false" tabindex="0">
-            <img src="files/icon.menu.button.svg" alt="Menü öffnen" class="menu-icon">
+            <img src="files/icon.menu.button.svg" alt="" aria-hidden="true" class="menu-icon">
         </button>
         <!-- Logo und Titel: mittig -->
         <div class="nav-brand">
@@ -82,15 +87,15 @@
             <a href="#contact" class="nav-link" data-lang="it" style="display:none;">Contatto</a>
         </div>
         <!-- Sprachumschalter: jetzt ganz rechts -->
-        <div id="langSwitcher">
-            <button onclick="setLang('de')" id="langDe" class="lang-switch-button" aria-label="Deutsch">
+        <div id="langSwitcher" role="group" aria-label="Sprache wählen">
+            <button type="button" onclick="setLang('de')" id="langDe" class="lang-switch-button" aria-label="Deutsch">
                 <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="21" height="14" fill="#000000"/>
                     <rect y="4.66667" width="21" height="4.66667" fill="#DD0000"/>
                     <rect y="9.33333" width="21" height="4.66667" fill="#FFCE00"/>
                 </svg>
             </button>
-            <button onclick="setLang('en')" id="langEn" class="lang-switch-button" aria-label="English">
+            <button type="button" onclick="setLang('en')" id="langEn" class="lang-switch-button" aria-label="English">
                 <svg width="21" height="14" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
                     <rect width="1200" height="600" fill="#00247d"/>
                     <path d="M0,0L1200,600M1200,0L0,600" stroke="#fff" stroke-width="120"/>
@@ -103,7 +108,7 @@
                     <path d="M1080,0L1200,600L1080,600L960,0" stroke="#cf142b" stroke-width="30"/>
                 </svg>
             </button>
-            <button onclick="setLang('it')" id="langIt" class="lang-switch-button" aria-label="Italiano">
+            <button type="button" onclick="setLang('it')" id="langIt" class="lang-switch-button" aria-label="Italiano">
                 <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="7" height="14" x="0" y="0" fill="#008C45"/>
                     <rect width="7" height="14" x="7" y="0" fill="#F4F5F0"/>
@@ -134,6 +139,7 @@
            
         </div>
     </nav>
+            <main id="main-content">
     <div class="hero-bg" role="region" aria-label="Benefizkonzerte und Eindrücke aus dem Collegium Musicum Iuvenale Ochsenfurt">
         <div class="hero-bg-fade-container" id="heroGalleryViewport">
             <div class="hero-bg-fade hero-bg-fade-current" style="--hero-fade-image-url:url('bilder/Weihnachtskonzert Spitalkirche.png');--hero-fade-image-size:cover;--hero-fade-image-focus-position:center 8%;--hero-fade-blur-size:cover;--hero-fade-blur-position:center 8%;" aria-label="Weihnachtskonzert zum Mitsingen in der Spitalkirche Ochsenfurt"></div>
@@ -190,7 +196,7 @@
             </div>
             <aside class="hero-story-visual" aria-label="Musik baut Brücken Motiv">
                 <div class="hero-story-visual-frame">
-                    <img src="bilder/musik_baut_bruecken.jpeg" alt="Musik baut Brücken Motiv mit Musikern im Boot" class="hero-story-visual-image">
+                    <img src="bilder/musik_baut_bruecken.jpeg" alt="Musik baut Brücken Motiv mit Musikern im Boot" class="hero-story-visual-image" decoding="async">
                 </div>
                 <div class="hero-story-visual-caption" data-lang="de">Wir sind eine ehrenamtliche Gemeinschaft von Musikbegeisterten, in der die Freude am gemeinsamen Musizieren wichtiger ist als Perfektion.</div>
                 <div class="hero-story-visual-caption" data-lang="en" style="display:none;">We are a volunteer community of music lovers where the joy of making music together matters more than perfection.</div>
@@ -314,7 +320,7 @@
             <div class="image-caption-video-title" data-lang="it" style="display:none;">Il film dell'anniversario offre uno sguardo su musica, incontri e beneficenza nel Collegium Musicum Iuvenale.</div>
 
             <a href="https://www.youtube.com/watch?v=n6geYJRmu7Y" target="_blank" rel="noopener noreferrer" class="image-caption-card-link">
-                <img class="image-caption-card-img" src="bilder/oeffne_dein_herz.jpg" alt="Gruppenbild zum musikalischen Jubiläum Collegium Musicum Iuvenale Ochsenfurt">
+                <img class="image-caption-card-img" src="bilder/oeffne_dein_herz.jpg" alt="Gruppenbild zum musikalischen Jubiläum Collegium Musicum Iuvenale Ochsenfurt" loading="lazy" decoding="async">
                 <span class="image-caption-card-play">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="24" cy="24" r="24" fill="#fff" fill-opacity="0.85"/>
@@ -390,7 +396,7 @@
         <li><span class="music-family-benefit-check">✓</span><span>Auftritte und Benefizkonzerte aus gemeinsamer Initiative</span></li>
     </ul>
     <span class="music-family-logo-mobile">
-    <img src="files/logo_cmi1 - schwarz.svg" alt="Logo Collegium Musicum Iuvenale Ochsenfurt schwarz" />
+    <img src="files/logo_cmi1 - schwarz.svg" alt="" aria-hidden="true" />
     </span>
             <ul class="music-family-benefits" style="display:none;" data-lang="en">
                 <li><span class="music-family-benefit-check">✓</span><span>Two groups for different experience levels</span></li>
@@ -665,13 +671,13 @@
                 <p class="charity-list-item-certificate-copy" data-lang="de">Spenden aus unseren Benefizkonzerten gehen unter anderem an Lebenshilfe, Caritas, Kindergärten, Ärzte ohne Grenzen und die Malteser sowie an internationale Partnerprojekte.</p>
                 <p class="charity-list-item-certificate-copy" data-lang="en" style="display:none;">Donations from our benefit concerts go, among others, to Lebenshilfe, Caritas, kindergartens, Doctors Without Borders, the Malteser service, and international partner projects.</p>
                 <p class="charity-list-item-certificate-copy" data-lang="it" style="display:none;">Le donazioni raccolte nei nostri concerti benefici raggiungono, tra gli altri, Lebenshilfe, Caritas, asili, Medici Senza Frontiere, i Malteser e progetti partner internazionali.</p>
-                <img src="bilder/spende_aerzte_ohne_grenzen.jpeg" alt="Spendenübergabe an Ärzte ohne Grenzen durch Collegium Musicum Iuvenale Ochsenfurt" class="charity-certificate-img">
+                <img src="bilder/spende_aerzte_ohne_grenzen.jpeg" alt="Spendenübergabe an Ärzte ohne Grenzen durch Collegium Musicum Iuvenale Ochsenfurt" class="charity-certificate-img" loading="lazy" decoding="async">
             </article>
             <ul class="musikalisches-repertoire-list" data-lang="de">
                 <li class="charity-list-item charity-list-item--project">
                     <span>Schulprojekte mit langem Atem</span>
                     Bildungsprojekte in Kinshasa und Kathmandu begleiten wir über längere Zeit, weil Verbundenheit für uns mehr bedeutet als eine einmalige Hilfe.
-                    <img src="bilder/kinshasa.jfif" alt="Schulprojekt Kinshasa Kongo Collegium Musicum Iuvenale Ochsenfurt" class="kinshasa-card-img">
+                    <img src="bilder/kinshasa.jfif" alt="Schulprojekt Kinshasa Kongo Collegium Musicum Iuvenale Ochsenfurt" class="kinshasa-card-img" loading="lazy" decoding="async">
                 </li>
                 <li class="charity-list-item"><span>Hilfe für die Ukraine</span> Wir unterstützen Projekte mit medizinischer und humanitärer Wirkung dort, wo Menschen auf solidarische Hilfe angewiesen sind.</li>
                 <li class="charity-list-item"><span>Zusammenarbeit mit Hermann Veeh</span> Langjährige Projekte mit Menschen unterschiedlicher Begabungen zeigen, wie Musik Gemeinschaft stiften und Teilhabe ermöglichen kann.</li>
@@ -680,7 +686,7 @@
                 <li class="charity-list-item charity-list-item--project">
                     <span>School projects with long-term care</span>
                     We support educational projects in Kinshasa and Kathmandu over many years because for us connection means more than one-time help.
-                    <img src="bilder/kinshasa.jfif" alt="School project Kinshasa Congo Collegium Musicum Iuvenale Ochsenfurt" class="kinshasa-card-img">
+                    <img src="bilder/kinshasa.jfif" alt="School project Kinshasa Congo Collegium Musicum Iuvenale Ochsenfurt" class="kinshasa-card-img" loading="lazy" decoding="async">
                 </li>
                 <li class="charity-list-item"><span>Support for Ukraine</span> We support projects with medical and humanitarian value where people depend on solidarity and practical help.</li>
                 <li class="charity-list-item"><span>Collaboration with Hermann Veeh</span> Long-term projects with people of different abilities show how music can build community and enable participation.</li>
@@ -689,7 +695,7 @@
                 <li class="charity-list-item charity-list-item--project">
                     <span>Progetti scolastici seguiti nel tempo</span>
                     Accompagniamo nel lungo periodo i progetti educativi di Kinshasa e Kathmandu, perché per noi il legame vale più di un aiuto occasionale.
-                    <img src="bilder/kinshasa.jfif" alt="Progetto scolastico Kinshasa Congo Collegium Musicum Iuvenale Ochsenfurt" class="kinshasa-card-img">
+                    <img src="bilder/kinshasa.jfif" alt="Progetto scolastico Kinshasa Congo Collegium Musicum Iuvenale Ochsenfurt" class="kinshasa-card-img" loading="lazy" decoding="async">
                 </li>
                 <li class="charity-list-item"><span>Sostegno all’Ucraina</span> Sosteniamo progetti con valore medico e umanitario la dove le persone hanno bisogno di aiuto concreto e solidale.</li>
                 <li class="charity-list-item"><span>Collaborazione con Hermann Veeh</span> Progetti continuativi con persone dalle abilità diverse mostrano come la musica possa creare comunità e rendere possibile la partecipazione.</li>
@@ -1027,7 +1033,7 @@
             <div class="about-me-modern-subtitle" data-lang="en" style="display:none;">Founder of Collegium Musicum Iuvenale</div>
             <div class="about-me-modern-subtitle" data-lang="it" style="display:none;">Fondatrice del Collegium Musicum Iuvenale</div>
             <div class="about-me-mobile-image">
-                <img src="bilder/Astrid var.jpg" alt="Astrid Eitschberger">
+                <img src="bilder/Astrid var.jpg" alt="Astrid Eitschberger" loading="lazy" decoding="async">
             </div>
             <div class="about-me-modern-bio">
                 <div class="about-me-bio-text" data-lang="de">Astrid Eitschberger lernte Klavier, Violoncello und später verschiedene Blasinstrumente. Sie verbrachte sieben Jahre ihrer Kindheit in Athen. 1981 gründete sie das Collegium Musicum Iuvenale Ochsenfurt. 2018 schloss sie die Ausbildung an der Nordbayerischen Bläserakademie als „Dirigentin von Blasorchestern im Laienmusizieren“ mit der staatlichen Anerkennung ab. Während ihrer Studienzeit in Padua schloss Astrid musikalische Freundschaften, die bis heute andauern. Seit 1999 unterrichtet die promovierte Germanistin am Matthias-Grünewald-Gymnasium Würzburg Latein und Deutsch. Sie sieht es als ihre Aufgabe, Menschen über Sprachgrenzen und unterschiedliche Traditionen hinweg einander begegnen zu lassen und verschiedene Stil- und Kunstrichtungen zu verbinden. Das zentrale Motiv für ihre musikalische Arbeit, die über all die Jahre hinweg rein ehrenamtlich erfolgt, liegt darin, anderen durch die Musik Freude zu bereiten und mit Benefizkonzerten die schwächeren Mitglieder unserer Gesellschaft zu unterstützen. 1998 erhielt sie dafür den Kulturpreis der Stadt Ochsenfurt, 2017 bekam sie von der Landtagspräsidentin die Bayerische Verfassungsmedaille in Silber verliehen, und 2024 folgte der Kulturpreis des Landkreises Würzburg.</div>
@@ -1036,7 +1042,7 @@
             </div>
         </div>
         <div class="about-me-image-modern">
-            <img src="bilder/Astrid var.jpg" alt="Astrid Eitschberger">
+            <img src="bilder/Astrid var.jpg" alt="Astrid Eitschberger" loading="lazy" decoding="async">
         </div>
     </div>
  </section>
@@ -1080,7 +1086,7 @@
             </div>
         </div>
         <aside class="review-overview-media">
-            <img src="bilder/rueckblick.jpeg" alt="Rückblick Collegium Musicum Iuvenale" class="review-overview-image" />
+            <img src="bilder/rueckblick.jpeg" alt="Rückblick Collegium Musicum Iuvenale" class="review-overview-image" loading="lazy" decoding="async" />
         </aside>
     </div>
 </section>
@@ -1109,7 +1115,7 @@
                 </div>
             </div>
             <div class="gruppenbild-container review-media-block review-media-block--top-28 masterclass-flex__media">
-                <img class="masterclass-flex__image" src="bilder/Masterclass_Meierott_14032026.jpeg" alt="Workshop mit Florian Meierott" />
+                <img class="masterclass-flex__image" src="bilder/Masterclass_Meierott_14032026.jpeg" alt="Workshop mit Florian Meierott" loading="lazy" decoding="async" />
                 <div class="masterclass-flex__credit">
                     <span data-lang="de">Foto: Astrid Eitschberger</span>
                     <span data-lang="en" style="display:none;">Photo: Astrid Eitschberger</span>
@@ -1158,7 +1164,7 @@
                 </div>
             </div>
             <div class="gruppenbild-container review-media-block review-media-block--top-28">
-                <img class="gruppenbild-img review-media-image-card" src="bilder/Trommelworkshop.jpeg" alt="Benefiz-Trommelworkshop mit André Mabiala und Bénédicte Ndota" />
+                <img class="gruppenbild-img review-media-image-card" src="bilder/Trommelworkshop.jpeg" alt="Benefiz-Trommelworkshop mit André Mabiala und Bénédicte Ndota" loading="lazy" decoding="async" />
             </div>
         </div>
     </div>
@@ -1190,7 +1196,7 @@ Negli ultimi anni è diventata una bella tradizione che l'ensemble di violoncell
                 </div>
             </div>
                 <div class="gruppenbild-container review-media-block review-media-block--top-28">
-               <img class="gruppenbild-img" src="bilder/christmette_2025.jpg" alt="Christmette St. Thekla Ochsenfurt 2025 Collegium Musicum Iuvenale" />
+               <img class="gruppenbild-img" src="bilder/christmette_2025.jpg" alt="Christmette St. Thekla Ochsenfurt 2025 Collegium Musicum Iuvenale" loading="lazy" decoding="async" />
                     <div class="review-media-caption">
                    <span data-lang="de">Foto: Ilhan Diler</span>
                    <span data-lang="en" style="display:none;">Photo: Ilhan Diler</span>
@@ -1226,7 +1232,7 @@ I bambini e le famiglie del CMI si sono riuniti per una festa di fine anno ricca
 </div>
             </div>
                 <div class="gruppenbild-container">
-                    <img class="gruppenbild-img-nikolaus no-lightbox" src="bilder/nikolaus.jpeg" alt="Nikolausfeier 2025" />
+                    <img class="gruppenbild-img-nikolaus no-lightbox" src="bilder/nikolaus.jpeg" alt="Nikolausfeier 2025" loading="lazy" decoding="async" />
                 <div class="review-media-caption review-media-caption--narrow">
                     <span data-lang="de">Foto: Astrid Eitschberger</span>
                     <span data-lang="en" style="display:none;">Photo: Astrid Eitschberger</span>
@@ -1263,7 +1269,7 @@ I bambini e le famiglie del CMI si sono riuniti per una festa di fine anno ricca
                 </div>
             </div>
             <div class="gruppenbild-container review-media-block review-media-block--top-88">
-                    <img class="gruppenbild-img review-media-image-card" src="bilder/Weihnachtskonzert Spitalkirche 13.12.2025.jpeg" alt="Benefizkonzert zum 200. Geburtstag Johann Strauß" />
+                    <img class="gruppenbild-img review-media-image-card" src="bilder/Weihnachtskonzert Spitalkirche 13.12.2025.jpeg" alt="Weihnachtskonzert zum Mitsingen in der Spitalkirche Ochsenfurt" loading="lazy" decoding="async" />
                     <div class="review-media-caption">
                         <span data-lang="de">Foto: Emil Korbmann</span>
                         <span data-lang="en" style="display:none;">Photo: Emil Korbmann</span>
@@ -1326,7 +1332,7 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
 </div>  
 </div>
                 <div class="gruppenbild-container review-media-block review-media-block--top-88">
-                    <img class="gruppenbild-img review-media-image-card review-media-image-card--narrow" src="bilder/furtweihnachtsklaenge.jpg" alt="Musik an der Furt" />
+                    <img class="gruppenbild-img review-media-image-card review-media-image-card--narrow" src="bilder/furtweihnachtsklaenge.jpg" alt="Ensemble bei Weihnachtsklänge an der Furt in Ochsenfurt" loading="lazy" decoding="async" />
                     <div class="review-media-caption review-media-caption--narrow">
                         <span data-lang="de">Foto: Gertrud Friedrich</span>
                         <span data-lang="en" style="display:none;">Photo: Gertrud Friedrich</span>
@@ -1361,7 +1367,7 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 </div>
             </div>
                 <div class="gruppenbild-container review-media-block review-media-block--top-88">
-                    <img class="gruppenbild-img review-media-image-card review-media-image-card--narrow" src="bilder/vdk_ochsenfurt.jpg" alt="Benefizkonzert zum 200. Geburtstag Johann Strauß" />
+                    <img class="gruppenbild-img review-media-image-card review-media-image-card--narrow" src="bilder/vdk_ochsenfurt.jpg" alt="Musikalische Mitgestaltung der VdK-Weihnachtsfeier in Goßmannsdorf" loading="lazy" decoding="async" />
                     <div class="review-media-caption review-media-caption--narrow">
                         <span data-lang="de">Foto: Helmut Gerbig</span>
                         <span data-lang="en" style="display:none;">Photo: Helmut Gerbig</span>
@@ -1397,7 +1403,7 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 </div>
                 </div>
                 <div class="gruppenbild-container review-media-block review-media-block--top-88">
-                    <img class="gruppenbild-img review-media-image-card review-media-image-card--narrow" src="bilder/Gruppenfoto 26.10.2025 a.jpg" alt="Benefizkonzert zum 200. Geburtstag Johann Strauß" />
+                    <img class="gruppenbild-img review-media-image-card review-media-image-card--narrow" src="bilder/Gruppenfoto 26.10.2025 a.jpg" alt="Mitwirkende nach dem Benefizkonzert im Hotel Meintz in Ochsenfurt" loading="lazy" decoding="async" />
                     <div class="review-media-caption review-media-caption--narrow">
                         <span data-lang="de">Foto (Bert Eitschberger): alle Mitwirkenden nach dem Konzert im Hotel Meintz, Ochsenfurt</span>
                         <span data-lang="en" style="display:none;">Photo (Bert Eitschberger): all participants after the concert at Hotel Meintz, Ochsenfurt</span>
@@ -1439,13 +1445,13 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 </div>
                 </div>    
                 <div class="gruppenbild-container">
-                    <img class="gruppenbild-img" src="bilder/strauss_marktbreit_251025.jpeg" alt="Benefizkonzert zum 200. Geburtstag Johann Strauß" />
+                    <img class="gruppenbild-img" src="bilder/strauss_marktbreit_251025.jpeg" alt="Benefizkonzert zum 200. Geburtstag von Johann Strauss in Marktbreit" loading="lazy" decoding="async" />
                     <div class="review-media-caption">
                         <span data-lang="de">Foto: Ilhan Diler</span>
                         <span data-lang="en" style="display:none;">Photo: Ilhan Diler</span>
                         <span data-lang="it" style="display:none;">Foto: Ilhan Diler</span>
                     </div>
-                    <img class="gruppenbild-img" src="bilder/strauss_marktbreit_cmi_251025.jpg" alt="Benefizkonzert zum 200. Geburtstag Johann Strauß" />
+                    <img class="gruppenbild-img" src="bilder/strauss_marktbreit_cmi_251025.jpg" alt="CMI und Gäste beim Benefizkonzert in der Rathausdiele Marktbreit" loading="lazy" decoding="async" />
                 </div>
         </div>
     </div>
@@ -1475,7 +1481,7 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 </div>
             </div>
                   <div class="gruppenbild-container review-media-block review-media-block--top-128">
-                      <img class="gruppenbild-img" src="bilder/blockfloetenensemble_2025.jpg" alt="Blockflötenensemble in der Klosterkirche Ochsenfurt 2025" />
+                      <img class="gruppenbild-img" src="bilder/blockfloetenensemble_2025.jpg" alt="Blockflötenensemble in der Klosterkirche Ochsenfurt 2025" loading="lazy" decoding="async" />
                       <div class="review-media-caption">
                           <span data-lang="de">Foto: Ilhan Diler</span>
                           <span data-lang="en" style="display:none;">Photo: Ilhan Diler</span>
@@ -1512,7 +1518,7 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                     </div>
             </div>
             <div class="gruppenbild-container review-media-block review-media-block--top-88">
-                     <img class="gruppenbild-img" src="bilder/concello.jfif" alt="ConCello Ensemble Kurswoche 2025 Collegium Musicum Iuvenale Ochsenfurt" /></div>  
+                     <img class="gruppenbild-img" src="bilder/concello.jfif" alt="ConCello Ensemble Kurswoche 2025 Collegium Musicum Iuvenale Ochsenfurt" loading="lazy" decoding="async" /></div>  
             </div>
            
     </div>
@@ -1537,7 +1543,7 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 <div class="charity-description" data-lang="it" style="display:none;">I membri del CMI e del Liederkranz Ochsenfurt hanno partecipato al "Symphonic Mob" a Bad Kissingen e, insieme a musicisti professionisti della Deutsches Symphonie-Orchester Berlin sotto la direzione di Aurélien Bello, hanno presentato un programma impressionante. Questo evento è stato una meravigliosa esperienza di comunità. Poter fare musica insieme ai professionisti ci ha ispirato e motivato.</div>
             </div>  
              <div class="gruppenbild-container review-media-block review-media-block--top-28">
-            <img class="gruppenbild-img" src="bilder/kissingen_symphonic.png" alt="Symphonic Mob Bad Kissingen 2025 Collegium Musicum Iuvenale Ochsenfurt" class="cause-image"/>
+            <img class="gruppenbild-img cause-image" src="bilder/kissingen_symphonic.png" alt="Symphonic Mob Bad Kissingen 2025 Collegium Musicum Iuvenale Ochsenfurt" loading="lazy" decoding="async"/>
              </div>
         </div>
     </div>
@@ -1567,7 +1573,7 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                 </div>
             </div>
                         <div class="gruppenbild-container review-media-block review-media-block--top-128">
-           <img class="gruppenbild-img" src="bilder/nuremberg_museum.jpg" alt="Gruppenausflug ins Germanische Nationalmuseum Nürnberg Collegium Musicum Iuvenale Ochsenfurt" />
+           <img class="gruppenbild-img" src="bilder/nuremberg_museum.jpg" alt="Gruppenausflug ins Germanische Nationalmuseum Nürnberg Collegium Musicum Iuvenale Ochsenfurt" loading="lazy" decoding="async" />
              </div>
             
         </div>
@@ -1599,7 +1605,7 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                     </div>
             </div>
                          <div class="gruppenbild-container review-media-block review-media-block--top-128">
-               <img class="gruppenbild-img" src="bilder/furt.jpg" alt="Musik an der Furt Altstadt Ochsenfurt 2025 Collegium Musicum Iuvenale" />
+               <img class="gruppenbild-img" src="bilder/furt.jpg" alt="Musik an der Furt Altstadt Ochsenfurt 2025 Collegium Musicum Iuvenale" loading="lazy" decoding="async" />
              </div>
         </div>
     </div>
@@ -1629,7 +1635,7 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                     </div>  
             </div>
                          <div class="gruppenbild-container review-media-block review-media-block--top-128">
-              <img class="gruppenbild-img" src="bilder/Gruppenbild2.jpg" alt="Internationales Benefizkonzert 2025 Collegium Musicum Iuvenale" />
+              <img class="gruppenbild-img" src="bilder/Gruppenbild2.jpg" alt="Internationales Benefizkonzert 2025 Collegium Musicum Iuvenale" loading="lazy" decoding="async" />
             </div>
        </div>   
     </div>
@@ -1660,7 +1666,7 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                     </div>
             </div>
                             <div class="gruppenbild-container review-media-block review-media-block--top-88">
-              <img class="gruppenbild-img" src="bilder/peterbild.jpg" alt="Gedenkveranstaltung 80 Jahre Kriegsende – 80 Jahre Frieden Ochsenfurt 2025" />
+              <img class="gruppenbild-img" src="bilder/peterbild.jpg" alt="Gedenkveranstaltung 80 Jahre Kriegsende – 80 Jahre Frieden Ochsenfurt 2025" loading="lazy" decoding="async" />
             </div>    
         </div>
     </div>
@@ -1691,7 +1697,7 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                     </div>
             </div>
                              <div class="gruppenbild-container review-media-block review-media-block--top-88">
-              <img class="gruppenbild-img" src="bilder/kirche.jpg" alt="Neujahrskonzert St. Thekla Ochsenfurt 2025 Collegium Musicum Iuvenale" />
+              <img class="gruppenbild-img" src="bilder/kirche.jpg" alt="Neujahrskonzert St. Thekla Ochsenfurt 2025 Collegium Musicum Iuvenale" loading="lazy" decoding="async" />
               <div class="review-media-caption">
                                     <span data-lang="de">Foto: Thilo Weiskopf</span>
                                     <span data-lang="en" style="display:none;">Photo: Thilo Weiskopf</span>
@@ -1727,7 +1733,7 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                     </div>
             </div>
                          <div class="gruppenbild-container review-media-block review-media-block--top-88">
-              <img class="gruppenbild-img" src="bilder/Kauzensitzung Saxophonensemble.jpg" alt="Kauzensitzung Saxophonensemble Rathaus Ochsenfurt 2025 Collegium Musicum Iuvenale" />
+              <img class="gruppenbild-img" src="bilder/Kauzensitzung Saxophonensemble.jpg" alt="Kauzensitzung Saxophonensemble Rathaus Ochsenfurt 2025 Collegium Musicum Iuvenale" loading="lazy" decoding="async" />
                             <div class="review-media-caption">
                                     <span data-lang="de">Foto: Arlena Ridler</span>
                                     <span data-lang="en" style="display:none;">Photo: Arlena Ridler</span>
@@ -1764,7 +1770,7 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
                     </div>       
             </div>
                          <div class="gruppenbild-container review-media-block review-media-block--top-28">
-               <img class="gruppenbild-img" src="bilder/Christmette 2024.jpg" alt="Christmette St. Thekla Ochsenfurt 2024 Collegium Musicum Iuvenale" />
+               <img class="gruppenbild-img" src="bilder/Christmette 2024.jpg" alt="Christmette St. Thekla Ochsenfurt 2024 Collegium Musicum Iuvenale" loading="lazy" decoding="async" />
                <div class="review-media-caption">
                    <span data-lang="de">Foto: Michael Koch</span>
                    <span data-lang="en" style="display:none;">Photo: Michael Koch</span>
@@ -1826,7 +1832,7 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
         <div class="contact-info-grid">
             <div class="contact-info-card contact-info-card--time">
                 <div class="contact-info-icon-wrap contact-info-icon-wrap--time">
-                    <img src="files/icon.calendar.svg" alt="Calendar" class="contact-info-icon">
+                    <img src="files/icon.calendar.svg" alt="" aria-hidden="true" class="contact-info-icon">
                 </div>
                 <div class="contact-info-card-body">
                     <div class="contact-info-card-title" data-lang="de">Probezeiten</div>
@@ -1839,7 +1845,7 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
             </div>
             <div class="contact-info-card contact-info-card--location">
                 <div class="contact-info-icon-wrap contact-info-icon-wrap--location">
-                    <img src="files/icon.position.svg" alt="Location" class="contact-info-icon">
+                    <img src="files/icon.position.svg" alt="" aria-hidden="true" class="contact-info-icon">
                 </div>
                 <div class="contact-info-card-body">
                     <div class="contact-info-card-title" data-lang="de">Proberaum</div>
@@ -1852,7 +1858,7 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
             </div>
             <div class="contact-info-card contact-info-card--mail">
                 <div class="contact-info-icon-wrap contact-info-icon-wrap--mail">
-                    <img src="files/icon.mail.svg" alt="Mail" class="contact-info-icon">
+                    <img src="files/icon.mail.svg" alt="" aria-hidden="true" class="contact-info-icon">
                 </div>
                 <div class="contact-info-card-body">
                     <div class="contact-info-card-title" data-lang="de">E-Mail</div>
@@ -1866,11 +1872,12 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
         </div>
     </div>
 </section>
+    </main>
 <footer class="site-footer">
     <div class="site-footer__inner">
         <div class="site-footer__grid">
             <div class="site-footer__brand">
-                <img src="files/logo_cmi1 - weiß.svg" alt="CMI Logo" class="site-footer__logo">
+                <img src="files/logo_cmi1 - weiß.svg" alt="" aria-hidden="true" class="site-footer__logo">
                 <div class="site-footer__title" data-lang="de">Collegium Musicum Iuvenale Ochsenfurt</div>
                 <div class="site-footer__title" data-lang="en" style="display:none;">Collegium Musicum Iuvenale Ochsenfurt</div>
                 <div class="site-footer__title" data-lang="it" style="display:none;">Collegium Musicum Iuvenale Ochsenfurt</div>
