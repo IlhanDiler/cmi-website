@@ -4949,7 +4949,11 @@ html, body {
     border-color: rgba(235, 246, 243, 0.12) !important;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 901px) {
+    .navbar {
+        justify-content: space-between;
+    }
+
     .nav-brand {
         flex: 0 0 auto;
         margin-right: 2vw;
@@ -4959,11 +4963,12 @@ html, body {
         flex: 1 1 auto;
         display: flex;
         --interaction-transform: translateZ(0);
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
         gap: var(--nav-menu-gap);
-        width: 100%;
+        min-width: 0;
+        width: auto;
         padding: var(--nav-menu-padding);
     }
 
@@ -4991,6 +4996,39 @@ html, body {
     #langSwitcher {
         flex: 0 0 auto;
         margin-left: auto;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1280px) {
+    .navbar {
+        --navbar-gap: clamp(8px, 1vw, 12px);
+        --navbar-padding: 10px clamp(10px, 1.5vw, 16px);
+        --nav-brand-gap: 6px;
+        --nav-brand-padding: 0.24em 0.5em;
+        --nav-brand-logo-size: clamp(34px, 2vw, 40px);
+        --nav-brand-logo-min-size: 30px;
+        --nav-menu-gap: clamp(2px, 0.35vw, 6px);
+        --nav-link-font-size: clamp(0.74rem, 0.7rem + 0.12vw, 0.82rem);
+        --nav-link-letter-spacing: 0.03em;
+        --nav-link-padding: 0.68em 0.72em;
+        --lang-switcher-gap: 4px;
+        --lang-switcher-padding: 3px;
+        --lang-button-width: 34px;
+        --lang-button-height: 30px;
+        --lang-button-svg-width: 18px;
+        --lang-button-svg-height: 12px;
+    }
+
+    .brand-text {
+        font-size: clamp(0.76rem, 0.68rem + 0.18vw, 0.9rem);
+        line-height: 0.98;
+        padding-left: 5px;
+        padding-right: 4px;
+    }
+
+    .brand-text .brand-sub {
+        margin-top: 0.24em;
+        letter-spacing: 0.12em;
     }
 }
 
@@ -5215,7 +5253,7 @@ html[lang="it"] #langIt {
     box-shadow: var(--mobile-nav-link-focus-shadow);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 900px) {
     .nav-menu {
         display: none !important;
     }

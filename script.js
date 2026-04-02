@@ -661,6 +661,16 @@ function initMobileNavigation() {
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
     const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+    const navbar = document.querySelector('.navbar');
+
+    function getAnchorScrollTop(targetSection) {
+        const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
+        const targetTop = targetSection.getBoundingClientRect().top + window.scrollY;
+        const desiredTop = Math.max(targetTop - navbarHeight - 12, 0);
+        const maxScrollTop = Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
+
+        return Math.min(desiredTop, maxScrollTop);
+    }
 
     function closeMobileMenu() {
         if (!mobileMenu || !mobileMenuBtn) {
@@ -695,7 +705,7 @@ function initMobileNavigation() {
         });
 
         window.addEventListener('resize', function() {
-            if (window.innerWidth > 700) {
+            if (window.innerWidth > 900) {
                 closeMobileMenu();
             }
         });
@@ -722,7 +732,7 @@ function initMobileNavigation() {
             event.preventDefault();
             closeMobileMenu();
             window.scrollTo({
-                top: targetSection.offsetTop - 80,
+                top: getAnchorScrollTop(targetSection),
                 behavior: 'smooth'
             });
         });
