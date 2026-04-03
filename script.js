@@ -226,7 +226,7 @@ const heroGallery = [
     { src: 'bilder/Weihnachtskonzert Spitalkirche 13.12.2025.jpeg', title: { de: '„Weihnachtskonzert zum Mitsingen 2025“ in der Spitalkirche Ochsenfurt', en: '"Christmas Sing-Along Concert 2025" at Spitalkirche Ochsenfurt', it: '"Concerto di Natale da cantare insieme 2025" nella Spitalkirche di Ochsenfurt' }, shortTitle: { de: 'Weihnachtskonzert 2025 in Ochsenfurt', en: 'Christmas Sing-Along 2025 in Ochsenfurt', it: 'Concerto di Natale 2025 a Ochsenfurt' } },
     { src: 'bilder/Gruppenbild2.jpg', title: { de: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Hotel Meintz Ochsenfurt', en: 'Benefit concert for "Doctors Without Borders" 2025 at Hotel Meintz Ochsenfurt', it: 'Concerto benefico per "Medici Senza Frontiere" 2025 all\'Hotel Meintz di Ochsenfurt' }, shortTitle: { de: 'Benefizkonzert 2025 im Hotel Meintz', en: 'Benefit concert 2025 at Hotel Meintz', it: 'Concerto benefico 2025 all\'Hotel Meintz' } },
      { src: 'bilder/gruppe_2007.jpeg', title: { de: 'CMI 2009', en: 'CMI 2009', it: 'CMI 2009' } },
-    { src: 'bilder/peterbild.jpg', title: { de: 'Gedenkfeier - „80 Jahre Kriegsende, 80 Jahre Frieden“ in Ochsenfurt 2025', en: 'Commemorative event - "80 Years Since the End of War, 80 Years of Peace" in Ochsenfurt 2025', it: 'Cerimonia commemorativa - "80 anni dalla fine della guerra, 80 anni di pace" a Ochsenfurt 2025' }, shortTitle: { de: 'Gedenkfeier 80 Jahre Frieden 2025', en: '80 Years of Peace commemoration 2025', it: 'Commemorazione 80 anni di pace 2025' } },
+    { src: 'bilder/peterbild.jpg', title: { de: 'Gedenkfeier - „80 Jahre Kriegsende, 80 Jahre Frieden“ in Ochsenfurt 2025', en: 'Commemorative event - "80 Years Since the End of War, 80 Years of Peace" in Ochsenfurt 2025', it: 'Cerimonia commemorativa - "80 anni dalla fine della guerra, 80 anni di pace" a Ochsenfurt 2025', uk: 'Пам’ятний захід «80 років від завершення війни, 80 років миру» в Оксенфурті 2025' }, shortTitle: { de: 'Gedenkfeier 80 Jahre Frieden 2025', en: '80 Years of Peace commemoration 2025', it: 'Commemorazione 80 anni di pace 2025', uk: 'Пам’ятний захід 80 років миру 2025' } },
     { src: 'bilder/concello.jfif', title: { de: 'ConCello 2025 in der Klosterkirche Ochsenfurt', en: 'ConCello 2025 at Klosterkirche Ochsenfurt', it: 'ConCello 2025 nella Klosterkirche di Ochsenfurt' }, shortTitle: { de: 'ConCello 2025 in Ochsenfurt', en: 'ConCello 2025 in Ochsenfurt', it: 'ConCello 2025 a Ochsenfurt' } },
     { src: 'bilder/gruppemitflagge.jpg', title: { de: 'CMI und Veeh-Harfengruppe Querbeet 2025', en: 'CMI and the Veeh Harp Ensemble Querbeet 2025', it: 'CMI e il gruppo di arpe Veeh Querbeet 2025' }, shortTitle: { de: 'CMI und Querbeet 2025', en: 'CMI and Querbeet 2025', it: 'CMI e Querbeet 2025' } },
      { src: 'bilder/klosterkirche.jpg', title: { de: 'Klosterkirche 2024', en: 'Klosterkirche 2024', it: 'Klosterkirche 2024' } },
@@ -1337,6 +1337,7 @@ function applySiteLanguage(lang) {
     refreshHeroGalleryUi();
     ensureMbondaTimelineLinksAccessible();
     scheduleCookieConsentLanguageUpdate();
+    document.dispatchEvent(new CustomEvent('site-language-change', { detail: { lang: lang } }));
 }
 
 window.setLang = applySiteLanguage;
@@ -1348,6 +1349,7 @@ function initSiteLanguage() {
 function initReviewArchiveToggle() {
     const archive = document.getElementById('reviewArchive');
     const toggle = document.querySelector('.review-archive-toggle');
+    const intro = toggle ? toggle.closest('.review-archive-intro') : null;
 
     if (!archive || !toggle) {
         return;
@@ -1355,6 +1357,26 @@ function initReviewArchiveToggle() {
 
     const collapsedLabels = toggle.querySelectorAll('[data-state="collapsed"]');
     const expandedLabels = toggle.querySelectorAll('[data-state="expanded"]');
+
+    function scrollIntroIntoView() {
+        if (!intro) {
+            return;
+        }
+
+        const navbar = document.querySelector('.navbar');
+        const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
+        const introTop = intro.getBoundingClientRect().top + window.scrollY;
+        const targetTop = Math.max(0, introTop - navbarHeight - 12);
+
+        if (Math.abs(window.scrollY - targetTop) < 20) {
+            return;
+        }
+
+        window.scrollTo({
+            top: targetTop,
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+        });
+    }
 
     function setArchiveExpanded(isExpanded) {
         archive.hidden = !isExpanded;
@@ -1368,6 +1390,14 @@ function initReviewArchiveToggle() {
         expandedLabels.forEach(function(label) {
             label.hidden = !isExpanded;
         });
+
+        document.dispatchEvent(new CustomEvent('review-archive-state-change', {
+            detail: { expanded: isExpanded }
+        }));
+
+        if (!isExpanded) {
+            window.requestAnimationFrame(scrollIntroIntoView);
+        }
     }
 
     function expandArchiveForHash() {
@@ -1393,9 +1423,10 @@ function initReviewArchiveToggle() {
 }
 
 function initReviewCardToggles() {
+    const archive = document.getElementById('reviewArchive');
     const archiveCards = document.querySelectorAll('.review-archive .charity-projects-section[id^="review-"]');
 
-    if (!archiveCards.length) {
+    if (!archive || !archiveCards.length) {
         return;
     }
 
@@ -1427,18 +1458,13 @@ function initReviewCardToggles() {
             return;
         }
 
-        const hasLongContent = descriptions.some(function(description) {
-            return description.textContent.trim().length > 280;
-        });
-
-        if (!hasLongContent || section.querySelector('.review-card-toggle')) {
+        if (section.querySelector('.review-card-toggle')) {
             return;
         }
 
-        section.classList.add('review-card--collapsible');
-
         const toggleWrap = document.createElement('div');
         toggleWrap.className = 'review-card-toggle-wrap';
+        toggleWrap.hidden = true;
 
         const toggle = document.createElement('button');
         toggle.type = 'button';
@@ -1470,6 +1496,70 @@ function initReviewCardToggles() {
         setCardExpanded(section, false);
     }
 
+    function getActiveDescriptions(section) {
+        return Array.from(section.querySelectorAll('.charity-description')).filter(function(description) {
+            return window.getComputedStyle(description).display !== 'none';
+        });
+    }
+
+    function syncCardToggle(section) {
+        const toggleWrap = section.querySelector('.review-card-toggle-wrap');
+        const toggle = section.querySelector('.review-card-toggle');
+
+        if (!toggleWrap || !toggle || archive.hidden) {
+            return;
+        }
+
+        const activeDescriptions = getActiveDescriptions(section);
+        const wasExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+        if (!activeDescriptions.length) {
+            toggleWrap.hidden = true;
+            section.classList.remove('review-card--collapsible', 'review-card--expanded');
+            setCardExpanded(section, false);
+            return;
+        }
+
+        section.classList.add('review-card--collapsible');
+        section.classList.remove('review-card--expanded');
+
+        const collapsedHeights = activeDescriptions.map(function(description) {
+            return description.getBoundingClientRect().height;
+        });
+
+        section.classList.add('review-card--expanded');
+
+        const expandedHeights = activeDescriptions.map(function(description) {
+            return description.getBoundingClientRect().height;
+        });
+
+        const needsToggle = expandedHeights.some(function(height, index) {
+            return height - collapsedHeights[index] > 4;
+        });
+
+        if (!wasExpanded) {
+            section.classList.remove('review-card--expanded');
+        }
+
+        if (!needsToggle) {
+            toggleWrap.hidden = true;
+            section.classList.remove('review-card--collapsible', 'review-card--expanded');
+            setCardExpanded(section, false);
+            return;
+        }
+
+        toggleWrap.hidden = false;
+        section.classList.add('review-card--collapsible');
+        setCardExpanded(section, wasExpanded);
+    }
+
+    function syncAllCardToggles() {
+        archiveCards.forEach(function(section) {
+            createToggle(section);
+            syncCardToggle(section);
+        });
+    }
+
     function expandCardForHash() {
         const hash = window.location.hash ? window.location.hash.slice(1) : '';
         if (!hash) {
@@ -1480,13 +1570,33 @@ function initReviewCardToggles() {
         const section = target && target.closest('.review-archive .charity-projects-section[id^="review-"]');
 
         if (section) {
+            createToggle(section);
+            syncCardToggle(section);
             setCardExpanded(section, true);
         }
     }
 
     archiveCards.forEach(createToggle);
+    if (!archive.hidden) {
+        syncAllCardToggles();
+    }
     expandCardForHash();
     window.addEventListener('hashchange', expandCardForHash);
+    window.addEventListener('resize', function() {
+        if (!archive.hidden) {
+            window.requestAnimationFrame(syncAllCardToggles);
+        }
+    });
+    document.addEventListener('site-language-change', function() {
+        if (!archive.hidden) {
+            window.requestAnimationFrame(syncAllCardToggles);
+        }
+    });
+    document.addEventListener('review-archive-state-change', function(event) {
+        if (event.detail && event.detail.expanded) {
+            window.requestAnimationFrame(syncAllCardToggles);
+        }
+    });
 }
 
 function initSiteFeatures() {
