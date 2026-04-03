@@ -5627,7 +5627,7 @@
 .image-caption-copy-card {
     display: grid;
     gap: 22px;
-    padding: 34px 34px 28px;
+    padding: 38px 34px 30px;
     background: #ffffff;
     border: 1px solid rgba(18, 62, 70, 0.12);
     box-shadow: none;
@@ -5635,14 +5635,16 @@
 
 .image-caption-hero {
     display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(280px, 430px);
-    gap: 24px;
+    grid-template-columns: 1fr;
+    gap: 26px;
     align-items: start;
 }
 
 .image-caption-copy-main {
     display: grid;
     align-content: start;
+    justify-items: center;
+    text-align: center;
 }
 
 .image-caption-copy-card::before,
@@ -5683,7 +5685,7 @@
 
 .image-caption-title {
     margin: 10px 0 10px;
-    max-width: 12.8ch;
+    max-width: none;
     color: #102a32;
     font-family: var(--font-display);
     font-size: clamp(2rem, 3vw, 3.2rem);
@@ -5696,7 +5698,7 @@
 .image-caption-divider {
     width: 58px;
     height: 2px;
-    margin: 0 0 18px;
+    margin: 0 auto 18px;
     border-radius: 999px;
     background: rgba(14, 140, 130, 0.42);
 }
@@ -5705,11 +5707,14 @@
     display: grid;
     gap: 12px;
     margin: 0;
+    justify-items: center;
+    text-align: center;
 }
 
 .image-caption-copy {
     margin: 0;
-    max-width: 56ch;
+    max-width: 72ch;
+    text-align: center;
     color: #24434a;
     font-family: var(--font-ui-modern);
     font-size: 1.05rem;
@@ -5721,17 +5726,19 @@
 .image-caption-copy--lead {
     color: #14353b;
     font-weight: 600;
-    max-width: 34ch;
+    max-width: 48ch;
     font-size: clamp(1.14rem, 1.45vw, 1.34rem);
     line-height: 1.46;
 }
 
 .image-caption-photo-stage {
     margin: 0;
-    padding: 0;
-    border-radius: 24px;
-    background: transparent;
-    border: 0;
+    width: min(100%, 940px);
+    justify-self: center;
+    padding: 12px;
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(246, 249, 248, 0.95), rgba(255, 255, 255, 1));
+    border: 1px solid rgba(18, 62, 70, 0.08);
     box-shadow: none;
     align-self: stretch;
 }
@@ -5740,7 +5747,7 @@
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 24px;
+    border-radius: 22px;
     border: 1px solid rgba(18, 62, 70, 0.12);
 }
 
@@ -6094,7 +6101,9 @@
     }
 
     .image-caption-photo-stage {
-        margin-top: 6px;
+        width: 100%;
+        padding: 8px;
+        border-radius: 24px;
     }
 
     .image-caption-metric::before,
