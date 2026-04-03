@@ -9264,8 +9264,8 @@ html[lang="it"] #langIt {
         --navbar-scrolled-shadow: none;
         --nav-brand-gap: 5px;
         --nav-brand-padding: 0;
-        --nav-brand-logo-size: 32px;
-        --nav-brand-logo-min-size: 28px;
+        --nav-brand-logo-size: 38px;
+        --nav-brand-logo-min-size: 34px;
         --mobile-menu-btn-size: 40px;
         --mobile-menu-btn-mobile-min-size: 40px;
         --mobile-menu-btn-mobile-padding: 0.28em;
@@ -9287,7 +9287,7 @@ html[lang="it"] #langIt {
 
     .nav-brand {
         min-width: 0;
-        max-width: 56px;
+        max-width: 64px;
         justify-self: center;
         justify-content: center;
         background: transparent;
@@ -9808,7 +9808,7 @@ html[lang="it"] #langIt {
     }
 
     .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
-        padding: 8px !important;
+        padding: 5px !important;
     }
 
     .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img,
