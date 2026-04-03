@@ -9,7 +9,8 @@ function initEventLightbox() {
     const lightboxLanguageLabels = {
         de: { kicker: 'Konzertplakat' },
         en: { kicker: 'Concert Poster' },
-        it: { kicker: 'Manifesto del concerto' }
+        it: { kicker: 'Manifesto del concerto' },
+        uk: { kicker: 'Афіша концерту' }
     };
     let lastTrigger = null;
 
@@ -211,6 +212,12 @@ const heroGalleryUiLabels = {
         previous: 'Immagine precedente',
         next: 'Immagine successiva',
         pagination: 'Paginazione galleria hero'
+    },
+    uk: {
+        image: 'Зображення',
+        previous: 'Попереднє зображення',
+        next: 'Наступне зображення',
+        pagination: 'Пагінація головної галереї'
     }
 };
 
@@ -284,14 +291,19 @@ let heroGalleryUiVisibilityTimeout = null;
 function getCurrentSiteLanguage() {
     try {
         const storedLanguage = localStorage.getItem('siteLang');
-        if (storedLanguage === 'de' || storedLanguage === 'en' || storedLanguage === 'it') {
+        if (storedLanguage === 'de' || storedLanguage === 'en' || storedLanguage === 'it' || storedLanguage === 'uk') {
             return storedLanguage;
         }
     } catch (e) {}
 
-    const htmlLanguage = document.documentElement.getAttribute('lang');
-    if (htmlLanguage === 'de' || htmlLanguage === 'en' || htmlLanguage === 'it') {
+    const htmlLanguage = (document.documentElement.getAttribute('lang') || '').toLowerCase().split('-')[0];
+    if (htmlLanguage === 'de' || htmlLanguage === 'en' || htmlLanguage === 'it' || htmlLanguage === 'uk') {
         return htmlLanguage;
+    }
+
+    const browserLanguage = (navigator.language || '').toLowerCase().split('-')[0];
+    if (browserLanguage === 'de' || browserLanguage === 'en' || browserLanguage === 'it' || browserLanguage === 'uk') {
+        return browserLanguage;
     }
 
     return 'de';
@@ -850,7 +862,7 @@ function updateYearsPassed() {
     yearsPassedEl.textContent = new Date().getFullYear() - 1981;
 }
 
-const supportedSiteLanguages = new Set(['de', 'en', 'it']);
+const supportedSiteLanguages = new Set(['de', 'en', 'it', 'uk']);
 const mbondaTimelineLinkSelector = '.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]';
 
 function isSupportedSiteLanguage(lang) {
@@ -906,13 +918,98 @@ function ensureMbondaTimelineLinksAccessible() {
     });
 }
 
+function getSiteLanguageFallbackOrder(lang) {
+    const fallbackOrder = [lang];
+
+    if (lang !== 'en') {
+        fallbackOrder.push('en');
+    }
+
+    if (lang !== 'de') {
+        fallbackOrder.push('de');
+    }
+
+    if (lang !== 'it') {
+        fallbackOrder.push('it');
+    }
+
+    return fallbackOrder;
+}
+
+function getLanguageVariantSignature(element) {
+    const normalizedClassName = Array.from(element.classList)
+        .filter(function(className) {
+            return !className.includes('--');
+        })
+        .sort()
+        .join(' ');
+
+    return [element.tagName, normalizedClassName].join('|');
+}
+
+function applyLanguageVariantsForParent(parent, fallbackOrder) {
+    let currentGroup = [];
+    let currentSignature = '';
+    let currentLanguages = new Set();
+
+    function flushCurrentGroup() {
+        if (!currentGroup.length) {
+            return;
+        }
+
+        const chosenVariant = fallbackOrder
+            .map(function(language) {
+                return currentGroup.find(function(candidate) {
+                    return candidate.getAttribute('data-lang') === language;
+                });
+            })
+            .find(Boolean) || currentGroup[0];
+
+        currentGroup.forEach(function(candidate) {
+            candidate.style.display = candidate === chosenVariant ? '' : 'none';
+        });
+
+        currentGroup = [];
+        currentSignature = '';
+        currentLanguages = new Set();
+    }
+
+    Array.from(parent.children).forEach(function(child) {
+        if (!child.hasAttribute('data-lang')) {
+            return;
+        }
+
+        const childLanguage = child.getAttribute('data-lang');
+        const childSignature = getLanguageVariantSignature(child);
+
+        if (currentGroup.length && (childSignature !== currentSignature || currentLanguages.has(childLanguage))) {
+            flushCurrentGroup();
+        }
+
+        currentGroup.push(child);
+        currentSignature = childSignature;
+        currentLanguages.add(childLanguage);
+    });
+
+    flushCurrentGroup();
+}
+
 function applySiteLanguage(lang) {
     if (!isSupportedSiteLanguage(lang)) {
         return;
     }
 
+    const fallbackOrder = getSiteLanguageFallbackOrder(lang);
+    const parentsWithLanguageVariants = new Set();
+
     document.querySelectorAll('[data-lang]').forEach(function(element) {
-        element.style.display = element.getAttribute('data-lang') === lang ? '' : 'none';
+        if (element.parentElement) {
+            parentsWithLanguageVariants.add(element.parentElement);
+        }
+    });
+
+    parentsWithLanguageVariants.forEach(function(parent) {
+        applyLanguageVariantsForParent(parent, fallbackOrder);
     });
 
     document.documentElement.setAttribute('lang', lang);
@@ -1036,11 +1133,13 @@ function initReviewCardToggles() {
             '<span data-lang="de">Mehr lesen</span>',
             '<span data-lang="en" style="display:none;">Read more</span>',
             '<span data-lang="it" style="display:none;">Leggi di piu</span>',
+            '<span data-lang="uk" style="display:none;">Читати далі</span>',
             '</span>',
             '<span class="review-card-toggle__label" data-state="expanded" hidden>',
             '<span data-lang="de">Weniger anzeigen</span>',
             '<span data-lang="en" style="display:none;">Show less</span>',
             '<span data-lang="it" style="display:none;">Mostra meno</span>',
+            '<span data-lang="uk" style="display:none;">Показати менше</span>',
             '</span>'
         ].join('');
 
