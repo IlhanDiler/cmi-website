@@ -322,7 +322,7 @@
 
 .contact-info-lead {
     display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.9fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 22px;
     align-items: stretch;
     margin-bottom: 28px;
@@ -606,7 +606,7 @@
     }
 
     .contact-info-lead {
-        grid-template-columns: minmax(0, 1.12fr) minmax(286px, 0.82fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 18px;
         margin-bottom: 0;
     }
@@ -1072,10 +1072,10 @@
 }
 
 .music-family-benefits-row {
-    --music-family-benefits-gap: 18px;
-    --music-family-benefits-margin-bottom: 28px;
-    --music-family-benefits-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    --music-family-benefits-padding: 14px 18px;
+    --music-family-benefits-gap: 24px;
+    --music-family-benefits-margin-bottom: 34px;
+    --music-family-benefits-columns: minmax(0, 1.34fr) minmax(220px, 0.66fr);
+    --music-family-benefits-padding: 30px 30px 28px;
     display: grid;
     grid-template-columns: var(--music-family-benefits-columns);
     align-items: center;
@@ -1083,6 +1083,31 @@
     gap: var(--music-family-benefits-gap);
     max-width: 980px;
     margin: 0 auto var(--music-family-benefits-margin-bottom);
+    padding: var(--music-family-benefits-padding);
+    border-radius: 28px;
+    border: 1px solid rgba(18, 62, 70, 0.14);
+    background: linear-gradient(180deg, #325157 0%, #28464b 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.music-family-benefits-row::before,
+.music-family-benefits-row::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+}
+
+.music-family-benefits-row::before {
+    inset: 0 auto auto 0;
+    width: 88px;
+    height: 3px;
+    background: rgba(243, 248, 245, 0.72);
+    border-radius: 999px;
+}
+
+.music-family-benefits-row::after {
+    content: none;
 }
 
 .music-family-benefits {
@@ -1092,51 +1117,64 @@
     padding-left: 0 !important;
     list-style: none;
     display: grid;
-    gap: 12px;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
 }
 
 .music-family-benefits li {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 12px;
+    gap: 14px;
     align-items: center;
-    color: var(--music-family-copy);
+    color: rgba(245, 249, 247, 0.96);
     font-family: var(--font-ui-modern);
     text-align: left;
-    font-size: 1.05rem !important;
-    font-weight: 560;
-    line-height: 1.56 !important;
-    padding-right: 0 !important;
-    padding-left: 0 !important;
+    font-size: 1.02rem !important;
+    font-weight: 550;
+    line-height: 1.52 !important;
+    padding: 12px 0 !important;
     word-break: break-word !important;
     overflow-wrap: break-word !important;
     white-space: normal !important;
     hyphens: auto !important;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(235, 243, 239, 0.12);
+    letter-spacing: -0.01em;
+}
+
+.music-family-benefits li:last-child {
+    border-bottom: 0;
 }
 
 .music-family-benefit-check {
-    width: 1.7rem;
-    height: 1.7rem;
+    width: 1.9rem;
+    height: 1.9rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     border-radius: 999px;
-    color: #fff;
-    background: #0e8c82;
+    color: #f4f8f6;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(241, 246, 244, 0.12);
     box-shadow: none;
-    font-size: 0.94rem;
-    font-weight: 800;
+    font-size: 0.86rem;
+    font-weight: 760;
     line-height: 1;
+    flex-shrink: 0;
 }
 
 .music-family-logo-mobile {
-    --music-family-logo-mobile-padding: 14px 16px;
-    --music-family-logo-mobile-radius: 20px;
-    --music-family-logo-mobile-bg: #ffffff;
+    --music-family-logo-mobile-padding: 26px 24px;
+    --music-family-logo-mobile-radius: 24px;
+    --music-family-logo-mobile-bg: transparent;
     --music-family-logo-mobile-shadow: none;
     grid-column: 2;
     grid-row: 1;
-    justify-self: center;
+    justify-self: stretch;
+    align-self: stretch;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1144,17 +1182,30 @@
     border-radius: var(--music-family-logo-mobile-radius);
     background: var(--music-family-logo-mobile-bg);
     box-shadow: var(--music-family-logo-mobile-shadow);
-    border: 1px solid rgba(18, 62, 70, 0.14);
-    border-top: 4px solid var(--color-primary);
+    border: 0;
     position: relative;
     overflow: hidden;
+    min-height: 100%;
+    z-index: 1;
+}
+
+.music-family-logo-mobile::before {
+    content: none;
+}
+
+.music-family-logo-mobile::after {
+    content: none;
 }
 
 .music-family-logo-mobile img {
     display: block;
     width: 100%;
-    max-width: 112px;
+    max-width: 158px;
     height: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.92;
+    position: relative;
+    z-index: 1;
 }
 
 .music-family-groups {
@@ -1382,6 +1433,11 @@
 @media (max-width: 900px) {
     .music-family-benefits-row {
         --music-family-benefits-columns: minmax(0, 1fr);
+        --music-family-benefits-padding: 22px 20px 20px;
+    }
+
+    .music-family-benefits-row::after {
+        display: none;
     }
 
     .music-family-benefits,
@@ -1391,8 +1447,10 @@
     }
 
     .music-family-logo-mobile {
-        width: fit-content;
+        width: min(100%, 260px);
         justify-self: center;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .music-family-groups {
@@ -1442,8 +1500,10 @@
     }
 
     .music-family-benefits-row {
-        --music-family-benefits-gap: 12px;
-        --music-family-benefits-margin-bottom: 16px;
+        --music-family-benefits-gap: 14px;
+        --music-family-benefits-margin-bottom: 18px;
+        --music-family-benefits-padding: 18px 14px 16px;
+        border-radius: 22px;
     }
 
     .music-family-highlights {
@@ -1467,14 +1527,18 @@
     }
 
     .music-family-benefit-check {
-        width: 1rem;
-        height: 1rem;
-        font-size: 0.72rem;
+        width: 1.15rem;
+        height: 1.15rem;
+        font-size: 0.74rem;
     }
 
     .music-family-logo-mobile {
-        --music-family-logo-mobile-padding: 10px 12px;
-        --music-family-logo-mobile-radius: 16px;
+        --music-family-logo-mobile-padding: 16px 18px;
+        --music-family-logo-mobile-radius: 18px;
+    }
+
+    .music-family-logo-mobile img {
+        max-width: 126px;
     }
 
     .music-family-groups {

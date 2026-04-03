@@ -1,3 +1,63 @@
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+function resetPageScrollToTop() {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+}
+
+function clearCurrentHash() {
+    if (!window.location.hash) {
+        return;
+    }
+
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+}
+
+function getNavigationType() {
+    const navigationEntry = performance.getEntriesByType('navigation')[0];
+
+    if (navigationEntry && navigationEntry.type) {
+        return navigationEntry.type;
+    }
+
+    if (performance.navigation) {
+        if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+            return 'reload';
+        }
+
+        if (performance.navigation.type === performance.navigation.TYPE_BACK_FORWARD) {
+            return 'back_forward';
+        }
+    }
+
+    return 'navigate';
+}
+
+function isReloadNavigation() {
+    return getNavigationType() === 'reload';
+}
+
+function shouldForceTopOnLoad() {
+    return !window.location.hash || isReloadNavigation();
+}
+
+function enforceTopOnLoad() {
+    if (!shouldForceTopOnLoad()) {
+        return;
+    }
+
+    if (window.location.hash && isReloadNavigation()) {
+        clearCurrentHash();
+    }
+
+    resetPageScrollToTop();
+    window.requestAnimationFrame(resetPageScrollToTop);
+    window.setTimeout(resetPageScrollToTop, 0);
+}
+
 // Lightbox für Event-Bilder
 function initEventLightbox() {
     const lightboxModal = document.getElementById('eventLightboxModal');
@@ -1020,7 +1080,7 @@ function initMobileNavigation() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-    const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+    const inPageLinks = document.querySelectorAll('a[href^="#"]:not(.skip-link)');
 
     function syncMobileMenuState(isOpen) {
         document.body.classList.toggle('mobile-menu-open', Boolean(isOpen));
@@ -1076,10 +1136,10 @@ function initMobileNavigation() {
         });
     });
 
-    navLinks.forEach(link => {
+    inPageLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             const targetId = this.getAttribute('href');
-            if (!targetId || !targetId.startsWith('#')) {
+            if (!targetId || !targetId.startsWith('#') || targetId.length < 2) {
                 return;
             }
 
@@ -1090,6 +1150,7 @@ function initMobileNavigation() {
 
             event.preventDefault();
             closeMobileMenu();
+            clearCurrentHash();
             window.scrollTo({
                 top: targetSection.offsetTop - 80,
                 behavior: 'smooth'
@@ -1600,6 +1661,8 @@ function initReviewCardToggles() {
 }
 
 function initSiteFeatures() {
+    enforceTopOnLoad();
+
     initEventLightbox();
     initHeroLayout();
     initHeroGallery();
@@ -1623,5 +1686,7 @@ document.addEventListener('DOMContentLoaded', initSiteFeatures);
 document.addEventListener('DOMContentLoaded', initNavbarScroll);
 
 window.addEventListener('load', initNavbarScroll);
+window.addEventListener('load', enforceTopOnLoad);
+window.addEventListener('pageshow', enforceTopOnLoad);
 
 window.addEventListener('resize', ensureMbondaTimelineLinksAccessible);
