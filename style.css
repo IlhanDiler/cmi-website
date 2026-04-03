@@ -1095,6 +1095,11 @@
     font-weight: 800;
 }
 
+.music-family-group-details .address-part {
+    display: block;
+    padding-left: 0.7rem;
+}
+
 .music-family-contact {
     --music-family-contact-margin-top: 28px;
     margin-top: var(--music-family-contact-margin-top);
@@ -1322,6 +1327,10 @@
     .music-family-group-details li b {
         display: inline;
         margin-bottom: 0;
+    }
+
+    .music-family-group-details .address-part {
+        padding-left: 0.55rem;
     }
 
     .music-family-contact {
@@ -2847,13 +2856,14 @@
     font-size: 0.99em;
     line-height: 1.28;
     font-weight: 620;
+    font-family: var(--font-ui-modern);
 }
 
 .musikalisches-repertoire-card--engagement .charity-certificate-img {
     display: block;
     width: 100%;
     max-width: none;
-    margin: auto auto 0;
+    margin: 18px auto 0;
     height: auto;
     border-radius: 18px;
     border: 1px solid rgba(18, 62, 70, 0.12);
@@ -2886,8 +2896,9 @@
     margin: 0;
     color: #27474e;
     font-size: 0.96rem;
-    line-height: 1.52;
+    line-height: 1.62;
     font-weight: 540;
+    font-family: var(--font-ui-modern);
 }
 
 .musikalisches-repertoire-card--engagement .charity-list-item--project {
@@ -5945,14 +5956,22 @@
 
 .image-caption-video-title {
     grid-area: title;
+    width: 100%;
     color: #14353b;
     font-family: var(--font-ui-modern);
-    max-width: 34ch;
+    max-width: none;
     font-size: clamp(1.02rem, 1.45vw, 1.28rem);
     font-weight: 580;
     line-height: 1.48;
     letter-spacing: -0.01em;
-    text-wrap: balance;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    word-break: normal;
+    overflow-wrap: normal;
+    text-wrap: pretty;
 }
 
 .image-caption-card-link {
@@ -9712,12 +9731,14 @@ html[lang="it"] #langIt {
 
 .musikalisches-repertoire-card--engagement > .musikalisches-repertoire-list li,
 .musikalisches-repertoire-card--engagement .charity-list-item-certificate-copy {
-    text-align: justify !important;
-    text-justify: inter-word;
+    text-align: left !important;
+    text-justify: auto !important;
     hyphens: auto !important;
     -webkit-hyphens: auto !important;
     -ms-hyphens: auto !important;
     overflow-wrap: break-word !important;
+    word-spacing: normal !important;
+    text-wrap: pretty;
 }
 
 .musikalisches-repertoire-card--repertoire .repertoire-story-card-copy {
@@ -9750,6 +9771,16 @@ html[lang="it"] #langIt {
     -ms-hyphens: auto !important;
     overflow-wrap: break-word !important;
     text-wrap: pretty;
+}
+
+.musikalisches-repertoire-card--engagement [data-lang="uk"].engagement-focus-title,
+.musikalisches-repertoire-card--engagement [data-lang="uk"].engagement-focus-copy,
+.musikalisches-repertoire-card--engagement [data-lang="uk"].charity-certificate-card-title,
+.musikalisches-repertoire-card--engagement [data-lang="uk"].charity-list-item-certificate-copy,
+.musikalisches-repertoire-card--engagement > .musikalisches-repertoire-list[data-lang="uk"] li,
+.musikalisches-repertoire-card--engagement > .musikalisches-repertoire-list[data-lang="uk"] li > span {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    letter-spacing: 0 !important;
 }
 
 .subpage-body--privacy .subpage-hero__intro,
@@ -9788,6 +9819,22 @@ html[lang="it"] #langIt {
     -ms-hyphens: auto !important;
     overflow-wrap: break-word !important;
     text-wrap: pretty;
+}
+
+@media (max-width: 700px) {
+    .musikalisches-repertoire-intro,
+    .musikalisches-repertoire-card--repertoire .repertoire-story-card-copy,
+    .musikalisches-repertoire-card--engagement .engagement-focus-copy,
+    .musikalisches-repertoire-card--engagement .charity-certificate-card .charity-list-item-certificate-copy,
+    .musikalisches-repertoire-card--engagement > .musikalisches-repertoire-list li {
+        text-align: justify !important;
+        text-justify: inter-word;
+        hyphens: auto !important;
+        -webkit-hyphens: auto !important;
+        -ms-hyphens: auto !important;
+        overflow-wrap: break-word !important;
+        text-wrap: pretty;
+    }
 }
 
 @media (max-width: 600px) {
