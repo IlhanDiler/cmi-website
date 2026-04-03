@@ -11114,6 +11114,8 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
 
     html body .contact-info-kicker,
     html body .contact-info-lead-card-kicker,
+    html body .contact-info-subtitle,
+    html body .about-me-modern-subtitle,
     html body .image-caption-kicker,
     html body .image-caption-video-kicker,
     html body .hero-story-eyebrow,
@@ -11129,6 +11131,18 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
         line-height: 1.34 !important;
         letter-spacing: 0.12em !important;
         text-transform: uppercase;
+    }
+
+    html body .image-caption-card-footer,
+    html body .hero-story-visual-caption,
+    html body .charity-projects-section[id^="review-"] .review-media-caption,
+    html body .event-poster-hint-text,
+    html body .fadein-text {
+        font-family: var(--font-ui-modern) !important;
+        font-size: 0.9rem !important;
+        font-weight: 500 !important;
+        line-height: 1.46 !important;
+        letter-spacing: 0.004em !important;
     }
 
     html body .contact-info-intro,
