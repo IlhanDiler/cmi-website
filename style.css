@@ -73,14 +73,22 @@
     --type-card-title-font-size: clamp(1.08rem, 1.32vw, 1.28rem);
     --type-card-title-line-height: 1.2;
     --type-card-title-letter-spacing: -0.018em;
-    --type-title-mobile-font-size: clamp(1.74rem, 6.8vw, 2.18rem);
+    --type-title-mobile-font-size: clamp(1.86rem, 7.2vw, 2.32rem);
     --type-title-mobile-line-height: 1.08;
-    --type-title-display-mobile-font-size: clamp(1.94rem, 8vw, 2.56rem);
-    --type-lead-mobile-font-size: 1rem;
-    --type-lead-mobile-line-height: 1.58;
-    --type-body-mobile-font-size: 0.98rem;
-    --type-body-mobile-line-height: 1.56;
-    --type-card-title-mobile-font-size: 1.04rem;
+    --type-title-display-mobile-font-size: clamp(2.08rem, 8.6vw, 2.82rem);
+    --type-lead-mobile-font-size: 1.05rem;
+    --type-lead-mobile-line-height: 1.64;
+    --type-body-mobile-font-size: 1.01rem;
+    --type-body-mobile-line-height: 1.62;
+    --type-card-title-mobile-font-size: 1.14rem;
+}
+
+@media (max-width: 700px) {
+    :root {
+        --button-pill-min-height: 48px;
+        --button-pill-padding: 12px 18px;
+        --button-pill-font-size: 0.98rem;
+    }
 }
 
 .contact-info-primary-link,
@@ -1255,17 +1263,18 @@
     }
 
     .music-family-highlight-card {
-        padding: 14px 14px 13px;
-        border-radius: 18px;
+        padding: 16px 16px 15px;
+        border-radius: 20px;
     }
 
     .music-family-highlight-title {
-        font-size: 1rem;
+        font-size: 1.12rem;
+        line-height: 1.2;
     }
 
     .music-family-highlight-copy {
-        font-size: 0.9rem;
-        line-height: 1.5;
+        font-size: 1rem;
+        line-height: 1.58;
     }
 
     .music-family-benefit-check {
@@ -3043,14 +3052,14 @@
     }
 
     .musikalisches-repertoire-card--repertoire .repertoire-story-card {
-        padding: 22px 14px 14px;
-        border-radius: 16px;
+        padding: 24px 16px 16px;
+        border-radius: 18px;
     }
 
     .musikalisches-repertoire-card--repertoire .repertoire-story-card::before {
-        left: 14px;
-        top: 12px;
-        width: 34px;
+        left: 16px;
+        top: 14px;
+        width: 38px;
     }
 
     .musikalisches-repertoire-card--engagement > .musikalisches-repertoire-list li {
@@ -3084,12 +3093,13 @@
     }
 
     .musikalisches-repertoire-card--repertoire .repertoire-story-card-title {
-        font-size: 1rem;
+        font-size: 1.14rem;
+        line-height: 1.2;
     }
 
     .musikalisches-repertoire-card--repertoire .repertoire-story-card-copy {
-        font-size: 0.92rem;
-        line-height: 1.5;
+        font-size: 1.01rem;
+        line-height: 1.62;
     }
 
     .repertoire-highlight-copy,
@@ -3101,7 +3111,7 @@
     .ensemble-chip-list {
         display: flex !important;
         flex-wrap: wrap !important;
-        gap: 6px;
+        gap: 8px;
         width: 100%;
         max-width: 100%;
         min-width: 0;
@@ -3110,10 +3120,10 @@
 
     .ensemble-chip {
         display: inline-flex;
-        min-height: 0;
-        padding: 5px 8px;
-        font-size: 0.8em;
-        line-height: 1.18;
+        min-height: 36px;
+        padding: 6px 10px;
+        font-size: 0.9rem;
+        line-height: 1.24;
         white-space: normal;
         text-align: center;
     }
@@ -4627,24 +4637,24 @@
 
 @media (max-width: 600px) {
     .timeline-summary-card {
-        border-radius: 18px;
-        padding: 16px 15px 14px;
+        border-radius: 22px;
+        padding: 20px 18px 18px;
     }
 
     .timeline-section {
-        --timeline-section-padding: 48px 0;
+        --timeline-section-padding: 52px 0;
         --timeline-container-width: 94vw;
-        --timeline-container-padding: 26px 16px 22px;
-        --timeline-container-radius: 24px;
-        --timeline-header-margin-bottom: 24px;
+        --timeline-container-padding: 28px 18px 24px;
+        --timeline-container-radius: 26px;
+        --timeline-header-margin-bottom: 28px;
         --timeline-header-accent-width: 72px;
         --timeline-header-accent-margin-top: 18px;
         --timeline-title-font-size: var(--type-title-mobile-font-size);
-        --timeline-intro-font-size: var(--type-lead-mobile-font-size);
-        --timeline-intro-line-height: var(--type-lead-mobile-line-height);
-        --timeline-list-gap: 16px;
-        --timeline-item-gap: 10px;
-        --timeline-item-padding: 18px 16px;
+        --timeline-intro-font-size: 1rem;
+        --timeline-intro-line-height: 1.62;
+        --timeline-list-gap: 18px;
+        --timeline-item-gap: 12px;
+        --timeline-item-padding: 20px 18px;
         --timeline-item-radius: 22px;
         --timeline-item-shadow: none;
         --timeline-item-before-top: 14px;
@@ -4652,12 +4662,12 @@
         --timeline-item-before-width: 3px;
         --timeline-year-flex-basis: auto;
         --timeline-year-width: auto;
-        --timeline-year-height: 42px;
-        --timeline-year-min-width: 78px;
-        --timeline-year-min-height: 42px;
+        --timeline-year-height: 46px;
+        --timeline-year-min-width: 84px;
+        --timeline-year-min-height: 46px;
         --timeline-year-radius: 999px;
-        --timeline-year-padding: 0 14px;
-        --timeline-year-font-size: 0.9em;
+        --timeline-year-padding: 0 15px;
+        --timeline-year-font-size: 0.96rem;
         --timeline-year-justify: center;
         --timeline-year-shadow: none;
         --timeline-dot-size: 12px;
@@ -4669,10 +4679,11 @@
         --timeline-highlight-link-font-size: 1em;
         --timeline-highlight-link-bg: transparent;
         --timeline-highlight-link-bg-hover: transparent;
-        --timeline-item-title-font-size: var(--type-card-title-mobile-font-size);
+        --timeline-item-title-font-size: clamp(1.12rem, 5vw, 1.24rem);
         --timeline-item-title-max-width: 100%;
-        --timeline-item-text-font-size: var(--type-body-mobile-font-size);
-        --timeline-item-text-line-height: var(--type-body-mobile-line-height);
+        --timeline-item-text-font-size: 1rem;
+        --timeline-item-text-line-height: 1.62;
+        --timeline-content-gap: 10px;
     }
 
     .timeline-item {
@@ -4686,6 +4697,28 @@
 
     .timeline-content {
         width: 100%;
+    }
+
+    .timeline-eyebrow {
+        font-size: 0.76rem;
+        padding: 7px 12px;
+    }
+
+    .timeline-intro {
+        max-width: none;
+    }
+
+    .timeline-summary-value {
+        font-size: 1.22rem;
+    }
+
+    .timeline-summary-copy {
+        font-size: 1.03rem;
+        line-height: 1.62;
+    }
+
+    .timeline-item-title {
+        line-height: 1.16 !important;
     }
 
     .timeline-item-title a {
@@ -6729,18 +6762,18 @@
     }
 
     .hero-story-eyebrow {
-        font-size: 0.74rem;
-        letter-spacing: 0.06em;
+        font-size: 0.78rem;
+        letter-spacing: 0.07em;
     }
 
     .hero-story-title {
-        font-size: clamp(1.92rem, 9vw, 2.6rem);
+        font-size: clamp(2.08rem, 9vw, 2.82rem);
     }
 
     .hero-story-copy {
-        max-width: 32ch;
-        font-size: 0.94rem;
-        line-height: 1.58;
+        max-width: 34ch;
+        font-size: 1rem;
+        line-height: 1.64;
     }
 
     .hero-story-visual {
@@ -6758,7 +6791,8 @@
 
     .hero-story-button {
         width: 100%;
-        min-height: 46px;
+        min-height: 48px;
+        font-size: 0.98rem;
     }
 
     .hero-bg-fade {
@@ -9947,9 +9981,9 @@ html[lang="it"] #langIt {
     border: 0 !important;
     border-radius: 0 !important;
     font-family: var(--font-ui-modern) !important;
-    font-size: 0.72rem !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.16em !important;
+    font-size: 0.78rem !important;
+    font-weight: 540 !important;
+    letter-spacing: 0.145em !important;
 }
 
 .hero-story-eyebrow {
@@ -10087,6 +10121,7 @@ html body #cookiescript_injected_wrapper #cookiescript_accept:hover {
 .musik-bruecken-text,
 .hero-story-copy,
 .review-overview-intro {
+    font-family: var(--font-ui-modern) !important;
     font-size: var(--type-lead-font-size) !important;
     line-height: var(--type-lead-line-height) !important;
     letter-spacing: var(--type-lead-letter-spacing);
@@ -10629,9 +10664,9 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
     }
 
     html body .event-section-kicker {
-        font-size: 0.76rem !important;
+        font-size: 0.84rem !important;
         font-weight: 760 !important;
-        letter-spacing: 0.13em !important;
+        letter-spacing: 0.125em !important;
     }
 
     html body .event-title {
@@ -10748,7 +10783,7 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
     }
 
     html body .event-section {
-        padding: 32px 0 30px !important;
+        padding: 36px 0 34px !important;
     }
 
     html body .event-badge {
@@ -10756,7 +10791,7 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
         gap: 12px;
         justify-content: space-between;
         align-items: center;
-        padding: 12px 14px 11px !important;
+        padding: 14px 16px 12px !important;
         border-radius: 20px 20px 0 0;
     }
 
@@ -10771,36 +10806,36 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
     }
 
     html body .event-content {
-        padding: 16px 13px 14px !important;
+        padding: 18px 16px 16px !important;
     }
 
     html body .event-copy {
-        gap: 8px;
+        gap: 10px;
     }
 
     html body .event-date,
     html body .event-time {
         margin-right: 0 !important;
-        font-size: 0.96rem;
+        font-size: 1rem;
         line-height: 1.2;
     }
 
     html body .event-headline {
         max-width: 100%;
-        font-size: clamp(1.14rem, 4.9vw, 1.32rem);
+        font-size: clamp(1.24rem, 5.4vw, 1.48rem);
         line-height: 1.08;
     }
 
     html body .event-location {
         margin-bottom: 10px;
-        font-size: 0.84rem;
+        font-size: 0.88rem;
         letter-spacing: 0.09em;
         color: #294c53;
     }
 
     html body .event-description {
-        font-size: 0.98rem;
-        line-height: 1.56;
+        font-size: 1.02rem;
+        line-height: 1.62;
     }
 
     html body .event-program {
@@ -10809,8 +10844,8 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
 
     html body .event-program li {
         padding-left: 15px;
-        font-size: 0.95rem;
-        line-height: 1.48;
+        font-size: 1.04rem;
+        line-height: 1.64;
     }
 
     html body .event-program li + li {
@@ -10820,8 +10855,8 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
     html body .event-note {
         padding-top: 10px;
         border-top: 1px solid rgba(13, 92, 99, 0.1);
-        font-size: 0.94rem;
-        line-height: 1.54;
+        font-size: 1.03rem;
+        line-height: 1.66;
     }
 
     html body .event-poster-stage {
@@ -10843,7 +10878,7 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
     }
 
     html body .event-poster-hint-text {
-        font-size: 0.76rem;
+        font-size: 0.8rem;
         line-height: 1.32;
     }
 
@@ -10854,42 +10889,47 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
 
     html body .event-poster-download {
         max-width: 100%;
-        min-height: 44px;
-        padding: 10px 13px;
-        font-size: 0.88rem;
+        min-height: 46px;
+        padding: 11px 14px;
+        font-size: 0.92rem;
         margin-left: auto;
         margin-right: auto;
     }
 
     html body .event-social-button {
-        width: 50px;
-        height: 50px;
-        min-width: 50px;
-        min-height: 50px;
-        max-width: 50px;
-        max-height: 50px;
-        flex-basis: 50px;
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        min-height: 52px;
+        max-width: 52px;
+        max-height: 52px;
+        flex-basis: 52px;
     }
 
     html body .review-overview-section {
-        padding: 16px 0 10px !important;
+        padding: 22px 0 16px !important;
     }
 
     html body .review-overview-copy {
-        padding: 14px 14px !important;
-        border-radius: 18px !important;
+        padding: 18px 16px !important;
+        border-radius: 20px !important;
+    }
+
+    html body .review-overview-kicker {
+        font-size: 0.82rem !important;
+        letter-spacing: 0.14em !important;
     }
 
     html body .review-overview-title {
-        font-size: clamp(1.46rem, 6vw, 1.8rem) !important;
-        line-height: 1.08 !important;
+        font-size: clamp(1.7rem, 7vw, 2.08rem) !important;
+        line-height: 1.06 !important;
     }
 
     html body .review-overview-intro {
         width: 100% !important;
         max-width: none !important;
-        font-size: 0.95rem !important;
-        line-height: 1.52 !important;
+        font-size: 1.02rem !important;
+        line-height: 1.64 !important;
         text-align: justify !important;
         text-justify: inter-word;
         hyphens: auto !important;
@@ -10900,45 +10940,52 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
     }
 
     html body .review-overview-highlights {
-        gap: 12px !important;
+        gap: 16px !important;
     }
 
     html body .review-overview-highlight {
-        padding: 12px 12px 11px !important;
-        border-radius: 14px !important;
+        padding: 18px 16px 16px !important;
+        border-radius: 18px !important;
+    }
+
+    html body .review-overview-highlight::before {
+        width: 42px !important;
+        height: 3px !important;
+        margin-bottom: 14px !important;
     }
 
     html body .review-overview-highlight-title {
-        font-size: 0.96rem !important;
+        font-size: 1.12rem !important;
+        line-height: 1.2 !important;
     }
 
     html body .review-overview-highlight-copy {
-        font-size: 0.88rem !important;
-        line-height: 1.44 !important;
+        font-size: 1.03rem !important;
+        line-height: 1.62 !important;
     }
 
     html body .review-overview-image {
         height: auto !important;
         max-height: none !important;
-        border-radius: 18px !important;
+        border-radius: 20px !important;
     }
 
     html body .charity-projects-section[id^="review-"] {
-        --review-section-padding: 16px 0 12px !important;
+        --review-section-padding: 18px 0 14px !important;
     }
 
     html body .charity-projects-section[id^="review-"] .charity-projects-container {
         width: auto !important;
         max-width: none !important;
-        margin: 0 14px 8px !important;
-        padding: 18px 16px 14px !important;
-        border-radius: 18px !important;
+        margin: 0 14px 10px !important;
+        padding: 22px 18px 18px !important;
+        border-radius: 20px !important;
         box-shadow: none !important;
         box-sizing: border-box !important;
     }
 
     html body .charity-projects-section[id^="review-"] .charity-flex-row {
-        gap: 12px !important;
+        gap: 14px !important;
     }
 
     html body .charity-projects-section[id^="review-"] .charity-flex-left {
@@ -10955,39 +11002,184 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
 
     html body .charity-projects-section[id^="review-"] .charity-meta {
         max-width: 100% !important;
-        font-size: 0.88rem !important;
-        line-height: 1.42 !important;
+        font-size: 0.92rem !important;
+        line-height: 1.48 !important;
+        letter-spacing: 0.085em !important;
+    }
+
+    html body .charity-projects-section[id^="review-"] .charity-title {
+        font-size: clamp(1.56rem, 6vw, 1.9rem) !important;
+        line-height: 1.06 !important;
     }
 
     html body .charity-projects-section[id^="review-"] .charity-description {
-        font-size: 0.94rem !important;
-        line-height: 1.56 !important;
-        margin-bottom: 12px !important;
+        font-size: 1.01rem !important;
+        line-height: 1.64 !important;
+        margin-bottom: 14px !important;
     }
 
     html body .charity-projects-section[id^="review-"] .review-media-caption {
-        font-size: 0.8rem !important;
-        line-height: 1.36 !important;
-        padding: 0.38em 0.72em !important;
+        font-size: 0.86rem !important;
+        line-height: 1.44 !important;
+        padding: 0.42em 0.78em !important;
     }
 
     html body .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions {
-        gap: 8px !important;
-        margin-bottom: 10px !important;
+        gap: 10px !important;
+        margin-bottom: 12px !important;
     }
 
     html body .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button {
-        width: 40px !important;
-        height: 40px !important;
-        min-width: 40px !important;
-        min-height: 40px !important;
-        max-width: 40px !important;
-        max-height: 40px !important;
-        flex-basis: 40px !important;
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+        max-width: 44px !important;
+        max-height: 44px !important;
+        flex-basis: 44px !important;
     }
 
     html body .review-featured .charity-flex-row > .gruppenbild-container {
-        padding: 8px !important;
+        padding: 10px !important;
+    }
+
+    html body .review-archive-intro__inner {
+        padding: 20px 18px 20px !important;
+        border-radius: 24px !important;
+    }
+
+    html body .review-archive-intro__title {
+        font-size: clamp(1.5rem, 6.3vw, 1.9rem) !important;
+        font-weight: 580 !important;
+        line-height: 1.08 !important;
+    }
+
+    html body .review-archive-intro__copy {
+        font-size: 1.03rem !important;
+        line-height: 1.66 !important;
+    }
+
+    html body .review-card-toggle,
+    html body .review-archive-toggle {
+        min-height: 48px !important;
+        font-size: 0.96rem !important;
+        font-weight: 620 !important;
+        line-height: 1.3 !important;
+    }
+}
+
+/* Final mobile typography harmonization */
+@media (max-width: 700px) {
+    html body .contact-info-title,
+    html body .about-me-modern-title,
+    html body .musik-bruecken-title,
+    html body .image-caption-title,
+    html body .musikalisches-repertoire-title,
+    html body .review-overview-title,
+    html body .event-title,
+    html body .timeline-title,
+    html body .music-family-title,
+    html body .review-archive-intro__title {
+        font-family: var(--font-ui-modern) !important;
+        font-size: clamp(1.78rem, 7vw, 2.16rem) !important;
+        font-weight: 580 !important;
+        line-height: 1.08 !important;
+        letter-spacing: -0.03em !important;
+        text-wrap: balance;
+    }
+
+    html body .hero-story-title {
+        font-family: var(--font-ui-modern) !important;
+        font-size: clamp(2.04rem, 8.4vw, 2.72rem) !important;
+        font-weight: 620 !important;
+        line-height: 1.02 !important;
+        letter-spacing: -0.04em !important;
+    }
+
+    html body .music-family-highlight-title,
+    html body .music-family-group-title,
+    html body .music-family-contact-title,
+    html body .repertoire-story-card-title,
+    html body .review-overview-highlight-title,
+    html body .engagement-focus-title,
+    html body .charity-projects-section[id^="review-"] .charity-title,
+    html body .timeline-item-title,
+    html body .event-headline {
+        font-family: var(--font-ui-modern) !important;
+        font-size: clamp(1.14rem, 4.8vw, 1.3rem) !important;
+        font-weight: 600 !important;
+        line-height: 1.2 !important;
+        letter-spacing: -0.02em !important;
+    }
+
+    html body .contact-info-kicker,
+    html body .contact-info-lead-card-kicker,
+    html body .image-caption-kicker,
+    html body .image-caption-video-kicker,
+    html body .hero-story-eyebrow,
+    html body .review-overview-kicker,
+    html body .event-section-kicker,
+    html body .review-archive-intro__eyebrow,
+    html body .timeline-eyebrow,
+    html body .event-location,
+    html body .charity-projects-section[id^="review-"] .charity-meta {
+        font-family: var(--font-ui-modern) !important;
+        font-size: 0.84rem !important;
+        font-weight: 620 !important;
+        line-height: 1.34 !important;
+        letter-spacing: 0.12em !important;
+        text-transform: uppercase;
+    }
+
+    html body .contact-info-intro,
+    html body .music-family-desc,
+    html body .image-caption-copy,
+    html body .musikalisches-repertoire-intro,
+    html body .musik-bruecken-text,
+    html body .hero-story-copy,
+    html body .review-overview-intro,
+    html body .event-section-copy,
+    html body .review-archive-intro__copy,
+    html body .timeline-intro,
+    html body .about-me-bio-text {
+        font-family: var(--font-ui-modern) !important;
+        font-size: 1.04rem !important;
+        line-height: 1.66 !important;
+        letter-spacing: -0.006em !important;
+    }
+
+    html body .music-family-highlight-copy,
+    html body .repertoire-story-card-copy,
+    html body .repertoire-highlight-copy,
+    html body .engagement-focus-copy,
+    html body .review-overview-highlight-copy,
+    html body .charity-projects-section[id^="review-"] .charity-description,
+    html body .timeline-item-text,
+    html body .timeline-summary-copy,
+    html body .event-description,
+    html body .event-program li,
+    html body .event-note,
+    html body .ensemble-chip,
+    html body .site-footer__meta-line {
+        font-family: var(--font-ui-modern) !important;
+        font-size: 1rem !important;
+        line-height: 1.62 !important;
+        letter-spacing: 0 !important;
+    }
+
+    html body .timeline-summary-value {
+        font-family: var(--font-ui-modern) !important;
+        font-size: 1.2rem !important;
+        font-weight: 620 !important;
+        line-height: 1.1 !important;
+        letter-spacing: -0.02em !important;
+    }
+
+    html body .ensemble-chip {
+        min-height: 36px !important;
+        padding: 6px 10px !important;
+        font-size: 0.92rem !important;
+        line-height: 1.24 !important;
     }
 }
 
