@@ -3120,6 +3120,8 @@
     .musikalisches-repertoire-card--repertoire .repertoire-story-card-copy {
         font-size: 1.01rem;
         line-height: 1.62;
+        max-width: none;
+        width: 100%;
     }
 
     .repertoire-highlight-copy,
