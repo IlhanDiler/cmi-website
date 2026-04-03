@@ -10274,11 +10274,20 @@ html body .event-social-actions {
     margin-top: 8px;
 }
 
+html body .event-poster-actions {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 html body .event-poster-hint-text {
     box-shadow: none;
 }
 
 html body .event-poster-download {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
     width: 100%;
     min-height: 40px;
     padding: 9px 14px;
