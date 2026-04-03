@@ -5150,8 +5150,8 @@
 .event-headline {
     color: var(--event-headline-color);
     font-size: var(--event-headline-font-size);
-    font-family: var(--font-display);
-    font-weight: 670;
+    font-family: var(--font-ui-modern);
+    font-weight: 620;
     margin-bottom: var(--event-headline-margin-bottom);
     text-align: left;
     letter-spacing: var(--event-headline-letter-spacing);
@@ -10622,8 +10622,30 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
         padding: 22px 18px !important;
     }
 
+    html body .event-section-kicker,
+    html body .event-title,
+    html body .event-section-copy {
+        font-family: var(--font-ui-modern) !important;
+    }
+
+    html body .event-section-kicker {
+        font-size: 0.76rem !important;
+        font-weight: 760 !important;
+        letter-spacing: 0.13em !important;
+    }
+
+    html body .event-title {
+        font-size: clamp(1.38rem, 6vw, 1.64rem) !important;
+        font-weight: 620 !important;
+        line-height: 1.14 !important;
+        letter-spacing: -0.022em !important;
+    }
+
     html body .event-section-copy {
         max-width: 34ch !important;
+        font-size: 0.98rem !important;
+        font-weight: 540 !important;
+        line-height: 1.6 !important;
     }
 }
 
