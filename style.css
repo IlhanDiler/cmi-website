@@ -497,9 +497,153 @@
 }
 
 @media (min-width: 901px) {
+    .review-archive-intro {
+        padding: 16px 0 10px;
+    }
+
+    .review-archive-intro__inner {
+        width: min(calc(100vw - 56px), 1040px);
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) auto;
+        column-gap: 26px;
+        row-gap: 8px;
+        align-items: end;
+        padding: 26px 28px 22px;
+        border-radius: 30px;
+        box-shadow: none;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .review-archive-intro__inner::before {
+        grid-column: 1 / -1;
+        margin-bottom: 4px;
+    }
+
+    .review-archive-intro__inner::after {
+        content: "";
+        position: absolute;
+        right: -72px;
+        top: -56px;
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(10, 117, 109, 0.08), transparent 68%);
+        pointer-events: none;
+    }
+
+    .review-archive-intro__eyebrow,
+    .review-archive-intro__title,
+    .review-archive-intro__copy {
+        grid-column: 1;
+        position: relative;
+        z-index: 1;
+    }
+
+    .review-archive-intro__title {
+        max-width: 18ch;
+        margin-bottom: 2px;
+    }
+
+    .review-archive-intro__copy {
+        max-width: 44ch;
+        margin-bottom: 0;
+    }
+
+    .review-archive-toggle {
+        grid-column: 2;
+        grid-row: 2 / span 2;
+        align-self: end;
+        justify-self: start;
+        position: relative;
+        z-index: 1;
+        min-width: 252px;
+    }
+
+    .contact-info-section {
+        padding: 22px 0 54px;
+    }
+
+    .contact-info-container {
+        max-width: 1040px;
+        padding: 0 28px;
+    }
+
+    .contact-info-lead {
+        grid-template-columns: minmax(0, 1.12fr) minmax(286px, 0.82fr);
+        gap: 18px;
+        margin-bottom: 0;
+    }
+
+    .contact-info-lead-copy,
+    .contact-info-lead-card,
+    .contact-info-card {
+        border-radius: 28px;
+    }
+
+    .contact-info-lead-copy {
+        padding: 28px 30px 30px;
+    }
+
+    .contact-info-lead-card {
+        padding: 24px 24px 22px;
+    }
+
+    .contact-info-intro {
+        max-width: 34ch;
+    }
+
+    .contact-info-directory {
+        margin-top: 22px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(18, 62, 70, 0.12);
+    }
+
+    .contact-info-subtitle {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin: 0 0 18px;
+        font-size: 0.88rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.12em !important;
+    }
+
+    .contact-info-subtitle::after {
+        content: "";
+        flex: 1 1 auto;
+        height: 1px;
+        background: rgba(18, 62, 70, 0.14);
+    }
+
     .contact-info-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         align-items: stretch;
+        gap: 18px;
+    }
+
+    .contact-info-card {
+        --contact-info-card-padding: 22px 22px 24px;
+        --contact-info-card-gap: 16px;
+        --contact-info-card-radius: 24px;
+    }
+
+    .contact-info-icon-wrap {
+        --contact-info-icon-wrap-size: 58px;
+        --contact-info-icon-wrap-radius: 16px;
+        --contact-info-icon-wrap-inner-radius: 15px;
+    }
+
+    .contact-info-card-title {
+        margin-bottom: 8px;
+        font-size: clamp(1.02rem, 1vw, 1.12rem);
+        font-weight: 640;
+    }
+
+    .contact-info-card-text,
+    .contact-info-card-link {
+        font-size: 0.98rem;
+        line-height: 1.56;
     }
 
     .contact-info-card {
@@ -3578,6 +3722,10 @@
     text-align: left;
 }
 
+.contact-info-directory {
+    margin-top: 18px;
+}
+
 .review-archive-intro__inner::before {
     content: "";
     display: block;
@@ -3599,11 +3747,11 @@
 .review-archive-intro__title {
     margin: 10px 0 10px;
     color: #14353b;
-    font-family: var(--font-display);
-    font-size: clamp(1.48rem, 2.3vw, 2rem);
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -0.03em;
+    font-family: var(--font-ui-modern);
+    font-size: clamp(1.28rem, 1.68vw, 1.54rem);
+    font-weight: 550;
+    line-height: 1.12;
+    letter-spacing: -0.018em;
     text-wrap: balance;
 }
 
@@ -10055,7 +10203,6 @@ html[lang="it"] #langIt {
     color: rgba(236, 244, 245, 0.68);
 }
 
-.contact-info-title,
 .image-caption-title,
 .musikalisches-repertoire-title,
 .review-overview-title {
@@ -10064,6 +10211,14 @@ html[lang="it"] #langIt {
     font-weight: 560 !important;
     line-height: 1.08 !important;
     letter-spacing: -0.028em !important;
+}
+
+.contact-info-title {
+    font-family: var(--font-ui-modern) !important;
+    font-size: clamp(1.44rem, 1.72vw, 1.64rem) !important;
+    font-weight: 550 !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.018em !important;
 }
 
 .hero-story-title {
@@ -10082,6 +10237,11 @@ html[lang="it"] #langIt {
     font-family: var(--font-ui-modern) !important;
     font-weight: 540 !important;
     letter-spacing: -0.016em !important;
+}
+
+.contact-info-lead-card-title {
+    font-size: clamp(1rem, 1.14vw, 1.1rem) !important;
+    line-height: 1.2 !important;
 }
 
 .image-caption-card-footer,
