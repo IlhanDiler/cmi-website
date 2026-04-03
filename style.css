@@ -1078,34 +1078,43 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    display: grid;
+    gap: 10px;
 }
 
 .music-family-group-details li {
-    --music-family-group-detail-padding-block: 10px;
+    --music-family-group-detail-padding-block: 12px;
     --music-family-group-detail-font-size: 1.02rem;
-    --music-family-group-detail-line-height: 1.62;
-    padding: var(--music-family-group-detail-padding-block) 0;
+    --music-family-group-detail-line-height: 1.58;
+    padding: var(--music-family-group-detail-padding-block) 14px;
     color: var(--music-family-copy);
     font-family: var(--font-ui-modern);
     font-size: var(--music-family-group-detail-font-size);
     font-weight: 550;
     line-height: var(--music-family-group-detail-line-height);
-    border-bottom: 1px solid rgba(18, 62, 70, 0.12);
+    border: 1px solid rgba(18, 62, 70, 0.1);
+    border-radius: 16px;
+    background: rgba(247, 251, 250, 0.92);
+    text-wrap: pretty;
 }
 
 .music-family-group-details li:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+    padding-bottom: var(--music-family-group-detail-padding-block);
 }
 
 .music-family-group-details li b {
+    display: block;
+    margin-bottom: 6px;
     color: var(--music-family-heading);
-    font-weight: 800;
+    font-size: 0.8rem;
+    font-weight: 760;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .music-family-group-details .address-part {
-    display: block;
-    padding-left: 0.7rem;
+    display: inline;
+    padding-left: 0;
 }
 
 .music-family-contact {
@@ -1328,18 +1337,22 @@
     }
 
     .music-family-group-details li {
-        --music-family-group-detail-padding-block: 7px;
-        --music-family-group-detail-font-size: 1.08rem;
-        --music-family-group-detail-line-height: 1.36;
+        --music-family-group-detail-padding-block: 10px;
+        --music-family-group-detail-font-size: 1.02rem;
+        --music-family-group-detail-line-height: 1.52;
+        padding-left: 12px;
+        padding-right: 12px;
+        border-radius: 14px;
     }
 
     .music-family-group-details li b {
-        display: inline;
-        margin-bottom: 0;
+        display: block;
+        margin-bottom: 5px;
+        font-size: 0.76rem;
     }
 
     .music-family-group-details .address-part {
-        padding-left: 0.55rem;
+        padding-left: 0;
     }
 
     .music-family-contact {
@@ -3594,12 +3607,12 @@
 
 .review-archive-toggle {
     --interaction-transform: translateY(-2px);
-    --cta-bg: rgba(21, 61, 68, 0.96);
-    --cta-bg-hover: rgba(17, 52, 59, 0.98);
-    --cta-color: #f7fbfb;
+    --cta-bg: var(--color-secondary);
+    --cta-bg-hover: var(--color-primary);
+    --cta-color: #ffffff;
     --cta-color-hover: #ffffff;
-    --cta-border-color: rgba(21, 61, 68, 0.24);
-    --cta-border-color-hover: rgba(17, 52, 59, 0.32);
+    --cta-border-color: rgba(10, 117, 109, 0.24);
+    --cta-border-color-hover: rgba(18, 62, 70, 0.3);
     --cta-shadow: 0 14px 28px rgba(18, 36, 44, 0.16);
     --cta-shadow-hover: 0 18px 34px rgba(18, 36, 44, 0.22);
     display: inline-flex;
@@ -4726,6 +4739,13 @@
         padding: var(--timeline-link-padding) !important;
         border-radius: var(--timeline-link-radius) !important;
         margin: var(--timeline-link-mobile-margin) !important;
+    }
+
+    .timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"] {
+        white-space: normal !important;
+        overflow-wrap: anywhere !important;
+        word-break: break-word !important;
+        text-wrap: pretty;
     }
 }
 
@@ -9329,7 +9349,7 @@ html[lang="it"] #langIt {
         padding-inline: 18px;
         transform: translateX(-50%) !important;
         z-index: 60;
-        border-color: rgba(21, 61, 68, 0.32);
+        border-color: rgba(10, 117, 109, 0.3);
         box-shadow: 0 18px 36px rgba(18, 36, 44, 0.24) !important;
     }
 
@@ -9628,12 +9648,12 @@ html[lang="it"] #langIt {
     }
 
     .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
-        padding: 10px !important;
+        padding: 8px !important;
     }
 
     .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img,
     .charity-projects-section[id^="review-"] .charity-flex-right img {
-        max-width: 96% !important;
+        max-width: 100% !important;
         border-radius: 20px !important;
     }
 
@@ -11160,6 +11180,53 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
         font-size: 1.04rem !important;
         line-height: 1.66 !important;
         letter-spacing: -0.006em !important;
+    }
+
+    html body .contact-info-lead-card-title {
+        font-family: var(--font-ui-modern) !important;
+        font-size: clamp(1.28rem, 5.6vw, 1.46rem) !important;
+        font-weight: 600 !important;
+        line-height: 1.18 !important;
+        letter-spacing: -0.02em !important;
+    }
+
+    html body .contact-info-lead-card-copy,
+    html body .contact-info-lead-points li {
+        font-family: var(--font-ui-modern) !important;
+        font-size: 1.04rem !important;
+        line-height: 1.64 !important;
+        letter-spacing: 0 !important;
+    }
+
+    html body .musikalisches-repertoire-card--engagement .engagement-focus-card,
+    html body .musikalisches-repertoire-card--engagement .charity-certificate-card {
+        padding: 18px 18px 16px !important;
+        border-radius: 18px !important;
+        border-color: rgba(18, 62, 70, 0.12) !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+    }
+
+    html body .musikalisches-repertoire-card--engagement .engagement-focus-title,
+    html body .musikalisches-repertoire-card--engagement .charity-certificate-card-title {
+        color: #183c43 !important;
+        font-family: var(--font-ui-modern) !important;
+        font-size: clamp(1.18rem, 5.1vw, 1.32rem) !important;
+        font-weight: 600 !important;
+        line-height: 1.2 !important;
+        letter-spacing: -0.02em !important;
+    }
+
+    html body .musikalisches-repertoire-card--engagement .engagement-focus-copy,
+    html body .musikalisches-repertoire-card--engagement .charity-list-item-certificate-copy,
+    html body .musikalisches-repertoire-card--engagement > .musikalisches-repertoire-list li {
+        color: #3a5961 !important;
+        font-family: var(--font-ui-modern) !important;
+        font-size: 1.02rem !important;
+        line-height: 1.66 !important;
+        letter-spacing: 0 !important;
+        text-align: left !important;
+        text-justify: auto !important;
+        overflow-wrap: break-word !important;
     }
 
     html body .music-family-highlight-copy,
