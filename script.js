@@ -309,6 +309,322 @@ function getCurrentSiteLanguage() {
     return 'de';
 }
 
+const cookieConsentTranslations = {
+    de: {
+        dialogLabel: 'Cookie-Einwilligungsdialog',
+        badgeLabel: 'Cookie-Einstellungen',
+        closeLabel: 'Schliessen',
+        header: 'Diese Webseite verwendet Cookies.',
+        descriptionHtml: 'Wir verwenden Cookies, um Inhalte und Anzeigen zu personalisieren und unseren Datenverkehr zu analysieren. Wir geben Informationen ueber Ihre Nutzung unserer Website auch an unsere Werbe- und Analysepartner weiter, die diese moeglicherweise mit anderen Informationen kombinieren, die Sie ihnen bereitgestellt haben oder die sie im Rahmen Ihrer Nutzung ihrer Dienste gesammelt haben.',
+        descriptionText: 'Wir verwenden Cookies, um Inhalte und Anzeigen zu personalisieren und unseren Datenverkehr zu analysieren. Wir geben Informationen ueber Ihre Nutzung unserer Website auch an unsere Werbe- und Analysepartner weiter, die diese moeglicherweise mit anderen Informationen kombinieren, die Sie ihnen bereitgestellt haben oder die sie im Rahmen Ihrer Nutzung ihrer Dienste gesammelt haben.',
+        categories: {
+            strict: 'Unbedingt erforderlich',
+            performance: 'Performance',
+            targeting: 'Targeting',
+            functionality: 'Funktionalitaet'
+        },
+        categoryDescriptions: {
+            strict: 'Unbedingt erforderliche Cookies ermoeglichen wesentliche Kernfunktionen der Website wie die Benutzeranmeldung und die Kontoverwaltung. Ohne die unbedingt erforderlichen Cookies kann die Website nicht ordnungsgemaess verwendet werden.',
+            performance: 'Performance-Cookies sammeln Informationen darueber, wie Besucher eine Website nutzen, zum Beispiel Analyse-Cookies. Diese Cookies koennen nicht verwendet werden, um einen bestimmten Besucher direkt zu identifizieren.',
+            targeting: 'Targeting-Cookies werden verwendet, um Besucher zwischen verschiedenen Websites zu identifizieren, zum Beispiel Content-Partner oder Banner-Netzwerke. Diese Cookies koennen von Unternehmen verwendet werden, um ein Profil der Besucherinteressen zu erstellen oder relevante Anzeigen auf anderen Websites zu schalten.',
+            functionality: 'Funktionale Cookies werden verwendet, um Besucherinformationen auf der Website zu speichern, zum Beispiel Sprache, Zeitzone oder erweiterte Inhalte.'
+        },
+        buttons: {
+            save: 'Speichern & Schliessen',
+            accept: 'Alle akzeptieren',
+            reject: 'Alle ablehnen'
+        },
+        details: {
+            show: 'Details anzeigen',
+            hide: 'Details ausblenden',
+            openCookies: 'Cookies anzeigen',
+            closeCookies: 'Cookies verstecken',
+            badge: 'Cookie-Einstellungen'
+        },
+        tabs: {
+            declaration: 'Cookie-Erklaerung',
+            about: 'Informationen zu Cookies'
+        },
+        table: {
+            name: 'Name',
+            provider: 'Anbieter',
+            domain: 'Domaene',
+            expiration: 'Ablaufdatum',
+            description: 'Beschreibung'
+        },
+        about: {
+            introHtml: 'Cookies sind kleine Textdateien, die auf Ihrem Computer abgelegt werden, wenn Sie bestimmte Websites besuchen. Websites verwenden Cookies, um Benutzern das Navigieren auf einer Website zu erleichtern und das Ausfuehren bestimmter Funktionen zu ermoeglichen. Cookies, die fuer den ordnungsgemaessen Betrieb der Website erforderlich sind, duerfen ohne Ihre Einwilligung gesetzt werden. Allen anderen Cookies muss erst zugestimmt werden, bevor sie im Browser gesetzt werden koennen.<br>Sie koennen Ihre Einwilligung zur Verwendung von Cookies auf unserer Website jederzeit in der Datenschutzerklaerung aendern.',
+            introText: 'Cookies sind kleine Textdateien, die auf Ihrem Computer abgelegt werden, wenn Sie bestimmte Websites besuchen. Websites verwenden Cookies, um Benutzern das Navigieren auf einer Website zu erleichtern und das Ausfuehren bestimmter Funktionen zu ermoeglichen. Cookies, die fuer den ordnungsgemaessen Betrieb der Website erforderlich sind, duerfen ohne Ihre Einwilligung gesetzt werden. Allen anderen Cookies muss erst zugestimmt werden, bevor sie im Browser gesetzt werden koennen. Sie koennen Ihre Einwilligung zur Verwendung von Cookies auf unserer Website jederzeit in der Datenschutzerklaerung aendern.',
+            adsHtml: 'Wir verwenden auch Cookies, um Daten zum Zweck der Personalisierung und Messung der Effektivitaet unserer Werbung zu sammeln. Weitere Informationen finden Sie in der <a href="https://business.safety.google/privacy/" target="_blank">Google-Datenschutzerklaerung</a>.',
+            consentId: 'Cookie-Zustimmungs-ID'
+        }
+    },
+    en: {
+        dialogLabel: 'Cookie consent dialog',
+        badgeLabel: 'Cookie settings',
+        closeLabel: 'Close',
+        header: 'This website uses cookies.',
+        descriptionHtml: 'We use cookies to personalize content and ads and to analyze our traffic. We also share information about your use of our website with our advertising and analytics partners, who may combine it with other information that you have provided to them or that they have collected through your use of their services.',
+        descriptionText: 'We use cookies to personalize content and ads and to analyze our traffic. We also share information about your use of our website with our advertising and analytics partners, who may combine it with other information that you have provided to them or that they have collected through your use of their services.',
+        categories: {
+            strict: 'Strictly necessary',
+            performance: 'Performance',
+            targeting: 'Targeting',
+            functionality: 'Functionality'
+        },
+        categoryDescriptions: {
+            strict: 'Strictly necessary cookies enable core website functions such as user login and account management. The website cannot be used properly without these cookies.',
+            performance: 'Performance cookies collect information about how visitors use a website, for example analytics cookies. These cookies cannot be used to directly identify a particular visitor.',
+            targeting: 'Targeting cookies are used to identify visitors across different websites, for example content partners or banner networks. These cookies may be used by companies to build a profile of visitor interests or show relevant ads on other websites.',
+            functionality: 'Functionality cookies are used to store visitor information on the website, for example language, time zone, or enhanced content.'
+        },
+        buttons: {
+            save: 'Save & close',
+            accept: 'Accept all',
+            reject: 'Reject all'
+        },
+        details: {
+            show: 'Show details',
+            hide: 'Hide details',
+            openCookies: 'Show cookies',
+            closeCookies: 'Hide cookies',
+            badge: 'Cookie settings'
+        },
+        tabs: {
+            declaration: 'Cookie declaration',
+            about: 'About cookies'
+        },
+        table: {
+            name: 'Name',
+            provider: 'Provider',
+            domain: 'Domain',
+            expiration: 'Expiration',
+            description: 'Description'
+        },
+        about: {
+            introHtml: 'Cookies are small text files that are placed on your computer when you visit certain websites. Websites use cookies to help users navigate a website and to enable certain functions. Cookies that are required for the proper operation of the website may be set without your consent. All other cookies must be approved before they can be set in the browser.<br>You can change your consent to the use of cookies on our website at any time in the privacy policy.',
+            introText: 'Cookies are small text files that are placed on your computer when you visit certain websites. Websites use cookies to help users navigate a website and to enable certain functions. Cookies that are required for the proper operation of the website may be set without your consent. All other cookies must be approved before they can be set in the browser. You can change your consent to the use of cookies on our website at any time in the privacy policy.',
+            adsHtml: 'We also use cookies to collect data for the personalization and measurement of the effectiveness of our advertising. Further information can be found in the <a href="https://business.safety.google/privacy/" target="_blank">Google Privacy Policy</a>.',
+            consentId: 'Cookie consent ID'
+        }
+    },
+    it: {
+        dialogLabel: 'Finestra di consenso ai cookie',
+        badgeLabel: 'Impostazioni cookie',
+        closeLabel: 'Chiudi',
+        header: 'Questo sito web utilizza i cookie.',
+        descriptionHtml: 'Utilizziamo i cookie per personalizzare contenuti e annunci e per analizzare il nostro traffico. Condividiamo inoltre informazioni sul tuo utilizzo del nostro sito web con i nostri partner pubblicitari e di analisi, che possono combinarle con altre informazioni che hai fornito loro o che hanno raccolto tramite l\'uso dei loro servizi.',
+        descriptionText: 'Utilizziamo i cookie per personalizzare contenuti e annunci e per analizzare il nostro traffico. Condividiamo inoltre informazioni sul tuo utilizzo del nostro sito web con i nostri partner pubblicitari e di analisi, che possono combinarle con altre informazioni che hai fornito loro o che hanno raccolto tramite l\'uso dei loro servizi.',
+        categories: {
+            strict: 'Strettamente necessari',
+            performance: 'Prestazioni',
+            targeting: 'Targeting',
+            functionality: 'Funzionalita'
+        },
+        categoryDescriptions: {
+            strict: 'I cookie strettamente necessari consentono funzioni fondamentali del sito web come il login utente e la gestione dell\'account. Senza questi cookie il sito non puo funzionare correttamente.',
+            performance: 'I cookie di prestazione raccolgono informazioni su come i visitatori utilizzano un sito web, ad esempio i cookie di analisi. Questi cookie non possono essere utilizzati per identificare direttamente un visitatore specifico.',
+            targeting: 'I cookie di targeting vengono utilizzati per identificare i visitatori su diversi siti web, ad esempio partner di contenuto o reti pubblicitarie. Questi cookie possono essere usati per creare un profilo degli interessi dei visitatori o mostrare annunci pertinenti su altri siti web.',
+            functionality: 'I cookie di funzionalita vengono utilizzati per memorizzare informazioni dei visitatori sul sito web, ad esempio lingua, fuso orario o contenuti avanzati.'
+        },
+        buttons: {
+            save: 'Salva e chiudi',
+            accept: 'Accetta tutti',
+            reject: 'Rifiuta tutti'
+        },
+        details: {
+            show: 'Mostra dettagli',
+            hide: 'Nascondi dettagli',
+            openCookies: 'Mostra cookie',
+            closeCookies: 'Nascondi cookie',
+            badge: 'Impostazioni cookie'
+        },
+        tabs: {
+            declaration: 'Dichiarazione sui cookie',
+            about: 'Informazioni sui cookie'
+        },
+        table: {
+            name: 'Nome',
+            provider: 'Fornitore',
+            domain: 'Dominio',
+            expiration: 'Scadenza',
+            description: 'Descrizione'
+        },
+        about: {
+            introHtml: 'I cookie sono piccoli file di testo che vengono memorizzati sul tuo computer quando visiti determinati siti web. I siti web utilizzano i cookie per facilitare la navigazione e permettere l\'esecuzione di determinate funzioni. I cookie necessari al corretto funzionamento del sito possono essere impostati senza il tuo consenso. Tutti gli altri cookie devono essere approvati prima di poter essere impostati nel browser.<br>Puoi modificare in qualsiasi momento il tuo consenso all\'uso dei cookie sul nostro sito web nella politica sulla privacy.',
+            introText: 'I cookie sono piccoli file di testo che vengono memorizzati sul tuo computer quando visiti determinati siti web. I siti web utilizzano i cookie per facilitare la navigazione e permettere l\'esecuzione di determinate funzioni. I cookie necessari al corretto funzionamento del sito possono essere impostati senza il tuo consenso. Tutti gli altri cookie devono essere approvati prima di poter essere impostati nel browser. Puoi modificare in qualsiasi momento il tuo consenso all\'uso dei cookie sul nostro sito web nella politica sulla privacy.',
+            adsHtml: 'Utilizziamo inoltre i cookie per raccogliere dati ai fini della personalizzazione e della misurazione dell\'efficacia della nostra pubblicita. Ulteriori informazioni sono disponibili nella <a href="https://business.safety.google/privacy/" target="_blank">Norme sulla privacy di Google</a>.',
+            consentId: 'ID del consenso ai cookie'
+        }
+    },
+    uk: {
+        dialogLabel: 'Вікно згоди на cookie',
+        badgeLabel: 'Налаштування cookie',
+        closeLabel: 'Закрити',
+        header: 'Цей вебсайт використовує файли cookie.',
+        descriptionHtml: 'Ми використовуємо файли cookie, щоб персоналізувати вміст і рекламу та аналізувати наш трафік. Ми також передаємо інформацію про використання вами нашого вебсайту нашим рекламним і аналітичним партнерам, які можуть поєднувати її з іншими даними, наданими вами, або зібраними під час користування їхніми сервісами.',
+        descriptionText: 'Ми використовуємо файли cookie, щоб персоналізувати вміст і рекламу та аналізувати наш трафік. Ми також передаємо інформацію про використання вами нашого вебсайту нашим рекламним і аналітичним партнерам, які можуть поєднувати її з іншими даними, наданими вами, або зібраними під час користування їхніми сервісами.',
+        categories: {
+            strict: 'Суворо необхідні',
+            performance: 'Продуктивність',
+            targeting: 'Таргетинг',
+            functionality: 'Функціональність'
+        },
+        categoryDescriptions: {
+            strict: 'Суворо необхідні файли cookie забезпечують основні функції сайту, наприклад вхід користувача та керування обліковим записом. Без них сайт не може працювати належним чином.',
+            performance: 'Файли cookie продуктивності збирають інформацію про те, як відвідувачі користуються вебсайтом, наприклад аналітичні cookie. Ці cookie не можуть бути використані для безпосередньої ідентифікації конкретного відвідувача.',
+            targeting: 'Файли cookie таргетингу використовуються для розпізнавання відвідувачів на різних вебсайтах, наприклад у партнерів із контенту або рекламних мереж. Такі cookie можуть використовуватися для створення профілю інтересів відвідувача або показу релевантної реклами на інших сайтах.',
+            functionality: 'Функціональні файли cookie використовуються для збереження інформації про відвідувачів на сайті, наприклад мови, часового поясу або розширеного вмісту.'
+        },
+        buttons: {
+            save: 'Зберегти і закрити',
+            accept: 'Прийняти всі',
+            reject: 'Відхилити всі'
+        },
+        details: {
+            show: 'Показати деталі',
+            hide: 'Приховати деталі',
+            openCookies: 'Показати cookie',
+            closeCookies: 'Сховати cookie',
+            badge: 'Налаштування cookie'
+        },
+        tabs: {
+            declaration: 'Декларація про cookie',
+            about: 'Інформація про cookie'
+        },
+        table: {
+            name: 'Назва',
+            provider: 'Постачальник',
+            domain: 'Домен',
+            expiration: 'Термін дії',
+            description: 'Опис'
+        },
+        about: {
+            introHtml: 'Файли cookie - це невеликі текстові файли, які зберігаються на вашому комп\'ютері, коли ви відвідуєте певні вебсайти. Вебсайти використовують cookie, щоб полегшити навігацію та забезпечити роботу окремих функцій. Cookie, необхідні для належної роботи сайту, можуть встановлюватися без вашої згоди. Усі інші cookie мають бути схвалені, перш ніж їх можна буде встановити у браузері.<br>Ви можете будь-коли змінити свою згоду на використання cookie на нашому вебсайті в політиці конфіденційності.',
+            introText: 'Файли cookie - це невеликі текстові файли, які зберігаються на вашому комп\'ютері, коли ви відвідуєте певні вебсайти. Вебсайти використовують cookie, щоб полегшити навігацію та забезпечити роботу окремих функцій. Cookie, необхідні для належної роботи сайту, можуть встановлюватися без вашої згоди. Усі інші cookie мають бути схвалені, перш ніж їх можна буде встановити у браузері. Ви можете будь-коли змінити свою згоду на використання cookie на нашому вебсайті в політиці конфіденційності.',
+            adsHtml: 'Ми також використовуємо cookie для збору даних з метою персоналізації та вимірювання ефективності нашої реклами. Додаткову інформацію можна знайти в <a href="https://business.safety.google/privacy/" target="_blank">політиці конфіденційності Google</a>.',
+            consentId: 'Ідентифікатор згоди на cookie'
+        }
+    }
+};
+
+let cookieConsentMutationObserver = null;
+let cookieConsentUpdateFrame = null;
+
+function setCookieConsentText(selector, text) {
+    document.querySelectorAll(selector).forEach(function(node) {
+        node.textContent = text;
+    });
+}
+
+function setCookieConsentHtml(selector, html, plainText) {
+    document.querySelectorAll(selector).forEach(function(node) {
+        node.innerHTML = html;
+        if (node.hasAttribute('data-cs-i18n-read')) {
+            node.setAttribute('data-cs-i18n-read', plainText || node.textContent.trim());
+        }
+    });
+}
+
+function setCookieConsentAttribute(selector, attribute, value) {
+    document.querySelectorAll(selector).forEach(function(node) {
+        node.setAttribute(attribute, value);
+    });
+}
+
+function updateCookieConsentLanguage() {
+    if (!document.getElementById('cookiescript_injected_wrapper') &&
+        !document.getElementById('cookiescript_injected_fsd') &&
+        !document.getElementById('cookiescript_badge')) {
+        return;
+    }
+
+    const language = getCurrentSiteLanguage();
+    const labels = cookieConsentTranslations[language] || cookieConsentTranslations.de;
+
+    setCookieConsentAttribute('#cookiescript_injected, #cookiescript_fsd_wrapper', 'aria-label', labels.dialogLabel);
+    setCookieConsentAttribute('#cookiescript_badge', 'aria-label', labels.badgeLabel);
+    setCookieConsentAttribute('#cookiescript_close', 'aria-label', labels.closeLabel);
+
+    setCookieConsentText('#cookiescript_header, .cookiescript_fsd_title', labels.header);
+    setCookieConsentHtml('#cookiescript_description [data-cs-desc-box="true"], .cookiescript_fsd_description [data-cs-desc-box="true"]', labels.descriptionHtml, labels.descriptionText);
+
+    setCookieConsentText('label[for="cookiescript_category_strict"] .cookiescript_checkbox_text, [data-fsd-category="strict"] .cookiescript_fsd__category_name', labels.categories.strict);
+    setCookieConsentText('label[for="cookiescript_category_performance"] .cookiescript_checkbox_text, [data-fsd-category="performance"] .cookiescript_fsd__category_name', labels.categories.performance);
+    setCookieConsentText('label[for="cookiescript_category_targeting"] .cookiescript_checkbox_text, [data-fsd-category="targeting"] .cookiescript_fsd__category_name', labels.categories.targeting);
+    setCookieConsentText('label[for="cookiescript_category_functionality"] .cookiescript_checkbox_text, [data-fsd-category="functionality"] .cookiescript_fsd__category_name', labels.categories.functionality);
+
+    setCookieConsentText('[data-fsd-category="strict"] .cookiescript_category_description', labels.categoryDescriptions.strict);
+    setCookieConsentText('[data-fsd-category="performance"] .cookiescript_category_description', labels.categoryDescriptions.performance);
+    setCookieConsentText('[data-fsd-category="targeting"] .cookiescript_category_description', labels.categoryDescriptions.targeting);
+    setCookieConsentText('[data-fsd-category="functionality"] .cookiescript_category_description', labels.categoryDescriptions.functionality);
+
+    setCookieConsentText('#cookiescript_save', labels.buttons.save);
+    setCookieConsentText('#cookiescript_accept', labels.buttons.accept);
+    setCookieConsentText('#cookiescript_reject', labels.buttons.reject);
+
+    setCookieConsentText('span[data-cs-show-title="cookie-script"]', labels.details.show);
+    setCookieConsentText('span[data-cs-hide-title="cookie-script"]', labels.details.hide);
+    setCookieConsentText('[data-cs-cookies-open-text]', labels.details.openCookies);
+    setCookieConsentText('[data-cs-cookies-close-text]', labels.details.closeCookies);
+    setCookieConsentText('#cookiescript_badgetext', labels.details.badge);
+
+    setCookieConsentText('#cookiescript_declaration', labels.tabs.declaration);
+    setCookieConsentText('#cookiescript_aboutcookies', labels.tabs.about);
+
+    setCookieConsentText('th[data-cs-report-name="true"]', labels.table.name);
+    setCookieConsentText('th[data-cs-report-expiration="true"]', labels.table.expiration);
+    setCookieConsentText('th[data-cs-report-description="true"]', labels.table.description);
+    setCookieConsentText('[data-cs-report-vendor="true"]', labels.table.provider);
+    setCookieConsentText('[data-cs-report-domain="true"]', labels.table.domain);
+
+    setCookieConsentHtml('#cookiescript_aboutwrap > span[data-cs-i18n-text]', labels.about.introHtml, labels.about.introText);
+    setCookieConsentHtml('#cookiescript_aboutwrap > div > span[data-cs-i18n-text]', labels.about.adsHtml);
+    setCookieConsentText('[data-cs-consent-key-box="cookie-script"] > span[data-cs-i18n-text]', labels.about.consentId);
+}
+
+function scheduleCookieConsentLanguageUpdate() {
+    if (cookieConsentUpdateFrame !== null) {
+        return;
+    }
+
+    cookieConsentUpdateFrame = window.requestAnimationFrame(function() {
+        cookieConsentUpdateFrame = null;
+        updateCookieConsentLanguage();
+    });
+}
+
+function initCookieConsentLanguageSync() {
+    if (cookieConsentMutationObserver || !document.body) {
+        scheduleCookieConsentLanguageUpdate();
+        return;
+    }
+
+    cookieConsentMutationObserver = new MutationObserver(function(mutations) {
+        const hasCookieConsentMutation = mutations.some(function(mutation) {
+            return Array.from(mutation.addedNodes).some(function(node) {
+                if (!(node instanceof HTMLElement)) {
+                    return false;
+                }
+
+                return node.id === 'cookiescript_injected_wrapper' ||
+                    node.id === 'cookiescript_injected_fsd' ||
+                    node.id === 'cookiescript_badge' ||
+                    Boolean(node.querySelector('#cookiescript_injected_wrapper, #cookiescript_injected_fsd, #cookiescript_badge'));
+            });
+        });
+
+        if (hasCookieConsentMutation) {
+            scheduleCookieConsentLanguageUpdate();
+        }
+    });
+
+    cookieConsentMutationObserver.observe(document.body, { childList: true, subtree: true });
+    window.addEventListener('CookieScriptLoaded', scheduleCookieConsentLanguageUpdate);
+    window.addEventListener('load', scheduleCookieConsentLanguageUpdate);
+    scheduleCookieConsentLanguageUpdate();
+}
+
 function isCompactHeroGalleryViewport() {
     return window.matchMedia('(max-width: 700px)').matches;
 }
@@ -1020,6 +1336,7 @@ function applySiteLanguage(lang) {
 
     refreshHeroGalleryUi();
     ensureMbondaTimelineLinksAccessible();
+    scheduleCookieConsentLanguageUpdate();
 }
 
 window.setLang = applySiteLanguage;
@@ -1176,6 +1493,7 @@ function initSiteFeatures() {
     initEventLightbox();
     initHeroLayout();
     initHeroGallery();
+    initCookieConsentLanguageSync();
     revealOnScroll('.modern-card');
     revealOnScroll('.musikfamilie-card');
     if (typeof initAccordion === 'function') {

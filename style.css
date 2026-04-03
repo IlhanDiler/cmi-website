@@ -9688,6 +9688,19 @@ html[lang="it"] #langIt {
     overflow-wrap: break-word !important;
 }
 
+@media (max-width: 600px) {
+    .timeline-section .timeline-intro,
+    .timeline-section .timeline-item-text,
+    .timeline-section .timeline-summary-copy {
+        text-align: justify !important;
+        text-justify: inter-word;
+        hyphens: auto !important;
+        -webkit-hyphens: auto !important;
+        -ms-hyphens: auto !important;
+        text-wrap: pretty;
+    }
+}
+
 .contact-info-kicker,
 .contact-info-lead-card-kicker,
 .image-caption-kicker,
@@ -10509,8 +10522,13 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
     html body .about-me-bio-text {
         font-size: 0.98rem !important;
         line-height: 1.64 !important;
-        text-align: left !important;
-        text-justify: auto !important;
+        text-align: justify !important;
+        text-justify: inter-word !important;
+        hyphens: auto !important;
+        -webkit-hyphens: auto !important;
+        -ms-hyphens: auto !important;
+        overflow-wrap: break-word !important;
+        text-wrap: pretty;
     }
 
     html body .event-section {
