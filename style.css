@@ -11107,7 +11107,6 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
 
 /* Final mobile typography harmonization */
 @media (max-width: 700px) {
-    html body .contact-info-title,
     html body .about-me-modern-title,
     html body .musik-bruecken-title,
     html body .musikalisches-repertoire-title,
@@ -11123,6 +11122,15 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
         text-wrap: balance;
     }
 
+    html body .contact-info-title {
+        font-family: var(--font-ui-modern) !important;
+        font-size: clamp(1.62rem, 6.4vw, 1.92rem) !important;
+        font-weight: 575 !important;
+        line-height: 1.08 !important;
+        letter-spacing: -0.028em !important;
+        text-wrap: balance;
+    }
+
     html body .image-caption-title {
         font-family: var(--font-ui-modern) !important;
         font-size: clamp(1.96rem, 8vw, 2.36rem) !important;
@@ -11134,10 +11142,10 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
 
     html body .review-archive-intro__title {
         font-family: var(--font-ui-modern) !important;
-        font-size: clamp(1.56rem, 6vw, 1.84rem) !important;
-        font-weight: 570 !important;
-        line-height: 1.08 !important;
-        letter-spacing: -0.028em !important;
+        font-size: clamp(1.42rem, 5.5vw, 1.64rem) !important;
+        font-weight: 565 !important;
+        line-height: 1.1 !important;
+        letter-spacing: -0.024em !important;
         text-wrap: balance;
     }
 
@@ -11206,7 +11214,6 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
         letter-spacing: 0.004em !important;
     }
 
-    html body .contact-info-intro,
     html body .music-family-desc,
     html body .image-caption-copy,
     html body .musikalisches-repertoire-intro,
@@ -11214,7 +11221,6 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
     html body .hero-story-copy,
     html body .review-overview-intro,
     html body .event-section-copy,
-    html body .review-archive-intro__copy,
     html body .timeline-intro,
     html body .about-me-bio-text {
         font-family: var(--font-ui-modern) !important;
@@ -11223,11 +11229,22 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
         letter-spacing: -0.006em !important;
     }
 
+    html body .contact-info-intro,
     html body .review-archive-intro__copy {
-        font-size: 1rem !important;
-        line-height: 1.6 !important;
-        letter-spacing: -0.004em !important;
-        max-width: 34ch !important;
+        font-family: var(--font-ui-modern) !important;
+        font-size: 0.98rem !important;
+        font-weight: 500 !important;
+        line-height: 1.58 !important;
+        letter-spacing: -0.008em !important;
+        color: #315159 !important;
+    }
+
+    html body .review-archive-intro__copy {
+        max-width: 31ch !important;
+    }
+
+    html body .contact-info-intro {
+        max-width: 29ch !important;
     }
 
     html body .contact-info-lead-card-title {
