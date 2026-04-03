@@ -3866,6 +3866,12 @@
     max-width: 62ch !important;
     font-size: clamp(0.98rem, 1vw, 1.04rem) !important;
     line-height: 1.7 !important;
+    text-align: justify !important;
+    text-justify: inter-word;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    overflow-wrap: break-word;
 }
 
 .review-featured .charity-flex-row > .gruppenbild-container {
@@ -4038,6 +4044,12 @@
     font-size: var(--type-body-font-size);
     line-height: calc(var(--type-body-line-height) + 0.08);
     letter-spacing: var(--type-body-letter-spacing);
+    text-align: justify !important;
+    text-justify: inter-word;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    overflow-wrap: break-word;
 }
 
 @media (min-width: 1301px) {
@@ -4093,6 +4105,11 @@
 
 .charity-description--left {
     text-align: left !important;
+}
+
+.charity-projects-section[id^="review-"] .charity-description--left {
+    text-align: justify !important;
+    text-justify: inter-word;
 }
 
 /* Refined Timeline Section Design */
@@ -5895,6 +5912,12 @@
     line-height: 1.62;
     font-weight: 600;
     max-width: 24ch;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    overflow-wrap: break-word;
 }
 
 .image-caption-video-card {
@@ -9669,7 +9692,6 @@ html[lang="it"] #langIt {
 .contact-info-card-text,
 .contact-info-card-link,
 .music-family-group-details li,
-.about-me-bio-text,
 .musikalisches-repertoire-intro,
 .musikalisches-repertoire-list li,
 .charity-card-main-text,
@@ -9688,10 +9710,89 @@ html[lang="it"] #langIt {
     overflow-wrap: break-word !important;
 }
 
+.musikalisches-repertoire-card--engagement > .musikalisches-repertoire-list li,
+.musikalisches-repertoire-card--engagement .charity-list-item-certificate-copy {
+    text-align: justify !important;
+    text-justify: inter-word;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    overflow-wrap: break-word !important;
+}
+
+.musikalisches-repertoire-card--repertoire .repertoire-story-card-copy {
+    text-align: left !important;
+    text-justify: auto !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    overflow-wrap: break-word !important;
+    word-spacing: normal !important;
+    text-wrap: pretty;
+}
+
+.review-overview-highlight-copy {
+    text-align: left !important;
+    text-justify: auto !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    overflow-wrap: break-word !important;
+    word-spacing: normal !important;
+    text-wrap: pretty;
+}
+
+.musikalisches-repertoire-card--engagement .charity-certificate-card .charity-list-item-certificate-copy {
+    text-align: left !important;
+    text-justify: auto !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    overflow-wrap: break-word !important;
+    text-wrap: pretty;
+}
+
+.subpage-body--privacy .subpage-hero__intro,
+.subpage-body--imprint .subpage-hero__intro,
+.subpage-body--privacy .md-card p,
+.subpage-body--privacy .md-card li,
+.subpage-body--imprint .impressum-card p:not(.impressum-contact-row) {
+    text-align: justify !important;
+    text-justify: inter-word;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    overflow-wrap: break-word !important;
+    text-wrap: pretty;
+}
+
+.subpage-body--privacy .legal-overview__card-copy,
+.subpage-body--imprint .legal-overview__card-copy,
+.timeline-section .timeline-summary-copy {
+    text-align: left !important;
+    text-justify: auto !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    overflow-wrap: break-word !important;
+    word-spacing: normal !important;
+    text-wrap: pretty;
+}
+
+.timeline-section .timeline-intro,
+.timeline-section .timeline-item-text {
+    text-align: justify !important;
+    text-justify: inter-word;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    overflow-wrap: break-word !important;
+    text-wrap: pretty;
+}
+
 @media (max-width: 600px) {
     .timeline-section .timeline-intro,
-    .timeline-section .timeline-item-text,
-    .timeline-section .timeline-summary-copy {
+    .timeline-section .timeline-item-text {
         text-align: justify !important;
         text-justify: inter-word;
         hyphens: auto !important;
