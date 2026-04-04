@@ -813,6 +813,18 @@
     word-break: break-word;
 }
 
+.email-address {
+    display: inline;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+}
+
+.email-address__part {
+    display: inline-block;
+    white-space: nowrap;
+}
+
 .contact-info-card-text {
     color: var(--contact-copy-color);
     font-weight: 540;
@@ -1013,8 +1025,9 @@
 .music-family-highlights {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
     gap: 14px;
-    max-width: 980px;
+    max-width: none;
     margin: 0 auto 24px;
 }
 
@@ -1072,21 +1085,22 @@
 }
 
 .music-family-benefits-row {
-    --music-family-benefits-gap: 24px;
+    --music-family-benefits-gap: 20px;
     --music-family-benefits-margin-bottom: 34px;
-    --music-family-benefits-columns: minmax(0, 1.34fr) minmax(220px, 0.66fr);
-    --music-family-benefits-padding: 30px 30px 28px;
+    --music-family-benefits-columns: minmax(0, 1.52fr) minmax(170px, 0.48fr);
+    --music-family-benefits-padding: 24px 24px 22px;
     display: grid;
     grid-template-columns: var(--music-family-benefits-columns);
     align-items: center;
     justify-content: center;
     gap: var(--music-family-benefits-gap);
-    max-width: 980px;
+    width: 100%;
+    max-width: none;
     margin: 0 auto var(--music-family-benefits-margin-bottom);
     padding: var(--music-family-benefits-padding);
-    border-radius: 28px;
+    border-radius: 24px;
     border: 1px solid rgba(18, 62, 70, 0.14);
-    background: linear-gradient(180deg, #325157 0%, #28464b 100%);
+    background: linear-gradient(180deg, rgba(224, 235, 231, 0.96) 0%, rgba(214, 228, 223, 0.94) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -1102,7 +1116,7 @@
     inset: 0 auto auto 0;
     width: 88px;
     height: 3px;
-    background: rgba(243, 248, 245, 0.72);
+    background: rgba(10, 117, 109, 0.72);
     border-radius: 999px;
 }
 
@@ -1127,7 +1141,7 @@
     grid-template-columns: auto 1fr;
     gap: 14px;
     align-items: center;
-    color: rgba(245, 249, 247, 0.96);
+    color: var(--music-family-heading);
     font-family: var(--font-ui-modern);
     text-align: left;
     font-size: 1.02rem !important;
@@ -1141,7 +1155,7 @@
     border-radius: 0;
     background: transparent;
     border: 0;
-    border-bottom: 1px solid rgba(235, 243, 239, 0.12);
+    border-bottom: 1px solid rgba(18, 62, 70, 0.1);
     letter-spacing: -0.01em;
 }
 
@@ -1156,9 +1170,9 @@
     align-items: center;
     justify-content: center;
     border-radius: 999px;
-    color: #f4f8f6;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(241, 246, 244, 0.12);
+    color: var(--color-secondary);
+    background: rgba(255, 255, 255, 0.48);
+    border: 1px solid rgba(18, 62, 70, 0.1);
     box-shadow: none;
     font-size: 0.86rem;
     font-weight: 760;
@@ -1167,14 +1181,14 @@
 }
 
 .music-family-logo-mobile {
-    --music-family-logo-mobile-padding: 26px 24px;
+    --music-family-logo-mobile-padding: 18px 12px 18px 16px;
     --music-family-logo-mobile-radius: 24px;
     --music-family-logo-mobile-bg: transparent;
     --music-family-logo-mobile-shadow: none;
     grid-column: 2;
     grid-row: 1;
-    justify-self: stretch;
-    align-self: stretch;
+    justify-self: end;
+    align-self: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1185,7 +1199,7 @@
     border: 0;
     position: relative;
     overflow: hidden;
-    min-height: 100%;
+    min-height: 0;
     z-index: 1;
 }
 
@@ -1200,10 +1214,10 @@
 .music-family-logo-mobile img {
     display: block;
     width: 100%;
-    max-width: 158px;
+    max-width: 148px;
     height: auto;
-    filter: brightness(0) invert(1);
-    opacity: 0.92;
+    filter: none;
+    opacity: 0.72;
     position: relative;
     z-index: 1;
 }
@@ -1212,6 +1226,7 @@
     --music-family-groups-gap: 22px;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
     gap: var(--music-family-groups-gap);
 }
 
@@ -1252,15 +1267,15 @@
 }
 
 .music-family-group-title {
-    --music-family-group-title-margin-bottom: 16px;
+    --music-family-group-title-margin-bottom: 18px;
     --music-family-group-title-font-size: clamp(1.28rem, 2.08vw, 1.68rem);
-    --music-family-group-title-line-height: 1.02;
+    --music-family-group-title-line-height: 1.16;
     margin: 0 0 var(--music-family-group-title-margin-bottom);
     color: var(--music-family-heading);
     font-family: var(--font-display);
     font-size: var(--music-family-group-title-font-size);
     font-weight: 700 !important;
-    line-height: 1.1 !important;
+    line-height: var(--music-family-group-title-line-height) !important;
     letter-spacing: -0.025em;
     text-wrap: balance;
 }
@@ -1553,6 +1568,7 @@
     .music-family-group-title {
         --music-family-group-title-font-size: 1.2rem;
         --music-family-group-title-margin-bottom: 10px;
+        --music-family-group-title-line-height: 1.18;
     }
 
     .music-family-group-lead {
@@ -3662,13 +3678,13 @@
     --charity-projects-surface: rgba(255, 255, 255, 0.92);
     --charity-card-shadow: var(--shadow-surface);
     --charity-card-topline: rgba(53, 196, 199, 0.78);
-    --review-title-size: clamp(1.88rem, 2.6vw, 2.22rem);
+    --review-title-size: clamp(1.64rem, 2.08vw, 1.9rem);
     --review-meta-bg: rgba(249, 243, 233, 0.94);
     --review-meta-border: rgba(53, 196, 199, 0.22);
 }
 
 .review-overview-section {
-    background: var(--color-primary);
+    background: linear-gradient(180deg, var(--section-tone-a) 0%, var(--section-tone-b) 100%);
     padding: 28px 0 22px;
     position: relative;
     overflow: hidden;
@@ -3709,7 +3725,7 @@
 }
 
 .review-overview-kicker {
-    color: rgba(240, 248, 248, 0.82);
+    color: #5b726f;
     font-size: var(--type-kicker-font-size);
     font-weight: 620;
     line-height: var(--type-kicker-line-height);
@@ -3719,7 +3735,7 @@
 
 .review-overview-title {
     margin: 10px 0 12px;
-    color: #f8fdfd;
+    color: #163840;
     font-family: var(--font-display);
     font-size: var(--type-title-font-size);
     font-weight: 640;
@@ -3731,7 +3747,7 @@
 .review-overview-intro {
     max-width: 58ch;
     margin: 0;
-    color: rgba(240, 247, 246, 0.92);
+    color: #2f5058;
     font-size: var(--type-lead-font-size);
     line-height: var(--type-lead-line-height);
     letter-spacing: var(--type-lead-letter-spacing);
@@ -3764,21 +3780,21 @@
 }
 
 .review-overview-highlight-title {
-    color: #1d4047;
+    color: #173840;
     font-family: var(--font-ui-modern);
     font-size: var(--type-card-title-font-size);
-    font-weight: 620;
+    font-weight: 660;
     line-height: var(--type-card-title-line-height);
     letter-spacing: -0.018em;
 }
 
 .review-overview-highlight-copy {
     margin: 8px 0 0;
-    color: #2f4f57;
+    color: #264850;
     font-size: var(--type-body-font-size);
     line-height: var(--type-body-line-height);
     letter-spacing: var(--type-body-letter-spacing);
-    font-weight: 540;
+    font-weight: 560;
 }
 
 .review-overview-media {
@@ -3799,7 +3815,7 @@
     display: block;
     height: auto;
     border-radius: 22px;
-    border: 1px solid rgba(226, 242, 239, 0.34);
+    border: 1px solid rgba(18, 62, 70, 0.12);
     box-shadow: none;
     max-height: none;
     object-fit: contain;
@@ -3959,11 +3975,11 @@
 }
 
 .review-archive .charity-projects-section[id^="review-"] .charity-title {
-    max-width: 20ch;
+    max-width: 24ch;
     margin-bottom: 8px !important;
     font-size: var(--review-title-size) !important;
-    line-height: 1.04 !important;
-    letter-spacing: -0.03em !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.024em !important;
 }
 
 .review-archive .charity-projects-section[id^="review-"] .charity-description {
@@ -4145,11 +4161,11 @@
 }
 
 .review-featured .charity-title {
-    max-width: 20ch;
+    max-width: 24ch;
     margin-bottom: 8px !important;
     font-size: var(--review-title-size) !important;
-    line-height: 1.04 !important;
-    letter-spacing: -0.03em !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.024em !important;
 }
 
 .review-featured .charity-meta {
@@ -4203,6 +4219,51 @@
 .review-featured .review-media-caption,
 .review-featured .masterclass-flex__credit {
     color: #547078 !important;
+}
+
+#review-benefiz-trommelworkshop-2026 .charity-flex-row {
+    align-items: flex-start;
+}
+
+#review-benefiz-trommelworkshop-2026 .charity-flex-left {
+    flex: 1 1 58%;
+}
+
+#review-benefiz-trommelworkshop-2026 .review-benefit-workshop-media {
+    flex: 0 1 40%;
+    max-width: clamp(340px, 40vw, 470px);
+    gap: 16px;
+}
+
+#review-benefiz-trommelworkshop-2026 .review-donation-card {
+    padding: 18px 20px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(231, 239, 235, 0.9), rgba(245, 248, 246, 0.96));
+    border: 1px solid rgba(18, 62, 70, 0.1);
+}
+
+#review-benefiz-trommelworkshop-2026 .review-donation-card__copy {
+    color: #26484e;
+}
+
+#review-benefiz-trommelworkshop-2026 .review-donation-card__intro,
+#review-benefiz-trommelworkshop-2026 .review-donation-card__details {
+    margin: 0;
+}
+
+#review-benefiz-trommelworkshop-2026 .review-donation-card__intro {
+    font-family: var(--font-ui-modern);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+#review-benefiz-trommelworkshop-2026 .review-donation-card__details {
+    margin-top: 12px;
+    font-family: var(--font-ui-modern);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.72;
+    letter-spacing: -0.01em;
 }
 
 #review-masterclass-florian-meierott {
@@ -4518,10 +4579,10 @@
     --timeline-item-text-line-height: var(--type-body-line-height);
     --timeline-item-text-max-width: 64ch;
     --timeline-content-gap: 8px;
-    --timeline-summary-card-bg: #ffffff;
-    --timeline-summary-card-border-color: rgba(20, 73, 81, 0.14);
-    --timeline-summary-value-color: #122f37;
-    --timeline-summary-copy-color: #34525a;
+    --timeline-summary-card-bg: rgba(255, 255, 255, 0.98);
+    --timeline-summary-card-border-color: rgba(20, 73, 81, 0.18);
+    --timeline-summary-value-color: #16363e;
+    --timeline-summary-copy-color: #28474f;
     background: var(--timeline-section-bg) !important;
     padding: var(--timeline-section-padding) !important;
     width: 100% !important;
@@ -4671,11 +4732,11 @@
 
 .timeline-summary-value {
     color: var(--timeline-summary-value-color);
-    font-family: var(--font-display);
+    font-family: var(--font-ui-modern);
     font-size: clamp(1.04rem, 1.6vw, 1.26rem);
-    font-weight: 650;
-    line-height: 1.08;
-    letter-spacing: -0.02em;
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.024em;
 }
 
 .timeline-summary-copy {
@@ -4684,7 +4745,7 @@
     font-size: var(--type-body-font-size);
     line-height: var(--type-body-line-height);
     letter-spacing: var(--type-body-letter-spacing);
-    font-weight: 500;
+    font-weight: 560;
 }
 
 .timeline-list {
@@ -4986,6 +5047,7 @@
     .timeline-summary-copy {
         font-size: 1.03rem;
         line-height: 1.62;
+        font-weight: 560;
     }
 
     .timeline-item-title {
@@ -10335,7 +10397,7 @@ html[lang="it"] #langIt {
 .engagement-focus-title,
 .review-overview-highlight-title {
     font-family: var(--font-ui-modern) !important;
-    font-weight: 540 !important;
+    font-weight: 600 !important;
     letter-spacing: -0.016em !important;
 }
 
@@ -10400,16 +10462,19 @@ html body #cookiescript_injected_wrapper #cookiescript_accept:hover {
 }
 
 .music-family-title {
+    font-family: var(--font-ui-modern) !important;
     font-size: var(--type-title-display-font-size) !important;
     font-weight: 560 !important;
-    line-height: var(--type-title-display-line-height) !important;
-    letter-spacing: var(--type-title-display-letter-spacing) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -0.034em !important;
 }
 
 .music-family-highlight-title,
 .music-family-group-title,
 .music-family-contact-title {
+    font-family: var(--font-ui-modern) !important;
     font-weight: 520 !important;
+    letter-spacing: -0.018em !important;
 }
 
 .contact-info-intro,
@@ -10872,7 +10937,7 @@ html body .event-poster-download:active {
 }
 
 html body .review-overview-section {
-    background: var(--color-primary) !important;
+    background: linear-gradient(180deg, var(--section-tone-a) 0%, var(--section-tone-b) 100%) !important;
     padding: 32px 0 24px !important;
 }
 
@@ -11259,6 +11324,7 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
     html body .review-overview-highlight-copy {
         font-size: 1.03rem !important;
         line-height: 1.62 !important;
+        font-weight: 560 !important;
     }
 
     html body .review-overview-image {
@@ -11305,8 +11371,8 @@ html body .charity-projects-section[id^="review-"] .charity-projects-container {
     }
 
     html body .charity-projects-section[id^="review-"] .charity-title {
-        font-size: clamp(1.56rem, 6vw, 1.9rem) !important;
-        line-height: 1.06 !important;
+        font-size: clamp(1.36rem, 5vw, 1.62rem) !important;
+        line-height: 1.1 !important;
     }
 
     html body .charity-projects-section[id^="review-"] .charity-description {
