@@ -12,6 +12,7 @@ const FALLBACK_SHARE_PAGES = [
     "johann-strauss-meintz-2025.html",
     "johann-strauss-marktbreit-2025.html",
     "wir-musizieren-gemeinsam-2025.html",
+    "querbeet-roundup-2025.html",
     "concello-kurswoche-2025.html",
     "symphonic-mob-kissinger-sommer-2025.html",
     "ausflug-nuernberg-2025.html",

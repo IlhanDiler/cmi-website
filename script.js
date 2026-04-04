@@ -837,18 +837,14 @@ function getHeroGallerySlideStyle(entry, index) {
     if (!entry) {
         return {
             backgroundPosition: 'center 10%',
-            backgroundSize: 'cover',
-            blurBackgroundPosition: 'center 10%',
-            blurBackgroundSize: 'cover'
+            backgroundSize: 'cover'
         };
     }
 
     if (window.innerWidth <= 700) {
         return {
             backgroundPosition: 'center center',
-            backgroundSize: 'contain',
-            blurBackgroundPosition: 'center center',
-            blurBackgroundSize: 'cover'
+            backgroundSize: 'contain'
         };
     }
 
@@ -856,9 +852,7 @@ function getHeroGallerySlideStyle(entry, index) {
 
     return {
         backgroundPosition: desktopPosition,
-        backgroundSize: 'cover',
-        blurBackgroundPosition: desktopPosition,
-        blurBackgroundSize: 'cover'
+        backgroundSize: 'cover'
     };
 }
 
@@ -867,11 +861,30 @@ function applyHeroGallerySlideStyle(layer, entry, slideStyle) {
         return;
     }
 
-    layer.style.setProperty('--hero-fade-image-url', `url('${entry.src}')`);
+    const heroImageUrl = getHeroGalleryCssImageUrl(entry.src);
+    layer.style.setProperty('--hero-fade-image-url', `url('${heroImageUrl}')`);
     layer.style.setProperty('--hero-fade-image-focus-position', slideStyle.backgroundPosition);
     layer.style.setProperty('--hero-fade-image-size', slideStyle.backgroundSize);
-    layer.style.setProperty('--hero-fade-blur-position', slideStyle.blurBackgroundPosition || slideStyle.backgroundPosition);
-    layer.style.setProperty('--hero-fade-blur-size', slideStyle.blurBackgroundSize || 'cover');
+}
+
+function getHeroGalleryCssImageUrl(src) {
+    if (!src) {
+        return '';
+    }
+
+    if (/^(?:[a-z]+:|\/\/)/i.test(src)) {
+        return src;
+    }
+
+    const normalizedSrc = src.startsWith('/') && window.location.protocol === 'file:'
+        ? src.replace(/^\/+/, '')
+        : src.replace(/^\.\/?/, '');
+
+    try {
+        return new URL(normalizedSrc, window.location.href).href;
+    } catch (error) {
+        return normalizedSrc;
+    }
 }
 
 function syncHeroGalleryActiveSlideStyle() {
@@ -1009,6 +1022,12 @@ function initHeroGallery() {
     if (galleryUi) {
         galleryUi.classList.add('hero-gallery-ui--active');
     }
+
+    const initialLayer = fadeContainer.children[0];
+    const initialSlide = heroGallery[heroIndex];
+    applyHeroGallerySlideStyle(initialLayer, initialSlide, getHeroGallerySlideStyle(initialSlide, heroIndex));
+    initialLayer.setAttribute('aria-label', getHeroGalleryTitle(initialSlide));
+    fadeContainer.children[1].style.opacity = '0';
 
     setHeroBgCrossfade(heroIndex);
     scheduleHeroGalleryAuto(heroSlideDuration);
