@@ -1,5 +1,49 @@
 # cmi-webseite
 
+## CSS-Architektur
+
+Eine kurze Entwickler-Uebergabe zur finalen Struktur liegt auch in [docs/FRONTEND-HANDOFF.md](docs/FRONTEND-HANDOFF.md).
+
+Die Haupt-CSS ist nicht mehr eine einzelne grosse Datei, sondern modular aufgebaut:
+
+- [style.css](style.css) ist der einzige Einstiegspunkt und importiert nur die Teilmodule.
+- [styles/premium-foundation.css](styles/premium-foundation.css) enthaelt Design-Tokens, globale Typografie, Utilities und gemeinsame Basisregeln.
+- Die eigentlichen Seitenteile liegen unter [styles/components](styles/components), zum Beispiel fuer Navigation, Hero, Events, Review, Music Family, Footer sowie Subpages und Legal-Seiten.
+
+Aktuelle Modulaufteilung:
+
+- [styles/components/navigation.css](styles/components/navigation.css): Hauptnavigation, Mobile-Menue, Subpage-Topbar
+- [styles/components/hero.css](styles/components/hero.css): Hero-Bereich und Gallery-UI
+- [styles/components/image-caption.css](styles/components/image-caption.css): Intro- und Bild/Text-Bereich
+- [styles/components/about-me.css](styles/components/about-me.css): Ueber-mich-Bereich
+- [styles/components/events.css](styles/components/events.css): Event-Karten und Poster/Share-Aktionen
+- [styles/components/review.css](styles/components/review.css): Rueckblicke und Review-Archive
+- [styles/components/music-family.css](styles/components/music-family.css): Music Family / Anfaengergruppe
+- [styles/components/repertoire.css](styles/components/repertoire.css): Repertoire und Engagement
+- [styles/components/contact.css](styles/components/contact.css): Kontaktbereich
+- [styles/components/footer.css](styles/components/footer.css): Footer
+- [styles/components/timeline.css](styles/components/timeline.css): Chronik / Timeline
+- [styles/components/subpages.css](styles/components/subpages.css): generische Subpage-Struktur
+- [styles/components/legal.css](styles/components/legal.css): Datenschutz und Impressum
+
+Wichtig:
+
+- Neue oder groessere Style-Aenderungen moeglichst im passenden Modul machen, nicht gesammelt in [style.css](style.css).
+- [style.css](style.css) sollte nur Importe enthalten.
+- Die fruehere Legacy-Datei wurde entfernt; neue Regeln sollten nicht wieder als Sammelrest ausserhalb der Module aufgebaut werden.
+
+## Pflege-Checkliste
+
+Fuer normale Inhalts- oder Styling-Aenderungen reicht diese kurze Reihenfolge:
+
+1. HTML im passenden Dokument anpassen, zum Beispiel [index.html](index.html), [chronik.html](chronik.html) oder eine Datei unter [share](share).
+2. CSS nur im zustaendigen Modul unter [styles/components](styles/components) aendern; gemeinsame Tokens nur in [styles/premium-foundation.css](styles/premium-foundation.css).
+3. Keine neuen Sammelregeln in [style.css](style.css) ablegen; die Datei bleibt der Import-Einstiegspunkt.
+4. Bei neuen Share-Seiten immer sowohl Meta-Tags als auch Weiterleitung pruefen.
+5. Neue Share-Dateien in [share/share-pages.json](share/share-pages.json) eintragen und bei Bedarf die Fallback-Liste in [share/instagram-export.js](share/instagram-export.js) mitziehen.
+6. Lokal immer ueber einen Webserver testen, nicht ueber `file://`, besonders fuer [share/instagram-export.html](share/instagram-export.html).
+7. Nach groesseren Aenderungen mindestens Startseite, Chronik, Datenschutz, Impressum und betroffene Share-Seiten kurz ueber HTTP pruefen.
+
 ## Social Share Links
 
 Diese Website ist im Kern eine Single-Page-Website. Social-Media-Plattformen wie WhatsApp, Facebook, LinkedIn oder X lesen fuer Link-Vorschaubilder jedoch nicht den sichtbaren SPA-Zustand, sondern nur das HTML der aufgerufenen URL.
@@ -31,6 +75,7 @@ Wenn ein neuer Rueckblick oder Event gezielt teilbar sein soll:
 7. Den Dateinamen in [share/share-pages.json](share/share-pages.json) eintragen, damit der Instagram-Export den Beitrag automatisch findet.
 8. `og:image` und `twitter:image` direkt auf das vorhandene Hauptbild der Share-Seite zeigen lassen.
 9. Optional kann fuer Social-Posts lokal `share/generate-share-preview-images.ps1` ausgefuehrt werden, ohne die erzeugten Dateien mit zu deployen.
+10. Wenn fuer [share/instagram-export.js](share/instagram-export.js) an der Fallback-Liste gearbeitet wird, muss sie mit [share/share-pages.json](share/share-pages.json) synchron bleiben.
 
 ## Wichtige Hinweise
 
@@ -53,8 +98,14 @@ Instagram unterstuetzt keinen sauberen Direktimport von normalen Website-Inhalte
 
 - Die Export-Seite liest Bild, Titel, Kurztext und Share-Link direkt aus den vorhandenen Share-Seiten.
 - Die Liste der beruecksichtigten Share-Seiten kommt aus [share/share-pages.json](share/share-pages.json).
+- Falls das Manifest nicht geladen werden kann, nutzt [share/instagram-export.js](share/instagram-export.js) die eingebaute Fallback-Liste `FALLBACK_SHARE_PAGES`.
 - Fuer jeden Beitrag gibt es eine sofort nutzbare Instagram-Caption, einen separaten Link-Button, einen Direktzugriff auf das Bild sowie PNG-Exporte fuer Feed im Format 4:5 und Story im Format 9:16.
 - Zusaetzlich kann die komplette Liste als JSON kopiert werden, falls spaeter ein Planungs- oder Automatisierungs-Tool angebunden wird.
+
+Pflegehinweis:
+
+- Neue Share-Seiten immer zuerst in [share/share-pages.json](share/share-pages.json) eintragen.
+- Wenn die Fallback-Liste in [share/instagram-export.js](share/instagram-export.js) bewusst beibehalten wird, muss derselbe Dateiname dort ebenfalls eingetragen werden.
 
 Empfohlener Ablauf:
 

@@ -1,0 +1,414 @@
+/* About me section */
+
+.about-me-section-modern {
+    --about-me-accent: var(--color-secondary);
+    --about-me-panel-bg: #ffffff;
+    --about-me-image-shadow: none;
+    --about-me-section-bg: linear-gradient(180deg, #f6f8f5 0%, #eef3ef 100%);
+    --about-me-section-padding: 82px 0 88px;
+    --about-me-panel-border: rgba(18, 62, 70, 0.14);
+    --about-me-panel-shadow: none;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    width: 100%;
+    background: var(--about-me-section-bg);
+    padding: var(--about-me-section-padding);
+    font-family: var(--font-ui-modern);
+}
+
+.about-me-section-modern::before,
+.about-me-section-modern::after {
+    content: none;
+    position: absolute;
+    border-radius: 999px;
+    pointer-events: none;
+}
+
+.about-me-section-modern::before {
+    top: -140px;
+    right: -120px;
+    width: 360px;
+    height: 360px;
+    background: none;
+}
+
+.about-me-section-modern::after {
+    left: -120px;
+    bottom: -140px;
+    width: 360px;
+    height: 360px;
+    background: none;
+}
+
+.about-me-section-modern-inner {
+    --about-me-inner-gap: 30px;
+    --about-me-inner-width: min(1200px, calc(100% - (var(--desktop-content-side-gap) * 2)));
+    --about-me-inner-max-width: 1200px;
+    --about-me-inner-padding: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+    align-items: stretch;
+    justify-content: center;
+    gap: var(--about-me-inner-gap);
+    width: var(--about-me-inner-width);
+    max-width: var(--about-me-inner-max-width);
+    margin: 0 auto;
+    padding: var(--about-me-inner-padding);
+    position: relative;
+    z-index: 1;
+}
+
+.about-me-text-modern,
+.about-me-image-modern {
+    width: 100%;
+    min-width: 0;
+}
+
+.about-me-text-modern {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: none;
+    --about-me-text-padding: 52px 48px 44px;
+    --about-me-text-margin-bottom: 0;
+    --about-me-text-align: left;
+    position: relative;
+    padding: var(--about-me-text-padding);
+    margin-bottom: var(--about-me-text-margin-bottom);
+    letter-spacing: -0.006em;
+    text-align: var(--about-me-text-align);
+    background: var(--about-me-panel-bg);
+    border: 1px solid var(--about-me-panel-border);
+    border-radius: var(--radius-card-large);
+    border-top: 0;
+    border-left: 3px solid var(--color-secondary);
+    box-shadow: var(--about-me-panel-shadow);
+    overflow: hidden;
+}
+
+.about-me-text-modern::before {
+    content: none;
+}
+
+.about-me-modern-title {
+    --about-me-title-font-size: clamp(2.7rem, 3.8vw, 4rem);
+    --about-me-title-line-height: var(--premium-title-line-height);
+    --about-me-title-color: var(--color-primary);
+    margin: 0 0 var(--premium-title-margin-bottom);
+    max-width: 10ch;
+    color: var(--about-me-title-color);
+    font-family: var(--font-ui-modern);
+    font-size: var(--about-me-title-font-size);
+    font-weight: 560;
+    line-height: 0.96;
+    letter-spacing: -0.06em;
+    text-wrap: balance;
+}
+
+.about-me-modern-subtitle {
+    --about-me-subtitle-font-size: 0.72rem;
+    --about-me-subtitle-margin-bottom: 20px;
+    --about-me-subtitle-text-align: left;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55em;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    font-family: var(--font-ui-modern);
+    font-size: var(--about-me-subtitle-font-size);
+    font-weight: 520;
+    color: var(--about-me-accent);
+    margin-bottom: var(--about-me-subtitle-margin-bottom);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-align: var(--about-me-subtitle-text-align);
+}
+
+.about-me-modern-bio {
+    max-width: 58ch;
+    margin-top: 8px;
+}
+
+.about-me-mobile-image {
+    --about-me-mobile-image-display: none;
+    --about-me-mobile-image-width: auto;
+    --about-me-mobile-image-margin: 0;
+    display: var(--about-me-mobile-image-display);
+    width: var(--about-me-mobile-image-width);
+    margin: var(--about-me-mobile-image-margin);
+    overflow: hidden;
+    border-radius: var(--radius-card-inner);
+}
+
+.about-me-mobile-image img {
+    --about-me-mobile-image-radius: var(--radius-card-inner);
+    --about-me-mobile-image-object-position: center top;
+    width: 100%;
+    display: block;
+    border-radius: var(--about-me-mobile-image-radius);
+    object-fit: cover;
+    object-position: var(--about-me-mobile-image-object-position);
+    box-shadow: var(--about-me-image-shadow);
+}
+
+.about-me-bio-text {
+    --about-me-bio-font-size: 1.02rem;
+    --about-me-bio-line-height: 1.78;
+    --about-me-bio-color: #26474e;
+    --about-me-bio-margin-bottom: 0.8em;
+    font-family: var(--font-ui-modern);
+    font-size: var(--about-me-bio-font-size);
+    line-height: var(--about-me-bio-line-height);
+    color: var(--about-me-bio-color);
+    font-weight: var(--font-weight-body);
+    letter-spacing: var(--premium-body-letter-spacing);
+    margin-bottom: var(--about-me-bio-margin-bottom);
+    text-align: left;
+    text-justify: auto;
+    text-wrap: pretty;
+    hyphens: auto;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.about-me-image-modern {
+    --about-me-image-display: flex;
+    --about-me-image-padding: 18px;
+    max-width: none;
+    display: var(--about-me-image-display);
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    position: relative;
+    background: var(--about-me-panel-bg);
+    padding: var(--about-me-image-padding);
+    box-sizing: border-box;
+    min-height: 0;
+    border: 1px solid var(--about-me-panel-border);
+    border-top: 0;
+    border-left: 3px solid var(--color-primary);
+    border-radius: var(--radius-card-large);
+    box-shadow: var(--about-me-panel-shadow);
+    overflow: hidden;
+}
+
+.about-me-image-modern::before {
+    content: none;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.about-me-mobile-image img,
+.about-me-image-modern img {
+    width: 100%;
+    display: block;
+}
+
+.about-me-mobile-image img {
+    height: auto;
+    object-fit: contain;
+}
+
+.about-me-image-modern img {
+    --about-me-image-max-height: none;
+    --about-me-image-object-position: center 18%;
+    height: 100%;
+    max-width: 100%;
+    max-height: none;
+    object-fit: cover;
+    object-position: var(--about-me-image-object-position);
+    margin: 0 auto;
+    background: var(--about-me-panel-bg);
+    border-radius: 28px;
+}
+
+@media (max-width: 1024px) {
+    .about-me-section-modern {
+        --about-me-section-padding: 28px 0;
+    }
+
+    .about-me-section-modern-inner {
+        grid-template-columns: 1fr;
+        --about-me-inner-width: 100%;
+        --about-me-inner-max-width: 100%;
+        --about-me-inner-padding: 0 16px;
+        box-sizing: border-box;
+    }
+
+    .about-me-text-modern,
+    .about-me-image-modern {
+        box-sizing: border-box;
+    }
+
+    .about-me-modern-title {
+        width: 100%;
+        text-align: left;
+        margin: 0 0 0.25em;
+        max-width: none;
+        font-size: clamp(2rem, 6.8vw, 2.5rem);
+        line-height: 1.04;
+        letter-spacing: -0.04em;
+    }
+
+    .about-me-modern-subtitle {
+        width: 100%;
+        --about-me-subtitle-text-align: left;
+        --about-me-subtitle-margin-bottom: 1em;
+        text-align: left;
+        margin: 0 0 var(--about-me-subtitle-margin-bottom);
+        font-size: 0.78rem;
+        letter-spacing: 0.12em;
+    }
+
+    .about-me-modern-bio {
+        width: 100%;
+    }
+
+    .about-me-bio-text {
+        padding-left: 0;
+        padding-right: 0;
+        --about-me-bio-margin-bottom: 0.75em;
+        margin-bottom: var(--about-me-bio-margin-bottom);
+        font-size: 1rem;
+        line-height: 1.68;
+    }
+
+    .about-me-image-modern {
+        --about-me-image-padding: 8px;
+        padding: var(--about-me-image-padding);
+        overflow: hidden;
+        border-radius: 24px;
+        background: var(--about-me-panel-bg);
+        max-width: none;
+        min-height: 0;
+        margin: 0 auto;
+        box-shadow: none;
+    }
+
+    .about-me-image-modern img {
+        max-width: 100%;
+        height: auto;
+        max-height: min(62vh, 720px);
+        object-fit: contain;
+        border-radius: 20px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .about-me-section-modern-inner {
+        grid-template-columns: 1fr;
+        align-items: start;
+        --about-me-inner-gap: 12px;
+    }
+
+    .about-me-text-modern {
+        width: auto;
+        max-width: none;
+        margin: 0;
+        --about-me-text-padding: 26px 24px;
+        border-radius: 24px;
+        background: var(--about-me-panel-bg);
+        box-shadow: none;
+        --about-me-text-align: left;
+    }
+
+    .about-me-image-modern {
+        width: 100%;
+        max-width: 760px;
+        margin: 0 auto;
+        align-self: start;
+        box-shadow: none;
+    }
+
+    .about-me-image-modern img {
+        width: 100%;
+        height: auto;
+        max-height: min(62vh, 720px);
+        object-fit: contain;
+        --about-me-image-object-position: center top;
+        object-position: var(--about-me-image-object-position);
+    }
+}
+
+@media (max-width: 600px) {
+    .about-me-section-modern {
+        --about-me-section-padding: 20px 0 24px;
+    }
+
+    .about-me-section-modern-inner {
+        grid-template-columns: 1fr;
+        --about-me-inner-padding: 0 12px;
+        --about-me-inner-gap: 14px;
+        --about-me-inner-padding: 0 10px;
+        --about-me-inner-gap: 10px;
+    }
+
+    .about-me-text-modern,
+    .about-me-image-modern {
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .about-me-text-modern {
+        display: flex;
+        flex-direction: column;
+        background: var(--about-me-panel-bg);
+        --about-me-text-padding: 18px 16px 15px;
+        border-radius: 16px;
+        box-shadow: 0 14px 26px rgba(17, 33, 42, 0.05);
+    }
+
+    .about-me-text-modern::before {
+        width: 64px;
+        height: 5px;
+        margin-bottom: 16px;
+    }
+
+    .about-me-modern-title {
+        font-size: clamp(1.52rem, 6.6vw, 1.86rem);
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+    }
+
+    .about-me-modern-subtitle {
+        font-size: 0.82rem;
+        letter-spacing: 0.1em;
+        padding: 0;
+        background: transparent;
+    }
+
+    .about-me-image-modern img {
+        --about-me-image-max-height: 52vh;
+        border-radius: 18px;
+        height: auto;
+        max-height: var(--about-me-image-max-height);
+        object-fit: cover;
+    }
+
+    .about-me-bio-text {
+        font-size: 0.98rem;
+        line-height: 1.64;
+        text-align: left;
+        text-justify: auto;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        overflow-wrap: break-word;
+    }
+
+    .about-me-mobile-image {
+        --about-me-mobile-image-display: block;
+        --about-me-mobile-image-width: 100%;
+        --about-me-mobile-image-margin: 0 0 12px;
+    }
+
+    .about-me-image-modern {
+        --about-me-image-display: none;
+        display: var(--about-me-image-display);
+    }
+}
