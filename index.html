@@ -13,7 +13,7 @@
     <meta name="copyright" content="Collegium Musicum Iuvenale Ochsenfurt">
     <meta name="publisher" content="Collegium Musicum Iuvenale Ochsenfurt">
     <!-- für Sprachen optimieren -->
-    <meta name="language" content="de, en, it, tr, uk">
+    <meta name="language" content="de, en, fr, it, tr, uk">
     <!-- Open Graph (für Social Media) -->
     <meta property="og:title" content="Musik baut Brücken | CMI Ochsenfurt">
     <meta property="og:description" content="Das CMI ist eine ehrenamtliche Gemeinschaft von Musikbegeisterten mit Benefizkonzerten und gemeinsamer Musik für soziale Projekte.">
@@ -49,6 +49,7 @@
     <a href="#main-content" class="skip-link">
         <span data-lang="de">Zum Inhalt springen</span>
         <span data-lang="en" style="display:none;">Skip to main content</span>
+        <span data-lang="fr" style="display:none;">Aller au contenu principal</span>
         <span data-lang="it" style="display:none;">Vai al contenuto principale</span>
         <span data-lang="tr" style="display:none;">Ana içeriğe geç</span>
         <span data-lang="uk" style="display:none;">Перейти до основного вмісту</span>
@@ -73,31 +74,37 @@
         <div class="nav-menu">
             <a href="#musik-baut-bruecken" class="nav-link" data-lang="de">Über uns</a>
             <a href="#musik-baut-bruecken" class="nav-link" data-lang="en" style="display:none;">About us</a>
+            <a href="#musik-baut-bruecken" class="nav-link" data-lang="fr" style="display:none;">A propos</a>
             <a href="#musik-baut-bruecken" class="nav-link" data-lang="it" style="display:none;">Chi siamo</a>
             <a href="#musik-baut-bruecken" class="nav-link" data-lang="tr" style="display:none;">Hakkımızda</a>
             <a href="#musik-baut-bruecken" class="nav-link" data-lang="uk" style="display:none;">Про нас</a>
             <a href="#music-family-section" class="nav-link" data-lang="de">MITMACHEN</a>
             <a href="#music-family-section" class="nav-link" data-lang="en" style="display:none;">JOIN US</a>
+            <a href="#music-family-section" class="nav-link" data-lang="fr" style="display:none;">PARTICIPER</a>
             <a href="#music-family-section" class="nav-link" data-lang="it" style="display:none;">PARTECIPA</a>
             <a href="#music-family-section" class="nav-link" data-lang="tr" style="display:none;">KATIL</a>
             <a href="#music-family-section" class="nav-link" data-lang="uk" style="display:none;">ДОЛУЧИТИСЯ</a>
             <a href="#events" class="nav-link" data-lang="de">Termine</a>
             <a href="#events" class="nav-link" data-lang="en" style="display:none;">Events</a>
+            <a href="#events" class="nav-link" data-lang="fr" style="display:none;">Agenda</a>
             <a href="#events" class="nav-link" data-lang="it" style="display:none;">Eventi</a>
             <a href="#events" class="nav-link" data-lang="tr" style="display:none;">Etkinlikler</a>
             <a href="#events" class="nav-link" data-lang="uk" style="display:none;">Події</a>
             <a href="#timeline-section" class="nav-link" data-lang="de">Chronik</a>
             <a href="#timeline-section" class="nav-link" data-lang="en" style="display:none;">Timeline</a>
+            <a href="#timeline-section" class="nav-link" data-lang="fr" style="display:none;">Chronique</a>
             <a href="#timeline-section" class="nav-link" data-lang="it" style="display:none;">Cronologia</a>
             <a href="#timeline-section" class="nav-link" data-lang="tr" style="display:none;">Kronoloji</a>
             <a href="#timeline-section" class="nav-link" data-lang="uk" style="display:none;">Хроніка</a>
             <a href="#review" class="nav-link" data-lang="de">Rückblick</a>
             <a href="#review" class="nav-link" data-lang="en" style="display:none;">Review</a>
+            <a href="#review" class="nav-link" data-lang="fr" style="display:none;">Regards</a>
             <a href="#review" class="nav-link" data-lang="it" style="display:none;">Riepilogo</a>
             <a href="#review" class="nav-link" data-lang="tr" style="display:none;">Geriye bakış</a>
             <a href="#review" class="nav-link" data-lang="uk" style="display:none;">Огляд</a>
             <a href="#contact" class="nav-link" data-lang="de">Kontakt</a>
             <a href="#contact" class="nav-link" data-lang="en" style="display:none;">Contact</a>
+            <a href="#contact" class="nav-link" data-lang="fr" style="display:none;">Contact</a>
             <a href="#contact" class="nav-link" data-lang="it" style="display:none;">Contatto</a>
             <a href="#contact" class="nav-link" data-lang="tr" style="display:none;">İletişim</a>
             <a href="#contact" class="nav-link" data-lang="uk" style="display:none;">Контакт</a>
@@ -122,6 +129,13 @@
                     <path d="M120,600L0,0L120,0L240,600" stroke="#cf142b" stroke-width="30"/>
                     <path d="M1080,0L1200,600L1080,600L960,0" fill="#fff"/>
                     <path d="M1080,0L1200,600L1080,600L960,0" stroke="#cf142b" stroke-width="30"/>
+                </svg>
+            </button>
+            <button type="button" onclick="setLang('fr')" id="langFr" class="lang-switch-button" aria-label="Francais">
+                <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="7" height="14" x="0" y="0" fill="#0055A4"/>
+                    <rect width="7" height="14" x="7" y="0" fill="#FFFFFF"/>
+                    <rect width="7" height="14" x="14" y="0" fill="#EF4135"/>
                 </svg>
             </button>
             <button type="button" onclick="setLang('it')" id="langIt" class="lang-switch-button" aria-label="Italiano">
@@ -150,31 +164,37 @@
         <div id="mobile-menu" class="mobile-menu">
             <a href="#musik-baut-bruecken" class="mobile-nav-link" data-lang="de">Über uns</a>
             <a href="#musik-baut-bruecken" class="mobile-nav-link" data-lang="en" style="display:none;">About us</a>
+            <a href="#musik-baut-bruecken" class="mobile-nav-link" data-lang="fr" style="display:none;">A propos</a>
             <a href="#musik-baut-bruecken" class="mobile-nav-link" data-lang="it" style="display:none;">Chi siamo</a>
             <a href="#musik-baut-bruecken" class="mobile-nav-link" data-lang="tr" style="display:none;">Hakkımızda</a>
             <a href="#musik-baut-bruecken" class="mobile-nav-link" data-lang="uk" style="display:none;">Про нас</a>
             <a href="#music-family-section" class="mobile-nav-link" data-lang="de" style="display:none;">MITMACHEN</a>
             <a href="#music-family-section" class="mobile-nav-link" data-lang="en" style="display:none;">JOIN US</a>
+            <a href="#music-family-section" class="mobile-nav-link" data-lang="fr" style="display:none;">PARTICIPER</a>
             <a href="#music-family-section" class="mobile-nav-link" data-lang="it" style="display:none;">PARTECIPA</a>
             <a href="#music-family-section" class="mobile-nav-link" data-lang="tr" style="display:none;">KATIL</a>
             <a href="#music-family-section" class="mobile-nav-link" data-lang="uk" style="display:none;">ДОЛУЧИТИСЯ</a>
              <a href="#events" class="mobile-nav-link" data-lang="de">Termine</a>
             <a href="#events" class="mobile-nav-link" data-lang="en" style="display:none;">Events</a>
+            <a href="#events" class="mobile-nav-link" data-lang="fr" style="display:none;">Agenda</a>
             <a href="#events" class="mobile-nav-link" data-lang="it" style="display:none;">Eventi</a>
             <a href="#events" class="mobile-nav-link" data-lang="tr" style="display:none;">Etkinlikler</a>
             <a href="#events" class="mobile-nav-link" data-lang="uk" style="display:none;">Події</a>
             <a href="#timeline-section" class="mobile-nav-link" data-lang="de">Chronik</a>
             <a href="#timeline-section" class="mobile-nav-link" data-lang="en" style="display:none;">Timeline</a>
+            <a href="#timeline-section" class="mobile-nav-link" data-lang="fr" style="display:none;">Chronique</a>
             <a href="#timeline-section" class="mobile-nav-link" data-lang="it" style="display:none;">Cronologia</a>
             <a href="#timeline-section" class="mobile-nav-link" data-lang="tr" style="display:none;">Kronoloji</a>
             <a href="#timeline-section" class="mobile-nav-link" data-lang="uk" style="display:none;">Хроніка</a>
             <a href="#review" class="mobile-nav-link" data-lang="de">Rückblick</a>
             <a href="#review" class="mobile-nav-link" data-lang="en" style="display:none">Review</a>
+            <a href="#review" class="mobile-nav-link" data-lang="fr" style="display:none">Regards</a>
             <a href="#review" class="mobile-nav-link" data-lang="it" style="display:none">Riepilogo</a>
             <a href="#review" class="mobile-nav-link" data-lang="tr" style="display:none;">Geriye bakış</a>
             <a href="#review" class="mobile-nav-link" data-lang="uk" style="display:none;">Огляд</a>
             <a href="#contact" class="mobile-nav-link" data-lang="de">Kontakt</a>
             <a href="#contact" class="mobile-nav-link" data-lang="en" style="display:none;">Contact</a>
+            <a href="#contact" class="mobile-nav-link" data-lang="fr" style="display:none;">Contact</a>
             <a href="#contact" class="mobile-nav-link" data-lang="it" style="display:none;">Contatto</a>
             <a href="#contact" class="mobile-nav-link" data-lang="tr" style="display:none;">İletişim</a>
             <a href="#contact" class="mobile-nav-link" data-lang="uk" style="display:none;">Контакт</a>
@@ -226,12 +246,14 @@
                 <div class="image-caption-copy-main">
                     <div class="image-caption-kicker" data-lang="de">Seit 45 Jahren</div>
                     <div class="image-caption-kicker" data-lang="en" style="display:none;">For 45 years</div>
+                    <div class="image-caption-kicker" data-lang="fr" style="display:none;">Depuis 45 ans</div>
                     <div class="image-caption-kicker" data-lang="it" style="display:none;">Da 45 anni</div>
                     <div class="image-caption-kicker" data-lang="tr" style="display:none;">45 yıldır</div>
                     <div class="image-caption-kicker" data-lang="uk" style="display:none;">Уже 45 років</div>
 
                     <h2 class="image-caption-title" data-lang="de">Musik baut Brücken</h2>
                     <h2 class="image-caption-title" data-lang="en" style="display:none;">Music builds bridges</h2>
+                    <h2 class="image-caption-title" data-lang="fr" style="display:none;">La musique construit des ponts</h2>
                     <h2 class="image-caption-title" data-lang="it" style="display:none;">La musica costruisce ponti</h2>
                     <h2 class="image-caption-title" data-lang="tr" style="display:none;">Müzik köprüler kurar</h2>
                     <h2 class="image-caption-title" data-lang="uk" style="display:none;">Музика будує мости</h2>
@@ -245,6 +267,10 @@
                     <div class="image-caption-copy-group" data-lang="en" style="display:none;">
                         <p class="image-caption-copy image-caption-copy--lead">For 45 years, Collegium Musicum Iuvenale Ochsenfurt has brought people together through music.</p>
                         <p class="image-caption-copy">We are a music community that makes music together, supports social causes through benefit projects, and maintains international friendships.</p>
+                    </div>
+                    <div class="image-caption-copy-group" data-lang="fr" style="display:none;">
+                        <p class="image-caption-copy image-caption-copy--lead">Depuis 45 ans, le Collegium Musicum Iuvenale Ochsenfurt rassemble les gens par la musique.</p>
+                        <p class="image-caption-copy">Nous sommes une communaute musicale qui fait de la musique ensemble, soutient des projets solidaires par des concerts benefices et entretient des amities internationales.</p>
                     </div>
                     <div class="image-caption-copy-group" data-lang="it" style="display:none;">
                         <p class="image-caption-copy image-caption-copy--lead">Da 45 anni il Collegium Musicum Iuvenale Ochsenfurt unisce le persone attraverso la musica.</p>
@@ -266,12 +292,14 @@
         <aside class="image-caption-video-card">
             <div class="image-caption-video-kicker" data-lang="de">Jubiläumsfilm</div>
             <div class="image-caption-video-kicker" data-lang="en" style="display:none;">Anniversary film</div>
+            <div class="image-caption-video-kicker" data-lang="fr" style="display:none;">Film anniversaire</div>
             <div class="image-caption-video-kicker" data-lang="it" style="display:none;">Film dell'anniversario</div>
             <div class="image-caption-video-kicker" data-lang="tr" style="display:none;">Yıl dönümü filmi</div>
             <div class="image-caption-video-kicker" data-lang="uk" style="display:none;">Ювілейний фільм</div>
 
             <div class="image-caption-video-title" data-lang="de" lang="de">Der Jubiläumsfilm gibt einen Einblick in Musik, Begegnungen und Benefiz beim Collegium Musicum Iuvenale.</div>
             <div class="image-caption-video-title" data-lang="en" lang="en" style="display:none;">The anniversary film shows music, encounters, and benefit work at Collegium Musicum Iuvenale.</div>
+            <div class="image-caption-video-title" data-lang="fr" lang="fr" style="display:none;">Le film anniversaire montre la musique, les rencontres et l'engagement solidaire du Collegium Musicum Iuvenale.</div>
             <div class="image-caption-video-title" data-lang="it" lang="it" style="display:none;">Il film dell'anniversario mostra musica, incontri e impegno benefico nel Collegium Musicum Iuvenale.</div>
             <div class="image-caption-video-title" data-lang="tr" lang="tr" style="display:none;">Yıl dönümü filmi, Collegium Musicum Iuvenale'de müziğin, karşılaşmaların ve yardım çalışmalarının nasıl iç içe geçtiğine kısa bir bakış sunuyor.</div>
             <div class="image-caption-video-title" data-lang="uk" lang="uk" style="display:none;">Ювілейний фільм показує музику, зустрічі та благодійну діяльність «Колегіум Музікум Ювенале».</div>
@@ -288,6 +316,7 @@
 
             <div class="image-caption-card-footer" data-lang="de">Gemeinschaft verbindet – Collegium Musicum Iuvenale Ochsenfurt</div>
             <div class="image-caption-card-footer" data-lang="en" style="display:none;">Community connects – Collegium Musicum Iuvenale Ochsenfurt</div>
+            <div class="image-caption-card-footer" data-lang="fr" style="display:none;">La communaute relie - Collegium Musicum Iuvenale Ochsenfurt</div>
             <div class="image-caption-card-footer" data-lang="it" style="display:none;">La comunità unisce – Collegium Musicum Iuvenale Ochsenfurt</div>
             <div class="image-caption-card-footer" data-lang="tr" style="display:none;">Topluluk insanları buluşturur – Collegium Musicum Iuvenale Ochsenfurt</div>
             <div class="image-caption-card-footer" data-lang="uk" style="display:none;">Спільність єднає – «Колегіум Музікум Ювенале Оксенфурт»</div>
@@ -299,12 +328,14 @@
     <div class="music-family-container">
     <h2 class="music-family-title" data-lang="de">Werde Teil unserer <span class="music-family-title-accent">Musikfamilie</span></h2>
     <h2 class="music-family-title" data-lang="en" style="display:none;">Become part of our <span class="music-family-title-accent">music family</span></h2>
+    <h2 class="music-family-title" data-lang="fr" style="display:none;">Fais partie de notre <span class="music-family-title-accent">famille musicale</span></h2>
     <h2 class="music-family-title" data-lang="it" style="display:none;">Entra a far parte della nostra <span class="music-family-title-accent">famiglia musicale</span></h2>
     <h2 class="music-family-title" data-lang="tr" style="display:none;"><span class="music-family-title-accent">Müzik ailemizin</span> bir parçası ol</h2>
     <h2 class="music-family-title" data-lang="uk" style="display:none;">Стань частиною нашої <span class="music-family-title-accent">музичної родини</span></h2>
         <div class="music-family-intro">
             <p class="music-family-desc" data-lang="de">Wer Freude daran hat, gemeinsam Musik zu machen, ist bei uns herzlich willkommen. Im CMI geht es um Offenheit, gegenseitige Unterstützung und die gemeinsame Liebe zur Musik.</p>
             <p class="music-family-desc" data-lang="en" style="display:none;">Anyone who enjoys making music together is warmly welcome here. At CMI, openness, mutual support, and a shared love of music are at the heart of what we do.</p>
+            <p class="music-family-desc" data-lang="fr" style="display:none;">Toutes les personnes qui aiment faire de la musique ensemble sont les bienvenues chez nous. Au CMI, l'ouverture, le soutien mutuel et l'amour partage de la musique sont essentiels.</p>
             <p class="music-family-desc" data-lang="it" style="display:none;">Chi ama fare musica insieme è il benvenuto da noi. Nel CMI contano soprattutto l'apertura, il sostegno reciproco e l'amore condiviso per la musica.</p>
             <p class="music-family-desc" data-lang="tr" style="display:none;">Birlikte müzik yapmaktan keyif alan herkes aramıza içtenlikle davetlidir. CMI'de açıklık, karşılıklı destek ve ortak müzik sevgisi her şeyin merkezinde yer alır.</p>
             <p class="music-family-desc" data-lang="uk" style="display:none;">У нас щиро вітають кожного, хто любить музикувати разом. У КМІ головне - відкритість, взаємна підтримка та спільна любов до музики.</p>
@@ -607,6 +638,7 @@
             <div class="musikalisches-repertoire-card-header">
                 <h2 class="musikalisches-repertoire-title" data-lang="de">Musikalisches Repertoire</h2>
                 <h2 class="musikalisches-repertoire-title" data-lang="en" style="display:none;">Musical Repertoire</h2>
+                <h2 class="musikalisches-repertoire-title" data-lang="fr" style="display:none;">Repertoire musical</h2>
                 <h2 class="musikalisches-repertoire-title" data-lang="it" style="display:none;">Repertorio Musicale</h2>
                 <h2 class="musikalisches-repertoire-title" data-lang="tr" style="display:none;">Müzik repertuvarı</h2>
                 <h2 class="musikalisches-repertoire-title" data-lang="uk" style="display:none;">Музичний репертуар</h2>
@@ -614,6 +646,7 @@
             </div>
             <p class="musikalisches-repertoire-intro" data-lang="de">Unser Repertoire wächst aus gemeinsamer Neugier, aus Freude am Musizieren und aus der Offenheit, unterschiedliche Menschen und Klangwelten zusammenzubringen.</p>
             <p class="musikalisches-repertoire-intro" data-lang="en" style="display:none;">Our repertoire grows out of shared curiosity, the joy of making music together, and the openness to bring different people and sound worlds together.</p>
+            <p class="musikalisches-repertoire-intro" data-lang="fr" style="display:none;">Notre repertoire nait d'une curiosite partagee, de la joie de faire de la musique ensemble et de l'ouverture a reunir des personnes et des univers sonores differents.</p>
             <p class="musikalisches-repertoire-intro" data-lang="it" style="display:none;">Il nostro repertorio nasce dalla curiosità condivisa, dalla gioia di fare musica insieme e dall'apertura a unire persone e mondi sonori diversi.</p>
             <p class="musikalisches-repertoire-intro" data-lang="tr" style="display:none;">Repertuvarımız; ortak meraktan, birlikte müzik yapma sevincinden ve farklı insanlarla ses dünyalarını bir araya getirme isteğimizden besleniyor.</p>
             <p class="musikalisches-repertoire-intro" data-lang="uk" style="display:none;">Наш репертуар виростає зі спільної цікавості, радості музикування та відкритості до поєднання різних людей і музичних світів.</p>
@@ -767,12 +800,14 @@
             <div class="musikalisches-repertoire-card-header">
                 <h2 class="musikalisches-repertoire-title" data-lang="de">Soziales Engagement</h2>
                 <h2 class="musikalisches-repertoire-title" data-lang="en" style="display:none;">Social Commitment</h2>
+                <h2 class="musikalisches-repertoire-title" data-lang="fr" style="display:none;">Engagement solidaire</h2>
                 <h2 class="musikalisches-repertoire-title" data-lang="it" style="display:none;">Impegno Sociale</h2>
                 <h2 class="musikalisches-repertoire-title" data-lang="tr" style="display:none;">Sosyal sorumluluk</h2>
                 <h2 class="musikalisches-repertoire-title" data-lang="uk" style="display:none;">Соціальна відповідальність</h2>
                 <div class="musikalisches-repertoire-divider"></div>
                 <p class="musikalisches-repertoire-intro" data-lang="de">Soziales Engagement gehört für uns zum gemeinsamen Musizieren.</p>
                 <p class="musikalisches-repertoire-intro" data-lang="en" style="display:none;">For us, social commitment is part of making music together.</p>
+                <p class="musikalisches-repertoire-intro" data-lang="fr" style="display:none;">Pour nous, l'engagement solidaire fait partie integrante de la musique partagee.</p>
                 <p class="musikalisches-repertoire-intro" data-lang="it" style="display:none;">Per noi l'impegno sociale fa parte del fare musica insieme.</p>
                 <p class="musikalisches-repertoire-intro" data-lang="tr" style="display:none;">Bizim için sosyal sorumluluk, birlikte müzik yapmanın ayrılmaz bir parçası.</p>
                 <p class="musikalisches-repertoire-intro" data-lang="uk" style="display:none;">Для нас соціальна відповідальність є частиною спільного музикування.</p>
@@ -896,16 +931,19 @@
     <div class="event-section-intro">
         <div class="event-section-kicker" data-lang="de">Nächste Begegnungen</div>
         <div class="event-section-kicker" data-lang="en" style="display:none;">Next Gatherings</div>
+        <div class="event-section-kicker" data-lang="fr" style="display:none;">Prochaines rencontres</div>
         <div class="event-section-kicker" data-lang="it" style="display:none;">Prossimi incontri</div>
         <div class="event-section-kicker" data-lang="tr" style="display:none;">Yaklaşan buluşmalar</div>
         <div class="event-section-kicker" data-lang="uk" style="display:none;">Наступні зустрічі</div>
     <h2 class="event-title" data-lang="de">Kommende Konzerte & Begegnungen</h2>
     <h2 class="event-title" data-lang="en" style="display:none;">Upcoming Concerts & Gatherings</h2>
+    <h2 class="event-title" data-lang="fr" style="display:none;">Prochains concerts et rencontres</h2>
     <h2 class="event-title" data-lang="it" style="display:none;">Concerti e incontri in programma</h2>
     <h2 class="event-title" data-lang="tr" style="display:none;">Yaklaşan konserler ve buluşmalar</h2>
     <h2 class="event-title" data-lang="uk" style="display:none;">Найближчі концерти та зустрічі</h2>
         <p class="event-section-copy" data-lang="de">Unsere nächsten Termine laden zum Zuhören, Begegnen und Mittragen ein. Sie entstehen aus unserem ehrenamtlichen Engagement und unterstützen oft auch soziale Projekte.</p>
         <p class="event-section-copy" data-lang="en" style="display:none;">Our upcoming events invite people to listen and meet. They grow out of our voluntary work and often support social projects.</p>
+        <p class="event-section-copy" data-lang="fr" style="display:none;">Nos prochains rendez-vous invitent a ecouter, a se rencontrer et a participer. Ils naissent de notre engagement benevole et soutiennent souvent aussi des projets solidaires.</p>
         <p class="event-section-copy" data-lang="it" style="display:none;">I prossimi appuntamenti invitano ad ascoltare e incontrarsi. Nascono dal nostro impegno volontario e spesso sostengono progetti sociali.</p>
         <p class="event-section-copy" data-lang="tr" style="display:none;">Yaklaşan etkinliklerimiz dinlemeye, karşılaşmaya ve birlikte destek olmaya davet ediyor. Gönüllü emeğimizden doğuyorlar ve çoğu zaman sosyal projeleri de destekliyorlar.</p>
         <p class="event-section-copy" data-lang="uk" style="display:none;">Наші найближчі події запрошують слухати й зустрічатися. Вони виростають із нашої волонтерської праці та часто підтримують соціальні проєкти.</p>
@@ -1139,16 +1177,19 @@
     <div class="timeline-header">
     <div class="timeline-eyebrow" data-lang="de">Seit 1981</div>
     <div class="timeline-eyebrow" data-lang="en" style="display:none;">Since 1981</div>
+    <div class="timeline-eyebrow" data-lang="fr" style="display:none;">Depuis 1981</div>
     <div class="timeline-eyebrow" data-lang="it" style="display:none;">Dal 1981</div>
     <div class="timeline-eyebrow" data-lang="tr" style="display:none;">1981'den beri</div>
     <div class="timeline-eyebrow" data-lang="uk" style="display:none;">З 1981 року</div>
     <h2 class="timeline-title" data-lang="de">Chronik</h2>
     <h2 class="timeline-title" data-lang="en" style="display:none;">Timeline</h2>
+    <h2 class="timeline-title" data-lang="fr" style="display:none;">Chronique</h2>
     <h2 class="timeline-title" data-lang="it" style="display:none;">Cronologia</h2>
     <h2 class="timeline-title" data-lang="tr" style="display:none;">Kronoloji</h2>
     <h2 class="timeline-title" data-lang="uk" style="display:none;">Хроніка</h2>
     <p class="timeline-intro" data-lang="de">Seit der Gründung bringt das Collegium Musicum Iuvenale Menschen verschiedener Generationen und Herkünfte durch gemeinsames Musizieren, Begegnungen und Benefizkonzerte zusammen.</p>
     <p class="timeline-intro" data-lang="en" style="display:none;">Since its foundation, Collegium Musicum Iuvenale has brought together people of different generations and origins through shared music-making, encounters, and benefit concerts.</p>
+    <p class="timeline-intro" data-lang="fr" style="display:none;">Depuis sa fondation, le Collegium Musicum Iuvenale rassemble des personnes de generations et d'origines diverses par la pratique musicale commune, les rencontres et les concerts benefices.</p>
     <p class="timeline-intro" data-lang="it" style="display:none;">Fin dalla sua fondazione, il Collegium Musicum Iuvenale riunisce persone di generazioni e provenienze diverse attraverso la musica condivisa, gli incontri e i concerti di beneficenza.</p>
     <p class="timeline-intro" data-lang="tr" style="display:none;">Collegium Musicum Iuvenale kuruluşundan bu yana farklı kuşaklardan ve farklı kökenlerden insanları ortak müzik, karşılaşmalar ve yardım konserleriyle bir araya getiriyor.</p>
     <p class="timeline-intro" data-lang="uk" style="display:none;">Від самого заснування «Колегіум Музікум Ювенале» об'єднує людей різних поколінь і різного походження через спільне музикування, зустрічі та благодійні концерти.</p>
@@ -1156,11 +1197,13 @@
         <article class="timeline-summary-card">
             <div class="timeline-summary-value" data-lang="de">Kleiner Anfang</div>
             <div class="timeline-summary-value" data-lang="en" style="display:none;">Small beginnings</div>
+            <div class="timeline-summary-value" data-lang="fr" style="display:none;">Petit debut</div>
             <div class="timeline-summary-value" data-lang="it" style="display:none;">Piccoli inizi</div>
             <div class="timeline-summary-value" data-lang="tr" style="display:none;">Küçük başlangıç</div>
             <div class="timeline-summary-value" data-lang="uk" style="display:none;">Невеликий початок</div>
             <p class="timeline-summary-copy" data-lang="de">Aus einer privaten Initiative junger Musikbegeisterter um Astrid Eitschberger ist in Ochsenfurt Schritt für Schritt eine offene musikalische Gemeinschaft gewachsen.</p>
             <p class="timeline-summary-copy" data-lang="en" style="display:none;">A small initiative by young music lovers gradually grew into an open musical community in Ochsenfurt.</p>
+            <p class="timeline-summary-copy" data-lang="fr" style="display:none;">A partir d'une initiative privee de jeunes passionnes de musique autour d'Astrid Eitschberger, une communaute musicale ouverte s'est developpee pas a pas a Ochsenfurt.</p>
             <p class="timeline-summary-copy" data-lang="it" style="display:none;">Da una piccola iniziativa di giovani appassionati di musica è cresciuta passo dopo passo una comunità musicale aperta a Ochsenfurt.</p>
             <p class="timeline-summary-copy" data-lang="tr" style="display:none;">Müziğe tutkun gençlerin küçük bir girişiminden, Ochsenfurt'ta adım adım açık ve kapsayıcı bir müzik topluluğu doğdu.</p>
             <p class="timeline-summary-copy" data-lang="uk" style="display:none;">Із невеликої ініціативи молодих любителів музики в Оксенфурті крок за кроком виросла відкрита музична спільнота.</p>
@@ -1168,11 +1211,13 @@
         <article class="timeline-summary-card">
             <div class="timeline-summary-value" data-lang="de">Europagedanke</div>
             <div class="timeline-summary-value" data-lang="en" style="display:none;">European idea</div>
+            <div class="timeline-summary-value" data-lang="fr" style="display:none;">Esprit europeen</div>
             <div class="timeline-summary-value" data-lang="it" style="display:none;">Idea europea</div>
             <div class="timeline-summary-value" data-lang="tr" style="display:none;">Avrupa fikri</div>
             <div class="timeline-summary-value" data-lang="uk" style="display:none;">Європейська ідея</div>
             <p class="timeline-summary-copy" data-lang="de">Aus Konzertreisen, Partnerschaften und Besuchen sind über die Jahre Freundschaften und verlässliche Verbindungen entstanden.</p>
             <p class="timeline-summary-copy" data-lang="en" style="display:none;">Concert trips, partnerships, and visits have grown over the years into friendships and lasting connections.</p>
+            <p class="timeline-summary-copy" data-lang="fr" style="display:none;">Au fil des annees, les tournees, les partenariats et les visites sont devenus des amities et des liens durables.</p>
             <p class="timeline-summary-copy" data-lang="it" style="display:none;">Viaggi musicali, collaborazioni e visite hanno dato vita negli anni ad amicizie e legami duraturi.</p>
             <p class="timeline-summary-copy" data-lang="tr" style="display:none;">Konser yolculukları, ortaklıklar ve karşılıklı ziyaretler yıllar içinde dostluklara ve güvenilir bağlara dönüştü.</p>
             <p class="timeline-summary-copy" data-lang="uk" style="display:none;">Із концертних поїздок, партнерств і візитів з роками виросли дружба та надійні зв'язки.</p>
@@ -1180,11 +1225,13 @@
         <article class="timeline-summary-card">
             <div class="timeline-summary-value" data-lang="de">Benefizveranstaltungen</div>
             <div class="timeline-summary-value" data-lang="en" style="display:none;">Benefit events</div>
+            <div class="timeline-summary-value" data-lang="fr" style="display:none;">Concerts benefices</div>
             <div class="timeline-summary-value" data-lang="it" style="display:none;">Eventi benefici</div>
             <div class="timeline-summary-value" data-lang="tr" style="display:none;">Yardım etkinlikleri</div>
             <div class="timeline-summary-value" data-lang="uk" style="display:none;">Благодійні заходи</div>
             <p class="timeline-summary-copy" data-lang="de">Mit Benefizkonzerten und gemeinsamen Aktionen unterstützt das Collegium Musicum Iuvenale seit vielen Jahren soziale und kulturelle Anliegen.</p>
             <p class="timeline-summary-copy" data-lang="en" style="display:none;">Through benefit concerts and shared initiatives, Collegium Musicum Iuvenale has supported social and cultural causes for many years.</p>
+            <p class="timeline-summary-copy" data-lang="fr" style="display:none;">Par des concerts benefices et des actions communes, le Collegium Musicum Iuvenale soutient depuis de nombreuses annees des projets sociaux et culturels.</p>
             <p class="timeline-summary-copy" data-lang="it" style="display:none;">Con concerti di beneficenza e iniziative condivise, il Collegium Musicum Iuvenale sostiene da molti anni progetti sociali e culturali.</p>
             <p class="timeline-summary-copy" data-lang="tr" style="display:none;">Collegium Musicum Iuvenale uzun yıllardır yardım konserleri ve ortak girişimlerle sosyal ve kültürel amaçları destekliyor.</p>
             <p class="timeline-summary-copy" data-lang="uk" style="display:none;">Завдяки благодійним концертам і спільним ініціативам «Колегіум Музікум Ювенале» вже багато років підтримує соціальні та культурні справи.</p>
@@ -1346,16 +1393,19 @@
         <div class="review-overview-copy">
             <div class="review-overview-kicker" data-lang="de">Chronik</div>
             <div class="review-overview-kicker" data-lang="en" style="display:none;">Chronicle</div>
+            <div class="review-overview-kicker" data-lang="fr" style="display:none;">Chronique</div>
             <div class="review-overview-kicker" data-lang="it" style="display:none;">Cronaca</div>
             <div class="review-overview-kicker" data-lang="tr" style="display:none;">Kronoloji</div>
             <div class="review-overview-kicker" data-lang="uk" style="display:none;">Хроніка</div>
             <h2 class="review-overview-title" data-lang="de">Seit 1981</h2>
             <h2 class="review-overview-title" data-lang="en" style="display:none;">Since 1981</h2>
+            <h2 class="review-overview-title" data-lang="fr" style="display:none;">Depuis 1981</h2>
             <h2 class="review-overview-title" data-lang="it" style="display:none;">Dal 1981</h2>
             <h2 class="review-overview-title" data-lang="tr" style="display:none;">1981'den beri</h2>
             <h2 class="review-overview-title" data-lang="uk" style="display:none;">З 1981 року</h2>
             <p class="review-overview-intro" data-lang="de">Seit 1981 wachsen wir als Gemeinschaft durch Musik, persönliche Begegnungen und Konzerte, mit denen wir immer wieder auch andere unterstützen.</p>
             <p class="review-overview-intro" data-lang="en" style="display:none;">Since 1981, we have grown as a community through music, personal connections, and concerts that also support others.</p>
+            <p class="review-overview-intro" data-lang="fr" style="display:none;">Depuis 1981, nous grandissons comme communaute grace a la musique, aux rencontres personnelles et a des concerts qui soutiennent aussi les autres.</p>
             <p class="review-overview-intro" data-lang="it" style="display:none;">Dal 1981 cresciamo come comunità attraverso la musica, gli incontri personali e i concerti con cui sosteniamo anche altri.</p>
             <p class="review-overview-intro" data-lang="tr" style="display:none;">1981'den beri müzik, kişisel karşılaşmalar ve başkalarını destekleyen konserler sayesinde bir topluluk olarak büyüyoruz.</p>
             <p class="review-overview-intro" data-lang="uk" style="display:none;">З 1981 року ми зростаємо як спільнота через музику, особисті зустрічі та концерти, якими підтримуємо інших.</p>
@@ -1363,11 +1413,13 @@
                 <article class="review-overview-highlight">
                     <div class="review-overview-highlight-title" data-lang="de">Gemeinsames Musizieren</div>
                     <div class="review-overview-highlight-title" data-lang="en" style="display:none;">Making music together</div>
+                    <div class="review-overview-highlight-title" data-lang="fr" style="display:none;">Faire de la musique ensemble</div>
                     <div class="review-overview-highlight-title" data-lang="it" style="display:none;">Fare musica insieme</div>
                     <div class="review-overview-highlight-title" data-lang="tr" style="display:none;">Birlikte müzik yapmak</div>
                     <div class="review-overview-highlight-title" data-lang="uk" style="display:none;">Спільне музикування</div>
                     <p class="review-overview-highlight-copy" data-lang="de">Regelmäßige Proben, gemeinsames Lernen und Auftritte haben uns über die Jahre als Ensemble geprägt.</p>
                     <p class="review-overview-highlight-copy" data-lang="en" style="display:none;">Regular rehearsals, shared learning, and performances have shaped us as an ensemble over the years.</p>
+                    <p class="review-overview-highlight-copy" data-lang="fr" style="display:none;">Les repetitions regulieres, l'apprentissage partage et les concerts nous ont faconnes comme ensemble au fil des annees.</p>
                     <p class="review-overview-highlight-copy" data-lang="it" style="display:none;">Prove regolari, apprendimento condiviso ed esibizioni ci hanno plasmati negli anni come ensemble.</p>
                     <p class="review-overview-highlight-copy" data-lang="tr" style="display:none;">Düzenli provalar, birlikte öğrenme ve sahne deneyimleri bizi yıllar içinde gerçek bir topluluk hâline getirdi.</p>
                     <p class="review-overview-highlight-copy" data-lang="uk" style="display:none;">Регулярні репетиції, спільне навчання й виступи протягом років сформували нас як ансамбль.</p>
@@ -1375,11 +1427,13 @@
                 <article class="review-overview-highlight">
                     <div class="review-overview-highlight-title" data-lang="de">Internationale Begegnungen</div>
                     <div class="review-overview-highlight-title" data-lang="en" style="display:none;">International encounters</div>
+                    <div class="review-overview-highlight-title" data-lang="fr" style="display:none;">Rencontres internationales</div>
                     <div class="review-overview-highlight-title" data-lang="it" style="display:none;">Incontri internazionali</div>
                     <div class="review-overview-highlight-title" data-lang="tr" style="display:none;">Uluslararası karşılaşmalar</div>
                     <div class="review-overview-highlight-title" data-lang="uk" style="display:none;">Міжнародні зустрічі</div>
                     <p class="review-overview-highlight-copy" data-lang="de">Konzertreisen, Partnerschaften und gemeinsame Projekte haben über die Jahre Freundschaften und enge Verbindungen entstehen lassen.</p>
                     <p class="review-overview-highlight-copy" data-lang="en" style="display:none;">Concert tours, partnerships, and shared projects have developed over the years into friendships and close connections.</p>
+                    <p class="review-overview-highlight-copy" data-lang="fr" style="display:none;">Les tournees, les partenariats et les projets communs ont fait naitre au fil des ans des amities et des liens tres forts.</p>
                     <p class="review-overview-highlight-copy" data-lang="it" style="display:none;">Viaggi musicali, collaborazioni e progetti condivisi hanno fatto nascere negli anni amicizie e legami stretti.</p>
                     <p class="review-overview-highlight-copy" data-lang="tr" style="display:none;">Konser yolculukları, ortaklıklar ve ortak projeler yıllar içinde dostluklar ve kalıcı bağlar oluşturdu.</p>
                     <p class="review-overview-highlight-copy" data-lang="uk" style="display:none;">Концертні подорожі, партнерства та спільні проєкти з роками переросли у дружбу й тісні зв'язки.</p>
@@ -1387,11 +1441,13 @@
                 <article class="review-overview-highlight">
                     <div class="review-overview-highlight-title" data-lang="de">Benefizprojekte</div>
                     <div class="review-overview-highlight-title" data-lang="en" style="display:none;">Benefit projects</div>
+                    <div class="review-overview-highlight-title" data-lang="fr" style="display:none;">Projets solidaires</div>
                     <div class="review-overview-highlight-title" data-lang="it" style="display:none;">Progetti benefici</div>
                     <div class="review-overview-highlight-title" data-lang="tr" style="display:none;">Yardım projeleri</div>
                     <div class="review-overview-highlight-title" data-lang="uk" style="display:none;">Благодійні проєкти</div>
                     <p class="review-overview-highlight-copy" data-lang="de">Mit Konzerten und gemeinsamen Aktionen tragen wir seit vielen Jahren soziale und kulturelle Anliegen mit.</p>
                     <p class="review-overview-highlight-copy" data-lang="en" style="display:none;">Through concerts and shared initiatives, we have supported social and cultural causes for many years.</p>
+                    <p class="review-overview-highlight-copy" data-lang="fr" style="display:none;">Par des concerts et des actions communes, nous soutenons depuis de nombreuses annees des projets sociaux et culturels.</p>
                     <p class="review-overview-highlight-copy" data-lang="it" style="display:none;">Con concerti e iniziative condivise sosteniamo da molti anni progetti sociali e culturali.</p>
                     <p class="review-overview-highlight-copy" data-lang="tr" style="display:none;">Konserler ve ortak girişimlerle uzun yıllardır sosyal ve kültürel amaçları destekliyoruz.</p>
                     <p class="review-overview-highlight-copy" data-lang="uk" style="display:none;">Концертами та спільними ініціативами ми вже багато років підтримуємо соціальні й культурні справи.</p>
@@ -1663,18 +1719,21 @@ CMI'nin çocukları ve aileleri, yılın sonunu sıcak ve neşeli bir buluşmayl
     <div class="review-archive-intro__inner">
         <div class="review-archive-intro__eyebrow" data-lang="de">Mehr entdecken</div>
         <div class="review-archive-intro__eyebrow" data-lang="en" style="display:none;">Discover more</div>
+        <div class="review-archive-intro__eyebrow" data-lang="fr" style="display:none;">Decouvrir plus</div>
         <div class="review-archive-intro__eyebrow" data-lang="it" style="display:none;">Scopri di più</div>
         <div class="review-archive-intro__eyebrow" data-lang="tr" style="display:none;">Daha fazlası</div>
         <div class="review-archive-intro__eyebrow" data-lang="uk" style="display:none;">Відкрити більше</div>
 
         <h3 class="review-archive-intro__title" id="review-archive-title" data-lang="de">Weitere Rückblicke aus 2025 und früher</h3>
         <h3 class="review-archive-intro__title" data-lang="en" style="display:none;">More highlights from 2025 and earlier</h3>
+        <h3 class="review-archive-intro__title" data-lang="fr" style="display:none;">Autres regards sur 2025 et les annees precedentes</h3>
         <h3 class="review-archive-intro__title" data-lang="it" style="display:none;">Altri momenti dal 2025 e dagli anni precedenti</h3>
         <h3 class="review-archive-intro__title" data-lang="tr" style="display:none;">2025 ve daha öncesinden diğer öne çıkanlar</h3>
         <h3 class="review-archive-intro__title" data-lang="uk" style="display:none;">Інші огляди з 2025 року та раніше</h3>
 
         <p class="review-archive-intro__copy" data-lang="de">Die neuesten Einblicke bleiben direkt sichtbar. Ältere Konzertberichte, Benefizaktionen und Ausflüge kannst du bei Bedarf aufklappen.</p>
         <p class="review-archive-intro__copy" data-lang="en" style="display:none;">The newest highlights stay visible right away. Older concert reports, charity projects, and excursions can be expanded whenever needed.</p>
+        <p class="review-archive-intro__copy" data-lang="fr" style="display:none;">Les apercus les plus recents restent visibles tout de suite. Les anciens comptes rendus de concerts, actions solidaires et sorties peuvent etre ouverts si besoin.</p>
         <p class="review-archive-intro__copy" data-lang="it" style="display:none;">I momenti più recenti restano subito visibili. I concerti, i progetti benefici e le gite precedenti si possono aprire quando serve.</p>
         <p class="review-archive-intro__copy" data-lang="tr" style="display:none;">En yeni öne çıkanlar doğrudan görünür kalır. Daha eski konser notlarını, yardım etkinliklerini ve gezileri istersen buradan açabilirsin.</p>
         <p class="review-archive-intro__copy" data-lang="uk" style="display:none;">Найновіші враження залишаються видимими відразу. Старіші концертні звіти, благодійні акції та поїздки можна розгорнути за потреби.</p>
@@ -1683,6 +1742,7 @@ CMI'nin çocukları ve aileleri, yılın sonunu sıcak ve neşeli bir buluşmayl
             <span class="review-archive-toggle__label" data-state="collapsed">
                 <span data-lang="de">Weitere Rückblicke anzeigen</span>
                 <span data-lang="en" style="display:none;">Show more highlights</span>
+                <span data-lang="fr" style="display:none;">Afficher plus de regards</span>
                 <span data-lang="it" style="display:none;">Mostra altri momenti</span>
                 <span data-lang="tr" style="display:none;">Diğer öne çıkanları göster</span>
                 <span data-lang="uk" style="display:none;">Показати більше оглядів</span>
@@ -1690,6 +1750,7 @@ CMI'nin çocukları ve aileleri, yılın sonunu sıcak ve neşeli bir buluşmayl
             <span class="review-archive-toggle__label" data-state="expanded" hidden>
                 <span data-lang="de">Weniger Rückblicke anzeigen</span>
                 <span data-lang="en" style="display:none;">Show fewer highlights</span>
+                <span data-lang="fr" style="display:none;">Afficher moins de regards</span>
                 <span data-lang="it" style="display:none;">Mostra meno momenti</span>
                 <span data-lang="tr" style="display:none;">Daha az göster</span>
                 <span data-lang="uk" style="display:none;">Показати менше оглядів</span>
@@ -2312,27 +2373,32 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
             <div class="contact-info-lead-copy">
                 <div class="contact-info-kicker" data-lang="de">Kontakt</div>
                 <div class="contact-info-kicker" data-lang="en" style="display:none;">Contact</div>
+                <div class="contact-info-kicker" data-lang="fr" style="display:none;">Contact</div>
                 <div class="contact-info-kicker" data-lang="it" style="display:none;">Contatto</div>
                 <div class="contact-info-kicker" data-lang="tr" style="display:none;">İletişim</div>
                 <div class="contact-info-kicker" data-lang="uk" style="display:none;">Контакт</div>
         <h2 class="contact-info-title" data-lang="de">Kontakt</h2>
         <h2 class="contact-info-title" data-lang="en" style="display:none;">Contact</h2>
+        <h2 class="contact-info-title" data-lang="fr" style="display:none;">Contact</h2>
         <h2 class="contact-info-title" data-lang="it" style="display:none;">Contatto</h2>
         <h2 class="contact-info-title" data-lang="tr" style="display:none;">İletişim</h2>
         <h2 class="contact-info-title" data-lang="uk" style="display:none;">Контакт</h2>
                 <p class="contact-info-intro" data-lang="de">Hast du Fragen oder möchtest uns besuchen? Wir freuen uns auf deine Nachricht.</p>
                 <p class="contact-info-intro" data-lang="en" style="display:none;">Do you have questions or would you like to visit us? We look forward to hearing from you.</p>
+                <p class="contact-info-intro" data-lang="fr" style="display:none;">Vous avez des questions ou vous souhaitez nous rendre visite ? Nous serons heureux de recevoir votre message.</p>
                 <p class="contact-info-intro" data-lang="it" style="display:none;">Hai domande o vuoi venirci a trovare? Saremo lieti di ricevere un tuo messaggio.</p>
                 <p class="contact-info-intro" data-lang="tr" style="display:none;">Soruların mı var ya da bizi ziyaret etmek mi istiyorsun? Mesajını bekliyoruz.</p>
                 <p class="contact-info-intro" data-lang="uk" style="display:none;">Маєш запитання або хочеш завітати до нас? Ми будемо раді твоєму повідомленню.</p>
                 <div class="contact-info-actions">
                     <a class="contact-info-primary-link" href="mailto:astrid.eitschberger@cmi-ochsenfurt.de" data-lang="de">E-Mail schreiben</a>
                     <a class="contact-info-primary-link" href="mailto:astrid.eitschberger@cmi-ochsenfurt.de" data-lang="en" style="display:none;">Write an email</a>
+                    <a class="contact-info-primary-link" href="mailto:astrid.eitschberger@cmi-ochsenfurt.de" data-lang="fr" style="display:none;">Ecrire un e-mail</a>
                     <a class="contact-info-primary-link" href="mailto:astrid.eitschberger@cmi-ochsenfurt.de" data-lang="it" style="display:none;">Scrivi un'e-mail</a>
                     <a class="contact-info-primary-link" href="mailto:astrid.eitschberger@cmi-ochsenfurt.de" data-lang="tr" style="display:none;">E-posta yaz</a>
                     <a class="contact-info-primary-link" href="mailto:astrid.eitschberger@cmi-ochsenfurt.de" data-lang="uk" style="display:none;">Написати листа</a>
                     <a class="contact-info-secondary-link" href="#events" data-lang="de">Kommende Konzerte</a>
                     <a class="contact-info-secondary-link" href="#events" data-lang="en" style="display:none;">Upcoming concerts</a>
+                    <a class="contact-info-secondary-link" href="#events" data-lang="fr" style="display:none;">Prochains concerts</a>
                     <a class="contact-info-secondary-link" href="#events" data-lang="it" style="display:none;">Prossimi concerti</a>
                     <a class="contact-info-secondary-link" href="#events" data-lang="tr" style="display:none;">Yaklaşan konserler</a>
                     <a class="contact-info-secondary-link" href="#events" data-lang="uk" style="display:none;">Найближчі концерти</a>
@@ -2341,16 +2407,19 @@ Da oltre dieci anni si svolge la serie estiva "Musica al guado". Alcuni membri d
             <aside class="contact-info-lead-card">
                 <div class="contact-info-lead-card-kicker" data-lang="de">Info &amp; Anmeldung</div>
                 <div class="contact-info-lead-card-kicker" data-lang="en" style="display:none;">Info &amp; registration</div>
+                <div class="contact-info-lead-card-kicker" data-lang="fr" style="display:none;">Infos et inscription</div>
                 <div class="contact-info-lead-card-kicker" data-lang="it" style="display:none;">Info e iscrizione</div>
                 <div class="contact-info-lead-card-kicker" data-lang="tr" style="display:none;">Bilgi ve kayıt</div>
                 <div class="contact-info-lead-card-kicker" data-lang="uk" style="display:none;">Інформація та реєстрація</div>
                 <h3 class="contact-info-lead-card-title" data-lang="de">Direkter Kontakt</h3>
                 <h3 class="contact-info-lead-card-title" data-lang="en" style="display:none;">Direct contact</h3>
+                <h3 class="contact-info-lead-card-title" data-lang="fr" style="display:none;">Contact direct</h3>
                 <h3 class="contact-info-lead-card-title" data-lang="it" style="display:none;">Contatto diretto</h3>
                 <h3 class="contact-info-lead-card-title" data-lang="tr" style="display:none;">Doğrudan iletişim</h3>
                 <h3 class="contact-info-lead-card-title" data-lang="uk" style="display:none;">Прямий контакт</h3>
                 <p class="contact-info-lead-card-copy" data-lang="de">Astrid Eitschberger beantwortet Fragen zu Proben, Mitspielen und Konzerten.</p>
                 <p class="contact-info-lead-card-copy" data-lang="en" style="display:none;">Astrid Eitschberger answers questions about rehearsals, joining, and concerts.</p>
+                <p class="contact-info-lead-card-copy" data-lang="fr" style="display:none;">Astrid Eitschberger repond aux questions sur les repetitions, la participation et les concerts.</p>
                 <p class="contact-info-lead-card-copy" data-lang="it" style="display:none;">Astrid Eitschberger risponde alle domande su prove, partecipazione e concerti.</p>
                 <p class="contact-info-lead-card-copy" data-lang="tr" style="display:none;">Astrid Eitschberger provalar, katılım ve konserlerle ilgili soruları yanıtlar.</p>
                 <p class="contact-info-lead-card-copy" data-lang="uk" style="display:none;">Астрід Айчберґер відповідає на запитання про репетиції, участь та концерти.</p>

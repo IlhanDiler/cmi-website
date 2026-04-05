@@ -69,6 +69,7 @@ function initEventLightbox() {
     const lightboxLanguageLabels = {
         de: { kicker: 'Konzertplakat' },
         en: { kicker: 'Concert Poster' },
+        fr: { kicker: 'Affiche du concert' },
         it: { kicker: 'Manifesto del concerto' },
         tr: { kicker: 'Konser afişi' },
         uk: { kicker: 'Афіша концерту' }
@@ -268,6 +269,12 @@ const heroGalleryUiLabels = {
         next: 'Next image',
         pagination: 'Hero gallery pagination'
     },
+    fr: {
+        image: 'Image',
+        previous: 'Image precedente',
+        next: 'Image suivante',
+        pagination: 'Pagination de la galerie hero'
+    },
     it: {
         image: 'Immagine',
         previous: 'Immagine precedente',
@@ -358,18 +365,18 @@ let heroGalleryUiVisibilityTimeout = null;
 function getCurrentSiteLanguage() {
     try {
         const storedLanguage = localStorage.getItem('siteLang');
-        if (storedLanguage === 'de' || storedLanguage === 'en' || storedLanguage === 'it' || storedLanguage === 'tr' || storedLanguage === 'uk') {
+        if (storedLanguage === 'de' || storedLanguage === 'en' || storedLanguage === 'fr' || storedLanguage === 'it' || storedLanguage === 'tr' || storedLanguage === 'uk') {
             return storedLanguage;
         }
     } catch (e) {}
 
     const htmlLanguage = (document.documentElement.getAttribute('lang') || '').toLowerCase().split('-')[0];
-    if (htmlLanguage === 'de' || htmlLanguage === 'en' || htmlLanguage === 'it' || htmlLanguage === 'tr' || htmlLanguage === 'uk') {
+    if (htmlLanguage === 'de' || htmlLanguage === 'en' || htmlLanguage === 'fr' || htmlLanguage === 'it' || htmlLanguage === 'tr' || htmlLanguage === 'uk') {
         return htmlLanguage;
     }
 
     const browserLanguage = (navigator.language || '').toLowerCase().split('-')[0];
-    if (browserLanguage === 'de' || browserLanguage === 'en' || browserLanguage === 'it' || browserLanguage === 'tr' || browserLanguage === 'uk') {
+    if (browserLanguage === 'de' || browserLanguage === 'en' || browserLanguage === 'fr' || browserLanguage === 'it' || browserLanguage === 'tr' || browserLanguage === 'uk') {
         return browserLanguage;
     }
 
@@ -473,6 +480,55 @@ const cookieConsentTranslations = {
             introText: 'Cookies are small text files that are placed on your computer when you visit certain websites. Websites use cookies to help users navigate a website and to enable certain functions. Cookies that are required for the proper operation of the website may be set without your consent. All other cookies must be approved before they can be set in the browser. You can change your consent to the use of cookies on our website at any time in the privacy policy.',
             adsHtml: 'We also use cookies to collect data for the personalization and measurement of the effectiveness of our advertising. Further information can be found in the <a href="https://business.safety.google/privacy/" target="_blank">Google Privacy Policy</a>.',
             consentId: 'Cookie consent ID'
+        }
+    },
+    fr: {
+        dialogLabel: 'Fenetre de consentement aux cookies',
+        badgeLabel: 'Parametres des cookies',
+        closeLabel: 'Fermer',
+        header: 'Ce site web utilise des cookies.',
+        descriptionHtml: 'Nous utilisons des cookies pour personnaliser les contenus et les annonces et pour analyser notre trafic. Nous partageons egalement des informations sur votre utilisation de notre site avec nos partenaires publicitaires et analytiques, qui peuvent les combiner avec d\'autres informations que vous leur avez fournies ou qu\'ils ont collectees lors de votre utilisation de leurs services.',
+        descriptionText: 'Nous utilisons des cookies pour personnaliser les contenus et les annonces et pour analyser notre trafic. Nous partageons egalement des informations sur votre utilisation de notre site avec nos partenaires publicitaires et analytiques, qui peuvent les combiner avec d\'autres informations que vous leur avez fournies ou qu\'ils ont collectees lors de votre utilisation de leurs services.',
+        categories: {
+            strict: 'Strictement necessaires',
+            performance: 'Performance',
+            targeting: 'Ciblage',
+            functionality: 'Fonctionnalite'
+        },
+        categoryDescriptions: {
+            strict: 'Les cookies strictement necessaires permettent les fonctions essentielles du site, comme la connexion utilisateur et la gestion du compte. Le site ne peut pas fonctionner correctement sans eux.',
+            performance: 'Les cookies de performance recueillent des informations sur la facon dont les visiteurs utilisent un site web, par exemple les cookies d\'analyse. Ils ne peuvent pas etre utilises pour identifier directement un visiteur precis.',
+            targeting: 'Les cookies de ciblage servent a reconnaitre les visiteurs sur differents sites web, par exemple via des partenaires de contenu ou des reseaux publicitaires. Ils peuvent etre utilises pour etablir un profil des interets des visiteurs ou afficher des annonces pertinentes sur d\'autres sites.',
+            functionality: 'Les cookies fonctionnels sont utilises pour memoriser des informations sur les visiteurs du site, comme la langue, le fuseau horaire ou des contenus etendus.'
+        },
+        buttons: {
+            save: 'Enregistrer et fermer',
+            accept: 'Tout accepter',
+            reject: 'Tout refuser'
+        },
+        details: {
+            show: 'Afficher les details',
+            hide: 'Masquer les details',
+            openCookies: 'Afficher les cookies',
+            closeCookies: 'Masquer les cookies',
+            badge: 'Parametres des cookies'
+        },
+        tabs: {
+            declaration: 'Declaration relative aux cookies',
+            about: 'A propos des cookies'
+        },
+        table: {
+            name: 'Nom',
+            provider: 'Fournisseur',
+            domain: 'Domaine',
+            expiration: 'Expiration',
+            description: 'Description'
+        },
+        about: {
+            introHtml: 'Les cookies sont de petits fichiers texte qui sont places sur votre ordinateur lorsque vous consultez certains sites web. Les sites utilisent des cookies pour faciliter la navigation et permettre certaines fonctions. Les cookies necessaires au bon fonctionnement du site peuvent etre definis sans votre consentement. Tous les autres cookies doivent etre approuves avant d\'etre installes dans le navigateur.<br>Vous pouvez modifier a tout moment votre consentement a l\'utilisation des cookies sur notre site dans la politique de confidentialite.',
+            introText: 'Les cookies sont de petits fichiers texte qui sont places sur votre ordinateur lorsque vous consultez certains sites web. Les sites utilisent des cookies pour faciliter la navigation et permettre certaines fonctions. Les cookies necessaires au bon fonctionnement du site peuvent etre definis sans votre consentement. Tous les autres cookies doivent etre approuves avant d\'etre installes dans le navigateur. Vous pouvez modifier a tout moment votre consentement a l\'utilisation des cookies sur notre site dans la politique de confidentialite.',
+            adsHtml: 'Nous utilisons egalement des cookies pour collecter des donnees afin de personnaliser et de mesurer l\'efficacite de notre publicite. Vous trouverez plus d\'informations dans la <a href="https://business.safety.google/privacy/" target="_blank">politique de confidentialite de Google</a>.',
+            consentId: 'Identifiant du consentement aux cookies'
         }
     },
     it: {
@@ -755,10 +811,19 @@ function getHeroGalleryTitle(entry, language = getCurrentSiteLanguage(), preferC
     }
 
     if (preferCompact && entry.shortTitle) {
-        return entry.shortTitle[language] || entry.shortTitle.de || entry.title[language] || entry.title.de || '';
+        const compactFallbackOrder = getSiteLanguageFallbackOrder(language);
+        return compactFallbackOrder
+            .map(function(candidateLanguage) {
+                return entry.shortTitle[candidateLanguage] || entry.title[candidateLanguage];
+            })
+            .find(Boolean) || entry.shortTitle.de || entry.title.de || '';
     }
 
-    return entry.title[language] || entry.title.de || '';
+    return getSiteLanguageFallbackOrder(language)
+        .map(function(candidateLanguage) {
+            return entry.title[candidateLanguage];
+        })
+        .find(Boolean) || entry.title.de || '';
 }
 
 function formatHeroGalleryIndex(index) {
@@ -1314,7 +1379,7 @@ function updateYearsPassed() {
     yearsPassedEl.textContent = new Date().getFullYear() - 1981;
 }
 
-const supportedSiteLanguages = new Set(['de', 'en', 'it', 'tr', 'uk']);
+const supportedSiteLanguages = new Set(['de', 'en', 'fr', 'it', 'tr', 'uk']);
 const mbondaTimelineLinkSelector = '.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]';
 
 function isSupportedSiteLanguage(lang) {
@@ -1611,6 +1676,7 @@ function initReviewCardToggles() {
             '<span class="review-card-toggle__label" data-state="collapsed">',
             '<span data-lang="de">Mehr lesen</span>',
             '<span data-lang="en" style="display:none;">Read more</span>',
+            '<span data-lang="fr" style="display:none;">Lire la suite</span>',
             '<span data-lang="it" style="display:none;">Leggi di piu</span>',
             '<span data-lang="tr" style="display:none;">Devamını oku</span>',
             '<span data-lang="uk" style="display:none;">Читати далі</span>',
@@ -1618,6 +1684,7 @@ function initReviewCardToggles() {
             '<span class="review-card-toggle__label" data-state="expanded" hidden>',
             '<span data-lang="de">Weniger anzeigen</span>',
             '<span data-lang="en" style="display:none;">Show less</span>',
+            '<span data-lang="fr" style="display:none;">Afficher moins</span>',
             '<span data-lang="it" style="display:none;">Mostra meno</span>',
             '<span data-lang="tr" style="display:none;">Daha az göster</span>',
             '<span data-lang="uk" style="display:none;">Показати менше</span>',
