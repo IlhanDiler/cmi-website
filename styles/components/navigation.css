@@ -250,6 +250,26 @@
     gap: 10px;
 }
 
+.subpage-topbar__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.subpage-language-switch {
+    --lang-switcher-bg: rgba(255, 255, 255, 0.74);
+    --lang-switcher-border-color: rgba(18, 62, 70, 0.08);
+    --lang-button-bg: rgba(255, 255, 255, 0.64);
+    --lang-button-border-color: rgba(18, 62, 70, 0.08);
+    --lang-button-hover-bg: rgba(127, 232, 219, 0.18);
+    --lang-button-hover-border-color: rgba(18, 62, 70, 0.16);
+    --lang-button-color: #163c44;
+    --lang-button-active-bg: #163c44;
+    --lang-button-active-border-color: #163c44;
+}
+
 .subpage-topbar__link {
     --cta-min-height: 40px;
     --cta-padding: 10px 14px;
@@ -270,6 +290,10 @@
         align-items: stretch;
     }
 
+    .subpage-topbar__actions {
+        justify-content: flex-start;
+    }
+
     .subpage-topbar__links {
         justify-content: flex-start;
     }
@@ -280,7 +304,16 @@
         gap: 8px;
     }
 
+    .subpage-topbar__actions {
+        gap: 10px;
+    }
+
     .subpage-topbar__link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .subpage-language-switch {
         width: 100%;
         justify-content: center;
     }
@@ -724,7 +757,9 @@ body.mobile-menu-open {
 
 html[lang="de"] #langDe,
 html[lang="en"] #langEn,
-html[lang="it"] #langIt {
+html[lang="it"] #langIt,
+html[lang="tr"] #langTr,
+html[lang="uk"] #langUk {
     background: var(--lang-button-active-bg);
     border-color: var(--lang-button-active-border-color);
 }
