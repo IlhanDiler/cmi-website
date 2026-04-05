@@ -1637,16 +1637,19 @@ function initReviewCardToggles() {
             return;
         }
 
-        section.classList.toggle('review-card--expanded', isExpanded);
-        toggle.classList.toggle('review-card-toggle--expanded', isExpanded);
-        toggle.setAttribute('aria-expanded', String(isExpanded));
+        const nextExpanded = Boolean(isExpanded);
+
+        section.dataset.reviewCardExpanded = String(nextExpanded);
+        section.classList.toggle('review-card--expanded', nextExpanded);
+        toggle.classList.toggle('review-card-toggle--expanded', nextExpanded);
+        toggle.setAttribute('aria-expanded', String(nextExpanded));
 
         toggle.querySelectorAll('[data-state="collapsed"]').forEach(function(label) {
-            label.hidden = isExpanded;
+            label.hidden = nextExpanded;
         });
 
         toggle.querySelectorAll('[data-state="expanded"]').forEach(function(label) {
-            label.hidden = !isExpanded;
+            label.hidden = !nextExpanded;
         });
     }
 
@@ -1721,6 +1724,7 @@ function initReviewCardToggles() {
         if (!activeDescriptions.length) {
             toggleWrap.hidden = true;
             section.classList.remove('review-card--collapsible', 'review-card--expanded');
+            section.removeAttribute('data-review-card-expanded');
             setCardExpanded(section, false);
             return;
         }
@@ -1749,6 +1753,7 @@ function initReviewCardToggles() {
         if (!needsToggle) {
             toggleWrap.hidden = true;
             section.classList.remove('review-card--collapsible', 'review-card--expanded');
+            section.removeAttribute('data-review-card-expanded');
             setCardExpanded(section, false);
             return;
         }

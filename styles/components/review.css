@@ -1315,12 +1315,22 @@
     --interaction-transform: translateY(-1px);
 }
 
-.review-card--collapsible:not(.review-card--expanded) .charity-description {
+.review-card--collapsible[data-review-card-expanded="false"] .charity-description,
+.review-card--collapsible:not(.review-card--expanded):not([data-review-card-expanded="true"]) .charity-description {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 7;
     line-clamp: 7;
     overflow: hidden;
+}
+
+.review-card--collapsible[data-review-card-expanded="true"] .charity-description,
+.review-card--expanded .charity-description {
+    display: block;
+    -webkit-box-orient: unset;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
 }
 
 .review-card--collapsible:not(.review-card--expanded) .review-card-toggle-wrap {
@@ -1782,6 +1792,34 @@
 
     .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
         margin-top: var(--review-media-mobile-margin-top);
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1440px), (min-width: 901px) and (max-height: 1080px) {
+    .review-archive {
+        padding-bottom: 104px;
+    }
+
+    .review-archive-toggle[aria-expanded="true"] {
+        position: fixed;
+        left: 24px;
+        right: 24px;
+        bottom: calc(env(safe-area-inset-bottom, 0px) + 18px);
+        width: fit-content;
+        max-width: min(440px, calc(100vw - 48px));
+        min-height: 54px;
+        padding-inline: 22px;
+        margin-inline: auto;
+        transform: none;
+        z-index: 60;
+        border-color: rgba(10, 117, 109, 0.3);
+        box-shadow: 0 18px 36px rgba(18, 36, 44, 0.24);
+    }
+
+    .review-archive-toggle[aria-expanded="true"]:hover,
+    .review-archive-toggle[aria-expanded="true"]:focus-visible,
+    .review-archive-toggle[aria-expanded="true"]:active {
+        transform: none;
     }
 }
 
