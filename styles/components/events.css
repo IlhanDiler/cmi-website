@@ -553,11 +553,11 @@
     }
 
     .event-title {
-        max-width: 10.5ch;
+        max-width: 12ch;
         margin-bottom: 16px;
-        font-size: clamp(2.4rem, 3.4vw, 3.75rem);
-        line-height: 0.98;
-        letter-spacing: -0.055em;
+        font-size: clamp(2.12rem, 2.85vw, 3.02rem);
+        line-height: 1.01;
+        letter-spacing: -0.046em;
     }
 
     .event-section-copy {
