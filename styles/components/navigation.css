@@ -190,15 +190,27 @@
     position: sticky;
     top: 0;
     z-index: 30;
+    isolation: isolate;
+}
+
+.subpage-topbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
     backdrop-filter: blur(var(--subpage-topbar-blur));
     -webkit-backdrop-filter: blur(var(--subpage-topbar-blur));
     background: var(--subpage-topbar-bg);
     border-bottom: 1px solid var(--subpage-topbar-border);
+    will-change: transform;
 }
 
 .subpage-topbar__inner {
     width: min(94vw, 1240px);
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
     padding: 14px 0;
     display: flex;
     align-items: center;
@@ -505,7 +517,7 @@
     display: flex;
     justify-content: center;
     font-family: var(--font-ui-modern);
-    transition: background 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, backdrop-filter 0.28s ease, -webkit-backdrop-filter 0.28s ease, padding 0.28s ease;
+    transition: background 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
 }
 
 .navbar.navbar-scrolled {
@@ -530,9 +542,7 @@
 
 @media (min-width: 1025px) {
     .navbar.navbar-scrolled {
-        --navbar-padding: 10px clamp(14px, 2.1vw, 24px);
         --nav-brand-logo-size: clamp(38px, 2.3vw, 46px);
-        --nav-link-padding: 0.76em 0.94em;
     }
 
     .nav-brand {
