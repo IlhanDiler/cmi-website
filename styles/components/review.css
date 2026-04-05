@@ -1,7 +1,6 @@
 .review-overview-section,
 .review-archive-intro,
 .review-archive,
-.review-featured,
 .review-archive .charity-projects-section[id^="review-"] {
     background: var(--section-tone-b);
 }
@@ -11,8 +10,8 @@
     --review-overview-section-padding: 32px 0 24px;
     --review-overview-shell-width: min(1120px, calc(100% - 40px));
     --review-overview-shell-padding: 0 20px;
-    --review-overview-shell-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr);
-    --review-overview-shell-gap: 28px;
+    --review-overview-shell-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+    --review-overview-shell-gap: clamp(22px, 3vw, 36px);
     --review-overview-copy-padding: 26px clamp(22px, 3vw, 30px);
     --review-overview-copy-radius: 28px;
     --review-overview-highlights-gap: 16px;
@@ -49,6 +48,10 @@
     align-items: center;
     justify-content: center;
     align-self: stretch;
+    width: 100%;
+    max-width: 410px;
+    justify-self: center;
+    overflow: hidden;
 }
 
 .review-overview-kicker,
@@ -67,10 +70,10 @@
     margin: 10px 0 12px;
     color: #163840;
     font-family: var(--font-ui-modern);
-    font-size: clamp(1.88rem, 3vw, 2.42rem);
+    font-size: clamp(1.72rem, 2.55vw, 2.18rem);
     font-weight: 580;
-    line-height: 1.06;
-    letter-spacing: -0.03em;
+    line-height: 1.02;
+    letter-spacing: -0.038em;
     text-wrap: balance;
 }
 
@@ -93,17 +96,24 @@
 }
 
 .review-overview-highlight {
-    padding: 18px 16px 16px;
+    position: relative;
+    padding: 18px 16px 16px 20px;
     border-radius: 18px;
     background: rgba(255, 255, 255, 0.98);
     border: 1px solid rgba(18, 62, 70, 0.12);
     box-shadow: none;
+    overflow: hidden;
 }
 
 .review-overview-highlight::before {
-    width: 42px;
-    height: 3px;
-    margin-bottom: 14px;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 4px;
+    border-radius: 18px 0 0 18px;
+    background: linear-gradient(180deg, var(--color-secondary), var(--color-primary));
 }
 
 .review-overview-highlight-title {
@@ -126,14 +136,15 @@
 }
 
 .review-overview-image {
-    width: min(100%, 456px);
-    max-width: 100%;
+    width: 100%;
+    max-width: none;
     display: block;
-    height: auto;
+    height: 100%;
+    aspect-ratio: 0.78 / 1;
     max-height: none;
-    object-fit: contain;
-    object-position: center top;
-    border-radius: 24px;
+    object-fit: cover;
+    object-position: center 18%;
+    border-radius: 22px;
     border: 1px solid rgba(18, 62, 70, 0.12);
     box-shadow: none;
 }
@@ -871,8 +882,8 @@
         --review-overview-section-padding: 78px 0 26px;
         --review-overview-shell-width: min(1120px, calc(100% - (var(--desktop-content-side-gap) * 2)));
         --review-overview-shell-padding: 0;
-        --review-overview-shell-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
-        --review-overview-shell-gap: 30px;
+        --review-overview-shell-columns: minmax(0, 1.05fr) minmax(320px, 0.82fr);
+        --review-overview-shell-gap: clamp(34px, 4vw, 56px);
         --review-overview-copy-padding: 0;
         --review-overview-highlights-gap: 12px;
         --review-overview-highlights-margin-top: 26px;
@@ -893,15 +904,15 @@
     }
 
     .review-overview-title {
-        max-width: 7ch;
+        max-width: 8ch;
         margin: 12px 0 16px;
-        font-size: clamp(2.8rem, 4.2vw, 4.3rem);
-        line-height: 0.95;
-        letter-spacing: -0.065em;
+        font-size: clamp(2.26rem, 3.4vw, 3.28rem);
+        line-height: 0.98;
+        letter-spacing: -0.055em;
     }
 
     .review-overview-intro {
-        max-width: 34ch;
+        max-width: 36ch;
         color: #27474f;
         font-size: 1.08rem;
         line-height: 1.72;
@@ -913,16 +924,15 @@
     }
 
     .review-overview-highlight {
-        padding: 20px 20px 18px;
+        padding: 20px 20px 18px 24px;
         border-radius: 22px;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(244, 248, 246, 0.96) 100%);
         border-color: rgba(18, 62, 70, 0.11);
     }
 
     .review-overview-highlight::before {
-        width: 52px;
-        height: 2px;
-        margin-bottom: 14px;
+        width: 4px;
+        border-radius: 22px 0 0 22px;
     }
 
     .review-overview-highlight-title {
@@ -936,17 +946,23 @@
     }
 
     .review-overview-media {
-        padding: 16px;
+        width: 100%;
+        max-width: 402px;
+        padding: 8px;
         border: 1px solid rgba(18, 62, 70, 0.1);
-        border-radius: 32px;
+        border-radius: 26px;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(242, 247, 245, 0.96) 100%);
+        justify-self: end;
+        align-self: start;
     }
 
     .review-overview-image {
         width: 100%;
         max-width: none;
+        height: 100%;
+        max-height: none;
         border: 0;
-        border-radius: 26px;
+        border-radius: 20px;
     }
 
     .review-archive-intro {
@@ -1382,7 +1398,10 @@
     }
 
     .review-overview-image {
-        width: min(100%, 520px);
+        width: 100%;
+        height: auto;
+        aspect-ratio: 0.82 / 1;
+        max-height: none;
     }
 
     .review-overview-highlight,
@@ -1410,11 +1429,23 @@
         gap: 20px;
     }
 
+    .review-overview-copy .review-overview-title {
+        max-width: 9ch;
+        font-size: clamp(1.68rem, 4.1vw, 2rem) !important;
+        line-height: 1.02 !important;
+        letter-spacing: -0.04em !important;
+    }
+
     .review-overview-copy,
     .review-overview-media,
     .review-archive-intro__inner {
         padding: 22px 20px;
         border-radius: 24px;
+    }
+
+    .review-overview-media {
+        max-width: 460px;
+        margin: 0 auto;
     }
 
     .review-featured .charity-projects-container,
@@ -1492,7 +1523,7 @@
     }
 
     .review-overview-highlight {
-        padding: 16px 14px 14px;
+        padding: 16px 14px 14px 18px;
         border-radius: 18px;
     }
 
@@ -1660,7 +1691,7 @@
     }
 
     .review-overview-media {
-        max-width: 500px;
+        max-width: 440px;
         width: 100%;
         margin: 0 auto;
         align-self: auto;
@@ -1855,6 +1886,7 @@
     .review-overview-image {
         width: 100%;
         height: auto;
+        aspect-ratio: 0.86 / 1;
         max-height: none;
         border-radius: 22px;
     }

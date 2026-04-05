@@ -186,7 +186,7 @@
     --subpage-topbar-border: rgba(18, 62, 70, 0.08);
     --subpage-topbar-brand: #10343c;
     --subpage-topbar-muted: #58716e;
-    --subpage-topbar-gap: 18px;
+    --subpage-topbar-gap: clamp(16px, 2vw, 26px);
     position: sticky;
     top: 0;
     z-index: 30;
@@ -197,7 +197,7 @@
 }
 
 .subpage-topbar__inner {
-    width: var(--subpage-shell-width, min(92vw, 1120px));
+    width: min(94vw, 1240px);
     margin: 0 auto;
     padding: 14px 0;
     display: flex;
@@ -210,6 +210,8 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
+    flex: 0 1 auto;
+    min-width: 0;
     color: var(--subpage-topbar-brand);
     text-decoration: none;
 }
@@ -246,8 +248,15 @@
 .subpage-topbar__links {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: flex-end;
-    gap: 10px;
+    gap: 6px;
+    flex: 0 1 auto;
+    max-width: 100%;
+    padding: 4px;
+    border: 1px solid rgba(18, 62, 70, 0.08);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.54);
 }
 
 .subpage-topbar__actions {
@@ -255,6 +264,9 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-end;
+    flex: 0 1 auto;
+    max-width: 100%;
+    margin-left: auto;
     gap: 12px;
 }
 
@@ -270,11 +282,33 @@
     --lang-button-active-border-color: #163c44;
 }
 
+.subpage-body--privacy #langSwitcher,
+.subpage-body--imprint #langSwitcher {
+    --lang-switcher-gap: 8px;
+    --lang-switcher-padding: 4px;
+    --lang-switcher-bg: rgba(9, 21, 28, 0.9);
+    --lang-switcher-border-color: rgba(235, 246, 243, 0.16);
+    --lang-button-width: 40px;
+    --lang-button-height: 34px;
+    --lang-button-svg-width: 21px;
+    --lang-button-svg-height: 14px;
+    --lang-button-border-color: rgba(255, 255, 255, 0.1);
+    --lang-button-bg: rgba(255, 255, 255, 0.06);
+    --lang-button-color: #ffffff;
+    --lang-button-letter-spacing: 0.04em;
+    --lang-button-transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    --lang-button-hover-bg: rgba(255, 255, 255, 0.12);
+    --lang-button-hover-border-color: rgba(255, 255, 255, 0.2);
+    --lang-button-active-bg: rgba(127, 232, 219, 0.26);
+    --lang-button-active-border-color: rgba(127, 232, 219, 0.42);
+    box-shadow: none;
+}
+
 .subpage-topbar__link {
     --cta-min-height: 40px;
-    --cta-padding: 10px 14px;
-    --cta-font-size: 0.92rem;
-    --cta-bg: rgba(255, 255, 255, 0.74);
+    --cta-padding: 9px 13px;
+    --cta-font-size: 0.9rem;
+    --cta-bg: rgba(255, 255, 255, 0.72);
     --cta-bg-hover: rgba(127, 232, 219, 0.18);
     --cta-color: #163c44;
     --cta-color-hover: #163c44;
@@ -282,6 +316,34 @@
     --cta-border-color-hover: rgba(18, 62, 70, 0.16);
     --cta-shadow: 0 10px 24px rgba(18, 38, 45, 0.06);
     --cta-shadow-hover: 0 16px 30px rgba(18, 38, 45, 0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--cta-min-height);
+    padding: var(--cta-padding);
+    border: 1px solid var(--cta-border-color);
+    border-radius: 999px;
+    background: var(--cta-bg);
+    color: var(--cta-color);
+    font-family: var(--font-ui-modern);
+    font-size: var(--cta-font-size);
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: var(--cta-shadow);
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.subpage-topbar__link[aria-current="page"] {
+    --cta-bg: #163c44;
+    --cta-bg-hover: #163c44;
+    --cta-color: #ffffff;
+    --cta-color-hover: #ffffff;
+    --cta-border-color: #163c44;
+    --cta-border-color-hover: #163c44;
+    --cta-shadow: none;
+    --cta-shadow-hover: none;
 }
 
 @media (max-width: 900px) {
@@ -292,15 +354,19 @@
 
     .subpage-topbar__actions {
         justify-content: flex-start;
+        flex-basis: auto;
     }
 
     .subpage-topbar__links {
         justify-content: flex-start;
+        width: 100%;
     }
 }
 
 @media (max-width: 600px) {
     .subpage-topbar__links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
     }
 
@@ -309,7 +375,7 @@
     }
 
     .subpage-topbar__link {
-        width: 100%;
+        width: auto;
         justify-content: center;
     }
 

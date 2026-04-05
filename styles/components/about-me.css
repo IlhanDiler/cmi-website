@@ -92,18 +92,26 @@
 }
 
 .about-me-modern-title {
-    --about-me-title-font-size: clamp(2.7rem, 3.8vw, 4rem);
+    --about-me-title-font-size: clamp(2.22rem, 3.1vw, 3.18rem);
     --about-me-title-line-height: var(--premium-title-line-height);
     --about-me-title-color: var(--color-primary);
     margin: 0 0 var(--premium-title-margin-bottom);
-    max-width: 10ch;
+    max-width: 11ch;
     color: var(--about-me-title-color);
     font-family: var(--font-ui-modern);
     font-size: var(--about-me-title-font-size);
     font-weight: 560;
-    line-height: 0.96;
-    letter-spacing: -0.06em;
+    line-height: 0.99;
+    letter-spacing: -0.05em;
     text-wrap: balance;
+}
+
+@media (min-width: 701px) and (max-width: 1024px) {
+    .about-me-section-modern .about-me-modern-title {
+        font-size: clamp(1.86rem, 4.8vw, 2.22rem) !important;
+        line-height: 1.02 !important;
+        letter-spacing: -0.04em !important;
+    }
 }
 
 .about-me-modern-subtitle {
