@@ -89,10 +89,10 @@
     max-width: 14ch;
     color: #16333a;
     font-family: var(--font-ui-modern);
-    font-size: clamp(1.78rem, 2.25vw, 2.2rem);
+    font-size: clamp(1.58rem, 1.95vw, 1.94rem);
     font-weight: 560;
-    line-height: 1.08;
-    letter-spacing: -0.024em;
+    line-height: 1.06;
+    letter-spacing: -0.022em;
     text-wrap: balance;
 }
 

@@ -86,7 +86,7 @@
     margin: 0 0 14px;
     color: var(--color-primary);
     font-family: var(--font-ui-modern);
-    font-size: clamp(1.88rem, 2.8vw, 2.48rem);
+    font-size: clamp(1.62rem, 2.3vw, 2.02rem);
     font-weight: 580;
     line-height: 1.02;
     letter-spacing: -0.04em;
@@ -113,22 +113,23 @@
 }
 
 .contact-info-intro {
-    max-width: 35ch;
+    max-width: 33ch;
     margin: 0 0 22px;
 }
 
 .contact-info-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
+    align-items: flex-start;
 }
 
 .contact-info-primary-link,
 .contact-info-secondary-link {
-    --cta-min-height: var(--button-pill-min-height);
-    --cta-padding: var(--button-pill-padding);
+    --cta-min-height: 42px;
+    --cta-padding: 10px 16px;
     --cta-radius: var(--button-pill-radius);
-    --cta-font-size: var(--button-pill-font-size);
+    --cta-font-size: 0.94rem;
     --cta-font-weight: var(--button-pill-font-weight);
     --cta-letter-spacing: var(--button-pill-letter-spacing);
     --cta-bg: rgba(255, 255, 255, 0.96);
@@ -140,7 +141,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     min-height: var(--cta-min-height);
     padding: var(--cta-padding);
     border: 1px solid var(--cta-border-color);
@@ -343,9 +344,9 @@
 
     .contact-info-title {
         margin: 12px 0 16px;
-        font-size: clamp(2.8rem, 4vw, 4.1rem);
-        line-height: 0.95;
-        letter-spacing: -0.065em;
+        font-size: clamp(2.12rem, 3vw, 2.96rem);
+        line-height: 0.98;
+        letter-spacing: -0.052em;
     }
 
     .contact-info-intro {
@@ -356,18 +357,19 @@
     }
 
     .contact-info-actions {
-        gap: 14px;
-        margin-top: 28px;
+        gap: 10px;
+        margin-top: 22px;
     }
 
     .contact-info-primary-link,
     .contact-info-secondary-link {
-        min-height: 46px;
-        padding-inline: 18px;
+        min-height: 42px;
+        padding-inline: 16px;
+        font-size: 0.92rem;
     }
 
     .contact-info-lead-copy {
-        padding: 42px 40px 38px;
+        padding: 34px 34px 32px;
         border-radius: 32px;
     }
 
@@ -427,7 +429,7 @@
     }
 
     .contact-info-title {
-        font-size: clamp(1.62rem, 6.4vw, 1.92rem);
+        font-size: clamp(1.5rem, 5.8vw, 1.78rem);
         line-height: 1.08;
         letter-spacing: -0.028em;
     }
