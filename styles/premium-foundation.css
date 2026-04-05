@@ -1,8 +1,14 @@
 :root {
+    --premium-label-desktop-size: 0.72rem;
+    --premium-label-desktop-line-height: 1.3;
+    --premium-label-desktop-letter-spacing: 0.16em;
     --premium-label-size: 0.78rem;
     --premium-label-line-height: 1.3;
     --premium-label-letter-spacing: 0.09em;
     --premium-label-weight: 620;
+    --premium-label-mobile-size: 0.84rem;
+    --premium-label-mobile-line-height: 1.34;
+    --premium-label-mobile-letter-spacing: 0.12em;
     --premium-label-tablet-size: 0.84rem;
     --premium-label-tablet-line-height: 1.34;
     --premium-label-tablet-letter-spacing: 0.12em;
