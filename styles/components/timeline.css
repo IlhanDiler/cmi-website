@@ -41,8 +41,8 @@
     --timeline-eyebrow-letter-spacing: 0.18em;
     --timeline-title-font-size: clamp(2.18rem, 4vw, 3.2rem);
     --timeline-title-margin: 0 0 var(--premium-title-margin-bottom);
-    --timeline-intro-font-size: clamp(1.02rem, 1vw + 0.74rem, 1.12rem);
-    --timeline-intro-line-height: 1.68;
+    --timeline-intro-font-size: var(--premium-lead-size);
+    --timeline-intro-line-height: var(--premium-lead-line-height);
     --timeline-list-gap: 16px;
     --timeline-bar-left: 74px;
     --timeline-bar-width: 2px;
@@ -101,8 +101,8 @@
     --timeline-item-title-font-size: clamp(1.18rem, 1.38vw, 1.44rem);
     --timeline-item-title-max-width: 34ch;
     --timeline-item-title-margin: 2px 0 0;
-    --timeline-item-text-font-size: 1rem;
-    --timeline-item-text-line-height: 1.68;
+    --timeline-item-text-font-size: var(--premium-body-size);
+    --timeline-item-text-line-height: var(--premium-body-line-height);
     --timeline-item-text-max-width: 68ch;
     --timeline-content-gap: 8px;
     --timeline-summary-card-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(244, 248, 246, 0.96) 100%);
@@ -506,8 +506,8 @@
         --timeline-eyebrow-font-size: 0.8rem;
         --timeline-eyebrow-letter-spacing: 0.14em;
         --timeline-title-font-size: clamp(1.98rem, 6.4vw, 2.44rem);
-        --timeline-intro-font-size: 1.04rem;
-        --timeline-intro-line-height: 1.66;
+        --timeline-intro-font-size: var(--premium-lead-tablet-size);
+        --timeline-intro-line-height: var(--premium-lead-tablet-line-height);
         --timeline-bar-left: 44px;
         --timeline-item-gap: 18px;
         --timeline-item-padding: 20px 20px 18px;
@@ -522,8 +522,8 @@
         --timeline-year-padding: 0 16px;
         --timeline-year-font-size: 0.9rem;
         --timeline-item-title-font-size: clamp(1.16rem, 3vw, 1.32rem);
-        --timeline-item-text-font-size: 0.99rem;
-        --timeline-item-text-line-height: 1.64;
+        --timeline-item-text-font-size: var(--premium-body-tablet-size);
+        --timeline-item-text-line-height: var(--premium-body-tablet-line-height);
     }
 }
 
@@ -542,8 +542,8 @@
         --timeline-eyebrow-font-size: 0.78rem;
         --timeline-eyebrow-letter-spacing: 0.13em;
         --timeline-title-font-size: clamp(1.94rem, 8vw, 2.28rem);
-        --timeline-intro-font-size: 1.03rem;
-        --timeline-intro-line-height: 1.64;
+        --timeline-intro-font-size: var(--premium-lead-mobile-size);
+        --timeline-intro-line-height: var(--premium-lead-mobile-line-height);
         --timeline-list-gap: 18px;
         --timeline-item-gap: 12px;
         --timeline-item-padding: 20px 18px;
@@ -573,8 +573,8 @@
         --timeline-highlight-link-bg-hover: transparent;
         --timeline-item-title-font-size: clamp(1.18rem, 5.4vw, 1.34rem);
         --timeline-item-title-max-width: 100%;
-        --timeline-item-text-font-size: 1rem;
-        --timeline-item-text-line-height: 1.62;
+        --timeline-item-text-font-size: var(--premium-body-mobile-size);
+        --timeline-item-text-line-height: var(--premium-body-mobile-line-height);
         --timeline-content-gap: 10px;
     }
 

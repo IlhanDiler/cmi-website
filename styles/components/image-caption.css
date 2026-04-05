@@ -440,8 +440,8 @@
     }
 
     .image-caption-copy {
-        font-size: 0.98rem;
-        line-height: 1.64;
+        font-size: var(--premium-lead-mobile-size);
+        line-height: var(--premium-lead-mobile-line-height);
         max-width: none;
     }
 

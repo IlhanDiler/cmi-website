@@ -163,8 +163,8 @@
 }
 
 .about-me-bio-text {
-    --about-me-bio-font-size: 1.02rem;
-    --about-me-bio-line-height: 1.78;
+    --about-me-bio-font-size: var(--premium-body-size);
+    --about-me-bio-line-height: var(--premium-body-line-height);
     --about-me-bio-color: #26474e;
     --about-me-bio-margin-bottom: 0.8em;
     font-family: var(--font-ui-modern);
@@ -399,8 +399,8 @@
     }
 
     .about-me-bio-text {
-        font-size: 0.98rem;
-        line-height: 1.64;
+        font-size: var(--premium-body-mobile-size);
+        line-height: var(--premium-body-mobile-line-height);
         text-align: left;
         text-justify: auto;
         hyphens: auto;

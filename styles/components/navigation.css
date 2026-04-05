@@ -163,7 +163,7 @@
     }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
     html {
         --mobile-navbar-offset: 56px;
     }
@@ -528,7 +528,7 @@
     box-shadow: none;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1025px) {
     .navbar.navbar-scrolled {
         --navbar-padding: 10px clamp(14px, 2.1vw, 24px);
         --nav-brand-logo-size: clamp(38px, 2.3vw, 46px);
@@ -646,7 +646,7 @@
 }
 
 .mobile-menu-btn {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     width: var(--mobile-menu-btn-size);
@@ -843,7 +843,7 @@ html[lang="uk"] #langUk {
     box-shadow: none;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
     .nav-menu {
         display: none;
     }
