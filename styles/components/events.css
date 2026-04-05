@@ -301,6 +301,11 @@
     max-width: 62ch;
 }
 
+.event-note {
+    text-align: left !important;
+    text-justify: auto !important;
+}
+
 .event-section .event-description .external-link {
     display: inline;
     padding: 0;
@@ -315,9 +320,28 @@
     text-underline-offset: var(--inline-link-offset, 0.12em);
 }
 
+.event-section .event-note .external-link {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: var(--inline-link-color, #159b8c);
+    font-weight: var(--inline-link-weight, 600);
+    text-decoration: underline;
+    text-decoration-color: var(--inline-link-decoration-color, rgba(21, 155, 140, 0.65));
+    text-decoration-thickness: var(--inline-link-thickness, 0.08em);
+    text-underline-offset: var(--inline-link-offset, 0.12em);
+}
+
 .event-section .event-description .external-link:hover,
 .event-section .event-description .external-link:focus,
-.event-section .event-description .external-link:focus-visible {
+.event-section .event-description .external-link:focus-visible,
+.event-section .event-note .external-link:hover,
+.event-section .event-note .external-link:focus,
+.event-section .event-note .external-link:focus-visible {
     color: var(--inline-link-hover-color, #123e46);
     text-decoration-color: currentColor;
     outline: none;

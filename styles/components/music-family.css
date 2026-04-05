@@ -79,10 +79,10 @@
     margin: 0;
     color: var(--music-family-copy-soft);
     font-family: var(--font-ui-modern) !important;
-    font-size: 1.04rem !important;
+    font-size: var(--premium-lead-size) !important;
     font-weight: 500 !important;
-    line-height: 1.68 !important;
-    letter-spacing: -0.006em !important;
+    line-height: var(--premium-lead-line-height) !important;
+    letter-spacing: var(--premium-lead-letter-spacing) !important;
     text-align: left !important;
     text-wrap: pretty;
 }
@@ -127,10 +127,10 @@
     margin: 0;
     color: var(--music-family-copy-soft);
     font-family: var(--font-ui-modern) !important;
-    font-size: 0.94rem !important;
+    font-size: var(--premium-body-size) !important;
     font-weight: 500 !important;
-    line-height: 1.62 !important;
-    letter-spacing: 0 !important;
+    line-height: var(--premium-body-line-height) !important;
+    letter-spacing: var(--premium-body-letter-spacing) !important;
 }
 
 .music-family-section .music-family-benefits-row {
@@ -161,10 +161,10 @@
     gap: 10px;
     color: var(--music-family-copy);
     font-family: var(--font-ui-modern);
-    font-size: 1rem;
+    font-size: var(--premium-body-size);
     font-weight: 500;
-    line-height: 1.56;
-    letter-spacing: -0.004em;
+    line-height: var(--premium-body-line-height);
+    letter-spacing: var(--premium-body-letter-spacing);
 }
 
 .music-family-section .music-family-benefit-check {
@@ -439,8 +439,8 @@
     }
 
     .music-family-section .music-family-desc {
-        font-size: 1rem !important;
-        line-height: 1.52 !important;
+        font-size: var(--premium-lead-mobile-size) !important;
+        line-height: var(--premium-lead-mobile-line-height) !important;
     }
 
     .music-family-section .music-family-highlights {
@@ -461,8 +461,8 @@
     }
 
     .music-family-section .music-family-highlight-copy {
-        font-size: 1rem !important;
-        line-height: 1.58 !important;
+        font-size: var(--premium-body-mobile-size) !important;
+        line-height: var(--premium-body-mobile-line-height) !important;
     }
 
     .music-family-section .music-family-benefits-row {
@@ -478,8 +478,8 @@
     }
 
     .music-family-section .music-family-benefits li {
-        font-size: 0.98rem;
-        line-height: 1.5;
+        font-size: var(--premium-body-mobile-size);
+        line-height: var(--premium-body-mobile-line-height);
     }
 
     .music-family-section .music-family-logo-mobile {
