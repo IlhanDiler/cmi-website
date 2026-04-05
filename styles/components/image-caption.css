@@ -93,6 +93,7 @@
     font-weight: 560;
     line-height: 1.06;
     letter-spacing: -0.022em;
+    text-align: center;
     text-wrap: balance;
 }
 
@@ -116,6 +117,8 @@
     margin: 0;
     max-width: 56ch;
     text-align: center;
+    text-justify: auto;
+    margin-inline: auto;
     color: #24434a;
     font-family: var(--font-ui-modern);
     font-size: var(--premium-lead-size);
@@ -123,6 +126,11 @@
     line-height: var(--premium-lead-line-height);
     letter-spacing: var(--premium-lead-letter-spacing);
     text-wrap: pretty;
+}
+
+html body .image-caption-copy {
+    text-align: center !important;
+    text-justify: auto !important;
 }
 
 .image-caption-copy--lead {

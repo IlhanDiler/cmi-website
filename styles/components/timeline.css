@@ -37,7 +37,7 @@
     --timeline-eyebrow-color: rgba(18, 62, 70, 0.62);
     --timeline-eyebrow-padding: 0;
     --timeline-eyebrow-margin-bottom: 14px;
-    --timeline-eyebrow-font-size: 0.76rem;
+    --timeline-eyebrow-font-size: 1rem;
     --timeline-eyebrow-letter-spacing: 0.18em;
     --timeline-title-font-size: clamp(2.18rem, 4vw, 3.2rem);
     --timeline-title-margin: 0 0 var(--premium-title-margin-bottom);
@@ -220,7 +220,7 @@
     line-height: var(--premium-title-line-height);
     letter-spacing: var(--premium-title-letter-spacing);
     margin: var(--timeline-title-margin);
-    text-align: left;
+    text-align: center;
     text-shadow: none;
     text-wrap: balance;
 }
@@ -232,12 +232,13 @@
 
 .timeline-intro {
     max-width: var(--timeline-intro-max-width);
-    margin: 0;
+    margin: 0 auto;
     color: var(--timeline-intro-color);
     font-size: var(--timeline-intro-font-size);
     line-height: var(--timeline-intro-line-height);
     font-weight: 520;
     letter-spacing: -0.008em;
+    text-align: center;
 }
 
 .timeline-summary {
@@ -503,7 +504,7 @@
         --timeline-header-accent-width: 72px;
         --timeline-header-accent-height: 2px;
         --timeline-header-accent-margin-top: 18px;
-        --timeline-eyebrow-font-size: 0.8rem;
+        --timeline-eyebrow-font-size: 0.94rem;
         --timeline-eyebrow-letter-spacing: 0.14em;
         --timeline-title-font-size: clamp(1.98rem, 6.4vw, 2.44rem);
         --timeline-intro-font-size: var(--premium-lead-tablet-size);
@@ -539,7 +540,7 @@
         --timeline-header-margin-bottom: 28px;
         --timeline-header-accent-width: 64px;
         --timeline-header-accent-margin-top: 16px;
-        --timeline-eyebrow-font-size: 0.78rem;
+        --timeline-eyebrow-font-size: 0.9rem;
         --timeline-eyebrow-letter-spacing: 0.13em;
         --timeline-title-font-size: clamp(1.94rem, 8vw, 2.28rem);
         --timeline-intro-font-size: var(--premium-lead-mobile-size);
