@@ -1728,7 +1728,7 @@ function initReviewCardToggles() {
             '<span data-lang="en" style="display:none;">Read more</span>',
             '<span data-lang="fr" style="display:none;">Lire la suite</span>',
             '<span data-lang="ln" style="display:none;">Tanga lisusu</span>',
-            '<span data-lang="it" style="display:none;">Leggi di piu</span>',
+            '<span data-lang="it" style="display:none;">Leggi di più</span>',
             '<span data-lang="tr" style="display:none;">Devamını oku</span>',
             '<span data-lang="uk" style="display:none;">Читати далі</span>',
             '</span>',
