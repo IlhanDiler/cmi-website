@@ -304,18 +304,18 @@ const heroGalleryUiLabels = {
 
 const heroGallery = [
 
-    { src: 'bilder/Weihnachtskonzert Spitalkirche.png', title: { de: '„Weihnachtskonzert zum Mitsingen 2025“ in der Spitalkirche Ochsenfurt', en: '"Christmas Sing-Along Concert 2025" at Spitalkirche Ochsenfurt', it: '"Concerto di Natale da cantare insieme 2025" nella Spitalkirche di Ochsenfurt', tr: 'Ochsenfurt Spitalkirche\'de "Noel Birlikte Sarki Konseri 2025"' }, shortTitle: { de: 'Weihnachtskonzert 2025 in Ochsenfurt', en: 'Christmas Sing-Along 2025 in Ochsenfurt', it: 'Concerto di Natale 2025 a Ochsenfurt', tr: 'Ochsenfurt\'ta Noel Birlikte Sarki 2025' } },
-    { src: 'bilder/Gruppenbild2.jpg', title: { de: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Hotel Meintz Ochsenfurt', en: 'Benefit concert for "Doctors Without Borders" 2025 at Hotel Meintz Ochsenfurt', it: 'Concerto benefico per "Medici Senza Frontiere" 2025 all\'Hotel Meintz di Ochsenfurt', tr: 'Ochsenfurt Hotel Meintz\'te "Sinir Tanimayan Doktorlar" yararina 2025 yardim konseri' }, shortTitle: { de: 'Benefizkonzert 2025 im Hotel Meintz', en: 'Benefit concert 2025 at Hotel Meintz', it: 'Concerto benefico 2025 all\'Hotel Meintz', tr: 'Hotel Meintz\'te yardim konseri 2025' } },
+    { src: 'bilder/Weihnachtskonzert Spitalkirche.png', title: { de: '„Weihnachtskonzert zum Mitsingen 2025“ in der Spitalkirche Ochsenfurt', en: '"Christmas Sing-Along Concert 2025" at Spitalkirche Ochsenfurt', it: '"Concerto di Natale da cantare insieme 2025" nella Spitalkirche di Ochsenfurt', tr: 'Ochsenfurt Spitalkirche\'de "Birlikte Söylenen Noel Konseri 2025"' }, shortTitle: { de: 'Weihnachtskonzert 2025 in Ochsenfurt', en: 'Christmas Sing-Along 2025 in Ochsenfurt', it: 'Concerto di Natale 2025 a Ochsenfurt', tr: 'Ochsenfurt\'ta Noel Konseri 2025' } },
+    { src: 'bilder/Gruppenbild2.jpg', title: { de: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Hotel Meintz Ochsenfurt', en: 'Benefit concert for "Doctors Without Borders" 2025 at Hotel Meintz Ochsenfurt', it: 'Concerto benefico per "Medici Senza Frontiere" 2025 all\'Hotel Meintz di Ochsenfurt', tr: 'Ochsenfurt\'taki Hotel Meintz\'te "Sınır Tanımayan Doktorlar" yararına 2025 yardım konseri' }, shortTitle: { de: 'Benefizkonzert 2025 im Hotel Meintz', en: 'Benefit concert 2025 at Hotel Meintz', it: 'Concerto benefico 2025 all\'Hotel Meintz', tr: 'Hotel Meintz\'te yardım konseri 2025' } },
      { src: 'bilder/gruppe_2007.jpeg', title: { de: 'CMI 2009', en: 'CMI 2009', it: 'CMI 2009', tr: 'CMI 2009' } },
-    { src: 'bilder/peterbild.jpg', title: { de: 'Gedenkfeier - „80 Jahre Kriegsende, 80 Jahre Frieden“ in Ochsenfurt 2025', en: 'Commemorative event - "80 Years Since the End of War, 80 Years of Peace" in Ochsenfurt 2025', it: 'Cerimonia commemorativa - "80 anni dalla fine della guerra, 80 anni di pace" a Ochsenfurt 2025', tr: 'Anma etkinligi - "Savasin Sonunun 80. Yili, Barisin 80. Yili" Ochsenfurt 2025', uk: 'Пам’ятний захід «80 років від завершення війни, 80 років миру» в Оксенфурті 2025' }, shortTitle: { de: 'Gedenkfeier 80 Jahre Frieden 2025', en: '80 Years of Peace commemoration 2025', it: 'Commemorazione 80 anni di pace 2025', tr: '80 yil baris anmasi 2025', uk: 'Пам’ятний захід 80 років миру 2025' } },
+    { src: 'bilder/peterbild.jpg', title: { de: 'Gedenkfeier - „80 Jahre Kriegsende, 80 Jahre Frieden“ in Ochsenfurt 2025', en: 'Commemorative event - "80 Years Since the End of War, 80 Years of Peace" in Ochsenfurt 2025', it: 'Cerimonia commemorativa - "80 anni dalla fine della guerra, 80 anni di pace" a Ochsenfurt 2025', tr: 'Anma töreni - "Savaşın Sona Erişinin 80. Yılı, Barışın 80. Yılı" Ochsenfurt 2025', uk: 'Пам’ятний захід «80 років від завершення війни, 80 років миру» в Оксенфурті 2025' }, shortTitle: { de: 'Gedenkfeier 80 Jahre Frieden 2025', en: '80 Years of Peace commemoration 2025', it: 'Commemorazione 80 anni di pace 2025', tr: '80 yıl barış anması 2025', uk: 'Пам’ятний захід 80 років миру 2025' } },
     { src: 'bilder/concello.jfif', title: { de: 'ConCello 2025 in der Klosterkirche Ochsenfurt', en: 'ConCello 2025 at Klosterkirche Ochsenfurt', it: 'ConCello 2025 nella Klosterkirche di Ochsenfurt', tr: 'Ochsenfurt Klosterkirche\'de ConCello 2025' }, shortTitle: { de: 'ConCello 2025 in Ochsenfurt', en: 'ConCello 2025 in Ochsenfurt', it: 'ConCello 2025 a Ochsenfurt', tr: 'Ochsenfurt\'ta ConCello 2025' } },
-    { src: 'bilder/gruppemitflagge.jpg', title: { de: 'CMI und Veeh-Harfengruppe Querbeet 2025', en: 'CMI and the Veeh Harp Ensemble Querbeet 2025', it: 'CMI e il gruppo di arpe Veeh Querbeet 2025', tr: 'CMI ve Veeh arp toplulugu Querbeet 2025' }, shortTitle: { de: 'CMI und Querbeet 2025', en: 'CMI and Querbeet 2025', it: 'CMI e Querbeet 2025', tr: 'CMI ve Querbeet 2025' } },
+    { src: 'bilder/gruppemitflagge.jpg', title: { de: 'CMI und Veeh-Harfengruppe Querbeet 2025', en: 'CMI and the Veeh Harp Ensemble Querbeet 2025', it: 'CMI e il gruppo di arpe Veeh Querbeet 2025', tr: 'CMI ve Querbeet Veeh arp topluluğu 2025' }, shortTitle: { de: 'CMI und Querbeet 2025', en: 'CMI and Querbeet 2025', it: 'CMI e Querbeet 2025', tr: 'CMI ve Querbeet 2025' } },
      { src: 'bilder/klosterkirche.jpg', title: { de: 'Klosterkirche 2024', en: 'Klosterkirche 2024', it: 'Klosterkirche 2024', tr: 'Klosterkirche 2024' } },
      { src: 'bilder/salboro_santa_maria_assunta_2024.jpg', title: { de: 'Salboro Santa Maria Assunta 2024', en: 'Salboro Santa Maria Assunta 2024', it: 'Salboro Santa Maria Assunta 2024', tr: 'Salboro Santa Maria Assunta 2024' } },
      { src: 'bilder/Jubiläumskonzert_2016.jpg', title: { de: 'Jubiläumskonzert 2016', en: 'Anniversary Concert 2016', it: 'Concerto anniversario 2016', tr: 'Jubile konseri 2016' } },
      { src: 'bilder/Gruppenfoto_St._Thekla_2022.jpg', title: { de: 'CMI und BGS St. Thekla 2022', en: 'CMI and BGS St. Thekla 2022', it: 'CMI e BGS St. Thekla 2022', tr: 'CMI ve BGS St. Thekla 2022' } },
      { src: 'bilder/Scheunenkonzert 17.07.jpg',title: { de: '', en: '', it: '', tr: '' } },
-    { src: 'bilder/Gruppe17.09.11.png', title: { de: 'Jubiläumskonzert zum 30-jährigen Bestehen am 17.09.11', en: '30th anniversary concert on 17 September 2011', it: 'Concerto per il 30° anniversario il 17.09.11', tr: '17.09.11 tarihinde 30. yil donumu konseri' }, shortTitle: { de: 'Jubiläumskonzert 30 Jahre CMI', en: '30th anniversary concert', it: 'Concerto per i 30 anni del CMI', tr: 'CMI 30. yil konseri' } },
+    { src: 'bilder/Gruppe17.09.11.png', title: { de: 'Jubiläumskonzert zum 30-jährigen Bestehen am 17.09.11', en: '30th anniversary concert on 17 September 2011', it: 'Concerto per il 30° anniversario il 17.09.11', tr: '17.09.2011 tarihinde 30. yıl dönümü konseri' }, shortTitle: { de: 'Jubiläumskonzert 30 Jahre CMI', en: '30th anniversary concert', it: 'Concerto per i 30 anni del CMI', tr: 'CMI 30. yıl konseri' } },
     
      //  { src: 'bilder/konzert.jpg', title: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Maintz Hotel Ochsenfurt' },
   //   { src: 'bilder/maria_schnee_neujahrskonzert_2023.png', title: 'Neujahrskonzert 2023' },
@@ -588,52 +588,52 @@ const cookieConsentTranslations = {
         }
     },
     tr: {
-        dialogLabel: 'Cerez onay penceresi',
-        badgeLabel: 'Cerez ayarlari',
+        dialogLabel: 'Çerez onay penceresi',
+        badgeLabel: 'Çerez ayarları',
         closeLabel: 'Kapat',
-        header: 'Bu web sitesi cerez kullanir.',
-        descriptionHtml: 'Icerik ve reklamlari kisisellestirmek ve trafigimizi analiz etmek icin cerezler kullaniyoruz. Ayrica web sitemizi kullaniminizla ilgili bilgileri reklam ve analiz ortaklarimizla paylasiyoruz; bu ortaklar bu bilgileri, kendilerine sagladiginiz veya hizmetlerini kullaniminiz sirasinda topladiklari diger bilgilerle birlestirebilir.',
-        descriptionText: 'Icerik ve reklamlari kisisellestirmek ve trafigimizi analiz etmek icin cerezler kullaniyoruz. Ayrica web sitemizi kullaniminizla ilgili bilgileri reklam ve analiz ortaklarimizla paylasiyoruz; bu ortaklar bu bilgileri, kendilerine sagladiginiz veya hizmetlerini kullaniminiz sirasinda topladiklari diger bilgilerle birlestirebilir.',
+        header: 'Bu web sitesi çerez kullanır.',
+        descriptionHtml: 'İçeriği ve reklamları kişiselleştirmek, ayrıca trafiğimizi analiz etmek için çerezler kullanıyoruz. Bunun yanında, web sitemizi kullanımınıza ilişkin bilgileri reklam ve analiz ortaklarımızla paylaşıyoruz; bu ortaklar söz konusu bilgileri, kendilerine sağladığınız veya hizmetlerini kullanırken topladıkları diğer verilerle birleştirebilir.',
+        descriptionText: 'İçeriği ve reklamları kişiselleştirmek, ayrıca trafiğimizi analiz etmek için çerezler kullanıyoruz. Bunun yanında, web sitemizi kullanımınıza ilişkin bilgileri reklam ve analiz ortaklarımızla paylaşıyoruz; bu ortaklar söz konusu bilgileri, kendilerine sağladığınız veya hizmetlerini kullanırken topladıkları diğer verilerle birleştirebilir.',
         categories: {
             strict: 'Kesinlikle gerekli',
             performance: 'Performans',
             targeting: 'Hedefleme',
-            functionality: 'Islevsellik'
+            functionality: 'İşlevsellik'
         },
         categoryDescriptions: {
-            strict: 'Kesinlikle gerekli cerezler; kullanici girisi ve hesap yonetimi gibi temel site islevlerini etkinlestirir. Bu cerezler olmadan site dogru sekilde calisamaz.',
-            performance: 'Performans cerezleri, ziyaretcilerin bir web sitesini nasil kullandigina dair bilgi toplar; buna analiz cerezleri de dahildir. Bu cerezler belirli bir ziyaretciyi dogrudan tanimlamak icin kullanilamaz.',
-            targeting: 'Hedefleme cerezleri, ziyaretcileri farkli web siteleri arasinda tanimlamak icin kullanilir; ornegin icerik ortaklari veya reklam aglari tarafindan. Bu cerezler, ziyaretci ilgi alanlarinin profilini olusturmak veya diger sitelerde ilgili reklamlar gostermek icin kullanilabilir.',
-            functionality: 'Islevsel cerezler, dil, saat dilimi veya gelismis icerik gibi ziyaretci bilgilerini web sitesinde saklamak icin kullanilir.'
+            strict: 'Kesinlikle gerekli çerezler; kullanıcı girişi ve hesap yönetimi gibi temel site işlevlerini etkinleştirir. Bu çerezler olmadan site doğru şekilde çalışamaz.',
+            performance: 'Performans çerezleri, ziyaretçilerin bir web sitesini nasıl kullandığına dair bilgi toplar; buna analiz çerezleri de dahildir. Bu çerezler belirli bir ziyaretçiyi doğrudan tanımlamak için kullanılamaz.',
+            targeting: 'Hedefleme çerezleri, ziyaretçileri farklı web siteleri arasında tanımak için kullanılır; örneğin içerik ortakları veya reklam ağları tarafından. Bu çerezler, ziyaretçi ilgi alanlarının profilini oluşturmak ya da diğer sitelerde ilgili reklamlar göstermek için kullanılabilir.',
+            functionality: 'İşlevsel çerezler, dil, saat dilimi veya gelişmiş içerik gibi ziyaretçi tercihlerini web sitesinde saklamak için kullanılır.'
         },
         buttons: {
             save: 'Kaydet ve kapat',
-            accept: 'Tumunu kabul et',
-            reject: 'Tumunu reddet'
+            accept: 'Tümünü kabul et',
+            reject: 'Tümünü reddet'
         },
         details: {
-            show: 'Ayrintilari goster',
-            hide: 'Ayrintilari gizle',
-            openCookies: 'Cerezleri goster',
-            closeCookies: 'Cerezleri gizle',
-            badge: 'Cerez ayarlari'
+            show: 'Ayrıntıları göster',
+            hide: 'Ayrıntıları gizle',
+            openCookies: 'Çerezleri göster',
+            closeCookies: 'Çerezleri gizle',
+            badge: 'Çerez ayarları'
         },
         tabs: {
-            declaration: 'Cerez bildirimi',
-            about: 'Cerezler hakkinda'
+            declaration: 'Çerez bildirimi',
+            about: 'Çerezler hakkında'
         },
         table: {
             name: 'Ad',
-            provider: 'Saglayici',
-            domain: 'Alan adi',
-            expiration: 'Sona erme',
-            description: 'Aciklama'
+            provider: 'Sağlayıcı',
+            domain: 'Alan adı',
+            expiration: 'Saklama süresi',
+            description: 'Açıklama'
         },
         about: {
-            introHtml: 'Cerezler, belirli web sitelerini ziyaret ettiginizde bilgisayariniza yerlestirilen kucuk metin dosyalaridir. Web siteleri cerezleri, kullanicilarin sitede gezinmesini kolaylastirmak ve belirli islevleri etkinlestirmek icin kullanir. Web sitesinin duzgun calismasi icin gerekli cerezler, onayiniz olmadan ayarlanabilir. Diger tum cerezlerin tarayicida ayarlanabilmesi icin once onaylanmasi gerekir.<br>Web sitemizde cerez kullanimi icin verdiginiz onayi gizlilik politikasinda istediginiz zaman degistirebilirsiniz.',
-            introText: 'Cerezler, belirli web sitelerini ziyaret ettiginizde bilgisayariniza yerlestirilen kucuk metin dosyalaridir. Web siteleri cerezleri, kullanicilarin sitede gezinmesini kolaylastirmak ve belirli islevleri etkinlestirmek icin kullanir. Web sitesinin duzgun calismasi icin gerekli cerezler, onayiniz olmadan ayarlanabilir. Diger tum cerezlerin tarayicida ayarlanabilmesi icin once onaylanmasi gerekir. Web sitemizde cerez kullanimi icin verdiginiz onayi gizlilik politikasinda istediginiz zaman degistirebilirsiniz.',
-            adsHtml: 'Ayrica reklamlarimizin etkisini kisisellestirmek ve olcmek amaciyla veri toplamak icin de cerezler kullaniyoruz. Daha fazla bilgiye <a href="https://business.safety.google/privacy/" target="_blank">Google Gizlilik Politikasi</a> uzerinden ulasabilirsiniz.',
-            consentId: 'Cerez onay kimligi'
+            introHtml: 'Çerezler, belirli web sitelerini ziyaret ettiğinizde bilgisayarınıza yerleştirilen küçük metin dosyalarıdır. Web siteleri çerezleri, kullanıcıların sitede gezinmesini kolaylaştırmak ve belirli işlevleri etkinleştirmek için kullanır. Web sitesinin düzgün çalışması için gerekli çerezler, onayınız olmadan ayarlanabilir. Diğer tüm çerezlerin tarayıcıda ayarlanabilmesi için önce onaylanması gerekir.<br>Web sitemizde çerez kullanımı için verdiğiniz onayı gizlilik politikası üzerinden istediğiniz zaman değiştirebilirsiniz.',
+            introText: 'Çerezler, belirli web sitelerini ziyaret ettiğinizde bilgisayarınıza yerleştirilen küçük metin dosyalarıdır. Web siteleri çerezleri, kullanıcıların sitede gezinmesini kolaylaştırmak ve belirli işlevleri etkinleştirmek için kullanır. Web sitesinin düzgün çalışması için gerekli çerezler, onayınız olmadan ayarlanabilir. Diğer tüm çerezlerin tarayıcıda ayarlanabilmesi için önce onaylanması gerekir. Web sitemizde çerez kullanımı için verdiğiniz onayı gizlilik politikası üzerinden istediğiniz zaman değiştirebilirsiniz.',
+            adsHtml: 'Ayrıca reklamlarımızın etkisini kişiselleştirmek ve ölçmek amacıyla veri toplamak için de çerezler kullanıyoruz. Daha fazla bilgiye <a href="https://business.safety.google/privacy/" target="_blank">Google Gizlilik Politikası</a> üzerinden ulaşabilirsiniz.',
+            consentId: 'Çerez onay kimliği'
         }
     },
     uk: {
