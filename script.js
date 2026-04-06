@@ -70,6 +70,7 @@ function initEventLightbox() {
         de: { kicker: 'Konzertplakat' },
         en: { kicker: 'Concert Poster' },
         fr: { kicker: 'Affiche du concert' },
+        ln: { kicker: 'Elilingi ya konser' },
         it: { kicker: 'Manifesto del concerto' },
         tr: { kicker: 'Konser afişi' },
         uk: { kicker: 'Афіша концерту' }
@@ -275,6 +276,12 @@ const heroGalleryUiLabels = {
         next: 'Image suivante',
         pagination: 'Pagination de la galerie hero'
     },
+    ln: {
+        image: 'Elilingi',
+        previous: 'Elilingi ya liboso',
+        next: 'Elilingi oyo elandi',
+        pagination: 'Pagination ya galerie ya hero'
+    },
     it: {
         image: 'Immagine',
         previous: 'Immagine precedente',
@@ -365,18 +372,18 @@ let heroGalleryUiVisibilityTimeout = null;
 function getCurrentSiteLanguage() {
     try {
         const storedLanguage = localStorage.getItem('siteLang');
-        if (storedLanguage === 'de' || storedLanguage === 'en' || storedLanguage === 'fr' || storedLanguage === 'it' || storedLanguage === 'tr' || storedLanguage === 'uk') {
+        if (storedLanguage === 'de' || storedLanguage === 'en' || storedLanguage === 'fr' || storedLanguage === 'ln' || storedLanguage === 'it' || storedLanguage === 'tr' || storedLanguage === 'uk') {
             return storedLanguage;
         }
     } catch (e) {}
 
     const htmlLanguage = (document.documentElement.getAttribute('lang') || '').toLowerCase().split('-')[0];
-    if (htmlLanguage === 'de' || htmlLanguage === 'en' || htmlLanguage === 'fr' || htmlLanguage === 'it' || htmlLanguage === 'tr' || htmlLanguage === 'uk') {
+    if (htmlLanguage === 'de' || htmlLanguage === 'en' || htmlLanguage === 'fr' || htmlLanguage === 'ln' || htmlLanguage === 'it' || htmlLanguage === 'tr' || htmlLanguage === 'uk') {
         return htmlLanguage;
     }
 
     const browserLanguage = (navigator.language || '').toLowerCase().split('-')[0];
-    if (browserLanguage === 'de' || browserLanguage === 'en' || browserLanguage === 'fr' || browserLanguage === 'it' || browserLanguage === 'tr' || browserLanguage === 'uk') {
+    if (browserLanguage === 'de' || browserLanguage === 'en' || browserLanguage === 'fr' || browserLanguage === 'ln' || browserLanguage === 'it' || browserLanguage === 'tr' || browserLanguage === 'uk') {
         return browserLanguage;
     }
 
@@ -679,6 +686,8 @@ const cookieConsentTranslations = {
         }
     }
 };
+
+cookieConsentTranslations.ln = cookieConsentTranslations.fr;
 
 let cookieConsentMutationObserver = null;
 let cookieConsentUpdateFrame = null;
@@ -1379,7 +1388,7 @@ function updateYearsPassed() {
     yearsPassedEl.textContent = new Date().getFullYear() - 1981;
 }
 
-const supportedSiteLanguages = new Set(['de', 'en', 'fr', 'it', 'tr', 'uk']);
+const supportedSiteLanguages = new Set(['de', 'en', 'fr', 'ln', 'it', 'tr', 'uk']);
 const mbondaTimelineLinkSelector = '.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]';
 
 function isSupportedSiteLanguage(lang) {
@@ -1437,6 +1446,10 @@ function ensureMbondaTimelineLinksAccessible() {
 
 function getSiteLanguageFallbackOrder(lang) {
     const fallbackOrder = [lang];
+
+    if (lang === 'ln') {
+        fallbackOrder.push('fr');
+    }
 
     if (lang !== 'en') {
         fallbackOrder.push('en');
@@ -1680,6 +1693,7 @@ function initReviewCardToggles() {
             '<span data-lang="de">Mehr lesen</span>',
             '<span data-lang="en" style="display:none;">Read more</span>',
             '<span data-lang="fr" style="display:none;">Lire la suite</span>',
+            '<span data-lang="ln" style="display:none;">Tanga lisusu</span>',
             '<span data-lang="it" style="display:none;">Leggi di piu</span>',
             '<span data-lang="tr" style="display:none;">Devamını oku</span>',
             '<span data-lang="uk" style="display:none;">Читати далі</span>',
@@ -1688,6 +1702,7 @@ function initReviewCardToggles() {
             '<span data-lang="de">Weniger anzeigen</span>',
             '<span data-lang="en" style="display:none;">Show less</span>',
             '<span data-lang="fr" style="display:none;">Afficher moins</span>',
+            '<span data-lang="ln" style="display:none;">Monisa moke</span>',
             '<span data-lang="it" style="display:none;">Mostra meno</span>',
             '<span data-lang="tr" style="display:none;">Daha az göster</span>',
             '<span data-lang="uk" style="display:none;">Показати менше</span>',
