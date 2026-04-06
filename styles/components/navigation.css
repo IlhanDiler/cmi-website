@@ -211,7 +211,7 @@
     column-gap: clamp(12px, 1.2vw, 20px);
 }
 
-.subpage-topbar #langSwitcher {
+.subpage-topbar .subpage-language-switch {
     margin-left: 0;
     justify-self: end;
 }
@@ -228,8 +228,8 @@
     --lang-button-active-border-color: #163c44;
 }
 
-.subpage-body--privacy #langSwitcher,
-.subpage-body--imprint #langSwitcher {
+.subpage-body--privacy .subpage-language-switch,
+.subpage-body--imprint .subpage-language-switch {
     --lang-switcher-gap: 8px;
     --lang-switcher-padding: 4px;
     --lang-switcher-bg: rgba(9, 21, 28, 0.9);
