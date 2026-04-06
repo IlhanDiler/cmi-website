@@ -2,4 +2,4 @@ share/preview-images/
 share/status-images/
 share/querbeet-roundup-2025.pdf
 *.png
-tmp/visual-qa/hero-var-test.html
+tmp/visual-qa/*.html
