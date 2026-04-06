@@ -456,7 +456,7 @@ const cookieConsentTranslations = {
         categoryDescriptions: {
             strict: 'Strictly necessary cookies enable core website functions such as user login and account management. The website cannot be used properly without these cookies.',
             performance: 'Performance cookies collect information about how visitors use a website, for example analytics cookies. These cookies cannot be used to directly identify a particular visitor.',
-            targeting: 'Targeting cookies are used to identify visitors across different websites, for example content partners or banner networks. These cookies may be used by companies to build a profile of visitor interests or show relevant ads on other websites.',
+            targeting: 'Targeting cookies are used to identify visitors across different websites, for example, content partners or banner networks. These cookies may be used by companies to build a profile of visitor interests or show relevant ads on other websites.',
             functionality: 'Functionality cookies are used to store visitor information on the website, for example language, time zone, or enhanced content.'
         },
         buttons: {
@@ -483,8 +483,8 @@ const cookieConsentTranslations = {
             description: 'Description'
         },
         about: {
-            introHtml: 'Cookies are small text files that are placed on your computer when you visit certain websites. Websites use cookies to help users navigate a website and to enable certain functions. Cookies that are required for the proper operation of the website may be set without your consent. All other cookies must be approved before they can be set in the browser.<br>You can change your consent to the use of cookies on our website at any time in the privacy policy.',
-            introText: 'Cookies are small text files that are placed on your computer when you visit certain websites. Websites use cookies to help users navigate a website and to enable certain functions. Cookies that are required for the proper operation of the website may be set without your consent. All other cookies must be approved before they can be set in the browser. You can change your consent to the use of cookies on our website at any time in the privacy policy.',
+            introHtml: 'Cookies are small text files that are placed on your computer when you visit certain websites. Websites use cookies to help users navigate a website and to enable certain functions. Essential cookies may be set without your consent to ensure the website functions properly. All other cookies must be approved before they can be set in the browser.<br>You can change your consent to the use of cookies on our website at any time in the privacy policy.',
+            introText: 'Cookies are small text files that are placed on your computer when you visit certain websites. Websites use cookies to help users navigate a website and to enable certain functions. Essential cookies may be set without your consent to ensure the website functions properly. All other cookies must be approved before they can be set in the browser. You can change your consent to the use of cookies on our website at any time in the privacy policy.',
             adsHtml: 'We also use cookies to collect data for the personalization and measurement of the effectiveness of our advertising. Further information can be found in the <a href="https://business.safety.google/privacy/" target="_blank">Google Privacy Policy</a>.',
             consentId: 'Cookie consent ID'
         }
