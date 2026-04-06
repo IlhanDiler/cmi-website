@@ -284,7 +284,8 @@
     line-height: var(--premium-body-line-height);
     letter-spacing: var(--premium-body-letter-spacing);
     font-weight: 520;
-    text-align: left;
+    text-align: justify;
+    text-align-last: left;
     text-justify: auto;
     hyphens: auto;
     -webkit-hyphens: auto;
@@ -482,13 +483,14 @@
 
 .timeline-intro,
 .timeline-item-text {
-    text-align: left;
+    text-align: justify;
+    text-align-last: left;
     text-justify: auto;
     hyphens: auto;
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
     overflow-wrap: break-word;
-    text-wrap: pretty;
+    text-wrap: auto;
 }
 
 @media (max-width: 900px) {

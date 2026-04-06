@@ -909,8 +909,8 @@ html[lang="uk"] #langUk {
         --navbar-scrolled-backdrop-blur: 0px;
         --nav-brand-gap: 6px;
         --nav-brand-padding: 0.24em 0.56em;
-        --nav-brand-logo-size: 36px;
-        --nav-brand-logo-min-size: 30px;
+        --nav-brand-logo-size: 40px;
+        --nav-brand-logo-min-size: 34px;
         --nav-brand-bg: rgba(255, 255, 255, 0.04);
         --nav-brand-border-color: rgba(235, 246, 243, 0.08);
         --mobile-menu-btn-size: 42px;
@@ -993,8 +993,8 @@ html[lang="uk"] #langUk {
         --navbar-scrolled-shadow: none;
         --nav-brand-gap: 5px;
         --nav-brand-padding: 0;
-        --nav-brand-logo-size: 38px;
-        --nav-brand-logo-min-size: 34px;
+        --nav-brand-logo-size: 44px;
+        --nav-brand-logo-min-size: 40px;
         --mobile-menu-btn-size: 40px;
         --mobile-menu-btn-mobile-min-size: 40px;
         --mobile-menu-btn-mobile-padding: 0.28em;
@@ -1016,9 +1016,27 @@ html[lang="uk"] #langUk {
 
     .nav-brand {
         min-width: 0;
-        max-width: 64px;
+        max-width: 78px;
         justify-self: center;
         justify-content: center;
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+    }
+
+    .nav-brand a {
+        padding: 0;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        text-decoration: none;
+    }
+
+    .nav-brand img {
+        filter: none;
+    }
+
+    .navbar.navbar-scrolled .nav-brand {
         background: transparent;
         border-color: transparent;
         box-shadow: none;

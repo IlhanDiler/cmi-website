@@ -401,12 +401,15 @@
     .about-me-bio-text {
         font-size: var(--premium-body-mobile-size);
         line-height: var(--premium-body-mobile-line-height);
-        text-align: left;
+        text-align: justify;
+        text-align-last: left;
         text-justify: auto;
         hyphens: auto;
         -webkit-hyphens: auto;
         -ms-hyphens: auto;
         overflow-wrap: break-word;
+        word-break: normal;
+        text-wrap: auto;
     }
 
     .about-me-mobile-image {
