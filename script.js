@@ -274,7 +274,7 @@ const heroGalleryUiLabels = {
         image: 'Image',
         previous: 'Image precedente',
         next: 'Image suivante',
-        pagination: 'Pagination de la galerie hero'
+        pagination: 'Pagination de la galerie d\'accueil'
     },
     ln: {
         image: 'Elilingi',
@@ -500,7 +500,7 @@ const cookieConsentTranslations = {
             strict: 'Strictement necessaires',
             performance: 'Performance',
             targeting: 'Ciblage',
-            functionality: 'Fonctionnalite'
+            functionality: 'Fonctionnalites'
         },
         categoryDescriptions: {
             strict: 'Les cookies strictement necessaires permettent les fonctions essentielles du site, comme la connexion utilisateur et la gestion du compte. Le site ne peut pas fonctionner correctement sans eux.',
@@ -521,7 +521,7 @@ const cookieConsentTranslations = {
             badge: 'Parametres des cookies'
         },
         tabs: {
-            declaration: 'Declaration relative aux cookies',
+            declaration: 'Declaration sur les cookies',
             about: 'A propos des cookies'
         },
         table: {
