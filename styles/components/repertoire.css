@@ -320,6 +320,14 @@
     line-height: var(--premium-body-line-height);
     font-weight: var(--font-weight-body);
     letter-spacing: var(--premium-body-letter-spacing);
+    text-align: left;
+    text-justify: auto;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    overflow-wrap: break-word;
+    word-spacing: normal;
+    text-wrap: auto;
 }
 
 .musikalisches-repertoire-list {
