@@ -268,7 +268,7 @@ const heroGalleryUiLabels = {
         image: 'Image',
         previous: 'Previous image',
         next: 'Next image',
-        pagination: 'Hero gallery pagination'
+        pagination: 'Main gallery pagination'
     },
     fr: {
         image: 'Image',
