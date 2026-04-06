@@ -78,7 +78,10 @@
 
     .qa-force-focus.subpage-topbar__brand,
     .qa-force-focus.nav-brand-link {
-      box-shadow: var(--focus-ring-soft);
+      background: rgba(255, 255, 255, 0.78);
+      outline: 3px solid rgba(10, 117, 109, 0.72);
+      outline-offset: 4px;
+      box-shadow: 0 0 0 2px rgba(16, 52, 60, 0.2), 0 0 0 5px rgba(10, 117, 109, 0.26);
     }
 
     .qa-force-focus.mobile-menu-btn {
@@ -98,7 +101,9 @@
     .qa-force-focus.lang-switch-button {
       background: var(--lang-button-hover-bg);
       border-color: var(--lang-button-hover-border-color);
-      box-shadow: var(--focus-ring-soft);
+      box-shadow: 0 0 0 2px rgba(9, 21, 28, 0.78), 0 0 0 5px rgba(127, 232, 219, 0.34);
+      outline: 3px solid rgba(127, 232, 219, 0.92);
+      outline-offset: 3px;
     }
   </style>
 </head>
