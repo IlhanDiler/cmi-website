@@ -286,7 +286,7 @@ const heroGalleryUiLabels = {
         image: 'Immagine',
         previous: 'Immagine precedente',
         next: 'Immagine successiva',
-        pagination: 'Paginazione galleria hero'
+        pagination: 'Paginazione della galleria principale'
     },
     tr: {
         image: 'Görsel',
@@ -549,7 +549,7 @@ const cookieConsentTranslations = {
             strict: 'Strettamente necessari',
             performance: 'Prestazioni',
             targeting: 'Targeting',
-            functionality: 'Funzionalita'
+            functionality: 'Funzionalità'
         },
         categoryDescriptions: {
             strict: 'I cookie strettamente necessari consentono funzioni fondamentali del sito web come il login utente e la gestione dell\'account. Senza questi cookie il sito non puo funzionare correttamente.',
