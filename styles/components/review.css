@@ -3,6 +3,10 @@
 .review-archive,
 .review-archive .charity-projects-section[id^="review-"] {
     background: var(--section-tone-b);
+    --review-copy-mobile-size: var(--premium-body-mobile-size);
+    --review-copy-mobile-line-height: var(--premium-body-mobile-line-height);
+    --review-lead-mobile-size: var(--premium-lead-mobile-size);
+    --review-lead-mobile-line-height: var(--premium-lead-mobile-line-height);
 }
 
 .review-overview-section {
@@ -1568,6 +1572,8 @@
 
     .review-overview-intro {
         max-width: none;
+        font-size: var(--review-lead-mobile-size);
+        line-height: var(--review-lead-mobile-line-height);
     }
 
     .review-overview-highlights {
@@ -1598,6 +1604,8 @@
 
     .review-archive-intro__copy {
         max-width: 31ch;
+        font-size: var(--review-lead-mobile-size);
+        line-height: var(--review-lead-mobile-line-height);
     }
 
     .review-archive-toggle,
@@ -1624,6 +1632,13 @@
     .review-featured .charity-description,
     .review-archive .charity-projects-section[id^="review-"] .charity-description {
         margin-bottom: 14px;
+        font-size: var(--review-copy-mobile-size);
+        line-height: var(--review-copy-mobile-line-height);
+    }
+
+    .review-overview-highlight-copy {
+        font-size: var(--review-copy-mobile-size);
+        line-height: var(--review-copy-mobile-line-height);
     }
 
     .review-archive .charity-projects-section[id^="review-"].review-card--collapsible:not(.review-card--expanded) .charity-description {
@@ -1827,8 +1842,8 @@
     .review-overview-intro {
         width: 100%;
         max-width: none;
-        font-size: var(--premium-lead-mobile-size);
-        line-height: var(--premium-lead-mobile-line-height);
+        font-size: var(--review-lead-mobile-size);
+        line-height: var(--review-lead-mobile-line-height);
         text-align: left;
         text-justify: auto;
         hyphens: auto;
@@ -1870,8 +1885,8 @@
         margin-left: 0;
         margin-right: 0;
         margin-bottom: 2px;
-        font-size: 1.02rem;
-        line-height: 1.64;
+        font-size: var(--review-copy-mobile-size);
+        line-height: var(--review-copy-mobile-line-height);
     }
 
     .review-featured .charity-projects-container {
@@ -1894,8 +1909,8 @@
     }
 
     .review-featured .charity-description {
-        font-size: var(--premium-body-mobile-size);
-        line-height: var(--premium-body-mobile-line-height);
+        font-size: var(--review-copy-mobile-size);
+        line-height: var(--review-copy-mobile-line-height);
         text-align: left;
     }
 
@@ -1930,8 +1945,8 @@
 
     .review-archive-intro__copy {
         max-width: none;
-        font-size: 0.96rem;
-        line-height: 1.56;
+        font-size: var(--review-lead-mobile-size);
+        line-height: var(--review-lead-mobile-line-height);
     }
 
     .review-archive-toggle {
@@ -2044,8 +2059,8 @@
 
     .charity-projects-section[id^="review-"] .charity-description {
         margin-bottom: var(--review-description-margin-bottom);
-        font-size: clamp(0.95rem, 3.15vw, 1rem);
-        line-height: 1.58;
+        font-size: var(--review-copy-mobile-size);
+        line-height: var(--review-copy-mobile-line-height);
         text-align: left;
         text-justify: auto;
         text-wrap: pretty;
