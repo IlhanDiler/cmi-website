@@ -131,6 +131,15 @@
     font-weight: 500 !important;
     line-height: var(--premium-body-line-height) !important;
     letter-spacing: var(--premium-body-letter-spacing) !important;
+    text-align: justify;
+    text-align-last: left;
+    text-justify: auto;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: normal;
+    text-wrap: auto;
 }
 
 .music-family-section .music-family-benefits-row {
@@ -165,6 +174,18 @@
     font-weight: 500;
     line-height: var(--premium-body-line-height);
     letter-spacing: var(--premium-body-letter-spacing);
+}
+
+.music-family-section .music-family-benefits li > span:last-child {
+    text-align: justify;
+    text-align-last: left;
+    text-justify: auto;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: normal;
+    text-wrap: auto;
 }
 
 .music-family-section .music-family-benefit-check {
@@ -463,6 +484,9 @@
     .music-family-section .music-family-highlight-copy {
         font-size: var(--premium-body-mobile-size) !important;
         line-height: var(--premium-body-mobile-line-height) !important;
+        text-align: justify;
+        text-align-last: left;
+        text-wrap: auto;
     }
 
     .music-family-section .music-family-benefits-row {

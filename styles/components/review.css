@@ -112,12 +112,14 @@
 .review-overview-highlight::before {
     content: "";
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 4px;
-    border-radius: 18px 0 0 18px;
+    top: 20px;
+    bottom: 20px;
+    left: 12px;
+    width: 3px;
+    inset: auto;
+    border-radius: 999px;
     background: linear-gradient(180deg, var(--color-secondary), var(--color-primary));
+    opacity: 0.44;
 }
 
 .review-overview-highlight-title {
@@ -143,11 +145,11 @@
     width: 100%;
     max-width: none;
     display: block;
-    height: 100%;
-    aspect-ratio: 0.78 / 1;
+    height: auto;
+    aspect-ratio: auto;
     max-height: none;
-    object-fit: cover;
-    object-position: center 18%;
+    object-fit: contain;
+    object-position: center center;
     border-radius: 22px;
     border: 1px solid rgba(18, 62, 70, 0.12);
     box-shadow: none;
@@ -956,8 +958,12 @@
     }
 
     .review-overview-highlight::before {
+        top: 20px;
+        bottom: 20px;
+        left: 12px;
         width: 4px;
-        border-radius: 22px 0 0 22px;
+        border-radius: 999px;
+        opacity: 0.42;
     }
 
     .review-overview-highlight-title {
@@ -986,8 +992,11 @@
     .review-overview-image {
         width: 100%;
         max-width: none;
-        height: 100%;
+        height: auto;
         max-height: none;
+        aspect-ratio: auto;
+        object-fit: contain;
+        object-position: center center;
         border: 0;
         border-radius: 20px;
     }
@@ -1059,7 +1068,7 @@
     .review-archive .charity-projects-section[id^="review-"] .charity-projects-container,
     .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container {
         width: min(1180px, calc(100% - (var(--desktop-content-side-gap) * 2)));
-        padding: 34px 34px 30px;
+        padding: 26px 34px 30px;
         border-radius: 32px;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(244, 248, 246, 0.98) 100%);
         border-color: rgba(18, 62, 70, 0.1);
@@ -1069,9 +1078,13 @@
     .review-featured .charity-projects-container::after,
     .review-archive .charity-projects-section[id^="review-"] .charity-projects-container::after,
     .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container::after {
-        width: 3px;
-        border-radius: 32px 0 0 32px;
+        top: 20px;
+        bottom: 20px;
+        left: 12px;
+        width: 4px;
+        border-radius: 999px;
         background: linear-gradient(180deg, var(--color-secondary), var(--color-primary));
+        opacity: 0.42;
     }
 
     .review-featured .charity-flex-row,
@@ -1192,7 +1205,7 @@
 .review-archive .charity-projects-section[id^="review-"] .charity-projects-container {
     width: min(1120px, calc(100% - 40px));
     margin: 0 auto 12px;
-    padding: 28px 28px 24px;
+    padding: 22px 28px 24px;
     border-radius: 30px;
     background: rgba(255, 255, 255, 0.98);
     border-color: rgba(18, 62, 70, 0.12);
@@ -1201,9 +1214,17 @@
 
 .review-featured .charity-projects-container::after,
 .review-archive .charity-projects-section[id^="review-"] .charity-projects-container::after {
-    width: 4px;
-    border-radius: 30px 0 0 30px;
-    background: var(--color-secondary);
+    content: "";
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 12px;
+    width: 3px;
+    height: auto;
+    inset: auto;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--color-secondary), var(--color-primary));
+    opacity: 0.5;
 }
 
 .review-featured .charity-flex-row,
@@ -1289,12 +1310,6 @@
     margin-top: 8px;
     margin-bottom: 14px;
 }
-
-.review-featured .event-social-actions.review-social-actions,
-.review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions {
-    margin-top: 0;
-}
-
 .review-featured .charity-flex-row > .gruppenbild-container,
 .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
     align-self: flex-start;
@@ -1465,13 +1480,6 @@
     .review-overview-highlights {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 16px;
-    }
-
-    .review-overview-image {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 0.82 / 1;
-        max-height: none;
     }
 
     .review-overview-highlight,
@@ -1716,10 +1724,14 @@
     .review-featured .charity-projects-container::after,
     .review-archive .charity-projects-section[id^="review-"] .charity-projects-container::after,
     .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container::after {
-        width: 100%;
-        height: 4px;
-        inset: 0 0 auto 0;
-        border-radius: 24px 24px 0 0;
+        top: 16px;
+        bottom: 16px;
+        left: 8px;
+        width: 3px;
+        height: auto;
+        inset: auto;
+        border-radius: 999px;
+        opacity: 0.46;
     }
 
     .review-featured .charity-flex-row,
@@ -1909,7 +1921,12 @@
     }
 
     .review-featured .charity-projects-container::after {
-        border-radius: 20px 20px 0 0;
+        top: 14px;
+        bottom: 14px;
+        left: 8px;
+        width: 3px;
+        border-radius: 999px;
+        opacity: 0.46;
     }
 
     .review-featured .charity-title {
@@ -1919,16 +1936,8 @@
 
     .review-featured .charity-meta {
         margin-bottom: 10px;
-    }
-
-    .review-featured .charity-description {
-        font-size: var(--review-copy-mobile-size);
         line-height: var(--review-copy-mobile-line-height);
         text-align: left;
-    }
-
-    .review-featured .event-social-actions.review-social-actions {
-        margin-bottom: 12px;
     }
 
     .review-featured .charity-flex-row > .gruppenbild-container {
@@ -2004,8 +2013,10 @@
     .review-overview-image {
         width: 100%;
         height: auto;
-        aspect-ratio: 0.86 / 1;
+        aspect-ratio: auto;
         max-height: none;
+        object-fit: contain;
+        object-position: center center;
         border-radius: 22px;
     }
 
@@ -2023,7 +2034,7 @@
     .charity-projects-section[id^="review-"] {
         --review-section-padding: 18px 12px 10px;
         --review-container-width: 100%;
-        --review-container-padding: 18px 16px 14px;
+        --review-container-padding: 12px 16px 14px;
         --review-container-radius: 18px;
         --review-container-margin-bottom: 8px;
         --review-flex-gap: 12px;
