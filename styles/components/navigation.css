@@ -12,113 +12,6 @@
     box-shadow: var(--cta-shadow-hover), var(--focus-ring-soft);
 }
 
-@media (min-width: 1200px) {
-    #langSwitcher {
-        padding-right: 0;
-    }
-}
-
-@media (min-width: 1180px) {
-    .navbar {
-        --navbar-padding: 10px clamp(18px, 2.4vw, 30px);
-        --navbar-bg: rgba(7, 18, 23, 0.78);
-        --navbar-scrolled-bg: rgba(7, 18, 23, 0.9);
-        --navbar-border-color: rgba(255, 255, 255, 0.08);
-        --navbar-scrolled-border-color: rgba(255, 255, 255, 0.08);
-        --navbar-backdrop-blur: 12px;
-        --navbar-scrolled-backdrop-blur: 16px;
-        --nav-menu-gap: clamp(12px, 1.2vw, 22px);
-        --nav-link-padding: 0.6em 0 0.78em;
-        --nav-link-letter-spacing: 0.12em;
-        --nav-link-hover-bg: transparent;
-        --nav-link-active-bg: transparent;
-        --nav-link-border-color: transparent;
-    }
-
-    .nav-brand {
-        margin-right: 0;
-        padding: 0;
-        background: transparent;
-        border: 0;
-    }
-
-    .brand-text {
-        padding-left: 10px;
-        padding-right: 0;
-        font-size: clamp(0.86rem, 0.74rem + 0.3vw, 1rem);
-        line-height: 0.98;
-        letter-spacing: -0.03em;
-        text-shadow: none;
-    }
-
-    .brand-text .brand-main {
-        font-weight: 700;
-    }
-
-    .brand-text .brand-sub {
-        margin-top: 0.3em;
-        letter-spacing: 0.18em;
-        opacity: 0.6;
-    }
-
-    .nav-menu {
-        justify-content: center;
-    }
-
-    .nav-link {
-        position: relative;
-        padding: var(--nav-link-padding);
-        border: 0;
-        border-radius: 0;
-        background: transparent;
-        color: rgba(255, 255, 255, 0.78);
-        font-size: clamp(0.76rem, 0.72rem + 0.18vw, 0.84rem);
-        font-weight: 680;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-    }
-
-    .nav-link::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 2px;
-        background: var(--color-secondary);
-        opacity: 0;
-        transform: scaleX(0.35);
-        transform-origin: center;
-        transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .nav-link:hover,
-    .nav-link:focus-visible {
-        color: #ffffff;
-        background: transparent;
-    }
-
-    .nav-link:hover::after,
-    .nav-link:focus-visible::after {
-        opacity: 1;
-        transform: scaleX(1);
-    }
-
-    #langSwitcher {
-        padding: 3px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 999px;
-        box-shadow: none;
-    }
-
-    .lang-switch-button {
-        background: transparent;
-        border: 1px solid transparent;
-        box-shadow: none;
-    }
-}
-
 .brand-text {
     display: block;
     font-family: var(--font-ui-modern);
@@ -194,26 +87,6 @@
     }
 }
 
-@media (max-width: 1560px) {
-    .brand-tagline {
-        display: none !important;
-    }
-}
-
-@media (max-width: 600px) {
-    .brand-text {
-        font-size: clamp(0.72rem, 0.66rem + 0.48vw, 0.86rem);
-        padding-left: 2px;
-        padding-right: 2px;
-        text-align: left;
-    }
-
-    .brand-text .brand-sub {
-        font-size: 0.66em;
-        letter-spacing: 0.13em;
-    }
-}
-
 @media (max-width: 1024px) {
     html {
         --mobile-navbar-offset: 56px;
@@ -224,6 +97,9 @@
         border-bottom-color: rgba(235, 246, 243, 0.16);
         box-shadow: none;
         color: #fff;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        align-items: center;
     }
 
     .menu-icon {
@@ -633,15 +509,37 @@
 
 @media (min-width: 1025px) {
     .navbar {
+        --navbar-padding: 9px clamp(12px, 1.55vw, 24px);
+        --navbar-bg: rgba(7, 18, 23, 0.78);
+        --navbar-scrolled-bg: rgba(7, 18, 23, 0.9);
+        --navbar-border-color: rgba(255, 255, 255, 0.08);
+        --navbar-scrolled-border-color: rgba(255, 255, 255, 0.08);
+        --navbar-backdrop-blur: 12px;
+        --navbar-scrolled-backdrop-blur: 16px;
+        --nav-brand-gap: clamp(6px, 0.8vw, 10px);
+        --nav-brand-logo-size: clamp(38px, 2.1vw, 46px);
+        --nav-brand-logo-min-size: 36px;
+        --nav-menu-gap: clamp(8px, 0.95vw, 16px);
+        --nav-link-padding: 0.56em 0 0.7em;
+        --nav-link-letter-spacing: 0.08em;
+        --nav-link-hover-bg: transparent;
+        --nav-link-active-bg: transparent;
+        --nav-link-border-color: transparent;
+        --lang-switcher-gap: clamp(2px, 0.28vw, 5px);
+        --lang-switcher-padding: 2px clamp(3px, 0.35vw, 5px);
+        --lang-button-width: clamp(32px, 2.15vw, 36px);
+        --lang-button-height: clamp(28px, 1.9vw, 31px);
+        --lang-button-svg-width: clamp(18px, 1.15vw, 20px);
+        --lang-button-svg-height: clamp(12px, 0.8vw, 13px);
         display: grid;
         grid-template-columns: max-content minmax(0, 1fr) max-content;
-        column-gap: clamp(18px, 2.1vw, 34px);
+        column-gap: clamp(12px, 1.8vw, 24px);
         justify-content: stretch;
         align-items: center;
     }
 
     .navbar.navbar-scrolled {
-        --nav-brand-logo-size: clamp(38px, 2.3vw, 46px);
+        --nav-brand-logo-size: clamp(38px, 2.2vw, 46px);
     }
 
     .nav-brand {
@@ -667,7 +565,7 @@
         flex: 1 1 auto;
         display: flex;
         --interaction-transform: translateZ(0);
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
         align-items: center;
         gap: var(--nav-menu-gap);
@@ -682,20 +580,43 @@
     }
 
     .nav-link {
+        position: relative;
         font-size: var(--nav-link-font-size);
         letter-spacing: var(--nav-link-letter-spacing);
-        font-weight: 650;
-        text-transform: none;
+        font-weight: 680;
+        text-transform: uppercase;
         transition: var(--nav-link-transition);
-        border-radius: 999px;
+        border-radius: 0;
+        border: 0;
+        background: transparent;
         padding: var(--nav-link-padding);
         white-space: nowrap;
         line-height: var(--nav-link-line-height);
     }
 
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background: var(--color-secondary);
+        opacity: 0;
+        transform: scaleX(0.35);
+        transform-origin: center;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
     .nav-link:hover {
-        background: var(--nav-link-hover-bg);
         color: var(--nav-link-color-hover);
+        background: transparent;
+    }
+
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after {
+        opacity: 1;
+        transform: scaleX(1);
     }
 
     #langSwitcher {
@@ -703,6 +624,17 @@
         flex: 0 0 auto;
         margin-left: 0;
         justify-self: end;
+        margin-right: clamp(2px, 0.35vw, 8px);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+        box-shadow: none;
+    }
+
+    .lang-switch-button {
+        background: transparent;
+        border: 1px solid transparent;
+        box-shadow: none;
     }
 }
 
@@ -977,11 +909,26 @@ html[lang="uk"] #langUk {
     }
 
     .nav-brand {
+        grid-column: 2;
+        flex: 1 1 auto;
+        min-width: 0;
+        max-width: 100%;
+        margin-right: 0;
+        justify-self: stretch;
+        position: relative;
+        z-index: 1;
+        pointer-events: none;
         transform: translateY(2px);
+    }
+
+    .nav-brand a {
+        pointer-events: auto;
     }
 
     .mobile-menu-btn {
         display: flex;
+        grid-column: 1;
+        justify-self: start;
         min-width: var(--mobile-menu-btn-mobile-min-size);
         min-height: var(--mobile-menu-btn-mobile-min-size);
         padding: var(--mobile-menu-btn-mobile-padding);
@@ -1005,6 +952,26 @@ html[lang="uk"] #langUk {
         border-top: none;
         box-shadow: var(--mobile-menu-shadow-mobile);
         overflow: hidden;
+    }
+
+    #langSwitcher {
+        grid-column: 3;
+        justify-self: end;
+        flex: 0 0 auto;
+        min-width: 0;
+        overflow: visible;
+    }
+
+    .brand-text {
+        font-size: clamp(0.74rem, 0.66rem + 0.38vw, 0.9rem);
+        line-height: 0.98;
+        padding-left: 5px;
+        padding-right: 0;
+    }
+
+    .brand-text .brand-sub {
+        margin-top: 0.24em;
+        letter-spacing: 0.11em;
     }
 }
 
@@ -1051,38 +1018,6 @@ html[lang="uk"] #langUk {
         --mobile-menu-open-padding: 0.72em 0 0.92em;
         --mobile-nav-link-padding: 0.78em 12px;
         --mobile-nav-link-margin: 0.14em 8px 0.42em;
-        display: grid;
-        grid-template-columns: auto minmax(0, 1fr) auto;
-        align-items: center;
-    }
-
-    .mobile-menu-btn {
-        grid-column: 1;
-        justify-self: start;
-    }
-
-    .nav-brand {
-        grid-column: 2;
-        flex: 1 1 auto;
-        min-width: 0;
-        max-width: 100%;
-        margin-right: 0;
-        justify-self: stretch;
-        position: relative;
-        z-index: 1;
-        pointer-events: none;
-    }
-
-    .nav-brand a {
-        pointer-events: auto;
-    }
-
-    #langSwitcher {
-        grid-column: 3;
-        justify-self: end;
-        flex: 0 0 auto;
-        min-width: 0;
-        overflow: visible;
     }
 
     .brand-text {
@@ -1095,114 +1030,6 @@ html[lang="uk"] #langUk {
     .brand-text .brand-sub {
         margin-top: 0.24em;
         letter-spacing: 0.11em;
-    }
-}
-
-@media (min-width: 1025px) and (max-width: 1560px) {
-    .navbar {
-        --navbar-gap: 10px;
-        --navbar-padding: 9px clamp(12px, 1.55vw, 24px);
-        --nav-brand-gap: clamp(6px, 0.8vw, 10px);
-        --nav-brand-logo-size: clamp(38px, 2.1vw, 44px);
-        --nav-brand-logo-min-size: 36px;
-        --nav-menu-gap: clamp(8px, 0.95vw, 16px);
-        --nav-link-padding: 0.56em 0 0.7em;
-        --nav-link-letter-spacing: 0.07em;
-        --lang-switcher-gap: clamp(2px, 0.28vw, 5px);
-        --lang-switcher-padding: 2px clamp(3px, 0.35vw, 5px);
-        --lang-button-width: clamp(32px, 2.15vw, 36px);
-        --lang-button-height: clamp(28px, 1.9vw, 31px);
-        --lang-button-svg-width: clamp(18px, 1.15vw, 20px);
-        --lang-button-svg-height: clamp(12px, 0.8vw, 13px);
-        column-gap: clamp(10px, 1.5vw, 22px);
-    }
-
-    .nav-menu {
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
-        gap: var(--nav-menu-gap);
-        padding: 2px 0 0;
-    }
-
-    .mobile-menu-btn {
-        display: none;
-    }
-
-    .nav-brand {
-        transform: none;
-    }
-
-    #langSwitcher {
-        transform: none;
-        margin-right: clamp(2px, 0.35vw, 8px);
-    }
-
-    .brand-text {
-        display: grid;
-        gap: 0.1rem;
-        padding-left: 6px;
-        font-size: clamp(0.72rem, 0.68rem + 0.18vw, 0.86rem);
-        line-height: 0.98;
-        text-shadow: none;
-    }
-
-    .brand-text .brand-main {
-        font-size: clamp(0.84rem, 0.8rem + 0.14vw, 0.96rem);
-        letter-spacing: -0.03em;
-    }
-
-    .brand-text .brand-sub {
-        margin-top: 0.08rem;
-        font-size: 0.64em;
-        letter-spacing: 0.09em;
-        opacity: 0.68;
-    }
-
-    .nav-link {
-        font-size: clamp(0.68rem, 0.65rem + 0.12vw, 0.78rem);
-        letter-spacing: 0.07em;
-    }
-}
-
-@media (min-width: 1025px) and (max-width: 1320px) {
-    .navbar {
-        --navbar-padding: 8px 10px;
-        --nav-brand-logo-size: 38px;
-        --nav-menu-gap: clamp(6px, 0.7vw, 10px);
-        --lang-switcher-gap: 3px;
-        --lang-switcher-padding: 2px 3px;
-        --lang-button-width: 34px;
-        --lang-button-height: 29px;
-        --lang-button-svg-width: 19px;
-        --lang-button-svg-height: 13px;
-        column-gap: clamp(8px, 1vw, 14px);
-    }
-
-    .nav-brand {
-        transform: none;
-    }
-
-    #langSwitcher {
-        transform: none;
-    }
-
-    .brand-text {
-        padding-left: 5px;
-    }
-
-    .brand-text .brand-main {
-        font-size: clamp(0.78rem, 0.74rem + 0.12vw, 0.86rem);
-    }
-
-    .brand-text .brand-sub {
-        font-size: 0.62em;
-        letter-spacing: 0.08em;
-    }
-
-    .nav-link {
-        font-size: clamp(0.64rem, 0.61rem + 0.08vw, 0.72rem);
-        letter-spacing: 0.06em;
     }
 }
 
