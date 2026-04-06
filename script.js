@@ -1538,6 +1538,22 @@ function applyLanguageVariantsForParent(parent, fallbackOrder) {
     flushCurrentGroup();
 }
 
+function syncCurrentPageLinks() {
+    const currentPageCandidates = document.querySelectorAll('[data-nav-current="page"]');
+
+    currentPageCandidates.forEach(function(link) {
+        link.removeAttribute('aria-current');
+    });
+
+    Array.from(currentPageCandidates)
+        .filter(function(link) {
+            return window.getComputedStyle(link).display !== 'none';
+        })
+        .forEach(function(link) {
+            link.setAttribute('aria-current', 'page');
+        });
+}
+
 function applySiteLanguage(lang) {
     if (!isSupportedSiteLanguage(lang)) {
         return;
@@ -1557,6 +1573,8 @@ function applySiteLanguage(lang) {
     parentsWithLanguageVariants.forEach(function(parent) {
         applyLanguageVariantsForParent(parent, fallbackOrder);
     });
+
+    syncCurrentPageLinks();
 
     document.documentElement.setAttribute('lang', lang);
 
