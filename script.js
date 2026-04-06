@@ -394,24 +394,24 @@ const cookieConsentTranslations = {
     de: {
         dialogLabel: 'Cookie-Einwilligungsdialog',
         badgeLabel: 'Cookie-Einstellungen',
-        closeLabel: 'Schliessen',
+        closeLabel: 'Schließen',
         header: 'Diese Webseite verwendet Cookies.',
-        descriptionHtml: 'Wir verwenden Cookies, um Inhalte und Anzeigen zu personalisieren und unseren Datenverkehr zu analysieren. Wir geben Informationen ueber Ihre Nutzung unserer Website auch an unsere Werbe- und Analysepartner weiter, die diese moeglicherweise mit anderen Informationen kombinieren, die Sie ihnen bereitgestellt haben oder die sie im Rahmen Ihrer Nutzung ihrer Dienste gesammelt haben.',
-        descriptionText: 'Wir verwenden Cookies, um Inhalte und Anzeigen zu personalisieren und unseren Datenverkehr zu analysieren. Wir geben Informationen ueber Ihre Nutzung unserer Website auch an unsere Werbe- und Analysepartner weiter, die diese moeglicherweise mit anderen Informationen kombinieren, die Sie ihnen bereitgestellt haben oder die sie im Rahmen Ihrer Nutzung ihrer Dienste gesammelt haben.',
+        descriptionHtml: 'Wir verwenden Cookies, um Inhalte und Anzeigen zu personalisieren und unseren Datenverkehr zu analysieren. Wir geben Informationen über Ihre Nutzung unserer Website auch an unsere Werbe- und Analysepartner weiter, die diese möglicherweise mit anderen Informationen kombinieren, die Sie ihnen bereitgestellt haben oder die sie im Rahmen Ihrer Nutzung ihrer Dienste gesammelt haben.',
+        descriptionText: 'Wir verwenden Cookies, um Inhalte und Anzeigen zu personalisieren und unseren Datenverkehr zu analysieren. Wir geben Informationen über Ihre Nutzung unserer Website auch an unsere Werbe- und Analysepartner weiter, die diese möglicherweise mit anderen Informationen kombinieren, die Sie ihnen bereitgestellt haben oder die sie im Rahmen Ihrer Nutzung ihrer Dienste gesammelt haben.',
         categories: {
             strict: 'Unbedingt erforderlich',
             performance: 'Performance',
             targeting: 'Targeting',
-            functionality: 'Funktionalitaet'
+            functionality: 'Funktionalität'
         },
         categoryDescriptions: {
-            strict: 'Unbedingt erforderliche Cookies ermoeglichen wesentliche Kernfunktionen der Website wie die Benutzeranmeldung und die Kontoverwaltung. Ohne die unbedingt erforderlichen Cookies kann die Website nicht ordnungsgemaess verwendet werden.',
-            performance: 'Performance-Cookies sammeln Informationen darueber, wie Besucher eine Website nutzen, zum Beispiel Analyse-Cookies. Diese Cookies koennen nicht verwendet werden, um einen bestimmten Besucher direkt zu identifizieren.',
-            targeting: 'Targeting-Cookies werden verwendet, um Besucher zwischen verschiedenen Websites zu identifizieren, zum Beispiel Content-Partner oder Banner-Netzwerke. Diese Cookies koennen von Unternehmen verwendet werden, um ein Profil der Besucherinteressen zu erstellen oder relevante Anzeigen auf anderen Websites zu schalten.',
+            strict: 'Unbedingt erforderliche Cookies ermöglichen wesentliche Kernfunktionen der Website wie die Benutzeranmeldung und die Kontoverwaltung. Ohne die unbedingt erforderlichen Cookies kann die Website nicht ordnungsgemäß verwendet werden.',
+            performance: 'Performance-Cookies sammeln Informationen darüber, wie Besucher eine Website nutzen, zum Beispiel Analyse-Cookies. Diese Cookies können nicht verwendet werden, um einen bestimmten Besucher direkt zu identifizieren.',
+            targeting: 'Targeting-Cookies werden verwendet, um Besucher zwischen verschiedenen Websites zu identifizieren, zum Beispiel Content-Partner oder Banner-Netzwerke. Diese Cookies können von Unternehmen verwendet werden, um ein Profil der Besucherinteressen zu erstellen oder relevante Anzeigen auf anderen Websites zu schalten.',
             functionality: 'Funktionale Cookies werden verwendet, um Besucherinformationen auf der Website zu speichern, zum Beispiel Sprache, Zeitzone oder erweiterte Inhalte.'
         },
         buttons: {
-            save: 'Speichern & Schliessen',
+            save: 'Speichern & Schließen',
             accept: 'Alle akzeptieren',
             reject: 'Alle ablehnen'
         },
@@ -423,20 +423,20 @@ const cookieConsentTranslations = {
             badge: 'Cookie-Einstellungen'
         },
         tabs: {
-            declaration: 'Cookie-Erklaerung',
+            declaration: 'Cookie-Erklärung',
             about: 'Informationen zu Cookies'
         },
         table: {
             name: 'Name',
             provider: 'Anbieter',
-            domain: 'Domaene',
+            domain: 'Domäne',
             expiration: 'Ablaufdatum',
             description: 'Beschreibung'
         },
         about: {
-            introHtml: 'Cookies sind kleine Textdateien, die auf Ihrem Computer abgelegt werden, wenn Sie bestimmte Websites besuchen. Websites verwenden Cookies, um Benutzern das Navigieren auf einer Website zu erleichtern und das Ausfuehren bestimmter Funktionen zu ermoeglichen. Cookies, die fuer den ordnungsgemaessen Betrieb der Website erforderlich sind, duerfen ohne Ihre Einwilligung gesetzt werden. Allen anderen Cookies muss erst zugestimmt werden, bevor sie im Browser gesetzt werden koennen.<br>Sie koennen Ihre Einwilligung zur Verwendung von Cookies auf unserer Website jederzeit in der Datenschutzerklaerung aendern.',
-            introText: 'Cookies sind kleine Textdateien, die auf Ihrem Computer abgelegt werden, wenn Sie bestimmte Websites besuchen. Websites verwenden Cookies, um Benutzern das Navigieren auf einer Website zu erleichtern und das Ausfuehren bestimmter Funktionen zu ermoeglichen. Cookies, die fuer den ordnungsgemaessen Betrieb der Website erforderlich sind, duerfen ohne Ihre Einwilligung gesetzt werden. Allen anderen Cookies muss erst zugestimmt werden, bevor sie im Browser gesetzt werden koennen. Sie koennen Ihre Einwilligung zur Verwendung von Cookies auf unserer Website jederzeit in der Datenschutzerklaerung aendern.',
-            adsHtml: 'Wir verwenden auch Cookies, um Daten zum Zweck der Personalisierung und Messung der Effektivitaet unserer Werbung zu sammeln. Weitere Informationen finden Sie in der <a href="https://business.safety.google/privacy/" target="_blank">Google-Datenschutzerklaerung</a>.',
+            introHtml: 'Cookies sind kleine Textdateien, die auf Ihrem Computer abgelegt werden, wenn Sie bestimmte Websites besuchen. Websites verwenden Cookies, um Benutzern das Navigieren auf einer Website zu erleichtern und das Ausführen bestimmter Funktionen zu ermöglichen. Cookies, die für den ordnungsgemäßen Betrieb der Website erforderlich sind, dürfen ohne Ihre Einwilligung gesetzt werden. Allen anderen Cookies muss erst zugestimmt werden, bevor sie im Browser gesetzt werden können.<br>Sie können Ihre Einwilligung zur Verwendung von Cookies auf unserer Website jederzeit in der Datenschutzerklärung ändern.',
+            introText: 'Cookies sind kleine Textdateien, die auf Ihrem Computer abgelegt werden, wenn Sie bestimmte Websites besuchen. Websites verwenden Cookies, um Benutzern das Navigieren auf einer Website zu erleichtern und das Ausführen bestimmter Funktionen zu ermöglichen. Cookies, die für den ordnungsgemäßen Betrieb der Website erforderlich sind, dürfen ohne Ihre Einwilligung gesetzt werden. Allen anderen Cookies muss erst zugestimmt werden, bevor sie im Browser gesetzt werden können. Sie können Ihre Einwilligung zur Verwendung von Cookies auf unserer Website jederzeit in der Datenschutzerklärung ändern.',
+            adsHtml: 'Wir verwenden auch Cookies, um Daten zum Zweck der Personalisierung und Messung der Effektivität unserer Werbung zu sammeln. Weitere Informationen finden Sie in der <a href="https://business.safety.google/privacy/" target="_blank">Google-Datenschutzerklärung</a>.',
             consentId: 'Cookie-Zustimmungs-ID'
         }
     },

@@ -14,7 +14,7 @@
 
 @media (min-width: 1200px) {
     #langSwitcher {
-        padding-right: 2.5vw;
+        padding-right: 0;
     }
 }
 
@@ -36,7 +36,7 @@
     }
 
     .nav-brand {
-        margin-right: clamp(20px, 2.4vw, 34px);
+        margin-right: 0;
         padding: 0;
         background: transparent;
         border: 0;
@@ -62,7 +62,7 @@
     }
 
     .nav-menu {
-        justify-content: flex-start;
+        justify-content: center;
     }
 
     .nav-link {
@@ -136,6 +136,7 @@
 
 .brand-text .brand-main {
     display: block;
+    white-space: nowrap;
 }
 
 .brand-text .brand-sub {
@@ -147,6 +148,56 @@
     color: #fff;
     opacity: 0.72;
     text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.brand-tagline {
+    display: none;
+    margin-top: 0.18rem;
+    font-size: 0.48em;
+    font-weight: 560;
+    letter-spacing: 0.08em;
+    line-height: 1.12;
+    color: rgba(127, 232, 219, 0.9);
+    text-transform: none;
+    white-space: nowrap;
+}
+
+@media (min-width: 1025px) {
+    .brand-text {
+        display: grid;
+        gap: 0.16rem;
+        padding-left: 10px;
+        padding-right: 0;
+        line-height: 0.98;
+        text-shadow: none;
+    }
+
+    .brand-text .brand-main {
+        font-size: clamp(0.94rem, 0.8rem + 0.22vw, 1.06rem);
+        font-weight: 640;
+        letter-spacing: -0.03em;
+    }
+
+    .brand-text .brand-sub {
+        margin-top: 0.12rem;
+        font-size: 0.68em;
+        font-weight: 620;
+        letter-spacing: 0.12em;
+        opacity: 0.62;
+    }
+}
+
+@media (min-width: 1561px) {
+    .brand-tagline {
+        display: block;
+    }
+}
+
+@media (max-width: 1560px) {
+    .brand-tagline {
+        display: none !important;
+    }
 }
 
 @media (max-width: 600px) {
@@ -207,21 +258,21 @@
 }
 
 .subpage-topbar__inner {
-    width: min(94vw, 1240px);
+    width: min(96vw, 1280px);
     margin: 0 auto;
     position: relative;
     z-index: 1;
-    padding: 14px 0;
-    display: flex;
+    padding: 16px 0;
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
     align-items: center;
-    justify-content: space-between;
-    gap: var(--subpage-topbar-gap);
+    column-gap: clamp(18px, 2.2vw, 34px);
 }
 
 .subpage-topbar__brand {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: clamp(10px, 1vw, 14px);
     flex: 0 1 auto;
     min-width: 0;
     color: var(--subpage-topbar-brand);
@@ -229,8 +280,8 @@
 }
 
 .subpage-topbar__brand img {
-    width: 42px;
-    height: 42px;
+    width: 46px;
+    height: 46px;
     object-fit: contain;
     flex: 0 0 auto;
 }
@@ -243,7 +294,7 @@
 
 .subpage-topbar__brand-title {
     font-family: var(--font-ui-modern);
-    font-size: clamp(0.98rem, 0.92rem + 0.24vw, 1.08rem);
+    font-size: clamp(1rem, 0.94rem + 0.24vw, 1.14rem);
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.02;
@@ -251,7 +302,7 @@
 
 .subpage-topbar__brand-subtitle {
     color: var(--subpage-topbar-muted);
-    font-size: 0.82rem;
+    font-size: clamp(0.8rem, 0.76rem + 0.08vw, 0.86rem);
     font-weight: 650;
     line-height: 1.32;
     letter-spacing: 0.01em;
@@ -259,27 +310,34 @@
 
 .subpage-topbar__links {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
-    justify-content: flex-end;
-    gap: 6px;
+    justify-content: flex-start;
+    gap: clamp(6px, 0.8vw, 12px);
     flex: 0 1 auto;
+    min-width: 0;
     max-width: 100%;
-    padding: 4px;
+    padding: 5px;
     border: 1px solid rgba(18, 62, 70, 0.08);
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.54);
 }
 
 .subpage-topbar__actions {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: minmax(0, max-content) max-content;
     align-items: center;
     justify-content: flex-end;
-    flex: 0 1 auto;
+    justify-self: end;
+    width: 100%;
     max-width: 100%;
-    margin-left: auto;
-    gap: 12px;
+    margin-left: 0;
+    column-gap: clamp(12px, 1.2vw, 20px);
+}
+
+.subpage-topbar #langSwitcher {
+    margin-left: 0;
+    justify-self: end;
 }
 
 .subpage-language-switch {
@@ -318,8 +376,8 @@
 
 .subpage-topbar__link {
     --cta-min-height: 40px;
-    --cta-padding: 9px 13px;
-    --cta-font-size: 0.9rem;
+    --cta-padding: 10px 18px;
+    --cta-font-size: 0.92rem;
     --cta-bg: rgba(255, 255, 255, 0.72);
     --cta-bg-hover: rgba(127, 232, 219, 0.18);
     --cta-color: #163c44;
@@ -358,18 +416,45 @@
     --cta-shadow-hover: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1180px) {
     .subpage-topbar__inner {
-        flex-direction: column;
-        align-items: stretch;
+        width: min(96vw, 1180px);
+        column-gap: clamp(14px, 1.8vw, 24px);
     }
 
     .subpage-topbar__actions {
-        justify-content: flex-start;
-        flex-basis: auto;
+        column-gap: 12px;
     }
 
     .subpage-topbar__links {
+        gap: 6px;
+        padding: 4px;
+    }
+
+    .subpage-topbar__link {
+        --cta-padding: 9px 14px;
+        --cta-font-size: 0.88rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .subpage-topbar__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+    }
+
+    .subpage-topbar__actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        flex-basis: auto;
+        width: 100%;
+    }
+
+    .subpage-topbar__links {
+        flex-wrap: wrap;
         justify-content: flex-start;
         width: 100%;
     }
@@ -535,22 +620,50 @@
     border-color: var(--nav-brand-scrolled-border-color);
 }
 
+.navbar.navbar-scrolled .nav-brand {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
 .navbar.navbar-scrolled .nav-brand,
 .navbar.navbar-scrolled #langSwitcher {
     box-shadow: none;
 }
 
 @media (min-width: 1025px) {
+    .navbar {
+        display: grid;
+        grid-template-columns: max-content minmax(0, 1fr) max-content;
+        column-gap: clamp(18px, 2.1vw, 34px);
+        justify-content: stretch;
+        align-items: center;
+    }
+
     .navbar.navbar-scrolled {
         --nav-brand-logo-size: clamp(38px, 2.3vw, 46px);
     }
 
     .nav-brand {
+        grid-column: 1;
         flex: 0 0 auto;
-        margin-right: 2vw;
+        margin-right: 0;
+        justify-self: start;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .navbar.navbar-scrolled .nav-brand {
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
     }
 
     .nav-menu {
+        grid-column: 2;
         flex: 1 1 auto;
         display: flex;
         --interaction-transform: translateZ(0);
@@ -559,6 +672,8 @@
         align-items: center;
         gap: var(--nav-menu-gap);
         width: 100%;
+        min-width: 0;
+        margin: 0 auto;
         padding: var(--nav-menu-padding);
     }
 
@@ -584,8 +699,10 @@
     }
 
     #langSwitcher {
+        grid-column: 3;
         flex: 0 0 auto;
-        margin-left: auto;
+        margin-left: 0;
+        justify-self: end;
     }
 }
 
@@ -596,10 +713,10 @@
     min-width: 0;
     padding: var(--nav-brand-padding);
     flex-shrink: 1;
-    background: var(--nav-brand-bg);
-    border: 1px solid var(--nav-brand-border-color);
-    border-radius: 999px;
-    box-shadow: var(--nav-brand-shadow);
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
     transition: background 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, padding 0.28s ease;
 }
 
@@ -978,6 +1095,114 @@ html[lang="uk"] #langUk {
     .brand-text .brand-sub {
         margin-top: 0.24em;
         letter-spacing: 0.11em;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1560px) {
+    .navbar {
+        --navbar-gap: 10px;
+        --navbar-padding: 9px clamp(12px, 1.55vw, 24px);
+        --nav-brand-gap: clamp(6px, 0.8vw, 10px);
+        --nav-brand-logo-size: clamp(38px, 2.1vw, 44px);
+        --nav-brand-logo-min-size: 36px;
+        --nav-menu-gap: clamp(8px, 0.95vw, 16px);
+        --nav-link-padding: 0.56em 0 0.7em;
+        --nav-link-letter-spacing: 0.07em;
+        --lang-switcher-gap: clamp(2px, 0.28vw, 5px);
+        --lang-switcher-padding: 2px clamp(3px, 0.35vw, 5px);
+        --lang-button-width: clamp(32px, 2.15vw, 36px);
+        --lang-button-height: clamp(28px, 1.9vw, 31px);
+        --lang-button-svg-width: clamp(18px, 1.15vw, 20px);
+        --lang-button-svg-height: clamp(12px, 0.8vw, 13px);
+        column-gap: clamp(10px, 1.5vw, 22px);
+    }
+
+    .nav-menu {
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: var(--nav-menu-gap);
+        padding: 2px 0 0;
+    }
+
+    .mobile-menu-btn {
+        display: none;
+    }
+
+    .nav-brand {
+        transform: none;
+    }
+
+    #langSwitcher {
+        transform: none;
+        margin-right: clamp(2px, 0.35vw, 8px);
+    }
+
+    .brand-text {
+        display: grid;
+        gap: 0.1rem;
+        padding-left: 6px;
+        font-size: clamp(0.72rem, 0.68rem + 0.18vw, 0.86rem);
+        line-height: 0.98;
+        text-shadow: none;
+    }
+
+    .brand-text .brand-main {
+        font-size: clamp(0.84rem, 0.8rem + 0.14vw, 0.96rem);
+        letter-spacing: -0.03em;
+    }
+
+    .brand-text .brand-sub {
+        margin-top: 0.08rem;
+        font-size: 0.64em;
+        letter-spacing: 0.09em;
+        opacity: 0.68;
+    }
+
+    .nav-link {
+        font-size: clamp(0.68rem, 0.65rem + 0.12vw, 0.78rem);
+        letter-spacing: 0.07em;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1320px) {
+    .navbar {
+        --navbar-padding: 8px 10px;
+        --nav-brand-logo-size: 38px;
+        --nav-menu-gap: clamp(6px, 0.7vw, 10px);
+        --lang-switcher-gap: 3px;
+        --lang-switcher-padding: 2px 3px;
+        --lang-button-width: 34px;
+        --lang-button-height: 29px;
+        --lang-button-svg-width: 19px;
+        --lang-button-svg-height: 13px;
+        column-gap: clamp(8px, 1vw, 14px);
+    }
+
+    .nav-brand {
+        transform: none;
+    }
+
+    #langSwitcher {
+        transform: none;
+    }
+
+    .brand-text {
+        padding-left: 5px;
+    }
+
+    .brand-text .brand-main {
+        font-size: clamp(0.78rem, 0.74rem + 0.12vw, 0.86rem);
+    }
+
+    .brand-text .brand-sub {
+        font-size: 0.62em;
+        letter-spacing: 0.08em;
+    }
+
+    .nav-link {
+        font-size: clamp(0.64rem, 0.61rem + 0.08vw, 0.72rem);
+        letter-spacing: 0.06em;
     }
 }
 
