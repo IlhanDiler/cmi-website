@@ -70,7 +70,7 @@ function initEventLightbox() {
         de: { kicker: 'Konzertplakat' },
         en: { kicker: 'Concert Poster' },
         fr: { kicker: 'Affiche du concert' },
-        ln: { kicker: 'Elilingi ya konser' },
+        ln: { kicker: 'Affiche ya konser' },
         it: { kicker: 'Manifesto del concerto' },
         tr: { kicker: 'Konser afişi' },
         uk: { kicker: 'Афіша концерту' }
@@ -280,7 +280,7 @@ const heroGalleryUiLabels = {
         image: 'Elilingi',
         previous: 'Elilingi ya liboso',
         next: 'Elilingi oyo elandi',
-        pagination: 'Pagination ya galerie ya hero'
+        pagination: 'Pagination ya galerie ya liboso'
     },
     it: {
         image: 'Immagine',
