@@ -291,7 +291,7 @@
     -ms-hyphens: auto;
     overflow-wrap: break-word;
     word-spacing: normal;
-    text-wrap: pretty;
+    text-wrap: auto;
 }
 
 .timeline-list {
