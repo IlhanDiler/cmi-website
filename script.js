@@ -1477,6 +1477,20 @@ function getLanguageVariantSignature(element) {
     return [element.tagName, normalizedClassName].join('|');
 }
 
+function syncLangAttributesFromDataLang() {
+    document.querySelectorAll('[data-lang]').forEach(function(element) {
+        const elementLanguage = element.getAttribute('data-lang');
+
+        if (!isSupportedSiteLanguage(elementLanguage)) {
+            return;
+        }
+
+        if (element.getAttribute('lang') !== elementLanguage) {
+            element.setAttribute('lang', elementLanguage);
+        }
+    });
+}
+
 function applyLanguageVariantsForParent(parent, fallbackOrder) {
     let currentGroup = [];
     let currentSignature = '';
@@ -1528,6 +1542,8 @@ function applySiteLanguage(lang) {
     if (!isSupportedSiteLanguage(lang)) {
         return;
     }
+
+    syncLangAttributesFromDataLang();
 
     const fallbackOrder = getSiteLanguageFallbackOrder(lang);
     const parentsWithLanguageVariants = new Set();
