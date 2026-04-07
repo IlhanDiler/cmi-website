@@ -1871,31 +1871,39 @@ function syncLanguageSwitcherAccessibility(lang) {
     });
 }
 
+function setAriaLabelForElements(selector, label) {
+    document.querySelectorAll(selector).forEach(function(element) {
+        element.setAttribute('aria-label', label);
+    });
+}
+
+function syncMobileMenuButtonAccessibility(mobileMenuButton, labels) {
+    if (!mobileMenuButton) {
+        return;
+    }
+
+    const isMenuExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+    mobileMenuButton.setAttribute('aria-label', isMenuExpanded ? labels.closeMenu : labels.openMenu);
+}
+
+function syncMobileMenuAccessibility(mobileMenu, labels) {
+    if (!mobileMenu) {
+        return;
+    }
+
+    mobileMenu.setAttribute('aria-label', labels.mobileNavigation);
+}
+
 function syncNavigationAccessibility(lang) {
     const labels = getNavigationUiLabelSet(lang);
     const mobileMenuButton = document.querySelector('.mobile-menu-btn');
     const mobileMenu = document.querySelector('.mobile-menu');
-    const isMenuExpanded = mobileMenuButton && mobileMenuButton.getAttribute('aria-expanded') === 'true';
 
-    document.querySelectorAll('.navbar').forEach(function(navbar) {
-        navbar.setAttribute('aria-label', labels.mainNavigation);
-    });
-
-    document.querySelectorAll('.subpage-topbar__links').forEach(function(navigation) {
-        navigation.setAttribute('aria-label', labels.subpageNavigation);
-    });
-
-    document.querySelectorAll('.language-switch, #langSwitcher').forEach(function(languageSwitcher) {
-        languageSwitcher.setAttribute('aria-label', labels.languageSwitcher);
-    });
-
-    if (mobileMenuButton) {
-        mobileMenuButton.setAttribute('aria-label', isMenuExpanded ? labels.closeMenu : labels.openMenu);
-    }
-
-    if (mobileMenu) {
-        mobileMenu.setAttribute('aria-label', labels.mobileNavigation);
-    }
+    setAriaLabelForElements('.navbar', labels.mainNavigation);
+    setAriaLabelForElements('.subpage-topbar__links', labels.subpageNavigation);
+    setAriaLabelForElements('.language-switch, #langSwitcher', labels.languageSwitcher);
+    syncMobileMenuButtonAccessibility(mobileMenuButton, labels);
+    syncMobileMenuAccessibility(mobileMenu, labels);
 
     syncLanguageSwitcherAccessibility(lang);
 }
