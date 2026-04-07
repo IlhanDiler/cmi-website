@@ -732,11 +732,29 @@ function syncLegalOverviewAccessibility() {
     });
 }
 
+function syncFooterNavigationAccessibility() {
+    document.querySelectorAll('.site-footer__nav').forEach(function(navigationBlock) {
+        const label = getFirstVisibleText(
+            navigationBlock,
+            '.site-footer__nav-title[data-lang], .site-footer__nav-title'
+        );
+
+        navigationBlock.setAttribute('role', 'navigation');
+
+        if (!label) {
+            return;
+        }
+
+        navigationBlock.setAttribute('aria-label', label);
+    });
+}
+
 function syncStaticContentAccessibility() {
     syncDecorativeContentAccessibility();
     syncAnniversaryVideoAccessibility();
     syncEventShareButtonAccessibility();
     syncLegalOverviewAccessibility();
+    syncFooterNavigationAccessibility();
 
     if (typeof syncEventLightboxStaticAccessibility === 'function') {
         syncEventLightboxStaticAccessibility();
