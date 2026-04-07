@@ -638,6 +638,95 @@ function syncNavigationAccessibility(lang) {
     syncLanguageSwitcherAccessibility(lang);
 }
 
+function getFirstVisibleText(container, selector) {
+    if (!container) {
+        return '';
+    }
+
+    const matchingNode = Array.from(container.querySelectorAll(selector)).find(function(node) {
+        return window.getComputedStyle(node).display !== 'none';
+    });
+
+    if (!matchingNode) {
+        return '';
+    }
+
+    return matchingNode.textContent.replace(/\s+/g, ' ').trim();
+}
+
+function syncAnniversaryVideoAccessibility() {
+    const videoCard = document.querySelector('.image-caption-video-card');
+    if (!videoCard) {
+        return;
+    }
+
+    const videoLink = videoCard.querySelector('.image-caption-card-link');
+    if (!videoLink) {
+        return;
+    }
+
+    const labelParts = [
+        getFirstVisibleText(videoCard, '.image-caption-video-kicker[data-lang], .image-caption-video-kicker'),
+        getFirstVisibleText(videoCard, '.image-caption-video-title[data-lang], .image-caption-video-title'),
+        getFirstVisibleText(videoCard, '.image-caption-card-footer[data-lang], .image-caption-card-footer')
+    ].filter(Boolean);
+    const accessibilityLabel = labelParts.join(' - ');
+    const playBadge = videoCard.querySelector('.image-caption-card-play');
+
+    if (playBadge) {
+        playBadge.setAttribute('aria-hidden', 'true');
+    }
+
+    if (!accessibilityLabel) {
+        return;
+    }
+
+    videoLink.setAttribute('aria-label', accessibilityLabel);
+    videoLink.setAttribute('title', accessibilityLabel);
+}
+
+function getAccessibleEventTitle(container) {
+    return getFirstVisibleText(
+        container,
+        '.event-headline[data-lang], .charity-title[data-lang], .event-title[data-lang], .event-headline, .charity-title, .event-title'
+    );
+}
+
+function syncEventShareButtonAccessibility() {
+    document.querySelectorAll('.event-social-actions').forEach(function(actionGroup) {
+        const contentRoot = actionGroup.closest('.event-card, .charity-projects-section, .review-featured, article, section') || actionGroup.parentElement;
+        const title = getAccessibleEventTitle(contentRoot);
+
+        actionGroup.querySelectorAll('.event-social-button').forEach(function(button) {
+            const platform = button.classList.contains('event-social-button--whatsapp')
+                ? 'WhatsApp'
+                : button.classList.contains('event-social-button--instagram')
+                    ? 'Instagram'
+                    : 'Social';
+            const accessibilityLabel = title ? `${platform}: ${title}` : platform;
+
+            button.setAttribute('aria-label', accessibilityLabel);
+            button.setAttribute('title', accessibilityLabel);
+        });
+    });
+}
+
+function syncDecorativeContentAccessibility() {
+    document.querySelectorAll('.music-family-benefit-check').forEach(function(checkmark) {
+        checkmark.setAttribute('aria-hidden', 'true');
+    });
+}
+
+function syncStaticContentAccessibility() {
+    syncDecorativeContentAccessibility();
+    syncAnniversaryVideoAccessibility();
+    syncEventShareButtonAccessibility();
+
+    if (typeof syncEventLightboxStaticAccessibility === 'function') {
+        syncEventLightboxStaticAccessibility();
+    }
+}
+
 function syncInPageNavigationState(activeSectionId) {
     const inPageNavigationLinks = getHomepageNavigationLinks();
 
@@ -752,6 +841,8 @@ function applySiteLanguage(lang) {
     try {
         localStorage.setItem('siteLang', lang);
     } catch (e) {}
+
+    syncStaticContentAccessibility();
 
     if (typeof refreshHeroGalleryUi === 'function') {
         refreshHeroGalleryUi();

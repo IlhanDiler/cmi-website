@@ -6,18 +6,28 @@ function initEventLightbox() {
     const lightboxCaptionTitle = document.getElementById('eventLightboxCaptionTitle');
     const lightboxCaptionMeta = document.getElementById('eventLightboxCaptionMeta');
     const lightboxLanguageLabels = {
-        de: { kicker: 'Konzertplakat', fallbackTitle: 'Eventbild' },
-        en: { kicker: 'Concert Poster', fallbackTitle: 'Event image' },
-        fr: { kicker: 'Affiche du concert', fallbackTitle: 'Image de l\'evenement' },
-        ln: { kicker: 'Affiche ya konser', fallbackTitle: 'Elilingi ya event' },
-        it: { kicker: 'Manifesto del concerto', fallbackTitle: 'Immagine dell\'evento' },
-        tr: { kicker: 'Konser afişi', fallbackTitle: 'Etkinlik görseli' },
-        uk: { kicker: 'Афіша концерту', fallbackTitle: 'Зображення події' }
+        de: { kicker: 'Konzertplakat', fallbackTitle: 'Eventbild', closeLabel: 'Vollansicht schließen' },
+        en: { kicker: 'Concert Poster', fallbackTitle: 'Event image', closeLabel: 'Close full view' },
+        fr: { kicker: 'Affiche du concert', fallbackTitle: 'Image de l\'evenement', closeLabel: 'Fermer la vue agrandie' },
+        ln: { kicker: 'Affiche ya konser', fallbackTitle: 'Elilingi ya event', closeLabel: 'Kanga emoniseli monene' },
+        it: { kicker: 'Manifesto del concerto', fallbackTitle: 'Immagine dell\'evento', closeLabel: 'Chiudi la vista ingrandita' },
+        tr: { kicker: 'Konser afişi', fallbackTitle: 'Etkinlik görseli', closeLabel: 'Tam görünümü kapat' },
+        uk: { kicker: 'Афіша концерту', fallbackTitle: 'Зображення події', closeLabel: 'Закрити повний перегляд' }
     };
     let lastTrigger = null;
 
     if (!lightboxModal || !lightboxImg) {
         return;
+    }
+
+    function syncEventLightboxStaticAccessibility(language) {
+        const activeLanguage = language || getCurrentSiteLanguage();
+        const labelSet = lightboxLanguageLabels[activeLanguage] || lightboxLanguageLabels.de;
+
+        if (lightboxCloseBtn) {
+            lightboxCloseBtn.setAttribute('aria-label', labelSet.closeLabel);
+            lightboxCloseBtn.setAttribute('title', labelSet.closeLabel);
+        }
     }
 
     function getVisibleNodeText(container, selector) {
@@ -85,6 +95,7 @@ function initEventLightbox() {
         const labelSet = lightboxLanguageLabels[caption.language] || lightboxLanguageLabels.de;
         const fallbackTitle = caption.title || image.alt || labelSet.fallbackTitle;
 
+        syncEventLightboxStaticAccessibility(caption.language);
         lightboxImg.alt = image.alt || caption.title || labelSet.fallbackTitle;
         if (lightboxCaptionKicker) {
             lightboxCaptionKicker.textContent = labelSet.kicker;
@@ -153,5 +164,7 @@ function initEventLightbox() {
         }
     });
 
+    window.syncEventLightboxStaticAccessibility = syncEventLightboxStaticAccessibility;
+    syncEventLightboxStaticAccessibility();
     lightboxModal.setAttribute('aria-hidden', 'true');
 }
