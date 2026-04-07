@@ -251,6 +251,30 @@ const navigationUiLabels = {
     }
 };
 
+const eventShareUiLabels = {
+    de: {
+        share: 'Teilen'
+    },
+    en: {
+        share: 'Share'
+    },
+    fr: {
+        share: 'Partager'
+    },
+    ln: {
+        share: 'Kabola'
+    },
+    it: {
+        share: 'Condividi'
+    },
+    tr: {
+        share: 'Paylas'
+    },
+    uk: {
+        share: 'Поділитися'
+    }
+};
+
 function isSupportedSiteLanguage(lang) {
     return supportedSiteLanguages.has(lang);
 }
@@ -693,16 +717,23 @@ function getAccessibleEventTitle(container) {
 }
 
 function syncEventShareButtonAccessibility() {
+    const language = getCurrentSiteLanguage();
+    const labels = eventShareUiLabels[language] || eventShareUiLabels.de;
+
     document.querySelectorAll('.event-social-actions').forEach(function(actionGroup) {
         const contentRoot = actionGroup.closest('.event-card, .charity-projects-section, .review-featured, article, section') || actionGroup.parentElement;
         const title = getAccessibleEventTitle(contentRoot);
+        const groupLabel = title ? `${labels.share}: ${title}` : labels.share;
+
+        actionGroup.setAttribute('role', 'group');
+        actionGroup.setAttribute('aria-label', groupLabel);
 
         actionGroup.querySelectorAll('.event-social-button').forEach(function(button) {
             const platform = button.classList.contains('event-social-button--whatsapp')
                 ? 'WhatsApp'
                 : button.classList.contains('event-social-button--instagram')
                     ? 'Instagram'
-                    : 'Social';
+                    : labels.share;
             const accessibilityLabel = title ? `${platform}: ${title}` : platform;
 
             button.setAttribute('aria-label', accessibilityLabel);
