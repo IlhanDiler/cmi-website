@@ -749,6 +749,11 @@ function syncDecorativeContentAccessibility() {
     document.querySelectorAll('.music-family-benefit-check').forEach(function(checkmark) {
         checkmark.setAttribute('aria-hidden', 'true');
     });
+
+    document.querySelectorAll('.event-social-button svg, .image-caption-card-play svg').forEach(function(svg) {
+        svg.setAttribute('aria-hidden', 'true');
+        svg.setAttribute('focusable', 'false');
+    });
 }
 
 function syncLegalOverviewAccessibility() {
