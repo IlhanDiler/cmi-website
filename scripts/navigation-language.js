@@ -199,7 +199,8 @@ const navigationUiLabels = {
         mobileNavigation: 'Mobile Navigation',
         languageSwitcher: 'Sprache wählen',
         openMenu: 'Menü öffnen',
-        closeMenu: 'Menü schließen'
+        closeMenu: 'Menü schließen',
+        opensInNewWindow: 'öffnet in neuem Fenster'
     },
     en: {
         mainNavigation: 'Main navigation',
@@ -207,7 +208,8 @@ const navigationUiLabels = {
         mobileNavigation: 'Mobile navigation',
         languageSwitcher: 'Choose language',
         openMenu: 'Open menu',
-        closeMenu: 'Close menu'
+        closeMenu: 'Close menu',
+        opensInNewWindow: 'opens in new window'
     },
     fr: {
         mainNavigation: 'Navigation principale',
@@ -215,7 +217,8 @@ const navigationUiLabels = {
         mobileNavigation: 'Navigation mobile',
         languageSwitcher: 'Choisir la langue',
         openMenu: 'Ouvrir le menu',
-        closeMenu: 'Fermer le menu'
+        closeMenu: 'Fermer le menu',
+        opensInNewWindow: 's’ouvre dans une nouvelle fenêtre'
     },
     ln: {
         mainNavigation: 'Navigation ya monene',
@@ -223,7 +226,8 @@ const navigationUiLabels = {
         mobileNavigation: 'Navigation ya telefone',
         languageSwitcher: 'Pona lokota',
         openMenu: 'Fungola menu',
-        closeMenu: 'Kanga menu'
+        closeMenu: 'Kanga menu',
+        opensInNewWindow: 'efungwami na lininisa ya sika'
     },
     it: {
         mainNavigation: 'Navigazione principale',
@@ -231,7 +235,8 @@ const navigationUiLabels = {
         mobileNavigation: 'Navigazione mobile',
         languageSwitcher: 'Scegli la lingua',
         openMenu: 'Apri il menu',
-        closeMenu: 'Chiudi il menu'
+        closeMenu: 'Chiudi il menu',
+        opensInNewWindow: 'si apre in una nuova finestra'
     },
     tr: {
         mainNavigation: 'Ana gezinme',
@@ -239,7 +244,8 @@ const navigationUiLabels = {
         mobileNavigation: 'Mobil gezinme',
         languageSwitcher: 'Dil seç',
         openMenu: 'Menüyü aç',
-        closeMenu: 'Menüyü kapat'
+        closeMenu: 'Menüyü kapat',
+        opensInNewWindow: 'yeni pencerede açılır'
     },
     uk: {
         mainNavigation: 'Головна навігація',
@@ -247,31 +253,39 @@ const navigationUiLabels = {
         mobileNavigation: 'Мобільна навігація',
         languageSwitcher: 'Оберіть мову',
         openMenu: 'Відкрити меню',
-        closeMenu: 'Закрити меню'
+        closeMenu: 'Закрити меню',
+        opensInNewWindow: 'відкривається в новому вікні'
     }
 };
 
 const eventShareUiLabels = {
     de: {
-        share: 'Teilen'
+        share: 'Teilen',
+        opensInNewWindow: 'öffnet in neuem Fenster'
     },
     en: {
-        share: 'Share'
+        share: 'Share',
+        opensInNewWindow: 'opens in new window'
     },
     fr: {
-        share: 'Partager'
+        share: 'Partager',
+        opensInNewWindow: 's’ouvre dans une nouvelle fenêtre'
     },
     ln: {
-        share: 'Kabola'
+        share: 'Kabola',
+        opensInNewWindow: 'efungwami na lininisa ya sika'
     },
     it: {
-        share: 'Condividi'
+        share: 'Condividi',
+        opensInNewWindow: 'si apre in una nuova finestra'
     },
     tr: {
-        share: 'Paylas'
+        share: 'Paylas',
+        opensInNewWindow: 'yeni pencerede açılır'
     },
     uk: {
-        share: 'Поділитися'
+        share: 'Поділитися',
+        opensInNewWindow: 'відкривається в новому вікні'
     }
 };
 
@@ -682,6 +696,7 @@ function getFirstVisibleText(container, selector) {
 }
 
 function syncAnniversaryVideoAccessibility() {
+    const labels = getNavigationUiLabelSet(getCurrentSiteLanguage());
     const videoCard = document.querySelector('.image-caption-video-card');
     if (!videoCard) {
         return;
@@ -698,18 +713,19 @@ function syncAnniversaryVideoAccessibility() {
         getFirstVisibleText(videoCard, '.image-caption-card-footer[data-lang], .image-caption-card-footer')
     ].filter(Boolean);
     const accessibilityLabel = labelParts.join(' - ');
+    const announcedLabel = accessibilityLabel ? `${accessibilityLabel} (${labels.opensInNewWindow})` : '';
     const playBadge = videoCard.querySelector('.image-caption-card-play');
 
     if (playBadge) {
         playBadge.setAttribute('aria-hidden', 'true');
     }
 
-    if (!accessibilityLabel) {
+    if (!announcedLabel) {
         return;
     }
 
-    videoLink.setAttribute('aria-label', accessibilityLabel);
-    videoLink.setAttribute('title', accessibilityLabel);
+    videoLink.setAttribute('aria-label', announcedLabel);
+    videoLink.setAttribute('title', announcedLabel);
 }
 
 function getAccessibleEventTitle(container) {
@@ -737,7 +753,8 @@ function syncEventShareButtonAccessibility() {
                 : button.classList.contains('event-social-button--instagram')
                     ? 'Instagram'
                     : labels.share;
-            const accessibilityLabel = title ? `${platform}: ${title}` : platform;
+            const baseLabel = title ? `${platform}: ${title}` : platform;
+            const accessibilityLabel = `${baseLabel} (${labels.opensInNewWindow})`;
 
             button.setAttribute('aria-label', accessibilityLabel);
             button.setAttribute('title', accessibilityLabel);
