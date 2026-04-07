@@ -1229,7 +1229,7 @@ function initMobileNavigation() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-    const inPageLinks = document.querySelectorAll('a[href^="#"]:not(.skip-link)');
+    const inPageLinks = document.querySelectorAll(smoothScrollLinkSelector);
     let lastMenuTrigger = null;
 
     function getVisibleMobileMenuLinks() {
@@ -1260,6 +1260,22 @@ function initMobileNavigation() {
                 targetSection.removeAttribute('tabindex');
             }, { once: true });
         }
+    }
+
+    function scrollToSectionTarget(targetSection) {
+        if (!targetSection) {
+            return;
+        }
+
+        const navbar = document.querySelector('.navbar');
+        const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
+        const targetTop = Math.max(0, targetSection.offsetTop - navbarHeight - 12);
+
+        clearCurrentHash();
+        window.scrollTo({
+            top: targetTop,
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+        });
     }
 
     function syncMobileMenuState(isOpen, options) {
@@ -1396,11 +1412,7 @@ function initMobileNavigation() {
             event.preventDefault();
             closeMobileMenu();
             focusNavigationTarget(targetSection);
-            clearCurrentHash();
-            window.scrollTo({
-                top: targetSection.offsetTop - 80,
-                behavior: 'smooth'
-            });
+            scrollToSectionTarget(targetSection);
         });
     });
 }
@@ -1487,6 +1499,12 @@ function updateYearsPassed() {
 
 const supportedSiteLanguages = new Set(['de', 'en', 'fr', 'ln', 'it', 'tr', 'uk']);
 const mbondaTimelineLinkSelector = '.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]';
+const homepageNavigationLinkSelector = '.nav-link[href^="#"], .mobile-nav-link[href^="#"]';
+const smoothScrollLinkSelector = [
+    homepageNavigationLinkSelector,
+    '.contact-info-secondary-link[href^="#"]',
+    '.site-footer__link[href^="#"]'
+].join(', ');
 const languageButtonLanguageMap = {
     langDe: 'de',
     langEn: 'en',
@@ -1799,7 +1817,7 @@ function syncInPageNavigationState(activeSectionId) {
 }
 
 function initHomepageNavigationWayfinding() {
-    const homepageNavigationLinks = Array.from(document.querySelectorAll('.nav-link[href^="#"], .mobile-nav-link[href^="#"]'));
+    const homepageNavigationLinks = Array.from(document.querySelectorAll(homepageNavigationLinkSelector));
 
     if (!homepageNavigationLinks.length) {
         return;
