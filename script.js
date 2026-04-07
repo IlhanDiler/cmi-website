@@ -1310,55 +1310,60 @@ function initMobileNavigation() {
         syncMobileMenuState(false, options);
     }
 
+    function handleMobileMenuToggle(event) {
+        event.stopPropagation();
+
+        const nextIsOpen = !isMobileMenuOpen();
+
+        if (nextIsOpen) {
+            lastMenuTrigger = mobileMenuBtn;
+        }
+
+        syncMobileMenuState(nextIsOpen, {
+            moveFocus: nextIsOpen,
+            restoreFocus: !nextIsOpen
+        });
+    }
+
+    function handleDocumentClick(event) {
+        if (!isMobileMenuOpen()) {
+            return;
+        }
+
+        if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+            closeMobileMenu();
+        }
+    }
+
+    function handleMobileMenuKeydown(event) {
+        if (!isMobileMenuOpen()) {
+            return;
+        }
+
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            closeMobileMenu({ restoreFocus: true });
+            return;
+        }
+
+        if (event.key !== 'Tab') {
+            return;
+        }
+
+        trapMobileMenuFocus(event);
+    }
+
+    function handleMobileMenuResize() {
+        if (window.innerWidth > 700) {
+            closeMobileMenu();
+        }
+    }
+
     if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', function(event) {
-            event.stopPropagation();
-
-            const nextIsOpen = !isMobileMenuOpen();
-
-            if (nextIsOpen) {
-                lastMenuTrigger = mobileMenuBtn;
-            }
-
-            syncMobileMenuState(nextIsOpen, {
-                moveFocus: nextIsOpen,
-                restoreFocus: !nextIsOpen
-            });
-        });
-
-        document.addEventListener('click', function(event) {
-            if (!isMobileMenuOpen()) {
-                return;
-            }
-
-            if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
-                closeMobileMenu();
-            }
-        });
-
-        document.addEventListener('keydown', function(event) {
-            if (!isMobileMenuOpen()) {
-                return;
-            }
-
-            if (event.key === 'Escape') {
-                event.preventDefault();
-                closeMobileMenu({ restoreFocus: true });
-                return;
-            }
-
-            if (event.key !== 'Tab') {
-                return;
-            }
-
-            trapMobileMenuFocus(event);
-        });
-
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 700) {
-                closeMobileMenu();
-            }
-        });
+        mobileMenuBtn.addEventListener('click', handleMobileMenuToggle);
+        document.addEventListener('click', handleDocumentClick);
+        document.addEventListener('keydown', handleMobileMenuKeydown);
+        window.addEventListener('resize', handleMobileMenuResize);
     }
 
     syncMobileMenuState(false);
