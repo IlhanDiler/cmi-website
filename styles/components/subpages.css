@@ -82,6 +82,7 @@
 }
 
 .history-overview-title {
+    margin: 0;
     font-size: clamp(1.22rem, 1.2rem + 0.4vw, 1.44rem);
     font-weight: 620;
     letter-spacing: -0.02em;
