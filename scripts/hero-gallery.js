@@ -46,43 +46,57 @@ const heroGalleryUiLabels = {
         image: 'Bild',
         previous: 'Vorheriges Bild',
         next: 'Nächstes Bild',
-        pagination: 'Hero Gallery Pagination'
+        pagination: 'Galerie-Navigation',
+        region: 'Galerie mit Benefizkonzerten und Konzertimpressionen',
+        controls: 'Steuerung der Galerie'
     },
     en: {
         image: 'Image',
         previous: 'Previous image',
         next: 'Next image',
-        pagination: 'Main gallery pagination'
+        pagination: 'Main gallery pagination',
+        region: 'Gallery with benefit concerts and concert highlights',
+        controls: 'Gallery controls'
     },
     fr: {
         image: 'Image',
         previous: 'Image precedente',
         next: 'Image suivante',
-        pagination: 'Pagination de la galerie d\'accueil'
+        pagination: 'Pagination de la galerie d\'accueil',
+        region: 'Galerie des concerts solidaires et des moments forts',
+        controls: 'Commandes de la galerie'
     },
     ln: {
         image: 'Elilingi',
         previous: 'Elilingi ya liboso',
         next: 'Elilingi oyo elandi',
-        pagination: 'Pagination ya galerie ya liboso'
+        pagination: 'Pagination ya galerie ya liboso',
+        region: 'Galerie ya bakonser ya lisungi mpe makambo ya motuya',
+        controls: 'Bisaleli ya galerie'
     },
     it: {
         image: 'Immagine',
         previous: 'Immagine precedente',
         next: 'Immagine successiva',
-        pagination: 'Paginazione della galleria principale'
+        pagination: 'Paginazione della galleria principale',
+        region: 'Galleria con concerti benefici e momenti salienti',
+        controls: 'Controlli della galleria'
     },
     tr: {
         image: 'Görsel',
         previous: 'Önceki görsel',
         next: 'Sonraki görsel',
-        pagination: 'Hero galeri sayfalandırması'
+        pagination: 'Hero galeri sayfalandırması',
+        region: 'Yardım konserleri ve önemli anlar galerisi',
+        controls: 'Galeri denetimleri'
     },
     uk: {
         image: 'Зображення',
         previous: 'Попереднє зображення',
         next: 'Наступне зображення',
-        pagination: 'Пагінація головної галереї'
+        pagination: 'Пагінація головної галереї',
+        region: 'Галерея благодійних концертів і ключових моментів',
+        controls: 'Елементи керування галереєю'
     }
 };
 
@@ -184,9 +198,20 @@ function updateHeroGalleryMeta() {
 function updateHeroGalleryA11yLabels() {
     const language = getCurrentSiteLanguage();
     const labels = heroGalleryUiLabels[language] || heroGalleryUiLabels.de;
+    const heroRegion = document.querySelector('.hero-bg');
+    const galleryUi = document.querySelector('.hero-gallery-ui');
     const prevButton = document.querySelector('.hero-gallery-control--prev');
     const nextButton = document.querySelector('.hero-gallery-control--next');
     const pagination = document.querySelector('.hero-gallery-pagination');
+
+    if (heroRegion) {
+        heroRegion.setAttribute('aria-label', labels.region);
+    }
+
+    if (galleryUi) {
+        galleryUi.setAttribute('role', 'group');
+        galleryUi.setAttribute('aria-label', labels.controls);
+    }
 
     if (prevButton) {
         prevButton.setAttribute('aria-label', labels.previous);
@@ -200,6 +225,33 @@ function updateHeroGalleryA11yLabels() {
 
     if (pagination) {
         pagination.setAttribute('aria-label', labels.pagination);
+    }
+
+    syncHeroGallerySlideAccessibility();
+}
+
+function syncHeroGallerySlideAccessibility() {
+    const fadeContainer = document.querySelector('.hero-bg-fade-container');
+
+    if (!fadeContainer || fadeContainer.children.length < 2 || !heroGallery.length) {
+        return;
+    }
+
+    const language = getCurrentSiteLanguage();
+    const labels = heroGalleryUiLabels[language] || heroGalleryUiLabels.de;
+    const activeLayer = fadeToggle ? fadeContainer.children[0] : fadeContainer.children[1];
+    const inactiveLayer = fadeToggle ? fadeContainer.children[1] : fadeContainer.children[0];
+    const activeTitle = getHeroGalleryTitle(heroGallery[heroIndex], language) || `${labels.image} ${heroIndex + 1}`;
+
+    if (activeLayer) {
+        activeLayer.setAttribute('role', 'img');
+        activeLayer.setAttribute('aria-hidden', 'false');
+        activeLayer.setAttribute('aria-label', activeTitle);
+    }
+
+    if (inactiveLayer) {
+        inactiveLayer.setAttribute('role', 'img');
+        inactiveLayer.setAttribute('aria-hidden', 'true');
     }
 }
 
@@ -461,8 +513,12 @@ function initHeroGallery() {
     const initialLayer = fadeContainer.children[0];
     const initialSlide = heroGallery[heroIndex];
     applyHeroGallerySlideStyle(initialLayer, initialSlide, getHeroGallerySlideStyle(initialSlide));
+    initialLayer.setAttribute('role', 'img');
+    initialLayer.setAttribute('aria-hidden', 'false');
     initialLayer.setAttribute('aria-label', getHeroGalleryTitle(initialSlide));
     fadeContainer.children[1].style.opacity = '0';
+    fadeContainer.children[1].setAttribute('role', 'img');
+    fadeContainer.children[1].setAttribute('aria-hidden', 'true');
 
     setHeroBgCrossfade(heroIndex);
     scheduleHeroGalleryAuto(heroSlideDuration);
