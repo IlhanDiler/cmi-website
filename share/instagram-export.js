@@ -607,6 +607,7 @@ function renderPosts(posts) {
         const copyLinkButton = fragment.querySelector(".post-card__copy-link");
         const openImageLink = fragment.querySelector(".post-card__open-image");
         const openShareLink = fragment.querySelector(".post-card__open-share");
+        const postLabel = post.title || post.fileName || "Share-Beitrag";
 
         card.dataset.search = buildSearchIndex(post);
         image.src = post.image;
@@ -615,6 +616,7 @@ function renderPosts(posts) {
         title.textContent = post.title;
         text.textContent = post.text;
         caption.value = post.caption;
+        caption.setAttribute("aria-label", `Instagram-Caption: ${postLabel}`);
         previewImage.src = post.image;
         previewImage.alt = post.imageAlt;
         previewMeta.textContent = post.meta;
@@ -636,6 +638,18 @@ function renderPosts(posts) {
 
         openImageLink.href = post.image;
         openShareLink.href = post.shareUrl;
+        exportImageButton.setAttribute("aria-label", `PNG exportieren: ${postLabel}`);
+        exportImageButton.setAttribute("title", `PNG exportieren: ${postLabel}`);
+        exportStoryButton.setAttribute("aria-label", `Story PNG exportieren: ${postLabel}`);
+        exportStoryButton.setAttribute("title", `Story PNG exportieren: ${postLabel}`);
+        copyCaptionButton.setAttribute("aria-label", `Caption kopieren: ${postLabel}`);
+        copyCaptionButton.setAttribute("title", `Caption kopieren: ${postLabel}`);
+        copyLinkButton.setAttribute("aria-label", `Link kopieren: ${postLabel}`);
+        copyLinkButton.setAttribute("title", `Link kopieren: ${postLabel}`);
+        openImageLink.setAttribute("aria-label", `Bild oeffnen: ${postLabel}`);
+        openImageLink.setAttribute("title", `Bild oeffnen: ${postLabel}`);
+        openShareLink.setAttribute("aria-label", `Share-Seite oeffnen: ${postLabel}`);
+        openShareLink.setAttribute("title", `Share-Seite oeffnen: ${postLabel}`);
 
         for (const tag of post.hashtags) {
             hashtags.appendChild(createTag(tag));
