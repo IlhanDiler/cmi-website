@@ -708,6 +708,7 @@ function renderPosts(posts) {
         const openImageLink = fragment.querySelector(".post-card__open-image");
         const openShareLink = fragment.querySelector(".post-card__open-share");
         const postLabel = post.title || post.fileName || "Share-Beitrag";
+        const openInNewWindowHint = "oeffnet in neuem Fenster";
 
         card.dataset.search = buildSearchIndex(post);
         image.src = post.image;
@@ -746,10 +747,10 @@ function renderPosts(posts) {
         copyCaptionButton.setAttribute("title", `Caption kopieren: ${postLabel}`);
         copyLinkButton.setAttribute("aria-label", `Link kopieren: ${postLabel}`);
         copyLinkButton.setAttribute("title", `Link kopieren: ${postLabel}`);
-        openImageLink.setAttribute("aria-label", `Bild oeffnen: ${postLabel}`);
-        openImageLink.setAttribute("title", `Bild oeffnen: ${postLabel}`);
-        openShareLink.setAttribute("aria-label", `Share-Seite oeffnen: ${postLabel}`);
-        openShareLink.setAttribute("title", `Share-Seite oeffnen: ${postLabel}`);
+        openImageLink.setAttribute("aria-label", `Bild oeffnen: ${postLabel} (${openInNewWindowHint})`);
+        openImageLink.setAttribute("title", `Bild oeffnen: ${postLabel} (${openInNewWindowHint})`);
+        openShareLink.setAttribute("aria-label", `Share-Seite oeffnen: ${postLabel} (${openInNewWindowHint})`);
+        openShareLink.setAttribute("title", `Share-Seite oeffnen: ${postLabel} (${openInNewWindowHint})`);
 
         for (const tag of post.hashtags) {
             hashtags.appendChild(createTag(tag));
