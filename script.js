@@ -1773,6 +1773,132 @@ function syncNavigationAccessibility(lang) {
     syncLanguageSwitcherAccessibility(lang);
 }
 
+function syncInPageNavigationState(activeSectionId) {
+    const inPageNavigationLinks = document.querySelectorAll('.nav-link[href^="#"], .mobile-nav-link[href^="#"]');
+
+    inPageNavigationLinks.forEach(function(link) {
+        link.classList.remove('active');
+        link.removeAttribute('aria-current');
+    });
+
+    if (!activeSectionId) {
+        return;
+    }
+
+    const matchingLinks = Array.from(inPageNavigationLinks).filter(function(link) {
+        return link.getAttribute('href') === `#${activeSectionId}`;
+    });
+
+    matchingLinks.forEach(function(link) {
+        link.classList.add('active');
+
+        if (window.getComputedStyle(link).display !== 'none') {
+            link.setAttribute('aria-current', 'location');
+        }
+    });
+}
+
+function initHomepageNavigationWayfinding() {
+    const homepageNavigationLinks = Array.from(document.querySelectorAll('.nav-link[href^="#"], .mobile-nav-link[href^="#"]'));
+
+    if (!homepageNavigationLinks.length) {
+        return;
+    }
+
+    const navbar = document.querySelector('.navbar');
+    const seenTargets = new Set();
+    const sections = homepageNavigationLinks
+        .map(function(link) {
+            return link.getAttribute('href');
+        })
+        .filter(function(href) {
+            return href && href.length > 1 && !seenTargets.has(href) && seenTargets.add(href);
+        })
+        .map(function(href) {
+            return document.querySelector(href);
+        })
+        .filter(Boolean);
+
+    if (!sections.length) {
+        return;
+    }
+
+    let activeSectionId = '';
+    let scrollFrame = null;
+
+    function getScrollTop() {
+        return window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    }
+
+    function getCurrentSectionId() {
+        const scrollTop = getScrollTop();
+        const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
+        const activationLine = scrollTop + navbarHeight + 120;
+        const documentBottom = scrollTop + window.innerHeight;
+        const pageHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+
+        if (documentBottom >= pageHeight - 24) {
+            return sections[sections.length - 1].id;
+        }
+
+        let currentSection = sections[0];
+
+        sections.forEach(function(section) {
+            if (section.offsetTop <= activationLine) {
+                currentSection = section;
+            }
+        });
+
+        return currentSection ? currentSection.id : '';
+    }
+
+    function updateActiveNavigationState() {
+        scrollFrame = null;
+
+        const nextActiveSectionId = getCurrentSectionId();
+
+        if (nextActiveSectionId === activeSectionId) {
+            return;
+        }
+
+        activeSectionId = nextActiveSectionId;
+        syncInPageNavigationState(activeSectionId);
+    }
+
+    function requestNavigationStateUpdate() {
+        if (scrollFrame !== null) {
+            return;
+        }
+
+        scrollFrame = window.requestAnimationFrame(updateActiveNavigationState);
+    }
+
+    homepageNavigationLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            const href = link.getAttribute('href');
+
+            if (!href || href.length < 2) {
+                return;
+            }
+
+            const targetId = href.slice(1);
+
+            if (!targetId) {
+                return;
+            }
+
+            activeSectionId = targetId;
+            syncInPageNavigationState(activeSectionId);
+        });
+    });
+
+    updateActiveNavigationState();
+    window.addEventListener('scroll', requestNavigationStateUpdate, { passive: true });
+    window.addEventListener('resize', requestNavigationStateUpdate);
+    window.addEventListener('hashchange', requestNavigationStateUpdate);
+    document.addEventListener('site-language-change', requestNavigationStateUpdate);
+}
+
 function applySiteLanguage(lang) {
     if (!isSupportedSiteLanguage(lang)) {
         return;
@@ -2091,6 +2217,7 @@ function initSiteFeatures() {
         initAccordion();
     }
     initMobileNavigation();
+    initHomepageNavigationWayfinding();
     initNavbarScroll();
     initShapeParallax();
     initFieldValidation();

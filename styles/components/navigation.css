@@ -733,7 +733,8 @@
     transform: scaleX(1);
 }
 
-.nav-link.active {
+.nav-link.active,
+.nav-link[aria-current="location"] {
     color: var(--nav-link-color-hover);
     font-weight: 800;
     border-bottom: none;
@@ -742,8 +743,11 @@
     box-shadow: none;
 }
 
-.nav-link.active::after {
-    content: none;
+.nav-link.active::after,
+.nav-link[aria-current="location"]::after {
+    content: "";
+    opacity: 1;
+    transform: scaleX(1);
 }
 
 .mobile-menu-btn {
@@ -883,6 +887,19 @@
     border-bottom-color: transparent;
     border-radius: 16px;
     box-shadow: var(--focus-ring-soft);
+}
+
+.mobile-nav-link.active,
+.mobile-nav-link[aria-current="location"] {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+    border-bottom-color: transparent;
+    border-radius: 16px;
+}
+
+.mobile-nav-link.active::after,
+.mobile-nav-link[aria-current="location"]::after {
+    color: rgba(127, 232, 219, 0.9);
 }
 
 #langSwitcher {
