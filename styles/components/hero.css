@@ -140,7 +140,6 @@
     z-index: var(--hero-gallery-ui-z-index);
 }
 
-.hero-gallery-ui.hero-gallery-ui--active,
 .hero-bg:focus-within .hero-gallery-ui {
     transform: translateX(-50%);
 }
