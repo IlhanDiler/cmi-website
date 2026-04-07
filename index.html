@@ -55,9 +55,9 @@
         <span data-lang="uk" style="display:none;">Перейти до основного вмісту</span>
     </a>
     <h1 class="visually-hidden">Collegium Musicum Iuvenale Ochsenfurt</h1>
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Hauptnavigation">
         <!-- Mobile menu button: ganz links -->
-        <button type="button" class="mobile-menu-btn" aria-label="Menü öffnen" aria-controls="mobile-menu" aria-expanded="false" tabindex="0">
+        <button type="button" class="mobile-menu-btn" aria-label="Menü öffnen" aria-controls="mobile-menu" aria-expanded="false">
             <img src="files/icon.menu.button.svg" alt="" aria-hidden="true" class="menu-icon">
         </button>
         <!-- Logo und Titel: mittig -->
@@ -123,7 +123,7 @@
             <a href="#contact" class="nav-link" data-lang="uk" style="display:none;">Контакт</a>
         </div>
         <!-- Sprachumschalter: jetzt ganz rechts -->
-        <div id="langSwitcher" role="group" aria-label="Sprache wählen">
+        <div id="langSwitcher" class="language-switch" role="group" aria-label="Sprache wählen">
             <button type="button" onclick="setLang('de')" id="langDe" class="lang-switch-button" aria-label="Deutsch">
                 <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="21" height="14" fill="#000000"/>
@@ -182,7 +182,7 @@
             </button>
         </div>
         <!-- Mobile Navigation -->
-        <div id="mobile-menu" class="mobile-menu">
+        <div id="mobile-menu" class="mobile-menu" aria-label="Mobile Navigation" aria-hidden="true" hidden>
             <a href="#musik-baut-bruecken" class="mobile-nav-link" data-lang="de">Über uns</a>
             <a href="#musik-baut-bruecken" class="mobile-nav-link" data-lang="en" style="display:none;">About us</a>
             <a href="#musik-baut-bruecken" class="mobile-nav-link" data-lang="fr" style="display:none;">A propos</a>

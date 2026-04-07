@@ -1230,32 +1230,99 @@ function initMobileNavigation() {
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
     const inPageLinks = document.querySelectorAll('a[href^="#"]:not(.skip-link)');
+    let lastMenuTrigger = null;
 
-    function syncMobileMenuState(isOpen) {
-        document.body.classList.toggle('mobile-menu-open', Boolean(isOpen));
-        if (mobileMenuBtn) {
-            mobileMenuBtn.setAttribute('aria-expanded', String(Boolean(isOpen)));
+    function getVisibleMobileMenuLinks() {
+        if (!mobileMenu) {
+            return [];
+        }
+
+        return Array.from(mobileMenu.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')).filter(function(element) {
+            return !element.hasAttribute('hidden') && window.getComputedStyle(element).display !== 'none';
+        });
+    }
+
+    function focusNavigationTarget(targetSection) {
+        if (!targetSection || typeof targetSection.focus !== 'function') {
+            return;
+        }
+
+        const hadTabindex = targetSection.hasAttribute('tabindex');
+
+        if (!hadTabindex) {
+            targetSection.setAttribute('tabindex', '-1');
+        }
+
+        targetSection.focus({ preventScroll: true });
+
+        if (!hadTabindex) {
+            targetSection.addEventListener('blur', function handleBlur() {
+                targetSection.removeAttribute('tabindex');
+            }, { once: true });
         }
     }
 
-    function closeMobileMenu() {
+    function syncMobileMenuState(isOpen, options) {
+        const settings = options || {};
+        document.body.classList.toggle('mobile-menu-open', Boolean(isOpen));
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.setAttribute('aria-expanded', String(Boolean(isOpen)));
+        }
+
+        if (mobileMenu) {
+            mobileMenu.classList.toggle('active', Boolean(isOpen));
+            mobileMenu.hidden = !isOpen;
+            mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+
+            if ('inert' in mobileMenu) {
+                mobileMenu.inert = !isOpen;
+            }
+        }
+
+        syncNavigationAccessibility(getActiveDocumentLanguage());
+
+        if (isOpen && settings.moveFocus) {
+            window.requestAnimationFrame(function() {
+                const firstFocusableLink = getVisibleMobileMenuLinks()[0];
+
+                if (firstFocusableLink) {
+                    firstFocusableLink.focus();
+                }
+            });
+        }
+
+        if (!isOpen && settings.restoreFocus && lastMenuTrigger && typeof lastMenuTrigger.focus === 'function') {
+            lastMenuTrigger.focus();
+        }
+    }
+
+    function closeMobileMenu(options) {
         if (!mobileMenu || !mobileMenuBtn) {
             return;
         }
 
-        mobileMenu.classList.remove('active');
-        syncMobileMenuState(false);
+        syncMobileMenuState(false, options);
     }
 
     if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.addEventListener('click', function(event) {
             event.stopPropagation();
-            mobileMenu.classList.toggle('active');
-            syncMobileMenuState(mobileMenu.classList.contains('active'));
+
+            const nextIsOpen = mobileMenuBtn.getAttribute('aria-expanded') !== 'true';
+
+            if (nextIsOpen) {
+                lastMenuTrigger = mobileMenuBtn;
+            }
+
+            syncMobileMenuState(nextIsOpen, {
+                moveFocus: nextIsOpen,
+                restoreFocus: !nextIsOpen
+            });
         });
 
         document.addEventListener('click', function(event) {
-            if (!mobileMenu.classList.contains('active')) {
+            if (mobileMenuBtn.getAttribute('aria-expanded') !== 'true') {
                 return;
             }
 
@@ -1265,8 +1332,37 @@ function initMobileNavigation() {
         });
 
         document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                closeMobileMenu();
+            if (mobileMenuBtn.getAttribute('aria-expanded') !== 'true') {
+                return;
+            }
+
+            if (event.key === 'Escape') {
+                event.preventDefault();
+                closeMobileMenu({ restoreFocus: true });
+                return;
+            }
+
+            if (event.key !== 'Tab') {
+                return;
+            }
+
+            const focusableLinks = getVisibleMobileMenuLinks();
+
+            if (!focusableLinks.length) {
+                event.preventDefault();
+                mobileMenuBtn.focus();
+                return;
+            }
+
+            const firstFocusableLink = focusableLinks[0];
+            const lastFocusableLink = focusableLinks[focusableLinks.length - 1];
+
+            if (event.shiftKey && document.activeElement === firstFocusableLink) {
+                event.preventDefault();
+                lastFocusableLink.focus();
+            } else if (!event.shiftKey && document.activeElement === lastFocusableLink) {
+                event.preventDefault();
+                firstFocusableLink.focus();
             }
         });
 
@@ -1299,6 +1395,7 @@ function initMobileNavigation() {
 
             event.preventDefault();
             closeMobileMenu();
+            focusNavigationTarget(targetSection);
             clearCurrentHash();
             window.scrollTo({
                 top: targetSection.offsetTop - 80,
@@ -1390,9 +1487,90 @@ function updateYearsPassed() {
 
 const supportedSiteLanguages = new Set(['de', 'en', 'fr', 'ln', 'it', 'tr', 'uk']);
 const mbondaTimelineLinkSelector = '.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]';
+const languageButtonLanguageMap = {
+    langDe: 'de',
+    langEn: 'en',
+    langFr: 'fr',
+    langLn: 'ln',
+    langIt: 'it',
+    langTr: 'tr',
+    langUk: 'uk'
+};
+const navigationUiLabels = {
+    de: {
+        mainNavigation: 'Hauptnavigation',
+        subpageNavigation: 'Seitennavigation',
+        mobileNavigation: 'Mobile Navigation',
+        languageSwitcher: 'Sprache wählen',
+        openMenu: 'Menü öffnen',
+        closeMenu: 'Menü schließen'
+    },
+    en: {
+        mainNavigation: 'Main navigation',
+        subpageNavigation: 'Page navigation',
+        mobileNavigation: 'Mobile navigation',
+        languageSwitcher: 'Choose language',
+        openMenu: 'Open menu',
+        closeMenu: 'Close menu'
+    },
+    fr: {
+        mainNavigation: 'Navigation principale',
+        subpageNavigation: 'Navigation de la page',
+        mobileNavigation: 'Navigation mobile',
+        languageSwitcher: 'Choisir la langue',
+        openMenu: 'Ouvrir le menu',
+        closeMenu: 'Fermer le menu'
+    },
+    ln: {
+        mainNavigation: 'Navigation ya monene',
+        subpageNavigation: 'Navigation ya lokasa',
+        mobileNavigation: 'Navigation ya telefone',
+        languageSwitcher: 'Pona lokota',
+        openMenu: 'Fungola menu',
+        closeMenu: 'Kanga menu'
+    },
+    it: {
+        mainNavigation: 'Navigazione principale',
+        subpageNavigation: 'Navigazione della pagina',
+        mobileNavigation: 'Navigazione mobile',
+        languageSwitcher: 'Scegli la lingua',
+        openMenu: 'Apri il menu',
+        closeMenu: 'Chiudi il menu'
+    },
+    tr: {
+        mainNavigation: 'Ana gezinme',
+        subpageNavigation: 'Sayfa gezinmesi',
+        mobileNavigation: 'Mobil gezinme',
+        languageSwitcher: 'Dil seç',
+        openMenu: 'Menüyü aç',
+        closeMenu: 'Menüyü kapat'
+    },
+    uk: {
+        mainNavigation: 'Головна навігація',
+        subpageNavigation: 'Навігація сторінкою',
+        mobileNavigation: 'Мобільна навігація',
+        languageSwitcher: 'Оберіть мову',
+        openMenu: 'Відкрити меню',
+        closeMenu: 'Закрити меню'
+    }
+};
 
 function isSupportedSiteLanguage(lang) {
     return supportedSiteLanguages.has(lang);
+}
+
+function getActiveDocumentLanguage() {
+    const documentLanguage = document.documentElement.getAttribute('lang');
+
+    if (isSupportedSiteLanguage(documentLanguage)) {
+        return documentLanguage;
+    }
+
+    return 'de';
+}
+
+function getNavigationUiLabelSet(lang) {
+    return navigationUiLabels[lang] || navigationUiLabels.de;
 }
 
 function getMbondaTimelineLinks() {
@@ -1554,6 +1732,47 @@ function syncCurrentPageLinks() {
         });
 }
 
+function syncLanguageSwitcherAccessibility(lang) {
+    document.querySelectorAll('.lang-switch-button').forEach(function(button) {
+        const buttonLanguage = languageButtonLanguageMap[button.id];
+
+        if (!buttonLanguage) {
+            return;
+        }
+
+        button.setAttribute('aria-pressed', String(buttonLanguage === lang));
+    });
+}
+
+function syncNavigationAccessibility(lang) {
+    const labels = getNavigationUiLabelSet(lang);
+    const mobileMenuButton = document.querySelector('.mobile-menu-btn');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const isMenuExpanded = mobileMenuButton && mobileMenuButton.getAttribute('aria-expanded') === 'true';
+
+    document.querySelectorAll('.navbar').forEach(function(navbar) {
+        navbar.setAttribute('aria-label', labels.mainNavigation);
+    });
+
+    document.querySelectorAll('.subpage-topbar__links').forEach(function(navigation) {
+        navigation.setAttribute('aria-label', labels.subpageNavigation);
+    });
+
+    document.querySelectorAll('.language-switch, #langSwitcher').forEach(function(languageSwitcher) {
+        languageSwitcher.setAttribute('aria-label', labels.languageSwitcher);
+    });
+
+    if (mobileMenuButton) {
+        mobileMenuButton.setAttribute('aria-label', isMenuExpanded ? labels.closeMenu : labels.openMenu);
+    }
+
+    if (mobileMenu) {
+        mobileMenu.setAttribute('aria-label', labels.mobileNavigation);
+    }
+
+    syncLanguageSwitcherAccessibility(lang);
+}
+
 function applySiteLanguage(lang) {
     if (!isSupportedSiteLanguage(lang)) {
         return;
@@ -1575,6 +1794,7 @@ function applySiteLanguage(lang) {
     });
 
     syncCurrentPageLinks();
+    syncNavigationAccessibility(lang);
 
     document.documentElement.setAttribute('lang', lang);
 
