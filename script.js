@@ -1376,7 +1376,6 @@ function initNavbarScroll() {
 
     navbar.dataset.scrollInit = 'true';
     let isScrolled = false;
-    let scrollFrame = null;
 
     function setNavbarStyle(nextScrolled) {
         if (isScrolled === nextScrolled) {
@@ -1388,18 +1387,11 @@ function initNavbarScroll() {
     }
 
     function updateNavbarScrollState() {
-        scrollFrame = null;
         const scrollTop = getViewportScrollTop();
         setNavbarStyle(scrollTop > 18);
     }
 
-    function handleNavbarScroll() {
-        if (scrollFrame !== null) {
-            return;
-        }
-
-        scrollFrame = requestAnimationFrame(updateNavbarScrollState);
-    }
+    const handleNavbarScroll = createAnimationFrameScheduler(updateNavbarScrollState);
 
     updateNavbarScrollState();
     window.addEventListener('scroll', handleNavbarScroll, { passive: true });
@@ -1550,6 +1542,21 @@ function getScrollTargetTop(targetElement, additionalOffset) {
     const offset = typeof additionalOffset === 'number' ? additionalOffset : 0;
 
     return Math.max(0, elementTop - getNavbarHeight() - offset);
+}
+
+function createAnimationFrameScheduler(callback) {
+    let frameId = null;
+
+    return function scheduleAnimationFrame() {
+        if (frameId !== null) {
+            return;
+        }
+
+        frameId = window.requestAnimationFrame(function() {
+            frameId = null;
+            callback();
+        });
+    };
 }
 
 function getHomepageNavigationLinks() {
@@ -1927,11 +1934,8 @@ function initHomepageNavigationWayfinding() {
     }
 
     let activeSectionId = '';
-    let scrollFrame = null;
 
     function updateActiveNavigationState() {
-        scrollFrame = null;
-
         const nextActiveSectionId = getActiveHomepageSectionId(sections);
 
         if (nextActiveSectionId === activeSectionId) {
@@ -1942,13 +1946,7 @@ function initHomepageNavigationWayfinding() {
         syncInPageNavigationState(activeSectionId);
     }
 
-    function requestNavigationStateUpdate() {
-        if (scrollFrame !== null) {
-            return;
-        }
-
-        scrollFrame = window.requestAnimationFrame(updateActiveNavigationState);
-    }
+    const requestNavigationStateUpdate = createAnimationFrameScheduler(updateActiveNavigationState);
 
     homepageNavigationLinks.forEach(function(link) {
         link.addEventListener('click', function() {
