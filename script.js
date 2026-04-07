@@ -1923,6 +1923,19 @@ function initHomepageNavigationWayfinding() {
     document.addEventListener('site-language-change', requestNavigationStateUpdate);
 }
 
+function initNavigationFeatures() {
+    const mobileNavigation = initMobileNavigation();
+
+    initInPageSectionNavigation(function(link) {
+        if (link.classList.contains('mobile-nav-link') && mobileNavigation && typeof mobileNavigation.closeMobileMenu === 'function') {
+            mobileNavigation.closeMobileMenu();
+        }
+    });
+
+    initHomepageNavigationWayfinding();
+    initNavbarScroll();
+}
+
 function applySiteLanguage(lang) {
     if (!isSupportedSiteLanguage(lang)) {
         return;
@@ -2240,14 +2253,7 @@ function initSiteFeatures() {
     if (typeof initAccordion === 'function') {
         initAccordion();
     }
-    const mobileNavigation = initMobileNavigation();
-    initInPageSectionNavigation(function(link) {
-        if (link.classList.contains('mobile-nav-link') && mobileNavigation && typeof mobileNavigation.closeMobileMenu === 'function') {
-            mobileNavigation.closeMobileMenu();
-        }
-    });
-    initHomepageNavigationWayfinding();
-    initNavbarScroll();
+    initNavigationFeatures();
     initShapeParallax();
     initFieldValidation();
     updateYearsPassed();
@@ -2257,9 +2263,7 @@ function initSiteFeatures() {
 }
 
 document.addEventListener('DOMContentLoaded', initSiteFeatures);
-document.addEventListener('DOMContentLoaded', initNavbarScroll);
 
-window.addEventListener('load', initNavbarScroll);
 window.addEventListener('load', enforceTopOnLoad);
 window.addEventListener('pageshow', enforceTopOnLoad);
 
