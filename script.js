@@ -1560,6 +1560,47 @@ function getHashTargetId(link) {
     return href.slice(1);
 }
 
+function getHomepageNavigationSections(homepageNavigationLinks) {
+    const seenTargets = new Set();
+
+    return homepageNavigationLinks
+        .map(function(link) {
+            return getHashTargetId(link);
+        })
+        .filter(function(targetId) {
+            return targetId && !seenTargets.has(targetId) && seenTargets.add(targetId);
+        })
+        .map(function(targetId) {
+            return document.getElementById(targetId);
+        })
+        .filter(Boolean);
+}
+
+function getActiveHomepageSectionId(sections) {
+    if (!sections.length) {
+        return '';
+    }
+
+    const scrollTop = getViewportScrollTop();
+    const activationLine = scrollTop + getNavbarHeight() + 120;
+    const documentBottom = scrollTop + window.innerHeight;
+    const pageHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+
+    if (documentBottom >= pageHeight - 24) {
+        return sections[sections.length - 1].id;
+    }
+
+    let currentSection = sections[0];
+
+    sections.forEach(function(section) {
+        if (section.offsetTop <= activationLine) {
+            currentSection = section;
+        }
+    });
+
+    return currentSection ? currentSection.id : '';
+}
+
 function focusNavigationTarget(targetSection) {
     if (!targetSection || typeof targetSection.focus !== 'function') {
         return;
@@ -1869,18 +1910,7 @@ function initHomepageNavigationWayfinding() {
         return;
     }
 
-    const seenTargets = new Set();
-    const sections = homepageNavigationLinks
-        .map(function(link) {
-            return getHashTargetId(link);
-        })
-        .filter(function(targetId) {
-            return targetId && !seenTargets.has(targetId) && seenTargets.add(targetId);
-        })
-        .map(function(targetId) {
-            return document.getElementById(targetId);
-        })
-        .filter(Boolean);
+    const sections = getHomepageNavigationSections(homepageNavigationLinks);
 
     if (!sections.length) {
         return;
@@ -1889,32 +1919,10 @@ function initHomepageNavigationWayfinding() {
     let activeSectionId = '';
     let scrollFrame = null;
 
-    function getCurrentSectionId() {
-        const scrollTop = getViewportScrollTop();
-        const navbarHeight = getNavbarHeight();
-        const activationLine = scrollTop + navbarHeight + 120;
-        const documentBottom = scrollTop + window.innerHeight;
-        const pageHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-
-        if (documentBottom >= pageHeight - 24) {
-            return sections[sections.length - 1].id;
-        }
-
-        let currentSection = sections[0];
-
-        sections.forEach(function(section) {
-            if (section.offsetTop <= activationLine) {
-                currentSection = section;
-            }
-        });
-
-        return currentSection ? currentSection.id : '';
-    }
-
     function updateActiveNavigationState() {
         scrollFrame = null;
 
-        const nextActiveSectionId = getCurrentSectionId();
+        const nextActiveSectionId = getActiveHomepageSectionId(sections);
 
         if (nextActiveSectionId === activeSectionId) {
             return;
