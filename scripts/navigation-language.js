@@ -750,8 +750,7 @@ function syncDecorativeContentAccessibility() {
         checkmark.setAttribute('aria-hidden', 'true');
     });
 
-    document.querySelectorAll('.event-social-button svg, .image-caption-card-play svg').forEach(function(svg) {
-        svg.setAttribute('aria-hidden', 'true');
+    document.querySelectorAll('svg[aria-hidden="true"]').forEach(function(svg) {
         svg.setAttribute('focusable', 'false');
     });
 }
