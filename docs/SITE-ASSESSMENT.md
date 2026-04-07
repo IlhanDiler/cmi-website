@@ -1,6 +1,6 @@
 # Site Assessment
 
-Stand: 2026-04-07
+Stand: 2026-04-08
 
 ## Kurzfazit
 
@@ -48,15 +48,15 @@ Trotz der technischen Schwächen gab es klare Stärken:
 
 ## Aktualisierte Einschätzung nach Refactoring-Schritten
 
-Nach CSS-Modularisierung, Strukturarbeit und Navigation-A11y liegt die technische Bewertung heute höher.
+Nach CSS-Modularisierung, Strukturarbeit, Runtime-Aufteilung und der inzwischen deutlich breiteren Accessibility-Haertung liegt die technische Bewertung heute nochmals etwas hoeher.
 
 Aktueller realistischer Stand:
 
 - Design / Außenwirkung: 8/10
-- UX / Gesamteindruck: 7/10 bis 8/10
-- Technische Sauberkeit: 6/10 bis 7/10
-- Wartbarkeit: 6/10 bis 7/10
-- Professionalität insgesamt: klar näher an professionell als zuvor
+- UX / Gesamteindruck: eher 8/10
+- Technische Sauberkeit: oberes Ende von 6/10 bis 7/10
+- Wartbarkeit: oberes Ende von 6/10 bis 7/10
+- Professionalität insgesamt: sichtbar naeher an professionell, inzwischen auch technisch deutlich glaubwuerdiger
 
 ## Was bereits verbessert wurde
 
@@ -67,13 +67,21 @@ Aktueller realistischer Stand:
 5. Die Navigation-Accessibility wurde deutlich verbessert, unter anderem mit Landmarken, Skip-Links, saubereren Sprachzuständen und besserem Mobile-Menü-Verhalten.
 6. Die JavaScript-Runtime wurde fachlich in mehrere Dateien unter [scripts](../scripts) zerlegt; der verbleibende fruehe Scroll-Bootstrap sitzt jetzt direkt in den HTML-Koepfen.
 
+## Was seit dem ersten Assessment zusätzlich dazugekommen ist
+
+1. Accessibility-Verbesserungen betreffen inzwischen nicht mehr nur die Navigation, sondern auch Homepage, Chronik, Legal-Bereiche, Footer, Hero-Galerie und Event-Sharing.
+2. Die Instagram-Exportseite wurde mehrfach gehaertet, unter anderem bei Preview-Semantik, kontextbezogenen Labels, Rueckmeldungen, Status-Regionen und Link-Hinweisen.
+3. Dekorative Logos, SVGs, Medienakzente und Sprachflaggen werden konsistenter vor Assistive Technology verborgen und bleiben unfokussierbar.
+4. Hidden-State und Accessibility-Zustand laufen an mehreren zentralen Stellen sauberer zusammen, zum Beispiel bei Sprachvarianten und Share-Komponenten.
+5. Externe Links sowie Medien- und Share-Links kuendigen neues Fensterverhalten inzwischen konsistenter an.
+
 ## Was noch fehlt für wirklich professionell-sauber
 
-1. Restliche Accessibility außerhalb der Navigation systematisch prüfen.
+1. Accessibility ist deutlich besser als beim ersten Assessment, aber noch nicht als vollstaendiger Browser- und Screenreader-Check ueber alle Seiten, Zustaende und Geraeteklassen abgesichert.
 2. Historische Sonderfälle und inkonsistente Muster weiter abbauen.
 3. Rendering- und Browser-QA noch systematischer absichern.
 4. Langfristig weniger Duplikation im mehrsprachigen HTML erzeugen.
-5. Die jetzt modulare JavaScript-Runtime kuerzerfristig noch mit gezielter Browser-QA absichern.
+5. Die jetzt modulare JavaScript-Runtime weiterhin vereinfachen und kuerzerfristig noch mit gezielter Browser-QA absichern.
 
 ## Bewertungsmatrix
 
@@ -85,30 +93,30 @@ Die Seite hat eine erkennbare visuelle Haltung, wirkt nicht generisch und transp
 
 ### 2. UX
 
-Bewertung: 7/10 bis 8/10
+Bewertung: eher 8/10
 
-Für Besucher funktioniert die Seite insgesamt gut. Schwächen lagen weniger im sichtbaren Flow als in der technischen Robustheit einzelner Muster.
+Fuer Besucher funktioniert die Seite insgesamt gut und inzwischen auch robuster als noch in frueheren Staenden. Schwächen liegen heute weniger im sichtbaren Flow als in der QA-Tiefe einzelner Muster.
 
 ### 3. Codequalität
 
 Früher: 5/10  
-Heute: 6/10 bis 7/10
+Heute: oberes Ende von 6/10 bis 7/10
 
-Die Richtung stimmt inzwischen, aber die JavaScript-Struktur und einige gewachsene HTML-Muster sind noch nicht auf wirklich hohem Niveau.
+Die Richtung stimmt inzwischen nicht nur strukturell, sondern auch im Alltagsverhalten der Seite. Offene Punkte liegen heute eher in Rest-Duplikation, QA-Tiefe und einigen gewachsenen HTML-Mustern als noch in grober Unordnung.
 
 ### 4. Wartbarkeit
 
 Früher: 5/10  
-Heute: 6/10 bis 7/10
+Heute: oberes Ende von 6/10 bis 7/10
 
-Die modulare CSS-Struktur hat hier bereits viel verbessert. Der größte offene Hebel liegt jetzt eher im JavaScript und in wiederkehrenden Sprach-/Markup-Mustern.
+Die modulare CSS-Struktur und die aufgeteilte Runtime haben hier bereits viel verbessert. Der groesste offene Hebel liegt jetzt eher in wiederkehrenden Sprach-/Markup-Mustern und in systematischer QA statt in fehlender Grundstruktur.
 
 ### 5. Professionalität insgesamt
 
-Bewertung: nahe professionell, inzwischen deutlich näher als früher
+Bewertung: nah an professionell, inzwischen auch technisch deutlich belastbarer
 
 Die Seite war nach außen schon länger stärker als ihr interner Aufbau. Durch das Refactoring nähert sich die technische Qualität jetzt dem sichtbaren Eindruck an.
 
 ## Ein-Satz-Zusammenfassung
 
-Die Website war schon vorher in Wirkung und Gestaltung nah an professionell, lag technisch aber eher bei 5/10; nach den bisherigen Refactoring-Schritten ist sie strukturell klar besser und bewegt sich technisch eher im Bereich 6/10 bis 7/10.
+Die Website war schon vorher in Wirkung und Gestaltung nah an professionell, lag technisch aber eher bei 5/10; nach CSS-Modularisierung, Runtime-Aufteilung und breiterer Accessibility-Haertung liegt sie heute eher am oberen Ende von 6/10 bis 7/10 und wirkt insgesamt deutlich konsistenter.
