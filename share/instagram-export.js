@@ -163,13 +163,47 @@ function shortenText(text, maxLength) {
     return `${text.slice(0, maxLength - 1).trimEnd()}…`;
 }
 
-async function copyText(value, trigger, successLabel) {
+function captureControlLabelState(trigger) {
+    return {
+        text: trigger.textContent,
+        ariaLabel: trigger.getAttribute("aria-label"),
+        title: trigger.getAttribute("title")
+    };
+}
+
+function applyControlLabelState(trigger, state) {
+    trigger.textContent = state.text;
+
+    if (state.ariaLabel) {
+        trigger.setAttribute("aria-label", state.ariaLabel);
+    } else {
+        trigger.removeAttribute("aria-label");
+    }
+
+    if (state.title) {
+        trigger.setAttribute("title", state.title);
+    } else {
+        trigger.removeAttribute("title");
+    }
+}
+
+function setControlFeedbackState(trigger, text, accessibilityLabel) {
+    trigger.textContent = text;
+
+    if (accessibilityLabel) {
+        trigger.setAttribute("aria-label", accessibilityLabel);
+        trigger.setAttribute("title", accessibilityLabel);
+    }
+}
+
+async function copyText(value, trigger, successLabel, successAccessibilityLabel) {
+    const originalState = captureControlLabelState(trigger);
+
     try {
         await navigator.clipboard.writeText(value);
-        const original = trigger.textContent;
-        trigger.textContent = successLabel;
+        setControlFeedbackState(trigger, successLabel, successAccessibilityLabel || successLabel);
         window.setTimeout(() => {
-            trigger.textContent = original;
+            applyControlLabelState(trigger, originalState);
         }, 1500);
     } catch (error) {
         window.alert("Kopieren hat im Browser nicht funktioniert. Bitte den Text manuell kopieren.");
@@ -275,8 +309,10 @@ function drawTextBlock(ctx, options) {
 }
 
 async function exportInstagramImage(post, trigger) {
-    const originalLabel = trigger.textContent;
-    trigger.textContent = "Export laeuft...";
+    const originalState = captureControlLabelState(trigger);
+    const postLabel = post.title || post.fileName || "Share-Beitrag";
+
+    setControlFeedbackState(trigger, "Export laeuft...", `PNG-Export laeuft: ${postLabel}`);
     trigger.disabled = true;
 
     try {
@@ -358,22 +394,24 @@ async function exportInstagramImage(post, trigger) {
         link.download = buildExportFileName(post, "-instagram-4x5");
         link.click();
 
-        trigger.textContent = "PNG exportiert";
+        setControlFeedbackState(trigger, "PNG exportiert", `PNG exportiert: ${postLabel}`);
     } catch (error) {
         console.error(error);
         window.alert("Der PNG-Export hat nicht funktioniert. Auf der live Website klappt das zuverlaessiger; lokal kannst du die Vorschau alternativ als Screenshot verwenden.");
-        trigger.textContent = originalLabel;
+        setControlFeedbackState(trigger, "Export fehlgeschlagen", `PNG-Export fehlgeschlagen: ${postLabel}`);
     } finally {
         window.setTimeout(() => {
-            trigger.textContent = originalLabel;
+            applyControlLabelState(trigger, originalState);
             trigger.disabled = false;
         }, 1600);
     }
 }
 
 async function exportInstagramStoryImage(post, trigger) {
-    const originalLabel = trigger.textContent;
-    trigger.textContent = "Story laeuft...";
+    const originalState = captureControlLabelState(trigger);
+    const postLabel = post.title || post.fileName || "Share-Beitrag";
+
+    setControlFeedbackState(trigger, "Story laeuft...", `Story-Export laeuft: ${postLabel}`);
     trigger.disabled = true;
 
     try {
@@ -462,14 +500,14 @@ async function exportInstagramStoryImage(post, trigger) {
         link.download = buildExportFileName(post, "-instagram-story-9x16");
         link.click();
 
-        trigger.textContent = "Story exportiert";
+        setControlFeedbackState(trigger, "Story exportiert", `Story exportiert: ${postLabel}`);
     } catch (error) {
         console.error(error);
         window.alert("Der Story-Export hat nicht funktioniert. Auf der live Website klappt das zuverlaessiger; lokal kannst du die Vorschau alternativ als Screenshot verwenden.");
-        trigger.textContent = originalLabel;
+        setControlFeedbackState(trigger, "Story fehlgeschlagen", `Story-Export fehlgeschlagen: ${postLabel}`);
     } finally {
         window.setTimeout(() => {
-            trigger.textContent = originalLabel;
+            applyControlLabelState(trigger, originalState);
             trigger.disabled = false;
         }, 1600);
     }
@@ -664,11 +702,11 @@ function renderPosts(posts) {
         });
 
         copyCaptionButton.addEventListener("click", () => {
-            copyText(post.caption, copyCaptionButton, "Caption kopiert");
+            copyText(post.caption, copyCaptionButton, "Caption kopiert", `Caption kopiert: ${postLabel}`);
         });
 
         copyLinkButton.addEventListener("click", () => {
-            copyText(post.shareUrl, copyLinkButton, "Link kopiert");
+            copyText(post.shareUrl, copyLinkButton, "Link kopiert", `Link kopiert: ${postLabel}`);
         });
 
         elements.postGrid.appendChild(fragment);
@@ -726,7 +764,7 @@ elements.copyAllJson.addEventListener("click", () => {
         caption: post.caption
     }));
 
-    copyText(JSON.stringify(exportPayload, null, 2), elements.copyAllJson, "JSON kopiert");
+    copyText(JSON.stringify(exportPayload, null, 2), elements.copyAllJson, "JSON kopiert", "Alle Daten als JSON kopiert");
 });
 
 initialize();
