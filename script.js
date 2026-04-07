@@ -1542,6 +1542,24 @@ function getScrollTargetTop(targetElement, additionalOffset) {
     return Math.max(0, elementTop - getNavbarHeight() - offset);
 }
 
+function getHomepageNavigationLinks() {
+    return Array.from(document.querySelectorAll(homepageNavigationLinkSelector));
+}
+
+function getHashTargetId(link) {
+    if (!link) {
+        return '';
+    }
+
+    const href = link.getAttribute('href');
+
+    if (!href || !href.startsWith('#') || href.length < 2) {
+        return '';
+    }
+
+    return href.slice(1);
+}
+
 function focusNavigationTarget(targetSection) {
     if (!targetSection || typeof targetSection.focus !== 'function') {
         return;
@@ -1581,13 +1599,13 @@ function initInPageSectionNavigation(onNavigate) {
 
     inPageLinks.forEach(function(link) {
         link.addEventListener('click', function(event) {
-            const targetId = link.getAttribute('href');
+            const targetId = getHashTargetId(link);
 
-            if (!targetId || !targetId.startsWith('#') || targetId.length < 2) {
+            if (!targetId) {
                 return;
             }
 
-            const targetSection = document.querySelector(targetId);
+            const targetSection = document.getElementById(targetId);
 
             if (!targetSection) {
                 return;
@@ -1820,7 +1838,7 @@ function syncNavigationAccessibility(lang) {
 }
 
 function syncInPageNavigationState(activeSectionId) {
-    const inPageNavigationLinks = document.querySelectorAll('.nav-link[href^="#"], .mobile-nav-link[href^="#"]');
+    const inPageNavigationLinks = getHomepageNavigationLinks();
 
     inPageNavigationLinks.forEach(function(link) {
         link.classList.remove('active');
@@ -1845,23 +1863,22 @@ function syncInPageNavigationState(activeSectionId) {
 }
 
 function initHomepageNavigationWayfinding() {
-    const homepageNavigationLinks = Array.from(document.querySelectorAll(homepageNavigationLinkSelector));
+    const homepageNavigationLinks = getHomepageNavigationLinks();
 
     if (!homepageNavigationLinks.length) {
         return;
     }
 
-    const navbar = document.querySelector('.navbar');
     const seenTargets = new Set();
     const sections = homepageNavigationLinks
         .map(function(link) {
-            return link.getAttribute('href');
+            return getHashTargetId(link);
         })
-        .filter(function(href) {
-            return href && href.length > 1 && !seenTargets.has(href) && seenTargets.add(href);
+        .filter(function(targetId) {
+            return targetId && !seenTargets.has(targetId) && seenTargets.add(targetId);
         })
-        .map(function(href) {
-            return document.querySelector(href);
+        .map(function(targetId) {
+            return document.getElementById(targetId);
         })
         .filter(Boolean);
 
@@ -1917,13 +1934,7 @@ function initHomepageNavigationWayfinding() {
 
     homepageNavigationLinks.forEach(function(link) {
         link.addEventListener('click', function() {
-            const href = link.getAttribute('href');
-
-            if (!href || href.length < 2) {
-                return;
-            }
-
-            const targetId = href.slice(1);
+            const targetId = getHashTargetId(link);
 
             if (!targetId) {
                 return;
