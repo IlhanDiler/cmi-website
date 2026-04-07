@@ -270,6 +270,7 @@
 }
 
 .timeline-summary-value {
+    margin: 0;
     color: var(--timeline-summary-value-color);
     font-size: clamp(1.04rem, 1.6vw, 1.26rem);
     font-weight: 700;
