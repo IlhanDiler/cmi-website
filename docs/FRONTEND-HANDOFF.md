@@ -27,6 +27,19 @@ Die Website nutzt jetzt eine modulare CSS-Architektur mit einem klaren Einstiegs
 - [styles/components/subpages.css](../styles/components/subpages.css) kapselt generische Subpage-Struktur.
 - [styles/components/legal.css](../styles/components/legal.css) kapselt Datenschutz und Impressum.
 
+Die JavaScript-Runtime ist jetzt in sieben Dateien geschnitten:
+
+- Ein kleines Inline-Snippet im HTML-`head` setzt frueh `history.scrollRestoration = 'manual'`, damit die Browser-eigene Scroll-Wiederherstellung die Runtime nicht ueberlagert.
+- [scripts/core-runtime.js](../scripts/core-runtime.js) kapselt Scroll-/Load-Verhalten, Sprach-Fallback und die zentrale Runtime-Initialisierung.
+- [scripts/event-lightbox.js](../scripts/event-lightbox.js) kapselt die Event-Lightbox inklusive Caption-Ableitung, Fokus-Rueckgabe und Keyboard-/Overlay-Schliessen.
+- [scripts/cookie-consent.js](../scripts/cookie-consent.js) kapselt Cookie-Consent-Texte, Observer-Logik und den Sprachsync fuer das eingebundene Cookie-Script.
+- [scripts/navigation-language.js](../scripts/navigation-language.js) kapselt Navigation, Smooth-Scroll, aktiven Navigationszustand, Sprachumschaltung und Navigation-A11y.
+- [scripts/hero-gallery.js](../scripts/hero-gallery.js) kapselt Hero-Layout, Hero-Slider, Galerie-UI und responsive Bildanpassungen.
+- [scripts/site-effects.js](../scripts/site-effects.js) kapselt Scroll-Reveal, Shape-Parallax und den Jahreszaehler.
+- [scripts/review-interactions.js](../scripts/review-interactions.js) kapselt das Review-Archiv, Karten-Toggles und die hash-getriebene Oeffnungslogik fuer aeltere Rueckblicke.
+
+Wichtig: Die HTML-Dateien setzen zuerst das kleine Inline-Snippet fuer `history.scrollRestoration` im `head` und laden danach [scripts/core-runtime.js](../scripts/core-runtime.js), [scripts/event-lightbox.js](../scripts/event-lightbox.js), [scripts/cookie-consent.js](../scripts/cookie-consent.js), [scripts/navigation-language.js](../scripts/navigation-language.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js), [scripts/site-effects.js](../scripts/site-effects.js) und [scripts/review-interactions.js](../scripts/review-interactions.js), weil die spaeteren Runtime-Dateien auf Basisfunktionen aus den frueher geladenen Dateien aufsetzen.
+
 ## Wichtige Regeln
 
 - Neue Styles immer zuerst dem fachlich passenden Modul zuordnen.
@@ -60,3 +73,6 @@ Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaet
 ## Offene Grenze
 
 Technisch ist der Stand sauber validiert. Nicht vollautomatisiert abgedeckt ist nur echte Pixel-/Rendering-QA im Browser. Fuer finale visuelle Freigaben sollte daher immer noch ein kurzer manueller Blick auf Hauptseite, Chronik, Legal-Seiten und neue Share-Seiten erfolgen.
+
+Fuer einen schnellen Release-Check gibt es jetzt die Kurzfassung unter [docs/RELEASE-QA-CHECKLIST.md](../docs/RELEASE-QA-CHECKLIST.md).
+Fuer diesen manuellen Durchgang gibt es jetzt eine kompakte Checkliste unter [docs/MANUAL-QA-CHECKLIST.md](../docs/MANUAL-QA-CHECKLIST.md).

@@ -11,6 +11,24 @@ Die Haupt-CSS ist nicht mehr eine einzelne grosse Datei, sondern modular aufgeba
 - [styles/premium-foundation.css](styles/premium-foundation.css) enthaelt Design-Tokens, globale Typografie, Utilities und gemeinsame Basisregeln.
 - Die eigentlichen Seitenteile liegen unter [styles/components](styles/components), zum Beispiel fuer Navigation, Hero, Events, Review, Music Family, Footer sowie Subpages und Legal-Seiten.
 
+## JavaScript-Architektur
+
+Das Frontend-JavaScript ist jetzt ebenfalls fachlich aufgeteilt:
+
+- Ein kleines Inline-Snippet in den HTML-Koepfen setzt frueh `history.scrollRestoration = 'manual'`, damit Reloads und History-Navigation nicht gegen die spaetere Runtime-Steuerung arbeiten.
+- [scripts/core-runtime.js](scripts/core-runtime.js) kapselt Scroll-/Load-Verhalten, Sprach-Fallback und die zentrale Runtime-Initialisierung.
+- [scripts/event-lightbox.js](scripts/event-lightbox.js) kapselt die Event-Lightbox inklusive Caption-Ableitung, Fokus-Rueckgabe und Keyboard-/Overlay-Schliessen.
+- [scripts/cookie-consent.js](scripts/cookie-consent.js) kapselt Cookie-Consent-Texte, Mutation-Tracking und den Sprachsync fuer das Cookie-Script.
+- [scripts/navigation-language.js](scripts/navigation-language.js) kapselt Navigation, In-Page-Wayfinding, Sprachumschaltung und die zugehoerigen Accessibility-Synchronisierungen.
+- [scripts/hero-gallery.js](scripts/hero-gallery.js) kapselt Hero-Layout, Hero-Slider, Galerie-UI und die dazugehoerigen responsive Anpassungen.
+- [scripts/site-effects.js](scripts/site-effects.js) kapselt Scroll-Reveal, Shape-Parallax und den Jahreszaehler im Footer.
+- [scripts/review-interactions.js](scripts/review-interactions.js) kapselt das Review-Archiv, Karten-Toggles und hash-basierte Aufklapp-Logik fuer aeltere Rueckblicke.
+
+Wichtig fuer die Einbindung:
+
+- Die HTML-Seiten setzen zuerst das kleine Inline-Snippet fuer `history.scrollRestoration` im Dokumentkopf und laden danach [scripts/core-runtime.js](scripts/core-runtime.js), [scripts/event-lightbox.js](scripts/event-lightbox.js), [scripts/cookie-consent.js](scripts/cookie-consent.js), [scripts/navigation-language.js](scripts/navigation-language.js), [scripts/hero-gallery.js](scripts/hero-gallery.js), [scripts/site-effects.js](scripts/site-effects.js) und [scripts/review-interactions.js](scripts/review-interactions.js).
+- Die Reihenfolge ist relevant, weil die spaeteren Runtime-Dateien Basisfunktionen aus den frueher geladenen Dateien verwenden.
+
 Aktuelle Modulaufteilung:
 
 - [styles/components/navigation.css](styles/components/navigation.css): Hauptnavigation, Mobile-Menue, Subpage-Topbar

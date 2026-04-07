@@ -65,14 +65,15 @@ Aktueller realistischer Stand:
 3. Verantwortlichkeiten wurden in Komponentenmodule unter [styles/components](../styles/components) getrennt.
 4. Navigation und Subpage-Topbar wurden mehrfach konsolidiert.
 5. Die Navigation-Accessibility wurde deutlich verbessert, unter anderem mit Landmarken, Skip-Links, saubereren Sprachzuständen und besserem Mobile-Menü-Verhalten.
+6. Die JavaScript-Runtime wurde fachlich in mehrere Dateien unter [scripts](../scripts) zerlegt; der verbleibende fruehe Scroll-Bootstrap sitzt jetzt direkt in den HTML-Koepfen.
 
 ## Was noch fehlt für wirklich professionell-sauber
 
-1. [script.js](../script.js) weiter fachlich zerlegen.
-2. Restliche Accessibility außerhalb der Navigation systematisch prüfen.
-3. Historische Sonderfälle und inkonsistente Muster weiter abbauen.
-4. Rendering- und Browser-QA noch systematischer absichern.
-5. Langfristig weniger Duplikation im mehrsprachigen HTML erzeugen.
+1. Restliche Accessibility außerhalb der Navigation systematisch prüfen.
+2. Historische Sonderfälle und inkonsistente Muster weiter abbauen.
+3. Rendering- und Browser-QA noch systematischer absichern.
+4. Langfristig weniger Duplikation im mehrsprachigen HTML erzeugen.
+5. Die jetzt modulare JavaScript-Runtime kuerzerfristig noch mit gezielter Browser-QA absichern.
 
 ## Bewertungsmatrix
 
