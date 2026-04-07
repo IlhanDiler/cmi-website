@@ -569,7 +569,10 @@ function applyLanguageVariantsForParent(parent, fallbackOrder) {
             .find(Boolean) || currentGroup[0];
 
         currentGroup.forEach(function(candidate) {
-            candidate.style.display = candidate === chosenVariant ? '' : 'none';
+            const isChosenVariant = candidate === chosenVariant;
+
+            candidate.style.display = isChosenVariant ? '' : 'none';
+            candidate.setAttribute('aria-hidden', String(!isChosenVariant));
         });
 
         currentGroup = [];
