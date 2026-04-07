@@ -1230,6 +1230,10 @@ function initMobileNavigation() {
     const mobileMenu = document.querySelector('.mobile-menu');
     let lastMenuTrigger = null;
 
+    function isMobileMenuOpen() {
+        return Boolean(mobileMenuBtn) && mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+    }
+
     function getVisibleMobileMenuLinks() {
         if (!mobileMenu) {
             return [];
@@ -1238,6 +1242,35 @@ function initMobileNavigation() {
         return Array.from(mobileMenu.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')).filter(function(element) {
             return !element.hasAttribute('hidden') && window.getComputedStyle(element).display !== 'none';
         });
+    }
+
+    function focusFirstMobileMenuLink() {
+        const firstFocusableLink = getVisibleMobileMenuLinks()[0];
+
+        if (firstFocusableLink) {
+            firstFocusableLink.focus();
+        }
+    }
+
+    function trapMobileMenuFocus(event) {
+        const focusableLinks = getVisibleMobileMenuLinks();
+
+        if (!focusableLinks.length) {
+            event.preventDefault();
+            mobileMenuBtn.focus();
+            return;
+        }
+
+        const firstFocusableLink = focusableLinks[0];
+        const lastFocusableLink = focusableLinks[focusableLinks.length - 1];
+
+        if (event.shiftKey && document.activeElement === firstFocusableLink) {
+            event.preventDefault();
+            lastFocusableLink.focus();
+        } else if (!event.shiftKey && document.activeElement === lastFocusableLink) {
+            event.preventDefault();
+            firstFocusableLink.focus();
+        }
     }
 
     function syncMobileMenuState(isOpen, options) {
@@ -1261,13 +1294,7 @@ function initMobileNavigation() {
         syncNavigationAccessibility(getActiveDocumentLanguage());
 
         if (isOpen && settings.moveFocus) {
-            window.requestAnimationFrame(function() {
-                const firstFocusableLink = getVisibleMobileMenuLinks()[0];
-
-                if (firstFocusableLink) {
-                    firstFocusableLink.focus();
-                }
-            });
+            window.requestAnimationFrame(focusFirstMobileMenuLink);
         }
 
         if (!isOpen && settings.restoreFocus && lastMenuTrigger && typeof lastMenuTrigger.focus === 'function') {
@@ -1287,7 +1314,7 @@ function initMobileNavigation() {
         mobileMenuBtn.addEventListener('click', function(event) {
             event.stopPropagation();
 
-            const nextIsOpen = mobileMenuBtn.getAttribute('aria-expanded') !== 'true';
+            const nextIsOpen = !isMobileMenuOpen();
 
             if (nextIsOpen) {
                 lastMenuTrigger = mobileMenuBtn;
@@ -1300,7 +1327,7 @@ function initMobileNavigation() {
         });
 
         document.addEventListener('click', function(event) {
-            if (mobileMenuBtn.getAttribute('aria-expanded') !== 'true') {
+            if (!isMobileMenuOpen()) {
                 return;
             }
 
@@ -1310,7 +1337,7 @@ function initMobileNavigation() {
         });
 
         document.addEventListener('keydown', function(event) {
-            if (mobileMenuBtn.getAttribute('aria-expanded') !== 'true') {
+            if (!isMobileMenuOpen()) {
                 return;
             }
 
@@ -1324,24 +1351,7 @@ function initMobileNavigation() {
                 return;
             }
 
-            const focusableLinks = getVisibleMobileMenuLinks();
-
-            if (!focusableLinks.length) {
-                event.preventDefault();
-                mobileMenuBtn.focus();
-                return;
-            }
-
-            const firstFocusableLink = focusableLinks[0];
-            const lastFocusableLink = focusableLinks[focusableLinks.length - 1];
-
-            if (event.shiftKey && document.activeElement === firstFocusableLink) {
-                event.preventDefault();
-                lastFocusableLink.focus();
-            } else if (!event.shiftKey && document.activeElement === lastFocusableLink) {
-                event.preventDefault();
-                firstFocusableLink.focus();
-            }
+            trapMobileMenuFocus(event);
         });
 
         window.addEventListener('resize', function() {
