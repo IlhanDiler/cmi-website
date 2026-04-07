@@ -695,6 +695,28 @@ function getFirstVisibleText(container, selector) {
     return matchingNode.textContent.replace(/\s+/g, ' ').trim();
 }
 
+function appendAccessibilityHint(label, hint) {
+    if (!label || !hint || label.includes(hint)) {
+        return label;
+    }
+
+    return `${label} (${hint})`;
+}
+
+function getAccessibleLinkLabel(link) {
+    if (!link) {
+        return '';
+    }
+
+    return [
+        link.getAttribute('aria-label'),
+        link.getAttribute('title'),
+        link.textContent
+    ].find(function(candidate) {
+        return Boolean(candidate && candidate.trim());
+    })?.replace(/\s+/g, ' ').trim() || '';
+}
+
 function syncAnniversaryVideoAccessibility() {
     const labels = getNavigationUiLabelSet(getCurrentSiteLanguage());
     const videoCard = document.querySelector('.image-caption-video-card');
@@ -713,7 +735,7 @@ function syncAnniversaryVideoAccessibility() {
         getFirstVisibleText(videoCard, '.image-caption-card-footer[data-lang], .image-caption-card-footer')
     ].filter(Boolean);
     const accessibilityLabel = labelParts.join(' - ');
-    const announcedLabel = accessibilityLabel ? `${accessibilityLabel} (${labels.opensInNewWindow})` : '';
+    const announcedLabel = appendAccessibilityHint(accessibilityLabel, labels.opensInNewWindow);
     const playBadge = videoCard.querySelector('.image-caption-card-play');
 
     if (playBadge) {
@@ -754,11 +776,25 @@ function syncEventShareButtonAccessibility() {
                     ? 'Instagram'
                     : labels.share;
             const baseLabel = title ? `${platform}: ${title}` : platform;
-            const accessibilityLabel = `${baseLabel} (${labels.opensInNewWindow})`;
+            const accessibilityLabel = appendAccessibilityHint(baseLabel, labels.opensInNewWindow);
 
             button.setAttribute('aria-label', accessibilityLabel);
             button.setAttribute('title', accessibilityLabel);
         });
+    });
+}
+
+function syncExternalLinkAccessibility() {
+    const labels = getNavigationUiLabelSet(getCurrentSiteLanguage());
+
+    document.querySelectorAll('a[target="_blank"]').forEach(function(link) {
+        const accessibilityLabel = appendAccessibilityHint(getAccessibleLinkLabel(link), labels.opensInNewWindow);
+
+        if (!accessibilityLabel) {
+            return;
+        }
+
+        link.setAttribute('aria-label', accessibilityLabel);
     });
 }
 
@@ -808,6 +844,7 @@ function syncStaticContentAccessibility() {
     syncDecorativeContentAccessibility();
     syncAnniversaryVideoAccessibility();
     syncEventShareButtonAccessibility();
+    syncExternalLinkAccessibility();
     syncLegalOverviewAccessibility();
     syncFooterNavigationAccessibility();
 
