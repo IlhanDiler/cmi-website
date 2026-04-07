@@ -3,6 +3,7 @@
 ## CSS-Architektur
 
 Eine kurze Entwickler-Uebergabe zur finalen Struktur liegt auch in [docs/FRONTEND-HANDOFF.md](docs/FRONTEND-HANDOFF.md).
+Eine zusammenfassende qualitative und technische Einordnung der Website liegt in [docs/SITE-ASSESSMENT.md](docs/SITE-ASSESSMENT.md).
 
 Die Haupt-CSS ist nicht mehr eine einzelne grosse Datei, sondern modular aufgebaut:
 
