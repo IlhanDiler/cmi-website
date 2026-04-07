@@ -17,6 +17,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
 <body class="subpage-body subpage-body--imprint">
+  <a href="#main-content" class="skip-link">
+    <span data-lang="de">Zum Inhalt springen</span>
+    <span data-lang="en" style="display:none;">Skip to main content</span>
+    <span data-lang="fr" style="display:none;">Aller au contenu principal</span>
+    <span data-lang="ln" style="display:none;">Kende na makambo ya ntina</span>
+    <span data-lang="it" style="display:none;">Vai al contenuto principale</span>
+    <span data-lang="tr" style="display:none;">Ana içeriğe geç</span>
+    <span data-lang="uk" style="display:none;">Перейти до основного вмісту</span>
+  </a>
   <header class="subpage-topbar">
     <div class="subpage-topbar__inner">
       <a class="subpage-topbar__brand" href="index.html">
@@ -33,7 +42,7 @@
         </span>
       </a>
       <div class="subpage-topbar__actions">
-        <div class="subpage-topbar__links">
+        <nav class="subpage-topbar__links" aria-label="Seitennavigation">
           <a class="subpage-topbar__link" href="index.html" data-lang="de">Startseite</a>
           <a class="subpage-topbar__link" href="index.html" data-lang="en" style="display:none;">Home</a>
           <a class="subpage-topbar__link" href="index.html" data-lang="fr" style="display:none;">Accueil</a>
@@ -62,8 +71,8 @@
           <a class="subpage-topbar__link" href="datenschutz.html" data-lang="it" style="display:none;">Privacy</a>
           <a class="subpage-topbar__link" href="datenschutz.html" data-lang="tr" style="display:none;">Gizlilik</a>
           <a class="subpage-topbar__link" href="datenschutz.html" data-lang="uk" style="display:none;">Конфіденційність</a>
-        </div>
-        <div id="langSwitcher" class="language-switch subpage-language-switch" aria-label="Sprachauswahl">
+        </nav>
+        <div id="langSwitcher" class="language-switch subpage-language-switch" role="group" aria-label="Sprachauswahl">
           <button type="button" onclick="setLang('de')" id="langDe" class="lang-switch-button" aria-label="Deutsch">
             <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="21" height="14" fill="#000000"/>
@@ -124,7 +133,7 @@
       </div>
     </div>
   </header>
-  <main class="subpage-main subpage-main--legal">
+  <main id="main-content" class="subpage-main subpage-main--legal">
     <section class="subpage-hero subpage-hero--imprint">
       <div class="subpage-hero__layout">
         <div class="subpage-hero__content">

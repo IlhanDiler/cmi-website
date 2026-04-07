@@ -950,7 +950,8 @@ html[lang="fr"] #langFr,
 html[lang="ln"] #langLn,
 html[lang="it"] #langIt,
 html[lang="tr"] #langTr,
-html[lang="uk"] #langUk {
+html[lang="uk"] #langUk,
+.lang-switch-button[aria-pressed="true"] {
     background: var(--lang-button-active-bg);
     border-color: var(--lang-button-active-border-color);
 }
