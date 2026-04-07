@@ -45,7 +45,10 @@ const KEYWORD_TAGS = [
 
 const state = {
     posts: [],
-    sharePages: []
+    sharePages: [],
+    failedFilesCount: 0,
+    source: "manifest",
+    statusRestoreTimerId: 0
 };
 
 const INSTAGRAM_EXPORT = {
@@ -163,6 +166,58 @@ function shortenText(text, maxLength) {
     return `${text.slice(0, maxLength - 1).trimEnd()}…`;
 }
 
+function clearExportStatusRestoreTimer() {
+    if (!state.statusRestoreTimerId) {
+        return;
+    }
+
+    window.clearTimeout(state.statusRestoreTimerId);
+    state.statusRestoreTimerId = 0;
+}
+
+function setExportStatusMessage(message) {
+    clearExportStatusRestoreTimer();
+    elements.exportStatus.textContent = message;
+}
+
+function getExportResultsStatusMessage() {
+    const visibleCount = elements.postGrid.querySelectorAll(".post-card").length;
+    let message = `${visibleCount} von ${state.posts.length} Beitraegen sichtbar`;
+
+    if (state.failedFilesCount) {
+        message += `, ${state.failedFilesCount} Datei(en) uebersprungen`;
+    }
+
+    if (state.source === "fallback") {
+        message += " (Fallback-Liste aktiv)";
+    }
+
+    return message;
+}
+
+function syncExportResultsStatus() {
+    if (!state.posts.length) {
+        return;
+    }
+
+    setExportStatusMessage(getExportResultsStatusMessage());
+}
+
+function announceTransientExportStatus(message, duration) {
+    const restoreDelay = typeof duration === "number" ? duration : 1600;
+
+    setExportStatusMessage(message);
+
+    if (!state.posts.length) {
+        return;
+    }
+
+    state.statusRestoreTimerId = window.setTimeout(() => {
+        elements.exportStatus.textContent = getExportResultsStatusMessage();
+        state.statusRestoreTimerId = 0;
+    }, restoreDelay);
+}
+
 function captureControlLabelState(trigger) {
     return {
         text: trigger.textContent,
@@ -198,14 +253,17 @@ function setControlFeedbackState(trigger, text, accessibilityLabel) {
 
 async function copyText(value, trigger, successLabel, successAccessibilityLabel) {
     const originalState = captureControlLabelState(trigger);
+    const successStatus = successAccessibilityLabel || successLabel;
 
     try {
         await navigator.clipboard.writeText(value);
-        setControlFeedbackState(trigger, successLabel, successAccessibilityLabel || successLabel);
+        setControlFeedbackState(trigger, successLabel, successStatus);
+        announceTransientExportStatus(successStatus);
         window.setTimeout(() => {
             applyControlLabelState(trigger, originalState);
         }, 1500);
     } catch (error) {
+        announceTransientExportStatus("Kopieren fehlgeschlagen. Bitte Text manuell kopieren.", 2200);
         window.alert("Kopieren hat im Browser nicht funktioniert. Bitte den Text manuell kopieren.");
     }
 }
@@ -395,8 +453,10 @@ async function exportInstagramImage(post, trigger) {
         link.click();
 
         setControlFeedbackState(trigger, "PNG exportiert", `PNG exportiert: ${postLabel}`);
+        announceTransientExportStatus(`PNG exportiert: ${postLabel}`);
     } catch (error) {
         console.error(error);
+        announceTransientExportStatus(`PNG-Export fehlgeschlagen: ${postLabel}`, 2200);
         window.alert("Der PNG-Export hat nicht funktioniert. Auf der live Website klappt das zuverlaessiger; lokal kannst du die Vorschau alternativ als Screenshot verwenden.");
         setControlFeedbackState(trigger, "Export fehlgeschlagen", `PNG-Export fehlgeschlagen: ${postLabel}`);
     } finally {
@@ -501,8 +561,10 @@ async function exportInstagramStoryImage(post, trigger) {
         link.click();
 
         setControlFeedbackState(trigger, "Story exportiert", `Story exportiert: ${postLabel}`);
+        announceTransientExportStatus(`Story exportiert: ${postLabel}`);
     } catch (error) {
         console.error(error);
+        announceTransientExportStatus(`Story-Export fehlgeschlagen: ${postLabel}`, 2200);
         window.alert("Der Story-Export hat nicht funktioniert. Auf der live Website klappt das zuverlaessiger; lokal kannst du die Vorschau alternativ als Screenshot verwenden.");
         setControlFeedbackState(trigger, "Story fehlgeschlagen", `Story-Export fehlgeschlagen: ${postLabel}`);
     } finally {
@@ -720,7 +782,7 @@ function applySearchFilter() {
         : state.posts.filter((post) => buildSearchIndex(post).includes(query));
 
     renderPosts(filtered);
-    elements.exportStatus.textContent = `${filtered.length} von ${state.posts.length} Beitraegen sichtbar`;
+    syncExportResultsStatus();
 }
 
 async function initialize() {
@@ -728,10 +790,12 @@ async function initialize() {
         const { posts, failedFiles, sharePages, source } = await loadPosts();
         state.posts = posts;
         state.sharePages = sharePages;
+        state.failedFilesCount = failedFiles.length;
+        state.source = source;
         renderPosts(posts);
 
         if (!posts.length) {
-            elements.exportStatus.textContent = "Keine Share-Seiten konnten geladen werden. Die Export-Seite funktioniert nur ueber einen Webserver und nicht ueber file://.";
+            setExportStatusMessage("Keine Share-Seiten konnten geladen werden. Die Export-Seite funktioniert nur ueber einen Webserver und nicht ueber file://.");
             return;
         }
 
@@ -743,11 +807,9 @@ async function initialize() {
             return;
         }
 
-        elements.exportStatus.textContent = failedFiles.length
-            ? `${posts.length} Beitraege geladen, ${failedFiles.length} Datei(en) uebersprungen${source === "fallback" ? " (Fallback-Liste aktiv)" : ""}`
-            : `${posts.length} Beitraege geladen${source === "fallback" ? " (Fallback-Liste aktiv)" : ""}`;
+        syncExportResultsStatus();
     } catch (error) {
-        elements.exportStatus.textContent = "Die Share-Seiten konnten nicht geladen werden. Die Export-Seite funktioniert nur ueber einen Webserver und nicht ueber file://.";
+        setExportStatusMessage("Die Share-Seiten konnten nicht geladen werden. Die Export-Seite funktioniert nur ueber einen Webserver und nicht ueber file://.");
         console.error(error);
     }
 }
