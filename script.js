@@ -1379,7 +1379,7 @@ function initNavbarScroll() {
 
     function updateNavbarScrollState() {
         scrollFrame = null;
-        const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        const scrollTop = getViewportScrollTop();
         setNavbarStyle(scrollTop > 18);
     }
 
@@ -1402,7 +1402,7 @@ function initShapeParallax() {
     }
 
     window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
+        const scrolled = getViewportScrollTop();
         shapes.forEach((shape, index) => {
             const speed = (index + 1) * 0.5;
             shape.style.transform = `translateY(${scrolled * speed}px)`;
@@ -1518,6 +1518,30 @@ function isSupportedSiteLanguage(lang) {
     return supportedSiteLanguages.has(lang);
 }
 
+function getViewportScrollTop() {
+    return window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+}
+
+function getNavbarHeight() {
+    const navbar = document.querySelector('.navbar');
+    return navbar ? navbar.getBoundingClientRect().height : 0;
+}
+
+function getPreferredScrollBehavior() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+}
+
+function getScrollTargetTop(targetElement, additionalOffset) {
+    if (!targetElement) {
+        return 0;
+    }
+
+    const elementTop = targetElement.getBoundingClientRect().top + getViewportScrollTop();
+    const offset = typeof additionalOffset === 'number' ? additionalOffset : 0;
+
+    return Math.max(0, elementTop - getNavbarHeight() - offset);
+}
+
 function focusNavigationTarget(targetSection) {
     if (!targetSection || typeof targetSection.focus !== 'function') {
         return;
@@ -1543,14 +1567,12 @@ function scrollToSectionTarget(targetSection) {
         return;
     }
 
-    const navbar = document.querySelector('.navbar');
-    const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
-    const targetTop = Math.max(0, targetSection.offsetTop - navbarHeight - 12);
+    const targetTop = getScrollTargetTop(targetSection, 12);
 
     clearCurrentHash();
     window.scrollTo({
         top: targetTop,
-        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+        behavior: getPreferredScrollBehavior()
     });
 }
 
@@ -1850,13 +1872,9 @@ function initHomepageNavigationWayfinding() {
     let activeSectionId = '';
     let scrollFrame = null;
 
-    function getScrollTop() {
-        return window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    }
-
     function getCurrentSectionId() {
-        const scrollTop = getScrollTop();
-        const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
+        const scrollTop = getViewportScrollTop();
+        const navbarHeight = getNavbarHeight();
         const activationLine = scrollTop + navbarHeight + 120;
         const documentBottom = scrollTop + window.innerHeight;
         const pageHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
@@ -1994,18 +2012,15 @@ function initReviewArchiveToggle() {
             return;
         }
 
-        const navbar = document.querySelector('.navbar');
-        const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
-        const introTop = intro.getBoundingClientRect().top + window.scrollY;
-        const targetTop = Math.max(0, introTop - navbarHeight - 12);
+        const targetTop = getScrollTargetTop(intro, 12);
 
-        if (Math.abs(window.scrollY - targetTop) < 20) {
+        if (Math.abs(getViewportScrollTop() - targetTop) < 20) {
             return;
         }
 
         window.scrollTo({
             top: targetTop,
-            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+            behavior: getPreferredScrollBehavior()
         });
     }
 
