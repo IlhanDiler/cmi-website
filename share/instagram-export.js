@@ -486,6 +486,12 @@ async function loadPost(fileName) {
     const title = collapseWhitespace(getMetaContent(doc, 'meta[property="og:title"]') || doc.title.trim());
     const description = collapseWhitespace(getMetaContent(doc, 'meta[name="description"]') || getMetaContent(doc, 'meta[property="og:description"]'));
     const image = doc.querySelector(".share-card__hero")?.getAttribute("src") || getMetaContent(doc, 'meta[property="og:image"]') || "";
+    const imageAlt = collapseWhitespace(
+        doc.querySelector(".share-card__hero")?.getAttribute("alt") ||
+        getMetaContent(doc, 'meta[property="og:image:alt"]') ||
+        getMetaContent(doc, 'meta[name="twitter:image:alt"]') ||
+        title
+    );
     const shareUrl = getMetaContent(doc, 'meta[property="og:url"]') || new URL(fileName, window.location.href).href;
     const meta = collapseWhitespace(doc.querySelector(".share-card__meta")?.textContent) || "Share-Beitrag";
     const text = collapseWhitespace(doc.querySelector(".share-card__text")?.textContent) || description;
@@ -496,6 +502,7 @@ async function loadPost(fileName) {
         title,
         description,
         image,
+        imageAlt,
         shareUrl,
         meta,
         text,
@@ -584,10 +591,12 @@ function renderPosts(posts) {
         const text = fragment.querySelector(".post-card__text");
         const hashtags = fragment.querySelector(".post-card__hashtags");
         const caption = fragment.querySelector(".post-card__caption");
+        const feedPreview = fragment.querySelector(".insta-preview");
         const previewImage = fragment.querySelector(".insta-preview__image");
         const previewMeta = fragment.querySelector(".insta-preview__meta");
         const previewTitle = fragment.querySelector(".insta-preview__title");
         const previewText = fragment.querySelector(".insta-preview__text");
+        const storyPreview = fragment.querySelector(".story-preview");
         const storyPreviewImage = fragment.querySelector(".story-preview__image");
         const storyPreviewMeta = fragment.querySelector(".story-preview__meta");
         const storyPreviewTitle = fragment.querySelector(".story-preview__title");
@@ -601,21 +610,30 @@ function renderPosts(posts) {
 
         card.dataset.search = buildSearchIndex(post);
         image.src = post.image;
-        image.alt = post.title;
+        image.alt = post.imageAlt;
         meta.textContent = post.meta;
         title.textContent = post.title;
         text.textContent = post.text;
         caption.value = post.caption;
         previewImage.src = post.image;
-        previewImage.alt = post.title;
+        previewImage.alt = post.imageAlt;
         previewMeta.textContent = post.meta;
         previewTitle.textContent = post.title;
         previewText.textContent = post.text;
         storyPreviewImage.src = post.image;
-        storyPreviewImage.alt = post.title;
+        storyPreviewImage.alt = post.imageAlt;
         storyPreviewMeta.textContent = post.meta;
         storyPreviewTitle.textContent = post.title;
         storyPreviewText.textContent = post.text;
+
+        if (feedPreview) {
+            feedPreview.setAttribute("aria-label", `Instagram 4 zu 5 Vorschau: ${post.title}`);
+        }
+
+        if (storyPreview) {
+            storyPreview.setAttribute("aria-label", `Instagram Story 9 zu 16 Vorschau: ${post.title}`);
+        }
+
         openImageLink.href = post.image;
         openShareLink.href = post.shareUrl;
 
