@@ -38,12 +38,12 @@
         <section class="export-toolbar" aria-label="Filter und Status">
             <label class="export-search">
                 <span>Suche</span>
-                <input id="post-search" type="search" placeholder="Titel, Ort oder Stichwort durchsuchen">
+                <input id="post-search" type="search" placeholder="Titel, Ort oder Stichwort durchsuchen" aria-controls="post-grid" aria-describedby="export-status">
             </label>
-            <p class="export-status" id="export-status">Share-Seiten werden geladen...</p>
+            <p class="export-status" id="export-status" role="status" aria-live="polite" aria-atomic="true">Share-Seiten werden geladen...</p>
         </section>
 
-        <section class="export-grid" id="post-grid" aria-live="polite"></section>
+        <section class="export-grid" id="post-grid"></section>
     </main>
 
     <template id="post-card-template">
