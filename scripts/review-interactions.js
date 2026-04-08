@@ -1,3 +1,50 @@
+function getReviewHashTarget() {
+    const hash = window.location.hash ? window.location.hash.slice(1) : '';
+
+    if (!hash) {
+        return null;
+    }
+
+    return document.getElementById(hash);
+}
+
+function focusReviewHashTarget(target) {
+    if (!target || typeof target.focus !== 'function') {
+        return;
+    }
+
+    const hadTabindex = target.hasAttribute('tabindex');
+
+    if (!hadTabindex) {
+        target.setAttribute('tabindex', '-1');
+    }
+
+    target.focus({ preventScroll: true });
+
+    if (!hadTabindex) {
+        target.addEventListener('blur', function handleBlur() {
+            target.removeAttribute('tabindex');
+        }, { once: true });
+    }
+}
+
+function queueReviewHashTargetNavigation(target) {
+    if (!target) {
+        return;
+    }
+
+    window.requestAnimationFrame(function() {
+        window.requestAnimationFrame(function() {
+            focusReviewHashTarget(target);
+
+            window.scrollTo({
+                top: getScrollTargetTop(target, 12),
+                behavior: getPreferredScrollBehavior()
+            });
+        });
+    });
+}
+
 function initReviewArchiveToggle() {
     const archive = document.getElementById('reviewArchive');
     const toggle = document.querySelector('.review-archive-toggle');
@@ -50,12 +97,12 @@ function initReviewArchiveToggle() {
     }
 
     function expandArchiveForHash() {
-        const hash = window.location.hash ? window.location.hash.slice(1) : '';
-        if (!hash) {
+        const target = getReviewHashTarget();
+
+        if (!target) {
             return;
         }
 
-        const target = document.getElementById(hash);
         if (target && archive.contains(target)) {
             setArchiveExpanded(true);
         }
@@ -221,18 +268,19 @@ function initReviewCardToggles() {
     }
 
     function expandCardForHash() {
-        const hash = window.location.hash ? window.location.hash.slice(1) : '';
-        if (!hash) {
+        const target = getReviewHashTarget();
+
+        if (!target) {
             return;
         }
 
-        const target = document.getElementById(hash);
         const section = target && target.closest('.review-archive .charity-projects-section[id^="review-"]');
 
         if (section) {
             createToggle(section);
             syncCardToggle(section);
             setCardExpanded(section, true);
+            queueReviewHashTargetNavigation(target);
         }
     }
 
