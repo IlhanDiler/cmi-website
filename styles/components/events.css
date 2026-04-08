@@ -455,6 +455,11 @@
     outline: none;
 }
 
+.event-poster-download:focus-visible {
+    border-color: rgba(10, 117, 109, 0.32);
+    box-shadow: var(--focus-ring-soft);
+}
+
 .event-social-actions {
     --event-social-gap: 10px;
     --event-social-size: 50px;
@@ -520,6 +525,10 @@
 .event-social-button:hover,
 .event-social-button:focus-visible {
     outline: none;
+}
+
+.event-social-button:focus-visible {
+    box-shadow: var(--focus-ring-soft);
 }
 
 @media (min-width: 1180px) {
