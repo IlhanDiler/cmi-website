@@ -6,13 +6,13 @@ function initEventLightbox() {
     const lightboxCaptionTitle = document.getElementById('eventLightboxCaptionTitle');
     const lightboxCaptionMeta = document.getElementById('eventLightboxCaptionMeta');
     const lightboxLanguageLabels = {
-        de: { kicker: 'Konzertplakat', fallbackTitle: 'Eventbild', closeLabel: 'Vollansicht schließen' },
-        en: { kicker: 'Concert Poster', fallbackTitle: 'Event image', closeLabel: 'Close full view' },
-        fr: { kicker: 'Affiche du concert', fallbackTitle: 'Image de l\'evenement', closeLabel: 'Fermer la vue agrandie' },
-        ln: { kicker: 'Affiche ya konser', fallbackTitle: 'Elilingi ya event', closeLabel: 'Kanga emoniseli monene' },
-        it: { kicker: 'Manifesto del concerto', fallbackTitle: 'Immagine dell\'evento', closeLabel: 'Chiudi la vista ingrandita' },
-        tr: { kicker: 'Konser afişi', fallbackTitle: 'Etkinlik görseli', closeLabel: 'Tam görünümü kapat' },
-        uk: { kicker: 'Афіша концерту', fallbackTitle: 'Зображення події', closeLabel: 'Закрити повний перегляд' }
+        de: { kicker: 'Konzertplakat', fallbackTitle: 'Eventbild', openLabel: 'Vollansicht öffnen', closeLabel: 'Vollansicht schließen' },
+        en: { kicker: 'Concert Poster', fallbackTitle: 'Event image', openLabel: 'Open full view', closeLabel: 'Close full view' },
+        fr: { kicker: 'Affiche du concert', fallbackTitle: 'Image de l\'evenement', openLabel: 'Ouvrir la vue agrandie', closeLabel: 'Fermer la vue agrandie' },
+        ln: { kicker: 'Affiche ya konser', fallbackTitle: 'Elilingi ya event', openLabel: 'Fungola emoniseli monene', closeLabel: 'Kanga emoniseli monene' },
+        it: { kicker: 'Manifesto del concerto', fallbackTitle: 'Immagine dell\'evento', openLabel: 'Apri la vista ingrandita', closeLabel: 'Chiudi la vista ingrandita' },
+        tr: { kicker: 'Konser afişi', fallbackTitle: 'Etkinlik görseli', openLabel: 'Tam görünümü aç', closeLabel: 'Tam görünümü kapat' },
+        uk: { kicker: 'Афіша концерту', fallbackTitle: 'Зображення події', openLabel: 'Відкрити повний перегляд', closeLabel: 'Закрити повний перегляд' }
     };
     let lastTrigger = null;
 
@@ -28,6 +28,13 @@ function initEventLightbox() {
             lightboxCloseBtn.setAttribute('aria-label', labelSet.closeLabel);
             lightboxCloseBtn.setAttribute('title', labelSet.closeLabel);
         }
+    }
+
+    function getLightboxFocusableElements() {
+        return Array.from(lightboxModal.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')).filter(function(element) {
+            const computedStyle = window.getComputedStyle(element);
+            return computedStyle.display !== 'none' && computedStyle.visibility !== 'hidden';
+        });
     }
 
     function getVisibleNodeText(container, selector) {
@@ -77,6 +84,24 @@ function initEventLightbox() {
             meta: [location, date].filter(Boolean).join(' • '),
             language: getActiveLanguage(image)
         };
+    }
+
+    function getLightboxTriggerLabel(image) {
+        const caption = getLightboxCaption(image);
+        const labelSet = lightboxLanguageLabels[caption.language] || lightboxLanguageLabels.de;
+        const title = caption.title || image.alt || labelSet.fallbackTitle;
+
+        return `${labelSet.openLabel}: ${title}`;
+    }
+
+    function syncEventLightboxTriggerAccessibility() {
+        document.querySelectorAll('.event-lightbox-img, .event-lightbox-trigger').forEach(function(trigger) {
+            trigger.setAttribute('tabindex', '0');
+            trigger.setAttribute('role', 'button');
+            trigger.setAttribute('aria-haspopup', 'dialog');
+            trigger.setAttribute('aria-controls', 'eventLightboxModal');
+            trigger.setAttribute('aria-label', getLightboxTriggerLabel(trigger));
+        });
     }
 
     function isLightboxOpen() {
@@ -159,12 +184,56 @@ function initEventLightbox() {
     });
 
     document.addEventListener('keydown', function(event) {
+        const keyboardTrigger = event.target.closest('.event-lightbox-img, .event-lightbox-trigger');
+
+        if ((event.key === 'Enter' || event.key === ' ') && keyboardTrigger) {
+            event.preventDefault();
+            openLightbox(keyboardTrigger);
+            return;
+        }
+
+        if (event.key === 'Tab' && isLightboxOpen()) {
+            const focusableElements = getLightboxFocusableElements();
+
+            if (!focusableElements.length) {
+                event.preventDefault();
+
+                if (lightboxCloseBtn) {
+                    lightboxCloseBtn.focus();
+                }
+
+                return;
+            }
+
+            const firstFocusable = focusableElements[0];
+            const lastFocusable = focusableElements[focusableElements.length - 1];
+            const activeElement = document.activeElement;
+
+            if (event.shiftKey) {
+                if (activeElement === firstFocusable || !lightboxModal.contains(activeElement)) {
+                    event.preventDefault();
+                    lastFocusable.focus();
+                }
+
+                return;
+            }
+
+            if (activeElement === lastFocusable) {
+                event.preventDefault();
+                firstFocusable.focus();
+            }
+
+            return;
+        }
+
         if (event.key === 'Escape' && isLightboxOpen()) {
             closeLightbox();
         }
     });
 
     window.syncEventLightboxStaticAccessibility = syncEventLightboxStaticAccessibility;
+    window.syncEventLightboxTriggerAccessibility = syncEventLightboxTriggerAccessibility;
     syncEventLightboxStaticAccessibility();
+    syncEventLightboxTriggerAccessibility();
     lightboxModal.setAttribute('aria-hidden', 'true');
 }
