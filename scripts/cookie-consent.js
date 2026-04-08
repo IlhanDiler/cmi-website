@@ -44,7 +44,7 @@ const cookieConsentTranslations = {
         about: {
             introHtml: 'Cookies sind kleine Textdateien, die auf Ihrem Computer abgelegt werden, wenn Sie bestimmte Websites besuchen. Websites verwenden Cookies, um Benutzern das Navigieren auf einer Website zu erleichtern und das Ausführen bestimmter Funktionen zu ermöglichen. Cookies, die für den ordnungsgemäßen Betrieb der Website erforderlich sind, dürfen ohne Ihre Einwilligung gesetzt werden. Allen anderen Cookies muss erst zugestimmt werden, bevor sie im Browser gesetzt werden können.<br>Sie können Ihre Einwilligung zur Verwendung von Cookies auf unserer Website jederzeit in der Datenschutzerklärung ändern.',
             introText: 'Cookies sind kleine Textdateien, die auf Ihrem Computer abgelegt werden, wenn Sie bestimmte Websites besuchen. Websites verwenden Cookies, um Benutzern das Navigieren auf einer Website zu erleichtern und das Ausführen bestimmter Funktionen zu ermöglichen. Cookies, die für den ordnungsgemäßen Betrieb der Website erforderlich sind, dürfen ohne Ihre Einwilligung gesetzt werden. Allen anderen Cookies muss erst zugestimmt werden, bevor sie im Browser gesetzt werden können. Sie können Ihre Einwilligung zur Verwendung von Cookies auf unserer Website jederzeit in der Datenschutzerklärung ändern.',
-            adsHtml: 'Wir verwenden auch Cookies, um Daten zum Zweck der Personalisierung und Messung der Effektivität unserer Werbung zu sammeln. Weitere Informationen finden Sie in der <a href="https://business.safety.google/privacy/" target="_blank">Google-Datenschutzerklärung</a>.',
+            adsHtml: 'Wir verwenden auch Cookies, um Daten zum Zweck der Personalisierung und Messung der Effektivität unserer Werbung zu sammeln. Weitere Informationen finden Sie in der <a href="https://business.safety.google/privacy/" target="_blank" rel="noopener noreferrer">Google-Datenschutzerklärung</a>.',
             consentId: 'Cookie-Zustimmungs-ID'
         }
     },
@@ -93,7 +93,7 @@ const cookieConsentTranslations = {
         about: {
             introHtml: 'Cookies are small text files that are placed on your computer when you visit certain websites. Websites use cookies to help users navigate a website and to enable certain functions. Essential cookies may be set without your consent to ensure the website functions properly. All other cookies must be approved before they can be set in the browser.<br>You can change your consent to the use of cookies on our website at any time in the privacy policy.',
             introText: 'Cookies are small text files that are placed on your computer when you visit certain websites. Websites use cookies to help users navigate a website and to enable certain functions. Essential cookies may be set without your consent to ensure the website functions properly. All other cookies must be approved before they can be set in the browser. You can change your consent to the use of cookies on our website at any time in the privacy policy.',
-            adsHtml: 'We also use cookies to collect data for the personalization and measurement of the effectiveness of our advertising. Further information can be found in the <a href="https://business.safety.google/privacy/" target="_blank">Google Privacy Policy</a>.',
+            adsHtml: 'We also use cookies to collect data for the personalization and measurement of the effectiveness of our advertising. Further information can be found in the <a href="https://business.safety.google/privacy/" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.',
             consentId: 'Cookie consent ID'
         }
     },
@@ -142,7 +142,7 @@ const cookieConsentTranslations = {
         about: {
             introHtml: 'Les cookies sont de petits fichiers texte qui sont places sur votre ordinateur lorsque vous consultez certains sites web. Les sites utilisent des cookies pour faciliter la navigation et permettre certaines fonctions. Les cookies necessaires au bon fonctionnement du site peuvent etre definis sans votre consentement. Tous les autres cookies doivent etre approuves avant d\'etre installes dans le navigateur.<br>Vous pouvez modifier a tout moment votre consentement a l\'utilisation des cookies sur notre site dans la politique de confidentialite.',
             introText: 'Les cookies sont de petits fichiers texte qui sont places sur votre ordinateur lorsque vous consultez certains sites web. Les sites utilisent des cookies pour faciliter la navigation et permettre certaines fonctions. Les cookies necessaires au bon fonctionnement du site peuvent etre definis sans votre consentement. Tous les autres cookies doivent etre approuves avant d\'etre installes dans le navigateur. Vous pouvez modifier a tout moment votre consentement a l\'utilisation des cookies sur notre site dans la politique de confidentialite.',
-            adsHtml: 'Nous utilisons egalement des cookies pour collecter des donnees afin de personnaliser et de mesurer l\'efficacite de notre publicite. Vous trouverez plus d\'informations dans la <a href="https://business.safety.google/privacy/" target="_blank">politique de confidentialite de Google</a>.',
+            adsHtml: 'Nous utilisons egalement des cookies pour collecter des donnees afin de personnaliser et de mesurer l\'efficacite de notre publicite. Vous trouverez plus d\'informations dans la <a href="https://business.safety.google/privacy/" target="_blank" rel="noopener noreferrer">politique de confidentialite de Google</a>.',
             consentId: 'Identifiant du consentement aux cookies'
         }
     },
@@ -191,7 +191,7 @@ const cookieConsentTranslations = {
         about: {
             introHtml: 'I cookie sono piccoli file di testo che vengono memorizzati sul tuo computer quando visiti determinati siti web. I siti web utilizzano i cookie per facilitare la navigazione e permettere l\'esecuzione di determinate funzioni. I cookie necessari al corretto funzionamento del sito possono essere impostati senza il tuo consenso. Tutti gli altri cookie devono essere approvati prima di poter essere impostati nel browser.<br>Puoi modificare in qualsiasi momento il tuo consenso all\'uso dei cookie sul nostro sito web nella politica sulla privacy.',
             introText: 'I cookie sono piccoli file di testo che vengono memorizzati sul tuo computer quando visiti determinati siti web. I siti web utilizzano i cookie per facilitare la navigazione e permettere l\'esecuzione di determinate funzioni. I cookie necessari al corretto funzionamento del sito possono essere impostati senza il tuo consenso. Tutti gli altri cookie devono essere approvati prima di poter essere impostati nel browser. Puoi modificare in qualsiasi momento il tuo consenso all\'uso dei cookie sul nostro sito web nella politica sulla privacy.',
-            adsHtml: 'Utilizziamo inoltre i cookie per raccogliere dati ai fini della personalizzazione e della misurazione dell\'efficacia della nostra pubblicita. Ulteriori informazioni sono disponibili nella <a href="https://business.safety.google/privacy/" target="_blank">Norme sulla privacy di Google</a>.',
+            adsHtml: 'Utilizziamo inoltre i cookie per raccogliere dati ai fini della personalizzazione e della misurazione dell\'efficacia della nostra pubblicita. Ulteriori informazioni sono disponibili nella <a href="https://business.safety.google/privacy/" target="_blank" rel="noopener noreferrer">Norme sulla privacy di Google</a>.',
             consentId: 'ID del consenso ai cookie'
         }
     },
@@ -240,7 +240,7 @@ const cookieConsentTranslations = {
         about: {
             introHtml: 'Çerezler, belirli web sitelerini ziyaret ettiğinizde bilgisayarınıza yerleştirilen küçük metin dosyalarıdır. Web siteleri çerezleri, kullanıcıların sitede gezinmesini kolaylaştırmak ve belirli işlevleri etkinleştirmek için kullanır. Web sitesinin düzgün çalışması için gerekli çerezler, onayınız olmadan ayarlanabilir. Diğer tüm çerezlerin tarayıcıda ayarlanabilmesi için önce onaylanması gerekir.<br>Web sitemizde çerez kullanımı için verdiğiniz onayı gizlilik politikası üzerinden istediğiniz zaman değiştirebilirsiniz.',
             introText: 'Çerezler, belirli web sitelerini ziyaret ettiğinizde bilgisayarınıza yerleştirilen küçük metin dosyalarıdır. Web siteleri çerezleri, kullanıcıların sitede gezinmesini kolaylaştırmak ve belirli işlevleri etkinleştirmek için kullanır. Web sitesinin düzgün çalışması için gerekli çerezler, onayınız olmadan ayarlanabilir. Diğer tüm çerezlerin tarayıcıda ayarlanabilmesi için önce onaylanması gerekir. Web sitemizde çerez kullanımı için verdiğiniz onayı gizlilik politikası üzerinden istediğiniz zaman değiştirebilirsiniz.',
-            adsHtml: 'Ayrıca reklamlarımızın etkisini kişiselleştirmek ve ölçmek amacıyla veri toplamak için de çerezler kullanıyoruz. Daha fazla bilgiye <a href="https://business.safety.google/privacy/" target="_blank">Google Gizlilik Politikası</a> üzerinden ulaşabilirsiniz.',
+            adsHtml: 'Ayrıca reklamlarımızın etkisini kişiselleştirmek ve ölçmek amacıyla veri toplamak için de çerezler kullanıyoruz. Daha fazla bilgiye <a href="https://business.safety.google/privacy/" target="_blank" rel="noopener noreferrer">Google Gizlilik Politikası</a> üzerinden ulaşabilirsiniz.',
             consentId: 'Çerez onay kimliği'
         }
     },
@@ -289,7 +289,7 @@ const cookieConsentTranslations = {
         about: {
             introHtml: 'Файли cookie - це невеликі текстові файли, які зберігаються на вашому комп\'ютері, коли ви відвідуєте певні вебсайти. Вебсайти використовують cookie, щоб полегшити навігацію та забезпечити роботу окремих функцій. Cookie, необхідні для належної роботи сайту, можуть встановлюватися без вашої згоди. Усі інші cookie мають бути схвалені, перш ніж їх можна буде встановити у браузері.<br>Ви можете будь-коли змінити свою згоду на використання cookie на нашому вебсайті в політиці конфіденційності.',
             introText: 'Файли cookie - це невеликі текстові файли, які зберігаються на вашому комп\'ютері, коли ви відвідуєте певні вебсайти. Вебсайти використовують cookie, щоб полегшити навігацію та забезпечити роботу окремих функцій. Cookie, необхідні для належної роботи сайту, можуть встановлюватися без вашої згоди. Усі інші cookie мають бути схвалені, перш ніж їх можна буде встановити у браузері. Ви можете будь-коли змінити свою згоду на використання cookie на нашому вебсайті в політиці конфіденційності.',
-            adsHtml: 'Ми також використовуємо cookie для збору даних з метою персоналізації та вимірювання ефективності нашої реклами. Додаткову інформацію можна знайти в <a href="https://business.safety.google/privacy/" target="_blank">політиці конфіденційності Google</a>.',
+            adsHtml: 'Ми також використовуємо cookie для збору даних з метою персоналізації та вимірювання ефективності нашої реклами. Додаткову інформацію можна знайти в <a href="https://business.safety.google/privacy/" target="_blank" rel="noopener noreferrer">політиці конфіденційності Google</a>.',
             consentId: 'Ідентифікатор згоди на файли cookie'
         }
     }
@@ -370,6 +370,10 @@ function updateCookieConsentLanguage() {
     setCookieConsentHtml('#cookiescript_aboutwrap > span[data-cs-i18n-text]', labels.about.introHtml, labels.about.introText);
     setCookieConsentHtml('#cookiescript_aboutwrap > div > span[data-cs-i18n-text]', labels.about.adsHtml);
     setCookieConsentText('[data-cs-consent-key-box="cookie-script"] > span[data-cs-i18n-text]', labels.about.consentId);
+
+    if (typeof syncStaticContentAccessibility === 'function') {
+        syncStaticContentAccessibility();
+    }
 }
 
 function scheduleCookieConsentLanguageUpdate() {
