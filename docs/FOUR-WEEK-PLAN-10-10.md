@@ -114,9 +114,11 @@ Budget: 15 Stunden
 - Abgeschlossen: Der zweite grosse Datenschutz-Block `#privacy-basics` in [datenschutz.html](../datenschutz.html) wird jetzt ebenfalls generatorbasiert gepflegt; groessere Quellen koennen dafuer jetzt zusaetzlich unter [scripts/legal-content](../scripts/legal-content) liegen.
 - Abgeschlossen: Der dritte grosse Datenschutz-Block `#privacy-data` in [datenschutz.html](../datenschutz.html) wird jetzt ebenfalls generatorbasiert gepflegt; die Quelle liegt in [scripts/legal-content/privacy-data.json](../scripts/legal-content/privacy-data.json) und wurde gegen Sprachumschaltung sowie schmalen Reflow validiert.
 - Abgeschlossen: Der vierte grosse Datenschutz-Block `#privacy-analytics` in [datenschutz.html](../datenschutz.html) wird jetzt ebenfalls generatorbasiert gepflegt; der Renderer unterstuetzt dafuer gezielt freigegebene Inline-Links, sodass externe Datenschutzhinweise im statisch gerenderten HTML klickbar bleiben.
+- Abgeschlossen: Der fuenfte grosse Datenschutz-Block `#privacy-social` in [datenschutz.html](../datenschutz.html) wird jetzt ebenfalls generatorbasiert gepflegt; die Quelle liegt in [scripts/legal-content/privacy-social.json](../scripts/legal-content/privacy-social.json) und deckt die Facebook- und Instagram-Hinweise samt freigegebenen Links strukturiert ab.
+- Abgeschlossen: Der sechste grosse Datenschutz-Block `#privacy-tools` in [datenschutz.html](../datenschutz.html) wird jetzt ebenfalls generatorbasiert gepflegt; die Quelle liegt in [scripts/legal-content/privacy-tools.json](../scripts/legal-content/privacy-tools.json) und rendert YouTube- und Google-Maps-Texte ohne doppelt escapte HTML-Entities.
 - Abgeschlossen: Die Pflegehinweise dafuer wurden in [README.md](../README.md) und [docs/FRONTEND-HANDOFF.md](../docs/FRONTEND-HANDOFF.md) nachgezogen.
-- Validiert: Generatorlauf sowie nachgelagerter Browser-QA-Run fuer [datenschutz.html](../datenschutz.html) liefen lokal ohne Funde durch; geprueft wurden Sprachumschaltung, Quick-Navigation, Reflow und die Sichtbarkeit der bisher fehlenden Lingala-Abschnitte im Widerspruchsteil.
-- Offen: Der Ansatz ist jetzt fuer einen Impressum-Block und vier grosse Datenschutz-Bloecke pilotiert, aber noch nicht breit auf weitere Sprachbloecke ausgedehnt.
+- Validiert: Generatorlauf sowie nachgelagerter Browser-QA-Run fuer [datenschutz.html](../datenschutz.html) liefen lokal ohne Funde durch; geprueft wurden jetzt auch die sechs generatorisierten Datenschutz-Bloecke auf Sprachumschaltung, Quick-Navigation, Reflow und klickbare Inline-Verweise.
+- Offen: Der Ansatz ist jetzt fuer einen Impressum-Block und sechs grosse Datenschutz-Bloecke pilotiert, aber noch nicht breit auf weitere Sprachbloecke ausgedehnt.
 
 ### Block A - 4h
 
