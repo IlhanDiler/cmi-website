@@ -1045,7 +1045,7 @@
         -webkit-hyphens: auto;
         -ms-hyphens: auto;
         word-break: normal;
-        overflow-wrap: normal;
+        overflow-wrap: break-word;
         text-wrap: pretty;
     }
 
