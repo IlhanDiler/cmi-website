@@ -169,6 +169,7 @@
 .musikalisches-repertoire-card--engagement .musikalisches-repertoire-intro {
     max-width: none;
     width: 100%;
+    margin-bottom: 0;
 }
 
 .musikalisches-repertoire-card--repertoire .repertoire-story-grid {
@@ -1092,7 +1093,7 @@
     }
 
     .musikalisches-repertoire-card--engagement .musikalisches-repertoire-intro {
-        margin-bottom: 10px;
+        margin-bottom: 0;
     }
 
     .musikalisches-repertoire-card--engagement .musikalisches-repertoire-card-header {
