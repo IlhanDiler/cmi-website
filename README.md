@@ -63,7 +63,7 @@ Fuer normale Inhalts- oder Styling-Aenderungen reicht diese kurze Reihenfolge:
 5. Neue Share-Dateien in [share/share-pages.json](share/share-pages.json) eintragen und bei Bedarf die Fallback-Liste in [share/instagram-export.js](share/instagram-export.js) mitziehen.
 6. Lokal immer ueber einen Webserver testen, nicht ueber `file://`, besonders fuer [share/instagram-export.html](share/instagram-export.html).
 7. Nach groesseren Aenderungen mindestens Startseite, Chronik, Datenschutz, Impressum und betroffene Share-Seiten kurz ueber HTTP pruefen.
-8. Fuer den generierten Rechtsblock in [impressum.html](impressum.html) zuerst [scripts/legal-content.json](scripts/legal-content.json) pflegen und danach [scripts/render-legal-content.py](scripts/render-legal-content.py) ausfuehren.
+8. Fuer generierte Legal- und Datenschutzbloecke in [impressum.html](impressum.html) und [datenschutz.html](datenschutz.html) zuerst [scripts/legal-content.json](scripts/legal-content.json) pflegen und danach [scripts/render-legal-content.py](scripts/render-legal-content.py) ausfuehren.
 
 ## Automatischer Quality-Gate
 

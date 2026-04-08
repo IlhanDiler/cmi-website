@@ -78,17 +78,18 @@ Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaet
 - Die Browser-Matrix ueber Edge, Chrome und Firefox lief mehrfach mit 0 Funden, zuletzt nach Abschluss der Week-4-Standardisierung.
 - Ein gezielter QA-Pass fuer Tastatur, Reduced Motion und Legal-Reflow auf [index.html](../index.html), [datenschutz.html](../datenschutz.html) und [impressum.html](../impressum.html) ist abgeschlossen; die dabei gefundenen Issues wurden direkt behoben.
 - Der erste strukturelle i18n-Pilot ist eingefuehrt: Der Rechtsblock `#imprint-legal` in [impressum.html](../impressum.html) wird aus [scripts/legal-content.json](../scripts/legal-content.json) via [scripts/render-legal-content.py](../scripts/render-legal-content.py) in statisches HTML gerendert.
+- Der Generatorpilot ist erweitert: Auch der grosse Datenschutz-Ueberblick `#privacy-overview` in [datenschutz.html](../datenschutz.html) wird jetzt aus [scripts/legal-content.json](../scripts/legal-content.json) erzeugt; der Renderer unterstuetzt dafuer inzwischen strukturierte Cards mit Ueberschriften, Listen und Inhaltsgruppen.
 - Die technische Einordnung und der Abschlussabgleich stehen in [docs/SITE-ASSESSMENT.md](../docs/SITE-ASSESSMENT.md).
 
 ## Bewusst offene Grenzen
 
 - Ein vollstaendiger Screenreader- und Geraeteklassen-Check ueber alle Seiten und Zustaende ist noch nicht erfolgt.
-- Die grossen Sprachcluster sind vereinheitlicht; die strukturelle Entduplizierung ist jetzt fuer einen ersten Impressum-Block pilotiert, aber noch nicht breit auf weitere Bereiche ausgedehnt.
+- Die grossen Sprachcluster sind vereinheitlicht; die strukturelle Entduplizierung ist jetzt fuer einen Impressum-Block und einen grossen Datenschutz-Block pilotiert, aber noch nicht breit auf weitere Bereiche ausgedehnt.
 - Einige gewachsene Muster in Markup und Runtime sind reduziert, aber nicht vollstaendig entfernt.
 
 ## Naechste sinnvolle Schritte
 
-1. Den Generatoransatz vom Impressum auf einen groesseren Block in [datenschutz.html](../datenschutz.html) oder einen weiteren Legal-Bereich ausweiten.
+1. Den Generatoransatz vom Impressum und Datenschutz auf weitere Legal-Bloecke oder einen anderen grossen Sprachbereich ausweiten.
 2. Vor einer finalen Freigabe einen kurzen manuellen Browser-, Mobile- und Screenreader-Sweep ueber Hauptseite, Chronik, Legal-Seiten und Share-Flow fahren.
 
 ## Offene Grenze

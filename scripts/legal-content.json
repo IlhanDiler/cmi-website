@@ -1,5 +1,315 @@
 {
   "targets": {
+    "privacy-overview": {
+      "file": "datenschutz.html",
+      "indentSpaces": 6,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "icon": "&#128065;",
+          "text": {
+            "de": "1. Datenschutz auf einen Blick",
+            "en": "1. Data Protection at a Glance",
+            "fr": "1. Protection des donnees en bref",
+            "ln": "1. Bobateli ya makambo ya moto na mokuse",
+            "it": "1. Protezione dei dati in sintesi",
+            "tr": "1. Veri korumasına kısa bakış",
+            "uk": "1. Захист даних коротко"
+          }
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "icon": "&#8505;",
+          "text": {
+            "de": "Allgemeine Hinweise",
+            "en": "General Information",
+            "fr": "Informations generales",
+            "ln": "Mayebisi ya bato nyonso",
+            "it": "Informazioni generali",
+            "tr": "Genel bilgiler",
+            "uk": "Загальна інформація"
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": {
+            "de": "Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.",
+            "en": "The notes below provide a simple overview of what happens to your personal data when you visit this website. Personal data is any information that can be used to identify you personally. Detailed information can be found in the privacy policy below.",
+            "fr": "Les indications suivantes donnent un apercu simple de ce qu'il advient de vos donnees personnelles lorsque vous visitez ce site. Les donnees personnelles sont toutes les donnees qui permettent de vous identifier personnellement. Vous trouverez plus bas des informations detaillees sur la protection des donnees.",
+            "ln": "Mayebisi oyo ezali na se epesi botali ya pamba na likambo oyo esalemaka na ba-donnees na yo ya moto tango otali site oyo. Ba-donnees ya moto ezali ba-donnees nyonso oyo ekoki koyebisa yo lokola moto moko boye. Mayebisi ya mozindo na ntina ya bobateli ya makambo ya moto ezali na mokanda oyo ezali na se ya texte oyo.",
+            "it": "Le seguenti informazioni offrono una panoramica semplice di ciò che accade ai tuoi dati personali quando visiti questo sito web. I dati personali sono tutti i dati con cui puoi essere identificato personalmente. Informazioni dettagliate sulla protezione dei dati sono riportate nella nostra informativa completa qui sotto.",
+            "tr": "Aşağıdaki bilgiler, bu web sitesini ziyaret ettiğinizde kişisel verilerinizle ilgili neler olduğunu kısa ve anlaşılır biçimde açıklar. Kişisel veriler, sizi şahsen tanımlamaya yarayan tüm bilgilerdir. Veri korumasına ilişkin ayrıntılı bilgileri, bu metnin devamındaki gizlilik politikasında bulabilirsiniz.",
+            "uk": "Наведена нижче інформація дає простий огляд того, що відбувається з вашими персональними даними, коли ви відвідуєте цей вебсайт. Персональні дані - це всі дані, за якими можна особисто вас ідентифікувати. Докладну інформацію про захист даних ви знайдете в повній політиці конфіденційності нижче."
+          }
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "icon": "&#128187;",
+          "text": {
+            "de": "Datenerfassung auf dieser Website",
+            "en": "Data Collection on this Website",
+            "fr": "Collecte des donnees sur ce site",
+            "ln": "Bosangisi ba-donnees na site oyo",
+            "it": "Raccolta dei dati su questo sito web",
+            "tr": "Bu web sitesinde veri toplama",
+            "uk": "Збір даних на цьому вебсайті"
+          }
+        },
+        {
+          "type": "group",
+          "className": "legal-detail-block",
+          "children": [
+            {
+              "type": "heading",
+              "level": 4,
+              "text": {
+                "de": "Wer ist verantwortlich für die Datenerfassung auf dieser Website?",
+                "en": "Who is responsible for data collection on this website?",
+                "fr": "Qui est responsable de la collecte des donnees sur ce site ?",
+                "ln": "Nani azali na mokumba ya bosangisi ba-donnees na site oyo?",
+                "it": "Chi è responsabile della raccolta dei dati su questo sito web?",
+                "tr": "Bu web sitesindeki veri toplamadan kim sorumludur?",
+                "uk": "Хто відповідає за збір даних на цьому вебсайті?"
+              }
+            },
+            {
+              "type": "paragraph",
+              "text": {
+                "de": "Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle“ in dieser Datenschutzerklärung entnehmen.",
+                "en": "The website operator is responsible for data processing on this website. You can find the relevant contact details in the section \"Note on the responsible party\" in this privacy policy.",
+                "fr": "Le traitement des donnees sur ce site est assure par l'exploitant du site. Vous trouverez ses coordonnees dans la section « Entite responsable » de la presente politique de confidentialite.",
+                "ln": "Kosalela ba-donnees na site oyo esalemaka na mokambi ya site. Makambo na ye ya kontak okoki kokuta yango na eteni \"Mayebisi na ntina ya moto ya mokumba\" na mokanda oyo ya bobateli ya makambo ya moto.",
+                "it": "Il trattamento dei dati su questo sito web è effettuato dal gestore del sito. I relativi recapiti sono riportati nella sezione \"Nota sull'organismo responsabile\" di questa informativa sulla privacy.",
+                "tr": "Bu web sitesindeki veri işleme, site işletmecisi tarafından yürütülür. İletişim bilgilerini bu gizlilik politikasındaki \"Sorumlu kişiye ilişkin not\" bölümünde bulabilirsiniz.",
+                "uk": "Обробку даних на цьому вебсайті здійснює оператор сайту. Його контактні дані наведено в розділі \"Примітка про відповідальну особу\" цієї політики конфіденційності."
+              }
+            },
+            {
+              "type": "heading",
+              "level": 4,
+              "text": {
+                "de": "Wie erfassen wir Ihre Daten?",
+                "en": "How do we collect your data?",
+                "fr": "Comment recueillons-nous vos donnees ?",
+                "ln": "Ndenge nini tozali kosangisa ba-donnees na yo?",
+                "it": "Come raccogliamo i tuoi dati?",
+                "tr": "Verilerinizi nasıl topluyoruz?",
+                "uk": "Як ми збираємо ваші дані?"
+              }
+            },
+            {
+              "type": "list",
+              "className": "legal-detail-list",
+              "items": {
+                "de": [
+                  "Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen (z. B. Daten im Kontaktformular).",
+                  "Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst (z. B. Internetbrowser, Betriebssystem, Uhrzeit des Seitenaufrufs)."
+                ],
+                "en": [
+                  "Your data is collected on the one hand by you providing it to us (e.g., data entered in a contact form).",
+                  "Other data is collected automatically or after your consent when visiting the website by our IT systems (e.g., internet browser, operating system, time of page access)."
+                ],
+                "fr": [
+                  "Vos donnees sont d'une part recueillies lorsque vous nous les communiquez vous-meme, par exemple dans un formulaire de contact.",
+                  "D'autres donnees sont recueillies automatiquement ou apres votre consentement lors de la visite du site par nos systemes informatiques, par exemple le navigateur, le systeme d'exploitation ou l'heure d'acces."
+                ],
+                "ln": [
+                  "Ndambu ya ba-donnees na yo esanganamaka tango yo moko opesi yango epai na biso, ndakisa na formulaire ya kontak.",
+                  "Ba-donnees mosusu esanganamaka automatiquement to nsima ya bondimi na yo tango ozali kotala site, na nzela ya ba-systeme na biso ya informatique, ndakisa navigateur, systeme d'exploitation to ngonga ya kofungola lokasa."
+                ],
+                "it": [
+                  "I tuoi dati vengono raccolti da un lato quando ce li comunichi (ad esempio, dati inseriti nel modulo di contatto).",
+                  "Altri dati vengono raccolti automaticamente o dopo il tuo consenso durante la visita al sito web dai nostri sistemi IT (ad esempio, browser Internet, sistema operativo, orario di accesso alla pagina)."
+                ],
+                "tr": [
+                  "Verilerinizin bir kısmını, bunları bize doğrudan kendiniz ilettiğinizde toplarız; örneğin iletişim formuna girdiğiniz bilgiler buna dahildir.",
+                  "Diğer veriler ise web sitesini ziyaret ettiğinizde BT sistemlerimiz tarafından otomatik olarak ya da onayınızdan sonra toplanır; örneğin tarayıcı, işletim sistemi ve sayfaya erişim saati gibi bilgiler buna dahildir."
+                ],
+                "uk": [
+                  "Частину даних ми отримуємо безпосередньо від вас, коли ви повідомляєте їх нам самі (наприклад, у контактній формі).",
+                  "Інші дані збираються автоматично або після вашої згоди під час відвідування сайту нашими ІТ-системами (наприклад, браузер, операційна система, час відкриття сторінки)."
+                ]
+              }
+            },
+            {
+              "type": "heading",
+              "level": 4,
+              "text": {
+                "de": "Wofür nutzen wir Ihre Daten?",
+                "en": "What do we use your data for?",
+                "fr": "A quelles fins utilisons-nous vos donnees ?",
+                "ln": "Mpo na nini tozali kosalela ba-donnees na yo?",
+                "it": "Per cosa utilizziamo i tuoi dati?",
+                "tr": "Verilerinizi ne için kullanıyoruz?",
+                "uk": "Для чого ми використовуємо ваші дані?"
+              }
+            },
+            {
+              "type": "list",
+              "className": "legal-detail-list",
+              "items": {
+                "de": [
+                  "Fehlerfreie Bereitstellung der Website",
+                  "Analyse Ihres Nutzerverhaltens",
+                  "Vertragsangebote, Bestellungen oder sonstige Auftragsanfragen"
+                ],
+                "en": [
+                  "Error-free provision of the website",
+                  "Analysis of your user behavior",
+                  "Contract offers, orders, or other inquiries"
+                ],
+                "fr": [
+                  "Fourniture du site sans erreur",
+                  "Analyse de votre comportement d'utilisation",
+                  "Offres contractuelles, commandes ou autres demandes"
+                ],
+                "ln": [
+                  "Mpo site esala malamu kozanga mabunga",
+                  "Mpo na kotala ndenge ozali kosalela site",
+                  "Mpo na ba-offres ya contrat, ba-commandes to bosengi mosusu ya mosala"
+                ],
+                "it": [
+                  "Fornitura senza errori del sito web",
+                  "Analisi del comportamento dell'utente",
+                  "Offerte contrattuali, ordini o altre richieste"
+                ],
+                "tr": [
+                  "Web sitesinin hatasız biçimde sunulması",
+                  "Kullanıcı davranışının analiz edilmesi",
+                  "Sözleşme teklifleri, siparişler veya diğer taleplerin işlenmesi"
+                ],
+                "uk": [
+                  "Для безпомилкового надання вебсайту",
+                  "Для аналізу поведінки користувачів",
+                  "Для договірних пропозицій, замовлень або інших запитів"
+                ]
+              }
+            },
+            {
+              "type": "heading",
+              "level": 4,
+              "text": {
+                "de": "Welche Rechte haben Sie bezüglich Ihrer Daten?",
+                "en": "What rights do you have regarding your data?",
+                "fr": "Quels sont vos droits concernant vos donnees ?",
+                "ln": "Makoki nini ozali na yango mpo na ba-donnees na yo?",
+                "it": "Quali diritti hai riguardo ai tuoi dati?",
+                "tr": "Verilerinizle ilgili hangi haklara sahipsiniz?",
+                "uk": "Які права ви маєте щодо своїх даних?"
+              }
+            },
+            {
+              "type": "list",
+              "className": "legal-detail-list",
+              "items": {
+                "de": [
+                  "Unentgeltliche Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten",
+                  "Berichtigung oder Löschung dieser Daten",
+                  "Widerruf einer Einwilligung zur Datenverarbeitung für die Zukunft",
+                  "Einschränkung der Verarbeitung Ihrer personenbezogenen Daten unter bestimmten Umständen",
+                  "Beschwerderecht bei der zuständigen Aufsichtsbehörde"
+                ],
+                "en": [
+                  "Free information about the origin, recipient, and purpose of your stored personal data",
+                  "Correction or deletion of this data",
+                  "Revocation of consent to data processing for the future",
+                  "Restriction of the processing of your personal data under certain circumstances",
+                  "Right to lodge a complaint with the competent supervisory authority"
+                ],
+                "fr": [
+                  "Information gratuite sur l'origine, les destinataires et la finalite de vos donnees personnelles conservees",
+                  "Rectification ou suppression de ces donnees",
+                  "Retrait de votre consentement pour l'avenir",
+                  "Limitation du traitement de vos donnees personnelles dans certaines circonstances",
+                  "Droit d'introduire une reclamation aupres de l'autorite de controle competente"
+                ],
+                "ln": [
+                  "Kozwa ofele sango na ntina ya esika ba-donnees na yo ewuti, nani azwi yango mpe mpo na nini ebatelami",
+                  "Kobongisa to kolongola ba-donnees yango",
+                  "Kolongola bondimi na yo mpo na mikolo ekoya",
+                  "Kopekisa to kokitisa ndenge ba-donnees na yo esalelamaka na makambo mosusu",
+                  "Makoki ya kofunda epai ya ebongiseli ya bokengeli oyo ebongi"
+                ],
+                "it": [
+                  "Informazioni gratuite sull'origine, il destinatario e lo scopo dei tuoi dati personali memorizzati",
+                  "Correzione o cancellazione di questi dati",
+                  "Revoca del consenso al trattamento dei dati per il futuro",
+                  "Limitazione del trattamento dei tuoi dati personali in determinate circostanze",
+                  "Diritto di presentare reclamo all'autorità di controllo competente"
+                ],
+                "tr": [
+                  "Saklanan kişisel verilerinizin kaynağı, alıcısı ve işlenme amacı hakkında ücretsiz bilgi alma",
+                  "Bu verilerin düzeltilmesini veya silinmesini isteme",
+                  "Veri işleme onayını geleceğe dönük olarak geri çekme",
+                  "Belirli koşullar altında kişisel verilerinizin işlenmesinin sınırlandırılmasını isteme",
+                  "Yetkili denetim makamına şikâyette bulunma hakkı"
+                ],
+                "uk": [
+                  "Безоплатний доступ до інформації про походження, отримувача та мету ваших збережених персональних даних",
+                  "Виправлення або видалення цих даних",
+                  "Відкликання згоди на обробку даних у майбутньому",
+                  "Обмеження обробки ваших персональних даних за певних обставин",
+                  "Право подати скаргу до компетентного наглядового органу"
+                ]
+              }
+            },
+            {
+              "type": "paragraph",
+              "text": {
+                "de": "Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden.",
+                "en": "You can contact us at any time regarding this or any other questions on the subject of data protection.",
+                "fr": "Pour cela ainsi que pour toute autre question relative a la protection des donnees, vous pouvez nous contacter a tout moment.",
+                "ln": "Mpo na makambo oyo mpe mituna mosusu nyonso na ntina ya bobateli ya makambo ya moto, okoki kokomela biso tango nyonso.",
+                "it": "Per questo e per altre domande sulla protezione dei dati puoi contattarci in qualsiasi momento.",
+                "tr": "Bu konular ve veri korumasına ilişkin diğer sorular için istediğiniz zaman bizimle iletişime geçebilirsiniz.",
+                "uk": "З цих та інших питань щодо захисту даних ви можете звернутися до нас у будь-який час."
+              }
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "icon": "&#128202;",
+          "text": {
+            "de": "Analyse-Tools und Tools von Drittanbietern",
+            "en": "Analysis Tools and Tools from Third Parties",
+            "fr": "Outils d'analyse et outils de tiers",
+            "ln": "Bisaleli ya analyse mpe bisaleli ya bato mosusu",
+            "it": "Strumenti di analisi e strumenti di terze parti",
+            "tr": "Analiz araçları ve üçüncü taraf araçları",
+            "uk": "Аналітичні інструменти та інструменти третіх сторін"
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": {
+            "de": "Beim Besuch dieser Website kann Ihr Surf-Verhalten statistisch ausgewertet werden. Das geschieht vor allem mit sogenannten Analyseprogrammen.",
+            "en": "When you visit this website, your surfing behavior may be statistically evaluated. This is done primarily with so-called analysis programs.",
+            "fr": "Lors de la visite de ce site, votre comportement de navigation peut faire l'objet d'une evaluation statistique. Cela se fait principalement au moyen de programmes d'analyse.",
+            "ln": "Tango otali site oyo, ndenge ozali kosalela internet ekoki kotalelama na ba-statistiques. Likambo yango esalemaka mingimingi na bisaleli oyo babengaka ba-programmes ya analyse.",
+            "it": "Quando visiti questo sito web, il tuo comportamento di navigazione può essere valutato statisticamente. Questo avviene principalmente tramite i cosiddetti programmi di analisi.",
+            "tr": "Bu web sitesini ziyaret ettiğinizde gezinme davranışınız istatistiksel olarak değerlendirilebilir. Bu işlem esas olarak analiz programları aracılığıyla gerçekleştirilir.",
+            "uk": "Під час відвідування цього вебсайту ваша поведінка під час користування сайтом може статистично аналізуватися. Це відбувається насамперед за допомогою так званих аналітичних програм."
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": {
+            "de": "Detaillierte Informationen zu diesen Analyseprogrammen finden Sie in der folgenden Datenschutzerklärung.",
+            "en": "Detailed information on these analysis programs can be found in the following privacy policy.",
+            "fr": "Vous trouverez des informations detaillees sur ces programmes d'analyse dans la politique de confidentialite ci-dessous.",
+            "ln": "Mayebisi ya mozindo na ntina ya ba-programmes oyo ya analyse okokuta yango na mokanda ya bobateli ya makambo ya moto oyo elandi.",
+            "it": "Informazioni dettagliate su questi programmi di analisi sono disponibili nella seguente informativa sulla privacy.",
+            "tr": "Bu analiz programlarına ilişkin ayrıntılı bilgileri aşağıdaki gizlilik politikasında bulabilirsiniz.",
+            "uk": "Детальну інформацію про ці аналітичні програми ви знайдете в наведеній нижче політиці конфіденційності."
+          }
+        }
+      ]
+    },
     "imprint-legal": {
       "file": "impressum.html",
       "title": {

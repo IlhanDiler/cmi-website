@@ -79,14 +79,14 @@ Aktueller realistischer Stand:
 8. Vor push-basierten Deployments existiert jetzt ein echter technischer Quality-Gate-Workflow, der Root-Dateien, Share-Struktur und Browser-Smokes verbindlich prueft.
 9. Die manuelle QA ist nicht mehr nur grober Smoke-Text, sondern als Browser-, Geraete- und Accessibility-Matrix dokumentiert und enger an die Release-QA gekoppelt.
 10. Ein gezielter QA-Pass fuer Tastatur, Reduced Motion und Legal-Reflow wurde lokal durchgefuehrt; die daraus entstandenen Funde wurden direkt als Root-Cause-Fixes geschlossen.
-11. Die strukturelle Entduplizierung ist nicht mehr nur Zielbild: Fuer den Impressum-Rechtsblock existiert jetzt ein erster Generatorpilot aus strukturierter Quelle nach statischem HTML.
+11. Die strukturelle Entduplizierung ist nicht mehr nur Zielbild: Fuer den Impressum-Rechtsblock und den grossen Datenschutz-Ueberblick existieren jetzt erste Generatorpiloten aus strukturierter Quelle nach statischem HTML.
 
 ## Was noch fehlt für wirklich professionell-sauber
 
 1. Accessibility ist deutlich besser als beim ersten Assessment, aber noch nicht als vollstaendiger Screenreader- und Geraeteklassen-Check ueber alle Seiten und Zustaende abgesichert.
 2. Historische Sonderfälle und inkonsistente Muster sind stark reduziert, aber nicht vollstaendig verschwunden.
 3. Die Browser-Matrix ist inzwischen belastbar, kann langfristig aber noch systematischer in manuelle und visuelle Checks eingebettet werden.
-4. Die groessten Sprachduplikations-Hotspots sind standardisiert; die eigentliche HTML-Duplikation ist mit einem ersten Impressum-Piloten angebrochen, aber architektonisch noch nicht breit aufgeloest.
+4. Die groessten Sprachduplikations-Hotspots sind standardisiert; die eigentliche HTML-Duplikation ist mit einem Impressum-Piloten und einem grossen Datenschutz-Block angebrochen, aber architektonisch noch nicht breit aufgeloest.
 5. Die jetzt modulare JavaScript-Runtime kann weiter vereinfacht werden, auch wenn die groessten Reibungspunkte bereits sichtbar reduziert sind.
 
 ## Abgleich nach dem 4-Wochen-Plan
