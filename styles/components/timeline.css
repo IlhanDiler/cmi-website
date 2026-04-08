@@ -447,6 +447,13 @@
     outline: none;
 }
 
+.timeline-item-title a:focus-visible {
+    --interaction-box-shadow: var(--focus-ring-soft);
+    box-shadow: var(--focus-ring-soft);
+    outline: 2px solid rgba(10, 117, 109, 0.24);
+    outline-offset: 2px;
+}
+
 .timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"] {
     font-size: var(--timeline-highlight-link-font-size);
     color: var(--timeline-highlight-link-color);
