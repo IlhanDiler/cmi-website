@@ -221,3 +221,12 @@ Am Ende jeder Woche kurz festhalten:
 - [x] Verbleibende grosse `data-lang`-Cluster auf [index.html](../index.html), einschliesslich Image-Caption, Musikfamilie, Repertoire, Engagement, Review, Archiv und Footer, mechanisch auf `hidden` plus `aria-hidden` vereinheitlicht; einzig die Event-Lightbox behaelt `display:none` als echten UI-Zustand
 - [x] Abschlussabgleich mit [SITE-ASSESSMENT.md](../docs/SITE-ASSESSMENT.md) nachgezogen und Week 4 damit im gesetzten Pragmatik-Scope abgeschlossen
 - [x] Finale Release-QA nach der vollstaendigen Index-Standardisierung erneut ueber Edge, Chrome und Firefox mit 0 Funden durchlaufen
+
+### Anschluss nach Planabschluss - Stand 2026-04-08
+
+- [x] Technisches Quality-Gate vor Deploy mit [site-quality-gate.yaml](../.github/workflows/site-quality-gate.yaml) und angepasster Deploy-Orchestrierung eingefuehrt
+- [x] [MANUAL-QA-CHECKLIST.md](../docs/MANUAL-QA-CHECKLIST.md) zu einer echten Browser-, Geraete- und Accessibility-Matrix erweitert und [RELEASE-QA-CHECKLIST.md](../docs/RELEASE-QA-CHECKLIST.md) darauf ausgerichtet
+- [x] Gezielten QA-Pass fuer Tastatur, Reduced Motion und Legal-Reflow auf [index.html](../index.html), [datenschutz.html](../datenschutz.html) und [impressum.html](../impressum.html) durchgefuehrt
+- [x] Die daraus entstandenen Root-Cause-Fixes geschlossen: Hero-Autoplay respektiert Reduced Motion, Legal-Schnellnavigation fokussiert die Zielbereiche sauber und der kleine Horizontal-Overflow der Legal-Heroes ist behoben
+- [x] Ersten strukturellen i18n-Piloten eingefuehrt: Der Impressum-Rechtsblock `#imprint-legal` wird aus [scripts/legal-content.json](../scripts/legal-content.json) ueber [scripts/render-legal-content.py](../scripts/render-legal-content.py) in statisches HTML gerendert
+- [x] Diese Anschlussarbeiten im Folgeplan [FOUR-WEEK-PLAN-10-10.md](../docs/FOUR-WEEK-PLAN-10-10.md) und im Handoff [FRONTEND-HANDOFF.md](../docs/FRONTEND-HANDOFF.md) dokumentiert

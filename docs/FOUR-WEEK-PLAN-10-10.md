@@ -72,6 +72,9 @@ Budget: 15 Stunden
 - Abgeschlossen: [.github/workflows/cmi-website-orchestration.yaml](../.github/workflows/cmi-website-orchestration.yaml) reagiert fuer Push-Deploys nur noch auf erfolgreiche Quality-Gate-Laeufe.
 - Validiert: Lokaler End-to-End-Run mit `QA_BROWSER_TARGETS=chromium,firefox` und `QA_FAIL_ON_ISSUES=1` lief mit 0 Funden durch.
 - Vorbereitet: [docs/MANUAL-QA-CHECKLIST.md](../docs/MANUAL-QA-CHECKLIST.md) ist jetzt als echte Browser-, Geraete- und Accessibility-Matrix statt nur als generischer Smoke-Text beschrieben.
+- Abgeschlossen: [docs/RELEASE-QA-CHECKLIST.md](../docs/RELEASE-QA-CHECKLIST.md) verweist fuer Navigations-, Sprach-, Legal- und Interaktionsaenderungen jetzt gezielt auf die vertiefte manuelle Matrix.
+- Abgeschlossen: Gezielter lokaler QA-Run fuer Tastatur, Reduced Motion und Legal-Reflow auf [index.html](../index.html), [datenschutz.html](../datenschutz.html) und [impressum.html](../impressum.html) wurde durchgefuehrt.
+- Abgeschlossen: Die daraus abgeleiteten Funde sind direkt geschlossen worden: Hero-Autoplay respektiert Reduced Motion, Legal-Schnellnavigation fokussiert die Zielbereiche sauber und der kleine Horizontal-Overflow der Legal-Heroes ist behoben.
 
 ### Block A - 5h
 
@@ -102,6 +105,14 @@ Budget: 15 Stunden
 Ziel: den groessten Wartbarkeitshebel angehen, naemlich HTML-Duplikation in der Mehrsprachigkeit.
 
 Budget: 15 Stunden
+
+### Stand 2026-04-08
+
+- Abgeschlossen: Fuer den ersten Legal-Piloten wurde die Zielarchitektur auf strukturierte Quelle plus statische Generierung festgelegt, nicht auf neue Client-Side-Hydration.
+- Abgeschlossen: Der Rechtsblock `#imprint-legal` in [impressum.html](../impressum.html) wird jetzt aus [scripts/legal-content.json](../scripts/legal-content.json) ueber [scripts/render-legal-content.py](../scripts/render-legal-content.py) gerendert.
+- Abgeschlossen: Die Pflegehinweise dafuer wurden in [README.md](../README.md) und [docs/FRONTEND-HANDOFF.md](../docs/FRONTEND-HANDOFF.md) nachgezogen.
+- Validiert: Generatorlauf und nachgelagerter Browser-QA-Run liefen lokal ohne Funde durch.
+- Offen: Der Ansatz ist bisher bewusst nur fuer diesen einen Impressum-Block pilotiert und noch nicht auf [datenschutz.html](../datenschutz.html) oder weitere Sprachbloecke erweitert.
 
 ### Block A - 4h
 
