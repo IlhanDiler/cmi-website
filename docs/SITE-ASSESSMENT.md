@@ -79,14 +79,14 @@ Aktueller realistischer Stand:
 8. Vor push-basierten Deployments existiert jetzt ein echter technischer Quality-Gate-Workflow, der Root-Dateien, Share-Struktur und Browser-Smokes verbindlich prueft.
 9. Die manuelle QA ist nicht mehr nur grober Smoke-Text, sondern als Browser-, Geraete- und Accessibility-Matrix dokumentiert und enger an die Release-QA gekoppelt.
 10. Ein gezielter QA-Pass fuer Tastatur, Reduced Motion und Legal-Reflow wurde lokal durchgefuehrt; die daraus entstandenen Funde wurden direkt als Root-Cause-Fixes geschlossen.
-11. Die strukturelle Entduplizierung ist nicht mehr nur Zielbild: Fuer den Impressum-Rechtsblock, sieben Datenschutz-Bloecke und einen ersten Chronik-Piloten existieren jetzt Generatorpiloten aus strukturierter Quelle nach statischem HTML; groessere Bloecke koennen dabei in separate Quelldateien unter [scripts/legal-content](../scripts/legal-content) ausgelagert werden.
+11. Die strukturelle Entduplizierung ist nicht mehr nur Zielbild: Fuer den Impressum-Rechtsblock, sieben Datenschutz-Bloecke, breite Chronik-Bereiche bis hinein in alle Timeline-Stationen sowie grosse Hauptseiten-Bloecke vom oberen "Musik baut Bruecken"-/About-Bereich ueber Musikfamilie und Repertoire/Engagement bis zu Events, Kontakt und Footer existieren jetzt Generatorquellen nach statischem HTML; groessere Bloecke koennen dabei in separate Quelldateien unter [scripts/legal-content](../scripts/legal-content) ausgelagert werden.
 
 ## Was noch fehlt für wirklich professionell-sauber
 
 1. Accessibility ist deutlich besser als beim ersten Assessment, aber noch nicht als vollstaendiger Screenreader- und Geraeteklassen-Check ueber alle Seiten und Zustaende abgesichert.
 2. Historische Sonderfälle und inkonsistente Muster sind stark reduziert, aber nicht vollstaendig verschwunden.
 3. Die Browser-Matrix ist inzwischen belastbar, kann langfristig aber noch systematischer in manuelle und visuelle Checks eingebettet werden.
-4. Die groessten Sprachduplikations-Hotspots sind standardisiert; die eigentliche HTML-Duplikation ist mit einem Impressum-Piloten und vier grossen Datenschutz-Bloecken angebrochen, aber architektonisch noch nicht breit aufgeloest.
+4. Die groessten Sprachduplikations-Hotspots sind standardisiert; die eigentliche HTML-Duplikation ist fuer einen Impressum-Block, sieben Datenschutz-Bloecke, breite Chronik-Bereiche und grosse Hauptseiten-Bloecke vom Intro-/About-Bereich bis in Events, Kontakt und Footer sichtbar reduziert, aber architektonisch noch nicht ueber die gesamte Startseite hinweg aufgeloest.
 5. Die jetzt modulare JavaScript-Runtime kann weiter vereinfacht werden, auch wenn die groessten Reibungspunkte bereits sichtbar reduziert sind.
 
 ## Abgleich nach dem 4-Wochen-Plan
