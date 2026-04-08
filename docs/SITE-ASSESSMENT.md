@@ -83,6 +83,8 @@ Aktueller realistischer Stand:
 4. Langfristig weniger Duplikation im mehrsprachigen HTML erzeugen.
 5. Die jetzt modulare JavaScript-Runtime weiterhin vereinfachen und kuerzerfristig noch mit gezielter Browser-QA absichern.
 
+Der aktuelle 4-Wochen-Arbeitsplan dazu steht in [FOUR-WEEK-PLAN.md](../docs/FOUR-WEEK-PLAN.md).
+
 ## Bewertungsmatrix
 
 ### 1. Design
