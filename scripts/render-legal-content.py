@@ -30,6 +30,7 @@ def render_translated_tag(
     *,
     class_name: str | None = None,
     icon: str | None = None,
+    allow_html: bool = False,
 ) -> list[str]:
     lines: list[str] = []
     for language in LANGUAGE_ORDER:
@@ -40,8 +41,8 @@ def render_translated_tag(
             tag_attributes.append(f'class="{class_name}"')
         tag_attributes.append(build_attributes(language))
         icon_markup = f'<span class="md-icon" aria-hidden="true">{icon}</span>' if icon else ""
-        escaped_text = html.escape(translations[language], quote=False)
-        lines.append(f"{indent}<{tag} {' '.join(tag_attributes)}>{icon_markup}{escaped_text}</{tag}>")
+        text = translations[language] if allow_html else html.escape(translations[language], quote=False)
+        lines.append(f"{indent}<{tag} {' '.join(tag_attributes)}>{icon_markup}{text}</{tag}>")
     return lines
 
 
@@ -67,10 +68,23 @@ def render_rich_block(block: dict[str, object], indent: str) -> list[str]:
 
     if block_type == "heading":
         tag_name = f"h{int(block['level'])}"
-        return render_translated_tag(tag_name, block["text"], indent, icon=block.get("icon"))
+        return render_translated_tag(
+            tag_name,
+            block["text"],
+            indent,
+            class_name=block.get("className"),
+            icon=block.get("icon"),
+            allow_html=bool(block.get("allowHtml", False)),
+        )
 
     if block_type == "paragraph":
-        return render_translated_tag("p", block["text"], indent)
+        return render_translated_tag(
+            "p",
+            block["text"],
+            indent,
+            class_name=block.get("className"),
+            allow_html=bool(block.get("allowHtml", False)),
+        )
 
     if block_type == "list":
         return render_translated_list(block["items"], indent, block.get("className"))
