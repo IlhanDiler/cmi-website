@@ -20,13 +20,22 @@ function initShapeParallax() {
         return;
     }
 
-    window.addEventListener('scroll', function() {
+    if (document.body.dataset.shapeParallaxInit === 'true') {
+        return;
+    }
+
+    document.body.dataset.shapeParallaxInit = 'true';
+
+    const syncShapeParallax = createAnimationFrameScheduler(function() {
         const scrolled = getViewportScrollTop();
         shapes.forEach(function(shape, index) {
             const speed = (index + 1) * 0.5;
             shape.style.transform = `translateY(${scrolled * speed}px)`;
         });
-    }, { passive: true });
+    });
+
+    syncShapeParallax();
+    window.addEventListener('scroll', syncShapeParallax, { passive: true });
 }
 
 function updateYearsPassed() {

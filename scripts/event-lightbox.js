@@ -32,21 +32,8 @@ function initEventLightbox() {
 
     function getLightboxFocusableElements() {
         return Array.from(lightboxModal.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')).filter(function(element) {
-            const computedStyle = window.getComputedStyle(element);
-            return computedStyle.display !== 'none' && computedStyle.visibility !== 'hidden';
+            return isNodeVisiblyRendered(element);
         });
-    }
-
-    function getVisibleNodeText(container, selector) {
-        if (!container) {
-            return '';
-        }
-
-        const matchingNode = Array.from(container.querySelectorAll(selector)).find(function(node) {
-            return window.getComputedStyle(node).display !== 'none';
-        });
-
-        return matchingNode ? matchingNode.textContent.trim() : '';
     }
 
     function getActiveLanguage(image) {
@@ -55,11 +42,10 @@ function initEventLightbox() {
             return getCurrentSiteLanguage();
         }
 
-        const visibleHeadline = Array.from(eventCard.querySelectorAll('.event-headline[data-lang]')).find(function(node) {
-            return window.getComputedStyle(node).display !== 'none';
-        });
+        const visibleHeadline = getFirstVisibleNode(eventCard, '.event-headline[data-lang]');
+        const headlineLanguage = visibleHeadline ? visibleHeadline.getAttribute('data-lang') : '';
 
-        return visibleHeadline ? visibleHeadline.getAttribute('data-lang') || getCurrentSiteLanguage() : getCurrentSiteLanguage();
+        return isSupportedSiteLanguage(headlineLanguage) ? headlineLanguage : getCurrentSiteLanguage();
     }
 
     function getLightboxCaption(image) {

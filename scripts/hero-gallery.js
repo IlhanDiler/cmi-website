@@ -37,8 +37,28 @@ function fitChristmetteImg() {
 }
 
 function initHeroLayout() {
+    const heroBg = document.querySelector('.hero-bg');
+    const christmetteImg = document.querySelector('.christmette-img-tall');
+
+    if (!heroBg && !christmetteImg) {
+        return;
+    }
+
     minimizeGallerySectionGap();
     fitChristmetteImg();
+
+    if (document.body.dataset.heroLayoutRuntimeInit === 'true') {
+        return;
+    }
+
+    document.body.dataset.heroLayoutRuntimeInit = 'true';
+
+    const syncHeroLayout = createAnimationFrameScheduler(function() {
+        minimizeGallerySectionGap();
+        fitChristmetteImg();
+    });
+
+    window.addEventListener('resize', syncHeroLayout);
 }
 
 const heroGalleryUiLabels = {
@@ -145,7 +165,6 @@ let isFading = false;
 let isHeroGalleryPaused = false;
 let heroGalleryTimeout = null;
 let heroGalleryCounterAnnouncementTimeout = null;
-let heroGalleryResponsiveRefreshFrame = null;
 
 function isCompactHeroGalleryViewport() {
     return window.matchMedia('(max-width: 700px)').matches;
@@ -192,11 +211,9 @@ function updateHeroGalleryProgress(duration) {
         return;
     }
 
-    requestAnimationFrame(function() {
-        requestAnimationFrame(function() {
-            progressBar.style.transition = `transform ${duration}ms linear`;
-            progressBar.style.transform = 'scaleX(1)';
-        });
+    runAfterNextPaint(function() {
+        progressBar.style.transition = `transform ${duration}ms linear`;
+        progressBar.style.transform = 'scaleX(1)';
     });
 }
 
@@ -310,16 +327,13 @@ function refreshHeroGalleryCaption() {
     });
 }
 
-function syncHeroGalleryResponsiveState() {
-    if (heroGalleryResponsiveRefreshFrame !== null) {
-        return;
-    }
+const requestHeroGalleryResponsiveSync = createAnimationFrameScheduler(function() {
+    syncHeroGalleryActiveSlideStyle();
+    refreshHeroGalleryUi(false);
+});
 
-    heroGalleryResponsiveRefreshFrame = requestAnimationFrame(function() {
-        heroGalleryResponsiveRefreshFrame = null;
-        syncHeroGalleryActiveSlideStyle();
-        refreshHeroGalleryUi(false);
-    });
+function syncHeroGalleryResponsiveState() {
+    requestHeroGalleryResponsiveSync();
 }
 
 function refreshHeroGalleryUi(announce) {
@@ -578,6 +592,12 @@ function initHeroGallery() {
         return;
     }
 
+    if (heroBg.dataset.heroGalleryRuntimeInit === 'true') {
+        return;
+    }
+
+    heroBg.dataset.heroGalleryRuntimeInit = 'true';
+
     const initialLayer = fadeContainer.children[0];
     const initialSlide = heroGallery[heroIndex];
     applyHeroGallerySlideStyle(initialLayer, initialSlide, getHeroGallerySlideStyle(initialSlide));
@@ -633,8 +653,6 @@ function initHeroGallery() {
         }
         pauseHeroGalleryAuto();
     }, { passive: true });
-}
 
-window.addEventListener('resize', minimizeGallerySectionGap);
-window.addEventListener('resize', fitChristmetteImg);
-window.addEventListener('resize', syncHeroGalleryResponsiveState);
+    window.addEventListener('resize', syncHeroGalleryResponsiveState);
+}

@@ -13,7 +13,7 @@ function initMobileNavigation() {
         }
 
         return Array.from(mobileMenu.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')).filter(function(element) {
-            return !element.hasAttribute('hidden') && window.getComputedStyle(element).display !== 'none';
+            return isNodeVisiblyRendered(element);
         });
     }
 
@@ -175,7 +175,6 @@ function initNavbarScroll() {
     window.addEventListener('scroll', handleNavbarScroll, { passive: true });
 }
 
-const supportedSiteLanguages = new Set(['de', 'en', 'fr', 'ln', 'it', 'tr', 'uk']);
 const mbondaTimelineLinkSelector = '.timeline-item-title a[href="https://www.mbonda-lokito.org/home.html"]';
 const homepageNavigationLinkSelector = '.nav-link[href^="#"], .mobile-nav-link[href^="#"]';
 const smoothScrollLinkSelector = [
@@ -289,10 +288,6 @@ const eventShareUiLabels = {
     }
 };
 
-function isSupportedSiteLanguage(lang) {
-    return supportedSiteLanguages.has(lang);
-}
-
 function getViewportScrollTop() {
     return window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 }
@@ -315,21 +310,6 @@ function getScrollTargetTop(targetElement, additionalOffset) {
     const offset = typeof additionalOffset === 'number' ? additionalOffset : 0;
 
     return Math.max(0, elementTop - getNavbarHeight() - offset);
-}
-
-function createAnimationFrameScheduler(callback) {
-    let frameId = null;
-
-    return function scheduleAnimationFrame() {
-        if (frameId !== null) {
-            return;
-        }
-
-        frameId = window.requestAnimationFrame(function() {
-            frameId = null;
-            callback();
-        });
-    };
 }
 
 function getHomepageNavigationLinks() {
@@ -391,26 +371,6 @@ function getActiveHomepageSectionId(sections) {
     return currentSection ? currentSection.id : '';
 }
 
-function focusNavigationTarget(targetSection) {
-    if (!targetSection || typeof targetSection.focus !== 'function') {
-        return;
-    }
-
-    const hadTabindex = targetSection.hasAttribute('tabindex');
-
-    if (!hadTabindex) {
-        targetSection.setAttribute('tabindex', '-1');
-    }
-
-    targetSection.focus({ preventScroll: true });
-
-    if (!hadTabindex) {
-        targetSection.addEventListener('blur', function handleBlur() {
-            targetSection.removeAttribute('tabindex');
-        }, { once: true });
-    }
-}
-
 function scrollToSectionTarget(targetSection) {
     if (!targetSection) {
         return;
@@ -448,7 +408,7 @@ function initInPageSectionNavigation(onNavigate) {
                 onNavigate(link, targetSection);
             }
 
-            focusNavigationTarget(targetSection);
+            focusElementWithoutScroll(targetSection);
             scrollToSectionTarget(targetSection);
         });
     });
@@ -515,6 +475,19 @@ function ensureMbondaTimelineLinksAccessible() {
             installMbondaMobilePassthrough(link);
         }
     });
+}
+
+function initMbondaTimelineAccessibility() {
+    if (!document.body || !getMbondaTimelineLinks().length || document.body.dataset.mbondaTimelineRuntimeInit === 'true') {
+        return;
+    }
+
+    document.body.dataset.mbondaTimelineRuntimeInit = 'true';
+
+    const requestMbondaTimelineAccessibilitySync = createAnimationFrameScheduler(ensureMbondaTimelineLinksAccessible);
+
+    ensureMbondaTimelineLinksAccessible();
+    window.addEventListener('resize', requestMbondaTimelineAccessibilitySync);
 }
 
 function getSiteLanguageFallbackOrder(lang) {
@@ -623,7 +596,7 @@ function syncCurrentPageLinks() {
 
     Array.from(currentPageCandidates)
         .filter(function(link) {
-            return window.getComputedStyle(link).display !== 'none';
+            return isNodeVisiblyRendered(link);
         })
         .forEach(function(link) {
             link.setAttribute('aria-current', 'page');
@@ -679,22 +652,6 @@ function syncNavigationAccessibility(lang) {
     syncLanguageSwitcherAccessibility(lang);
 }
 
-function getFirstVisibleText(container, selector) {
-    if (!container) {
-        return '';
-    }
-
-    const matchingNode = Array.from(container.querySelectorAll(selector)).find(function(node) {
-        return window.getComputedStyle(node).display !== 'none';
-    });
-
-    if (!matchingNode) {
-        return '';
-    }
-
-    return matchingNode.textContent.replace(/\s+/g, ' ').trim();
-}
-
 function appendAccessibilityHint(label, hint) {
     if (!label || !hint || label.includes(hint)) {
         return label;
@@ -730,9 +687,9 @@ function syncAnniversaryVideoAccessibility() {
     }
 
     const labelParts = [
-        getFirstVisibleText(videoCard, '.image-caption-video-kicker[data-lang], .image-caption-video-kicker'),
-        getFirstVisibleText(videoCard, '.image-caption-video-title[data-lang], .image-caption-video-title'),
-        getFirstVisibleText(videoCard, '.image-caption-card-footer[data-lang], .image-caption-card-footer')
+        getVisibleNodeText(videoCard, '.image-caption-video-kicker[data-lang], .image-caption-video-kicker'),
+        getVisibleNodeText(videoCard, '.image-caption-video-title[data-lang], .image-caption-video-title'),
+        getVisibleNodeText(videoCard, '.image-caption-card-footer[data-lang], .image-caption-card-footer')
     ].filter(Boolean);
     const accessibilityLabel = labelParts.join(' - ');
     const announcedLabel = appendAccessibilityHint(accessibilityLabel, labels.opensInNewWindow);
@@ -751,7 +708,7 @@ function syncAnniversaryVideoAccessibility() {
 }
 
 function getAccessibleEventTitle(container) {
-    return getFirstVisibleText(
+    return getVisibleNodeText(
         container,
         '.event-headline[data-lang], .charity-title[data-lang], .event-title[data-lang], .event-headline, .charity-title, .event-title'
     );
@@ -810,7 +767,7 @@ function syncDecorativeContentAccessibility() {
 
 function syncLegalOverviewAccessibility() {
     document.querySelectorAll('.legal-overview__nav').forEach(function(navigationBlock) {
-        const label = getFirstVisibleText(
+        const label = getVisibleNodeText(
             navigationBlock,
             '.legal-overview__nav-title[data-lang], .legal-overview__nav-title, .legal-overview__nav-kicker[data-lang], .legal-overview__nav-kicker'
         );
@@ -825,7 +782,7 @@ function syncLegalOverviewAccessibility() {
 
 function syncFooterNavigationAccessibility() {
     document.querySelectorAll('.site-footer__nav').forEach(function(navigationBlock) {
-        const label = getFirstVisibleText(
+        const label = getVisibleNodeText(
             navigationBlock,
             '.site-footer__nav-title[data-lang], .site-footer__nav-title'
         );
@@ -876,7 +833,7 @@ function syncInPageNavigationState(activeSectionId) {
     matchingLinks.forEach(function(link) {
         link.classList.add('active');
 
-        if (window.getComputedStyle(link).display !== 'none') {
+        if (isNodeVisiblyRendered(link)) {
             link.setAttribute('aria-current', 'location');
         }
     });
@@ -939,6 +896,7 @@ function initNavigationFeatures() {
         }
     });
 
+    initMbondaTimelineAccessibility();
     initHomepageNavigationWayfinding();
     initNavbarScroll();
 }
@@ -992,5 +950,3 @@ window.setLang = applySiteLanguage;
 function initSiteLanguage() {
     applySiteLanguage(getCurrentSiteLanguage());
 }
-
-window.addEventListener('resize', ensureMbondaTimelineLinksAccessible);
