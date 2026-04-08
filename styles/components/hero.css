@@ -100,7 +100,7 @@
     --hero-gallery-progress-height: 4px;
     --hero-gallery-progress-bg: rgba(255, 255, 255, 0.1);
     --hero-gallery-progress-bar-bg: #8cf5cf;
-    --hero-gallery-controls-columns: auto 1fr auto;
+    --hero-gallery-controls-columns: auto 1fr auto auto;
     --hero-gallery-controls-gap: 8px;
     --hero-gallery-control-size: 42px;
     --hero-gallery-control-border-color: rgba(255, 255, 255, 0.15);
@@ -231,6 +231,23 @@
     stroke-linecap: round;
     stroke-linejoin: round;
     fill: none;
+}
+
+.hero-gallery-control--autoplay .hero-gallery-autoplay-icon--play {
+    display: none;
+}
+
+.hero-gallery-control--autoplay .hero-gallery-autoplay-icon--play path {
+    fill: currentColor;
+    stroke: none;
+}
+
+.hero-gallery-control--autoplay.is-paused .hero-gallery-autoplay-icon--pause {
+    display: none;
+}
+
+.hero-gallery-control--autoplay.is-paused .hero-gallery-autoplay-icon--play {
+    display: block;
 }
 
 .hero-gallery-control:hover,
@@ -374,7 +391,7 @@
         --hero-gallery-meta-gap: 10px;
         --hero-gallery-counter-min-width: 52px;
         --hero-gallery-counter-font-size: 0.74rem;
-        --hero-gallery-controls-columns: 34px 1fr 34px;
+        --hero-gallery-controls-columns: 34px 1fr 34px 34px;
         --hero-gallery-control-size: 34px;
         --hero-gallery-control-icon-size: 14px;
         --hero-gallery-pagination-gap: 6px;

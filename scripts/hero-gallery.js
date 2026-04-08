@@ -46,6 +46,8 @@ const heroGalleryUiLabels = {
         image: 'Bild',
         previous: 'Vorheriges Bild',
         next: 'Nächstes Bild',
+        pause: 'Galerie pausieren',
+        play: 'Galerie wiedergeben',
         pagination: 'Galerie-Navigation',
         region: 'Galerie mit Benefizkonzerten und Konzertimpressionen',
         controls: 'Steuerung der Galerie'
@@ -54,6 +56,8 @@ const heroGalleryUiLabels = {
         image: 'Image',
         previous: 'Previous image',
         next: 'Next image',
+        pause: 'Pause gallery',
+        play: 'Play gallery',
         pagination: 'Main gallery pagination',
         region: 'Gallery with benefit concerts and concert highlights',
         controls: 'Gallery controls'
@@ -62,6 +66,8 @@ const heroGalleryUiLabels = {
         image: 'Image',
         previous: 'Image precedente',
         next: 'Image suivante',
+        pause: 'Mettre la galerie en pause',
+        play: 'Lancer la galerie',
         pagination: 'Pagination de la galerie d\'accueil',
         region: 'Galerie des concerts solidaires et des moments forts',
         controls: 'Commandes de la galerie'
@@ -70,6 +76,8 @@ const heroGalleryUiLabels = {
         image: 'Elilingi',
         previous: 'Elilingi ya liboso',
         next: 'Elilingi oyo elandi',
+        pause: 'Pemisa galerie',
+        play: 'Bandisa galerie',
         pagination: 'Pagination ya galerie ya liboso',
         region: 'Galerie ya bakonser ya lisungi mpe makambo ya motuya',
         controls: 'Bisaleli ya galerie'
@@ -78,6 +86,8 @@ const heroGalleryUiLabels = {
         image: 'Immagine',
         previous: 'Immagine precedente',
         next: 'Immagine successiva',
+        pause: 'Metti in pausa la galleria',
+        play: 'Avvia la galleria',
         pagination: 'Paginazione della galleria principale',
         region: 'Galleria con concerti benefici e momenti salienti',
         controls: 'Controlli della galleria'
@@ -86,6 +96,8 @@ const heroGalleryUiLabels = {
         image: 'Görsel',
         previous: 'Önceki görsel',
         next: 'Sonraki görsel',
+        pause: 'Galeriyi duraklat',
+        play: 'Galeriyi oynat',
         pagination: 'Hero galeri sayfalandırması',
         region: 'Yardım konserleri ve önemli anlar galerisi',
         controls: 'Galeri denetimleri'
@@ -94,6 +106,8 @@ const heroGalleryUiLabels = {
         image: 'Зображення',
         previous: 'Попереднє зображення',
         next: 'Наступне зображення',
+        pause: 'Призупинити галерею',
+        play: 'Запустити галерею',
         pagination: 'Пагінація головної галереї',
         region: 'Галерея благодійних концертів і ключових моментів',
         controls: 'Елементи керування галереєю'
@@ -128,6 +142,7 @@ const heroFadeDuration = 1400;
 const heroInteractionPauseDuration = 12000;
 let fadeToggle = false;
 let isFading = false;
+let isHeroGalleryPaused = false;
 let heroGalleryTimeout = null;
 let heroGalleryResponsiveRefreshFrame = null;
 
@@ -202,6 +217,7 @@ function updateHeroGalleryA11yLabels() {
     const galleryUi = document.querySelector('.hero-gallery-ui');
     const prevButton = document.querySelector('.hero-gallery-control--prev');
     const nextButton = document.querySelector('.hero-gallery-control--next');
+    const autoplayButton = document.querySelector('.hero-gallery-control--autoplay');
     const pagination = document.querySelector('.hero-gallery-pagination');
 
     if (heroRegion) {
@@ -221,6 +237,14 @@ function updateHeroGalleryA11yLabels() {
     if (nextButton) {
         nextButton.setAttribute('aria-label', labels.next);
         nextButton.setAttribute('title', labels.next);
+    }
+
+    if (autoplayButton) {
+        const autoplayLabel = isHeroGalleryPaused ? labels.play : labels.pause;
+        autoplayButton.setAttribute('aria-label', autoplayLabel);
+        autoplayButton.setAttribute('title', autoplayLabel);
+        autoplayButton.setAttribute('aria-pressed', String(isHeroGalleryPaused));
+        autoplayButton.classList.toggle('is-paused', isHeroGalleryPaused);
     }
 
     if (pagination) {
@@ -293,6 +317,12 @@ function clearHeroGalleryAuto() {
 
 function scheduleHeroGalleryAuto(delay = heroSlideDuration) {
     clearHeroGalleryAuto();
+
+    if (isHeroGalleryPaused) {
+        updateHeroGalleryProgress(0);
+        return;
+    }
+
     updateHeroGalleryProgress(delay);
     heroGalleryTimeout = setTimeout(function() {
         nextHeroBgImage();
@@ -301,12 +331,28 @@ function scheduleHeroGalleryAuto(delay = heroSlideDuration) {
 }
 
 function pauseHeroGalleryAuto() {
+    if (isHeroGalleryPaused) {
+        return;
+    }
+
     scheduleHeroGalleryAuto(heroInteractionPauseDuration);
 }
 
 function stopHeroGalleryAuto() {
     clearHeroGalleryAuto();
     updateHeroGalleryProgress(0);
+}
+
+function toggleHeroGalleryAutoplay() {
+    isHeroGalleryPaused = !isHeroGalleryPaused;
+    updateHeroGalleryA11yLabels();
+
+    if (isHeroGalleryPaused) {
+        stopHeroGalleryAuto();
+        return;
+    }
+
+    scheduleHeroGalleryAuto(heroSlideDuration);
 }
 
 function getHeroGallerySlideStyle(entry) {
@@ -505,6 +551,7 @@ function initHeroGallery() {
     const heroBg = document.querySelector('.hero-bg');
     const fadeContainer = document.querySelector('.hero-bg-fade-container');
     const prevButton = document.querySelector('.hero-gallery-control--prev');
+    const autoplayButton = document.querySelector('.hero-gallery-control--autoplay');
     const nextButton = document.querySelector('.hero-gallery-control--next');
     if (!heroBg || !fadeContainer || fadeContainer.children.length < 2 || !heroGallery.length) {
         return;
@@ -534,6 +581,12 @@ function initHeroGallery() {
         nextButton.addEventListener('click', function() {
             nextHeroBgImage();
             pauseHeroGalleryAuto();
+        });
+    }
+
+    if (autoplayButton) {
+        autoplayButton.addEventListener('click', function() {
+            toggleHeroGalleryAutoplay();
         });
     }
 
