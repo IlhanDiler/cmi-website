@@ -290,6 +290,87 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
             f"Expected English hero title, got: {visible_hero_title or '[empty]'}",
         )
 
+    visible_video_kicker = await first_visible_text(page, ".image-caption-video-kicker[data-lang]")
+    if visible_video_kicker != "Anniversary film":
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "index-desktop intro"),
+            f"Expected English anniversary film kicker, got: {visible_video_kicker or '[empty]'}",
+        )
+
+    visible_founder_subtitle = await first_visible_text(page, ".about-me-modern-subtitle[data-lang]")
+    if visible_founder_subtitle != "Founder of Collegium Musicum Iuvenale":
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "index-desktop about"),
+            f"Expected English founder subtitle, got: {visible_founder_subtitle or '[empty]'}",
+        )
+
+    visible_founder_bio = await first_visible_text(page, ".about-me-bio-text[data-lang]")
+    if not visible_founder_bio.startswith("Astrid Eitschberger learned piano, cello"):
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "index-desktop about"),
+            f"Expected English founder bio lead, got: {visible_founder_bio or '[empty]'}",
+        )
+
+    event_card_count = await page.locator(".event-card").count()
+    if event_card_count != 2:
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "index-desktop events"),
+            f"Expected exactly 2 event cards, got: {event_card_count}",
+        )
+
+    visible_event_title = await first_visible_text(page, ".event-title[data-lang]")
+    if visible_event_title != "Upcoming Concerts & Gatherings":
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "index-desktop events"),
+            f"Expected English event title, got: {visible_event_title or '[empty]'}",
+        )
+
+    visible_event_download = await first_visible_text(page, ".event-poster-actions[data-lang]")
+    if visible_event_download != "Download anniversary concert poster (PDF)":
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "index-desktop events"),
+            f"Expected English event download label, got: {visible_event_download or '[empty]'}",
+        )
+
+    visible_contact_title = await first_visible_text(page, ".contact-info-title[data-lang]")
+    if visible_contact_title != "Contact":
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "index-desktop contact"),
+            f"Expected English contact title, got: {visible_contact_title or '[empty]'}",
+        )
+
+    visible_contact_cta = await first_visible_text(page, ".contact-info-primary-link")
+    if visible_contact_cta != "Send an email":
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "index-desktop contact"),
+            f"Expected English contact CTA, got: {visible_contact_cta or '[empty]'}",
+        )
+
+    visible_footer_events_link = await first_visible_text(page, ".site-footer__link[href='#events']")
+    if visible_footer_events_link != "Concerts":
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "index-desktop footer"),
+            f"Expected English footer events link, got: {visible_footer_events_link or '[empty]'}",
+        )
+
     current_before = (await page.locator("#heroGalleryCurrent").text_content() or "").strip()
     await page.locator(".hero-gallery-control--next").click()
     try:

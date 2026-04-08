@@ -23,14 +23,23 @@ def get_indent(target: dict[str, object]) -> str:
     return " " * int(target.get("indentSpaces", 8))
 
 
+def normalize_translated_value(value: object) -> str:
+    if isinstance(value, str):
+        return value
+    if isinstance(value, list):
+        return "\n".join(str(part) for part in value)
+    raise TypeError(f"Unsupported translated value type: {type(value)!r}")
+
+
 def render_translated_tag(
     tag: str,
-    translations: dict[str, str],
+    translations: dict[str, object],
     indent: str,
     *,
     class_name: str | None = None,
     icon: str | None = None,
     allow_html: bool = False,
+    lang_attribute: bool = False,
 ) -> list[str]:
     lines: list[str] = []
     for language in LANGUAGE_ORDER:
@@ -40,13 +49,32 @@ def render_translated_tag(
         if class_name:
             tag_attributes.append(f'class="{class_name}"')
         tag_attributes.append(build_attributes(language))
+        if lang_attribute:
+            tag_attributes.append(f'lang="{language}"')
         icon_markup = f'<span class="md-icon" aria-hidden="true">{icon}</span>' if icon else ""
-        text = translations[language] if allow_html else html.escape(translations[language], quote=False)
+        raw_text = normalize_translated_value(translations[language])
+        text = raw_text if allow_html else html.escape(raw_text, quote=False)
+
+        if allow_html and "\n" in text:
+            lines.append(f"{indent}<{tag} {' '.join(tag_attributes)}>")
+            if icon_markup:
+                lines.append(f"{indent}  {icon_markup}")
+            for inner_line in text.splitlines():
+                lines.append(f"{indent}  {inner_line}")
+            lines.append(f"{indent}</{tag}>")
+            continue
+
         lines.append(f"{indent}<{tag} {' '.join(tag_attributes)}>{icon_markup}{text}</{tag}>")
     return lines
 
 
-def render_translated_list(items_by_language: dict[str, list[str]], indent: str, class_name: str | None = None) -> list[str]:
+def render_translated_list(
+    items_by_language: dict[str, list[object]],
+    indent: str,
+    class_name: str | None = None,
+    *,
+    allow_html: bool = False,
+) -> list[str]:
     lines: list[str] = []
     for language in LANGUAGE_ORDER:
         if language not in items_by_language:
@@ -58,7 +86,15 @@ def render_translated_list(items_by_language: dict[str, list[str]], indent: str,
         tag_attributes.append(build_attributes(language))
         lines.append(f"{indent}<ul {' '.join(tag_attributes)}>")
         for item in items_by_language[language]:
-            lines.append(f"{indent}  <li>{html.escape(item, quote=False)}</li>")
+            raw_item = normalize_translated_value(item)
+            item_text = raw_item if allow_html else html.escape(raw_item, quote=False)
+            if allow_html and "\n" in item_text:
+                lines.append(f"{indent}  <li>")
+                for inner_line in item_text.splitlines():
+                    lines.append(f"{indent}    {inner_line}")
+                lines.append(f"{indent}  </li>")
+                continue
+            lines.append(f"{indent}  <li>{item_text}</li>")
         lines.append(f"{indent}</ul>")
     return lines
 
@@ -75,19 +111,27 @@ def render_rich_block(block: dict[str, object], indent: str) -> list[str]:
             class_name=block.get("className"),
             icon=block.get("icon"),
             allow_html=bool(block.get("allowHtml", False)),
+            lang_attribute=bool(block.get("langAttribute", False)),
         )
 
     if block_type == "paragraph":
+        tag_name = str(block.get("tagName", "p"))
         return render_translated_tag(
-            "p",
+            tag_name,
             block["text"],
             indent,
             class_name=block.get("className"),
             allow_html=bool(block.get("allowHtml", False)),
+            lang_attribute=bool(block.get("langAttribute", False)),
         )
 
     if block_type == "list":
-        return render_translated_list(block["items"], indent, block.get("className"))
+        return render_translated_list(
+            block["items"],
+            indent,
+            block.get("className"),
+            allow_html=bool(block.get("allowHtml", False)),
+        )
 
     if block_type == "group":
         lines = [f"{indent}<div class=\"{block['className']}\">"]

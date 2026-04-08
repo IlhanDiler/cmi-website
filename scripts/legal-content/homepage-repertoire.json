@@ -1,0 +1,521 @@
+{
+  "targets": {
+    "homepage-repertoire-title": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "className": "musikalisches-repertoire-title",
+          "text": {
+            "de": "Musikalisches Repertoire",
+            "en": "Musical Repertoire",
+            "fr": "Repertoire musical",
+            "ln": "Miziki tobetaka",
+            "it": "Repertorio musicale",
+            "tr": "Repertuvarımız",
+            "uk": "Музичний репертуар"
+          }
+        }
+      ]
+    },
+    "homepage-repertoire-intro": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "className": "musikalisches-repertoire-intro",
+          "text": {
+            "de": "Unser Repertoire wächst aus gemeinsamer Neugier, aus Freude am Musizieren und aus der Offenheit, unterschiedliche Menschen und Klangwelten zusammenzubringen.",
+            "en": "Our repertoire grows out of shared curiosity, the joy of making music together, and an openness to bringing different people and sound worlds together.",
+            "fr": "Notre repertoire nait d'une curiosite partagee, du plaisir de jouer ensemble et du desir de faire dialoguer des personnes et des univers sonores tres differents.",
+            "ln": "Miziki na biso ekolaka uta na posa ya koyeba elongo, esengo ya kosala miziki mpe bolingi ya kosangisa bato mpe mindule ndenge na ndenge.",
+            "it": "Il nostro repertorio nasce da una curiosità condivisa, dalla gioia di fare musica insieme e dal desiderio di far dialogare persone e universi sonori diversi.",
+            "tr": "Repertuvarımız; ortak merakımızdan, birlikte müzik yapmanın sevincinden ve farklı insanları farklı ses dünyalarıyla buluşturma isteğimizden besleniyor.",
+            "uk": "Наш репертуар виростає зі спільної цікавості, радості музикування та відкритості до поєднання різних людей і музичних світів."
+          }
+        }
+      ]
+    },
+    "homepage-repertoire-story-grid": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "repertoire-story-grid",
+          "allowHtml": true,
+          "text": {
+            "de": [
+              "<article class='repertoire-story-card repertoire-story-card--hero'>",
+              "  <h3 class='repertoire-story-card-title'>Mit Freude an Vielfalt</h3>",
+              "  <p class='repertoire-story-card-copy'>Von Alter Musik bis Filmmusik, von Folklore bis zu eigenen Ideen spielen wir, was Menschen verbindet und uns als Gruppe anspricht.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--format'>",
+              "  <h3 class='repertoire-story-card-title'>Musik in verschiedenen Formen</h3>",
+              "  <p class='repertoire-story-card-copy'>Mal als großes Orchester, mal kammermusikalisch oder im Projekt: die Besetzung richtet sich danach, was wir gemeinsam erarbeiten möchten.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--collaboration'>",
+              "  <h3 class='repertoire-story-card-title'>Gemeinsam mit anderen</h3>",
+              "  <p class='repertoire-story-card-copy'>Chöre, Blaskapellen und weitere Gruppen gestalten mit uns Konzerte, bei denen Begegnung genauso wichtig ist wie das Programm.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--ensembles'>",
+              "  <h3 class='repertoire-story-card-title'>Ensembles mit eigener Farbe</h3>",
+              "  <p class='repertoire-story-card-copy'>Neben dem Orchester entstehen kleinere Gruppen, in denen Freundschaften, Vertrauen und gemeinsames Ausprobieren ihren eigenen Klang finden.</p>",
+              "  <ul class='ensemble-chip-list'>",
+              "    <li class='ensemble-chip'>Celloensemble</li>",
+              "    <li class='ensemble-chip'>Blockflötenensemble</li>",
+              "    <li class='ensemble-chip'>Ocarinaensemble</li>",
+              "    <li class='ensemble-chip'>Saxophonensemble</li>",
+              "    <li class='ensemble-chip'>Tiefblechensemble</li>",
+              "  </ul>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--youth'>",
+              "  <h3 class='repertoire-story-card-title'>Junge Stimmen wachsen hinein</h3>",
+              "  <p class='repertoire-story-card-copy'>Die Anfängergruppe wird Schritt für Schritt Teil unserer musikalischen Gemeinschaft und bringt dabei ihre eigene Frische mit.</p>",
+              "</article>"
+            ],
+            "en": [
+              "<article class='repertoire-story-card repertoire-story-card--hero'>",
+              "  <h3 class='repertoire-story-card-title'>The joy of variety</h3>",
+              "  <p class='repertoire-story-card-copy'>From early music to film scores, from folk traditions to our own ideas, we play what brings people together and resonates with us as a group.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--format'>",
+              "  <h3 class='repertoire-story-card-title'>Music in many forms</h3>",
+              "  <p class='repertoire-story-card-copy'>Whether as a full orchestra, in chamber settings, or in project ensembles, the format follows what we want to create together.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--collaboration'>",
+              "  <h3 class='repertoire-story-card-title'>With other ensembles</h3>",
+              "  <p class='repertoire-story-card-copy'>Choirs, wind ensembles, and other groups join us in concerts where encounter matters just as much as the program itself.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--ensembles'>",
+              "  <h3 class='repertoire-story-card-title'>Ensembles with their own voice</h3>",
+              "  <p class='repertoire-story-card-copy'>Alongside the orchestra, smaller ensembles create space for friendship, trust, and shared musical exploration.</p>",
+              "  <ul class='ensemble-chip-list'>",
+              "    <li class='ensemble-chip'>Cello ensemble</li>",
+              "    <li class='ensemble-chip'>Recorder ensemble</li>",
+              "    <li class='ensemble-chip'>Ocarina ensemble</li>",
+              "    <li class='ensemble-chip'>Saxophone ensemble</li>",
+              "    <li class='ensemble-chip'>Low brass ensemble</li>",
+              "  </ul>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--youth'>",
+              "  <h3 class='repertoire-story-card-title'>Young musicians find their place</h3>",
+              "  <p class='repertoire-story-card-copy'>The beginner group gradually becomes part of the wider musical community and brings its own freshness with it.</p>",
+              "</article>"
+            ],
+            "fr": [
+              "<article class='repertoire-story-card repertoire-story-card--hero'>",
+              "  <h3 class='repertoire-story-card-title'>Le plaisir de la diversite</h3>",
+              "  <p class='repertoire-story-card-copy'>De la musique ancienne aux musiques de film, du folklore a nos propres idees, nous jouons ce qui rassemble et ce qui nous parle vraiment comme groupe.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--format'>",
+              "  <h3 class='repertoire-story-card-title'>La musique sous differentes formes</h3>",
+              "  <p class='repertoire-story-card-copy'>Tantot en grand orchestre, tantot en formation de chambre ou dans le cadre d'un projet, l'effectif se dessine selon ce que nous voulons faire naitre ensemble.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--collaboration'>",
+              "  <h3 class='repertoire-story-card-title'>Avec d'autres ensembles</h3>",
+              "  <p class='repertoire-story-card-copy'>Des choeurs, des harmonies et d'autres formations partagent avec nous des concerts ou la rencontre compte autant que le programme.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--ensembles'>",
+              "  <h3 class='repertoire-story-card-title'>Des ensembles a la couleur propre</h3>",
+              "  <p class='repertoire-story-card-copy'>A cote de l'orchestre, de plus petites formations ouvrent un espace ou l'amitie, la confiance et l'envie d'essayer ensemble trouvent leur propre son.</p>",
+              "  <ul class='ensemble-chip-list'>",
+              "    <li class='ensemble-chip'>Ensemble de violoncelles</li>",
+              "    <li class='ensemble-chip'>Ensemble de flutes a bec</li>",
+              "    <li class='ensemble-chip'>Ensemble d'ocarinas</li>",
+              "    <li class='ensemble-chip'>Ensemble de saxophones</li>",
+              "    <li class='ensemble-chip'>Ensemble de cuivres graves</li>",
+              "  </ul>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--youth'>",
+              "  <h3 class='repertoire-story-card-title'>Les jeunes musiciennes et musiciens trouvent peu a peu leur place</h3>",
+              "  <p class='repertoire-story-card-copy'>Le groupe debutant s'integre progressivement a notre communaute musicale et y apporte sa fraicheur bien a lui.</p>",
+              "</article>"
+            ],
+            "ln": [
+              "<article class='repertoire-story-card repertoire-story-card--hero'>",
+              "  <h3 class='repertoire-story-card-title'>Esengo ya ndenge na ndenge</h3>",
+              "  <p class='repertoire-story-card-copy'>Kobanda na miziki ya kala tii na miziki ya ba film, kobanda na folklore tii na makanisi na biso moko, tobeta oyo esangisaka bato mpe esepelisaka lisanga na biso.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--format'>",
+              "  <h3 class='repertoire-story-card-title'>Miziki na lolenge ndenge na ndenge</h3>",
+              "  <p class='repertoire-story-card-copy'>Ntango mosusu lokola orchestre monene, ntango mosusu na bituluku mike to na projet: lolenge ya etuluku elandaka oyo tolingi kobongisa elongo.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--collaboration'>",
+              "  <h3 class='repertoire-story-card-title'>Elongo na bato mosusu</h3>",
+              "  <p class='repertoire-story-card-copy'>Ba choeur, ba fanfare mpe bituluku mosusu basalaka na biso ba konser oyo bokutani ezali na motuya lokola programme yango moko.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--ensembles'>",
+              "  <h3 class='repertoire-story-card-title'>Ba ensemble na langi na yango moko</h3>",
+              "  <p class='repertoire-story-card-copy'>Pembeni ya orchestre, bituluku mike ebimaka mpe epesaka esika mpo na boninga, kotielana motema mpe komeka elongo mpo mongongo na yango ebima.</p>",
+              "  <ul class='ensemble-chip-list'>",
+              "    <li class='ensemble-chip'>Ensemble ya cello</li>",
+              "    <li class='ensemble-chip'>Ensemble ya flute a bec</li>",
+              "    <li class='ensemble-chip'>Ensemble ya ocarina</li>",
+              "    <li class='ensemble-chip'>Ensemble ya saxophone</li>",
+              "    <li class='ensemble-chip'>Ensemble ya cuivre ya nse</li>",
+              "  </ul>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--youth'>",
+              "  <h3 class='repertoire-story-card-title'>Bilenge bakolaka malembe malembe na kati na biso</h3>",
+              "  <p class='repertoire-story-card-copy'>Etuluku ya ebandeli ekomaka malembe malembe eteni ya lisanga na biso ya miziki mpe ememaka sika na yango moko.</p>",
+              "</article>"
+            ],
+            "it": [
+              "<article class='repertoire-story-card repertoire-story-card--hero'>",
+              "  <h3 class='repertoire-story-card-title'>Il piacere della varietà</h3>",
+              "  <p class='repertoire-story-card-copy'>Dalla musica antica alle colonne sonore, dal folklore alle idee nate insieme: suoniamo ciò che unisce le persone e in cui ci riconosciamo come gruppo.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--format'>",
+              "  <h3 class='repertoire-story-card-title'>Musica in forme diverse</h3>",
+              "  <p class='repertoire-story-card-copy'>A volte come grande orchestra, altre in formazione cameristica o in progetti specifici: l'organico prende forma a partire da ciò che vogliamo costruire insieme.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--collaboration'>",
+              "  <h3 class='repertoire-story-card-title'>Insieme ad altri gruppi</h3>",
+              "  <p class='repertoire-story-card-copy'>Cori, bande e altri gruppi strumentali si uniscono a noi in concerti in cui l'incontro conta quanto il programma.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--ensembles'>",
+              "  <h3 class='repertoire-story-card-title'>Ensemble con un'identità propria</h3>",
+              "  <p class='repertoire-story-card-copy'>Accanto all'orchestra nascono gruppi più piccoli, in cui amicizia, fiducia e desiderio di sperimentare danno vita a un suono personale.</p>",
+              "  <ul class='ensemble-chip-list'>",
+              "    <li class='ensemble-chip'>Ensemble di violoncelli</li>",
+              "    <li class='ensemble-chip'>Ensemble di flauti dolci</li>",
+              "    <li class='ensemble-chip'>Ensemble di ocarine</li>",
+              "    <li class='ensemble-chip'>Ensemble di sassofoni</li>",
+              "    <li class='ensemble-chip'>Ensemble di ottoni gravi</li>",
+              "  </ul>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--youth'>",
+              "  <h3 class='repertoire-story-card-title'>I più giovani trovano il loro spazio</h3>",
+              "  <p class='repertoire-story-card-copy'>Il gruppo principianti entra poco a poco nella nostra comunità musicale e porta con sé un'energia tutta sua.</p>",
+              "</article>"
+            ],
+            "tr": [
+              "<article class='repertoire-story-card repertoire-story-card--hero'>",
+              "  <h3 class='repertoire-story-card-title'>Çeşitliliğin keyfi</h3>",
+              "  <p class='repertoire-story-card-copy'>Erken dönem müziğinden film müziklerine, halk ezgilerinden kendi fikirlerimize uzanan geniş bir yelpazede; insanları buluşturan ve bizi topluluk olarak heyecanlandıran eserleri seslendiriyoruz.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--format'>",
+              "  <h3 class='repertoire-story-card-title'>Müziğin farklı halleri</h3>",
+              "  <p class='repertoire-story-card-copy'>Kimi zaman büyük bir orkestra olarak, kimi zaman oda müziği topluluğu ya da proje ekibi olarak çalıyoruz; kadromuz, birlikte neyi hayata geçirmek istediğimize göre şekilleniyor.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--collaboration'>",
+              "  <h3 class='repertoire-story-card-title'>Diğer topluluklarla birlikte</h3>",
+              "  <p class='repertoire-story-card-copy'>Korolar, bandolar ve diğer topluluklarla birlikte, buluşmanın program kadar önemli olduğu konserler düzenliyoruz.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--ensembles'>",
+              "  <h3 class='repertoire-story-card-title'>Kendi rengini bulan topluluklar</h3>",
+              "  <p class='repertoire-story-card-copy'>Orkestranın yanında, dostluğun, güvenin ve birlikte yeni şeyler deneme arzusunun kendine özgü bir ses bulduğu daha küçük topluluklar da oluşuyor.</p>",
+              "  <ul class='ensemble-chip-list'>",
+              "    <li class='ensemble-chip'>Viyolonsel topluluğu</li>",
+              "    <li class='ensemble-chip'>Blokflüt topluluğu</li>",
+              "    <li class='ensemble-chip'>Okarina topluluğu</li>",
+              "    <li class='ensemble-chip'>Saksafon topluluğu</li>",
+              "    <li class='ensemble-chip'>Kalın bakır nefesliler topluluğu</li>",
+              "  </ul>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--youth'>",
+              "  <h3 class='repertoire-story-card-title'>Genç müzisyenler yerini buluyor</h3>",
+              "  <p class='repertoire-story-card-copy'>Başlangıç grubu, adım adım müzik topluluğumuzun doğal bir parçası hâline geliyor ve kendi tazeliğini de beraberinde getiriyor.</p>",
+              "</article>"
+            ],
+            "uk": [
+              "<article class='repertoire-story-card repertoire-story-card--hero'>",
+              "  <h3 class='repertoire-story-card-title'>Радість різноманіття</h3>",
+              "  <p class='repertoire-story-card-copy'>Від старовинної музики до музики з фільмів, від фольклору до власних ідей ми граємо те, що єднає людей і відгукується нам як спільноті.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--format'>",
+              "  <h3 class='repertoire-story-card-title'>Музика в різних формах</h3>",
+              "  <p class='repertoire-story-card-copy'>Іноді як великий оркестр, іноді камерно або в проєктному форматі: склад визначається тим, що ми хочемо створити разом.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--collaboration'>",
+              "  <h3 class='repertoire-story-card-title'>Разом з іншими</h3>",
+              "  <p class='repertoire-story-card-copy'>Хори, духові оркестри та інші колективи виступають разом з нами в концертах, де зустріч така ж важлива, як і сама програма.</p>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--ensembles'>",
+              "  <h3 class='repertoire-story-card-title'>Ансамблі з власним звучанням</h3>",
+              "  <p class='repertoire-story-card-copy'>Поруч з оркестром виникають менші групи, у яких дружба, довіра й спільний пошук знаходять своє особливе звучання.</p>",
+              "  <ul class='ensemble-chip-list'>",
+              "    <li class='ensemble-chip'>Ансамбль віолончелей</li>",
+              "    <li class='ensemble-chip'>Ансамбль блокфлейт</li>",
+              "    <li class='ensemble-chip'>Ансамбль окарин</li>",
+              "    <li class='ensemble-chip'>Саксофонний ансамбль</li>",
+              "    <li class='ensemble-chip'>Ансамбль низьких мідних</li>",
+              "  </ul>",
+              "</article>",
+              "<article class='repertoire-story-card repertoire-story-card--youth'>",
+              "  <h3 class='repertoire-story-card-title'>Молоді музиканти поступово вливаються</h3>",
+              "  <p class='repertoire-story-card-copy'>Група початківців крок за кроком стає частиною нашої музичної спільноти й приносить із собою власну свіжість.</p>",
+              "</article>"
+            ]
+          }
+        }
+      ]
+    },
+    "homepage-engagement-title": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "className": "musikalisches-repertoire-title",
+          "text": {
+            "de": "Soziales Engagement",
+            "en": "Social Commitment",
+            "fr": "Engagement solidaire",
+            "ln": "Lisungi ya bato",
+            "it": "Impegno sociale",
+            "tr": "Sosyal sorumluluk",
+            "uk": "Соціальна відповідальність"
+          }
+        }
+      ]
+    },
+    "homepage-engagement-intro": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "className": "musikalisches-repertoire-intro",
+          "text": {
+            "de": "Soziales Engagement gehört für uns zum gemeinsamen Musizieren.",
+            "en": "For us, social commitment is part of making music as a community.",
+            "fr": "Pour nous, l'engagement solidaire fait partie integrante de la musique partagee.",
+            "ln": "Mpo na biso, lisungi ya bato ezali eteni ya kosala miziki lokola lisanga.",
+            "it": "Per noi l'impegno sociale fa pienamente parte del fare musica insieme.",
+            "tr": "Bizim için sosyal sorumluluk, birlikte müzik yapmanın ayrılmaz bir parçasıdır.",
+            "uk": "Для нас соціальна відповідальність є частиною музикування в спільноті."
+          }
+        }
+      ]
+    },
+    "homepage-engagement-focus-grid": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "engagement-focus-grid",
+          "allowHtml": true,
+          "text": {
+            "de": [
+              "<article class='engagement-focus-card engagement-focus-card--primary'>",
+              "  <div class='engagement-focus-title'>Miteinander vor Ort</div>",
+              "  <p class='engagement-focus-copy'>Benefizkonzerte unterstützen soziale Einrich&shy;tungen und Initia&shy;tiven in Ochsenfurt, Würz&shy;burg und darüber hinaus.</p>",
+              "</article>",
+              "<article class='engagement-focus-card engagement-focus-card--secondary engagement-focus-card--secondary-top'>",
+              "  <div class='engagement-focus-title'>Verbunden über Grenzen</div>",
+              "  <p class='engagement-focus-copy'>Seit Jahren bestehen Kontakte zu sozialen Projekten in Kin&shy;shasa, Ita&shy;lien, Kath&shy;mandu und der Ukra&shy;ine.</p>",
+              "</article>",
+              "<article class='engagement-focus-card engagement-focus-card--secondary engagement-focus-card--secondary-bottom'>",
+              "  <div class='engagement-focus-title'>Musik als Begegnung</div>",
+              "  <p class='engagement-focus-copy'>Musik schafft Begeg&shy;nung und gemein&shy;sames Ler&shy;nen.</p>",
+              "</article>"
+            ],
+            "en": [
+              "<article class='engagement-focus-card engagement-focus-card--primary'>",
+              "  <div class='engagement-focus-title'>Standing together locally</div>",
+              "  <p class='engagement-focus-copy'>Benefit concerts support social institutions and initiatives in Ochsenfurt, Würzburg, and beyond.</p>",
+              "</article>",
+              "<article class='engagement-focus-card engagement-focus-card--secondary engagement-focus-card--secondary-top'>",
+              "  <div class='engagement-focus-title'>Connected across borders</div>",
+              "  <p class='engagement-focus-copy'>For years, we have nurtured ties with projects in Kinshasa, Italy, Kathmandu, and Ukraine.</p>",
+              "</article>",
+              "<article class='engagement-focus-card engagement-focus-card--secondary engagement-focus-card--secondary-bottom'>",
+              "  <div class='engagement-focus-title'>Music as encounter</div>",
+              "  <p class='engagement-focus-copy'>Music opens up space for encounter and shared learning.</p>",
+              "</article>"
+            ],
+            "fr": [
+              "<article class='engagement-focus-card engagement-focus-card--primary'>",
+              "  <div class='engagement-focus-title'>Solidaires sur place</div>",
+              "  <p class='engagement-focus-copy'>Nos concerts benefices soutiennent des institutions et des initiatives sociales a Ochsenfurt, a Wurzburg et au-dela.</p>",
+              "</article>",
+              "<article class='engagement-focus-card engagement-focus-card--secondary engagement-focus-card--secondary-top'>",
+              "  <div class='engagement-focus-title'>Lies au-dela des frontieres</div>",
+              "  <p class='engagement-focus-copy'>Depuis des annees, nous entretenons des liens avec des projets sociaux a Kinshasa, en Italie, a Katmandou et en Ukraine.</p>",
+              "</article>",
+              "<article class='engagement-focus-card engagement-focus-card--secondary engagement-focus-card--secondary-bottom'>",
+              "  <div class='engagement-focus-title'>La musique comme rencontre</div>",
+              "  <p class='engagement-focus-copy'>La musique cree des rencontres et un apprentissage partage.</p>",
+              "</article>"
+            ],
+            "ln": [
+              "<article class='engagement-focus-card engagement-focus-card--primary'>",
+              "  <div class='engagement-focus-title'>Elongo awa na esika</div>",
+              "  <p class='engagement-focus-copy'>Ba konser na biso ya lisungi esungaka bibongiseli mpe misala ya bato na Ochsenfurt, Wurzburg mpe koleka wana.</p>",
+              "</article>",
+              "<article class='engagement-focus-card engagement-focus-card--secondary engagement-focus-card--secondary-top'>",
+              "  <div class='engagement-focus-title'>Tokangani koleka bandelo</div>",
+              "  <p class='engagement-focus-copy'>Banda bambula mingi, tozali kobatela boyokani na misala ya lisungi na Kinshasa, Italie, Katmandou mpe Ukraine.</p>",
+              "</article>",
+              "<article class='engagement-focus-card engagement-focus-card--secondary engagement-focus-card--secondary-bottom'>",
+              "  <div class='engagement-focus-title'>Miziki lokola bokutani</div>",
+              "  <p class='engagement-focus-copy'>Miziki efungolaka esika mpo na bokutani mpe boyekoli ya elongo.</p>",
+              "</article>"
+            ],
+            "it": [
+              "<article class='engagement-focus-card engagement-focus-card--primary'>",
+              "  <div class='engagement-focus-title'>Sul territorio</div>",
+              "  <p class='engagement-focus-copy'>I concerti benefici sostengono realtà sociali e progetti a Ochsenfurt, a Würzburg e anche oltre.</p>",
+              "</article>",
+              "<article class='engagement-focus-card engagement-focus-card--secondary engagement-focus-card--secondary-top'>",
+              "  <div class='engagement-focus-title'>Oltre i confini</div>",
+              "  <p class='engagement-focus-copy'>Da anni coltiviamo legami con progetti a Kinshasa, in Italia, a Kathmandu e in Ucraina.</p>",
+              "</article>",
+              "<article class='engagement-focus-card engagement-focus-card--secondary engagement-focus-card--secondary-bottom'>",
+              "  <div class='engagement-focus-title'>La musica come incontro</div>",
+              "  <p class='engagement-focus-copy'>La musica crea spazi di incontro e di crescita condivisa.</p>",
+              "</article>"
+            ],
+            "tr": [
+              "<article class='engagement-focus-card engagement-focus-card--primary'>",
+              "  <div class='engagement-focus-title'>Yaşadığımız yerde dayanışma</div>",
+              "  <p class='engagement-focus-copy'>Yardım konserlerimiz, Ochsenfurt ve Würzburg'daki sosyal kurumları ve girişimleri destekliyor.</p>",
+              "</article>",
+              "<article class='engagement-focus-card engagement-focus-card--secondary engagement-focus-card--secondary-top'>",
+              "  <div class='engagement-focus-title'>Sınırları aşan bağlar</div>",
+              "  <p class='engagement-focus-copy'>Yıllardır Kinşasa, İtalya, Katmandu ve Ukrayna'daki projelerle bağlarımızı sürdürüyoruz.</p>",
+              "</article>",
+              "<article class='engagement-focus-card engagement-focus-card--secondary engagement-focus-card--secondary-bottom'>",
+              "  <div class='engagement-focus-title'>Buluşmanın dili olarak müzik</div>",
+              "  <p class='engagement-focus-copy'>Müzik, buluşmaya ve birlikte öğrenmeye alan açar.</p>",
+              "</article>"
+            ],
+            "uk": [
+              "<article class='engagement-focus-card engagement-focus-card--primary'>",
+              "  <div class='engagement-focus-title'>Разом на місці</div>",
+              "  <p class='engagement-focus-copy'>Благодійні концерти підтримують соціальні установи та ініціативи в Оксенфурті, Вюрцбурзі та за їхніми межами.</p>",
+              "</article>",
+              "<article class='engagement-focus-card engagement-focus-card--secondary engagement-focus-card--secondary-top'>",
+              "  <div class='engagement-focus-title'>Поєднані понад кордонами</div>",
+              "  <p class='engagement-focus-copy'>Уже багато років ми підтримуємо зв'язки з проєктами в Кіншасі, Італії, Катманду та Україні.</p>",
+              "</article>",
+              "<article class='engagement-focus-card engagement-focus-card--secondary engagement-focus-card--secondary-bottom'>",
+              "  <div class='engagement-focus-title'>Музика як зустріч</div>",
+              "  <p class='engagement-focus-copy'>Музика відкриває простір для зустрічей і спільного навчання.</p>",
+              "</article>"
+            ]
+          }
+        }
+      ]
+    },
+    "homepage-engagement-certificate-text": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "charity-certificate-card-title",
+          "text": {
+            "de": "Hilfe, die ankommt",
+            "en": "Support that reaches people",
+            "fr": "Une aide qui arrive vraiment",
+            "ln": "Lisungi oyo ekomaka epai ya bato",
+            "it": "Un aiuto concreto",
+            "tr": "Yerini bulan destek",
+            "uk": "Допомога, що доходить до людей"
+          }
+        },
+        {
+          "type": "paragraph",
+          "className": "charity-list-item-certificate-copy",
+          "text": {
+            "de": "Spenden aus unseren Benefizkonzerten gehen unter anderem an Lebenshilfe, Caritas, Kindergärten, Ärzte ohne Grenzen und die Malteser sowie an internationale Partnerprojekte.",
+            "en": "Donations from our benefit concerts support, among others, Lebenshilfe, Caritas, kindergartens, Doctors Without Borders, the Malteser, and international partner projects.",
+            "fr": "Les dons issus de nos concerts benefices vont notamment a Lebenshilfe, Caritas, des jardins d'enfants, Medecins Sans Frontieres, les Malteser ainsi qu'a des projets partenaires internationaux.",
+            "ln": "Ba don oyo ewutaka na ba konser na biso ya lisungi ekendaka, kati na basusu, epai ya Lebenshilfe, Caritas, ba kelasi ya bana mike, Medecins Sans Frontieres, Malteser mpe misala ya baninga ya mokili mobimba.",
+            "it": "Le donazioni raccolte durante i nostri concerti benefici sostengono, tra gli altri, Lebenshilfe, Caritas, scuole dell'infanzia, Medici Senza Frontiere, i Malteser e diversi progetti partner internazionali.",
+            "tr": "Yardım konserlerimizden elde edilen bağışlar; Lebenshilfe, Caritas, anaokulları, Sınır Tanımayan Doktorlar, Malteser ve uluslararası ortak projeler dahil olmak üzere birçok yere ulaşıyor.",
+            "uk": "Пожертви з наших благодійних концертів надходять, зокрема, до Lebenshilfe, Caritas, дитячих садків, Лікарів без кордонів, Malteser, а також до міжнародних партнерських проєктів."
+          }
+        }
+      ]
+    },
+    "homepage-engagement-list": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "ul",
+          "className": "musikalisches-repertoire-list",
+          "allowHtml": true,
+          "text": {
+            "de": [
+              "<li class='charity-list-item charity-list-item--project'>",
+              "  <span>Schulprojekte mit langem Atem</span>",
+              "  Bildungsprojekte in Kinshasa und Kathmandu begleiten wir langfristig.",
+              "  <img src='bilder/kinshasa.jfif' alt='Schulprojekt Kinshasa Kongo Collegium Musicum Iuvenale Ochsenfurt' class='kinshasa-card-img' loading='lazy' decoding='async'>",
+              "</li>",
+              "<li class='charity-list-item'><span>Hilfe für die Ukraine</span> Wir unterstützen medizinische und humanitäre Projekte in der Ukraine.</li>",
+              "<li class='charity-list-item'><span>Zusammenarbeit mit Hermann Veeh</span> Integratives Musizieren mit Menschen unterschiedlicher Begabungen, jahrelange Zusammenarbeit mit Hermann Veeh, dem Erfinder der Veeh-Harfe, bis zu dessen Tod sowie Kooperation mit verschiedenen Veeh-Harfen-Gruppen.</li>"
+            ],
+            "en": [
+              "<li class='charity-list-item charity-list-item--project'>",
+              "  <span>Long-term support for school projects</span>",
+              "  We support educational projects in Kinshasa and Kathmandu over the long term.",
+              "  <img src='bilder/kinshasa.jfif' alt='School project Kinshasa Congo Collegium Musicum Iuvenale Ochsenfurt' class='kinshasa-card-img' loading='lazy' decoding='async'>",
+              "</li>",
+              "<li class='charity-list-item'><span>Support for Ukraine</span> We support medical and humanitarian projects in Ukraine.</li>",
+              "<li class='charity-list-item'><span>Collaboration with Hermann Veeh</span> Inclusive music-making with people of different abilities, years of collaboration with Hermann Veeh until his death, and cooperation with various Veeh harp groups.</li>"
+            ],
+            "fr": [
+              "<li class='charity-list-item charity-list-item--project'>",
+              "  <span>Projets scolaires suivis dans la duree</span>",
+              "  Nous accompagnons durablement des projets educatifs a Kinshasa et a Katmandou.",
+              "  <img src='bilder/kinshasa.jfif' alt='Projet scolaire Kinshasa Congo Collegium Musicum Iuvenale Ochsenfurt' class='kinshasa-card-img' loading='lazy' decoding='async'>",
+              "</li>",
+              "<li class='charity-list-item'><span>Soutien a l'Ukraine</span> Nous soutenons des projets medicaux et humanitaires en Ukraine.</li>",
+              "<li class='charity-list-item'><span>Collaboration avec Hermann Veeh</span> Musique inclusive avec des personnes aux aptitudes differentes, longue collaboration avec Hermann Veeh jusqu'a sa mort et cooperation avec differents groupes de harpe Veeh.</li>"
+            ],
+            "ln": [
+              "<li class='charity-list-item charity-list-item--project'>",
+              "  <span>Ba projet ya kelasi ya ntango molai</span>",
+              "  Tosungaka na ntango molai ba projet ya mateya na Kinshasa mpe Katmandou.",
+              "  <img src='bilder/kinshasa.jfif' alt='Projet ya kelasi Kinshasa Congo Collegium Musicum Iuvenale Ochsenfurt' class='kinshasa-card-img' loading='lazy' decoding='async'>",
+              "</li>",
+              "<li class='charity-list-item'><span>Lisungi mpo na Ukraine</span> Tosungaka ba projet ya minganga mpe ya lisungi ya bato na Ukraine.</li>",
+              "<li class='charity-list-item'><span>Boyokani na Hermann Veeh</span> Kosala miziki ya bofungoli na bato ya makoki ndenge na ndenge, boyokani ya bambula mingi na Hermann Veeh kino na liwa na ye, mpe mosala elongo na bituluku ndenge na ndenge ya Veeh-Harfe.</li>"
+            ],
+            "it": [
+              "<li class='charity-list-item charity-list-item--project'>",
+              "  <span>Progetti educativi a lungo termine</span>",
+              "  Sosteniamo con continuità progetti educativi a Kinshasa e Kathmandu.",
+              "  <img src='bilder/kinshasa.jfif' alt='Progetto scolastico Kinshasa Congo Collegium Musicum Iuvenale Ochsenfurt' class='kinshasa-card-img' loading='lazy' decoding='async'>",
+              "</li>",
+              "<li class='charity-list-item'><span>Sostegno all’Ucraina</span> Sosteniamo iniziative mediche e umanitarie in Ucraina.</li>",
+              "<li class='charity-list-item'><span>Collaborazione con Hermann Veeh</span> Musica inclusiva con persone dalle abilità diverse, in una lunga collaborazione con Hermann Veeh fino alla sua morte e con vari gruppi di arpa Veeh.</li>"
+            ],
+            "tr": [
+              "<li class='charity-list-item charity-list-item--project'>",
+              "  <span>Uzun soluklu eğitim projeleri</span>",
+              "  Kinşasa ve Katmandu'daki eğitim projelerine uzun vadeli destek veriyoruz.",
+              "  <img src='bilder/kinshasa.jfif' alt='Schulprojekt Kinshasa Kongo Collegium Musicum Iuvenale Ochsenfurt' class='kinshasa-card-img' loading='lazy' decoding='async'>",
+              "</li>",
+              "<li class='charity-list-item'><span>Ukrayna'ya destek</span> Ukrayna'daki tıbbi ve insani projeleri destekliyoruz.</li>",
+              "<li class='charity-list-item'><span>Hermann Veeh ile iş birliği</span> Farklı yeteneklere sahip insanlarla kapsayıcı müzik çalışmaları, Hermann Veeh ile vefatına kadar süren uzun yıllara dayanan iş birliği ve çeşitli Veeh arp gruplarıyla ortak çalışmalar yürütüyoruz.</li>"
+            ],
+            "uk": [
+              "<li class='charity-list-item charity-list-item--project'>",
+              "  <span>Освітні проєкти з довгою підтримкою</span>",
+              "  Ми довгостроково супроводжуємо освітні проєкти в Кіншасі та Катманду.",
+              "  <img src='bilder/kinshasa.jfif' alt='School project Kinshasa Congo Collegium Musicum Iuvenale Ochsenfurt' class='kinshasa-card-img' loading='lazy' decoding='async'>",
+              "</li>",
+              "<li class='charity-list-item'><span>Підтримка України</span> Ми підтримуємо медичні й гуманітарні проєкти в Україні.</li>",
+              "<li class='charity-list-item'><span>Співпраця з Германом Веє</span> Інклюзивне музикування з людьми різних здібностей, багаторічна співпраця з Германом Веє до його смерті та взаємодія з різними групами арфи Веє.</li>"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
