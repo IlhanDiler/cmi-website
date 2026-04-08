@@ -163,11 +163,24 @@ const heroInteractionPauseDuration = 12000;
 let fadeToggle = false;
 let isFading = false;
 let isHeroGalleryPaused = false;
+let hasHeroGalleryAutoplayOverride = false;
 let heroGalleryTimeout = null;
 let heroGalleryCounterAnnouncementTimeout = null;
 
 function isCompactHeroGalleryViewport() {
     return window.matchMedia('(max-width: 700px)').matches;
+}
+
+function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function isHeroGalleryAutoplaySuppressed() {
+    return prefersReducedMotion() && !hasHeroGalleryAutoplayOverride;
+}
+
+function isHeroGalleryAutoplayInactive() {
+    return isHeroGalleryPaused || isHeroGalleryAutoplaySuppressed();
 }
 
 function getHeroGalleryTitle(entry, language = getCurrentSiteLanguage(), preferCompact = false) {
@@ -278,11 +291,11 @@ function updateHeroGalleryA11yLabels() {
     }
 
     if (autoplayButton) {
-        const autoplayLabel = isHeroGalleryPaused ? labels.play : labels.pause;
+        const autoplayLabel = isHeroGalleryAutoplayInactive() ? labels.play : labels.pause;
         autoplayButton.setAttribute('aria-label', autoplayLabel);
         autoplayButton.setAttribute('title', autoplayLabel);
-        autoplayButton.setAttribute('aria-pressed', String(isHeroGalleryPaused));
-        autoplayButton.classList.toggle('is-paused', isHeroGalleryPaused);
+        autoplayButton.setAttribute('aria-pressed', String(isHeroGalleryAutoplayInactive()));
+        autoplayButton.classList.toggle('is-paused', isHeroGalleryAutoplayInactive());
     }
 
     if (pagination) {
@@ -353,7 +366,7 @@ function clearHeroGalleryAuto() {
 function scheduleHeroGalleryAuto(delay = heroSlideDuration) {
     clearHeroGalleryAuto();
 
-    if (isHeroGalleryPaused) {
+    if (isHeroGalleryAutoplayInactive()) {
         updateHeroGalleryProgress(0);
         return;
     }
@@ -379,6 +392,13 @@ function stopHeroGalleryAuto() {
 }
 
 function toggleHeroGalleryAutoplay() {
+    if (isHeroGalleryAutoplaySuppressed()) {
+        hasHeroGalleryAutoplayOverride = true;
+        updateHeroGalleryA11yLabels();
+        scheduleHeroGalleryAuto(heroSlideDuration);
+        return;
+    }
+
     isHeroGalleryPaused = !isHeroGalleryPaused;
     updateHeroGalleryA11yLabels();
 
@@ -598,6 +618,29 @@ function initHeroGallery() {
 
     heroBg.dataset.heroGalleryRuntimeInit = 'true';
 
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function syncHeroGalleryReducedMotionPreference() {
+        if (!reducedMotionQuery.matches) {
+            hasHeroGalleryAutoplayOverride = false;
+        }
+
+        if (isHeroGalleryAutoplaySuppressed()) {
+            stopHeroGalleryAuto();
+            updateHeroGalleryA11yLabels();
+            return;
+        }
+
+        updateHeroGalleryA11yLabels();
+
+        if (isHeroGalleryPaused) {
+            stopHeroGalleryAuto();
+            return;
+        }
+
+        scheduleHeroGalleryAuto(heroSlideDuration);
+    }
+
     const initialLayer = fadeContainer.children[0];
     const initialSlide = heroGallery[heroIndex];
     applyHeroGallerySlideStyle(initialLayer, initialSlide, getHeroGallerySlideStyle(initialSlide));
@@ -610,6 +653,14 @@ function initHeroGallery() {
 
     setHeroBgCrossfade(heroIndex, false);
     scheduleHeroGalleryAuto(heroSlideDuration);
+
+    if (typeof reducedMotionQuery.addEventListener === 'function') {
+        reducedMotionQuery.addEventListener('change', syncHeroGalleryReducedMotionPreference);
+    } else if (typeof reducedMotionQuery.addListener === 'function') {
+        reducedMotionQuery.addListener(syncHeroGalleryReducedMotionPreference);
+    }
+
+    syncHeroGalleryReducedMotionPreference();
 
     if (prevButton) {
         prevButton.addEventListener('click', function() {

@@ -235,6 +235,7 @@
 .subpage-body--privacy .subpage-hero,
 .subpage-body--imprint .subpage-hero {
     width: min(92vw, 1180px);
+    box-sizing: border-box;
     position: relative;
     padding: clamp(26px, 3vw, 38px);
     border-radius: 34px;
