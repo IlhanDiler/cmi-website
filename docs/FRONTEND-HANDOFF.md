@@ -78,13 +78,13 @@ Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaet
 - Die Browser-Matrix ueber Edge, Chrome und Firefox lief mehrfach mit 0 Funden, zuletzt nach Abschluss der Week-4-Standardisierung.
 - Ein gezielter QA-Pass fuer Tastatur, Reduced Motion und Legal-Reflow auf [index.html](../index.html), [datenschutz.html](../datenschutz.html) und [impressum.html](../impressum.html) ist abgeschlossen; die dabei gefundenen Issues wurden direkt behoben.
 - Der erste strukturelle i18n-Pilot ist eingefuehrt: Der Rechtsblock `#imprint-legal` in [impressum.html](../impressum.html) wird aus [scripts/legal-content.json](../scripts/legal-content.json) via [scripts/render-legal-content.py](../scripts/render-legal-content.py) in statisches HTML gerendert.
-- Der Generatorpilot ist erweitert: Die Datenschutz-Bloecke `#privacy-overview`, `#privacy-basics` und `#privacy-analytics` in [datenschutz.html](../datenschutz.html) werden jetzt generatorbasiert erzeugt; der Renderer unterstuetzt strukturierte Cards mit Ueberschriften, Listen, Inhaltsgruppen und gezielt freigegebene Inline-Links und zieht groessere Quellen bei Bedarf aus [scripts/legal-content](../scripts/legal-content) nach.
+- Der Generatorpilot ist erweitert: Die Datenschutz-Bloecke `#privacy-overview`, `#privacy-basics`, `#privacy-data` und `#privacy-analytics` in [datenschutz.html](../datenschutz.html) werden jetzt generatorbasiert erzeugt; der Renderer unterstuetzt strukturierte Cards mit Ueberschriften, Listen, Inhaltsgruppen und gezielt freigegebene Inline-Links und zieht groessere Quellen bei Bedarf aus [scripts/legal-content](../scripts/legal-content) nach.
 - Die technische Einordnung und der Abschlussabgleich stehen in [docs/SITE-ASSESSMENT.md](../docs/SITE-ASSESSMENT.md).
 
 ## Bewusst offene Grenzen
 
 - Ein vollstaendiger Screenreader- und Geraeteklassen-Check ueber alle Seiten und Zustaende ist noch nicht erfolgt.
-- Die grossen Sprachcluster sind vereinheitlicht; die strukturelle Entduplizierung ist jetzt fuer einen Impressum-Block und zwei grosse Datenschutz-Bloecke pilotiert, aber noch nicht breit auf weitere Bereiche ausgedehnt.
+- Die grossen Sprachcluster sind vereinheitlicht; die strukturelle Entduplizierung ist jetzt fuer einen Impressum-Block und vier grosse Datenschutz-Bloecke pilotiert, aber noch nicht breit auf weitere Bereiche ausgedehnt.
 - Einige gewachsene Muster in Markup und Runtime sind reduziert, aber nicht vollstaendig entfernt.
 
 ## Naechste sinnvolle Schritte
