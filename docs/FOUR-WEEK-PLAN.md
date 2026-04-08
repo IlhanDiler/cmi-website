@@ -202,3 +202,6 @@ Am Ende jeder Woche kurz festhalten:
 - [x] Release-Smoke-Skript fuer einen optionalen Browser-Matrix-Lauf vorbereitet, damit Week-3-QA nicht nur manuell auf Edge/Chrome beschraenkt bleibt
 - [x] Firefox-spezifische Mobile-Context- und Screenshot-Grenzen im QA-Runner abgefangen, damit die Browser-Matrix stabil durchlaeuft
 - [x] Browser-Matrix fuer Edge, Chrome und Firefox ueber release_qa_smoke.py mit 0 Funden durchlaufen
+- [x] Share-Seiten-Smoke fuer share/querbeet-roundup-2025.html in den automatisierten Browser-Check aufgenommen
+- [x] Fehlende Favicons in den Share-HTMLs als Root-Cause-Fix nachgezogen, damit Chromium keinen favicon.ico-404 mehr produziert
+- [x] Browser-Matrix inklusive Share-Seite danach erneut mit 0 Funden durchlaufen

@@ -387,6 +387,31 @@ async def check_subpage(browser, issues, screenshots, browser_target, path_name,
     await context.close()
 
 
+async def check_share_page(browser, issues, screenshots, browser_target, path_name, page_name, main_selector, expected_title_fragment):
+    context = await browser.new_context(viewport={"width": 1280, "height": 1600}, locale="tr-TR")
+    page = await context.new_page()
+    attach_page_monitors(page, issues, scope_name(browser_target, page_name))
+
+    await page.goto(f"{BASE_URL}/{path_name}", wait_until="domcontentloaded")
+    await page.wait_for_timeout(1000)
+
+    await wait_visible(page, main_selector, scope_name(browser_target, f"{page_name} main content"), issues)
+    await wait_visible(page, ".share-card__poster-image", scope_name(browser_target, f"{page_name} hero image"), issues)
+    await wait_visible(page, ".share-card__poster-qr-image", scope_name(browser_target, f"{page_name} qr image"), issues)
+
+    share_title = await first_visible_text(page, ".share-card__title-main")
+    if expected_title_fragment not in share_title:
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, page_name),
+            f"Expected share title to contain {expected_title_fragment!r}, got: {share_title or '[empty]'}",
+        )
+
+    screenshot_path = OUT_DIR / f"{page_name}-{browser_target}.png"
+    await save_page_screenshot(page, screenshot_path, screenshots, browser_target)
+    await context.close()
+
 async def run_release_smoke_for_target(playwright, requested_target):
     issues = []
     screenshots = []
@@ -411,6 +436,16 @@ async def run_release_smoke_for_target(playwright, requested_target):
         await check_subpage(browser, issues, screenshots, resolved_target, "chronik.html", "chronik-release", ".timeline-section", "The CMI Timeline")
         await check_subpage(browser, issues, screenshots, resolved_target, "datenschutz.html", "datenschutz-release", ".subpage-hero--privacy", "Privacy Policy")
         await check_subpage(browser, issues, screenshots, resolved_target, "impressum.html", "impressum-release", ".subpage-hero--imprint", "Legal Notice")
+        await check_share_page(
+            browser,
+            issues,
+            screenshots,
+            resolved_target,
+            "share/querbeet-roundup-2025.html",
+            "querbeet-roundup-share",
+            ".share-card--poster",
+            "CMI Konser Yili",
+        )
     except Exception as error:  # noqa: BLE001
         add_issue(
             issues,
