@@ -165,6 +165,15 @@ Am Ende jeder Woche kurz festhalten:
 
 ## Fortschrittslog
 
+### Woche 1 - laufender Stand
+
+- [x] Event-Lightbox per Tastatur bedienbar gemacht, inklusive Fokusfuehrung und sichtbarem Fokusstil
+- [x] Cookie-Consent-Inhalte wieder an den zentralen Accessibility-Sync angebunden und Dialog-Selektoren bereinigt
+- [x] Hero-Galerie um Pause/Weiter-Steuerung ergaenzt und Live-Ansagen auf Nutzeraktionen begrenzt
+- [x] Deep Links auf Eintraege im Review-Archiv so nachgezogen, dass aufgeklappte Ziele auch wirklich erreicht und fokussiert werden
+- [ ] Komplette Release-QA fuer die betroffenen Hauptflows noch offen
+- [ ] Restliche Week-1-Sweep-Punkte ausserhalb der bereits bearbeiteten Hauptinteraktionen noch offen
+
 - [ ] Woche 1 abgeschlossen
 - [ ] Woche 2 abgeschlossen
 - [ ] Woche 3 abgeschlossen
