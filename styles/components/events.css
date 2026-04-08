@@ -399,6 +399,7 @@
 .event-poster-image:focus-visible {
     outline: 3px solid rgba(14, 140, 130, 0.32);
     outline-offset: 4px;
+    --interaction-box-shadow: 0 0 0 8px rgba(127, 232, 219, 0.18);
     box-shadow: 0 0 0 8px rgba(127, 232, 219, 0.18);
 }
 
@@ -457,6 +458,7 @@
 
 .event-poster-download:focus-visible {
     border-color: rgba(10, 117, 109, 0.32);
+    --interaction-box-shadow: var(--focus-ring-soft);
     box-shadow: var(--focus-ring-soft);
 }
 
@@ -528,6 +530,7 @@
 }
 
 .event-social-button:focus-visible {
+    --interaction-box-shadow: var(--focus-ring-soft);
     box-shadow: var(--focus-ring-soft);
 }
 
