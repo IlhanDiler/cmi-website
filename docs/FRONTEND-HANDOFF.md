@@ -76,17 +76,19 @@ Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaet
 - Die groessten `data-lang`-Hotspots auf Hauptseite, Chronik und Legal-Seiten sind auf ein gemeinsames `hidden`-/`aria-hidden`-Muster vereinheitlicht.
 - Nicht-sprachliche UI-Zustaende bleiben bewusst separat behandelt; ein Beispiel ist die Event-Lightbox, die weiter ihren eigenen `display:none`-Zustand nutzt.
 - Die Browser-Matrix ueber Edge, Chrome und Firefox lief mehrfach mit 0 Funden, zuletzt nach Abschluss der Week-4-Standardisierung.
+- Ein gezielter QA-Pass fuer Tastatur, Reduced Motion und Legal-Reflow auf [index.html](../index.html), [datenschutz.html](../datenschutz.html) und [impressum.html](../impressum.html) ist abgeschlossen; die dabei gefundenen Issues wurden direkt behoben.
+- Der erste strukturelle i18n-Pilot ist eingefuehrt: Der Rechtsblock `#imprint-legal` in [impressum.html](../impressum.html) wird aus [scripts/legal-content.json](../scripts/legal-content.json) via [scripts/render-legal-content.py](../scripts/render-legal-content.py) in statisches HTML gerendert.
 - Die technische Einordnung und der Abschlussabgleich stehen in [docs/SITE-ASSESSMENT.md](../docs/SITE-ASSESSMENT.md).
 
 ## Bewusst offene Grenzen
 
 - Ein vollstaendiger Screenreader- und Geraeteklassen-Check ueber alle Seiten und Zustaende ist noch nicht erfolgt.
-- Die grossen Sprachcluster sind vereinheitlicht, aber das mehrsprachige HTML ist strukturell noch nicht entdupliziert.
+- Die grossen Sprachcluster sind vereinheitlicht; die strukturelle Entduplizierung ist jetzt fuer einen ersten Impressum-Block pilotiert, aber noch nicht breit auf weitere Bereiche ausgedehnt.
 - Einige gewachsene Muster in Markup und Runtime sind reduziert, aber nicht vollstaendig entfernt.
 
 ## Naechste sinnvolle Schritte
 
-1. Fuer weitere Wartbarkeitsgewinne einen der grossen Sprachbereiche strukturell entkoppeln, statt nur Zustandsattribute zu vereinheitlichen.
+1. Den Generatoransatz vom Impressum auf einen groesseren Block in [datenschutz.html](../datenschutz.html) oder einen weiteren Legal-Bereich ausweiten.
 2. Vor einer finalen Freigabe einen kurzen manuellen Browser-, Mobile- und Screenreader-Sweep ueber Hauptseite, Chronik, Legal-Seiten und Share-Flow fahren.
 
 ## Offene Grenze
