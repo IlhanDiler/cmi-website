@@ -851,6 +851,10 @@ function syncStaticContentAccessibility() {
     if (typeof syncEventLightboxStaticAccessibility === 'function') {
         syncEventLightboxStaticAccessibility();
     }
+
+    if (typeof syncEventLightboxTriggerAccessibility === 'function') {
+        syncEventLightboxTriggerAccessibility();
+    }
 }
 
 function syncInPageNavigationState(activeSectionId) {
