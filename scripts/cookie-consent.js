@@ -300,6 +300,8 @@ cookieConsentTranslations.ln = cookieConsentTranslations.fr;
 let cookieConsentMutationObserver = null;
 let cookieConsentUpdateFrame = null;
 
+const cookieConsentDialogSelector = '#cookiescript_injected_wrapper, #cookiescript_injected_fsd, #cookiescript_injected, #cookiescript_fsd_wrapper';
+
 function setCookieConsentText(selector, text) {
     document.querySelectorAll(selector).forEach(function(node) {
         node.textContent = text;
@@ -331,7 +333,7 @@ function updateCookieConsentLanguage() {
     const language = getCurrentSiteLanguage();
     const labels = cookieConsentTranslations[language] || cookieConsentTranslations.de;
 
-    setCookieConsentAttribute('#cookiescript_injected, #cookiescript_fsd_wrapper', 'aria-label', labels.dialogLabel);
+    setCookieConsentAttribute(cookieConsentDialogSelector, 'aria-label', labels.dialogLabel);
     setCookieConsentAttribute('#cookiescript_badge', 'aria-label', labels.badgeLabel);
     setCookieConsentAttribute('#cookiescript_close', 'aria-label', labels.closeLabel);
 
