@@ -171,6 +171,7 @@ Am Ende jeder Woche kurz festhalten:
 - [x] Cookie-Consent-Inhalte wieder an den zentralen Accessibility-Sync angebunden und Dialog-Selektoren bereinigt
 - [x] Hero-Galerie um Pause/Weiter-Steuerung ergaenzt und Live-Ansagen auf Nutzeraktionen begrenzt
 - [x] Deep Links auf Eintraege im Review-Archiv so nachgezogen, dass aufgeklappte Ziele auch wirklich erreicht und fokussiert werden
+- [x] Sichtbare Fokuszustaende in Navigation, Footer, Event-Aktionen sowie Karten- und Inline-Links nachgezogen, inklusive Root-Cause-Fix fuer den globalen Shadow-Reset
 - [ ] Komplette Release-QA fuer die betroffenen Hauptflows noch offen
 - [ ] Restliche Week-1-Sweep-Punkte ausserhalb der bereits bearbeiteten Hauptinteraktionen noch offen
 
