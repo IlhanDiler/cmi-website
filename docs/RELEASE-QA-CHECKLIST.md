@@ -4,6 +4,8 @@
 
 Diese Kurzfassung ist fuer die schnelle Freigabe nach kleineren Frontend-Aenderungen gedacht. Wenn hier etwas auffaellt, sollte anschliessend die vollstaendige Checkliste in [docs/MANUAL-QA-CHECKLIST.md](../docs/MANUAL-QA-CHECKLIST.md) genutzt werden.
 
+Fuer den Week-3-Browser-Matrix-Check kann der Smoke-Run optional mit `QA_BROWSER_TARGETS=msedge,chrome,firefox` gestartet werden. Ohne diese Variable bleibt der bisherige schnelle Auto-Modus aktiv und nimmt den ersten verfuegbaren Chromium-Browser.
+
 ## Kurzcheck
 
 - [ ] [index.html](../index.html) auf Desktop laden: keine sichtbaren Layout-Brueche im Hero, in der Navigation oder im Footer.
