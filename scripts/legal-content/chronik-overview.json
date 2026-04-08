@@ -1,0 +1,275 @@
+{
+  "targets": {
+    "chronik-hero-copy": {
+      "file": "chronik.html",
+      "indentSpaces": 6,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 1,
+          "className": "subpage-hero__title",
+          "text": {
+            "de": "Die Chronik des CMI",
+            "en": "The CMI Timeline",
+            "fr": "La chronique du CMI",
+            "ln": "Lisolo ya bambula ya CMI",
+            "it": "La storia del CMI",
+            "tr": "CMI kronolojisi",
+            "uk": "Хроніка КМІ"
+          }
+        },
+        {
+          "type": "paragraph",
+          "className": "subpage-hero__intro",
+          "text": {
+            "de": "Von der Initiative junger Musikerinnen und Musiker bis zu Benefizkonzerten und internationalen Projekten: Diese Stationen zeigen, wie aus gemeinsamer Musik über Jahrzehnte Verantwortung, Austausch und Wirkung entstanden sind.",
+            "en": "From a youth-led initiative to benefit concerts and international projects, these milestones show how making music together grew into responsibility, exchange, and social impact over the decades.",
+            "fr": "De l'initiative de jeunes musiciennes et musiciens aux concerts de bienfaisance et aux projets internationaux, ces etapes montrent comment la musique partagee est devenue, au fil des decennies, un lieu de responsabilite, d'echange et d'impact concret.",
+            "ln": "Uta na likanisi ya bilenge babeti miziki kino na ba konser ya lisungi mpe misala ya mokili mobimba, biteni oyo elakisi ndenge kosala miziki elongo ekomaki mokumba, bokutani mpe lisungi ya solo na kati ya bambula mingi.",
+            "it": "Dall'iniziativa di un gruppo di giovani musicisti ai concerti di beneficenza e ai progetti internazionali: queste tappe mostrano come, nel corso dei decenni, il fare musica insieme si sia trasformato in responsabilità condivisa, scambio e aiuto concreto.",
+            "tr": "Genç müzisyenlerin girişiminden yardım konserlerine ve uluslararası projelere uzanan bu dönüm noktaları, birlikte müzik yapmanın on yıllar içinde nasıl sorumluluğa, uluslararası işbirliğine ve toplumsal etkiye dönüştüğünü gösteriyor.",
+            "uk": "Від ініціативи молодих музикантів до благодійних концертів і міжнародних проєктів: ці етапи показують, як спільне музикування протягом десятиліть перетворювалося на відповідальність, обмін і реальний вплив."
+          }
+        }
+      ]
+    },
+    "chronik-overview-roots": {
+      "file": "chronik.html",
+      "indentSpaces": 8,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "className": "history-overview-title",
+          "text": {
+            "de": "Verwurzelung",
+            "en": "Roots",
+            "fr": "Ancrage",
+            "ln": "Misisa",
+            "it": "Radici",
+            "tr": "Kökler",
+            "uk": "Коріння"
+          }
+        },
+        {
+          "type": "paragraph",
+          "className": "history-overview-copy",
+          "text": {
+            "de": "Das Ensemble wuchs in Ochsenfurt aus echter Eigeninitiative und ist bis heute ein musikalischer Treffpunkt über Generationen hinweg.",
+            "en": "The ensemble grew in Ochsenfurt from a genuine grassroots initiative and remains a musical meeting place across generations.",
+            "fr": "L'ensemble est ne a Ochsenfurt d'une veritable initiative personnelle et reste aujourd'hui encore un lieu de rencontre musical entre les generations.",
+            "ln": "Lisanga yango ekolaki na Ochsenfurt uta na ebandeli ya solo ya bato bango moko mpe kino lelo ezali esika ya bokutani ya miziki mpo na bileko ndenge na ndenge.",
+            "it": "L'ensemble è nato a Ochsenfurt da un'iniziativa condivisa e, ancora oggi, resta un punto d'incontro musicale tra generazioni.",
+            "tr": "Topluluk Ochsenfurt'ta samimi bir öz girişimle doğdu ve bugün de kuşakları buluş&shy;turan müzi&shy;kal bir buluş&shy;ma noktası olmayı sürdürüyor.",
+            "uk": "Ансамбль виріс в Оксенфурті із щирої ініціативи самих учасників і до сьогодні лишається музичним місцем зустрічі поколінь."
+          },
+          "allowHtml": true
+        }
+      ]
+    },
+    "chronik-overview-exchange": {
+      "file": "chronik.html",
+      "indentSpaces": 8,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "className": "history-overview-title",
+          "text": {
+            "de": "Austausch",
+            "en": "Exchange",
+            "fr": "Echange",
+            "ln": "Bokutani",
+            "it": "Scambio",
+            "tr": "Değişim",
+            "uk": "Обмін"
+          }
+        },
+        {
+          "type": "paragraph",
+          "className": "history-overview-copy",
+          "text": {
+            "de": "Internationale Begegnungen, Konzertreisen und gemeinsame Projekte haben das CMI früh über regionale Grenzen hinaus geprägt.",
+            "en": "International encounters, concert tours, and shared projects helped shape CMI well beyond the region from an early stage.",
+            "fr": "Les rencontres internationales, les tournees et les projets communs ont tres vite marque le CMI bien au-dela des frontieres regionales.",
+            "ln": "Bokutani ya mokili mobimba, ba mobembo ya konser mpe misala ya elongo esalaki ete CMI eyebana kala koleka ndelo ya etuka.",
+            "it": "Incontri internazionali, tournée e progetti condivisi hanno portato il CMI ben oltre i confini della regione fin dai primi anni.",
+            "tr": "Ulus&shy;lararası buluş&shy;malar, konser turne&shy;leri ve ortak proje&shy;ler CMI'yi daha ilk yıllardan itibaren böl&shy;gesel sınır&shy;ların ötesine taşıdı.",
+            "uk": "Міжнародні зустрічі, концертні подорожі та спільні проєкти рано сформували КМІ далеко за межами регіону."
+          },
+          "allowHtml": true
+        }
+      ]
+    },
+    "chronik-overview-impact": {
+      "file": "chronik.html",
+      "indentSpaces": 8,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "className": "history-overview-title",
+          "text": {
+            "de": "Wirkung",
+            "en": "Impact",
+            "fr": "Impact",
+            "ln": "Litomba",
+            "it": "Impatto",
+            "tr": "Etki",
+            "uk": "Вплив"
+          }
+        },
+        {
+          "type": "paragraph",
+          "className": "history-overview-copy",
+          "text": {
+            "de": "Aus dem gemeinsamen Musizieren wurde konkrete Hilfe: Benefizkonzerte und soziale Projekte sind heute fester Teil der Identität.",
+            "en": "Shared music-making turned into concrete help: benefit concerts and social projects are now a core part of the ensemble's identity.",
+            "fr": "La musique partagee s'est transformee en aide concrete : les concerts benefices et les projets solidaires font aujourd'hui partie integrante de notre identite.",
+            "ln": "Kosala miziki elongo ebongwanaki lisungi ya solo: ba konser ya lisungi mpe misala ya bato ezali sikoyo eteni ya motema ya bomoto ya CMI.",
+            "it": "Dal fare musica insieme è nato anche un aiuto concreto: concerti di beneficenza e progetti sociali fanno ormai parte dell'identità dell'ensemble.",
+            "tr": "Birlikte müzik yapmak somut desteğe dönüştü: yardım konser&shy;leri ve sosyal proje&shy;ler bugün toplu&shy;luğun kimliğinin ayrıl&shy;maz bir parçası.",
+            "uk": "Із спільного музикування виросла конкретна допомога: благодійні концерти та соціальні проєкти сьогодні є невід'ємною частиною нашої ідентичності."
+          },
+          "allowHtml": true
+        }
+      ]
+    },
+    "chronik-timeline-header": {
+      "file": "chronik.html",
+      "indentSpaces": 10,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "className": "timeline-title",
+          "text": {
+            "de": "Musik, Begegnung und Verantwortung",
+            "en": "Music, encounter, and responsibility",
+            "fr": "Musique, rencontre et responsabilite",
+            "ln": "Miziki, bokutani mpe mokumba",
+            "it": "Musica, incontro e responsabilità",
+            "tr": "Müzik, buluşma ve sorumluluk",
+            "uk": "Музика, зустріч і відповідальність"
+          }
+        },
+        {
+          "type": "paragraph",
+          "className": "timeline-intro",
+          "text": {
+            "de": "Die Geschichte des CMI ist keine lose Sammlung einzelner Konzerte. Sie erzählt von einem Ensemble, das seine musikalische Entwicklung immer mit Gemeinschaft, Bildung und sozialem Engagement verbunden hat.",
+            "en": "CMI's history is not a loose collection of individual concerts. It tells the story of an ensemble that has always connected musical growth with community, education, and social commitment.",
+            "fr": "L'histoire du CMI n'est pas une simple succession de concerts. Elle raconte un ensemble qui a toujours lie son evolution musicale a la vie collective, a la transmission et a l'engagement solidaire.",
+            "ln": "Lisolo ya CMI ezali kaka te molongo ya ba konser ya kokabwana. Elobeli lisanga moko oyo ekangisaka ntango nyonso bokoli ya miziki na lisanga, boyekoli mpe lisungi ya bato.",
+            "it": "La storia del CMI non è soltanto una successione di concerti. Racconta il percorso di un ensemble che ha sempre intrecciato crescita musicale, vita comunitaria, formazione e impegno sociale.",
+            "tr": "CMI'nin öyküsü birbirinden kopuk konser&shy;lerin toplamı değildir. Tam tersine, müzi&shy;kal gelişi&shy;mini her zaman toplu&shy;luk, eğitim ve sosyal sorum&shy;lulukla birleştiren bir toplu&shy;luğun hikâyesini anlatır.",
+            "uk": "Історія КМІ не зводиться до низки окремих концертів. Це історія ансамблю, який завжди поєднував музичний розвиток із життям спільноти, освітою та соціальною відповідальністю."
+          },
+          "allowHtml": true
+        }
+      ]
+    },
+    "chronik-summary-1981": {
+      "file": "chronik.html",
+      "indentSpaces": 14,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "timeline-summary-value",
+          "text": {
+            "de": "1981",
+            "en": "1981",
+            "fr": "1981",
+            "ln": "1981",
+            "it": "1981",
+            "tr": "1981",
+            "uk": "1981"
+          }
+        },
+        {
+          "type": "paragraph",
+          "className": "timeline-summary-copy",
+          "text": {
+            "de": "Beginn einer musikalischen Gemeinschaft, die bis heute Menschen verbindet.",
+            "en": "The beginning of a musical community that still connects people today.",
+            "fr": "Le debut d'une communaute musicale qui continue aujourd'hui encore de rassembler.",
+            "ln": "Ebandeli ya lisanga ya miziki oyo ezali naino kosangisa bato kino lelo.",
+            "it": "Nasce una comunità musicale che ancora oggi fa incontrare le persone.",
+            "tr": "Bugün hâlâ insanları bir araya getiren bir müzik toplu&shy;luğunun başlan&shy;gıcı.",
+            "uk": "Початок музичної спільноти, яка й сьогодні єднає людей."
+          },
+          "allowHtml": true
+        }
+      ]
+    },
+    "chronik-summary-europe": {
+      "file": "chronik.html",
+      "indentSpaces": 14,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "timeline-summary-value",
+          "text": {
+            "de": "Europa",
+            "en": "Europe",
+            "fr": "Europe",
+            "ln": "Europe",
+            "it": "Europa",
+            "tr": "Avrupa",
+            "uk": "Європа"
+          }
+        },
+        {
+          "type": "paragraph",
+          "className": "timeline-summary-copy",
+          "text": {
+            "de": "Partnerschaften und Konzertreisen machten kulturellen Austausch früh zum Markenzeichen.",
+            "en": "Partnerships and concert tours made cultural exchange an early hallmark.",
+            "fr": "Les partenariats et les tournees ont fait de l'echange culturel un signe distinctif tres tot.",
+            "ln": "Ba boyokani mpe ba mobembo ya konser ekomisaki bokutani ya mimeseno elembo moko ya ntina ya CMI banda kala.",
+            "it": "Collaborazioni e tournée hanno reso lo scambio culturale un tratto distintivo fin dagli inizi.",
+            "tr": "İş bir&shy;likleri ve konser turne&shy;leri, kültürel alış&shy;verişi erken dönemde ayırt edici bir özellik hâline getirdi.",
+            "uk": "Партнерства й концертні поїздки рано зробили культурний обмін однією з головних рис ансамблю."
+          },
+          "allowHtml": true
+        }
+      ]
+    },
+    "chronik-summary-benefit": {
+      "file": "chronik.html",
+      "indentSpaces": 14,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "timeline-summary-value",
+          "text": {
+            "de": "Benefiz",
+            "en": "Benefit",
+            "fr": "Solidarite",
+            "ln": "Lisungi",
+            "it": "Beneficenza",
+            "tr": "Yardım",
+            "uk": "Благодійність"
+          }
+        },
+        {
+          "type": "paragraph",
+          "className": "timeline-summary-copy",
+          "text": {
+            "de": "Künstlerische Qualität und Hilfe für andere sind heute eng miteinander verbunden.",
+            "en": "Artistic quality and help for others are closely intertwined today.",
+            "fr": "La qualite artistique et l'aide aux autres sont aujourd'hui etroitement liees.",
+            "ln": "Mayele ya miziki mpe lisungi mpo na bato mosusu ekangani makasi na CMI lelo.",
+            "it": "Qualità artistica e aiuto concreto oggi procedono di pari passo.",
+            "tr": "Sanat&shy;sal kalite ile baş&shy;kalarına destek olma bugün bir&shy;birinden ayrıl&shy;maz hâle gelmiştir.",
+            "uk": "Мистецька якість і допомога іншим сьогодні тісно пов'язані між собою."
+          },
+          "allowHtml": true
+        }
+      ]
+    }
+  }
+}

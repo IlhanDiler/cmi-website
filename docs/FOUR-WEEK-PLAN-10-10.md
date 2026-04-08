@@ -117,9 +117,10 @@ Budget: 15 Stunden
 - Abgeschlossen: Der Datenschutz-Block `#privacy-analytics` in [datenschutz.html](../datenschutz.html) wird jetzt ebenfalls generatorbasiert gepflegt; der Renderer unterstuetzt dafuer gezielt freigegebene Inline-Links, sodass externe Datenschutzhinweise im statisch gerenderten HTML klickbar bleiben.
 - Abgeschlossen: Der Datenschutz-Block `#privacy-social` in [datenschutz.html](../datenschutz.html) wird jetzt ebenfalls generatorbasiert gepflegt; die Quelle liegt in [scripts/legal-content/privacy-social.json](../scripts/legal-content/privacy-social.json) und deckt die Facebook- und Instagram-Hinweise samt freigegebenen Links strukturiert ab.
 - Abgeschlossen: Der Datenschutz-Block `#privacy-tools` in [datenschutz.html](../datenschutz.html) wird jetzt ebenfalls generatorbasiert gepflegt; die Quelle liegt in [scripts/legal-content/privacy-tools.json](../scripts/legal-content/privacy-tools.json) und rendert YouTube- und Google-Maps-Texte ohne doppelt escapte HTML-Entities.
+- Abgeschlossen: Der gleiche Marker-Renderer wird jetzt erstmals auch auf [chronik.html](../chronik.html) verwendet; Hero-Titel, Uebersichtskarten und Timeline-Summary kommen dort aus [scripts/legal-content/chronik-overview.json](../scripts/legal-content/chronik-overview.json), ohne Wrapper wie `section`, `article` oder `div.timeline-summary` umzubauen.
 - Abgeschlossen: Die Pflegehinweise dafuer wurden in [README.md](../README.md) und [docs/FRONTEND-HANDOFF.md](../docs/FRONTEND-HANDOFF.md) nachgezogen.
-- Validiert: Generatorlauf sowie nachgelagerter Browser-QA-Run fuer [datenschutz.html](../datenschutz.html) liefen lokal ohne Funde durch; geprueft wurden jetzt alle sieben generatorisierten Datenschutz-Bloecke auf Sprachumschaltung, Quick-Navigation, Reflow und klickbare Inline-Verweise.
-- Offen: Der Ansatz ist jetzt fuer einen Impressum-Block und sieben Datenschutz-Bloecke pilotiert, aber noch nicht breit auf weitere Sprachbloecke ausgedehnt.
+- Validiert: Generatorlauf sowie nachgelagerte Browser-QA-Runs fuer [datenschutz.html](../datenschutz.html), [impressum.html](../impressum.html) und [chronik.html](../chronik.html) liefen lokal ohne Funde durch; geprueft wurden sieben generatorisierte Datenschutz-Bloecke, die benannte Legal-Schnellnavigation und der neue Chronik-Pilot.
+- Offen: Der Ansatz ist jetzt fuer einen Impressum-Block, sieben Datenschutz-Bloecke und einen ersten Chronik-Piloten pilotiert, aber noch nicht breit auf weitere Sprachbloecke ausgedehnt.
 
 ### Block A - 4h
 

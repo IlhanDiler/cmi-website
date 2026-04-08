@@ -196,6 +196,7 @@ const navigationUiLabels = {
     de: {
         mainNavigation: 'Hauptnavigation',
         subpageNavigation: 'Seitennavigation',
+        legalOverviewNavigation: 'Navigation zu den Hauptabschnitten',
         mobileNavigation: 'Mobile Navigation',
         languageSwitcher: 'Sprache wählen',
         openMenu: 'Menü öffnen',
@@ -205,6 +206,7 @@ const navigationUiLabels = {
     en: {
         mainNavigation: 'Main navigation',
         subpageNavigation: 'Page navigation',
+        legalOverviewNavigation: 'Navigation to the main sections',
         mobileNavigation: 'Mobile navigation',
         languageSwitcher: 'Choose language',
         openMenu: 'Open menu',
@@ -214,6 +216,7 @@ const navigationUiLabels = {
     fr: {
         mainNavigation: 'Navigation principale',
         subpageNavigation: 'Navigation de la page',
+        legalOverviewNavigation: 'Navigation vers les sections principales',
         mobileNavigation: 'Navigation mobile',
         languageSwitcher: 'Choisir la langue',
         openMenu: 'Ouvrir le menu',
@@ -223,6 +226,7 @@ const navigationUiLabels = {
     ln: {
         mainNavigation: 'Navigation ya monene',
         subpageNavigation: 'Navigation ya lokasa',
+        legalOverviewNavigation: 'Navigation ya biteni ya ntina',
         mobileNavigation: 'Navigation ya telefone',
         languageSwitcher: 'Pona lokota',
         openMenu: 'Fungola menu',
@@ -232,6 +236,7 @@ const navigationUiLabels = {
     it: {
         mainNavigation: 'Navigazione principale',
         subpageNavigation: 'Navigazione della pagina',
+        legalOverviewNavigation: 'Navigazione alle sezioni principali',
         mobileNavigation: 'Navigazione mobile',
         languageSwitcher: 'Scegli la lingua',
         openMenu: 'Apri il menu',
@@ -241,6 +246,7 @@ const navigationUiLabels = {
     tr: {
         mainNavigation: 'Ana gezinme',
         subpageNavigation: 'Sayfa gezinmesi',
+        legalOverviewNavigation: 'Ana bölümlere gezinme',
         mobileNavigation: 'Mobil gezinme',
         languageSwitcher: 'Dil seç',
         openMenu: 'Menüyü aç',
@@ -250,6 +256,7 @@ const navigationUiLabels = {
     uk: {
         mainNavigation: 'Головна навігація',
         subpageNavigation: 'Навігація сторінкою',
+        legalOverviewNavigation: 'Навігація до головних розділів',
         mobileNavigation: 'Мобільна навігація',
         languageSwitcher: 'Оберіть мову',
         openMenu: 'Відкрити меню',
@@ -647,6 +654,7 @@ function syncNavigationAccessibility(lang) {
 
     setAriaLabelForElements('.navbar', labels.mainNavigation);
     setAriaLabelForElements('.subpage-topbar__links', labels.subpageNavigation);
+    setAriaLabelForElements('.legal-overview__nav', labels.legalOverviewNavigation);
     setAriaLabelForElements('.language-switch, #langSwitcher', labels.languageSwitcher);
     syncMobileMenuButtonAccessibility(mobileMenuButton, labels);
     syncMobileMenuAccessibility(mobileMenu, labels);
@@ -769,6 +777,12 @@ function syncDecorativeContentAccessibility() {
 
 function syncLegalOverviewAccessibility() {
     document.querySelectorAll('.legal-overview__nav').forEach(function(navigationBlock) {
+        const existingLabel = navigationBlock.getAttribute('aria-label');
+
+        if (existingLabel && existingLabel.trim()) {
+            return;
+        }
+
         const label = getVisibleNodeText(
             navigationBlock,
             '.legal-overview__nav-title[data-lang], .legal-overview__nav-title, .legal-overview__nav-kicker[data-lang], .legal-overview__nav-kicker'
