@@ -226,6 +226,11 @@ html body .image-caption-copy {
     outline: none;
 }
 
+.image-caption-card-link:focus-visible {
+    --interaction-box-shadow: var(--focus-ring-soft);
+    box-shadow: var(--focus-ring-soft);
+}
+
 .image-caption-card-img {
     display: block;
     width: 100%;

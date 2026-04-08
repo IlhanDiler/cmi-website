@@ -479,6 +479,11 @@
     outline: none;
 }
 
+.legal-overview__nav-link:focus-visible {
+    --interaction-box-shadow: var(--focus-ring-soft);
+    box-shadow: var(--focus-ring-soft);
+}
+
 .legal-overview__nav-link::after {
     content: "->";
     color: rgba(24, 110, 115, 0.7);
