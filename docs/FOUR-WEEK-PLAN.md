@@ -178,7 +178,21 @@ Am Ende jeder Woche kurz festhalten:
 - [x] Komplette Release-QA fuer die betroffenen Hauptflows ueber lokalen HTTP-Server und release_qa_smoke.py mit 0 Funden durchlaufen
 - [x] Restliche Week-1-Sweep-Punkte im aktuellen Quick-Win-Scope quergprueft; keine weiteren klaren Billigfunde in den bearbeiteten Hauptflows offen
 
+### Woche 2 - laufender Stand
+
+- [x] Sprachvalidierung, Sichtbarkeitspruefung und Fokus-/Hash-Helfer in scripts/core-runtime.js gebuendelt und lokale Duplikate in scripts/navigation-language.js, scripts/event-lightbox.js und scripts/review-interactions.js reduziert
+- [x] Release-QA nach dem Runtime-Refactor erneut fuer Hauptseite, Hash-Navigation, Mobile-Menue sowie Chronik/Datenschutz/Impressum mit 0 Funden durchlaufen
+- [x] Hero- und Effekt-Runtime um gemeinsamen RAF-Scheduler bereinigt, globale Resize-/Scroll-Listener auf tatsaechlich genutzte Features begrenzt und Parallax-Updates auf Animation-Frames gedrosselt
+- [x] Release-QA nach dem Hero-/Site-Effects-Refactor erneut mit 0 Funden durchlaufen
+- [x] Review- und Cookie-Consent-Updates auf den gemeinsamen Scheduler umgestellt und lokale requestAnimationFrame-Verwaltung reduziert
+- [x] Release-QA nach dem Review-/Cookie-Consent-Refactor erneut mit 0 Funden durchlaufen
+- [x] Hero-Responsive-Refresh und Mbonda-Timeline-Resize-Handling auf den gemeinsamen Scheduler bzw. feature-spezifische Initialisierung umgestellt
+- [x] Release-QA nach dem Hero-/Navigation-Refactor erneut mit 0 Funden durchlaufen
+- [x] Doppelte Post-Paint-Logik aus Review-Hash-Navigation und Hero-Progress in einen gemeinsamen Runtime-Helfer gezogen
+- [x] Verbleibende Timer- und Einzel-RAF-Stellen in Core/Hero/Navigation geprueft und als verhaltensgebundene Reststellen bewusst im Scope belassen
+- [x] Release-QA nach dem Post-Paint-Refactor erneut mit 0 Funden durchlaufen
+
 - [x] Woche 1 abgeschlossen
-- [ ] Woche 2 abgeschlossen
+- [x] Woche 2 abgeschlossen
 - [ ] Woche 3 abgeschlossen
 - [ ] Woche 4 abgeschlossen

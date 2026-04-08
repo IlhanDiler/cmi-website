@@ -298,7 +298,6 @@ const cookieConsentTranslations = {
 cookieConsentTranslations.ln = cookieConsentTranslations.fr;
 
 let cookieConsentMutationObserver = null;
-let cookieConsentUpdateFrame = null;
 
 const cookieConsentDialogSelector = '#cookiescript_injected_wrapper, #cookiescript_injected_fsd, #cookiescript_injected, #cookiescript_fsd_wrapper';
 
@@ -378,15 +377,10 @@ function updateCookieConsentLanguage() {
     }
 }
 
-function scheduleCookieConsentLanguageUpdate() {
-    if (cookieConsentUpdateFrame !== null) {
-        return;
-    }
+const requestCookieConsentLanguageUpdate = createAnimationFrameScheduler(updateCookieConsentLanguage);
 
-    cookieConsentUpdateFrame = window.requestAnimationFrame(function() {
-        cookieConsentUpdateFrame = null;
-        updateCookieConsentLanguage();
-    });
+function scheduleCookieConsentLanguageUpdate() {
+    requestCookieConsentLanguageUpdate();
 }
 
 function initCookieConsentLanguageSync() {

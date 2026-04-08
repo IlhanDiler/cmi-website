@@ -8,39 +8,17 @@ function getReviewHashTarget() {
     return document.getElementById(hash);
 }
 
-function focusReviewHashTarget(target) {
-    if (!target || typeof target.focus !== 'function') {
-        return;
-    }
-
-    const hadTabindex = target.hasAttribute('tabindex');
-
-    if (!hadTabindex) {
-        target.setAttribute('tabindex', '-1');
-    }
-
-    target.focus({ preventScroll: true });
-
-    if (!hadTabindex) {
-        target.addEventListener('blur', function handleBlur() {
-            target.removeAttribute('tabindex');
-        }, { once: true });
-    }
-}
-
 function queueReviewHashTargetNavigation(target) {
     if (!target) {
         return;
     }
 
-    window.requestAnimationFrame(function() {
-        window.requestAnimationFrame(function() {
-            focusReviewHashTarget(target);
+    runAfterNextPaint(function() {
+        focusElementWithoutScroll(target);
 
-            window.scrollTo({
-                top: getScrollTargetTop(target, 12),
-                behavior: getPreferredScrollBehavior()
-            });
+        window.scrollTo({
+            top: getScrollTargetTop(target, 12),
+            behavior: getPreferredScrollBehavior()
         });
     });
 }
@@ -92,9 +70,11 @@ function initReviewArchiveToggle() {
         }));
 
         if (!isExpanded) {
-            window.requestAnimationFrame(scrollIntroIntoView);
+            scheduleIntroScrollIntoView();
         }
     }
+
+    const scheduleIntroScrollIntoView = createAnimationFrameScheduler(scrollIntroIntoView);
 
     function expandArchiveForHash() {
         const target = getReviewHashTarget();
@@ -203,7 +183,7 @@ function initReviewCardToggles() {
 
     function getActiveDescriptions(section) {
         return Array.from(section.querySelectorAll('.charity-description')).filter(function(description) {
-            return window.getComputedStyle(description).display !== 'none';
+            return isNodeVisiblyRendered(description);
         });
     }
 
@@ -267,6 +247,8 @@ function initReviewCardToggles() {
         });
     }
 
+    const scheduleSyncAllCardToggles = createAnimationFrameScheduler(syncAllCardToggles);
+
     function expandCardForHash() {
         const target = getReviewHashTarget();
 
@@ -292,17 +274,17 @@ function initReviewCardToggles() {
     window.addEventListener('hashchange', expandCardForHash);
     window.addEventListener('resize', function() {
         if (!archive.hidden) {
-            window.requestAnimationFrame(syncAllCardToggles);
+            scheduleSyncAllCardToggles();
         }
     });
     document.addEventListener('site-language-change', function() {
         if (!archive.hidden) {
-            window.requestAnimationFrame(syncAllCardToggles);
+            scheduleSyncAllCardToggles();
         }
     });
     document.addEventListener('review-archive-state-change', function(event) {
         if (event.detail && event.detail.expanded) {
-            window.requestAnimationFrame(syncAllCardToggles);
+            scheduleSyncAllCardToggles();
         }
     });
 }
