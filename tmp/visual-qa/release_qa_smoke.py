@@ -12,14 +12,33 @@ from playwright.async_api import async_playwright
 BASE_URL = os.environ.get("QA_BASE_URL", "http://127.0.0.1:8123")
 OUT_DIR = Path(__file__).resolve().parent
 RESULT_PATH = OUT_DIR / "release-qa-results.json"
+BROWSER_LAUNCH_CONFIGS = {
+    "msedge": {
+        "browser_type": "chromium",
+        "launch_options": {"channel": "msedge", "headless": True},
+        "label": "Microsoft Edge",
+    },
+    "chrome": {
+        "browser_type": "chromium",
+        "launch_options": {"channel": "chrome", "headless": True},
+        "label": "Google Chrome",
+    },
+    "firefox": {
+        "browser_type": "firefox",
+        "launch_options": {"headless": True},
+        "label": "Firefox",
+    },
+}
 
 
 def add_issue(issues, severity, area, message):
-    issues.append({
-        "severity": severity,
-        "area": area,
-        "message": message,
-    })
+    issues.append(
+        {
+            "severity": severity,
+            "area": area,
+            "message": message,
+        }
+    )
 
 
 def attach_page_monitors(page, issues, page_name):
@@ -64,26 +83,68 @@ async def first_visible_text(page, selector):
     )
 
 
-async def launch_browser(playwright):
-    launch_attempts = [
-        {"channel": "msedge", "headless": True},
-        {"channel": "chrome", "headless": True},
-    ]
+async def save_page_screenshot(page, screenshot_path, screenshots, browser_target):
+    screenshot_options = {"path": str(screenshot_path)}
 
-    last_error = None
-    for launch_options in launch_attempts:
-        try:
-            return await playwright.chromium.launch(**launch_options)
-        except Exception as error:  # noqa: BLE001
-            last_error = error
+    if browser_target != "firefox":
+        screenshot_options["full_page"] = True
 
-    raise RuntimeError(f"Unable to launch an installed Chromium browser: {last_error}")
+    await page.screenshot(**screenshot_options)
+    screenshots.append(str(screenshot_path))
 
 
-async def check_index_desktop(browser, issues, screenshots):
+def get_requested_browser_targets():
+    raw_targets = os.environ.get("QA_BROWSER_TARGETS", "auto")
+    requested_targets = []
+
+    for raw_target in raw_targets.split(","):
+        target = raw_target.strip().lower()
+        if not target:
+            continue
+
+        if target != "auto" and target not in BROWSER_LAUNCH_CONFIGS:
+            raise ValueError(f"Unsupported QA browser target: {target}")
+
+        requested_targets.append(target)
+
+    return requested_targets or ["auto"]
+
+
+async def launch_browser(playwright, requested_target):
+    if requested_target == "auto":
+        last_error = None
+        for fallback_target in ("msedge", "chrome"):
+            try:
+                return await launch_browser(playwright, fallback_target)
+            except Exception as error:  # noqa: BLE001
+                last_error = error
+
+        raise RuntimeError(f"Unable to launch an installed Chromium browser: {last_error}")
+
+    browser_config = BROWSER_LAUNCH_CONFIGS[requested_target]
+    browser_type = getattr(playwright, browser_config["browser_type"])
+    browser = await browser_type.launch(**browser_config["launch_options"])
+    return browser, requested_target
+
+
+def scope_name(browser_target, name):
+    return f"{browser_target}:{name}"
+
+
+def get_mobile_context_options(browser_target, device):
+    context_options = dict(device)
+
+    if browser_target == "firefox":
+        context_options.pop("isMobile", None)
+        context_options.pop("is_mobile", None)
+
+    return context_options
+
+
+async def check_index_desktop(browser, issues, screenshots, browser_target):
     context = await browser.new_context(viewport={"width": 1440, "height": 1100}, locale="de-DE")
     page = await context.new_page()
-    attach_page_monitors(page, issues, "index-desktop")
+    attach_page_monitors(page, issues, scope_name(browser_target, "index-desktop"))
 
     await page.goto(f"{BASE_URL}/index.html", wait_until="domcontentloaded")
     await page.wait_for_timeout(1200)
@@ -93,22 +154,31 @@ async def check_index_desktop(browser, issues, screenshots):
         (".hero-bg", "index-desktop hero"),
         ("footer", "index-desktop footer"),
     ):
-        await wait_visible(page, selector, label, issues)
+        await wait_visible(page, selector, scope_name(browser_target, label), issues)
 
-    desktop_shot = OUT_DIR / "index-release-desktop.png"
-    await page.screenshot(path=str(desktop_shot), full_page=True)
-    screenshots.append(str(desktop_shot))
+    desktop_shot = OUT_DIR / f"index-release-desktop-{browser_target}.png"
+    await save_page_screenshot(page, desktop_shot, screenshots, browser_target)
 
     await page.locator("#langEn").click()
     await page.wait_for_timeout(250)
 
     visible_review_label = await first_visible_text(page, 'a[href="#review"][data-lang]')
     if visible_review_label != "Review":
-        add_issue(issues, "medium", "index-desktop language", f"Expected English review label, got: {visible_review_label or '[empty]'}")
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "index-desktop language"),
+            f"Expected English review label, got: {visible_review_label or '[empty]'}",
+        )
 
     visible_hero_title = await first_visible_text(page, ".image-caption-title[data-lang]")
     if visible_hero_title != "Music builds bridges":
-        add_issue(issues, "medium", "index-desktop language", f"Expected English hero title, got: {visible_hero_title or '[empty]'}")
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "index-desktop language"),
+            f"Expected English hero title, got: {visible_hero_title or '[empty]'}",
+        )
 
     current_before = (await page.locator("#heroGalleryCurrent").text_content() or "").strip()
     await page.locator(".hero-gallery-control--next").click()
@@ -119,25 +189,45 @@ async def check_index_desktop(browser, issues, screenshots):
             timeout=5000,
         )
     except PlaywrightTimeoutError:
-        add_issue(issues, "high", "hero-gallery", "Next button did not advance the hero gallery counter")
+        add_issue(
+            issues,
+            "high",
+            scope_name(browser_target, "hero-gallery"),
+            "Next button did not advance the hero gallery counter",
+        )
 
     pagination_count = await page.locator(".hero-gallery-pagination button, .hero-gallery-pagination [role='tab']").count()
     if pagination_count < 2:
-        add_issue(issues, "medium", "hero-gallery", "Hero gallery pagination did not render enough controls")
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "hero-gallery"),
+            "Hero gallery pagination did not render enough controls",
+        )
 
     trigger = page.locator(".event-lightbox-trigger").first
     await trigger.scroll_into_view_if_needed()
     await trigger.click()
-    if await wait_visible(page, "#eventLightboxModal", "event-lightbox open", issues, timeout=5000):
+    if await wait_visible(page, "#eventLightboxModal", scope_name(browser_target, "event-lightbox open"), issues, timeout=5000):
         await page.keyboard.press("Escape")
         try:
             await page.locator("#eventLightboxModal").wait_for(state="hidden", timeout=5000)
         except PlaywrightTimeoutError:
-            add_issue(issues, "high", "event-lightbox", "Lightbox did not close on Escape")
+            add_issue(
+                issues,
+                "high",
+                scope_name(browser_target, "event-lightbox"),
+                "Lightbox did not close on Escape",
+            )
 
         active_class_name = await page.evaluate("() => document.activeElement ? document.activeElement.className : ''")
         if "event-lightbox-trigger" not in active_class_name and "event-poster-image" not in active_class_name:
-            add_issue(issues, "medium", "event-lightbox", f"Focus was not restored to a poster trigger after close: {active_class_name!r}")
+            add_issue(
+                issues,
+                "medium",
+                scope_name(browser_target, "event-lightbox"),
+                f"Focus was not restored to a poster trigger after close: {active_class_name!r}",
+            )
 
     archive_toggle = page.locator(".review-archive-toggle")
     await archive_toggle.scroll_into_view_if_needed()
@@ -148,21 +238,41 @@ async def check_index_desktop(browser, issues, screenshots):
             timeout=5000,
         )
     except PlaywrightTimeoutError:
-        add_issue(issues, "high", "review-archive", "Archive did not open after toggle")
+        add_issue(
+            issues,
+            "high",
+            scope_name(browser_target, "review-archive"),
+            "Archive did not open after toggle",
+        )
 
     first_review_toggle = page.locator(".review-card-toggle").first
     if await first_review_toggle.count() == 0:
-        add_issue(issues, "medium", "review-archive", "No review card toggle found inside the archive")
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "review-archive"),
+            "No review card toggle found inside the archive",
+        )
     else:
         await first_review_toggle.click()
         if await first_review_toggle.get_attribute("aria-expanded") != "true":
-            add_issue(issues, "medium", "review-archive", "Review card did not expand on first toggle")
+            add_issue(
+                issues,
+                "medium",
+                scope_name(browser_target, "review-archive"),
+                "Review card did not expand on first toggle",
+            )
         await first_review_toggle.click()
         if await first_review_toggle.get_attribute("aria-expanded") != "false":
-            add_issue(issues, "medium", "review-archive", "Review card did not collapse on second toggle")
+            add_issue(
+                issues,
+                "medium",
+                scope_name(browser_target, "review-archive"),
+                "Review card did not collapse on second toggle",
+            )
 
     hash_page = await context.new_page()
-    attach_page_monitors(hash_page, issues, "index-hash-review")
+    attach_page_monitors(hash_page, issues, scope_name(browser_target, "index-hash-review"))
     await hash_page.goto(f"{BASE_URL}/index.html#review", wait_until="domcontentloaded")
     await hash_page.wait_for_timeout(900)
     hash_state = await hash_page.evaluate(
@@ -179,18 +289,28 @@ async def check_index_desktop(browser, issues, screenshots):
         """
     )
     if not hash_state.get("found"):
-        add_issue(issues, "high", "hash-navigation", "Review section was not found for hash navigation")
+        add_issue(
+            issues,
+            "high",
+            scope_name(browser_target, "hash-navigation"),
+            "Review section was not found for hash navigation",
+        )
     elif hash_state.get("scrollY", 0) <= 0 or hash_state.get("top", 99999) > hash_state.get("innerHeight", 0):
-        add_issue(issues, "medium", "hash-navigation", f"Hash navigation did not bring the review section into view cleanly: {hash_state}")
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "hash-navigation"),
+            f"Hash navigation did not bring the review section into view cleanly: {hash_state}",
+        )
 
     await hash_page.close()
     await context.close()
 
 
-async def check_index_mobile(browser, issues, screenshots, device):
-    context = await browser.new_context(**device, locale="de-DE")
+async def check_index_mobile(browser, issues, screenshots, browser_target, device):
+    context = await browser.new_context(**get_mobile_context_options(browser_target, device), locale="de-DE")
     page = await context.new_page()
-    attach_page_monitors(page, issues, "index-mobile")
+    attach_page_monitors(page, issues, scope_name(browser_target, "index-mobile"))
 
     await page.goto(f"{BASE_URL}/index.html", wait_until="domcontentloaded")
     await page.wait_for_timeout(1200)
@@ -204,10 +324,20 @@ async def check_index_mobile(browser, issues, screenshots, device):
             timeout=5000,
         )
     except PlaywrightTimeoutError:
-        add_issue(issues, "high", "mobile-navigation", "Mobile menu button did not switch to expanded=true")
+        add_issue(
+            issues,
+            "high",
+            scope_name(browser_target, "mobile-navigation"),
+            "Mobile menu button did not switch to expanded=true",
+        )
 
     if not await page.locator(".mobile-menu.active").is_visible():
-        add_issue(issues, "high", "mobile-navigation", "Mobile menu did not become visibly active")
+        add_issue(
+            issues,
+            "high",
+            scope_name(browser_target, "mobile-navigation"),
+            "Mobile menu did not become visibly active",
+        )
 
     await page.keyboard.press("Escape")
     try:
@@ -216,58 +346,120 @@ async def check_index_mobile(browser, issues, screenshots, device):
             timeout=5000,
         )
     except PlaywrightTimeoutError:
-        add_issue(issues, "high", "mobile-navigation", "Mobile menu did not close on Escape")
+        add_issue(
+            issues,
+            "high",
+            scope_name(browser_target, "mobile-navigation"),
+            "Mobile menu did not close on Escape",
+        )
 
-    mobile_shot = OUT_DIR / "index-release-mobile.png"
-    await page.screenshot(path=str(mobile_shot), full_page=True)
-    screenshots.append(str(mobile_shot))
+    mobile_shot = OUT_DIR / f"index-release-mobile-{browser_target}.png"
+    await save_page_screenshot(page, mobile_shot, screenshots, browser_target)
 
     await context.close()
 
 
-async def check_subpage(browser, issues, screenshots, path_name, page_name, unique_selector, expected_title):
+async def check_subpage(browser, issues, screenshots, browser_target, path_name, page_name, unique_selector, expected_title):
     context = await browser.new_context(viewport={"width": 1440, "height": 1100}, locale="de-DE")
     page = await context.new_page()
-    attach_page_monitors(page, issues, page_name)
+    attach_page_monitors(page, issues, scope_name(browser_target, page_name))
 
     await page.goto(f"{BASE_URL}/{path_name}", wait_until="domcontentloaded")
     await page.wait_for_timeout(1000)
 
-    await wait_visible(page, ".subpage-topbar", f"{page_name} topbar", issues)
-    await wait_visible(page, unique_selector, f"{page_name} main content", issues)
+    await wait_visible(page, ".subpage-topbar", scope_name(browser_target, f"{page_name} topbar"), issues)
+    await wait_visible(page, unique_selector, scope_name(browser_target, f"{page_name} main content"), issues)
 
     if await page.locator("#langEn").count() > 0:
         await page.locator("#langEn").click()
         await page.wait_for_timeout(250)
         visible_title = await first_visible_text(page, ".subpage-hero__title[data-lang]")
         if visible_title != expected_title:
-            add_issue(issues, "medium", page_name, f"English hero title mismatch after language switch: {visible_title or '[empty]'}")
+            add_issue(
+                issues,
+                "medium",
+                scope_name(browser_target, page_name),
+                f"English hero title mismatch after language switch: {visible_title or '[empty]'}",
+            )
 
-    screenshot_path = OUT_DIR / f"{page_name}.png"
-    await page.screenshot(path=str(screenshot_path), full_page=True)
-    screenshots.append(str(screenshot_path))
+    screenshot_path = OUT_DIR / f"{page_name}-{browser_target}.png"
+    await save_page_screenshot(page, screenshot_path, screenshots, browser_target)
     await context.close()
 
 
-async def main():
+async def run_release_smoke_for_target(playwright, requested_target):
     issues = []
     screenshots = []
 
+    try:
+        browser, resolved_target = await launch_browser(playwright, requested_target)
+    except Exception as error:  # noqa: BLE001
+        return {
+            "requestedTarget": requested_target,
+            "resolvedTarget": None,
+            "browserLabel": None,
+            "skipped": True,
+            "launchError": str(error),
+            "issueCount": 0,
+            "issues": [],
+            "screenshots": [],
+        }
+
+    try:
+        await check_index_desktop(browser, issues, screenshots, resolved_target)
+        await check_index_mobile(browser, issues, screenshots, resolved_target, playwright.devices["iPhone 12"])
+        await check_subpage(browser, issues, screenshots, resolved_target, "chronik.html", "chronik-release", ".timeline-section", "The CMI Timeline")
+        await check_subpage(browser, issues, screenshots, resolved_target, "datenschutz.html", "datenschutz-release", ".subpage-hero--privacy", "Privacy Policy")
+        await check_subpage(browser, issues, screenshots, resolved_target, "impressum.html", "impressum-release", ".subpage-hero--imprint", "Legal Notice")
+    except Exception as error:  # noqa: BLE001
+        add_issue(
+            issues,
+            "high",
+            scope_name(resolved_target, "runner"),
+            f"Unexpected QA runner error: {error}",
+        )
+    finally:
+        await browser.close()
+
+    return {
+        "requestedTarget": requested_target,
+        "resolvedTarget": resolved_target,
+        "browserLabel": BROWSER_LAUNCH_CONFIGS[resolved_target]["label"],
+        "skipped": False,
+        "launchError": None,
+        "issueCount": len(issues),
+        "issues": issues,
+        "screenshots": screenshots,
+    }
+
+
+async def main():
+    browser_runs = []
+    issues = []
+    screenshots = []
+    requested_targets = get_requested_browser_targets()
+
     async with async_playwright() as playwright:
-        browser = await launch_browser(playwright)
-        try:
-            await check_index_desktop(browser, issues, screenshots)
-            await check_index_mobile(browser, issues, screenshots, playwright.devices["iPhone 12"])
-            await check_subpage(browser, issues, screenshots, "chronik.html", "chronik-release", ".timeline-section", "The CMI Timeline")
-            await check_subpage(browser, issues, screenshots, "datenschutz.html", "datenschutz-release", ".subpage-hero--privacy", "Privacy Policy")
-            await check_subpage(browser, issues, screenshots, "impressum.html", "impressum-release", ".subpage-hero--imprint", "Legal Notice")
-        finally:
-            await browser.close()
+        for requested_target in requested_targets:
+            browser_runs.append(await run_release_smoke_for_target(playwright, requested_target))
+
+    for browser_run in browser_runs:
+        screenshots.extend(browser_run["screenshots"])
+        if browser_run["skipped"]:
+            continue
+
+        for issue in browser_run["issues"]:
+            issues.append({**issue, "browser": browser_run["resolvedTarget"]})
+
+    if not any(not browser_run["skipped"] for browser_run in browser_runs):
+        add_issue(issues, "high", "browser-launch", "No requested browser target could be launched for release QA")
 
     RESULT_PATH.write_text(
         json.dumps(
             {
                 "baseUrl": BASE_URL,
+                "requestedBrowserTargets": requested_targets,
+                "browserRuns": browser_runs,
                 "issueCount": len(issues),
                 "issues": issues,
                 "screenshots": screenshots,

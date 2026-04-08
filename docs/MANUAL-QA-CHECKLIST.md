@@ -12,6 +12,7 @@ Wenn nur eine schnelle Freigabe noetig ist, zuerst die Kurzfassung unter [docs/R
 - Einmal hart neu laden, falls der Browser noch alte Asset-Versionen im Cache haelt.
 - Mindestens zwei Viewports pruefen: Desktop ab ca. 1280 px Breite und Mobile um ca. 390 px Breite.
 - Wenn moeglich mindestens in Chromium/Edge pruefen; fuer finale Freigaben zusaetzlich Safari oder Firefox einbeziehen.
+- Fuer den automatisierten Vorfilter kann `tmp/visual-qa/release_qa_smoke.py` optional mit `QA_BROWSER_TARGETS=msedge,chrome,firefox` in einer kleinen Browser-Matrix laufen.
 
 ## Seiten-Smoketest
 

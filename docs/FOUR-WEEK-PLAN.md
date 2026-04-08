@@ -196,3 +196,9 @@ Am Ende jeder Woche kurz festhalten:
 - [x] Woche 2 abgeschlossen
 - [ ] Woche 3 abgeschlossen
 - [ ] Woche 4 abgeschlossen
+
+### Woche 3 - laufender Stand
+
+- [x] Release-Smoke-Skript fuer einen optionalen Browser-Matrix-Lauf vorbereitet, damit Week-3-QA nicht nur manuell auf Edge/Chrome beschraenkt bleibt
+- [x] Firefox-spezifische Mobile-Context- und Screenshot-Grenzen im QA-Runner abgefangen, damit die Browser-Matrix stabil durchlaeuft
+- [x] Browser-Matrix fuer Edge, Chrome und Firefox ueber release_qa_smoke.py mit 0 Funden durchlaufen
