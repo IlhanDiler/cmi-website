@@ -172,10 +172,13 @@ Am Ende jeder Woche kurz festhalten:
 - [x] Hero-Galerie um Pause/Weiter-Steuerung ergaenzt und Live-Ansagen auf Nutzeraktionen begrenzt
 - [x] Deep Links auf Eintraege im Review-Archiv so nachgezogen, dass aufgeklappte Ziele auch wirklich erreicht und fokussiert werden
 - [x] Sichtbare Fokuszustaende in Navigation, Footer, Event-Aktionen sowie Karten- und Inline-Links nachgezogen, inklusive Root-Cause-Fix fuer den globalen Shadow-Reset
-- [ ] Komplette Release-QA fuer die betroffenen Hauptflows noch offen
-- [ ] Restliche Week-1-Sweep-Punkte ausserhalb der bereits bearbeiteten Hauptinteraktionen noch offen
+- [x] Instagram-Export-UI bei redundanten Vorschaubildern und Caption-Beschriftung fuer Screenreader nachgezogen
+- [x] Initial versteckte Sprachvarianten auf Haupt-, Chronik- und Legal-Seiten mit aria-hidden fuer Screenreader sauber vorinitialisiert
+- [x] Repertoire-Karten auf der Hauptseite mit echter Heading-Struktur und semantischer Ensemble-Liste fuer Screenreader nachgezogen, inklusive etwas entspannterem Mobile-Padding
+- [x] Komplette Release-QA fuer die betroffenen Hauptflows ueber lokalen HTTP-Server und release_qa_smoke.py mit 0 Funden durchlaufen
+- [x] Restliche Week-1-Sweep-Punkte im aktuellen Quick-Win-Scope quergprueft; keine weiteren klaren Billigfunde in den bearbeiteten Hauptflows offen
 
-- [ ] Woche 1 abgeschlossen
+- [x] Woche 1 abgeschlossen
 - [ ] Woche 2 abgeschlossen
 - [ ] Woche 3 abgeschlossen
 - [ ] Woche 4 abgeschlossen
