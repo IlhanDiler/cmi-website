@@ -607,9 +607,7 @@
     padding: 18px 0 0;
 }
 
-.subpage-body--privacy .legal-detail-list,
-.subpage-body--privacy .md-card ul[style*="margin-left"],
-.subpage-body--privacy .md-card p[style*="margin-left"] {
+.subpage-body--privacy .legal-detail-list {
     margin-left: 0 !important;
 }
 
