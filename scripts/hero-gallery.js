@@ -144,6 +144,7 @@ let fadeToggle = false;
 let isFading = false;
 let isHeroGalleryPaused = false;
 let heroGalleryTimeout = null;
+let heroGalleryCounterAnnouncementTimeout = null;
 let heroGalleryResponsiveRefreshFrame = null;
 
 function isCompactHeroGalleryViewport() {
@@ -199,15 +200,35 @@ function updateHeroGalleryProgress(duration) {
     });
 }
 
-function updateHeroGalleryMeta() {
+function updateHeroGalleryMeta(announce) {
     const current = document.getElementById('heroGalleryCurrent');
     const total = document.getElementById('heroGalleryTotal');
+    const counter = document.querySelector('.hero-gallery-counter');
+
+    if (counter) {
+        counter.setAttribute('aria-live', announce ? 'polite' : 'off');
+        counter.setAttribute('aria-atomic', 'true');
+    }
+
     if (current) {
         current.textContent = formatHeroGalleryIndex(heroIndex);
     }
     if (total) {
         total.textContent = String(heroGallery.length).padStart(2, '0');
     }
+
+    if (!counter || !announce) {
+        return;
+    }
+
+    if (heroGalleryCounterAnnouncementTimeout !== null) {
+        window.clearTimeout(heroGalleryCounterAnnouncementTimeout);
+    }
+
+    heroGalleryCounterAnnouncementTimeout = window.setTimeout(function() {
+        counter.setAttribute('aria-live', 'off');
+        heroGalleryCounterAnnouncementTimeout = null;
+    }, 1800);
 }
 
 function updateHeroGalleryA11yLabels() {
@@ -297,15 +318,15 @@ function syncHeroGalleryResponsiveState() {
     heroGalleryResponsiveRefreshFrame = requestAnimationFrame(function() {
         heroGalleryResponsiveRefreshFrame = null;
         syncHeroGalleryActiveSlideStyle();
-        refreshHeroGalleryUi();
+        refreshHeroGalleryUi(false);
     });
 }
 
-function refreshHeroGalleryUi() {
+function refreshHeroGalleryUi(announce) {
     updateHeroGalleryA11yLabels();
     refreshHeroGalleryCaption();
     renderHeroGalleryDots();
-    updateHeroGalleryMeta();
+    updateHeroGalleryMeta(Boolean(announce));
 }
 
 function clearHeroGalleryAuto() {
@@ -419,7 +440,7 @@ function syncHeroGalleryActiveSlideStyle() {
     applyHeroGallerySlideStyle(activeLayer, heroGallery[heroIndex], getHeroGallerySlideStyle(heroGallery[heroIndex]));
 }
 
-function setHeroBgCrossfade(idx) {
+function setHeroBgCrossfade(idx, announce) {
     if (isFading) {
         return;
     }
@@ -460,7 +481,7 @@ function setHeroBgCrossfade(idx) {
         fadeinDiv.style.transition = 'none';
     }
 
-    refreshHeroGalleryUi();
+    refreshHeroGalleryUi(Boolean(announce));
 
     setTimeout(function() {
         next.style.opacity = '1';
@@ -487,14 +508,14 @@ function setHeroBgCrossfade(idx) {
     }, 50);
 }
 
-function nextHeroBgImage() {
+function nextHeroBgImage(announce) {
     heroIndex = (heroIndex + 1) % heroGallery.length;
-    setHeroBgCrossfade(heroIndex);
+    setHeroBgCrossfade(heroIndex, announce);
 }
 
-function prevHeroBgImage() {
+function prevHeroBgImage(announce) {
     heroIndex = (heroIndex - 1 + heroGallery.length) % heroGallery.length;
-    setHeroBgCrossfade(heroIndex);
+    setHeroBgCrossfade(heroIndex, announce);
 }
 
 function renderHeroGalleryDots() {
@@ -524,7 +545,7 @@ function renderHeroGalleryDots() {
         button.addEventListener('click', function() {
             if (heroIndex !== index) {
                 heroIndex = index;
-                setHeroBgCrossfade(heroIndex);
+                setHeroBgCrossfade(heroIndex, true);
                 pauseHeroGalleryAuto();
             }
         });
@@ -567,19 +588,19 @@ function initHeroGallery() {
     fadeContainer.children[1].setAttribute('role', 'img');
     fadeContainer.children[1].setAttribute('aria-hidden', 'true');
 
-    setHeroBgCrossfade(heroIndex);
+    setHeroBgCrossfade(heroIndex, false);
     scheduleHeroGalleryAuto(heroSlideDuration);
 
     if (prevButton) {
         prevButton.addEventListener('click', function() {
-            prevHeroBgImage();
+            prevHeroBgImage(true);
             pauseHeroGalleryAuto();
         });
     }
 
     if (nextButton) {
         nextButton.addEventListener('click', function() {
-            nextHeroBgImage();
+            nextHeroBgImage(true);
             pauseHeroGalleryAuto();
         });
     }
@@ -606,9 +627,9 @@ function initHeroGallery() {
             return;
         }
         if (deltaX > 0) {
-            prevHeroBgImage();
+            prevHeroBgImage(true);
         } else {
-            nextHeroBgImage();
+            nextHeroBgImage(true);
         }
         pauseHeroGalleryAuto();
     }, { passive: true });
