@@ -111,9 +111,10 @@ Budget: 15 Stunden
 - Abgeschlossen: Fuer den ersten Legal-Piloten wurde die Zielarchitektur auf strukturierte Quelle plus statische Generierung festgelegt, nicht auf neue Client-Side-Hydration.
 - Abgeschlossen: Der Rechtsblock `#imprint-legal` in [impressum.html](../impressum.html) wird jetzt aus [scripts/legal-content.json](../scripts/legal-content.json) ueber [scripts/render-legal-content.py](../scripts/render-legal-content.py) gerendert.
 - Abgeschlossen: Der Generatoransatz deckt jetzt auch den grossen Datenschutz-Ueberblick `#privacy-overview` in [datenschutz.html](../datenschutz.html) ab; dafuer wurde der Renderer auf strukturierte Card-Inhalte mit Zwischenueberschriften, Listen und Gruppen erweitert.
+- Abgeschlossen: Der zweite grosse Datenschutz-Block `#privacy-basics` in [datenschutz.html](../datenschutz.html) wird jetzt ebenfalls generatorbasiert gepflegt; groessere Quellen koennen dafuer jetzt zusaetzlich unter [scripts/legal-content](../scripts/legal-content) liegen.
 - Abgeschlossen: Die Pflegehinweise dafuer wurden in [README.md](../README.md) und [docs/FRONTEND-HANDOFF.md](../docs/FRONTEND-HANDOFF.md) nachgezogen.
-- Validiert: Generatorlauf sowie nachgelagerter Browser-QA-Run fuer [datenschutz.html](../datenschutz.html) liefen lokal ohne Funde durch; geprueft wurden Sprachumschaltung, Quick-Navigation und Reflow.
-- Offen: Der Ansatz ist jetzt fuer einen Impressum-Block und einen grossen Datenschutz-Block pilotiert, aber noch nicht breit auf weitere Sprachbloecke ausgedehnt.
+- Validiert: Generatorlauf sowie nachgelagerter Browser-QA-Run fuer [datenschutz.html](../datenschutz.html) liefen lokal ohne Funde durch; geprueft wurden Sprachumschaltung, Quick-Navigation, Reflow und die Sichtbarkeit der bisher fehlenden Lingala-Abschnitte im Widerspruchsteil.
+- Offen: Der Ansatz ist jetzt fuer einen Impressum-Block und zwei grosse Datenschutz-Bloecke pilotiert, aber noch nicht breit auf weitere Sprachbloecke ausgedehnt.
 
 ### Block A - 4h
 

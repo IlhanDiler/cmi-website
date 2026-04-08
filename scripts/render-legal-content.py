@@ -6,6 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT_PATH = ROOT / "scripts" / "legal-content.json"
+ADDITIONAL_CONTENT_DIR = ROOT / "scripts" / "legal-content"
 DEFAULT_LANGUAGE = "de"
 LANGUAGE_ORDER = ["de", "en", "fr", "ln", "it", "tr", "uk"]
 
@@ -115,9 +116,24 @@ def replace_marker_block(file_path: Path, block_id: str, rendered_block: str, ma
     file_path.write_text(updated_source, encoding="utf-8")
 
 
+def load_targets() -> dict[str, dict[str, object]]:
+    source_paths = [CONTENT_PATH]
+    if ADDITIONAL_CONTENT_DIR.exists():
+        source_paths.extend(sorted(ADDITIONAL_CONTENT_DIR.glob("*.json")))
+
+    targets: dict[str, dict[str, object]] = {}
+    for source_path in source_paths:
+        content = json.loads(source_path.read_text(encoding="utf-8"))
+        for block_id, target in content["targets"].items():
+            if block_id in targets:
+                raise ValueError(f"Duplicate legal content target: {block_id}")
+            targets[block_id] = target
+
+    return targets
+
+
 def main() -> None:
-    content = json.loads(CONTENT_PATH.read_text(encoding="utf-8"))
-    targets: dict[str, dict[str, object]] = content["targets"]
+    targets = load_targets()
 
     for block_id, target in targets.items():
         file_path = ROOT / target["file"]
