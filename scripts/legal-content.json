@@ -1,0 +1,98 @@
+{
+  "targets": {
+    "imprint-legal": {
+      "file": "impressum.html",
+      "title": {
+        "de": "Rechtliches",
+        "en": "Legal Information",
+        "fr": "Informations juridiques",
+        "ln": "Makambo ya mibeko",
+        "it": "Informazioni legali",
+        "tr": "Yasal bilgiler",
+        "uk": "Юридична інформація"
+      },
+      "sections": [
+        {
+          "heading": {
+            "de": "Streitschlichtung",
+            "en": "Dispute Resolution",
+            "fr": "Reglement des litiges",
+            "ln": "Kosukisa matata",
+            "it": "Risoluzione delle controversie",
+            "tr": "Uyuşmazlık çözümü",
+            "uk": "Врегулювання спорів"
+          },
+          "body": {
+            "de": "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
+            "en": "We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.",
+            "fr": "Nous ne sommes ni disposes ni tenus de participer a une procedure de reglement des litiges devant un organisme de mediation pour consommateurs.",
+            "ln": "Tozali te pene to mpe kobongisama na mibeko mpo na kosangana na ndenge ya kosukisa matata liboso ya ebongiseli ya basombi.",
+            "it": "Non siamo disposti né obbligati a partecipare a procedure di risoluzione delle controversie davanti a un organismo di conciliazione dei consumatori.",
+            "tr": "Bir tüketici hakem heyeti önündeki uyuşmazlık çözüm süreçlerine katılmaya ne hazırız ne de bununla yükümlüyüz.",
+            "uk": "Ми не готові й не зобов'язані брати участь у процедурах врегулювання спорів перед органом споживчого арбітражу."
+          }
+        },
+        {
+          "heading": {
+            "de": "Haftung für Inhalte",
+            "en": "Liability for Content",
+            "fr": "Responsabilite pour les contenus",
+            "ln": "Mokumba mpo na makambo",
+            "it": "Responsabilità per i contenuti",
+            "tr": "İçerik için sorumluluk",
+            "uk": "Відповідальність за зміст"
+          },
+          "body": {
+            "de": "Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.",
+            "en": "Obligations to remove or block the use of information under general laws remain unaffected. However, liability in this regard is only possible from the time of knowledge of a specific infringement. If we become aware of any such legal violations, we will remove this content immediately.",
+            "fr": "Les obligations de suppression ou de blocage de l'utilisation d'informations selon les lois generales ne sont pas affectees. Une responsabilite a ce sujet n'est toutefois possible qu'a partir du moment ou une violation concrete du droit nous est connue. Si nous prenons connaissance de telles violations, nous supprimerons immediatement ces contenus.",
+            "ln": "Mibeko ya kolongola to kopekisa kosalela makambo ekotikala ndenge ezali na se ya mibeko ya bato nyonso. Kasi mokumba na likambo yango ekoki kaka soki toyebi polele ete mobeko ebukami. Soki toyoki likambo ya boye, tokolongola makambo yango mbala moko.",
+            "it": "Gli obblighi di rimozione o blocco dell'uso delle informazioni ai sensi delle leggi generali rimangono invariati. Tuttavia, la responsabilità in merito è possibile solo dal momento della conoscenza di una specifica violazione della legge. Se veniamo a conoscenza di violazioni legali, rimuoveremo immediatamente tali contenuti.",
+            "tr": "Genel yasalara göre bilgilerin kaldırılması veya kullanımının engellenmesine ilişkin yükümlülükler bundan etkilenmez. Ancak bu konuda sorumluluk, ancak somut bir hukuka aykırılık bilgisine sahip olduğumuz andan itibaren mümkündür. Böyle bir ihlali öğrenmemiz hâlinde ilgili içeriği derhâl kaldırırız.",
+            "uk": "Обов'язки щодо видалення або блокування використання інформації відповідно до загальних законів залишаються чинними. Однак відповідальність у цьому зв'язку можлива лише з моменту, коли нам стане відомо про конкретне порушення закону. У разі виявлення таких порушень ми негайно видалимо відповідний зміст."
+          }
+        },
+        {
+          "heading": {
+            "de": "Haftung für Links",
+            "en": "Liability for Links",
+            "fr": "Responsabilite pour les liens",
+            "ln": "Mokumba mpo na ba lien",
+            "it": "Responsabilità per i link",
+            "tr": "Bağlantılar için sorumluluk",
+            "uk": "Відповідальність за посилання"
+          },
+          "body": {
+            "de": "Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.",
+            "en": "Our offer contains links to external third-party websites over whose content we have no influence. Therefore, we cannot accept any liability for this external content. The respective provider or operator of the sites is always responsible for the content of the linked sites. The linked sites were checked for possible legal violations at the time of linking. Illegal content was not recognizable at the time of linking. However, permanent monitoring of the content of the linked sites is not reasonable without concrete evidence of a violation of the law. If we become aware of any legal violations, we will remove such links immediately.",
+            "fr": "Notre offre contient des liens vers des sites externes de tiers sur le contenu desquels nous n'avons aucune influence. C'est pourquoi nous ne pouvons assumer aucune garantie pour ces contenus externes. Le fournisseur ou l'exploitant des pages liees est toujours responsable de leur contenu. Les pages liees ont ete verifiees au moment de la mise en lien quant a d'eventuelles violations du droit. Aucun contenu illicite n'etait reconnaissable a ce moment-la. Un controle permanent du contenu des pages liees n'est toutefois pas raisonnable sans indice concret d'une violation. Si nous prenons connaissance de violations du droit, nous supprimerons immediatement de tels liens.",
+            "ln": "Likambo na biso ezali na ba lien oyo ekendaka na ba site ya bato mosusu oyo tozali na bokonzi te likolo ya makambo na bango. Yango wana tokoki te kozwa mokumba mpo na makambo yango ya libanda. Mokumba ya makambo oyo ezali na lokasa oyo elinkami ezalaka ya mopesi to mokambi ya lokasa yango. Tango lien etiamaki, bataleaki soki mobeko ebukamaki. Makambo ya kobuka mibeko emonanaki te na tango wana. Kasi kotala tango nyonso makambo ya ba lokasa yango ezali likambo ya kosenga mingi soki elembo polele ya kobuka mobeko ezali te. Soki toyebi kobukama ya mobeko, tokolongola ba lien yango mbala moko.",
+            "it": "La nostra offerta contiene link a siti web esterni di terzi sui cui contenuti non abbiamo alcuna influenza. Pertanto, non possiamo assumerci alcuna responsabilità per questi contenuti esterni. Il rispettivo fornitore o gestore delle pagine è sempre responsabile dei contenuti delle pagine collegate. Le pagine collegate sono state controllate per eventuali violazioni legali al momento del collegamento. Contenuti illegali non erano riconoscibili al momento del collegamento. Tuttavia, un controllo permanente dei contenuti delle pagine collegate non è ragionevole senza prove concrete di una violazione della legge. Se veniamo a conoscenza di violazioni legali, rimuoveremo immediatamente tali link.",
+            "tr": "Teklifimiz, içerikleri üzerinde hiçbir etkimizin olmadığı üçüncü taraflara ait dış web sitelerine bağlantılar içerir. Bu nedenle bu yabancı içerikler için herhangi bir sorumluluk üstlenemeyiz. Bağlantı verilen sayfaların içeriğinden her zaman ilgili sağlayıcı veya işletmeci sorumludur. Bu sayfalar bağlantı verildiği sırada olası hukuka aykırılıklar açısından kontrol edilmiştir. O anda yasa dışı içerik tespit edilmemiştir. Ancak somut bir ihlal belirtisi olmadan bağlantı verilen sayfaların sürekli içerik denetimi makul değildir. Hukuk ihlali öğrenildiğinde bu tür bağlantıları derhâl kaldırırız.",
+            "uk": "Наша пропозиція містить посилання на зовнішні сайти третіх осіб, на зміст яких ми не маємо впливу. Тому ми не можемо брати на себе відповідальність за такий зовнішній зміст. За зміст сторінок, на які ведуть посилання, завжди відповідає відповідний постачальник або оператор. На момент розміщення посилань сторінки були перевірені на можливі порушення закону. Незаконного змісту на той момент виявлено не було. Постійний контроль змісту таких сторінок без конкретних ознак порушення закону є необґрунтованим. Якщо нам стане відомо про порушення, ми негайно видалимо такі посилання."
+          }
+        },
+        {
+          "heading": {
+            "de": "Urheberrecht",
+            "en": "Copyright",
+            "fr": "Droit d'auteur",
+            "ln": "Makoki ya mokomi",
+            "it": "Diritto d'autore",
+            "tr": "Telif hakkı",
+            "uk": "Авторське право"
+          },
+          "body": {
+            "de": "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.",
+            "en": "The content and works created by the site operators on these pages are subject to German copyright law. Duplication, processing, distribution, and any kind of exploitation outside the limits of copyright law require the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use. Insofar as the content on this site was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is marked as such. Should you nevertheless become aware of a copyright infringement, please inform us accordingly. If we become aware of any legal violations, we will remove such content immediately.",
+            "fr": "Les contenus et oeuvres crees par les exploitants de ces pages sont soumis au droit d'auteur allemand. La reproduction, le traitement, la diffusion et toute forme d'exploitation au-dela des limites du droit d'auteur necessitent l'accord ecrit de l'auteur ou createur concerne. Les telechargements et copies de cette page ne sont autorises que pour un usage prive et non commercial. Dans la mesure ou les contenus de cette page n'ont pas ete crees par l'exploitant, les droits d'auteur de tiers sont respectes. En particulier, les contenus de tiers sont identifies comme tels. Si vous constatez neanmoins une violation du droit d'auteur, nous vous prions de nous en informer. Si nous prenons connaissance d'une telle violation, nous supprimerons immediatement les contenus concernes.",
+            "ln": "Makambo mpe misala oyo bakeli ya lokasa basali awa ezali na se ya mobeko ya Allemagne mpo na makoki ya mokomi. Kobakisa bakopi, kobongisa, kokabola mpe kosalela yango na lolenge nyonso libanda ya ndelo ya mobeko wana esengaka ndingisa ya kokoma ya mokomi to moto asali yango. Kokitisa mpe kosala bakopi ya lokasa oyo epesami kaka mpo na mosala ya moto na moto, kasi te mpo na mombongo. Soki makambo ya lokasa oyo esalami te na mokambi ya site, makoki ya bato ya misato etalelamaka. Koleka nyonso, makambo ya bato mosusu emonisamaka polele. Soki ata bongo omoni ete mobeko ya makoki ya mokomi ebukami, tobondeli yo opesa biso sango. Soki toyebi kobukama ya mobeko, tokolongola makambo yango mbala moko.",
+            "it": "I contenuti e le opere creati dagli operatori di questo sito sono soggetti al diritto d'autore tedesco. La duplicazione, l'elaborazione, la distribuzione e qualsiasi tipo di utilizzo al di fuori dei limiti del diritto d'autore richiedono il consenso scritto del rispettivo autore o creatore. Download e copie di questo sito sono consentiti solo per uso privato e non commerciale. Nella misura in cui i contenuti di questo sito non sono stati creati dall'operatore, vengono rispettati i diritti d'autore di terzi. In particolare, i contenuti di terzi sono contrassegnati come tali. Se dovessi comunque venire a conoscenza di una violazione del diritto d'autore, ti preghiamo di informarci di conseguenza. Se veniamo a conoscenza di violazioni legali, rimuoveremo immediatamente tali contenuti.",
+            "tr": "Bu sayfalarda site işletmecileri tarafından oluşturulan içerik ve eserler Alman telif hakkı yasasına tabidir. Çoğaltma, işleme, dağıtım ve telif hakkı sınırları dışındaki her türlü kullanım, ilgili yazarın veya üreticinin yazılı onayını gerektirir. Bu sitenin indirilmesi ve kopyalanması yalnızca özel, ticari olmayan kullanım için izinlidir. Bu sitedeki içerik işletmeci tarafından oluşturulmamışsa üçüncü kişilerin telif haklarına saygı gösterilir. Özellikle üçüncü taraf içerikler bu şekilde işaretlenir. Yine de bir telif hakkı ihlali fark ederseniz bizi bilgilendirmenizi rica ederiz. Hukuk ihlali öğrenildiğinde bu tür içerikleri derhâl kaldırırız.",
+            "uk": "Зміст і твори, створені операторами цього сайту, підпадають під дію німецького авторського права. Відтворення, обробка, поширення та будь-яке використання поза межами авторського права потребують письмової згоди відповідного автора або творця. Завантаження та копії цього сайту дозволені лише для приватного, некомерційного використання. Якщо зміст на цьому сайті створений не оператором, дотримуються авторські права третіх осіб. Зокрема, матеріали третіх осіб позначаються як такі. Якщо ви все ж помітите порушення авторського права, просимо повідомити нас. Після отримання відповідної інформації ми негайно видалимо такий зміст."
+          }
+        }
+      ]
+    }
+  }
+}

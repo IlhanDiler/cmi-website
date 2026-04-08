@@ -179,6 +179,7 @@ const mbondaTimelineLinkSelector = '.timeline-item-title a[href="https://www.mbo
 const homepageNavigationLinkSelector = '.nav-link[href^="#"], .mobile-nav-link[href^="#"]';
 const smoothScrollLinkSelector = [
     homepageNavigationLinkSelector,
+    '.legal-overview__nav-link[href^="#"]',
     '.contact-info-secondary-link[href^="#"]',
     '.site-footer__link[href^="#"]'
 ].join(', ');
