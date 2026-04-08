@@ -207,12 +207,14 @@
     background: var(--cta-bg-hover);
     color: var(--cta-color-hover);
     border-color: var(--cta-border-color-hover);
+    --interaction-box-shadow: var(--cta-shadow-hover);
     box-shadow: var(--cta-shadow-hover);
     outline: none;
 }
 
 .site-footer__contact-link:focus-visible,
 .site-footer__link:focus-visible {
+    --interaction-box-shadow: var(--cta-shadow-hover), var(--focus-ring-soft);
     box-shadow: var(--cta-shadow-hover), var(--focus-ring-soft);
 }
 

@@ -216,6 +216,7 @@ html body .event-note {
 
 .skip-link:focus-visible {
     transform: translateY(0);
+    --interaction-box-shadow: var(--shadow-surface-strong), var(--focus-ring-soft);
     box-shadow: var(--shadow-surface-strong), var(--focus-ring-soft);
     outline: none;
 }
@@ -238,6 +239,7 @@ html body .event-note {
 .external-link:focus-visible {
     color: var(--color-accent-deep);
     transform: translateY(-1px);
+    --interaction-box-shadow: var(--shadow-soft-strong), var(--focus-ring-soft);
     box-shadow: var(--shadow-soft-strong), var(--focus-ring-soft);
     text-decoration: underline;
     text-decoration-color: currentColor;
@@ -832,7 +834,8 @@ html body *,
 html body *::before,
 html body *::after {
     --interaction-transform: initial;
-    box-shadow: none !important;
+    --interaction-box-shadow: none;
+    box-shadow: var(--interaction-box-shadow, none) !important;
     text-shadow: none !important;
     transition: none !important;
     animation: none !important;
