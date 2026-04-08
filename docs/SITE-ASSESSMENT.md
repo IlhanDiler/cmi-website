@@ -48,15 +48,15 @@ Trotz der technischen Schwächen gab es klare Stärken:
 
 ## Aktualisierte Einschätzung nach Refactoring-Schritten
 
-Nach CSS-Modularisierung, Strukturarbeit, Runtime-Aufteilung und der inzwischen deutlich breiteren Accessibility-Haertung liegt die technische Bewertung heute nochmals etwas hoeher.
+Nach CSS-Modularisierung, Strukturarbeit, Runtime-Aufteilung, breiterer Accessibility-Haertung und der Standardisierung der groessten Sprachcluster liegt die technische Bewertung heute nochmals etwas hoeher.
 
 Aktueller realistischer Stand:
 
 - Design / Außenwirkung: 8/10
 - UX / Gesamteindruck: eher 8/10
-- Technische Sauberkeit: oberes Ende von 6/10 bis 7/10
-- Wartbarkeit: oberes Ende von 6/10 bis 7/10
-- Professionalität insgesamt: sichtbar naeher an professionell, inzwischen auch technisch deutlich glaubwuerdiger
+- Technische Sauberkeit: eher solide 7/10
+- Wartbarkeit: eher solide 7/10
+- Professionalität insgesamt: sichtbar naeher an professionell und inzwischen auch im Unterbau deutlich belastbarer
 
 ## Was bereits verbessert wurde
 
@@ -74,16 +74,27 @@ Aktueller realistischer Stand:
 3. Dekorative Logos, SVGs, Medienakzente und Sprachflaggen werden konsistenter vor Assistive Technology verborgen und bleiben unfokussierbar.
 4. Hidden-State und Accessibility-Zustand laufen an mehreren zentralen Stellen sauberer zusammen, zum Beispiel bei Sprachvarianten und Share-Komponenten.
 5. Externe Links sowie Medien- und Share-Links kuendigen neues Fensterverhalten inzwischen konsistenter an.
+6. Die groessten `data-lang`-Hotspots auf Hauptseite, Chronik und Legal-Seiten wurden auf ein gemeinsames `hidden`-/`aria-hidden`-Muster vereinheitlicht, statt weiter mit vielen verteilten Inline-`display:none`-Startzustaenden zu arbeiten.
+7. Browser-Matrix und Release-Smokes liefen mehrfach mit 0 Funden ueber Edge, Chrome und Firefox, inklusive zentraler Share-Seite.
 
 ## Was noch fehlt für wirklich professionell-sauber
 
-1. Accessibility ist deutlich besser als beim ersten Assessment, aber noch nicht als vollstaendiger Browser- und Screenreader-Check ueber alle Seiten, Zustaende und Geraeteklassen abgesichert.
-2. Historische Sonderfälle und inkonsistente Muster weiter abbauen.
-3. Rendering- und Browser-QA noch systematischer absichern.
-4. Langfristig weniger Duplikation im mehrsprachigen HTML erzeugen.
-5. Die jetzt modulare JavaScript-Runtime weiterhin vereinfachen und kuerzerfristig noch mit gezielter Browser-QA absichern.
+1. Accessibility ist deutlich besser als beim ersten Assessment, aber noch nicht als vollstaendiger Screenreader- und Geraeteklassen-Check ueber alle Seiten und Zustaende abgesichert.
+2. Historische Sonderfälle und inkonsistente Muster sind stark reduziert, aber nicht vollstaendig verschwunden.
+3. Die Browser-Matrix ist inzwischen belastbar, kann langfristig aber noch systematischer in manuelle und visuelle Checks eingebettet werden.
+4. Die groessten Sprachduplikations-Hotspots sind standardisiert, aber die eigentliche HTML-Duplikation ist architektonisch noch nicht aufgeloest.
+5. Die jetzt modulare JavaScript-Runtime kann weiter vereinfacht werden, auch wenn die groessten Reibungspunkte bereits sichtbar reduziert sind.
 
-Der aktuelle 4-Wochen-Arbeitsplan dazu steht in [FOUR-WEEK-PLAN.md](../docs/FOUR-WEEK-PLAN.md).
+## Abgleich nach dem 4-Wochen-Plan
+
+1. Punkt 1 ist im pragmatischen Scope faktisch erreicht: Hauptseite, Chronik, Legal-Seiten, Footer, Share- und Interaktionsmuster wurden systematisch auf Accessibility und Hidden-States nachgezogen.
+2. Punkt 2 ist weitgehend erreicht: Die groessten historischen Sonderfaelle in Runtime, Navigation und Sprachzustand sind reduziert, auch wenn einzelne gewachsene Muster bleiben.
+3. Punkt 3 ist erreicht: Release-QA und Browser-Matrix wurden wiederholt ueber Edge, Chrome und Firefox mit 0 Funden durchlaufen.
+4. Punkt 4 ist im gesetzten Scope erreicht: Die groessten `data-lang`-Hotspots sind standardisiert; eine vollstaendige Entduplizierung bleibt bewusst ausserhalb dieses Plans.
+5. Punkt 5 ist sichtbar vorangebracht: Die Runtime ist modularer, konsistenter und QA-seitig besser abgesichert, ohne schon maximal vereinfacht zu sein.
+
+Der dazugehoerige 4-Wochen-Arbeitsplan steht in [FOUR-WEEK-PLAN.md](../docs/FOUR-WEEK-PLAN.md).
+Der Folgeplan fuer den Weg Richtung 10/10 steht in [FOUR-WEEK-PLAN-10-10.md](../docs/FOUR-WEEK-PLAN-10-10.md).
 
 ## Bewertungsmatrix
 
@@ -102,23 +113,23 @@ Fuer Besucher funktioniert die Seite insgesamt gut und inzwischen auch robuster 
 ### 3. Codequalität
 
 Früher: 5/10  
-Heute: oberes Ende von 6/10 bis 7/10
+Heute: eher 7/10
 
 Die Richtung stimmt inzwischen nicht nur strukturell, sondern auch im Alltagsverhalten der Seite. Offene Punkte liegen heute eher in Rest-Duplikation, QA-Tiefe und einigen gewachsenen HTML-Mustern als noch in grober Unordnung.
 
 ### 4. Wartbarkeit
 
 Früher: 5/10  
-Heute: oberes Ende von 6/10 bis 7/10
+Heute: eher 7/10
 
-Die modulare CSS-Struktur und die aufgeteilte Runtime haben hier bereits viel verbessert. Der groesste offene Hebel liegt jetzt eher in wiederkehrenden Sprach-/Markup-Mustern und in systematischer QA statt in fehlender Grundstruktur.
+Die modulare CSS-Struktur, die aufgeteilte Runtime und die vereinheitlichten Sprachzustandsmuster haben hier bereits viel verbessert. Der groesste offene Hebel liegt jetzt eher in verbleibender HTML-Duplikation und in noch tieferer QA statt in fehlender Grundstruktur.
 
 ### 5. Professionalität insgesamt
 
-Bewertung: nah an professionell, inzwischen auch technisch deutlich belastbarer
+Bewertung: inzwischen klar nah an professionell und technisch glaubwuerdig abgestuetzt
 
 Die Seite war nach außen schon länger stärker als ihr interner Aufbau. Durch das Refactoring nähert sich die technische Qualität jetzt dem sichtbaren Eindruck an.
 
 ## Ein-Satz-Zusammenfassung
 
-Die Website war schon vorher in Wirkung und Gestaltung nah an professionell, lag technisch aber eher bei 5/10; nach CSS-Modularisierung, Runtime-Aufteilung und breiterer Accessibility-Haertung liegt sie heute eher am oberen Ende von 6/10 bis 7/10 und wirkt insgesamt deutlich konsistenter.
+Die Website war schon vorher in Wirkung und Gestaltung nah an professionell, lag technisch aber eher bei 5/10; nach CSS-Modularisierung, Runtime-Aufteilung, breiterer Accessibility-Haertung, wiederholter Browser-QA und standardisierten Sprachzustandsmustern liegt sie heute eher bei einer soliden 7/10 und wirkt insgesamt deutlich konsistenter.

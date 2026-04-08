@@ -1,0 +1,208 @@
+# Follow-up Four-Week Plan: 10/10
+
+Stand: 2026-04-08
+
+## Ausgangslage
+
+Der erste 4-Wochen-Plan in [docs/FOUR-WEEK-PLAN.md](../docs/FOUR-WEEK-PLAN.md) ist im gesetzten Pragmatik-Scope abgeschlossen.
+
+Seitdem wurden direkt noch zwei kleine, aber echte Restpunkte bereinigt:
+
+- Die grossen Sprachcluster auf [datenschutz.html](../datenschutz.html) und [impressum.html](../impressum.html) nutzen jetzt ebenfalls konsistent `hidden` plus `aria-hidden` statt verteiltem Inline-`display:none`.
+- Ein korrektes [robots.txt](../robots.txt) liegt jetzt im Projektroot; [robot.txt](../robot.txt) bleibt als Altdatei vorerst unangetastet.
+
+Der Stand ist damit technisch sauberer als im letzten Assessment, aber fuer einen echten 10/10-Unterbau reicht weiteres Kleinflicken nicht mehr.
+
+## Messbare Restschuld
+
+Aktuelle grobe Kennzahlen aus dem Codebestand:
+
+- `data-lang`-Markup auf [index.html](../index.html): 1506 Vorkommen
+- `data-lang`-Markup auf [datenschutz.html](../datenschutz.html): 1020 Vorkommen
+- `data-lang`-Markup auf [impressum.html](../impressum.html): 413 Vorkommen
+- `data-lang`-Markup auf [chronik.html](../chronik.html): 343 Vorkommen
+- Verbleibendes Inline-`display:none` auf [index.html](../index.html): 1 Vorkommen, bewusst fuer den echten UI-Zustand der Event-Lightbox
+- Groesste Runtime-Dateien: [scripts/navigation-language.js](../scripts/navigation-language.js) mit 763 Zeilen, [scripts/hero-gallery.js](../scripts/hero-gallery.js) mit 561 Zeilen, [scripts/cookie-consent.js](../scripts/cookie-consent.js) mit 390 Zeilen
+- GitHub Actions existieren bereits unter [.github/workflows](../.github/workflows), sind aktuell aber faktisch deploy-orientiert und nicht als echter technischer Quality-Gate aufgebaut
+
+## Was fuer 10/10 noch getan werden muss
+
+1. Deployment darf nicht mehr die erste technische Pruefung sein. Vor dem Deploy braucht es einen reproduzierbaren Validierungs-Workflow.
+2. Die Mehrsprachigkeit muss an mindestens einem grossen Block strukturell entdupliziert werden. Reines Umschalten von sichtbaren Varianten ist nicht mehr der grosse Hebel.
+3. Die Runtime muss weiter zerlegt werden, vor allem [scripts/navigation-language.js](../scripts/navigation-language.js) und [scripts/hero-gallery.js](../scripts/hero-gallery.js).
+4. Accessibility muss mit echten Geraete-, Zoom-, Tastatur- und Screenreader-Checks abgesichert werden, nicht nur ueber gute Heuristik und Smoke-Runs.
+5. Die Share-Architektur sollte von handgepflegten Einzeldateien weiter in Richtung strukturierter Quelle plus Generierung bewegt werden.
+6. Release-Dokumentation, manuelle QA und automatisierte QA muessen zusammenspielen, statt lose nebeneinander zu stehen.
+
+## Zielbild fuer einen glaubwuerdigen 10/10-Stand
+
+Ein echter 10/10-Stand ist hier nur dann glaubwuerdig, wenn am Ende dieses Folgeblocks folgende Punkte erreicht sind:
+
+1. Jeder Push laeuft durch einen technischen Mindest-Check, bevor deployt wird.
+2. Mindestens ein grosser mehrsprachiger Bereich wird nicht mehr als rohes, riesiges HTML-Duplikat gepflegt.
+3. Kein einzelnes Frontend-Kernmodul ist noch ein gewachsener Sammelblock ohne klare Grenzen.
+4. Hauptseite, Chronik, Datenschutz, Impressum und mindestens ein Share-Flow sind ueber Desktop, Mobile und Assistive-Technology bewusst gegengeprueft.
+5. Deploy, QA und Dokumentation sind so konsistent, dass kuenftige Aenderungen nicht wieder in denselben Wartungsmodus zurueckfallen.
+
+## Rahmen
+
+- Verfuegbare Zeit: 15 Stunden pro Woche
+- Planungszeitraum: 4 Wochen
+- Gesamtbudget: 60 Stunden
+- Technischer Anspruch: nicht nur 8/10 bis 9/10 polieren, sondern die noetigen Strukturhebel fuer echten 10/10-Unterbau ziehen
+
+## Scope-Regeln
+
+1. Pro Woche nur ein grosser Strukturblock, dazu kleine sichere Nacharbeiten.
+2. Kein grosser Umbau ohne anschliessenden Smoke-Run und kurzen manuellen Regression-Check.
+3. Accessibility-Funde werden nicht gesammelt und spaeter verschoben, sondern wo moeglich direkt mit Root-Cause-Fix geschlossen.
+4. Wenn eine Woche kippt, wird zuerst Share-/Komfort-Scope gekuerzt, nicht die Validierung.
+5. Fuer 10/10 gilt: weniger lokale Patches, mehr kontrollierte Strukturarbeit.
+
+## Woche 1
+
+Ziel: echte technische Eingangskontrolle vor Deployment herstellen und die QA-Basis von "optional" auf "verbindlich" heben.
+
+Budget: 15 Stunden
+
+### Stand 2026-04-08
+
+- Abgeschlossen: Neuer Workflow unter [.github/workflows/site-quality-gate.yaml](../.github/workflows/site-quality-gate.yaml) prueft Pushes, Pull Requests und manuelle Runs vor dem Deploy.
+- Abgeschlossen: [tmp/visual-qa/release_qa_smoke.py](../tmp/visual-qa/release_qa_smoke.py) validiert jetzt Root-Dateien, `robots.txt`, Share-Manifest und den Sync zu `FALLBACK_SHARE_PAGES` in [share/instagram-export.js](../share/instagram-export.js).
+- Abgeschlossen: [.github/workflows/cmi-website-orchestration.yaml](../.github/workflows/cmi-website-orchestration.yaml) reagiert fuer Push-Deploys nur noch auf erfolgreiche Quality-Gate-Laeufe.
+- Validiert: Lokaler End-to-End-Run mit `QA_BROWSER_TARGETS=chromium,firefox` und `QA_FAIL_ON_ISSUES=1` lief mit 0 Funden durch.
+
+### Block A - 5h
+
+- Bestehende GitHub-Workflows unter [.github/workflows](../.github/workflows) um einen echten Validierungs-Workflow ergaenzen
+- Mindestens HTTP-Smoke, Root-Datei-Checks und einfache Struktursignale vor Deploy automatisieren
+- Deployment weiter nutzen, aber nicht mehr als alleinigen technischen Workflow behandeln
+
+### Block B - 5h
+
+- [docs/MANUAL-QA-CHECKLIST.md](../docs/MANUAL-QA-CHECKLIST.md) als echte Geraete- und Accessibility-Matrix nachschaerfen
+- Fokus auf Tastatur, 200-Prozent-Zoom, Reduced Motion, Screenreader-Kurzcheck, Mobile Safari oder iOS-Ersatzgeraet
+- Ergebnisse in eine kleine Fundliste mit Priorisierung ueberfuehren
+
+### Block C - 5h
+
+- Week-1-Funde direkt in kleine Fixes rueckspielen
+- Release-Checkliste nur dort erweitern, wo ein echter wiederkehrender Fehler verhindert wird
+- Danach einmal kurzer lokaler Vollcheck ueber Hauptseite, Chronik, Datenschutz und Impressum
+
+### Definition of Done
+
+- Deployment ist nicht mehr ungefiltert push-getrieben
+- Die QA-Basis ist technisch und organisatorisch schaerfer als vorher
+- Erste Geraete-/Accessibility-Funde sind behoben oder bewusst priorisiert
+
+## Woche 2
+
+Ziel: den groessten Wartbarkeitshebel angehen, naemlich HTML-Duplikation in der Mehrsprachigkeit.
+
+Budget: 15 Stunden
+
+### Block A - 4h
+
+- Zielarchitektur fuer mehrsprachige Inhalte entscheiden: strukturierte Quelle plus Generierung, nicht neues Client-Side-Gefrickel
+- Fokus zunaechst auf [datenschutz.html](../datenschutz.html), [impressum.html](../impressum.html) oder einen anderen klaren Pilotblock
+- Entscheidung dokumentieren: welche Quelle wird gepflegt, was wird generiert, was bleibt vorerst statisch
+
+### Block B - 7h
+
+- Einen grossen Pilotblock technisch umsetzen
+- Ziel ist nicht nur weniger sichtbarer Code, sondern weniger Pflegeaufwand bei Textaenderungen und weniger Risiko fuer Inkonsistenzen zwischen Sprachen
+- Wenn der Pilot stabil ist, nur dann auf den naechsten passenden Bereich erweitern
+
+### Block C - 4h
+
+- Regression-Check ueber den pilotierten Bereich
+- Doku in [docs/FRONTEND-HANDOFF.md](../docs/FRONTEND-HANDOFF.md) und den betroffenen Build-/Pflegehinweisen nachziehen
+- Restpunkte notieren: sofort weiterziehen oder bewusst in Woche 4 lassen
+
+### Definition of Done
+
+- Mindestens ein grosser mehrsprachiger Block wird nicht mehr als rohes HTML-Massen-Duplikat gepflegt
+- Die gewaehlte Architektur ist fuer kuenftige Inhalte wiederverwendbar
+- Der Pilot ist nicht nur technisch clever, sondern lokal und im Browser sauber geprueft
+
+## Woche 3
+
+Ziel: die gewachsenen Runtime-Sammelbloecke weiter aufbrechen und testbarer machen.
+
+Budget: 15 Stunden
+
+### Block A - 5h
+
+- [scripts/navigation-language.js](../scripts/navigation-language.js) in kleinere Verantwortungsbereiche schneiden
+- Sprachzustand, Navigation, Hash-Logik und Accessibility-Sync nicht weiter als ein grosser Mischblock belassen
+
+### Block B - 5h
+
+- [scripts/hero-gallery.js](../scripts/hero-gallery.js) auf Layout, Slider-Logik und Interaktionszustand pruefen und wenn sinnvoll trennen
+- Kleine pure Helfer aus DOM-lastiger Logik herausziehen, wenn das den Test- und Review-Aufwand senkt
+
+### Block C - 5h
+
+- Smoke- und Browser-Matrix nach jedem groesseren Refactor mitlaufen lassen
+- Wenn moeglich eine kleine technische Schutzschicht einziehen: script-level checks, assertions oder sehr leichte Regression-Helfer
+- Keine grossen neuen Features in dieser Woche
+
+### Definition of Done
+
+- Die beiden groessten Frontend-Module sind sichtbar leichter lesbar und enger geschnitten
+- Refactors sind durch QA abgesichert, nicht nur durch Hoffnung
+- Neue Reibung wurde nicht an anderer Stelle wieder eingebaut
+
+## Woche 4
+
+Ziel: Share-Architektur, finaler QA-Sweep und Release-Haertung zusammenziehen.
+
+Budget: 15 Stunden
+
+### Block A - 5h
+
+- Share-System unter [share](../share) auf strukturierte Pflege pruefen
+- Zielbild: weniger handgepflegte Einzel-HTMLs, mehr Metadaten plus reproduzierbare Ableitung
+- Nur den kleinsten sinnvollen Generierungshebel bauen, keinen unkontrollierten Komplettumbau
+
+### Block B - 5h
+
+- Finale QA-Runde: Desktop, Mobile, Tastatur, Screenreader-Kurzcheck, Browser-Matrix, Share-Flow
+- [docs/RELEASE-QA-CHECKLIST.md](../docs/RELEASE-QA-CHECKLIST.md) und [docs/MANUAL-QA-CHECKLIST.md](../docs/MANUAL-QA-CHECKLIST.md) gegen die reale Praxis abgleichen
+
+### Block C - 5h
+
+- Nur noch High- und Medium-Funde schliessen
+- Abschlussbewertung gegen [docs/SITE-ASSESSMENT.md](../docs/SITE-ASSESSMENT.md) aktualisieren
+- Restliste fuer spaetere Komfort- oder Inhaltsarbeit trennen von echter technischer Schuld
+
+### Definition of Done
+
+- Share-Pflege ist strukturierter als zuvor
+- Release-QA ist nicht nur mehrfach gelaufen, sondern verfahrensmaessig besser abgesichert
+- Der verbleibende Rest ist klein, bewusst und nicht mehr systemisch
+
+## Prioritaet
+
+1. Quality-Gate vor Deploy
+2. Strukturelle i18n-Entduplizierung
+3. Runtime-Zerlegung
+4. Echte Accessibility- und Geraete-QA
+5. Share-Generierung und Komfortgewinne
+
+## Nicht im Scope
+
+- Vollstaendige Framework-Migration
+- Komplett neuer Design-Layer
+- CMS-Einfuehrung
+- Mehrmonatiger Neuaufbau aller Seitenquellen auf einmal
+
+## Wochen-Check-in
+
+Am Ende jeder Woche kurz festhalten:
+
+- Was wurde wirklich abgeschlossen?
+- Welche Restpunkte sind strukturell und welche nur kosmetisch?
+- Ist der 10/10-Pfad noch realistisch oder wurde nur mehr Patching produziert?
+- Welcher Bereich ist der naechste groesste Hebel?

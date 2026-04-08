@@ -70,6 +70,25 @@ Zum Abschluss der Migration wurde lokal ueber einen HTTP-Server geprueft:
 
 Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaetzlich wurde der Share-Export gegen das Dateisystem abgeglichen, damit [share/share-pages.json](../share/share-pages.json) und die vorhandenen Share-Dateien wieder deckungsgleich sind.
 
+## Abschlussstand 2026-04-08
+
+- Der 4-Wochen-Arbeitsplan in [docs/FOUR-WEEK-PLAN.md](../docs/FOUR-WEEK-PLAN.md) ist im gesetzten Pragmatik-Scope abgeschlossen.
+- Die groessten `data-lang`-Hotspots auf Hauptseite, Chronik und Legal-Seiten sind auf ein gemeinsames `hidden`-/`aria-hidden`-Muster vereinheitlicht.
+- Nicht-sprachliche UI-Zustaende bleiben bewusst separat behandelt; ein Beispiel ist die Event-Lightbox, die weiter ihren eigenen `display:none`-Zustand nutzt.
+- Die Browser-Matrix ueber Edge, Chrome und Firefox lief mehrfach mit 0 Funden, zuletzt nach Abschluss der Week-4-Standardisierung.
+- Die technische Einordnung und der Abschlussabgleich stehen in [docs/SITE-ASSESSMENT.md](../docs/SITE-ASSESSMENT.md).
+
+## Bewusst offene Grenzen
+
+- Ein vollstaendiger Screenreader- und Geraeteklassen-Check ueber alle Seiten und Zustaende ist noch nicht erfolgt.
+- Die grossen Sprachcluster sind vereinheitlicht, aber das mehrsprachige HTML ist strukturell noch nicht entdupliziert.
+- Einige gewachsene Muster in Markup und Runtime sind reduziert, aber nicht vollstaendig entfernt.
+
+## Naechste sinnvolle Schritte
+
+1. Fuer weitere Wartbarkeitsgewinne einen der grossen Sprachbereiche strukturell entkoppeln, statt nur Zustandsattribute zu vereinheitlichen.
+2. Vor einer finalen Freigabe einen kurzen manuellen Browser-, Mobile- und Screenreader-Sweep ueber Hauptseite, Chronik, Legal-Seiten und Share-Flow fahren.
+
 ## Offene Grenze
 
 Technisch ist der Stand sauber validiert. Nicht vollautomatisiert abgedeckt ist nur echte Pixel-/Rendering-QA im Browser. Fuer finale visuelle Freigaben sollte daher immer noch ein kurzer manueller Blick auf Hauptseite, Chronik, Legal-Seiten und neue Share-Seiten erfolgen.

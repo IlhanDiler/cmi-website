@@ -558,6 +558,7 @@ function applyLanguageVariantsForParent(parent, fallbackOrder) {
         currentGroup.forEach(function(candidate) {
             const isChosenVariant = candidate === chosenVariant;
 
+            candidate.hidden = !isChosenVariant;
             candidate.style.display = isChosenVariant ? '' : 'none';
             candidate.setAttribute('aria-hidden', String(!isChosenVariant));
         });

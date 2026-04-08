@@ -4,15 +4,20 @@
 # version: 2022-07-21
 
 name: "Deploy Now: Orchestration"
-run-name: "Deploy Now: Build cmi-website · ${{ github.event.head_commit.message || format('Triggered by {0}', github.triggering_actor) }}"
+run-name: "Deploy Now: Build cmi-website · ${{ github.event.workflow_run.head_commit.message || github.event.head_commit.message || format('Triggered by {0}', github.actor) }}"
 
 on:
-  - push
-  - workflow_dispatch
+  workflow_run:
+    workflows:
+      - Site Quality Gate
+    types:
+      - completed
+  workflow_dispatch:
 
 jobs:
   retrieve-project:
     name: check readiness
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push') }}
     runs-on: ubuntu-latest
     outputs:
       deployment-enabled: ${{ fromJson(steps.project.outputs.info).deployment-enabled }}
@@ -31,7 +36,7 @@ jobs:
   build:
     name: build
     needs: retrieve-project
-    if: ${{ needs.retrieve-project.outputs.deployment-enabled == 'true' }}
+    if: ${{ needs.retrieve-project.result == 'success' && needs.retrieve-project.outputs.deployment-enabled == 'true' }}
     uses: ./.github/workflows/cmi-website-build.yaml
     with:
       site-url: https://IONOS_DEPLOY_NOW_SITE_URL

@@ -1,0 +1,55 @@
+name: "Site Quality Gate"
+run-name: "Site Quality Gate · ${{ github.ref_name || github.sha }}"
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  pull_request:
+  push:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-quality-gate-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-site:
+    name: validate static site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install QA dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium firefox
+
+      - name: Run release quality gate
+        env:
+          QA_BROWSER_TARGETS: chromium,firefox
+          QA_FAIL_ON_ISSUES: "1"
+        run: |
+          python -m http.server 8123 --bind 127.0.0.1 > tmp/visual-qa/http-server.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID' EXIT
+          python tmp/visual-qa/release_qa_smoke.py
+
+      - name: Upload QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-quality-gate-${{ github.run_id }}
+          if-no-files-found: ignore
+          path: |
+            tmp/visual-qa/release-qa-results.json
+            tmp/visual-qa/http-server.log
+            tmp/visual-qa/*.png
