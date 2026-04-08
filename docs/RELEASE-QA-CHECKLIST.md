@@ -5,6 +5,7 @@
 Diese Kurzfassung ist fuer die schnelle Freigabe nach kleineren Frontend-Aenderungen gedacht. Wenn hier etwas auffaellt, sollte anschliessend die vollstaendige Checkliste in [docs/MANUAL-QA-CHECKLIST.md](../docs/MANUAL-QA-CHECKLIST.md) genutzt werden.
 
 Fuer den Week-3-Browser-Matrix-Check kann der Smoke-Run optional mit `QA_BROWSER_TARGETS=msedge,chrome,firefox` gestartet werden. Ohne diese Variable bleibt der bisherige schnelle Auto-Modus aktiv und nimmt den ersten verfuegbaren Chromium-Browser.
+Der automatische Mindest-Gate in [/.github/workflows/site-quality-gate.yaml](../.github/workflows/site-quality-gate.yaml) nutzt in CI `QA_BROWSER_TARGETS=chromium,firefox` und faellt bei Funden hart aus.
 
 ## Kurzcheck
 

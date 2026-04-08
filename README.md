@@ -4,6 +4,7 @@
 
 Eine kurze Entwickler-Uebergabe zur finalen Struktur liegt auch in [docs/FRONTEND-HANDOFF.md](docs/FRONTEND-HANDOFF.md).
 Eine zusammenfassende qualitative und technische Einordnung der Website liegt in [docs/SITE-ASSESSMENT.md](docs/SITE-ASSESSMENT.md).
+Der abgeschlossene erste Arbeitsblock steht in [docs/FOUR-WEEK-PLAN.md](docs/FOUR-WEEK-PLAN.md), der Folgeplan Richtung 10/10 in [docs/FOUR-WEEK-PLAN-10-10.md](docs/FOUR-WEEK-PLAN-10-10.md).
 
 Die Haupt-CSS ist nicht mehr eine einzelne grosse Datei, sondern modular aufgebaut:
 
@@ -62,6 +63,14 @@ Fuer normale Inhalts- oder Styling-Aenderungen reicht diese kurze Reihenfolge:
 5. Neue Share-Dateien in [share/share-pages.json](share/share-pages.json) eintragen und bei Bedarf die Fallback-Liste in [share/instagram-export.js](share/instagram-export.js) mitziehen.
 6. Lokal immer ueber einen Webserver testen, nicht ueber `file://`, besonders fuer [share/instagram-export.html](share/instagram-export.html).
 7. Nach groesseren Aenderungen mindestens Startseite, Chronik, Datenschutz, Impressum und betroffene Share-Seiten kurz ueber HTTP pruefen.
+
+## Automatischer Quality-Gate
+
+Vor push-basierten Deployments laeuft jetzt ein technischer Mindestcheck ueber [/.github/workflows/site-quality-gate.yaml](.github/workflows/site-quality-gate.yaml).
+
+- Der Workflow prueft Pflichtdateien im Projektroot, den Sync zwischen [share/share-pages.json](share/share-pages.json) und der Fallback-Liste in [share/instagram-export.js](share/instagram-export.js) sowie die browserbasierte Release-Smoke-QA.
+- In CI verwendet die Smoke-QA `QA_BROWSER_TARGETS=chromium,firefox`, damit der Check ohne lokal installierte Edge- oder Chrome-Kanaele reproduzierbar laeuft.
+- Der IONOS-Orchestrator in [/.github/workflows/cmi-website-orchestration.yaml](.github/workflows/cmi-website-orchestration.yaml) reagiert bei Pushes nur noch auf erfolgreiche Runs dieses Gates; manuelle Deploys bleiben weiter moeglich.
 
 ## Social Share Links
 

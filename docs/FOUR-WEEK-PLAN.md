@@ -194,8 +194,8 @@ Am Ende jeder Woche kurz festhalten:
 
 - [x] Woche 1 abgeschlossen
 - [x] Woche 2 abgeschlossen
-- [ ] Woche 3 abgeschlossen
-- [ ] Woche 4 abgeschlossen
+- [x] Woche 3 abgeschlossen
+- [x] Woche 4 abgeschlossen
 
 ### Woche 3 - laufender Stand
 
@@ -205,3 +205,19 @@ Am Ende jeder Woche kurz festhalten:
 - [x] Share-Seiten-Smoke fuer share/querbeet-roundup-2025.html in den automatisierten Browser-Check aufgenommen
 - [x] Fehlende Favicons in den Share-HTMLs als Root-Cause-Fix nachgezogen, damit Chromium keinen favicon.ico-404 mehr produziert
 - [x] Browser-Matrix inklusive Share-Seite danach erneut mit 0 Funden durchlaufen
+- [x] Browser-Matrix fuer Edge, Chrome und Firefox am 2026-04-08 erneut gegen den lokalen HTTP-Server ausgefuehrt; weiterhin 0 Funde in index, Chronik, Datenschutz, Impressum und share/querbeet-roundup-2025.html
+
+### Woche 4 - laufender Stand
+
+- [x] `applyLanguageVariantsForParent` zieht nun neben `display` und `aria-hidden` auch den nativen `hidden`-Zustand nach, damit standardisierte Sprachcluster ohne Inline-Display-Startzustand sauber geschaltet werden koennen
+- [x] Legal-Hero-Chips in [datenschutz.html](../datenschutz.html) und [impressum.html](../impressum.html) von rein dekorativen `span`-Gruppen auf semantische Listen umgestellt und die nicht aktive Sprachvarianten dort auf `hidden` plus `aria-hidden` vereinheitlicht
+- [x] Release-QA nach dem Week-4-Hotspot-Fix erneut ueber Edge, Chrome und Firefox mit 0 Funden durchlaufen
+- [x] Verbleibende `data-lang`-Cluster im Legal-Hero von [datenschutz.html](../datenschutz.html) und [impressum.html](../impressum.html) auf `hidden` plus `aria-hidden` standardisiert, statt weiter mit Inline-`display:none` zu starten
+- [x] Gemeinsame Skip-Link-Varianten in [index.html](../index.html), [chronik.html](../chronik.html), [datenschutz.html](../datenschutz.html) und [impressum.html](../impressum.html) sowie die Subpage-Topbar-Subtitle- und Link-Cluster auf Chronik-, Datenschutz- und Impressumsseite auf dasselbe `hidden`-Muster umgestellt
+- [x] Release-QA nach der erweiterten Week-4-Standardisierung erneut ueber Edge, Chrome und Firefox mit 0 Funden durchlaufen
+- [x] Verbleibende Sprachcluster auf [chronik.html](../chronik.html), einschliesslich Hero, History-Overview, Timeline und weiterer initial versteckter Varianten, konsequent von Inline-`display:none` auf `hidden` plus `aria-hidden` umgestellt
+- [x] Brand-Tagline, Desktop-Navigation und Mobile-Menue auf [index.html](../index.html) auf dasselbe `hidden`-Muster vereinheitlicht und den deutschen `MITMACHEN`-Link im Mobile-Menue wieder als sichtbare Default-Variante ausgerichtet
+- [x] Release-QA nach der Chronik- und Navigations-Standardisierung erneut ueber Edge, Chrome und Firefox mit 0 Funden durchlaufen
+- [x] Verbleibende grosse `data-lang`-Cluster auf [index.html](../index.html), einschliesslich Image-Caption, Musikfamilie, Repertoire, Engagement, Review, Archiv und Footer, mechanisch auf `hidden` plus `aria-hidden` vereinheitlicht; einzig die Event-Lightbox behaelt `display:none` als echten UI-Zustand
+- [x] Abschlussabgleich mit [SITE-ASSESSMENT.md](../docs/SITE-ASSESSMENT.md) nachgezogen und Week 4 damit im gesetzten Pragmatik-Scope abgeschlossen
+- [x] Finale Release-QA nach der vollstaendigen Index-Standardisierung erneut ueber Edge, Chrome und Firefox mit 0 Funden durchlaufen

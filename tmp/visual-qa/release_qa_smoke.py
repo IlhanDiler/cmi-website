@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 import json
 import os
+import re
 from pathlib import Path
 
 from playwright.async_api import TimeoutError as PlaywrightTimeoutError
@@ -11,8 +12,25 @@ from playwright.async_api import async_playwright
 
 BASE_URL = os.environ.get("QA_BASE_URL", "http://127.0.0.1:8123")
 OUT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = OUT_DIR.parent.parent
+SHARE_DIR = PROJECT_ROOT / "share"
+SHARE_MANIFEST_PATH = SHARE_DIR / "share-pages.json"
+INSTAGRAM_EXPORT_SCRIPT_PATH = SHARE_DIR / "instagram-export.js"
 RESULT_PATH = OUT_DIR / "release-qa-results.json"
+REQUIRED_ROOT_FILES = (
+    "index.html",
+    "chronik.html",
+    "datenschutz.html",
+    "impressum.html",
+    "robots.txt",
+    "sitemap.xml",
+)
 BROWSER_LAUNCH_CONFIGS = {
+    "chromium": {
+        "browser_type": "chromium",
+        "launch_options": {"headless": True},
+        "label": "Chromium",
+    },
     "msedge": {
         "browser_type": "chromium",
         "launch_options": {"channel": "msedge", "headless": True},
@@ -31,6 +49,10 @@ BROWSER_LAUNCH_CONFIGS = {
 }
 
 
+def should_fail_on_issues():
+    return os.environ.get("QA_FAIL_ON_ISSUES", "").strip().lower() in {"1", "true", "yes", "on"}
+
+
 def add_issue(issues, severity, area, message):
     issues.append(
         {
@@ -39,6 +61,94 @@ def add_issue(issues, severity, area, message):
             "message": message,
         }
     )
+
+
+def load_share_manifest(issues):
+    if not SHARE_MANIFEST_PATH.is_file():
+        add_issue(issues, "high", "release-files", f"Missing share manifest: {SHARE_MANIFEST_PATH.relative_to(PROJECT_ROOT)}")
+        return None
+
+    try:
+        manifest = json.loads(SHARE_MANIFEST_PATH.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        add_issue(issues, "high", "release-files", f"Invalid share manifest JSON: {error}")
+        return None
+
+    pages = manifest.get("pages")
+    if not isinstance(pages, list) or not all(isinstance(page, str) and page.endswith(".html") for page in pages):
+        add_issue(issues, "high", "release-files", "share/share-pages.json must expose a 'pages' array of HTML filenames")
+        return None
+
+    if len(pages) != len(set(pages)):
+        add_issue(issues, "medium", "release-files", "share/share-pages.json contains duplicate page entries")
+
+    return pages
+
+
+def load_instagram_export_fallback_pages(issues):
+    if not INSTAGRAM_EXPORT_SCRIPT_PATH.is_file():
+        add_issue(
+            issues,
+            "high",
+            "release-files",
+            f"Missing Instagram export script: {INSTAGRAM_EXPORT_SCRIPT_PATH.relative_to(PROJECT_ROOT)}",
+        )
+        return None
+
+    source = INSTAGRAM_EXPORT_SCRIPT_PATH.read_text(encoding="utf-8")
+    match = re.search(r"const FALLBACK_SHARE_PAGES = \[(.*?)\];", source, re.S)
+
+    if match is None:
+        add_issue(issues, "high", "release-files", "Could not parse FALLBACK_SHARE_PAGES from share/instagram-export.js")
+        return None
+
+    return re.findall(r'"([^"\\]+\.html)"', match.group(1))
+
+
+def validate_release_files(issues):
+    for relative_path in REQUIRED_ROOT_FILES:
+        if not (PROJECT_ROOT / relative_path).is_file():
+            add_issue(issues, "high", "release-files", f"Missing required file: {relative_path}")
+
+    robots_path = PROJECT_ROOT / "robots.txt"
+    if robots_path.is_file():
+        robots_text = robots_path.read_text(encoding="utf-8")
+        if "Sitemap:" not in robots_text:
+            add_issue(issues, "medium", "release-files", "robots.txt does not declare a sitemap")
+
+    manifest_pages = load_share_manifest(issues)
+    fallback_pages = load_instagram_export_fallback_pages(issues)
+
+    share_page_files = sorted(
+        path.name for path in SHARE_DIR.glob("*.html") if path.name != "instagram-export.html"
+    )
+
+    if manifest_pages is not None:
+        missing_share_files = sorted(page for page in manifest_pages if not (SHARE_DIR / page).is_file())
+        if missing_share_files:
+            add_issue(
+                issues,
+                "high",
+                "release-files",
+                f"Manifest entries without matching share file: {', '.join(missing_share_files)}",
+            )
+
+        unlisted_share_files = sorted(set(share_page_files) - set(manifest_pages))
+        if unlisted_share_files:
+            add_issue(
+                issues,
+                "medium",
+                "release-files",
+                f"Share HTML files missing from share/share-pages.json: {', '.join(unlisted_share_files)}",
+            )
+
+    if manifest_pages is not None and fallback_pages is not None and manifest_pages != fallback_pages:
+        add_issue(
+            issues,
+            "medium",
+            "release-files",
+            "share/share-pages.json and FALLBACK_SHARE_PAGES in share/instagram-export.js are out of sync",
+        )
 
 
 def attach_page_monitors(page, issues, page_name):
@@ -474,6 +584,8 @@ async def main():
     screenshots = []
     requested_targets = get_requested_browser_targets()
 
+    validate_release_files(issues)
+
     async with async_playwright() as playwright:
         for requested_target in requested_targets:
             browser_runs.append(await run_release_smoke_for_target(playwright, requested_target))
@@ -506,6 +618,9 @@ async def main():
     )
 
     print(json.dumps({"issueCount": len(issues), "resultPath": str(RESULT_PATH)}, ensure_ascii=False))
+
+    if issues and should_fail_on_issues():
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":
