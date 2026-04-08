@@ -79,12 +79,13 @@ Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaet
 - Ein gezielter QA-Pass fuer Tastatur, Reduced Motion und Legal-Reflow auf [index.html](../index.html), [datenschutz.html](../datenschutz.html) und [impressum.html](../impressum.html) ist abgeschlossen; die dabei gefundenen Issues wurden direkt behoben.
 - Der erste strukturelle i18n-Pilot ist eingefuehrt: Der Rechtsblock `#imprint-legal` in [impressum.html](../impressum.html) wird aus [scripts/legal-content.json](../scripts/legal-content.json) via [scripts/render-legal-content.py](../scripts/render-legal-content.py) in statisches HTML gerendert.
 - Der Generatorpilot ist erweitert: Die Datenschutz-Bloecke `#privacy-overview`, `#privacy-hosting`, `#privacy-basics`, `#privacy-data`, `#privacy-social`, `#privacy-analytics` und `#privacy-tools` in [datenschutz.html](../datenschutz.html) werden jetzt generatorbasiert erzeugt; der Renderer unterstuetzt strukturierte Cards mit Ueberschriften, Listen, Inhaltsgruppen und gezielt freigegebene Inline-Links und zieht groessere Quellen bei Bedarf aus [scripts/legal-content](../scripts/legal-content) nach.
+- Der gleiche Marker-Renderer wird jetzt erstmals auch ausserhalb der Legal-Seiten genutzt: In [chronik.html](../chronik.html) kommen Hero-Titel, Uebersichts-Karten und Timeline-Intro/Summary aus [scripts/legal-content/chronik-overview.json](../scripts/legal-content/chronik-overview.json) statt aus rohen `data-lang`-Duplikaten.
 - Die technische Einordnung und der Abschlussabgleich stehen in [docs/SITE-ASSESSMENT.md](../docs/SITE-ASSESSMENT.md).
 
 ## Bewusst offene Grenzen
 
 - Ein vollstaendiger Screenreader- und Geraeteklassen-Check ueber alle Seiten und Zustaende ist noch nicht erfolgt.
-- Die grossen Sprachcluster sind vereinheitlicht; die strukturelle Entduplizierung ist jetzt fuer einen Impressum-Block und sieben Datenschutz-Bloecke pilotiert, aber noch nicht breit auf weitere Bereiche ausgedehnt.
+- Die grossen Sprachcluster sind vereinheitlicht; die strukturelle Entduplizierung ist jetzt fuer einen Impressum-Block, sieben Datenschutz-Bloecke und einen ersten Chronik-Piloten umgesetzt, aber noch nicht breit auf weitere Bereiche ausgedehnt.
 - Einige gewachsene Muster in Markup und Runtime sind reduziert, aber nicht vollstaendig entfernt.
 
 ## Naechste sinnvolle Schritte
