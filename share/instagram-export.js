@@ -671,6 +671,14 @@ function createTag(label) {
     return tag;
 }
 
+function buildPostDomId(post, index) {
+    const slug = normalizeText(post.fileName || post.title || `post ${index + 1}`)
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+
+    return slug || `post-${index + 1}`;
+}
+
 function renderPosts(posts) {
     elements.postGrid.innerHTML = "";
 
@@ -682,7 +690,7 @@ function renderPosts(posts) {
         return;
     }
 
-    for (const post of posts) {
+    for (const [index, post] of posts.entries()) {
         const fragment = elements.template.content.cloneNode(true);
         const card = fragment.querySelector(".post-card");
         const image = fragment.querySelector(".post-card__image");
@@ -690,6 +698,7 @@ function renderPosts(posts) {
         const title = fragment.querySelector(".post-card__title");
         const text = fragment.querySelector(".post-card__text");
         const hashtags = fragment.querySelector(".post-card__hashtags");
+        const captionLabel = fragment.querySelector(".post-card__caption-label");
         const caption = fragment.querySelector(".post-card__caption");
         const feedPreview = fragment.querySelector(".insta-preview");
         const previewImage = fragment.querySelector(".insta-preview__image");
@@ -708,23 +717,43 @@ function renderPosts(posts) {
         const openImageLink = fragment.querySelector(".post-card__open-image");
         const openShareLink = fragment.querySelector(".post-card__open-share");
         const postLabel = post.title || post.fileName || "Share-Beitrag";
+        const postDomId = buildPostDomId(post, index);
+        const titleId = `${postDomId}-title`;
+        const captionLabelId = `${postDomId}-caption-label`;
+        const captionId = `${postDomId}-caption`;
         const openInNewWindowHint = "oeffnet in neuem Fenster";
 
         card.dataset.search = buildSearchIndex(post);
+        card.setAttribute("aria-labelledby", titleId);
         image.src = post.image;
         image.alt = post.imageAlt;
+        image.loading = "lazy";
+        image.decoding = "async";
         meta.textContent = post.meta;
+        title.id = titleId;
         title.textContent = post.title;
         text.textContent = post.text;
+        if (captionLabel) {
+            captionLabel.id = captionLabelId;
+            captionLabel.textContent = `Instagram-Caption fuer ${postLabel}`;
+        }
+        caption.id = captionId;
         caption.value = post.caption;
-        caption.setAttribute("aria-label", `Instagram-Caption: ${postLabel}`);
+        caption.setAttribute("aria-labelledby", captionLabel ? captionLabelId : titleId);
+        caption.setAttribute("title", `Instagram-Caption: ${postLabel}`);
         previewImage.src = post.image;
-        previewImage.alt = post.imageAlt;
+        previewImage.alt = "";
+        previewImage.setAttribute("aria-hidden", "true");
+        previewImage.loading = "lazy";
+        previewImage.decoding = "async";
         previewMeta.textContent = post.meta;
         previewTitle.textContent = post.title;
         previewText.textContent = post.text;
         storyPreviewImage.src = post.image;
-        storyPreviewImage.alt = post.imageAlt;
+        storyPreviewImage.alt = "";
+        storyPreviewImage.setAttribute("aria-hidden", "true");
+        storyPreviewImage.loading = "lazy";
+        storyPreviewImage.decoding = "async";
         storyPreviewMeta.textContent = post.meta;
         storyPreviewTitle.textContent = post.title;
         storyPreviewText.textContent = post.text;

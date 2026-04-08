@@ -1,0 +1,12 @@
+{
+  "baseUrl": "http://127.0.0.1:8123",
+  "issueCount": 0,
+  "issues": [],
+  "screenshots": [
+    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\index-release-desktop.png",
+    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\index-release-mobile.png",
+    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\chronik-release.png",
+    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\datenschutz-release.png",
+    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\impressum-release.png"
+  ]
+}
