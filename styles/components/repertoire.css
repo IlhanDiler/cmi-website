@@ -116,15 +116,15 @@
 }
 
 .musikalisches-repertoire-title {
-    --repertoire-title-font-size: clamp(1.7rem, 2.1vw, 2.15rem);
+    --repertoire-title-font-size: clamp(1.82rem, 2.35vw, 2.34rem);
     --repertoire-title-margin-bottom: 10px;
-    --repertoire-title-line-height: 1.1;
+    --repertoire-title-line-height: 1.08;
     color: var(--repertoire-title-color);
-    font-size: clamp(1.82rem, 2.35vw, 2.34rem);
+    font-size: var(--repertoire-title-font-size);
     margin-bottom: var(--repertoire-title-margin-bottom);
     font-family: var(--font-ui-modern);
     font-weight: 560;
-    line-height: 1.08;
+    line-height: var(--repertoire-title-line-height);
     letter-spacing: -0.028em;
     text-wrap: balance;
 }
@@ -1109,7 +1109,6 @@
     }
 
     .musikalisches-repertoire-card--engagement .charity-certificate-card {
-        padding: 14px 14px 16px;
         border-radius: 16px;
     }
 
