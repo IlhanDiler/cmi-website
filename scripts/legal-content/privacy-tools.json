@@ -1,0 +1,211 @@
+{
+  "targets": {
+    "privacy-tools": {
+      "file": "datenschutz.html",
+      "indentSpaces": 6,
+      "blocks": [
+        {
+          "type": "heading",
+          "text": {
+            "de": "7. Plugins und Tools",
+            "en": "7. Plugins and Tools",
+            "it": "7. Plugin e strumenti",
+            "fr": "7. Plugins et outils",
+            "ln": "7. Plugins mpe bisaleli",
+            "tr": "7. Eklentiler ve araçlar",
+            "uk": "7. Плагіни та інструменти"
+          },
+          "level": 2,
+          "icon": "&#9658;"
+        },
+        {
+          "type": "heading",
+          "text": {
+            "de": "YouTube",
+            "it": "YouTube",
+            "en": "YouTube",
+            "fr": "YouTube",
+            "ln": "YouTube",
+            "tr": "YouTube",
+            "uk": "YouTube"
+          },
+          "level": 3
+        },
+        {
+          "type": "paragraph",
+          "text": {
+            "de": "Diese Website bindet Videos der Website YouTube ein. Betreiber der Website ist die Google Ireland Limited („Google“), Gordon House, Barrow Street, Dublin 4, Irland.",
+            "it": "Questo sito web integra video dal sito YouTube. Il gestore del sito è Google Ireland Limited (\"Google\"), Gordon House, Barrow Street, Dublino 4, Irlanda.",
+            "en": "This website integrates videos from the YouTube website. The operator of the website is Google Ireland Limited (\"Google\"), Gordon House, Barrow Street, Dublin 4, Ireland.",
+            "fr": "Ce site web integre des videos de la plateforme YouTube. L'exploitant du service est Google Ireland Limited (\"Google\"), Gordon House, Barrow Street, Dublin 4, Irlande.",
+            "ln": "Site oyo ekotisaka ba-video ya plateforme YouTube. Mokambi ya service yango ezali Google Ireland Limited (\"Google\"), Gordon House, Barrow Street, Dublin 4, Irlande.",
+            "tr": "Bu web sitesi YouTube platformundan videolar içerir. Hizmetin işletmecisi Google Ireland Limited (\"Google\"), Gordon House, Barrow Street, Dublin 4, İrlanda'dır.",
+            "uk": "Цей вебсайт вбудовує відео з платформи YouTube. Оператором сервісу є Google Ireland Limited («Google»), Gordon House, Barrow Street, Dublin 4, Ірландія."
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": {
+            "de": "Wenn Sie eine unserer Webseiten besuchen, auf denen YouTube eingebunden ist, wird eine Verbindung zu den Servern von YouTube hergestellt. Dabei wird dem YouTube-Server mitgeteilt, welche unserer Seiten Sie besucht haben.",
+            "it": "Quando visiti una delle nostre pagine in cui è integrato YouTube, viene stabilita una connessione ai server di YouTube. In questo modo viene comunicato al server di YouTube quali delle nostre pagine hai visitato.",
+            "en": "When you visit one of our web pages where YouTube is integrated, a connection to the YouTube servers is established. The YouTube server is informed which of our pages you have visited.",
+            "fr": "Lorsque vous consultez l'une de nos pages dans lesquelles YouTube est integre, une connexion aux serveurs de YouTube est etablie. Le serveur de YouTube est alors informe des pages de notre site que vous avez visitees.",
+            "ln": "Tango otali moko ya ba-page na biso oyo ezali na YouTube, boyokani esalemaka na ba-serveur ya YouTube. Na nzela wana, serveur ya YouTube eyebaka page nini ya site na biso otali.",
+            "tr": "YouTube'un entegre edildiği sayfalarımızdan birini ziyaret ettiğinizde YouTube sunucularına bağlantı kurulur. Böylece YouTube sunucusu hangi sayfalarımızı ziyaret ettiğiniz konusunda bilgilendirilir.",
+            "uk": "Коли ви відвідуєте одну з наших сторінок, на яких вбудовано YouTube, встановлюється з'єднання із серверами YouTube. При цьому сервер YouTube отримує інформацію, які саме наші сторінки ви відвідали."
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": {
+            "de": "Des Weiteren kann YouTube verschiedene Cookies auf Ihrem Endgerät speichern oder vergleichbare Technologien zur Wiedererkennung verwenden (z. B. Device-Fingerprinting). Auf diese Weise kann YouTube Informationen über Besucher dieser Website erhalten. Diese Informationen werden u. a. verwendet, um Videostatistiken zu erfassen, die Anwenderfreundlichkeit zu verbessern und Betrugsversuchen vorzubeugen. Des Weiteren werden die erfassten Daten im Google-Werbenetzwerk verarbeitet.",
+            "it": "Inoltre, YouTube può memorizzare diversi cookie sul tuo dispositivo o utilizzare tecnologie simili per il riconoscimento (ad esempio, il device fingerprinting). In questo modo YouTube può ottenere informazioni sui visitatori di questo sito web. Queste informazioni vengono utilizzate, tra l'altro, per raccogliere statistiche sui video, migliorare la facilità d'uso e prevenire tentativi di frode. Inoltre, i dati raccolti vengono elaborati nella rete pubblicitaria di Google.",
+            "en": "YouTube may also store various cookies on your device or use similar technologies for recognition (e.g., device fingerprinting). In this way, YouTube can obtain information about visitors to this website. This information is used, among other things, to collect video statistics, improve user-friendliness, and prevent fraud attempts. The collected data is also processed in the Google advertising network.",
+            "fr": "YouTube peut egalement enregistrer differents cookies sur votre terminal ou utiliser des technologies comparables de reconnaissance (par exemple le device fingerprinting). De cette maniere, YouTube peut obtenir des informations sur les visiteurs de ce site web. Ces informations sont notamment utilisees pour etablir des statistiques sur les videos, ameliorer la convivialite et prevenir les tentatives de fraude. Les donnees collectees sont en outre traitees dans le reseau publicitaire de Google.",
+            "ln": "Lisusu, YouTube ekoki kobatela ba-cookies ndenge na ndenge na appareil na yo to kosalela mayele mosusu ya koyeba moto, ndakisa device fingerprinting. Na nzela wana, YouTube ekoki kozwa sango na ntina ya bato oyo batali site oyo. Sango yango esalelamaka, ndakisa, mpo na kosangisa ba-statistiques ya video, kobongisa ndenge mosaleli azali koyoka pɛto na kosalela yango mpe kopekisa mayele ya bokosi. Lisusu, ba-donnees oyo esanganami esalelamaka na reseau ya piblisite ya Google.",
+            "tr": "Ayrıca YouTube cihazınızda çeşitli çerezler saklayabilir veya tanıma amacıyla benzer teknolojiler kullanabilir. Böylece YouTube bu web sitesinin ziyaretçileri hakkında bilgi elde edebilir. Bu bilgiler, diğer şeylerin yanı sıra video istatistikleri toplamak, kullanıcı dostluğunu artırmak ve dolandırıcılık girişimlerini önlemek için kullanılır. Toplanan veriler ayrıca Google reklam ağı içinde işlenir.",
+            "uk": "Крім того, YouTube може зберігати різні файли cookie на вашому пристрої або використовувати подібні технології розпізнавання (наприклад, device fingerprinting). У такий спосіб YouTube може отримувати інформацію про відвідувачів цього вебсайту. Ця інформація використовується, зокрема, для збору статистики відео, покращення зручності користування та запобігання шахрайству. Крім того, зібрані дані обробляються в рекламній мережі Google."
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": {
+            "de": "Wenn Sie in Ihrem YouTube-Account eingeloggt sind, ermöglichen Sie YouTube, Ihr Surfverhalten direkt Ihrem persönlichen Profil zuzuordnen. Dies können Sie verhindern, indem Sie sich aus Ihrem YouTube-Account ausloggen.",
+            "it": "Se sei connesso al tuo account YouTube, consenti a YouTube di associare direttamente il tuo comportamento di navigazione al tuo profilo personale. Puoi evitare ciò disconnettendoti dal tuo account YouTube.",
+            "en": "If you are logged into your YouTube account, you allow YouTube to directly associate your browsing behavior with your personal profile. You can prevent this by logging out of your YouTube account.",
+            "fr": "Si vous etes connecte a votre compte YouTube, vous permettez a YouTube d'associer directement votre comportement de navigation a votre profil personnel. Vous pouvez empecher cela en vous deconnectant de votre compte YouTube.",
+            "ln": "Soki okoti na compte na yo ya YouTube, opesi YouTube nzela ya kokangisa mbala moko ndenge ozali kosalela internet na profil na yo moko. Okoki kopekisa yango soki obimi na compte na yo ya YouTube.",
+            "tr": "YouTube hesabınıza giriş yaptıysanız, gezinti davranışınızın doğrudan kişisel profilinizle ilişkilendirilmesine izin vermiş olursunuz. Bunu YouTube hesabınızdan çıkış yaparak önleyebilirsiniz.",
+            "uk": "Якщо ви увійшли до свого облікового запису YouTube, ви дозволяєте YouTube безпосередньо пов'язати вашу поведінку в мережі з вашим особистим профілем. Ви можете запобігти цьому, вийшовши зі свого облікового запису YouTube."
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": {
+            "de": "Die Nutzung von YouTube erfolgt im Interesse einer ansprechenden Darstellung unserer Online-Angebote. Dies stellt ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B. Device-Fingerprinting) im Sinne des TDDDG umfasst. Die Einwilligung ist jederzeit widerrufbar.",
+            "it": "L'utilizzo di YouTube avviene nell'interesse di una presentazione accattivante delle nostre offerte online. Questo rappresenta un interesse legittimo ai sensi dell'art. 6 par. 1 lett. f GDPR. Se è stato richiesto il consenso, il trattamento avviene esclusivamente sulla base dell'art. 6 par. 1 lett. a GDPR e § 25 par. 1 TDDDG, nella misura in cui il consenso riguarda la memorizzazione di cookie o l'accesso a informazioni sul dispositivo dell'utente (ad esempio, device fingerprinting) ai sensi del TDDDG. Il consenso può essere revocato in qualsiasi momento.",
+            "en": "The use of YouTube is in the interest of an appealing presentation of our online offers. This constitutes a legitimate interest within the meaning of Art. 6 para. 1 lit. f GDPR. If corresponding consent has been requested, processing is carried out exclusively on the basis of Art. 6 para. 1 lit. a GDPR and § 25 para. 1 TDDDG, insofar as the consent covers the storage of cookies or access to information on the user's device (e.g., device fingerprinting) within the meaning of the TDDDG. Consent can be revoked at any time.",
+            "fr": "L'utilisation de YouTube repond a notre interet legitime a une presentation attrayante de nos offres en ligne. Cela constitue un interet legitime au sens de l'art. 6, par. 1, let. f du RGPD. Si un consentement correspondant a ete demande, le traitement est effectue exclusivement sur la base de l'art. 6, par. 1, let. a du RGPD et du § 25, par. 1 du TDDDG, dans la mesure ou ce consentement couvre l'enregistrement de cookies ou l'acces a des informations sur le terminal de l'utilisateur (par exemple le device fingerprinting) au sens du TDDDG. Le consentement peut etre retire a tout moment.",
+            "ln": "Kosalela YouTube esalemaka mpo na komonisa makambo na biso ya internet na lolenge ya kobenda likebi mpe ya malamu. Yango ezali litomba ya sembo na se ya Art. 6 para. 1 lit. f GDPR. Soki bondimi bosengami liboso, traitement esalemaka kaka na moboko ya Art. 6 para. 1 lit. a GDPR mpe § 25 para. 1 TDDDG, soki bondimi yango ezipaka kobatela ba-cookies to kokota na mayebisi ya appareil ya mosaleli, lokola device fingerprinting. Bondimi ekoki kolongolama tango nyonso.",
+            "tr": "YouTube kullanımı, çevrimiçi içeriklerimizi çekici biçimde sunma menfaati kapsamında gerçekleşir. Bu, GDPR Madde 6 Fıkra 1 bent f anlamında meşru bir menfaat oluşturur. Uygun bir onay alınmışsa, işleme yalnızca GDPR Madde 6 Fıkra 1 bent a ve TDDDG § 25 Fıkra 1 temelinde yürütülür. Onay her zaman geri çekilebilir.",
+            "uk": "Використання YouTube здійснюється в інтересі привабливого представлення наших онлайн-пропозицій. Це становить законний інтерес у розумінні ст. 6 абз. 1 літ. f GDPR. Якщо було запитано відповідну згоду, обробка здійснюється виключно на підставі ст. 6 абз. 1 літ. a GDPR та § 25 абз. 1 TDDDG, якщо згода охоплює зберігання cookie або доступ до інформації на пристрої користувача (наприклад, device fingerprinting) у розумінні TDDDG. Згоду можна відкликати в будь-який час."
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": {
+            "de": "Weitere Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von YouTube unter: <a href=\"https://policies.google.com/privacy?hl=de\" target=\"_blank\" rel=\"noopener noreferrer\">https://policies.google.com/privacy?hl=de</a>.",
+            "it": "Ulteriori informazioni sul trattamento dei dati degli utenti sono disponibili nell'informativa sulla privacy di YouTube: <a href=\"https://policies.google.com/privacy?hl=it\" target=\"_blank\" rel=\"noopener noreferrer\">https://policies.google.com/privacy?hl=it</a>.",
+            "en": "Further information on the handling of user data can be found in YouTube's privacy policy at: <a href=\"https://policies.google.com/privacy?hl=en\" target=\"_blank\" rel=\"noopener noreferrer\">https://policies.google.com/privacy?hl=en</a>.",
+            "fr": "Vous trouverez plus d'informations sur le traitement des donnees des utilisateurs dans la politique de confidentialite de YouTube : <a href=\"https://policies.google.com/privacy?hl=fr\" target=\"_blank\" rel=\"noopener noreferrer\">https://policies.google.com/privacy?hl=fr</a>.",
+            "ln": "Mayebisi mosusu na ntina ya ndenge basalelaka ba-donnees ya basaleli ezali na mokanda ya bobateli ya makambo ya moto ya YouTube awa: <a href=\"https://policies.google.com/privacy?hl=fr\" target=\"_blank\" rel=\"noopener noreferrer\">https://policies.google.com/privacy?hl=fr</a>.",
+            "tr": "Kullanıcı verilerinin işlenmesine ilişkin daha fazla bilgi YouTube'un gizlilik politikasında bulunabilir: <a href=\"https://policies.google.com/privacy?hl=de\" target=\"_blank\" rel=\"noopener noreferrer\">https://policies.google.com/privacy?hl=de</a>.",
+            "uk": "Додаткову інформацію про роботу з даними користувачів можна знайти в політиці конфіденційності YouTube за адресою: <a href=\"https://policies.google.com/privacy?hl=de\" target=\"_blank\" rel=\"noopener noreferrer\">https://policies.google.com/privacy?hl=de</a>."
+          },
+          "allowHtml": true
+        },
+        {
+          "type": "paragraph",
+          "text": {
+            "de": "Das Unternehmen verfügt über eine Zertifizierung nach dem „EU-US Data Privacy Framework“ (DPF). Der DPF ist ein Übereinkommen zwischen der Europäischen Union und den USA, der die Einhaltung europäischer Datenschutzstandards bei Datenverarbeitungen in den USA gewährleisten soll. Jedes nach dem DPF zertifizierte Unternehmen verpflichtet sich, diese Datenschutzstandards einzuhalten. Weitere Informationen hierzu erhalten Sie vom Anbieter unter folgendem Link: <a href=\"https://www.dataprivacyframework.gov/participant/5780\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.dataprivacyframework.gov/participant/5780</a>.",
+            "it": "L'azienda è certificata secondo l'\"EU-US Data Privacy Framework\" (DPF). Il DPF è un accordo tra l'Unione Europea e gli Stati Uniti che garantisce il rispetto degli standard europei sulla protezione dei dati per i trattamenti effettuati negli USA. Ogni azienda certificata DPF si impegna a rispettare questi standard. Ulteriori informazioni sono disponibili al seguente link: <a href=\"https://www.dataprivacyframework.gov/participant/5780\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.dataprivacyframework.gov/participant/5780</a>.",
+            "en": "The company is certified according to the \"EU-US Data Privacy Framework\" (DPF). The DPF is an agreement between the European Union and the USA that is intended to ensure compliance with European data protection standards for data processing in the USA. Every company certified under the DPF undertakes to comply with these data protection standards. Further information can be obtained from the provider at the following link: <a href=\"https://www.dataprivacyframework.gov/participant/5780\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.dataprivacyframework.gov/participant/5780</a>.",
+            "fr": "L'entreprise dispose d'une certification au titre du \"EU-US Data Privacy Framework\" (DPF). Le DPF est un accord entre l'Union europeenne et les Etats-Unis destine a garantir le respect des normes europeennes de protection des donnees lors des traitements effectues aux Etats-Unis. Toute entreprise certifiee selon le DPF s'engage a respecter ces normes. Vous trouverez plus d'informations aupres du fournisseur au lien suivant : <a href=\"https://www.dataprivacyframework.gov/participant/5780\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.dataprivacyframework.gov/participant/5780</a>.",
+            "ln": "Entreprise oyo ezali na certification ya \"EU-US Data Privacy Framework\" (DPF). DPF ezali boyokani kati na Union europeenne mpe Etats-Unis mpo na kosalisa ete mibeko ya Europe na ntina ya bobateli ya ba-donnees elandama tango traitement esalemaka na Etats-Unis. Entreprise nyonso oyo ezwi certification ya DPF endimaka kolanda mibeko yango. Mayebisi mosusu ezali na lien oyo: <a href=\"https://www.dataprivacyframework.gov/participant/5780\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.dataprivacyframework.gov/participant/5780</a>.",
+            "tr": "Şirket, \"EU-US Data Privacy Framework\" (DPF) kapsamında sertifikalandırılmıştır. DPF, ABD'deki veri işlemede Avrupa veri koruma standartlarına uyumu güvence altına almayı amaçlayan bir AB-ABD anlaşmasıdır. DPF sertifikalı her şirket bu standartlara uymayı taahhüt eder. Ayrıntılı bilgiye şu bağlantıdan ulaşabilirsiniz: <a href=\"https://www.dataprivacyframework.gov/participant/5780\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.dataprivacyframework.gov/participant/5780</a>.",
+            "uk": "Компанія має сертифікацію відповідно до «EU-US Data Privacy Framework» (DPF). DPF - це угода між Європейським Союзом і США, покликана забезпечити дотримання європейських стандартів захисту даних при обробці даних у США. Кожна компанія, сертифікована за DPF, зобов'язується дотримуватися цих стандартів захисту даних. Додаткову інформацію можна отримати за таким посиланням: <a href=\"https://www.dataprivacyframework.gov/participant/5780\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.dataprivacyframework.gov/participant/5780</a>."
+          },
+          "allowHtml": true
+        },
+        {
+          "type": "heading",
+          "text": {
+            "de": "Google Maps",
+            "it": "Google Maps",
+            "en": "Google Maps",
+            "fr": "Google Maps",
+            "ln": "Google Maps",
+            "tr": "Google Maps",
+            "uk": "Google Maps"
+          },
+          "level": 3
+        },
+        {
+          "type": "paragraph",
+          "text": {
+            "de": "Diese Seite nutzt den Kartendienst Google Maps. Anbieter ist die Google Ireland Limited („Google“), Gordon House, Barrow Street, Dublin 4, Irland. Mit Hilfe dieses Dienstes können wir Kartenmaterial auf unserer Website einbinden.",
+            "it": "Questo sito utilizza il servizio di mappe Google Maps. Il fornitore è Google Ireland Limited (\"Google\"), Gordon House, Barrow Street, Dublino 4, Irlanda. Grazie a questo servizio possiamo integrare mappe nel nostro sito web.",
+            "en": "This site uses the Google Maps map service. The provider is Google Ireland Limited (\"Google\"), Gordon House, Barrow Street, Dublin 4, Ireland. With the help of this service, we can integrate map material on our website.",
+            "fr": "Cette page utilise le service cartographique Google Maps. Le fournisseur est Google Ireland Limited (\"Google\"), Gordon House, Barrow Street, Dublin 4, Irlande. Ce service nous permet d'integrer du materiel cartographique sur notre site web.",
+            "ln": "Lokasa oyo esalelaka service ya karte Google Maps. Mopesi ya service ezali Google Ireland Limited (\"Google\"), Gordon House, Barrow Street, Dublin 4, Irlande. Na lisalisi ya service oyo, tokoki kokotisa bakarte na site na biso.",
+            "tr": "Bu sayfa Google Maps harita hizmetini kullanır. Sağlayıcı Google Ireland Limited (\"Google\"), Gordon House, Barrow Street, Dublin 4, İrlanda'dır. Bu hizmet sayesinde web sitemize harita materyalleri entegre edebiliriz.",
+            "uk": "Ця сторінка використовує картографічний сервіс Google Maps. Постачальником є Google Ireland Limited («Google»), Gordon House, Barrow Street, Dublin 4, Ірландія. За допомогою цього сервісу ми можемо вбудовувати картографічні матеріали на нашому вебсайті."
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": {
+            "de": "Zur Nutzung der Funktionen von Google Maps ist es notwendig, Ihre IP-Adresse zu speichern. Diese Informationen werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Der Anbieter dieser Seite hat keinen Einfluss auf diese Datenübertragung. Wenn Google Maps aktiviert ist, kann Google zum Zwecke der einheitlichen Darstellung der Schriftarten Google Fonts verwenden. Beim Aufruf von Google Maps lädt Ihr Browser die benötigten Web Fonts in ihren Browsercache, um Texte und Schriftarten korrekt anzuzeigen.",
+            "it": "Per utilizzare le funzioni di Google Maps è necessario memorizzare il tuo indirizzo IP. Queste informazioni vengono solitamente trasmesse a un server di Google negli Stati Uniti e lì memorizzate. Il gestore di questo sito non ha alcuna influenza su questa trasmissione di dati. Se Google Maps è attivato, Google può utilizzare Google Fonts per una presentazione uniforme dei caratteri. Quando accedi a Google Maps, il tuo browser carica i font necessari nella cache del browser per visualizzare correttamente testi e caratteri.",
+            "en": "To use the functions of Google Maps, it is necessary to store your IP address. This information is usually transmitted to a Google server in the USA and stored there. The provider of this site has no influence on this data transmission. If Google Maps is activated, Google may use Google Fonts for the uniform presentation of fonts. When you access Google Maps, your browser loads the required web fonts into its browser cache to display texts and fonts correctly.",
+            "fr": "Pour utiliser les fonctions de Google Maps, il est necessaire d'enregistrer votre adresse IP. Ces informations sont en regle generale transmises a un serveur de Google situe aux Etats-Unis et y sont stockees. Le fournisseur de cette page n'a aucune influence sur ce transfert de donnees. Si Google Maps est active, Google peut utiliser Google Fonts afin d'assurer une presentation uniforme des polices. Lors de l'appel de Google Maps, votre navigateur charge les polices web necessaires dans son cache afin d'afficher correctement les textes et les polices.",
+            "ln": "Mpo na kosalela misala ya Google Maps, esengeli kobatela adresse IP na yo. Mbala mingi, mayebisi yango etindamaka na serveur ya Google na Etats-Unis mpe ebatelamaka kuna. Mokambi ya lokasa oyo azali na nguya te likolo ya botindami wana ya ba-donnees. Soki Google Maps ezali kosala, Google ekoki mpe kosalela Google Fonts mpo na komonisa makomi na lolenge moko. Tango ofungoli Google Maps, navigateur na yo etiakaka ba-web fonts oyo esengeli na cache na yango mpo makomi mpe ba-polices emonana malamu.",
+            "tr": "Google Maps işlevlerini kullanabilmek için IP adresinizin saklanması gerekir. Bu bilgiler genellikle Google'ın ABD'deki bir sunucusuna aktarılır ve orada saklanır. Bu sayfanın sağlayıcısının bu veri aktarımı üzerinde bir etkisi yoktur. Google Maps etkinleştirilmişse, Google yazı tiplerinin tutarlı gösterimi için Google Fonts kullanabilir. Google Maps çağrıldığında tarayıcınız, metinleri ve yazı tiplerini doğru gösterebilmek için gerekli web fontlarını önbelleğine yükler.",
+            "uk": "Для використання функцій Google Maps необхідно зберігати вашу IP-адресу. Ця інформація зазвичай передається на сервер Google у США і там зберігається. Оператор цієї сторінки не має впливу на таку передачу даних. Якщо Google Maps активовано, Google може використовувати Google Fonts для єдиного відображення шрифтів. Під час виклику Google Maps ваш браузер завантажує потрібні вебшрифти до кешу браузера, щоб коректно показувати тексти та шрифти."
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": {
+            "de": "Die Nutzung von Google Maps erfolgt im Interesse einer ansprechenden Darstellung unserer Online-Angebote und an einer leichten Auffindbarkeit der von uns auf der Website angegebenen Orte. Dies stellt ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B. Device-Fingerprinting) im Sinne des TDDDG umfasst. Die Einwilligung ist jederzeit widerrufbar.",
+            "it": "L'utilizzo di Google Maps avviene nell'interesse di una presentazione accattivante delle nostre offerte online e di una facile individuazione dei luoghi indicati sul sito. Questo rappresenta un interesse legittimo ai sensi dell'art. 6 par. 1 lett. f GDPR. Se è stato richiesto il consenso, il trattamento avviene esclusivamente sulla base dell'art. 6 par. 1 lett. a GDPR e § 25 par. 1 TDDDG, nella misura in cui il consenso riguarda la memorizzazione di cookie o l'accesso a informazioni sul dispositivo dell'utente (ad esempio, device fingerprinting) ai sensi del TDDDG. Il consenso può essere revocato in qualsiasi momento.",
+            "en": "The use of Google Maps is in the interest of an appealing presentation of our online offers and easy location of the places indicated on the website. This constitutes a legitimate interest within the meaning of Art. 6 para. 1 lit. f GDPR. If corresponding consent has been requested, processing is carried out exclusively on the basis of Art. 6 para. 1 lit. a GDPR and § 25 para. 1 TDDDG, insofar as the consent covers the storage of cookies or access to information on the user's device (e.g., device fingerprinting) within the meaning of the TDDDG. Consent can be revoked at any time.",
+            "fr": "L'utilisation de Google Maps repond a notre interet legitime a une presentation attrayante de nos offres en ligne et a une localisation simple des lieux indiques sur le site web. Cela constitue un interet legitime au sens de l'art. 6, par. 1, let. f du RGPD. Si un consentement correspondant a ete demande, le traitement est effectue exclusivement sur la base de l'art. 6, par. 1, let. a du RGPD et du § 25, par. 1 du TDDDG, dans la mesure ou ce consentement couvre l'enregistrement de cookies ou l'acces a des informations sur le terminal de l'utilisateur (par exemple le device fingerprinting) au sens du TDDDG. Le consentement peut etre retire a tout moment.",
+            "ln": "Kosalela Google Maps esalemaka mpo na komonisa makambo na biso ya internet na lolenge ya kitoko mpe mpo bisika oyo totangi na site emonana mpe ekangama na pete. Yango ezali litomba ya sembo na se ya Art. 6 para. 1 lit. f GDPR. Soki bondimi bosengami liboso, traitement esalemaka kaka na moboko ya Art. 6 para. 1 lit. a GDPR mpe § 25 para. 1 TDDDG, soki bondimi yango ezipaka kobatela ba-cookies to kokota na mayebisi ya appareil ya mosaleli, lokola device fingerprinting. Bondimi ekoki kolongolama tango nyonso.",
+            "tr": "Google Maps kullanımı, çevrimiçi teklifimizin çekici biçimde sunulması ve web sitesinde belirtilen yerlerin kolay bulunabilmesi menfaatiyle gerçekleşir. Bu, GDPR Madde 6 Fıkra 1 bent f anlamında meşru bir menfaat oluşturur. Uygun bir onay alınmışsa, işleme yalnızca GDPR Madde 6 Fıkra 1 bent a ve TDDDG § 25 Fıkra 1 temelinde yürütülür. Onay her zaman geri çekilebilir.",
+            "uk": "Використання Google Maps здійснюється в інтересі привабливого представлення наших онлайн-пропозицій і зручного пошуку місць, зазначених на вебсайті. Це становить законний інтерес у розумінні ст. 6 абз. 1 літ. f GDPR. Якщо було запитано відповідну згоду, обробка здійснюється виключно на підставі ст. 6 абз. 1 літ. a GDPR та § 25 абз. 1 TDDDG, якщо згода охоплює зберігання cookie або доступ до інформації на пристрої користувача (наприклад, device fingerprinting) у розумінні TDDDG. Згоду можна відкликати в будь-який час."
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": {
+            "de": "Die Datenübertragung in die USA wird auf die Standardvertragsklauseln der EU-Kommission gestützt. Details finden Sie hier: <a href=\"https://privacy.google.com/businesses/gdprcontrollerterms/\" target=\"_blank\" rel=\"noopener noreferrer\">https://privacy.google.com/businesses/gdprcontrollerterms/</a> und <a href=\"https://privacy.google.com/businesses/gdprcontrollerterms/sccs/\" target=\"_blank\" rel=\"noopener noreferrer\">https://privacy.google.com/businesses/gdprcontrollerterms/sccs/</a>.",
+            "it": "Il trasferimento dei dati negli Stati Uniti si basa sulle clausole contrattuali standard della Commissione UE. I dettagli sono disponibili qui: <a href=\"https://privacy.google.com/businesses/gdprcontrollerterms/\" target=\"_blank\" rel=\"noopener noreferrer\">https://privacy.google.com/businesses/gdprcontrollerterms/</a> e <a href=\"https://privacy.google.com/businesses/gdprcontrollerterms/sccs/\" target=\"_blank\" rel=\"noopener noreferrer\">https://privacy.google.com/businesses/gdprcontrollerterms/sccs/</a>.",
+            "en": "The transfer of data to the USA is based on the standard contractual clauses of the EU Commission. Details can be found here: <a href=\"https://privacy.google.com/businesses/gdprcontrollerterms/\" target=\"_blank\" rel=\"noopener noreferrer\">https://privacy.google.com/businesses/gdprcontrollerterms/</a> and <a href=\"https://privacy.google.com/businesses/gdprcontrollerterms/sccs/\" target=\"_blank\" rel=\"noopener noreferrer\">https://privacy.google.com/businesses/gdprcontrollerterms/sccs/</a>.",
+            "fr": "Le transfert de donnees vers les Etats-Unis s'appuie sur les clauses contractuelles types de la Commission europeenne. Vous trouverez des details ici : <a href=\"https://privacy.google.com/businesses/gdprcontrollerterms/\" target=\"_blank\" rel=\"noopener noreferrer\">https://privacy.google.com/businesses/gdprcontrollerterms/</a> et <a href=\"https://privacy.google.com/businesses/gdprcontrollerterms/sccs/\" target=\"_blank\" rel=\"noopener noreferrer\">https://privacy.google.com/businesses/gdprcontrollerterms/sccs/</a>.",
+            "ln": "Botindami ya ba-donnees na Etats-Unis etongami likolo ya clauses contractuelles standard ya Commission ya Union europeenne. Mayebisi ya mozindo ezali awa: <a href=\"https://privacy.google.com/businesses/gdprcontrollerterms/\" target=\"_blank\" rel=\"noopener noreferrer\">https://privacy.google.com/businesses/gdprcontrollerterms/</a> mpe <a href=\"https://privacy.google.com/businesses/gdprcontrollerterms/sccs/\" target=\"_blank\" rel=\"noopener noreferrer\">https://privacy.google.com/businesses/gdprcontrollerterms/sccs/</a>.",
+            "tr": "ABD'ye veri aktarımı, Avrupa Komisyonu'nun standart sözleşme maddelerine dayanır. Ayrıntılar burada bulunabilir: <a href=\"https://privacy.google.com/businesses/gdprcontrollerterms/\" target=\"_blank\" rel=\"noopener noreferrer\">https://privacy.google.com/businesses/gdprcontrollerterms/</a> ve <a href=\"https://privacy.google.com/businesses/gdprcontrollerterms/sccs/\" target=\"_blank\" rel=\"noopener noreferrer\">https://privacy.google.com/businesses/gdprcontrollerterms/sccs/</a>.",
+            "uk": "Передача даних до США здійснюється на підставі стандартних договірних положень Європейської комісії. Деталі можна знайти тут: <a href=\"https://privacy.google.com/businesses/gdprcontrollerterms/\" target=\"_blank\" rel=\"noopener noreferrer\">https://privacy.google.com/businesses/gdprcontrollerterms/</a> та <a href=\"https://privacy.google.com/businesses/gdprcontrollerterms/sccs/\" target=\"_blank\" rel=\"noopener noreferrer\">https://privacy.google.com/businesses/gdprcontrollerterms/sccs/</a>."
+          },
+          "allowHtml": true
+        },
+        {
+          "type": "paragraph",
+          "text": {
+            "de": "Mehr Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von Google: <a href=\"https://policies.google.com/privacy?hl=de\" target=\"_blank\" rel=\"noopener noreferrer\">https://policies.google.com/privacy?hl=de</a>.",
+            "it": "Ulteriori informazioni sul trattamento dei dati degli utenti sono disponibili nell'informativa sulla privacy di Google: <a href=\"https://policies.google.com/privacy?hl=it\" target=\"_blank\" rel=\"noopener noreferrer\">https://policies.google.com/privacy?hl=it</a>.",
+            "en": "More information on the handling of user data can be found in Google's privacy policy: <a href=\"https://policies.google.com/privacy?hl=en\" target=\"_blank\" rel=\"noopener noreferrer\">https://policies.google.com/privacy?hl=en</a>.",
+            "fr": "Vous trouverez plus d'informations sur le traitement des donnees des utilisateurs dans la politique de confidentialite de Google : <a href=\"https://policies.google.com/privacy?hl=fr\" target=\"_blank\" rel=\"noopener noreferrer\">https://policies.google.com/privacy?hl=fr</a>.",
+            "ln": "Mayebisi mosusu na ntina ya ndenge Google esalelaka ba-donnees ya basaleli ezali na mokanda ya bobateli ya makambo ya moto awa: <a href=\"https://policies.google.com/privacy?hl=fr\" target=\"_blank\" rel=\"noopener noreferrer\">https://policies.google.com/privacy?hl=fr</a>.",
+            "tr": "Kullanıcı verilerinin işlenmesine ilişkin daha fazla bilgiyi Google'ın gizlilik politikasında bulabilirsiniz: <a href=\"https://policies.google.com/privacy?hl=de\" target=\"_blank\" rel=\"noopener noreferrer\">https://policies.google.com/privacy?hl=de</a>.",
+            "uk": "Додаткову інформацію про роботу з даними користувачів можна знайти в політиці конфіденційності Google: <a href=\"https://policies.google.com/privacy?hl=de\" target=\"_blank\" rel=\"noopener noreferrer\">https://policies.google.com/privacy?hl=de</a>."
+          },
+          "allowHtml": true
+        },
+        {
+          "type": "paragraph",
+          "text": {
+            "de": "Das Unternehmen verfügt über eine Zertifizierung nach dem „EU-US Data Privacy Framework“ (DPF). Der DPF ist ein Übereinkommen zwischen der Europäischen Union und den USA, der die Einhaltung europäischer Datenschutzstandards bei Datenverarbeitungen in den USA gewährleisten soll. Jedes nach dem DPF zertifizierte Unternehmen verpflichtet sich, diese Datenschutzstandards einzuhalten. Weitere Informationen hierzu erhalten Sie vom Anbieter unter folgendem Link: <a href=\"https://www.dataprivacyframework.gov/participant/5780\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.dataprivacyframework.gov/participant/5780</a>.",
+            "it": "L'azienda è certificata secondo l'\"EU-US Data Privacy Framework\" (DPF). Il DPF è un accordo tra l'Unione Europea e gli Stati Uniti che garantisce il rispetto degli standard europei sulla protezione dei dati per i trattamenti effettuati negli USA. Ogni azienda certificata DPF si impegna a rispettare questi standard. Ulteriori informazioni sono disponibili al seguente link: <a href=\"https://www.dataprivacyframework.gov/participant/5780\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.dataprivacyframework.gov/participant/5780</a>.",
+            "en": "The company is certified according to the \"EU-US Data Privacy Framework\" (DPF). The DPF is an agreement between the European Union and the USA that is intended to ensure compliance with European data protection standards for data processing in the USA. Every company certified under the DPF undertakes to comply with these data protection standards. Further information can be obtained from the provider at the following link: <a href=\"https://www.dataprivacyframework.gov/participant/5780\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.dataprivacyframework.gov/participant/5780</a>.",
+            "fr": "L'entreprise dispose d'une certification au titre du \"EU-US Data Privacy Framework\" (DPF). Le DPF est un accord entre l'Union europeenne et les Etats-Unis destine a garantir le respect des normes europeennes de protection des donnees lors des traitements effectues aux Etats-Unis. Toute entreprise certifiee selon le DPF s'engage a respecter ces normes. Vous trouverez plus d'informations aupres du fournisseur au lien suivant : <a href=\"https://www.dataprivacyframework.gov/participant/5780\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.dataprivacyframework.gov/participant/5780</a>.",
+            "ln": "Entreprise oyo ezali na certification ya \"EU-US Data Privacy Framework\" (DPF). DPF ezali boyokani kati na Union europeenne mpe Etats-Unis mpo na kosalisa ete mibeko ya Europe na ntina ya bobateli ya ba-donnees elandama tango traitement esalemaka na Etats-Unis. Entreprise nyonso oyo ezwi certification ya DPF endimaka kolanda mibeko yango. Mayebisi mosusu ezali na lien oyo: <a href=\"https://www.dataprivacyframework.gov/participant/5780\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.dataprivacyframework.gov/participant/5780</a>.",
+            "tr": "Şirket, \"EU-US Data Privacy Framework\" (DPF) kapsamında sertifikalandırılmıştır. DPF, ABD'deki veri işlemede Avrupa veri koruma standartlarına uyumu güvence altına almayı amaçlayan bir AB-ABD anlaşmasıdır. DPF sertifikalı her şirket bu standartlara uymayı taahhüt eder. Ayrıntılı bilgiye şu bağlantıdan ulaşabilirsiniz: <a href=\"https://www.dataprivacyframework.gov/participant/5780\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.dataprivacyframework.gov/participant/5780</a>.",
+            "uk": "Компанія має сертифікацію відповідно до «EU-US Data Privacy Framework» (DPF). DPF - це угода між Європейським Союзом і США, покликана забезпечити дотримання європейських стандартів захисту даних при обробці даних у США. Кожна компанія, сертифікована за DPF, зобов'язується дотримуватися цих стандартів захисту даних. Додаткову інформацію можна отримати за таким посиланням: <a href=\"https://www.dataprivacyframework.gov/participant/5780\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.dataprivacyframework.gov/participant/5780</a>."
+          },
+          "allowHtml": true
+        }
+      ]
+    }
+  }
+}
