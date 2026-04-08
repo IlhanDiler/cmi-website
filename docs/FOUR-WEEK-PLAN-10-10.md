@@ -71,6 +71,7 @@ Budget: 15 Stunden
 - Abgeschlossen: [tmp/visual-qa/release_qa_smoke.py](../tmp/visual-qa/release_qa_smoke.py) validiert jetzt Root-Dateien, `robots.txt`, Share-Manifest und den Sync zu `FALLBACK_SHARE_PAGES` in [share/instagram-export.js](../share/instagram-export.js).
 - Abgeschlossen: [.github/workflows/cmi-website-orchestration.yaml](../.github/workflows/cmi-website-orchestration.yaml) reagiert fuer Push-Deploys nur noch auf erfolgreiche Quality-Gate-Laeufe.
 - Validiert: Lokaler End-to-End-Run mit `QA_BROWSER_TARGETS=chromium,firefox` und `QA_FAIL_ON_ISSUES=1` lief mit 0 Funden durch.
+- Vorbereitet: [docs/MANUAL-QA-CHECKLIST.md](../docs/MANUAL-QA-CHECKLIST.md) ist jetzt als echte Browser-, Geraete- und Accessibility-Matrix statt nur als generischer Smoke-Text beschrieben.
 
 ### Block A - 5h
 
