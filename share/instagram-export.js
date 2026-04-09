@@ -21,7 +21,7 @@ const FALLBACK_SHARE_PAGES = [
     "80-jahre-frieden-2025.html",
     "neujahrskonzert-2025.html",
     "kauzensitzung-2025.html",
-    "christmette-2024.html"
+    "christmette-2024.html",
 ];
 
 const DEFAULT_HASHTAGS = [

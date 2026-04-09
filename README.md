@@ -65,8 +65,8 @@ Fuer normale Inhalts- oder Styling-Aenderungen reicht diese kurze Reihenfolge:
 1. HTML im passenden Dokument anpassen, zum Beispiel [index.html](index.html), [chronik.html](chronik.html) oder eine Datei unter [share](share).
 2. CSS nur im zustaendigen Modul unter [styles/components](styles/components) aendern; gemeinsame Tokens nur in [styles/premium-foundation.css](styles/premium-foundation.css).
 3. Keine neuen Sammelregeln in [style.css](style.css) ablegen; die Datei bleibt der Import-Einstiegspunkt.
-4. Bei neuen Share-Seiten immer sowohl Meta-Tags als auch Weiterleitung pruefen.
-5. Neue Share-Dateien in [share/share-pages.json](share/share-pages.json) eintragen und bei Bedarf die Fallback-Liste in [share/instagram-export.js](share/instagram-export.js) mitziehen.
+4. Bei neuen oder geaenderten Share-Seiten zuerst [share/share-pages-data.json](share/share-pages-data.json) pflegen; Meta-Tags, Copy und Weiterleitung werden daraus erzeugt.
+5. Danach [share/generate-share-pages.py](share/generate-share-pages.py) ausfuehren; das aktualisiert die Share-HTMLs, [share/share-pages.json](share/share-pages.json) und die Fallback-Liste in [share/instagram-export.js](share/instagram-export.js).
 6. Lokal immer ueber einen Webserver testen, nicht ueber `file://`, besonders fuer [share/instagram-export.html](share/instagram-export.html).
 7. Nach groesseren Aenderungen mindestens Startseite, Chronik, Datenschutz, Impressum und betroffene Share-Seiten kurz ueber HTTP pruefen.
 8. Fuer generierte Inhaltsbloecke in [index.html](index.html), [impressum.html](impressum.html), [datenschutz.html](datenschutz.html) und [chronik.html](chronik.html) zuerst die passende Quelle in [scripts/legal-content.json](scripts/legal-content.json) oder unter [scripts/legal-content](scripts/legal-content) pflegen und danach [scripts/render-legal-content.py](scripts/render-legal-content.py) ausfuehren.
@@ -85,6 +85,7 @@ Diese Website ist im Kern eine Single-Page-Website. Social-Media-Plattformen wie
 
 Darum gibt es fuer teilbare Inhalte eigene Share-Seiten im Ordner [share](share):
 
+- Die Share-HTMLs werden aus [share/share-pages-data.json](share/share-pages-data.json) via [share/generate-share-pages.py](share/generate-share-pages.py) erzeugt.
 - Jede Share-Seite hat eigene `og:*`- und `twitter:*`-Meta-Tags.
 - Jede Share-Seite zeigt eine kleine gebrandete Zwischenansicht.
 - Danach erfolgt eine automatische Weiterleitung auf den passenden Abschnitt der Startseite per Anker-Link.
@@ -101,16 +102,13 @@ Beispiele:
 Wenn ein neuer Rueckblick oder Event gezielt teilbar sein soll:
 
 1. Dem Zielabschnitt in [index.html](index.html) eine stabile `id` geben.
-2. Eine neue Datei im Ordner [share](share) anlegen.
-3. In der Share-Datei passende Meta-Tags setzen:
-	`og:title`, `og:description`, `og:image`, `og:url`, `twitter:*`
-4. Fuer Bilder immer absolute URLs wie `https://www.cmi-ochsenfurt.de/bilder/...` verwenden.
-5. Die Weiterleitung auf den Zielabschnitt der Startseite setzen.
+2. In [share/share-pages-data.json](share/share-pages-data.json) einen neuen Eintrag mit `filename`, `variant`, Meta-Daten, Bild-URLs, Button-Text und `redirect_url` anlegen.
+3. Fuer Bilder weiterhin absolute Produktions-URLs wie `https://www.cmi-ochsenfurt.de/bilder/...` verwenden.
+4. [share/generate-share-pages.py](share/generate-share-pages.py) ausfuehren; dadurch werden die einzelnen Share-HTMLs sowie [share/share-pages.json](share/share-pages.json) und die Fallback-Liste in [share/instagram-export.js](share/instagram-export.js) neu erzeugt.
+5. Generierte Share-HTMLs unter [share](share) nicht manuell nachpflegen.
 6. Zum Gestalten die gemeinsame CSS-Datei [share/share-preview.css](share/share-preview.css) verwenden.
-7. Den Dateinamen in [share/share-pages.json](share/share-pages.json) eintragen, damit der Instagram-Export den Beitrag automatisch findet.
-8. `og:image` und `twitter:image` direkt auf das vorhandene Hauptbild der Share-Seite zeigen lassen.
-9. Optional kann fuer Social-Posts lokal `share/generate-share-preview-images.ps1` ausgefuehrt werden, ohne die erzeugten Dateien mit zu deployen.
-10. Wenn fuer [share/instagram-export.js](share/instagram-export.js) an der Fallback-Liste gearbeitet wird, muss sie mit [share/share-pages.json](share/share-pages.json) synchron bleiben.
+7. `og:image` und `twitter:image` direkt auf das vorhandene Hauptbild der Share-Seite zeigen lassen.
+8. Optional kann fuer Social-Posts lokal `share/generate-share-preview-images.ps1` ausgefuehrt werden, ohne die erzeugten Dateien mit zu deployen.
 
 ## Wichtige Hinweise
 
@@ -132,15 +130,15 @@ Hilfreiche Tools zum Aktualisieren der Vorschau:
 Instagram unterstuetzt keinen sauberen Direktimport von normalen Website-Inhalten. Darum gibt es fuer die bestehende Share-Struktur eine interne Export-Seite unter [share/instagram-export.html](share/instagram-export.html).
 
 - Die Export-Seite liest Bild, Titel, Kurztext und Share-Link direkt aus den vorhandenen Share-Seiten.
-- Die Liste der beruecksichtigten Share-Seiten kommt aus [share/share-pages.json](share/share-pages.json).
-- Falls das Manifest nicht geladen werden kann, nutzt [share/instagram-export.js](share/instagram-export.js) die eingebaute Fallback-Liste `FALLBACK_SHARE_PAGES`.
+- Die Liste der beruecksichtigten Share-Seiten kommt aus [share/share-pages.json](share/share-pages.json), das aus [share/share-pages-data.json](share/share-pages-data.json) generiert wird.
+- Falls das Manifest nicht geladen werden kann, nutzt [share/instagram-export.js](share/instagram-export.js) die eingebaute Fallback-Liste `FALLBACK_SHARE_PAGES`, die derselbe Generator-Schritt mitsynchronisiert.
 - Fuer jeden Beitrag gibt es eine sofort nutzbare Instagram-Caption, einen separaten Link-Button, einen Direktzugriff auf das Bild sowie PNG-Exporte fuer Feed im Format 4:5 und Story im Format 9:16.
 - Zusaetzlich kann die komplette Liste als JSON kopiert werden, falls spaeter ein Planungs- oder Automatisierungs-Tool angebunden wird.
 
 Pflegehinweis:
 
-- Neue Share-Seiten immer zuerst in [share/share-pages.json](share/share-pages.json) eintragen.
-- Wenn die Fallback-Liste in [share/instagram-export.js](share/instagram-export.js) bewusst beibehalten wird, muss derselbe Dateiname dort ebenfalls eingetragen werden.
+- Neue oder geaenderte Share-Seiten immer zuerst in [share/share-pages-data.json](share/share-pages-data.json) pflegen.
+- Danach [share/generate-share-pages.py](share/generate-share-pages.py) ausfuehren, damit HTML, Manifest und Fallback-Liste denselben Datenstand behalten.
 
 Empfohlener Ablauf:
 
