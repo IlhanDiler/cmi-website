@@ -32,7 +32,8 @@ Die JavaScript-Runtime ist jetzt in dreizehn Dateien geschnitten:
 - Ein kleines Inline-Snippet im HTML-`head` setzt frueh `history.scrollRestoration = 'manual'`, damit die Browser-eigene Scroll-Wiederherstellung die Runtime nicht ueberlagert.
 - [scripts/core-runtime.js](../scripts/core-runtime.js) kapselt Scroll-/Load-Verhalten, Sprach-Fallback und die zentrale Runtime-Initialisierung.
 - [scripts/event-lightbox.js](../scripts/event-lightbox.js) kapselt die Event-Lightbox inklusive Caption-Ableitung, Fokus-Rueckgabe und Keyboard-/Overlay-Schliessen.
-- [scripts/cookie-consent.js](../scripts/cookie-consent.js) kapselt Cookie-Consent-Texte, Observer-Logik und den Sprachsync fuer das eingebundene Cookie-Script.
+- [scripts/cookie-consent-content.js](../scripts/cookie-consent-content.js) kapselt die mehrsprachige Consent-Copy und die Tabellenlabels des eingebundenen Cookie-Scripts.
+- [scripts/cookie-consent.js](../scripts/cookie-consent.js) kapselt nur noch Observer-Logik und den Sprachsync fuer das eingebundene Cookie-Script.
 - [scripts/site-language.js](../scripts/site-language.js) kapselt Sprachumschaltung, Fallback-Auswahl fuer `data-lang`-Varianten und den statischen Accessibility-Sync.
 - [scripts/navigation-mobile.js](../scripts/navigation-mobile.js) kapselt Mobile-Menue, Fokus-Falle und Close-/Restore-Focus-Logik.
 - [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js) kapselt Smooth-Scroll, Hash-Zielbehandlung und aktiven Navigationszustand fuer In-Page-Links.
@@ -44,7 +45,7 @@ Die JavaScript-Runtime ist jetzt in dreizehn Dateien geschnitten:
 - [scripts/site-effects.js](../scripts/site-effects.js) kapselt Scroll-Reveal, Shape-Parallax und den Jahreszaehler.
 - [scripts/review-interactions.js](../scripts/review-interactions.js) kapselt das Review-Archiv, Karten-Toggles und die hash-getriebene Oeffnungslogik fuer aeltere Rueckblicke.
 
-Wichtig: Die HTML-Dateien setzen zuerst das kleine Inline-Snippet fuer `history.scrollRestoration` im `head` und laden danach [scripts/core-runtime.js](../scripts/core-runtime.js), [scripts/event-lightbox.js](../scripts/event-lightbox.js), [scripts/cookie-consent.js](../scripts/cookie-consent.js), [scripts/site-language.js](../scripts/site-language.js), [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js), [scripts/navigation-runtime.js](../scripts/navigation-runtime.js), [scripts/hero-layout.js](../scripts/hero-layout.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js), [scripts/hero-gallery-ui.js](../scripts/hero-gallery-ui.js), [scripts/site-effects.js](../scripts/site-effects.js) und [scripts/review-interactions.js](../scripts/review-interactions.js), weil die spaeteren Runtime-Dateien auf Basisfunktionen aus den frueher geladenen Dateien aufsetzen.
+Wichtig: Die HTML-Dateien setzen zuerst das kleine Inline-Snippet fuer `history.scrollRestoration` im `head` und laden danach [scripts/core-runtime.js](../scripts/core-runtime.js), [scripts/event-lightbox.js](../scripts/event-lightbox.js), [scripts/cookie-consent-content.js](../scripts/cookie-consent-content.js), [scripts/cookie-consent.js](../scripts/cookie-consent.js), [scripts/site-language.js](../scripts/site-language.js), [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js), [scripts/navigation-runtime.js](../scripts/navigation-runtime.js), [scripts/hero-layout.js](../scripts/hero-layout.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js), [scripts/hero-gallery-ui.js](../scripts/hero-gallery-ui.js), [scripts/site-effects.js](../scripts/site-effects.js) und [scripts/review-interactions.js](../scripts/review-interactions.js), weil die spaeteren Runtime-Dateien auf Basisfunktionen aus den frueher geladenen Dateien aufsetzen.
 
 ## Wichtige Regeln
 
@@ -107,7 +108,7 @@ Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaet
 2. Vor einer finalen Freigabe einen kurzen manuellen Browser-, Mobile- und Screenreader-Sweep ueber Hauptseite, Chronik, Legal-Seiten und Share-Flow fahren.
 3. Fuer den neuen Aktuelles-/Rueckblick-Flow spaeter ein bewusstes UX-/UI-Fine-Tuning einplanen; die konkreten Follow-up-Punkte stehen in [docs/SOCIAL-FEED-ASSESSMENT.md](../docs/SOCIAL-FEED-ASSESSMENT.md).
 4. Als naechsten Strukturhebel die Share-Architektur unter [share](../share) in Richtung strukturierter Quelle plus Generierung weiterziehen, bevor neue Einzel-HTMLs denselben Pflegeaufwand wieder aufbauen.
-5. Falls danach weiterer Runtime-Abbau sinnvoll ist, die verbleibenden groesseren Bloecke in [scripts/review-interactions.js](../scripts/review-interactions.js), [scripts/site-language.js](../scripts/site-language.js) und [scripts/cookie-consent.js](../scripts/cookie-consent.js) priorisieren.
+5. Falls danach weiterer Runtime-Abbau sinnvoll ist, die verbleibenden groesseren Interaktionsbloecke in [scripts/review-interactions.js](../scripts/review-interactions.js) und [scripts/site-language.js](../scripts/site-language.js) priorisieren.
 
 ## Offene Grenze
 
