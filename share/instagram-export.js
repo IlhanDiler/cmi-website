@@ -43,6 +43,37 @@ const KEYWORD_TAGS = [
     { pattern: /symphonic|kurswoche|wir musizieren|orchester|orchestra/, tags: ["#Orchester", "#GemeinsamMusizieren"] }
 ];
 
+const POST_COPY_TRANSLATIONS = {
+    de: {
+        storyCta: "Mehr auf unserer Website",
+        captionFootnote: "Mehr dazu auf unserer Website. Den passenden Link legen wir in Bio, Story oder Link-Sammlung."
+    },
+    en: {
+        storyCta: "More on our website",
+        captionFootnote: "Find more on our website. We place the matching link in the bio, story or link collection."
+    },
+    fr: {
+        storyCta: "Plus sur notre site",
+        captionFootnote: "Plus d'informations sur notre site. Nous plaçons le lien approprie dans la bio, la story ou une collection de liens."
+    },
+    ln: {
+        storyCta: "Makambo mingi na site",
+        captionFootnote: "Makambo mosusu ezali na site na biso. Tokotia lien oyo ebongi na bio, na story to na esika ya ba liens."
+    },
+    it: {
+        storyCta: "Di piu sul nostro sito",
+        captionFootnote: "Trovi di piu sul nostro sito. Inseriamo il link adatto nella bio, nella story o nella raccolta link."
+    },
+    tr: {
+        storyCta: "Sitemizde daha fazlasi",
+        captionFootnote: "Daha fazlasi web sitemizde. Uygun baglantiyi biyografi, hikaye veya link koleksiyonunda paylasiyoruz."
+    },
+    uk: {
+        storyCta: "Більше на нашому сайті",
+        captionFootnote: "Більше на нашому сайті. Відповідне посилання ми розміщуємо в біо, сторіз або збірці посилань."
+    }
+};
+
 const state = {
     posts: [],
     sharePages: [],
@@ -75,7 +106,9 @@ const INSTAGRAM_STORY_EXPORT = {
     maxTextLines: 6
 };
 
-const BRAND_LOGO_URL = "https://www.cmi-ochsenfurt.de/files/logo_cmi1%20-%20schwarz.svg";
+const SITE_ASSET_PATH_PATTERN = /^\/(bilder|files)\//i;
+const PRODUCTION_SITE_HOSTNAMES = new Set(["www.cmi-ochsenfurt.de", "cmi-ochsenfurt.de"]);
+const BRAND_LOGO_URL = "/files/logo_cmi1%20-%20schwarz.svg";
 const initialSearchParams = new URLSearchParams(window.location.search);
 
 const elements = {
@@ -88,6 +121,26 @@ const elements = {
 
 function getMetaContent(doc, selector) {
     return doc.querySelector(selector)?.getAttribute("content")?.trim() || "";
+}
+
+function resolveExportAssetUrl(value) {
+    const rawValue = collapseWhitespace(value);
+
+    if (!rawValue) {
+        return "";
+    }
+
+    try {
+        const resolvedUrl = new URL(rawValue, window.location.href);
+
+        if (PRODUCTION_SITE_HOSTNAMES.has(resolvedUrl.hostname) && SITE_ASSET_PATH_PATTERN.test(resolvedUrl.pathname)) {
+            return new URL(`${resolvedUrl.pathname}${resolvedUrl.search}${resolvedUrl.hash}`, window.location.origin).href;
+        }
+
+        return resolvedUrl.href;
+    } catch (_error) {
+        return rawValue;
+    }
 }
 
 function collapseWhitespace(value) {
@@ -115,7 +168,24 @@ function buildHashtags(title, text) {
     return uniqueTags([...DEFAULT_HASHTAGS, ...derived]);
 }
 
+function normalizePostLanguage(locale) {
+    const normalizedLocale = collapseWhitespace(locale).toLowerCase();
+    const language = normalizedLocale.split(/[_-]/)[0];
+
+    if (language && POST_COPY_TRANSLATIONS[language]) {
+        return language;
+    }
+
+    return "de";
+}
+
+function getPostCopy(language) {
+    return POST_COPY_TRANSLATIONS[normalizePostLanguage(language)];
+}
+
 function buildCaption(post) {
+    const localizedCopy = getPostCopy(post.language);
+
     return [
         post.title,
         "",
@@ -123,7 +193,7 @@ function buildCaption(post) {
         "",
         post.text,
         "",
-        "Mehr dazu auf unserer Website. Den passenden Link legen wir in Bio, Story oder Link-Sammlung.",
+        localizedCopy.captionFootnote,
         "",
         post.hashtags.join(" ")
     ].join("\n");
@@ -312,6 +382,90 @@ function drawCoverImage(ctx, image, x, y, width, height) {
     ctx.drawImage(image, sourceX, sourceY, sourceWidth, sourceHeight, x, y, width, height);
 }
 
+function drawContainedImage(ctx, image, x, y, width, height) {
+    if (!image || !image.width || !image.height || width <= 0 || height <= 0) {
+        return null;
+    }
+
+    const scale = Math.min(width / image.width, height / image.height);
+    const targetWidth = image.width * scale;
+    const targetHeight = image.height * scale;
+    const targetX = x + (width - targetWidth) / 2;
+    const targetY = y + (height - targetHeight) / 2;
+
+    ctx.drawImage(image, targetX, targetY, targetWidth, targetHeight);
+
+    return {
+        x: targetX,
+        y: targetY,
+        width: targetWidth,
+        height: targetHeight
+    };
+}
+
+function drawImageStage(ctx, image, options) {
+    const {
+        x,
+        y,
+        width,
+        height,
+        framePadding,
+        frameInset,
+        frameRadius,
+        backdropOpacity,
+        backdropTint,
+        frameFill
+    } = options;
+
+    if (!image || width <= 0 || height <= 0) {
+        return;
+    }
+
+    ctx.save();
+    ctx.globalAlpha = typeof backdropOpacity === "number" ? backdropOpacity : 0.2;
+    drawCoverImage(ctx, image, x, y, width, height);
+    ctx.restore();
+
+    if (backdropTint) {
+        ctx.fillStyle = backdropTint;
+        ctx.fillRect(x, y, width, height);
+    }
+
+    const stageX = x + framePadding;
+    const stageY = y + framePadding;
+    const stageWidth = width - framePadding * 2;
+    const stageHeight = height - framePadding * 2;
+
+    ctx.save();
+    ctx.shadowColor = "rgba(13, 49, 45, 0.18)";
+    ctx.shadowBlur = 36;
+    ctx.shadowOffsetY = 14;
+    drawRoundedRect(ctx, stageX, stageY, stageWidth, stageHeight, frameRadius);
+    ctx.fillStyle = frameFill || "rgba(255, 255, 255, 0.24)";
+    ctx.fill();
+    ctx.restore();
+
+    ctx.save();
+    drawRoundedRect(ctx, stageX, stageY, stageWidth, stageHeight, frameRadius);
+    ctx.clip();
+    drawContainedImage(
+        ctx,
+        image,
+        stageX + frameInset,
+        stageY + frameInset,
+        stageWidth - frameInset * 2,
+        stageHeight - frameInset * 2
+    );
+    ctx.restore();
+
+    ctx.save();
+    drawRoundedRect(ctx, stageX, stageY, stageWidth, stageHeight, frameRadius);
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.72)";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.restore();
+}
+
 function fitTextIntoLines(ctx, text, maxWidth, maxLines) {
     const words = text.split(/\s+/).filter(Boolean);
     const lines = [];
@@ -397,10 +551,24 @@ async function exportInstagramImage(post, trigger) {
         ctx.fillStyle = backgroundGradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        drawCoverImage(ctx, heroImage.value, 0, 0, canvas.width, INSTAGRAM_EXPORT.imageHeight);
+        drawImageStage(ctx, heroImage.value, {
+            x: 0,
+            y: 0,
+            width: canvas.width,
+            height: INSTAGRAM_EXPORT.imageHeight,
+            framePadding: 38,
+            frameInset: 18,
+            frameRadius: 36,
+            backdropOpacity: 0.18,
+            backdropTint: "rgba(8, 30, 27, 0.08)",
+            frameFill: "rgba(255, 255, 255, 0.3)"
+        });
 
-        ctx.fillStyle = "rgba(8, 30, 27, 0.15)";
-        ctx.fillRect(0, INSTAGRAM_EXPORT.imageHeight - 140, canvas.width, 140);
+        const imageFade = ctx.createLinearGradient(0, INSTAGRAM_EXPORT.imageHeight - 170, 0, INSTAGRAM_EXPORT.imageHeight + 24);
+        imageFade.addColorStop(0, "rgba(8, 30, 27, 0)");
+        imageFade.addColorStop(1, "rgba(8, 30, 27, 0.12)");
+        ctx.fillStyle = imageFade;
+        ctx.fillRect(0, INSTAGRAM_EXPORT.imageHeight - 170, canvas.width, 194);
 
         drawRoundedRect(ctx, 0, INSTAGRAM_EXPORT.bodyTop - 16, canvas.width, INSTAGRAM_EXPORT.bodyHeight + 16, 38);
         ctx.fillStyle = "rgba(255, 255, 255, 0.98)";
@@ -457,7 +625,7 @@ async function exportInstagramImage(post, trigger) {
     } catch (error) {
         console.error(error);
         announceTransientExportStatus(`PNG-Export fehlgeschlagen: ${postLabel}`, 2200);
-        window.alert("Der PNG-Export hat nicht funktioniert. Auf der live Website klappt das zuverlaessiger; lokal kannst du die Vorschau alternativ als Screenshot verwenden.");
+        window.alert("Der PNG-Export hat nicht funktioniert. Bitte die Export-Seite ueber die live Website oder lokal ueber einen Webserver oeffnen; direkt ueber file:// klappt der Canvas-Export nicht.");
         setControlFeedbackState(trigger, "Export fehlgeschlagen", `PNG-Export fehlgeschlagen: ${postLabel}`);
     } finally {
         window.setTimeout(() => {
@@ -495,7 +663,18 @@ async function exportInstagramStoryImage(post, trigger) {
         ctx.fillStyle = backgroundGradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        drawCoverImage(ctx, heroImage.value, 0, 0, canvas.width, INSTAGRAM_STORY_EXPORT.imageHeight);
+        drawImageStage(ctx, heroImage.value, {
+            x: 0,
+            y: 0,
+            width: canvas.width,
+            height: INSTAGRAM_STORY_EXPORT.imageHeight,
+            framePadding: 42,
+            frameInset: 22,
+            frameRadius: 42,
+            backdropOpacity: 0.2,
+            backdropTint: "rgba(8, 30, 27, 0.08)",
+            frameFill: "rgba(255, 255, 255, 0.28)"
+        });
 
         const shadeGradient = ctx.createLinearGradient(0, INSTAGRAM_STORY_EXPORT.imageHeight - 240, 0, INSTAGRAM_STORY_EXPORT.imageHeight + 80);
         shadeGradient.addColorStop(0, "rgba(8, 30, 27, 0)");
@@ -545,7 +724,7 @@ async function exportInstagramStoryImage(post, trigger) {
         ctx.fill();
         ctx.fillStyle = "#11786d";
         ctx.font = "700 30px 'Segoe UI', sans-serif";
-        ctx.fillText("Mehr auf unserer Website", INSTAGRAM_STORY_EXPORT.padding + 34, canvas.height - 304);
+        ctx.fillText(getPostCopy(post.language).storyCta, INSTAGRAM_STORY_EXPORT.padding + 34, canvas.height - 304);
 
         ctx.fillStyle = "#11786d";
         ctx.font = "700 24px 'Segoe UI', sans-serif";
@@ -565,7 +744,7 @@ async function exportInstagramStoryImage(post, trigger) {
     } catch (error) {
         console.error(error);
         announceTransientExportStatus(`Story-Export fehlgeschlagen: ${postLabel}`, 2200);
-        window.alert("Der Story-Export hat nicht funktioniert. Auf der live Website klappt das zuverlaessiger; lokal kannst du die Vorschau alternativ als Screenshot verwenden.");
+        window.alert("Der Story-Export hat nicht funktioniert. Bitte die Export-Seite ueber die live Website oder lokal ueber einen Webserver oeffnen; direkt ueber file:// klappt der Canvas-Export nicht.");
         setControlFeedbackState(trigger, "Story fehlgeschlagen", `Story-Export fehlgeschlagen: ${postLabel}`);
     } finally {
         window.setTimeout(() => {
@@ -585,7 +764,12 @@ async function loadPost(fileName) {
     const doc = new DOMParser().parseFromString(html, "text/html");
     const title = collapseWhitespace(getMetaContent(doc, 'meta[property="og:title"]') || doc.title.trim());
     const description = collapseWhitespace(getMetaContent(doc, 'meta[name="description"]') || getMetaContent(doc, 'meta[property="og:description"]'));
-    const image = doc.querySelector(".share-card__hero")?.getAttribute("src") || getMetaContent(doc, 'meta[property="og:image"]') || "";
+    const language = normalizePostLanguage(
+        getMetaContent(doc, 'meta[property="og:locale"]') || doc.documentElement.getAttribute("lang") || "de"
+    );
+    const image = resolveExportAssetUrl(
+        doc.querySelector(".share-card__hero")?.getAttribute("src") || getMetaContent(doc, 'meta[property="og:image"]') || ""
+    );
     const imageAlt = collapseWhitespace(
         doc.querySelector(".share-card__hero")?.getAttribute("alt") ||
         getMetaContent(doc, 'meta[property="og:image:alt"]') ||
@@ -601,13 +785,14 @@ async function loadPost(fileName) {
         fileName,
         title,
         description,
+        language,
         image,
         imageAlt,
         shareUrl,
         meta,
         text,
         hashtags,
-        caption: buildCaption({ title, meta, text, hashtags })
+        caption: buildCaption({ title, meta, text, hashtags, language })
     };
 }
 
@@ -710,6 +895,7 @@ function renderPosts(posts) {
         const storyPreviewMeta = fragment.querySelector(".story-preview__meta");
         const storyPreviewTitle = fragment.querySelector(".story-preview__title");
         const storyPreviewText = fragment.querySelector(".story-preview__text");
+        const storyPreviewCta = fragment.querySelector(".story-preview__cta");
         const exportImageButton = fragment.querySelector(".post-card__export-image");
         const exportStoryButton = fragment.querySelector(".post-card__export-story");
         const copyCaptionButton = fragment.querySelector(".post-card__copy-caption");
@@ -757,6 +943,9 @@ function renderPosts(posts) {
         storyPreviewMeta.textContent = post.meta;
         storyPreviewTitle.textContent = post.title;
         storyPreviewText.textContent = post.text;
+        if (storyPreviewCta) {
+            storyPreviewCta.textContent = getPostCopy(post.language).storyCta;
+        }
 
         if (feedPreview) {
             feedPreview.setAttribute("aria-label", `Instagram 4 zu 5 Vorschau: ${post.title}`);

@@ -88,7 +88,7 @@ function clearCurrentHash() {
         return;
     }
 
-    history.replaceState(null, '', window.location.pathname + window.location.search);
+    history.replaceState(window.history.state, '', window.location.pathname + window.location.search);
 }
 
 function getNavigationType() {
@@ -168,6 +168,7 @@ function initSiteFeatures() {
     updateYearsPassed();
     initReviewArchiveToggle();
     initReviewCardToggles();
+    initReviewNewsFeedNavigation();
     initSiteLanguage();
 }
 

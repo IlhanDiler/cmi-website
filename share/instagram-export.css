@@ -215,13 +215,18 @@ body {
 
 .post-card__media {
     min-height: 100%;
-    background: #dceceb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: linear-gradient(180deg, #dceceb 0%, #eef6f5 100%);
 }
 
 .post-card__image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     display: block;
     aspect-ratio: 4 / 5;
 }
@@ -240,6 +245,7 @@ body {
 }
 
 .insta-preview {
+    position: relative;
     width: min(360px, 100%);
     border-radius: 28px;
     overflow: hidden;
@@ -257,7 +263,10 @@ body {
 .insta-preview__image {
     width: 100%;
     height: 62%;
-    object-fit: cover;
+    padding: 16px 16px 0;
+    box-sizing: border-box;
+    object-fit: contain;
+    object-position: center top;
     display: block;
 }
 
@@ -347,7 +356,10 @@ body {
 .story-preview__image {
     width: 100%;
     height: 58%;
-    object-fit: cover;
+    padding: 16px 16px 0;
+    box-sizing: border-box;
+    object-fit: contain;
+    object-position: center top;
     display: block;
 }
 

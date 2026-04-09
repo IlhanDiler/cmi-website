@@ -1,0 +1,51 @@
+{
+  "targets": {
+    "homepage-news-feed-intro": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "news-feed-kicker",
+          "text": {
+            "de": "Aktuelles",
+            "en": "Latest",
+            "fr": "Actualites",
+            "ln": "Sika",
+            "it": "Novita",
+            "tr": "Guncel",
+            "uk": "Актуальне"
+          }
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "className": "news-feed-title",
+          "text": {
+            "de": "Aktuelle Einblicke aus dem CMI",
+            "en": "Current Highlights from CMI",
+            "fr": "Temps forts actuels du CMI",
+            "ln": "Makambo ya sika ya CMI",
+            "it": "Momenti attuali del CMI",
+            "tr": "CMI'dan guncel one cikanlar",
+            "uk": "Актуальні акценти CMI"
+          }
+        },
+        {
+          "type": "paragraph",
+          "className": "news-feed-intro",
+          "text": {
+            "de": "Rückblicke, Begegnungen und Benefizprojekte aus dem Ensemble. Die kommenden Konzerttermine findest du direkt im Eventbereich.",
+            "en": "Highlights from rehearsals, encounters, and benefit projects. You can find upcoming concert dates directly in the events section.",
+            "fr": "Des regards recents sur les repetitions, les rencontres et les projets solidaires. Les prochains concerts sont reunis directement dans la section des evenements.",
+            "ln": "Makambo ya sika uta na ba repetision, bokutani mpe misala ya lisungi. Mikolo ya ba konser oyo ezali koya ezali mbala moko na eteni ya evenements.",
+            "it": "Uno sguardo recente su prove, incontri e progetti benefici. Le prossime date dei concerti si trovano direttamente nella sezione eventi.",
+            "tr": "Provalar, bulusmalar ve yardim projelerinden guncel kesitler. Yaklasan konser tarihlerini dogrudan etkinlikler bolumunde bulabilirsin.",
+            "uk": "Свіжі огляди репетицій, зустрічей і благодійних проєктів. Найближчі концертні дати зібрані безпосередньо в розділі подій."
+          }
+        }
+      ]
+    }
+  }
+}

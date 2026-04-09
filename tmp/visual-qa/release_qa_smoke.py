@@ -344,6 +344,105 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
             f"Expected English event download label, got: {visible_event_download or '[empty]'}",
         )
 
+    visible_news_feed_title = await first_visible_text(page, ".news-feed-title[data-lang]")
+    if visible_news_feed_title != "Current Highlights from CMI":
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "index-desktop news-feed"),
+            f"Expected English news feed title, got: {visible_news_feed_title or '[empty]'}",
+        )
+
+    visible_news_feed_featured = await first_visible_text(
+        page,
+        ".news-feed-grid .news-feed-card:first-child .news-feed-card-title [data-lang]",
+    )
+    if visible_news_feed_featured != "Workshop with Florian Meierott":
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "index-desktop news-feed"),
+            f"Expected English first news feed card title, got: {visible_news_feed_featured or '[empty]'}",
+        )
+
+    visible_news_feed_cards = await page.locator(".news-feed-grid .news-feed-card").count()
+    if visible_news_feed_cards != 6:
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "index-desktop news-feed"),
+            f"Expected 6 news feed cards, got: {visible_news_feed_cards}",
+        )
+
+    news_feed_link = page.locator(".news-feed-grid .news-feed-card:first-child .news-feed-card-link")
+    await news_feed_link.scroll_into_view_if_needed()
+    news_feed_scroll_before = await page.evaluate("() => window.scrollY")
+    await news_feed_link.click()
+
+    try:
+        await page.wait_for_function(
+            "() => window.location.hash === '#review-masterclass-florian-meierott'",
+            timeout=5000,
+        )
+    except PlaywrightTimeoutError:
+        add_issue(
+            issues,
+            "high",
+            scope_name(browser_target, "index-desktop news-feed"),
+            "News feed detail navigation did not update the review hash",
+        )
+
+    try:
+        await page.wait_for_function(
+            """
+            () => {
+                const section = document.getElementById('review-masterclass-florian-meierott');
+                if (!section) {
+                    return false;
+                }
+
+                const rect = section.getBoundingClientRect();
+                return rect.top >= 0 && rect.top < (window.innerHeight * 0.45);
+            }
+            """,
+            timeout=5000,
+        )
+    except PlaywrightTimeoutError:
+        add_issue(
+            issues,
+            "high",
+            scope_name(browser_target, "index-desktop news-feed"),
+            "News feed detail navigation did not scroll the selected review section into view",
+        )
+
+    visible_review_back_label = await first_visible_text(
+        page,
+        "#review-masterclass-florian-meierott .review-return-link [data-lang]",
+    )
+    if visible_review_back_label != "Back to latest":
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "index-desktop news-feed"),
+            f"Expected English review back label, got: {visible_review_back_label or '[empty]'}",
+        )
+
+    await page.go_back()
+    try:
+        await page.wait_for_function(
+            "expected => Math.abs(window.scrollY - expected) < 80",
+            arg=news_feed_scroll_before,
+            timeout=5000,
+        )
+    except PlaywrightTimeoutError:
+        restored_scroll = await page.evaluate("() => window.scrollY")
+        add_issue(
+            issues,
+            "high",
+            scope_name(browser_target, "index-desktop news-feed"),
+            f"Browser back did not restore the previous news feed position (expected about {news_feed_scroll_before:.0f}, got {restored_scroll:.0f})",
+        )
+
     visible_contact_title = await first_visible_text(page, ".contact-info-title[data-lang]")
     if visible_contact_title != "Contact":
         add_issue(
@@ -603,6 +702,110 @@ async def check_share_page(browser, issues, screenshots, browser_target, path_na
     await save_page_screenshot(page, screenshot_path, screenshots, browser_target)
     await context.close()
 
+
+async def check_instagram_export_page(browser, issues, screenshots, browser_target):
+    context = await browser.new_context(
+        viewport={"width": 1440, "height": 1800},
+        locale="tr-TR",
+        accept_downloads=True,
+    )
+    page = await context.new_page()
+    dialog_messages = []
+    attach_page_monitors(page, issues, scope_name(browser_target, "instagram-export"))
+
+    async def handle_dialog(dialog):
+        dialog_messages.append(dialog.message)
+        await dialog.dismiss()
+
+    page.on("dialog", handle_dialog)
+
+    await page.goto(f"{BASE_URL}/share/instagram-export.html", wait_until="domcontentloaded")
+    await page.wait_for_timeout(1400)
+
+    await wait_visible(page, ".post-card", scope_name(browser_target, "instagram-export card"), issues)
+    await wait_visible(page, ".story-preview__cta", scope_name(browser_target, "instagram-export story cta"), issues)
+
+    visible_post_count = await page.locator(".post-card").count()
+    if visible_post_count <= 0:
+        add_issue(
+            issues,
+            "high",
+            scope_name(browser_target, "instagram-export"),
+            "Instagram export page did not render any post cards",
+        )
+
+    visible_story_cta = await first_visible_text(page, ".post-card:first-child .story-preview__cta")
+    if visible_story_cta != "Sitemizde daha fazlasi":
+        add_issue(
+            issues,
+            "high",
+            scope_name(browser_target, "instagram-export translation"),
+            f"Expected Turkish story CTA, got: {visible_story_cta or '[empty]'}",
+        )
+
+    first_caption = await page.locator(".post-card__caption").first.input_value()
+    if "Daha fazlasi web sitemizde." not in first_caption:
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "instagram-export translation"),
+            "Expected Turkish caption helper copy in the first export card",
+        )
+
+    first_card = page.locator(".post-card").first
+
+    try:
+        async with page.expect_download(timeout=10000) as download_info:
+            await first_card.locator(".post-card__export-image").click()
+        feed_download = await download_info.value
+        feed_download_name = feed_download.suggested_filename
+        if not feed_download_name.endswith("-instagram-4x5.png"):
+            add_issue(
+                issues,
+                "medium",
+                scope_name(browser_target, "instagram-export feed"),
+                f"Unexpected feed export filename: {feed_download_name}",
+            )
+    except PlaywrightTimeoutError:
+        add_issue(
+            issues,
+            "high",
+            scope_name(browser_target, "instagram-export feed"),
+            "Feed PNG export did not trigger a download",
+        )
+
+    try:
+        async with page.expect_download(timeout=10000) as download_info:
+            await first_card.locator(".post-card__export-story").click()
+        story_download = await download_info.value
+        story_download_name = story_download.suggested_filename
+        if not story_download_name.endswith("-instagram-story-9x16.png"):
+            add_issue(
+                issues,
+                "medium",
+                scope_name(browser_target, "instagram-export story"),
+                f"Unexpected story export filename: {story_download_name}",
+            )
+    except PlaywrightTimeoutError:
+        add_issue(
+            issues,
+            "high",
+            scope_name(browser_target, "instagram-export story"),
+            "Story PNG export did not trigger a download",
+        )
+
+    if dialog_messages:
+        add_issue(
+            issues,
+            "high",
+            scope_name(browser_target, "instagram-export dialogs"),
+            f"Unexpected export dialogs: {' | '.join(dialog_messages)}",
+        )
+
+    screenshot_path = OUT_DIR / f"instagram-export-{browser_target}.png"
+    await save_page_screenshot(page, screenshot_path, screenshots, browser_target)
+    await context.close()
+
 async def run_release_smoke_for_target(playwright, requested_target):
     issues = []
     screenshots = []
@@ -637,6 +840,7 @@ async def run_release_smoke_for_target(playwright, requested_target):
             ".share-card--poster",
             "CMI Konser Yili",
         )
+        await check_instagram_export_page(browser, issues, screenshots, resolved_target)
     except Exception as error:  # noqa: BLE001
         add_issue(
             issues,

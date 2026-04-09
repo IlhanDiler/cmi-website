@@ -93,6 +93,7 @@ Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaet
 
 1. Den Generatoransatz vom Impressum und Datenschutz auf weitere Legal-Bloecke oder einen anderen grossen Sprachbereich ausweiten.
 2. Vor einer finalen Freigabe einen kurzen manuellen Browser-, Mobile- und Screenreader-Sweep ueber Hauptseite, Chronik, Legal-Seiten und Share-Flow fahren.
+3. Fuer den neuen Aktuelles-/Rueckblick-Flow spaeter ein bewusstes UX-/UI-Fine-Tuning einplanen; die konkreten Follow-up-Punkte stehen in [docs/SOCIAL-FEED-ASSESSMENT.md](../docs/SOCIAL-FEED-ASSESSMENT.md).
 
 ## Offene Grenze
 

@@ -3,3 +3,4 @@ share/status-images/
 share/querbeet-roundup-2025.pdf
 *.png
 tmp/visual-qa/*.html
+files/angebot*.pdf

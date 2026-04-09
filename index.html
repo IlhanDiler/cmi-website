@@ -41,7 +41,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260406-cachefix-1">
+    <link rel="stylesheet" href="style.css?v=20260409-ui-nav-fix-2">
     <script>
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
@@ -105,6 +105,13 @@
             <a href="#events" class="nav-link" data-lang="it" hidden aria-hidden="true">Eventi</a>
             <a href="#events" class="nav-link" data-lang="tr" hidden aria-hidden="true">Etkinlikler</a>
             <a href="#events" class="nav-link" data-lang="uk" hidden aria-hidden="true">Події</a>
+            <a href="#news-feed" class="nav-link" data-lang="de">Aktuelles</a>
+            <a href="#news-feed" class="nav-link" data-lang="en" hidden aria-hidden="true">Latest</a>
+            <a href="#news-feed" class="nav-link" data-lang="fr" hidden aria-hidden="true">Actualites</a>
+            <a href="#news-feed" class="nav-link" data-lang="ln" hidden aria-hidden="true">Sika</a>
+            <a href="#news-feed" class="nav-link" data-lang="it" hidden aria-hidden="true">Novita</a>
+            <a href="#news-feed" class="nav-link" data-lang="tr" hidden aria-hidden="true">Guncel</a>
+            <a href="#news-feed" class="nav-link" data-lang="uk" hidden aria-hidden="true">Актуальне</a>
             <a href="#timeline-section" class="nav-link" data-lang="de">Chronik</a>
             <a href="#timeline-section" class="nav-link" data-lang="en" hidden aria-hidden="true">Timeline</a>
             <a href="#timeline-section" class="nav-link" data-lang="fr" hidden aria-hidden="true">Chronique</a>
@@ -209,6 +216,13 @@
             <a href="#events" class="mobile-nav-link" data-lang="it" hidden aria-hidden="true">Eventi</a>
             <a href="#events" class="mobile-nav-link" data-lang="tr" hidden aria-hidden="true">Etkinlikler</a>
             <a href="#events" class="mobile-nav-link" data-lang="uk" hidden aria-hidden="true">Події</a>
+            <a href="#news-feed" class="mobile-nav-link" data-lang="de">Aktuelles</a>
+            <a href="#news-feed" class="mobile-nav-link" data-lang="en" hidden aria-hidden="true">Latest</a>
+            <a href="#news-feed" class="mobile-nav-link" data-lang="fr" hidden aria-hidden="true">Actualites</a>
+            <a href="#news-feed" class="mobile-nav-link" data-lang="ln" hidden aria-hidden="true">Sika</a>
+            <a href="#news-feed" class="mobile-nav-link" data-lang="it" hidden aria-hidden="true">Novita</a>
+            <a href="#news-feed" class="mobile-nav-link" data-lang="tr" hidden aria-hidden="true">Guncel</a>
+            <a href="#news-feed" class="mobile-nav-link" data-lang="uk" hidden aria-hidden="true">Актуальне</a>
             <a href="#timeline-section" class="mobile-nav-link" data-lang="de">Chronik</a>
             <a href="#timeline-section" class="mobile-nav-link" data-lang="en" hidden aria-hidden="true">Timeline</a>
             <a href="#timeline-section" class="mobile-nav-link" data-lang="fr" hidden aria-hidden="true">Chronique</a>
@@ -1901,6 +1915,146 @@
         </div>
     </div>
  </section>
+<section class="news-feed-section" id="news-feed">
+  <div class="news-feed-shell">
+    <div class="news-feed-header">
+      <div class="news-feed-copy">
+      <!-- LEGAL-I18N:homepage-news-feed-intro:start -->
+            <div class="news-feed-kicker" data-lang="de">Aktuelles</div>
+            <div class="news-feed-kicker" data-lang="en" hidden aria-hidden="true">Latest</div>
+            <div class="news-feed-kicker" data-lang="fr" hidden aria-hidden="true">Actualites</div>
+            <div class="news-feed-kicker" data-lang="ln" hidden aria-hidden="true">Sika</div>
+            <div class="news-feed-kicker" data-lang="it" hidden aria-hidden="true">Novita</div>
+            <div class="news-feed-kicker" data-lang="tr" hidden aria-hidden="true">Guncel</div>
+            <div class="news-feed-kicker" data-lang="uk" hidden aria-hidden="true">Актуальне</div>
+            <h2 class="news-feed-title" data-lang="de">Aktuelle Einblicke aus dem CMI</h2>
+            <h2 class="news-feed-title" data-lang="en" hidden aria-hidden="true">Current Highlights from CMI</h2>
+            <h2 class="news-feed-title" data-lang="fr" hidden aria-hidden="true">Temps forts actuels du CMI</h2>
+            <h2 class="news-feed-title" data-lang="ln" hidden aria-hidden="true">Makambo ya sika ya CMI</h2>
+            <h2 class="news-feed-title" data-lang="it" hidden aria-hidden="true">Momenti attuali del CMI</h2>
+            <h2 class="news-feed-title" data-lang="tr" hidden aria-hidden="true">CMI'dan guncel one cikanlar</h2>
+            <h2 class="news-feed-title" data-lang="uk" hidden aria-hidden="true">Актуальні акценти CMI</h2>
+            <p class="news-feed-intro" data-lang="de">Rückblicke, Begegnungen und Benefizprojekte aus dem Ensemble. Die kommenden Konzerttermine findest du direkt im Eventbereich.</p>
+            <p class="news-feed-intro" data-lang="en" hidden aria-hidden="true">Highlights from rehearsals, encounters, and benefit projects. You can find upcoming concert dates directly in the events section.</p>
+            <p class="news-feed-intro" data-lang="fr" hidden aria-hidden="true">Des regards recents sur les repetitions, les rencontres et les projets solidaires. Les prochains concerts sont reunis directement dans la section des evenements.</p>
+            <p class="news-feed-intro" data-lang="ln" hidden aria-hidden="true">Makambo ya sika uta na ba repetision, bokutani mpe misala ya lisungi. Mikolo ya ba konser oyo ezali koya ezali mbala moko na eteni ya evenements.</p>
+            <p class="news-feed-intro" data-lang="it" hidden aria-hidden="true">Uno sguardo recente su prove, incontri e progetti benefici. Le prossime date dei concerti si trovano direttamente nella sezione eventi.</p>
+            <p class="news-feed-intro" data-lang="tr" hidden aria-hidden="true">Provalar, bulusmalar ve yardim projelerinden guncel kesitler. Yaklasan konser tarihlerini dogrudan etkinlikler bolumunde bulabilirsin.</p>
+            <p class="news-feed-intro" data-lang="uk" hidden aria-hidden="true">Свіжі огляди репетицій, зустрічей і благодійних проєктів. Найближчі концертні дати зібрані безпосередньо в розділі подій.</p>
+            <!-- LEGAL-I18N:homepage-news-feed-intro:end -->
+      </div>
+      <a class="news-feed-overview-link" href="#events">
+        <span data-lang="de">Zu den Konzerten</span>
+        <span data-lang="en" hidden aria-hidden="true">Go to concerts</span>
+        <span data-lang="fr" hidden aria-hidden="true">Voir les concerts</span>
+        <span data-lang="ln" hidden aria-hidden="true">Tala ba konser</span>
+        <span data-lang="it" hidden aria-hidden="true">Vai ai concerti</span>
+        <span data-lang="tr" hidden aria-hidden="true">Konserlere git</span>
+        <span data-lang="uk" hidden aria-hidden="true">До концертів</span>
+      </a>
+    </div>
+    <div class="news-feed-grid">
+      <article class="news-feed-card">
+        <a class="news-feed-card-link" href="#review-masterclass-florian-meierott">
+          <div class="news-feed-card-media">
+            <img class="news-feed-card-image news-feed-card-image--backdrop" src="bilder/Masterclass_Meierott_14032026.jpeg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img class="news-feed-card-image news-feed-card-image--contain" src="bilder/Masterclass_Meierott_14032026.jpeg" alt="" loading="lazy" decoding="async">
+          </div>
+          <div class="news-feed-card-body">
+            <div class="news-feed-card-meta">
+              <span class="news-feed-card-badge"><span data-lang="de">Workshop</span><span data-lang="en" hidden aria-hidden="true">Workshop</span><span data-lang="fr" hidden aria-hidden="true">Atelier</span><span data-lang="ln" hidden aria-hidden="true">Atelie</span><span data-lang="it" hidden aria-hidden="true">Workshop</span><span data-lang="tr" hidden aria-hidden="true">Atolye</span><span data-lang="uk" hidden aria-hidden="true">Воркшоп</span></span>
+              <span class="news-feed-card-date"><span data-lang="de">14. März 2026</span><span data-lang="en" hidden aria-hidden="true">March 14, 2026</span><span data-lang="fr" hidden aria-hidden="true">14 mars 2026</span><span data-lang="ln" hidden aria-hidden="true">14 mars 2026</span><span data-lang="it" hidden aria-hidden="true">14 marzo 2026</span><span data-lang="tr" hidden aria-hidden="true">14 Mart 2026</span><span data-lang="uk" hidden aria-hidden="true">14 березня 2026</span></span>
+            </div>
+            <h3 class="news-feed-card-title"><span data-lang="de">Workshop mit Florian Meierott</span><span data-lang="en" hidden aria-hidden="true">Workshop with Florian Meierott</span><span data-lang="fr" hidden aria-hidden="true">Atelier avec Florian Meierott</span><span data-lang="ln" hidden aria-hidden="true">Atelie elongo na Florian Meierott</span><span data-lang="it" hidden aria-hidden="true">Workshop con Florian Meierott</span><span data-lang="tr" hidden aria-hidden="true">Florian Meierott ile atolye</span><span data-lang="uk" hidden aria-hidden="true">Воркшоп із Флоріаном Майєроттом</span></h3>
+            <p class="news-feed-card-copy"><span data-lang="de">Die Streichergruppe arbeitete an Klang, Technik und Ausdruck für die Frühlingskonzerte.</span><span data-lang="en" hidden aria-hidden="true">The string group worked on sound, technique, and expression for the spring concerts.</span><span data-lang="fr" hidden aria-hidden="true">Le groupe des cordes a travaille le son, la technique et l'expression pour les concerts de printemps.</span><span data-lang="ln" hidden aria-hidden="true">Etuluku ya bansinga esalaki na son, technique mpe ndenge ya komonisa mayoki mpo na ba konser ya printemps.</span><span data-lang="it" hidden aria-hidden="true">Il gruppo degli archi ha lavorato su suono, tecnica ed espressivita per i concerti di primavera.</span><span data-lang="tr" hidden aria-hidden="true">Yayli grubu bahar konserleri icin ses, teknik ve ifade uzerinde calisti.</span><span data-lang="uk" hidden aria-hidden="true">Струнна група працювала над звучанням, технікою та виразністю для весняних концертів.</span></p>
+            <span class="news-feed-card-cta"><span data-lang="de">Mehr entdecken</span><span data-lang="en" hidden aria-hidden="true">Discover more</span><span data-lang="fr" hidden aria-hidden="true">En savoir plus</span><span data-lang="ln" hidden aria-hidden="true">Yeba lisusu</span><span data-lang="it" hidden aria-hidden="true">Scopri di piu</span><span data-lang="tr" hidden aria-hidden="true">Daha fazlasi</span><span data-lang="uk" hidden aria-hidden="true">Докладніше</span></span>
+          </div>
+        </a>
+      </article>
+      <article class="news-feed-card">
+        <a class="news-feed-card-link" href="#review-benefiz-trommelworkshop-2026">
+          <div class="news-feed-card-media">
+            <img class="news-feed-card-image" src="bilder/Trommelworkshop.jpeg" alt="" loading="lazy" decoding="async">
+          </div>
+          <div class="news-feed-card-body">
+            <div class="news-feed-card-meta">
+              <span class="news-feed-card-badge"><span data-lang="de">Benefiz</span><span data-lang="en" hidden aria-hidden="true">Benefit</span><span data-lang="fr" hidden aria-hidden="true">Benefice</span><span data-lang="ln" hidden aria-hidden="true">Lisungi</span><span data-lang="it" hidden aria-hidden="true">Beneficenza</span><span data-lang="tr" hidden aria-hidden="true">Yardim</span><span data-lang="uk" hidden aria-hidden="true">Благодійність</span></span>
+              <span class="news-feed-card-date"><span data-lang="de">Februar &amp; März 2026</span><span data-lang="en" hidden aria-hidden="true">February &amp; March 2026</span><span data-lang="fr" hidden aria-hidden="true">fevrier et mars 2026</span><span data-lang="ln" hidden aria-hidden="true">fevrier mpe mars 2026</span><span data-lang="it" hidden aria-hidden="true">febbraio e marzo 2026</span><span data-lang="tr" hidden aria-hidden="true">Subat ve Mart 2026</span><span data-lang="uk" hidden aria-hidden="true">лютий і березень 2026</span></span>
+            </div>
+            <h3 class="news-feed-card-title"><span data-lang="de">Trommelworkshop mit Gästen aus dem Kongo</span><span data-lang="en" hidden aria-hidden="true">Drum workshop with guests from the Congo</span><span data-lang="fr" hidden aria-hidden="true">Atelier de percussions avec des invites du Congo</span><span data-lang="ln" hidden aria-hidden="true">Atelie ya ngoma elongo na bapaya ya Congo</span><span data-lang="it" hidden aria-hidden="true">Workshop di percussioni con ospiti dal Congo</span><span data-lang="tr" hidden aria-hidden="true">Kongo'dan konuklarla davul atolyesi</span><span data-lang="uk" hidden aria-hidden="true">Барабанний воркшоп із гостями з Конго</span></h3>
+            <p class="news-feed-card-copy"><span data-lang="de">Rhythmus, Begegnung und konkrete Unterstützung kamen in zwei offenen Workshops zusammen.</span><span data-lang="en" hidden aria-hidden="true">Rhythm, encounter, and direct support came together in two open workshops.</span><span data-lang="fr" hidden aria-hidden="true">Le rythme, la rencontre et l'aide concrete se sont reunis dans deux ateliers ouverts.</span><span data-lang="ln" hidden aria-hidden="true">Rythme, bokutani mpe lisungi ya solo esanganaki na ba atelie mibale ya polele.</span><span data-lang="it" hidden aria-hidden="true">Ritmo, incontro e sostegno concreto si sono uniti in due workshop aperti.</span><span data-lang="tr" hidden aria-hidden="true">Ritim, karsilasma ve somut destek iki acik atolye calismasinda bulustu.</span><span data-lang="uk" hidden aria-hidden="true">Ритм, зустріч і конкретна підтримка поєдналися у двох відкритих воркшопах.</span></p>
+            <span class="news-feed-card-cta"><span data-lang="de">Mehr entdecken</span><span data-lang="en" hidden aria-hidden="true">Discover more</span><span data-lang="fr" hidden aria-hidden="true">En savoir plus</span><span data-lang="ln" hidden aria-hidden="true">Yeba lisusu</span><span data-lang="it" hidden aria-hidden="true">Scopri di piu</span><span data-lang="tr" hidden aria-hidden="true">Daha fazlasi</span><span data-lang="uk" hidden aria-hidden="true">Докладніше</span></span>
+          </div>
+        </a>
+      </article>
+      <article class="news-feed-card">
+        <a class="news-feed-card-link" href="#review-nikolausfeier-2025">
+          <div class="news-feed-card-media">
+            <img class="news-feed-card-image news-feed-card-image--backdrop" src="bilder/nikolaus.jpeg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img class="news-feed-card-image news-feed-card-image--contain" src="bilder/nikolaus.jpeg" alt="" loading="lazy" decoding="async">
+          </div>
+          <div class="news-feed-card-body">
+            <div class="news-feed-card-meta">
+              <span class="news-feed-card-badge"><span data-lang="de">Gemeinschaft</span><span data-lang="en" hidden aria-hidden="true">Community</span><span data-lang="fr" hidden aria-hidden="true">Communaute</span><span data-lang="ln" hidden aria-hidden="true">Lisanga</span><span data-lang="it" hidden aria-hidden="true">Comunita</span><span data-lang="tr" hidden aria-hidden="true">Topluluk</span><span data-lang="uk" hidden aria-hidden="true">Спільнота</span></span>
+              <span class="news-feed-card-date"><span data-lang="de">Dezember 2025</span><span data-lang="en" hidden aria-hidden="true">December 2025</span><span data-lang="fr" hidden aria-hidden="true">decembre 2025</span><span data-lang="ln" hidden aria-hidden="true">decembre 2025</span><span data-lang="it" hidden aria-hidden="true">dicembre 2025</span><span data-lang="tr" hidden aria-hidden="true">Aralik 2025</span><span data-lang="uk" hidden aria-hidden="true">грудень 2025</span></span>
+            </div>
+            <h3 class="news-feed-card-title"><span data-lang="de">Nikolausfeier 2025</span><span data-lang="en" hidden aria-hidden="true">St. Nicholas celebration 2025</span><span data-lang="fr" hidden aria-hidden="true">Fete de la Saint-Nicolas 2025</span><span data-lang="ln" hidden aria-hidden="true">Feti ya Nikolaus 2025</span><span data-lang="it" hidden aria-hidden="true">Festa di San Nicola 2025</span><span data-lang="tr" hidden aria-hidden="true">Nikolaus kutlamasi 2025</span><span data-lang="uk" hidden aria-hidden="true">Свято Миколая 2025</span></h3>
+            <p class="news-feed-card-copy"><span data-lang="de">Ein gemeinsamer Adventsvormittag mit Musik, Spielen und Begegnungen für Groß und Klein.</span><span data-lang="en" hidden aria-hidden="true">A shared Advent morning with music, games, and encounters for all generations.</span><span data-lang="fr" hidden aria-hidden="true">Une matinee de l'Avent partagee avec musique, jeux et rencontres pour petits et grands.</span><span data-lang="ln" hidden aria-hidden="true">Tongo ya Advent ya lisanga elongo na miziki, masano mpe bokutani mpo na bana mpe bakolo.</span><span data-lang="it" hidden aria-hidden="true">Una mattinata d'Avvento condivisa con musica, giochi e incontri per grandi e piccoli.</span><span data-lang="tr" hidden aria-hidden="true">Her yastan insan icin muzik, oyun ve bulusmalarla dolu ortak bir Advent sabahi.</span><span data-lang="uk" hidden aria-hidden="true">Спільний передріздвяний ранок із музикою, іграми та зустрічами для різних поколінь.</span></p>
+            <span class="news-feed-card-cta"><span data-lang="de">Mehr entdecken</span><span data-lang="en" hidden aria-hidden="true">Discover more</span><span data-lang="fr" hidden aria-hidden="true">En savoir plus</span><span data-lang="ln" hidden aria-hidden="true">Yeba lisusu</span><span data-lang="it" hidden aria-hidden="true">Scopri di piu</span><span data-lang="tr" hidden aria-hidden="true">Daha fazlasi</span><span data-lang="uk" hidden aria-hidden="true">Докладніше</span></span>
+          </div>
+        </a>
+      </article>
+      <article class="news-feed-card">
+        <a class="news-feed-card-link" href="#review-christmette-2025">
+          <div class="news-feed-card-media">
+            <img class="news-feed-card-image" src="bilder/christmette_2025.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <div class="news-feed-card-body">
+            <div class="news-feed-card-meta">
+              <span class="news-feed-card-badge"><span data-lang="de">Christmette</span><span data-lang="en" hidden aria-hidden="true">Christmas Mass</span><span data-lang="fr" hidden aria-hidden="true">Messe de Noel</span><span data-lang="ln" hidden aria-hidden="true">Misa ya Noel</span><span data-lang="it" hidden aria-hidden="true">Messa di Natale</span><span data-lang="tr" hidden aria-hidden="true">Noel ayini</span><span data-lang="uk" hidden aria-hidden="true">Різдвяна меса</span></span>
+              <span class="news-feed-card-date"><span data-lang="de">24. Dezember 2025</span><span data-lang="en" hidden aria-hidden="true">December 24, 2025</span><span data-lang="fr" hidden aria-hidden="true">24 decembre 2025</span><span data-lang="ln" hidden aria-hidden="true">24 decembre 2025</span><span data-lang="it" hidden aria-hidden="true">24 dicembre 2025</span><span data-lang="tr" hidden aria-hidden="true">24 Aralik 2025</span><span data-lang="uk" hidden aria-hidden="true">24 грудня 2025</span></span>
+            </div>
+            <h3 class="news-feed-card-title"><span data-lang="de">Christmette 2025</span><span data-lang="en" hidden aria-hidden="true">Christmas Mass 2025</span><span data-lang="fr" hidden aria-hidden="true">Messe de Noel 2025</span><span data-lang="ln" hidden aria-hidden="true">Misa ya Noel 2025</span><span data-lang="it" hidden aria-hidden="true">Messa di Natale 2025</span><span data-lang="tr" hidden aria-hidden="true">Noel ayini 2025</span><span data-lang="uk" hidden aria-hidden="true">Різдвяна меса 2025</span></h3>
+            <p class="news-feed-card-copy"><span data-lang="de">Celloensemble, Blockflöten und Gesang gestalteten die Christmette in St. Thekla gemeinsam.</span><span data-lang="en" hidden aria-hidden="true">Cello ensemble, recorders, and voices shaped the Christmas Mass together in St. Thekla.</span><span data-lang="fr" hidden aria-hidden="true">L'ensemble de violoncelles, les flutes a bec et les voix ont accompagne ensemble la messe de Noel a Saint-Thekla.</span><span data-lang="ln" hidden aria-hidden="true">Etuluku ya cello, ba flutes mpe mingongo esalaki elongo misa ya Noel na St. Thekla.</span><span data-lang="it" hidden aria-hidden="true">Ensemble di violoncelli, flauti dolci e voci hanno animato insieme la messa di Natale a St. Thekla.</span><span data-lang="tr" hidden aria-hidden="true">Viyolonsel toplulugu, blok flutler ve sesler St. Thekla'daki Noel ayinini birlikte sekillendirdi.</span><span data-lang="uk" hidden aria-hidden="true">Ансамбль віолончелей, блокфлейти та голоси разом сформували Різдвяну месу в Санкт-Теклі.</span></p>
+            <span class="news-feed-card-cta"><span data-lang="de">Mehr entdecken</span><span data-lang="en" hidden aria-hidden="true">Discover more</span><span data-lang="fr" hidden aria-hidden="true">En savoir plus</span><span data-lang="ln" hidden aria-hidden="true">Yeba lisusu</span><span data-lang="it" hidden aria-hidden="true">Scopri di piu</span><span data-lang="tr" hidden aria-hidden="true">Daha fazlasi</span><span data-lang="uk" hidden aria-hidden="true">Докладніше</span></span>
+          </div>
+        </a>
+      </article>
+      <article class="news-feed-card">
+        <a class="news-feed-card-link" href="#review-weihnachtskonzert-zum-mitsingen-2025">
+          <div class="news-feed-card-media">
+            <img class="news-feed-card-image" src="bilder/Weihnachtskonzert Spitalkirche 13.12.2025.jpeg" alt="" loading="lazy" decoding="async">
+          </div>
+          <div class="news-feed-card-body">
+            <div class="news-feed-card-meta">
+              <span class="news-feed-card-badge"><span data-lang="de">Rückblick</span><span data-lang="en" hidden aria-hidden="true">Review</span><span data-lang="fr" hidden aria-hidden="true">Retour</span><span data-lang="ln" hidden aria-hidden="true">Makambo eleki</span><span data-lang="it" hidden aria-hidden="true">Retrospettiva</span><span data-lang="tr" hidden aria-hidden="true">Geri bakis</span><span data-lang="uk" hidden aria-hidden="true">Огляд</span></span>
+              <span class="news-feed-card-date"><span data-lang="de">13. Dezember 2025</span><span data-lang="en" hidden aria-hidden="true">December 13, 2025</span><span data-lang="fr" hidden aria-hidden="true">13 decembre 2025</span><span data-lang="ln" hidden aria-hidden="true">13 decembre 2025</span><span data-lang="it" hidden aria-hidden="true">13 dicembre 2025</span><span data-lang="tr" hidden aria-hidden="true">13 Aralik 2025</span><span data-lang="uk" hidden aria-hidden="true">13 грудня 2025</span></span>
+            </div>
+            <h3 class="news-feed-card-title"><span data-lang="de">Weihnachtskonzert zum Mitsingen</span><span data-lang="en" hidden aria-hidden="true">Christmas sing-along concert</span><span data-lang="fr" hidden aria-hidden="true">Concert de Noel participatif</span><span data-lang="ln" hidden aria-hidden="true">Konser ya Noel ya koyemba elongo</span><span data-lang="it" hidden aria-hidden="true">Concerto di Natale da cantare insieme</span><span data-lang="tr" hidden aria-hidden="true">Birlikte soylenen Noel konseri</span><span data-lang="uk" hidden aria-hidden="true">Різдвяний концерт для спільного співу</span></h3>
+            <p class="news-feed-card-copy"><span data-lang="de">Ein gemeinsamer Abend mit Chor, Ensemble und Publikum zwischen Advent, Licht und Solidarität.</span><span data-lang="en" hidden aria-hidden="true">A shared evening with choir, ensemble, and audience shaped by Advent, light, and solidarity.</span><span data-lang="fr" hidden aria-hidden="true">Une soiree commune avec choeur, ensemble et public entre Avent, lumiere et solidarite.</span><span data-lang="ln" hidden aria-hidden="true">Butu ya lisanga elongo na choeur, ensemble mpe bato nyonso kati na Advent, pole mpe solidarite.</span><span data-lang="it" hidden aria-hidden="true">Una serata condivisa con coro, ensemble e pubblico tra Avvento, luce e solidarieta.</span><span data-lang="tr" hidden aria-hidden="true">Koro, ensemble ve seyircinin Advent, isik ve dayanisma etrafinda bulustugu ortak bir aksam.</span><span data-lang="uk" hidden aria-hidden="true">Спільний вечір хору, ансамблю та публіки між Адвентом, світлом і солідарністю.</span></p>
+            <span class="news-feed-card-cta"><span data-lang="de">Mehr entdecken</span><span data-lang="en" hidden aria-hidden="true">Discover more</span><span data-lang="fr" hidden aria-hidden="true">En savoir plus</span><span data-lang="ln" hidden aria-hidden="true">Yeba lisusu</span><span data-lang="it" hidden aria-hidden="true">Scopri di piu</span><span data-lang="tr" hidden aria-hidden="true">Daha fazlasi</span><span data-lang="uk" hidden aria-hidden="true">Докладніше</span></span>
+          </div>
+        </a>
+      </article>
+      <article class="news-feed-card">
+        <a class="news-feed-card-link" href="#review-christmette-2024">
+          <div class="news-feed-card-media">
+            <img class="news-feed-card-image" src="bilder/Christmette 2024.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <div class="news-feed-card-body">
+            <div class="news-feed-card-meta">
+              <span class="news-feed-card-badge"><span data-lang="de">Archiv</span><span data-lang="en" hidden aria-hidden="true">Archive</span><span data-lang="fr" hidden aria-hidden="true">Archives</span><span data-lang="ln" hidden aria-hidden="true">Archive</span><span data-lang="it" hidden aria-hidden="true">Archivio</span><span data-lang="tr" hidden aria-hidden="true">Arsiv</span><span data-lang="uk" hidden aria-hidden="true">Архів</span></span>
+              <span class="news-feed-card-date"><span data-lang="de">24. Dezember 2024</span><span data-lang="en" hidden aria-hidden="true">December 24, 2024</span><span data-lang="fr" hidden aria-hidden="true">24 decembre 2024</span><span data-lang="ln" hidden aria-hidden="true">24 decembre 2024</span><span data-lang="it" hidden aria-hidden="true">24 dicembre 2024</span><span data-lang="tr" hidden aria-hidden="true">24 Aralik 2024</span><span data-lang="uk" hidden aria-hidden="true">24 грудня 2024</span></span>
+            </div>
+            <h3 class="news-feed-card-title"><span data-lang="de">Christmette 2024</span><span data-lang="en" hidden aria-hidden="true">Christmas Mass 2024</span><span data-lang="fr" hidden aria-hidden="true">Messe de Noel 2024</span><span data-lang="ln" hidden aria-hidden="true">Misa ya Noel 2024</span><span data-lang="it" hidden aria-hidden="true">Messa di Natale 2024</span><span data-lang="tr" hidden aria-hidden="true">Noel ayini 2024</span><span data-lang="uk" hidden aria-hidden="true">Різдвяна меса 2024</span></h3>
+            <p class="news-feed-card-copy"><span data-lang="de">Die musikalische Mitgestaltung der Christmette 2024 wurde zum Auftakt für weitere gemeinsame Adventsprojekte.</span><span data-lang="en" hidden aria-hidden="true">The musical shaping of the Christmas Mass 2024 became the starting point for further shared Advent projects.</span><span data-lang="fr" hidden aria-hidden="true">L'accompagnement musical de la messe de Noel 2024 a ouvert la voie a d'autres projets communs de l'Avent.</span><span data-lang="ln" hidden aria-hidden="true">Kosangana na miziki na misa ya Noel 2024 ekomaki ebandeli ya misala mosusu ya Advent ya lisanga.</span><span data-lang="it" hidden aria-hidden="true">L'accompagnamento musicale della messa di Natale 2024 e diventato l'inizio di altri progetti condivisi di Avvento.</span><span data-lang="tr" hidden aria-hidden="true">Noel ayini 2024'un muzikle desteklenmesi, sonraki ortak Advent projeleri icin bir baslangic oldu.</span><span data-lang="uk" hidden aria-hidden="true">Музичне оформлення Різдвяної меси 2024 стало початком подальших спільних адвентових проєктів.</span></p>
+            <span class="news-feed-card-cta"><span data-lang="de">Mehr entdecken</span><span data-lang="en" hidden aria-hidden="true">Discover more</span><span data-lang="fr" hidden aria-hidden="true">En savoir plus</span><span data-lang="ln" hidden aria-hidden="true">Yeba lisusu</span><span data-lang="it" hidden aria-hidden="true">Scopri di piu</span><span data-lang="tr" hidden aria-hidden="true">Daha fazlasi</span><span data-lang="uk" hidden aria-hidden="true">Докладніше</span></span>
+          </div>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
 <section class="review-overview-section" id="review">
     <div class="review-overview-shell">
         <div class="review-overview-copy">
@@ -3454,13 +3608,13 @@ Da oltre dieci anni, a Ochsenfurt, la rassegna estiva "Musik an der Furt" accomp
 </body>
 <!-- Materialize JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="scripts/core-runtime.js?v=20260407-js-split-8"></script>
+<script src="scripts/core-runtime.js?v=20260409-ui-nav-fix-2"></script>
 <script src="scripts/event-lightbox.js?v=20260407-js-split-8"></script>
 <script src="scripts/cookie-consent.js?v=20260407-js-split-8"></script>
 <script src="scripts/navigation-language.js?v=20260407-js-split-8"></script>
-<script src="scripts/hero-gallery.js?v=20260407-js-split-8"></script>
+<script src="scripts/hero-gallery.js?v=20260409-ui-nav-fix-2"></script>
 <script src="scripts/site-effects.js?v=20260407-js-split-8"></script>
-<script src="scripts/review-interactions.js?v=20260407-js-split-8"></script>
+<script src="scripts/review-interactions.js?v=20260409-ui-nav-fix-2"></script>
 </html>
 
 
