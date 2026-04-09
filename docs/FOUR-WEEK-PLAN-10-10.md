@@ -59,6 +59,41 @@ Ein echter 10/10-Stand ist hier nur dann glaubwuerdig, wenn am Ende dieses Folge
 4. Wenn eine Woche kippt, wird zuerst Share-/Komfort-Scope gekuerzt, nicht die Validierung.
 5. Fuer 10/10 gilt: weniger lokale Patches, mehr kontrollierte Strukturarbeit.
 
+## Naechster empfohlener Strukturblock
+
+Stand: 2026-04-09
+
+Der naechste technische Schuldenhebel liegt nicht primaer in weiterer QA-Politur, sondern im neuen Aktuelles-Bereich auf der Hauptseite.
+
+Begruendung:
+
+- Der Folgeplan verlangt, dass mindestens ein grosser mehrsprachiger Bereich nicht mehr als rohes HTML-Duplikat gepflegt wird.
+- Genau an dieser Stelle ist mit dem neuen Aktuelles-Block auf [index.html](../index.html) wieder frische Mehrsprachigkeits- und Inhaltsduplikation entstanden.
+- Das Intro des Blocks ist bereits generatorisiert ueber [scripts/legal-content/homepage-curated-feed.json](../scripts/legal-content/homepage-curated-feed.json), die eigentlichen Karten jedoch noch nicht.
+- Der Bereich ist redaktionell aenderungsnah und wird voraussichtlich oefter angepasst als weiter unten liegende, bereits strukturierte Homepage-Bloecke.
+
+Konkrete Empfehlung fuer den naechsten 15-Stunden-Block:
+
+1. Die Feed-Karten des Aktuelles-Bereichs in eine strukturierte Quelle ziehen, nicht nur Intro und Kicker.
+2. [scripts/render-legal-content.py](../scripts/render-legal-content.py) minimal so erweitern, dass wiederholte Kartenlisten mit bestehenden Klassen statisch gerendert werden koennen.
+3. Den manuellen Karten-Cluster im Aktuelles-Bereich von [index.html](../index.html) durch Marker plus Generatorausgabe ersetzen, ohne neue Client-Side-Hydration einzufuehren.
+4. Linkziele, Bildpfade, Klassen und Review-Navigation unveraendert lassen; Ziel ist geringerer Pflegeaufwand, nicht neues Verhalten.
+5. Danach erst den naechsten grossen Runtime-Hebel ziehen: [scripts/navigation-language.js](../scripts/navigation-language.js) in kleinere Verantwortungsbereiche schneiden.
+
+Repo-nahe Umsetzungsskizze:
+
+1. [scripts/legal-content/homepage-curated-feed.json](../scripts/legal-content/homepage-curated-feed.json) von einem Intro-Target auf Intro plus Kartenliste erweitern.
+2. Im Renderer eine kleine, gezielte Listen-/Card-Wiederholung ergaenzen statt ein neues generisches Content-System zu bauen.
+3. In [index.html](../index.html) den Aktuelles-Bereich auf Marker reduzieren und den aktuellen manuellen Kartenblock ersetzen.
+4. Danach Smoke-QA fuer Startseite, Review-Sprungziele, Browser-Back und Sprachumschaltung erneut laufen lassen.
+
+Definition of Done fuer diesen naechsten Block:
+
+- Der Aktuelles-Bereich wird nicht mehr als grosser roher `data-lang`-Kartenblock in [index.html](../index.html) gepflegt.
+- Die Karten kommen aus strukturierter Quelle und werden statisch gerendert.
+- Die bestehende Review-Verlinkung und Ruecknavigation verhalten sich unveraendert.
+- Der Renderer wurde nur so weit erweitert, wie es fuer diesen Block wiederverwendbar und reviewbar noetig ist.
+
 ## Woche 1
 
 Ziel: echte technische Eingangskontrolle vor Deployment herstellen und die QA-Basis von "optional" auf "verbindlich" heben.
