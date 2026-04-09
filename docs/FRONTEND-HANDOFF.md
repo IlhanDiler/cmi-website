@@ -58,10 +58,12 @@ Wichtig: Die HTML-Dateien setzen zuerst das kleine Inline-Snippet fuer `history.
 Der Share-Bereich ist absichtlich getrennt von der Hauptseiten-CSS:
 
 - Share-Seiten liegen unter [share](../share).
+- Die kanonische Inhaltsquelle fuer Share-Seiten steht in [share/share-pages-data.json](../share/share-pages-data.json).
+- [share/generate-share-pages.py](../share/generate-share-pages.py) rendert daraus die einzelnen Share-HTMLs sowie [share/share-pages.json](../share/share-pages.json) und die Fallback-Liste in [share/instagram-export.js](../share/instagram-export.js).
 - Die Vorschau-Layouts nutzen [share/share-preview.css](../share/share-preview.css).
 - Der Instagram-Export nutzt [share/instagram-export.html](../share/instagram-export.html), [share/instagram-export.css](../share/instagram-export.css) und [share/instagram-export.js](../share/instagram-export.js).
-- Die kanonische Liste der exportierten Share-Seiten steht in [share/share-pages.json](../share/share-pages.json).
-- In [share/instagram-export.js](../share/instagram-export.js) existiert zusaetzlich eine Fallback-Liste. Wenn sie erhalten bleibt, muss sie zum Manifest passen.
+- [share/share-pages.json](../share/share-pages.json) bleibt die Laufzeitliste fuer den Export, wird aber generatorbasiert aus derselben Quelle abgeleitet.
+- Die Fallback-Liste in [share/instagram-export.js](../share/instagram-export.js) wird im selben Schritt mitaktualisiert und sollte nicht separat vorgepflegt werden.
 
 ## Verifizierter Stand
 
@@ -74,7 +76,7 @@ Zum Abschluss der Migration wurde lokal ueber einen HTTP-Server geprueft:
 - [share/querbeet-roundup-2025.html](../share/querbeet-roundup-2025.html)
 - [share/instagram-export.html](../share/instagram-export.html)
 
-Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaetzlich wurde der Share-Export gegen das Dateisystem abgeglichen, damit [share/share-pages.json](../share/share-pages.json) und die vorhandenen Share-Dateien wieder deckungsgleich sind.
+Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaetzlich wurde geprueft, dass [share/share-pages-data.json](../share/share-pages-data.json), [share/share-pages.json](../share/share-pages.json) und `FALLBACK_SHARE_PAGES` in [share/instagram-export.js](../share/instagram-export.js) denselben Datenstand ausliefern.
 
 ## Abschlussstand 2026-04-09
 
@@ -90,6 +92,7 @@ Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaet
 - Der Aktuelles-Bereich auf [index.html](../index.html) ist jetzt ebenfalls generatorbasiert: Intro und Kartenliste kommen aus [scripts/legal-content/homepage-curated-feed.json](../scripts/legal-content/homepage-curated-feed.json), waehrend [scripts/render-legal-content.py](../scripts/render-legal-content.py) wiederholte Kartenlisten statisch mit bestehenden Klassen rendert.
 - Der bisherige Navigations-Sammelblock ist jetzt entlang echter Verantwortungen zerlegt: [scripts/site-language.js](../scripts/site-language.js), [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js) und [scripts/navigation-runtime.js](../scripts/navigation-runtime.js) trennen Sprachzustand, Mobile-Menue, In-Page-Wayfinding, Navbar-/Mbonda-Logik und Orchestrierung.
 - Der Hero-/Gallery-Block ist jetzt ebenfalls entlang echter Verantwortungen zerlegt: [scripts/hero-layout.js](../scripts/hero-layout.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js) und [scripts/hero-gallery-ui.js](../scripts/hero-gallery-ui.js) trennen Layout-Messung, Slider-/Autoplay-Zustand sowie Accessibility- und UI-Sync.
+- Der Share-Bereich ist jetzt generatorbasiert: [share/share-pages-data.json](../share/share-pages-data.json) ist die kanonische Quelle, [share/generate-share-pages.py](../share/generate-share-pages.py) erzeugt daraus die einzelnen Share-Seiten, [share/share-pages.json](../share/share-pages.json) und die Export-Fallback-Liste in [share/instagram-export.js](../share/instagram-export.js); ein lokaler Chromium-Smoke fuer Share-Seite und Export lief danach mit 0 Funden.
 - Die technische Einordnung und der Abschlussabgleich stehen in [docs/SITE-ASSESSMENT.md](../docs/SITE-ASSESSMENT.md).
 
 ## Bewusst offene Grenzen

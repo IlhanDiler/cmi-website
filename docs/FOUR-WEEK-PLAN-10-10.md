@@ -68,37 +68,37 @@ Die bislang empfohlenen Strukturhebel sind abgeschlossen:
 - Der Aktuelles-Bereich auf [index.html](../index.html) wird jetzt aus [scripts/legal-content/homepage-curated-feed.json](../scripts/legal-content/homepage-curated-feed.json) statisch gerendert.
 - Die fruehere Navigation-/Sprach-Sammeldatei wurde erst in [scripts/site-language.js](../scripts/site-language.js) und [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js) aufgeteilt und anschliessend weiter in [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js) und [scripts/navigation-runtime.js](../scripts/navigation-runtime.js) geschnitten.
 - Der Hero-/Gallery-Block wurde in [scripts/hero-layout.js](../scripts/hero-layout.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js) und [scripts/hero-gallery-ui.js](../scripts/hero-gallery-ui.js) aufgeteilt, ohne die oeffentlichen Einstiege in [scripts/core-runtime.js](../scripts/core-runtime.js) zu aendern.
+- Die Share-Architektur ist jetzt ebenfalls auf eine kanonische Quelle umgestellt: [share/share-pages-data.json](../share/share-pages-data.json) wird ueber [share/generate-share-pages.py](../share/generate-share-pages.py) in die einzelnen Share-HTMLs, [share/share-pages.json](../share/share-pages.json) und die Fallback-Liste in [share/instagram-export.js](../share/instagram-export.js) ausgerendert.
 
-Der naechste technische Schuldenhebel liegt damit nicht mehr im Aktuelles-, Navigations- oder Hero-Bereich, sondern in der Share-Architektur.
+Der naechste technische Schuldenhebel liegt damit nicht mehr im Aktuelles-, Navigations-, Hero- oder Share-Bereich, sondern in [scripts/cookie-consent.js](../scripts/cookie-consent.js).
 
 Begruendung:
 
-- Unter [share](../share) liegen viele handgepflegte Einzel-HTMLs mit stark aehnlicher Struktur, aber ohne eine kanonische inhaltliche Quelle.
-- [share/share-pages.json](../share/share-pages.json) und die Fallback-Liste in [share/instagram-export.js](../share/instagram-export.js) muessen aktuell parallel gepflegt werden; das ist ein klarer Drift-Punkt.
-- Neue Events oder Rueckblicke wuerden ohne Generator denselben Pflegeaufwand weiter verstaerken, obwohl die Datei- und Layoutstruktur dort schon gut standardisierbar ist.
-- Ein strukturierter Share-Generator reduziert nicht nur Duplikation, sondern schuetzt auch Export-, Manifest- und Release-QA vor manuellen Inkonsistenzen.
+- Die Share-Seiten werden nicht mehr an mehreren Stellen manuell synchron gehalten; Share-HTMLs, Manifest und Export-Fallback kommen jetzt aus derselben Quelle.
+- Der lokale Chromium-Smoke fuer Share-Seite und Instagram-Export lief nach dem Umbau erneut mit 0 Funden durch.
+- [scripts/cookie-consent.js](../scripts/cookie-consent.js) ist aktuell der groesste verbliebene Runtime-Block und mischt mehrsprachige Copy, Cookie-Definitionen, Rendering, UI-Zustand und Persistenz in einer Datei.
+- Eine Trennung von strukturierten Consent-Daten und schlankerem Runtime-Code wuerde das gleiche Muster fortsetzen wie bei Navigation, Hero und Share.
 
 Konkrete Empfehlung fuer den naechsten 15-Stunden-Block:
 
-1. Eine kanonische strukturierte Quelle fuer Share-Seiten anlegen, statt Manifest, Export-Fallback und Einzel-HTMLs getrennt zu pflegen.
-2. Die bestehenden Share-Dateinamen und URLs stabil lassen; Ziel ist Generierung bei gleicher Auslieferungsform, nicht ein neues Routing-Modell.
-3. [share/share-pages.json](../share/share-pages.json) und die Export-Fallback-Liste aus derselben Quelle ableiten oder durch einen klaren Generator-Schritt synchron halten.
-4. Den Generator auf wenige wiederkehrende Layout-Bausteine begrenzen, statt sofort ein voll generisches CMS im Repo zu bauen.
-5. Danach erst den naechsten Runtime-Hebel in [scripts/review-interactions.js](../scripts/review-interactions.js), [scripts/site-language.js](../scripts/site-language.js) oder [scripts/cookie-consent.js](../scripts/cookie-consent.js) ziehen.
+1. Die Copy- und Tabelleninhalte aus [scripts/cookie-consent.js](../scripts/cookie-consent.js) in eine strukturierte Quelle auslagern, statt sieben Sprachen und Cookie-Details im Runtime-Block zu halten.
+2. Rendering, UI-Zustand und Persistenz im Consent-Runtime klar von diesen Daten trennen; wenn sinnvoll, den Block in kleinere Module schneiden.
+3. Oeffentliche Hooks, bestehendes Markup und das Consent-Verhalten fuer Badge, Dialog, Save/Accept/Reject stabil lassen.
+4. Danach gezielt den Privacy-/Consent-Flow, Sprachwechsel und den lokalen Release-Smoke erneut laufen lassen.
 
 Repo-nahe Umsetzungsskizze:
 
-1. Eine strukturierte Datenquelle fuer Share-Metadaten und Copy einfuehren, die mindestens Slug, Titel, Datum, Bild-Asset und Export-relevante Angaben traegt.
-2. Einen kleinen Generator schreiben, der daraus die statischen Share-HTMLs und das Manifest ableitet oder pruefbar aktualisiert.
-3. [share/instagram-export.js](../share/instagram-export.js) auf denselben Datenstand ziehen, damit Export und Dateisystem nicht auseinanderlaufen.
-4. Danach Smoke-QA fuer eine Share-Seite, den Export-Flow und den Dateisystem-/Manifest-Abgleich erneut laufen lassen.
+1. Eine strukturierte Quelle fuer Consent-Texte, Kategorie-Beschreibungen und Cookie-Definitionen anlegen, damit Sprachpflege und Rechtscopy nicht mehr im Runtime-Code stecken.
+2. Einen kleinen Render-/Hydrations-Schritt fuer den Consent-Dialog vorsehen oder die Daten zur Laufzeit sauber konsumieren, ohne das bestehende DOM-Verhalten zu aendern.
+3. [scripts/cookie-consent.js](../scripts/cookie-consent.js) entlang Content, Rendering und Persistenz so schneiden, dass kuenftige Rechts- oder Sprachupdates keine grossen Runtime-Diffs mehr ausloesen.
+4. Danach Smoke-QA fuer Datenschutz, Consent-Badge, Dialog und Sprachwechsel erneut laufen lassen.
 
 Definition of Done fuer diesen naechsten Block:
 
-- Die Share-Seiten werden nicht mehr an mehreren Stellen manuell synchron gehalten.
-- Manifest und Export-Flow laufen gegen denselben inhaltlichen Datenstand.
-- Bestehende Share-Dateinamen, Links und Export-Erwartungen bleiben stabil.
-- Der Generator bleibt klein genug, um reviewbar und im statischen Repo-Kontext wartbar zu sein.
+- Consent-Copy und Cookie-Tabellen stehen nicht mehr hartcodiert im Runtime-Block.
+- Der verbleibende Consent-Code ist kleiner und entlang Content, UI und Persistenz nachvollziehbar getrennt.
+- Badge, Dialog, Save/Accept/Reject, Sprachwechsel und Datenschutzerklaerungs-Verlinkung bleiben stabil.
+- Der Umbau bleibt im statischen Repo-Kontext reviewbar und ohne neues Laufzeit-Framework wartbar.
 
 ## Woche 1
 
