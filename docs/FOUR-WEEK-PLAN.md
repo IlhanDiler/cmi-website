@@ -52,7 +52,7 @@ Budget: 15 Stunden
 ### Block B - 5h
 
 - Restliche interaktive Muster pruefen: Lightbox, Cookie-Consent, Hero, Review, Footer, Event-Sharing
-- Zentrale Accessibility-Helfer in [scripts/navigation-language.js](../scripts/navigation-language.js) und angrenzenden Runtime-Dateien nachziehen, wenn ein Root-Cause-Fix moeglich ist
+- Zentrale Accessibility-Helfer im Navigations-/Sprachblock, heute vor allem in [scripts/site-language.js](../scripts/site-language.js) und angrenzenden Runtime-Dateien, nachziehen, wenn ein Root-Cause-Fix moeglich ist
 
 ### Block C - 5h
 
@@ -79,7 +79,7 @@ Budget: 15 Stunden
 
 ### Block B - 5h
 
-- Runtime glatten, vor allem in [scripts/navigation-language.js](../scripts/navigation-language.js), [scripts/core-runtime.js](../scripts/core-runtime.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js) und [scripts/review-interactions.js](../scripts/review-interactions.js)
+- Runtime glatten, vor allem in [scripts/site-language.js](../scripts/site-language.js), [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), [scripts/core-runtime.js](../scripts/core-runtime.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js) und [scripts/review-interactions.js](../scripts/review-interactions.js)
 - Doppelte Zustandslogik oder aehnliche Hilfsfunktionen zusammenziehen, wenn der Eingriff klein und pruefbar bleibt
 
 ### Block C - 5h
@@ -180,7 +180,7 @@ Am Ende jeder Woche kurz festhalten:
 
 ### Woche 2 - laufender Stand
 
-- [x] Sprachvalidierung, Sichtbarkeitspruefung und Fokus-/Hash-Helfer in scripts/core-runtime.js gebuendelt und lokale Duplikate in scripts/navigation-language.js, scripts/event-lightbox.js und scripts/review-interactions.js reduziert
+- [x] Sprachvalidierung, Sichtbarkeitspruefung und Fokus-/Hash-Helfer in scripts/core-runtime.js gebuendelt und lokale Duplikate im damaligen Navigations-/Sprachblock, heute verteilt auf [scripts/site-language.js](../scripts/site-language.js) und [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), sowie in [scripts/event-lightbox.js](../scripts/event-lightbox.js) und [scripts/review-interactions.js](../scripts/review-interactions.js) reduziert
 - [x] Release-QA nach dem Runtime-Refactor erneut fuer Hauptseite, Hash-Navigation, Mobile-Menue sowie Chronik/Datenschutz/Impressum mit 0 Funden durchlaufen
 - [x] Hero- und Effekt-Runtime um gemeinsamen RAF-Scheduler bereinigt, globale Resize-/Scroll-Listener auf tatsaechlich genutzte Features begrenzt und Parallax-Updates auf Animation-Frames gedrosselt
 - [x] Release-QA nach dem Hero-/Site-Effects-Refactor erneut mit 0 Funden durchlaufen
@@ -243,5 +243,5 @@ Am Ende jeder Woche kurz festhalten:
 - [x] Den Hauptseiten-Rollout bis an die unteren Homepage-Bereiche weitergezogen: Event-Einfuehrung, beide Event-Karten, der Kontaktbereich und der Footer auf [index.html](../index.html) kommen jetzt aus [scripts/legal-content/homepage-events.json](../scripts/legal-content/homepage-events.json) und [scripts/legal-content/homepage-contact-footer.json](../scripts/legal-content/homepage-contact-footer.json); die neue Smoke-QA prueft dafuer jetzt auch Event-, Kontakt- und Footer-Texte nach Sprachumschaltung
 - [x] Den Hauptseiten-Rollout wieder nach oben geschlossen: Der "Musik baut Bruecken"-Introblock inklusive Jubiläumsfilm-Card sowie der Astrid-Abschnitt auf [index.html](../index.html) kommen jetzt aus [scripts/legal-content/homepage-bridge-about.json](../scripts/legal-content/homepage-bridge-about.json); dafuer unterstuetzt der Renderer optional sprachspezifische `lang`-Attribute, damit bestehende Sprachsemantik an den Filmtexten erhalten bleibt
 - [x] Release-QA nach dem Intro-/About-Rollout am 2026-04-08 erneut ueber Edge, Chrome und Firefox mit 0 Funden durchlaufen; dabei wurden die neuen oberen Homepage-Texte explizit in der Smoke-QA mitgeprueft
-- [x] Den Accessibility-Pass auf [datenschutz.html](../datenschutz.html) und [impressum.html](../impressum.html) erweitert: Die spezielle Legal-Schnellnavigation hat jetzt einen eigenen Landmark-Namen und wird sprachabhaengig ueber [scripts/navigation-language.js](../scripts/navigation-language.js) synchronisiert
+- [x] Den Accessibility-Pass auf [datenschutz.html](../datenschutz.html) und [impressum.html](../impressum.html) erweitert: Die spezielle Legal-Schnellnavigation hat jetzt einen eigenen Landmark-Namen und wird sprachabhaengig ueber [scripts/site-language.js](../scripts/site-language.js) synchronisiert
 - [x] Diese Anschlussarbeiten im Folgeplan [FOUR-WEEK-PLAN-10-10.md](../docs/FOUR-WEEK-PLAN-10-10.md) und im Handoff [FRONTEND-HANDOFF.md](../docs/FRONTEND-HANDOFF.md) dokumentiert

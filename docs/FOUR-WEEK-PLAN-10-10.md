@@ -22,14 +22,14 @@ Aktuelle grobe Kennzahlen aus dem Codebestand:
 - `data-lang`-Markup auf [impressum.html](../impressum.html): 413 Vorkommen
 - `data-lang`-Markup auf [chronik.html](../chronik.html): 343 Vorkommen
 - Verbleibendes Inline-`display:none` auf [index.html](../index.html): 1 Vorkommen, bewusst fuer den echten UI-Zustand der Event-Lightbox
-- Groesste Runtime-Dateien: [scripts/navigation-language.js](../scripts/navigation-language.js) mit 763 Zeilen, [scripts/hero-gallery.js](../scripts/hero-gallery.js) mit 561 Zeilen, [scripts/cookie-consent.js](../scripts/cookie-consent.js) mit 390 Zeilen
+- Groesste Runtime-Dateien nach den bisherigen Splits: [scripts/hero-gallery.js](../scripts/hero-gallery.js) mit 561 Zeilen, [scripts/site-language.js](../scripts/site-language.js) mit 511 Zeilen, [scripts/cookie-consent.js](../scripts/cookie-consent.js) mit 390 Zeilen
 - GitHub Actions existieren bereits unter [.github/workflows](../.github/workflows), sind aktuell aber faktisch deploy-orientiert und nicht als echter technischer Quality-Gate aufgebaut
 
 ## Was fuer 10/10 noch getan werden muss
 
 1. Deployment darf nicht mehr die erste technische Pruefung sein. Vor dem Deploy braucht es einen reproduzierbaren Validierungs-Workflow.
 2. Die Mehrsprachigkeit muss an mindestens einem grossen Block strukturell entdupliziert werden. Reines Umschalten von sichtbaren Varianten ist nicht mehr der grosse Hebel.
-3. Die Runtime muss weiter zerlegt werden, vor allem [scripts/navigation-language.js](../scripts/navigation-language.js) und [scripts/hero-gallery.js](../scripts/hero-gallery.js).
+3. Die Runtime muss weiter zerlegt werden; der naechste groesste Hebel liegt jetzt vor allem in [scripts/hero-gallery.js](../scripts/hero-gallery.js), danach in weiteren grossen DOM-lastigen Hilfsmodulen.
 4. Accessibility muss mit echten Geraete-, Zoom-, Tastatur- und Screenreader-Checks abgesichert werden, nicht nur ueber gute Heuristik und Smoke-Runs.
 5. Die Share-Architektur sollte von handgepflegten Einzeldateien weiter in Richtung strukturierter Quelle plus Generierung bewegt werden.
 6. Release-Dokumentation, manuelle QA und automatisierte QA muessen zusammenspielen, statt lose nebeneinander zu stehen.
@@ -63,36 +63,41 @@ Ein echter 10/10-Stand ist hier nur dann glaubwuerdig, wenn am Ende dieses Folge
 
 Stand: 2026-04-09
 
-Der naechste technische Schuldenhebel liegt nicht primaer in weiterer QA-Politur, sondern im neuen Aktuelles-Bereich auf der Hauptseite.
+Der zuvor empfohlene Doppelhebel ist abgeschlossen:
+
+- Der Aktuelles-Bereich auf [index.html](../index.html) wird jetzt aus [scripts/legal-content/homepage-curated-feed.json](../scripts/legal-content/homepage-curated-feed.json) statisch gerendert.
+- Die fruehere Navigation-/Sprach-Sammeldatei wurde erst in [scripts/site-language.js](../scripts/site-language.js) und [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js) aufgeteilt und anschliessend weiter in [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js) und [scripts/navigation-runtime.js](../scripts/navigation-runtime.js) geschnitten.
+
+Der naechste technische Schuldenhebel liegt damit nicht mehr im Aktuelles-Bereich oder in der Navigation, sondern in der Hero-/Gallery-Runtime.
 
 Begruendung:
 
-- Der Folgeplan verlangt, dass mindestens ein grosser mehrsprachiger Bereich nicht mehr als rohes HTML-Duplikat gepflegt wird.
-- Genau an dieser Stelle ist mit dem neuen Aktuelles-Block auf [index.html](../index.html) wieder frische Mehrsprachigkeits- und Inhaltsduplikation entstanden.
-- Das Intro des Blocks ist bereits generatorisiert ueber [scripts/legal-content/homepage-curated-feed.json](../scripts/legal-content/homepage-curated-feed.json), die eigentlichen Karten jedoch noch nicht.
-- Der Bereich ist redaktionell aenderungsnah und wird voraussichtlich oefter angepasst als weiter unten liegende, bereits strukturierte Homepage-Bloecke.
+- [scripts/hero-gallery.js](../scripts/hero-gallery.js) ist nach den Navigation-Splits jetzt der groesste verbleibende Frontend-Block.
+- Die Datei mischt weiterhin Layout-Messung, Slider-Zustand, UI-Refresh, Touch-/Button-Interaktion und responsive Bildlogik.
+- Gerade dort gab es juengst Root-Cause-Fixes fuer Fade-Zustand und Hero-Verhalten; der Bereich ist also funktional relevant und nicht nur kosmetisch gross.
+- Ein weiterer sauberer Split senkt das Risiko, dass kuenftige Hero- oder Gallery-Aenderungen wieder in einen schwer reviewbaren Sammelblock laufen.
 
 Konkrete Empfehlung fuer den naechsten 15-Stunden-Block:
 
-1. Die Feed-Karten des Aktuelles-Bereichs in eine strukturierte Quelle ziehen, nicht nur Intro und Kicker.
-2. [scripts/render-legal-content.py](../scripts/render-legal-content.py) minimal so erweitern, dass wiederholte Kartenlisten mit bestehenden Klassen statisch gerendert werden koennen.
-3. Den manuellen Karten-Cluster im Aktuelles-Bereich von [index.html](../index.html) durch Marker plus Generatorausgabe ersetzen, ohne neue Client-Side-Hydration einzufuehren.
-4. Linkziele, Bildpfade, Klassen und Review-Navigation unveraendert lassen; Ziel ist geringerer Pflegeaufwand, nicht neues Verhalten.
-5. Danach erst den naechsten grossen Runtime-Hebel ziehen: [scripts/navigation-language.js](../scripts/navigation-language.js) in kleinere Verantwortungsbereiche schneiden.
+1. [scripts/hero-gallery.js](../scripts/hero-gallery.js) entlang echter Verantwortungen schneiden: Layout-/Messlogik, Slider-/State-Logik und UI-/Input-Sync.
+2. Bestehende Fade-, Queue- und Initialisierungs-Fixes unveraendert lassen; Ziel ist lesbarere Struktur, nicht neues Verhalten.
+3. Die bereits vorhandenen Reduced-Motion-, Resize- und Control-Flows bei jedem Teilschritt gegenpruefen.
+4. Keine neue Abhaengigkeit zwischen Hero und anderen Runtime-Dateien einziehen; lieber kleine reine Helfer als neue Querverkopplung.
+5. Danach die Share-Architektur als naechsten grossen 10/10-Hebel angehen.
 
 Repo-nahe Umsetzungsskizze:
 
-1. [scripts/legal-content/homepage-curated-feed.json](../scripts/legal-content/homepage-curated-feed.json) von einem Intro-Target auf Intro plus Kartenliste erweitern.
-2. Im Renderer eine kleine, gezielte Listen-/Card-Wiederholung ergaenzen statt ein neues generisches Content-System zu bauen.
-3. In [index.html](../index.html) den Aktuelles-Bereich auf Marker reduzieren und den aktuellen manuellen Kartenblock ersetzen.
-4. Danach Smoke-QA fuer Startseite, Review-Sprungziele, Browser-Back und Sprachumschaltung erneut laufen lassen.
+1. Reine Layout- und Messhelfer zuerst identifizieren und aus der Slider-Zustandslogik trennen.
+2. Danach Interaktionspfade fuer Controls, Touch und Auto-/Fade-Zustaende isolieren.
+3. Abschliessend die oeffentlichen UI-Refresh-/Init-Einstiegspunkte schlank halten, damit [scripts/core-runtime.js](../scripts/core-runtime.js) keine neuen Detailkenntnisse braucht.
+4. Nach jedem Schritt Smoke-QA fuer Hero, Galerie, Navigation und Reduced Motion erneut laufen lassen.
 
 Definition of Done fuer diesen naechsten Block:
 
-- Der Aktuelles-Bereich wird nicht mehr als grosser roher `data-lang`-Kartenblock in [index.html](../index.html) gepflegt.
-- Die Karten kommen aus strukturierter Quelle und werden statisch gerendert.
-- Die bestehende Review-Verlinkung und Ruecknavigation verhalten sich unveraendert.
-- Der Renderer wurde nur so weit erweitert, wie es fuer diesen Block wiederverwendbar und reviewbar noetig ist.
+- [scripts/hero-gallery.js](../scripts/hero-gallery.js) ist sichtbar kleiner oder in klar benannte Teilmodule zerlegt.
+- Bestehende Hero-/Gallery-Interaktionen verhalten sich unveraendert.
+- Reduced Motion, Resize und Navigation rund um den Hero bleiben lokal geprueft.
+- Der neue Schnitt ist reviewbar und fuehrt nicht wieder versteckt Logik in andere Sammeldateien zurueck.
 
 ## Woche 1
 
@@ -189,10 +194,17 @@ Ziel: die gewachsenen Runtime-Sammelbloecke weiter aufbrechen und testbarer mach
 
 Budget: 15 Stunden
 
+### Stand 2026-04-09
+
+- Abgeschlossen: Der bisherige Navigation-/Sprach-Sammelblock ist schrittweise aufgeteilt worden; aktive Runtime-Dateien sind jetzt [scripts/site-language.js](../scripts/site-language.js), [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js) und [scripts/navigation-runtime.js](../scripts/navigation-runtime.js).
+- Abgeschlossen: Die HTML-Ladereihenfolge auf [index.html](../index.html), [chronik.html](../chronik.html), [datenschutz.html](../datenschutz.html) und [impressum.html](../impressum.html) wurde entsprechend auf die neue Reihenfolge umgestellt.
+- Validiert: Statische Fehlerchecks liefen nach jedem Split ohne Funde durch.
+- Validiert: Der Chromium-Release-Smoke lief nach den Runtime-Splits erneut mit 0 Funden.
+
 ### Block A - 5h
 
-- [scripts/navigation-language.js](../scripts/navigation-language.js) in kleinere Verantwortungsbereiche schneiden
-- Sprachzustand, Navigation, Hash-Logik und Accessibility-Sync nicht weiter als ein grosser Mischblock belassen
+- Den Navigationsteil weiter in kleine Verantwortungsbereiche schneiden und die Orchestrierung schlank halten
+- Sprachzustand, Mobile-Menue, Wayfinding, Navbar-Shell und Initialisierung nicht wieder zu einem neuen Mischblock zusammenfalten
 
 ### Block B - 5h
 

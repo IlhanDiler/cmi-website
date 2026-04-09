@@ -27,18 +27,22 @@ Die Website nutzt jetzt eine modulare CSS-Architektur mit einem klaren Einstiegs
 - [styles/components/subpages.css](../styles/components/subpages.css) kapselt generische Subpage-Struktur.
 - [styles/components/legal.css](../styles/components/legal.css) kapselt Datenschutz und Impressum.
 
-Die JavaScript-Runtime ist jetzt in sieben Dateien geschnitten:
+Die JavaScript-Runtime ist jetzt in elf Dateien geschnitten:
 
 - Ein kleines Inline-Snippet im HTML-`head` setzt frueh `history.scrollRestoration = 'manual'`, damit die Browser-eigene Scroll-Wiederherstellung die Runtime nicht ueberlagert.
 - [scripts/core-runtime.js](../scripts/core-runtime.js) kapselt Scroll-/Load-Verhalten, Sprach-Fallback und die zentrale Runtime-Initialisierung.
 - [scripts/event-lightbox.js](../scripts/event-lightbox.js) kapselt die Event-Lightbox inklusive Caption-Ableitung, Fokus-Rueckgabe und Keyboard-/Overlay-Schliessen.
 - [scripts/cookie-consent.js](../scripts/cookie-consent.js) kapselt Cookie-Consent-Texte, Observer-Logik und den Sprachsync fuer das eingebundene Cookie-Script.
-- [scripts/navigation-language.js](../scripts/navigation-language.js) kapselt Navigation, Smooth-Scroll, aktiven Navigationszustand, Sprachumschaltung und Navigation-A11y.
+- [scripts/site-language.js](../scripts/site-language.js) kapselt Sprachumschaltung, Fallback-Auswahl fuer `data-lang`-Varianten und den statischen Accessibility-Sync.
+- [scripts/navigation-mobile.js](../scripts/navigation-mobile.js) kapselt Mobile-Menue, Fokus-Falle und Close-/Restore-Focus-Logik.
+- [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js) kapselt Smooth-Scroll, Hash-Zielbehandlung und aktiven Navigationszustand fuer In-Page-Links.
+- [scripts/navigation-shell.js](../scripts/navigation-shell.js) kapselt Navbar-Scrollzustand und den Mbonda-Timeline-Sonderfall.
+- [scripts/navigation-runtime.js](../scripts/navigation-runtime.js) kapselt nur noch die Orchestrierung der Navigationsmodule.
 - [scripts/hero-gallery.js](../scripts/hero-gallery.js) kapselt Hero-Layout, Hero-Slider, Galerie-UI und responsive Bildanpassungen.
 - [scripts/site-effects.js](../scripts/site-effects.js) kapselt Scroll-Reveal, Shape-Parallax und den Jahreszaehler.
 - [scripts/review-interactions.js](../scripts/review-interactions.js) kapselt das Review-Archiv, Karten-Toggles und die hash-getriebene Oeffnungslogik fuer aeltere Rueckblicke.
 
-Wichtig: Die HTML-Dateien setzen zuerst das kleine Inline-Snippet fuer `history.scrollRestoration` im `head` und laden danach [scripts/core-runtime.js](../scripts/core-runtime.js), [scripts/event-lightbox.js](../scripts/event-lightbox.js), [scripts/cookie-consent.js](../scripts/cookie-consent.js), [scripts/navigation-language.js](../scripts/navigation-language.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js), [scripts/site-effects.js](../scripts/site-effects.js) und [scripts/review-interactions.js](../scripts/review-interactions.js), weil die spaeteren Runtime-Dateien auf Basisfunktionen aus den frueher geladenen Dateien aufsetzen.
+Wichtig: Die HTML-Dateien setzen zuerst das kleine Inline-Snippet fuer `history.scrollRestoration` im `head` und laden danach [scripts/core-runtime.js](../scripts/core-runtime.js), [scripts/event-lightbox.js](../scripts/event-lightbox.js), [scripts/cookie-consent.js](../scripts/cookie-consent.js), [scripts/site-language.js](../scripts/site-language.js), [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js), [scripts/navigation-runtime.js](../scripts/navigation-runtime.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js), [scripts/site-effects.js](../scripts/site-effects.js) und [scripts/review-interactions.js](../scripts/review-interactions.js), weil die spaeteren Runtime-Dateien auf Basisfunktionen aus den frueher geladenen Dateien aufsetzen.
 
 ## Wichtige Regeln
 
@@ -70,7 +74,7 @@ Zum Abschluss der Migration wurde lokal ueber einen HTTP-Server geprueft:
 
 Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaetzlich wurde der Share-Export gegen das Dateisystem abgeglichen, damit [share/share-pages.json](../share/share-pages.json) und die vorhandenen Share-Dateien wieder deckungsgleich sind.
 
-## Abschlussstand 2026-04-08
+## Abschlussstand 2026-04-09
 
 - Der 4-Wochen-Arbeitsplan in [docs/FOUR-WEEK-PLAN.md](../docs/FOUR-WEEK-PLAN.md) ist im gesetzten Pragmatik-Scope abgeschlossen.
 - Die groessten `data-lang`-Hotspots auf Hauptseite, Chronik und Legal-Seiten sind auf ein gemeinsames `hidden`-/`aria-hidden`-Muster vereinheitlicht.
@@ -81,6 +85,8 @@ Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaet
 - Der Generatorpilot ist erweitert: Die Datenschutz-Bloecke `#privacy-overview`, `#privacy-hosting`, `#privacy-basics`, `#privacy-data`, `#privacy-social`, `#privacy-analytics` und `#privacy-tools` in [datenschutz.html](../datenschutz.html) werden jetzt generatorbasiert erzeugt; der Renderer unterstuetzt strukturierte Cards mit Ueberschriften, Listen, Inhaltsgruppen und gezielt freigegebene Inline-Links und zieht groessere Quellen bei Bedarf aus [scripts/legal-content](../scripts/legal-content) nach.
 - Der gleiche Marker-Renderer wird jetzt auch auf breitere Chronik-Inhalte angewendet: In [chronik.html](../chronik.html) kommen Hero-Titel, Uebersichts-Karten, Timeline-Intro/Summary und alle sieben Timeline-Stationen aus [scripts/legal-content/chronik-overview.json](../scripts/legal-content/chronik-overview.json) sowie [scripts/legal-content/chronik-timeline-items.json](../scripts/legal-content/chronik-timeline-items.json) statt aus rohen `data-lang`-Duplikaten.
 - Der Startseiten-Rollout ist jetzt deutlich breiter generatorbasiert: In [index.html](../index.html) kommen der komplette Musikfamilie-Block, die Repertoire- und Engagement-Karten, der obere "Musik baut Bruecken"-Introblock inklusive Jubiläumsfilm-Card, der Astrid-Abschnitt sowie die Event-Einfuehrung, beide Event-Karten, der Kontaktbereich und der Footer aus [scripts/legal-content/homepage-music-family.json](../scripts/legal-content/homepage-music-family.json), [scripts/legal-content/homepage-repertoire.json](../scripts/legal-content/homepage-repertoire.json), [scripts/legal-content/homepage-bridge-about.json](../scripts/legal-content/homepage-bridge-about.json), [scripts/legal-content/homepage-events.json](../scripts/legal-content/homepage-events.json) und [scripts/legal-content/homepage-contact-footer.json](../scripts/legal-content/homepage-contact-footer.json); der Renderer kann dafuer alternative Text-Tags, mehrzeiliges vertrauenswuerdiges HTML in Wrappern, sprachspezifische `lang`-Attribute und gezielt freigegebenes Listen-/Inline-HTML ausgeben, damit bestehende Karten-, Fakten-, Button- und Footer-Klassen erhalten bleiben.
+- Der Aktuelles-Bereich auf [index.html](../index.html) ist jetzt ebenfalls generatorbasiert: Intro und Kartenliste kommen aus [scripts/legal-content/homepage-curated-feed.json](../scripts/legal-content/homepage-curated-feed.json), waehrend [scripts/render-legal-content.py](../scripts/render-legal-content.py) wiederholte Kartenlisten statisch mit bestehenden Klassen rendert.
+- Der bisherige Navigations-Sammelblock ist jetzt entlang echter Verantwortungen zerlegt: [scripts/site-language.js](../scripts/site-language.js), [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js) und [scripts/navigation-runtime.js](../scripts/navigation-runtime.js) trennen Sprachzustand, Mobile-Menue, In-Page-Wayfinding, Navbar-/Mbonda-Logik und Orchestrierung.
 - Die technische Einordnung und der Abschlussabgleich stehen in [docs/SITE-ASSESSMENT.md](../docs/SITE-ASSESSMENT.md).
 
 ## Bewusst offene Grenzen
@@ -91,11 +97,11 @@ Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaet
 
 ## Naechste sinnvolle Schritte
 
-1. Den Generatoransatz vom Impressum und Datenschutz auf weitere Legal-Bloecke oder einen anderen grossen Sprachbereich ausweiten.
+1. Den Generatoransatz von Legal-, Chronik- und Homepage-Bloecken auf weitere grosse Sprachbereiche oder den Share-Flow ausweiten.
 2. Vor einer finalen Freigabe einen kurzen manuellen Browser-, Mobile- und Screenreader-Sweep ueber Hauptseite, Chronik, Legal-Seiten und Share-Flow fahren.
 3. Fuer den neuen Aktuelles-/Rueckblick-Flow spaeter ein bewusstes UX-/UI-Fine-Tuning einplanen; die konkreten Follow-up-Punkte stehen in [docs/SOCIAL-FEED-ASSESSMENT.md](../docs/SOCIAL-FEED-ASSESSMENT.md).
-4. Als naechsten technischen Schuldenabbau den neuen Aktuelles-Bereich auf [index.html](../index.html) generatorisieren: Intro ist bereits in [scripts/legal-content/homepage-curated-feed.json](../scripts/legal-content/homepage-curated-feed.json) abgebildet, die Kartenliste jedoch noch als roher mehrsprachiger HTML-Cluster im Dokument gepflegt.
-5. Dafuer [scripts/render-legal-content.py](../scripts/render-legal-content.py) nur minimal um wiederholte Kartenlisten erweitern und danach erst [scripts/navigation-language.js](../scripts/navigation-language.js) weiter zerlegen.
+4. Als naechsten Runtime-Hebel [scripts/hero-gallery.js](../scripts/hero-gallery.js) in Layout-Messung, Slider-Zustand und UI-Sync schneiden, statt dort wieder einen neuen Sammelblock wachsen zu lassen.
+5. Die Share-Architektur unter [share](../share) in Richtung strukturierter Quelle plus Generierung weiterziehen, bevor neue Einzel-HTMLs denselben Pflegeaufwand wieder aufbauen.
 
 ## Offene Grenze
 
