@@ -31,6 +31,128 @@ def normalize_translated_value(value: object) -> str:
     raise TypeError(f"Unsupported translated value type: {type(value)!r}")
 
 
+def render_translated_children_tag(
+    parent_tag: str,
+    child_tag: str,
+    translations: dict[str, object],
+    indent: str,
+    *,
+    parent_class_name: str | None = None,
+    allow_html: bool = False,
+) -> list[str]:
+    parent_attributes = [f'class="{parent_class_name}"'] if parent_class_name else []
+    lines = [f"{indent}<{parent_tag}{(' ' + ' '.join(parent_attributes)) if parent_attributes else ''}>"]
+    child_indent = indent + "  "
+
+    for language in LANGUAGE_ORDER:
+        if language not in translations:
+            raise KeyError(f"Missing translation for language '{language}'")
+        raw_text = normalize_translated_value(translations[language])
+        text = raw_text if allow_html else html.escape(raw_text, quote=False)
+        child_attributes = build_attributes(language)
+
+        if allow_html and "\n" in text:
+            lines.append(f"{child_indent}<{child_tag} {child_attributes}>")
+            for inner_line in text.splitlines():
+                lines.append(f"{child_indent}  {inner_line}")
+            lines.append(f"{child_indent}</{child_tag}>")
+            continue
+
+        lines.append(f"{child_indent}<{child_tag} {child_attributes}>{text}</{child_tag}>")
+
+    lines.append(f"{indent}</{parent_tag}>")
+    return lines
+
+
+def render_news_feed_cards(block: dict[str, object], indent: str) -> list[str]:
+    wrapper_class_name = str(block.get("className", "news-feed-grid"))
+    lines = [f'{indent}<div class="{wrapper_class_name}">']
+    card_indent = indent + "  "
+
+    for item in block["items"]:
+        href = html.escape(str(item["href"]), quote=True)
+        image = item["image"]
+        image_src = html.escape(str(image["src"]), quote=True)
+        image_alt = html.escape(str(image.get("alt", "")), quote=True)
+        image_mode = str(image.get("mode", "plain"))
+        loading = html.escape(str(image.get("loading", "lazy")), quote=True)
+        decoding = html.escape(str(image.get("decoding", "async")), quote=True)
+
+        lines.append(f'{card_indent}<article class="news-feed-card">')
+        lines.append(f'{card_indent}  <a class="news-feed-card-link" href="{href}">')
+        lines.append(f'{card_indent}    <div class="news-feed-card-media">')
+
+        if image_mode == "contained":
+            lines.append(
+                f'{card_indent}      <img class="news-feed-card-image news-feed-card-image--backdrop" src="{image_src}" alt="" aria-hidden="true" loading="{loading}" decoding="{decoding}">'
+            )
+            lines.append(
+                f'{card_indent}      <img class="news-feed-card-image news-feed-card-image--contain" src="{image_src}" alt="{image_alt}" loading="{loading}" decoding="{decoding}">'
+            )
+        elif image_mode == "plain":
+            lines.append(
+                f'{card_indent}      <img class="news-feed-card-image" src="{image_src}" alt="{image_alt}" loading="{loading}" decoding="{decoding}">'
+            )
+        else:
+            raise ValueError(f"Unsupported news feed image mode: {image_mode}")
+
+        lines.append(f'{card_indent}    </div>')
+        lines.append(f'{card_indent}    <div class="news-feed-card-body">')
+        lines.append(f'{card_indent}      <div class="news-feed-card-meta">')
+        lines.extend(
+            render_translated_children_tag(
+                "span",
+                "span",
+                item["badge"],
+                card_indent + "        ",
+                parent_class_name="news-feed-card-badge",
+            )
+        )
+        lines.extend(
+            render_translated_children_tag(
+                "span",
+                "span",
+                item["date"],
+                card_indent + "        ",
+                parent_class_name="news-feed-card-date",
+            )
+        )
+        lines.append(f'{card_indent}      </div>')
+        lines.extend(
+            render_translated_children_tag(
+                "h3",
+                "span",
+                item["title"],
+                card_indent + "      ",
+                parent_class_name="news-feed-card-title",
+            )
+        )
+        lines.extend(
+            render_translated_children_tag(
+                "p",
+                "span",
+                item["copy"],
+                card_indent + "      ",
+                parent_class_name="news-feed-card-copy",
+            )
+        )
+        lines.extend(
+            render_translated_children_tag(
+                "span",
+                "span",
+                item["cta"],
+                card_indent + "      ",
+                parent_class_name="news-feed-card-cta",
+            )
+        )
+        lines.append(f'{card_indent}    </div>')
+        lines.append(f'{card_indent}  </a>')
+        lines.append(f'{card_indent}</article>')
+
+    lines.append(f'{indent}</div>')
+    return lines
+
+
 def render_translated_tag(
     tag: str,
     translations: dict[str, object],
@@ -132,6 +254,9 @@ def render_rich_block(block: dict[str, object], indent: str) -> list[str]:
             block.get("className"),
             allow_html=bool(block.get("allowHtml", False)),
         )
+
+    if block_type == "newsFeedCards":
+        return render_news_feed_cards(block, indent)
 
     if block_type == "group":
         lines = [f"{indent}<div class=\"{block['className']}\">"]
