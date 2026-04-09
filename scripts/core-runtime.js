@@ -166,9 +166,7 @@ function initSiteFeatures() {
     initNavigationFeatures();
     initShapeParallax();
     updateYearsPassed();
-    initReviewArchiveToggle();
-    initReviewCardToggles();
-    initReviewNewsFeedNavigation();
+    initReviewFeatures();
     initSiteLanguage();
 }
 
