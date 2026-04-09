@@ -10,9 +10,12 @@ Wenn Navigation, Sprachumschaltung, Legal-Seiten oder Interaktionszustand betrof
 
 ## Kurzcheck
 
+Wenn fuer die Freigabe nur ein sehr kurzer Screenreader-Check realistisch ist, den Ablauf in [docs/NVDA-QUICK-PASS.md](./NVDA-QUICK-PASS.md) nutzen.
+
 - [ ] [index.html](../index.html) auf Desktop laden: keine sichtbaren Layout-Brueche im Hero, in der Navigation oder im Footer.
 - [ ] [index.html](../index.html) auf Mobile laden: Mobile-Menue oeffnet und schliesst sauber.
 - [ ] Sprachwechsel auf der Hauptseite pruefen: Navigation, Tagline und Hero-Caption wechseln sichtbar.
+- [ ] Homepage einmal kurz mit Screenreader gegenpruefen: `Hauptnavigation`, `main`, die grossen benannten Regionen und der Jubilaeumsfilm-Link mit Aussenfenster-Hinweis werden sinnvoll angekuendigt.
 - [ ] Hero-Gallery pruefen: Prev/Next und Dots funktionieren, Caption passt weiter zur Sprache.
 - [ ] Ein Event-Poster oeffnen: Lightbox oeffnet, schliesst per Overlay oder Escape und gibt den Fokus zurueck.
 - [ ] Review-Bereich pruefen: Archiv laesst sich oeffnen, mindestens eine Review-Karte klappt sauber auf und zu.

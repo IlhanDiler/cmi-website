@@ -204,8 +204,8 @@
       "indentSpaces": 20,
       "blocks": [
         {
-          "type": "paragraph",
-          "tagName": "div",
+          "type": "heading",
+          "level": 4,
           "className": "contact-info-card-title",
           "text": {
             "de": "Probezeiten",
@@ -239,8 +239,8 @@
       "indentSpaces": 20,
       "blocks": [
         {
-          "type": "paragraph",
-          "tagName": "div",
+          "type": "heading",
+          "level": 4,
           "className": "contact-info-card-title",
           "text": {
             "de": "Proberaum",
@@ -274,8 +274,8 @@
       "indentSpaces": 20,
       "blocks": [
         {
-          "type": "paragraph",
-          "tagName": "div",
+          "type": "heading",
+          "level": 4,
           "className": "contact-info-card-title",
           "text": {
             "de": "E-Mail",

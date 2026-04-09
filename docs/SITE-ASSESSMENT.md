@@ -1,6 +1,6 @@
 # Site Assessment
 
-Stand: 2026-04-08
+Stand: 2026-04-09
 
 ## Kurzfazit
 
@@ -80,10 +80,12 @@ Aktueller realistischer Stand:
 9. Die manuelle QA ist nicht mehr nur grober Smoke-Text, sondern als Browser-, Geraete- und Accessibility-Matrix dokumentiert und enger an die Release-QA gekoppelt.
 10. Ein gezielter QA-Pass fuer Tastatur, Reduced Motion und Legal-Reflow wurde lokal durchgefuehrt; die daraus entstandenen Funde wurden direkt als Root-Cause-Fixes geschlossen.
 11. Die strukturelle Entduplizierung ist nicht mehr nur Zielbild: Fuer den Impressum-Rechtsblock, sieben Datenschutz-Bloecke, breite Chronik-Bereiche bis hinein in alle Timeline-Stationen sowie grosse Hauptseiten-Bloecke vom oberen "Musik baut Bruecken"-/About-Bereich ueber Musikfamilie und Repertoire/Engagement bis zu Events, Kontakt und Footer existieren jetzt Generatorquellen nach statischem HTML; groessere Bloecke koennen dabei in separate Quelldateien unter [scripts/legal-content](../scripts/legal-content) ausgelagert werden.
+12. Die Homepage-Semantik wurde im letzten Pass nochmals sichtbar gehaertet: mehrere visuelle Untertitel und Kartentitel sind jetzt echte Headings, grosse Startseiten-Bloecke exponieren sprachsynchronisierte benannte Regionen, und der eigenstaendige Astrid-Block fuegt sich mit `h2` statt als isolierte `h3` sauber in die Outline ein.
+13. Fuer den letzten echten manuellen Freigabeschritt existieren jetzt ein kompakter NVDA-Kurzablauf in [docs/NVDA-QUICK-PASS.md](../docs/NVDA-QUICK-PASS.md) sowie ein fester Ergebnisblock in [docs/FRONTEND-HANDOFF.md](../docs/FRONTEND-HANDOFF.md).
 
 ## Was noch fehlt für wirklich professionell-sauber
 
-1. Accessibility ist deutlich besser als beim ersten Assessment, aber noch nicht als vollstaendiger Screenreader- und Geraeteklassen-Check ueber alle Seiten und Zustaende abgesichert.
+1. Accessibility ist deutlich besser als beim ersten Assessment; Landmarken, Heading-Struktur, Sprachzustand und Cookie-Dialog wurden fuer die Hauptseite zuletzt browsernah erfolgreich geprueft, aber ein echter Screenreader- und Geraeteklassen-Check ueber alle Seiten und Zustaende steht weiterhin noch aus.
 2. Historische Sonderfälle und inkonsistente Muster sind stark reduziert, aber nicht vollstaendig verschwunden.
 3. Die Browser-Matrix ist inzwischen belastbar, kann langfristig aber noch systematischer in manuelle und visuelle Checks eingebettet werden.
 4. Die groessten Sprachduplikations-Hotspots sind standardisiert; die eigentliche HTML-Duplikation ist fuer einen Impressum-Block, sieben Datenschutz-Bloecke, breite Chronik-Bereiche und grosse Hauptseiten-Bloecke vom Intro-/About-Bereich bis in Events, Kontakt und Footer sichtbar reduziert, aber architektonisch noch nicht ueber die gesamte Startseite hinweg aufgeloest.

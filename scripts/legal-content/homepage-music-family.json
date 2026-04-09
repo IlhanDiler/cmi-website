@@ -213,7 +213,7 @@
       "blocks": [
         {
           "type": "heading",
-          "level": 2,
+          "level": 3,
           "className": "music-family-group-title",
           "text": {
             "de": "Anfängergruppe",
@@ -378,7 +378,7 @@
       "blocks": [
         {
           "type": "heading",
-          "level": 2,
+          "level": 3,
           "className": "music-family-group-title",
           "text": {
             "de": "Jugendliche und Erwachsene mit Vorerfahrung",
@@ -542,8 +542,8 @@
       "indentSpaces": 12,
       "blocks": [
         {
-          "type": "paragraph",
-          "tagName": "div",
+          "type": "heading",
+          "level": 3,
           "className": "music-family-contact-title",
           "text": {
             "de": "Info & Anmeldung:",

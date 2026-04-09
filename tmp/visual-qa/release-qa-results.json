@@ -1,43 +1,26 @@
 {
   "baseUrl": "http://127.0.0.1:8123",
   "requestedBrowserTargets": [
-    "msedge",
-    "chrome",
+    "chromium",
     "firefox"
   ],
   "browserRuns": [
     {
-      "requestedTarget": "msedge",
-      "resolvedTarget": "msedge",
-      "browserLabel": "Microsoft Edge",
+      "requestedTarget": "chromium",
+      "resolvedTarget": "chromium",
+      "browserLabel": "Chromium",
       "skipped": false,
       "launchError": null,
       "issueCount": 0,
       "issues": [],
       "screenshots": [
-        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\index-release-desktop-msedge.png",
-        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\index-release-mobile-msedge.png",
-        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\chronik-release-msedge.png",
-        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\datenschutz-release-msedge.png",
-        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\impressum-release-msedge.png",
-        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\querbeet-roundup-share-msedge.png"
-      ]
-    },
-    {
-      "requestedTarget": "chrome",
-      "resolvedTarget": "chrome",
-      "browserLabel": "Google Chrome",
-      "skipped": false,
-      "launchError": null,
-      "issueCount": 0,
-      "issues": [],
-      "screenshots": [
-        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\index-release-desktop-chrome.png",
-        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\index-release-mobile-chrome.png",
-        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\chronik-release-chrome.png",
-        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\datenschutz-release-chrome.png",
-        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\impressum-release-chrome.png",
-        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\querbeet-roundup-share-chrome.png"
+        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\index-release-desktop-chromium.png",
+        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\index-release-mobile-chromium.png",
+        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\chronik-release-chromium.png",
+        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\datenschutz-release-chromium.png",
+        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\impressum-release-chromium.png",
+        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\querbeet-roundup-share-chromium.png",
+        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\instagram-export-chromium.png"
       ]
     },
     {
@@ -54,30 +37,27 @@
         "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\chronik-release-firefox.png",
         "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\datenschutz-release-firefox.png",
         "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\impressum-release-firefox.png",
-        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\querbeet-roundup-share-firefox.png"
+        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\querbeet-roundup-share-firefox.png",
+        "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\instagram-export-firefox.png"
       ]
     }
   ],
   "issueCount": 0,
   "issues": [],
   "screenshots": [
-    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\index-release-desktop-msedge.png",
-    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\index-release-mobile-msedge.png",
-    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\chronik-release-msedge.png",
-    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\datenschutz-release-msedge.png",
-    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\impressum-release-msedge.png",
-    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\querbeet-roundup-share-msedge.png",
-    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\index-release-desktop-chrome.png",
-    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\index-release-mobile-chrome.png",
-    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\chronik-release-chrome.png",
-    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\datenschutz-release-chrome.png",
-    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\impressum-release-chrome.png",
-    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\querbeet-roundup-share-chrome.png",
+    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\index-release-desktop-chromium.png",
+    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\index-release-mobile-chromium.png",
+    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\chronik-release-chromium.png",
+    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\datenschutz-release-chromium.png",
+    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\impressum-release-chromium.png",
+    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\querbeet-roundup-share-chromium.png",
+    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\instagram-export-chromium.png",
     "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\index-release-desktop-firefox.png",
     "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\index-release-mobile-firefox.png",
     "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\chronik-release-firefox.png",
     "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\datenschutz-release-firefox.png",
     "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\impressum-release-firefox.png",
-    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\querbeet-roundup-share-firefox.png"
+    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\querbeet-roundup-share-firefox.png",
+    "C:\\repos\\cmi-webseite_final - 4\\tmp\\visual-qa\\instagram-export-firefox.png"
   ]
 }

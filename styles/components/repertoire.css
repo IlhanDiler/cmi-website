@@ -305,6 +305,7 @@
 
 .repertoire-highlight-title,
 .engagement-focus-title {
+    margin: 0;
     color: var(--repertoire-title-color);
     font-family: var(--font-ui-modern);
     font-size: clamp(1.02rem, 1.2vw, 1.14rem);
@@ -665,7 +666,7 @@
 }
 
 .musikalisches-repertoire-card--engagement .charity-certificate-card-title {
-    margin-bottom: 6px;
+    margin: 0 0 6px;
     color: var(--repertoire-title-color);
     font-size: 0.99em;
     line-height: 1.28;

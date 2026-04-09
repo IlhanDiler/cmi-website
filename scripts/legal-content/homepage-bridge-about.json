@@ -107,8 +107,8 @@
       "indentSpaces": 12,
       "blocks": [
         {
-          "type": "paragraph",
-          "tagName": "div",
+          "type": "heading",
+          "level": 3,
           "className": "image-caption-video-title",
           "langAttribute": true,
           "text": {
@@ -149,7 +149,7 @@
       "blocks": [
         {
           "type": "heading",
-          "level": 3,
+          "level": 2,
           "className": "about-me-modern-title",
           "text": {
             "de": "Dr. Astrid Eitschberger",
