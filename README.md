@@ -25,13 +25,15 @@ Das Frontend-JavaScript ist jetzt ebenfalls fachlich aufgeteilt:
 - [scripts/navigation-wayfinding.js](scripts/navigation-wayfinding.js) kapselt In-Page-Wayfinding, Hash-Navigation und Active-State-Sync.
 - [scripts/navigation-shell.js](scripts/navigation-shell.js) kapselt Navbar-Scrollzustand und den Mbonda-Timeline-Sonderfall.
 - [scripts/navigation-runtime.js](scripts/navigation-runtime.js) kapselt nur noch die Orchestrierung dieser Navigationsmodule.
-- [scripts/hero-gallery.js](scripts/hero-gallery.js) kapselt Hero-Layout, Hero-Slider, Galerie-UI und die dazugehoerigen responsive Anpassungen.
+- [scripts/hero-layout.js](scripts/hero-layout.js) kapselt Hero-Layout-Messung und responsive Sonderfaelle wie das Christmette-Bild.
+- [scripts/hero-gallery.js](scripts/hero-gallery.js) kapselt Galerie-Daten, Slider-Zustand, Crossfade, Autoplay und Initialisierung.
+- [scripts/hero-gallery-ui.js](scripts/hero-gallery-ui.js) kapselt Galerie-Labels, Accessibility-Sync, Caption/Counter-UI und Dot-Navigation.
 - [scripts/site-effects.js](scripts/site-effects.js) kapselt Scroll-Reveal, Shape-Parallax und den Jahreszaehler im Footer.
 - [scripts/review-interactions.js](scripts/review-interactions.js) kapselt das Review-Archiv, Karten-Toggles und hash-basierte Aufklapp-Logik fuer aeltere Rueckblicke.
 
 Wichtig fuer die Einbindung:
 
-- Die HTML-Seiten setzen zuerst das kleine Inline-Snippet fuer `history.scrollRestoration` im Dokumentkopf und laden danach [scripts/core-runtime.js](scripts/core-runtime.js), [scripts/event-lightbox.js](scripts/event-lightbox.js), [scripts/cookie-consent.js](scripts/cookie-consent.js), [scripts/site-language.js](scripts/site-language.js), [scripts/navigation-mobile.js](scripts/navigation-mobile.js), [scripts/navigation-wayfinding.js](scripts/navigation-wayfinding.js), [scripts/navigation-shell.js](scripts/navigation-shell.js), [scripts/navigation-runtime.js](scripts/navigation-runtime.js), [scripts/hero-gallery.js](scripts/hero-gallery.js), [scripts/site-effects.js](scripts/site-effects.js) und [scripts/review-interactions.js](scripts/review-interactions.js).
+- Die HTML-Seiten setzen zuerst das kleine Inline-Snippet fuer `history.scrollRestoration` im Dokumentkopf und laden danach [scripts/core-runtime.js](scripts/core-runtime.js), [scripts/event-lightbox.js](scripts/event-lightbox.js), [scripts/cookie-consent.js](scripts/cookie-consent.js), [scripts/site-language.js](scripts/site-language.js), [scripts/navigation-mobile.js](scripts/navigation-mobile.js), [scripts/navigation-wayfinding.js](scripts/navigation-wayfinding.js), [scripts/navigation-shell.js](scripts/navigation-shell.js), [scripts/navigation-runtime.js](scripts/navigation-runtime.js), [scripts/hero-layout.js](scripts/hero-layout.js), [scripts/hero-gallery.js](scripts/hero-gallery.js), [scripts/hero-gallery-ui.js](scripts/hero-gallery-ui.js), [scripts/site-effects.js](scripts/site-effects.js) und [scripts/review-interactions.js](scripts/review-interactions.js).
 - Die Reihenfolge ist relevant, weil die spaeteren Runtime-Dateien Basisfunktionen aus den frueher geladenen Dateien verwenden.
 
 Aktuelle Modulaufteilung:
