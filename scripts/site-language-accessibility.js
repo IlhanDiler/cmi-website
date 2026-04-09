@@ -343,11 +343,33 @@ function syncFooterNavigationAccessibility() {
     });
 }
 
+function syncNamedRegionAccessibility() {
+    document.querySelectorAll('[data-region-label-selector]').forEach(function(region) {
+        const selector = region.getAttribute('data-region-label-selector');
+
+        if (!selector) {
+            return;
+        }
+
+        const label = getVisibleNodeText(region, selector);
+
+        if (!label) {
+            region.removeAttribute('role');
+            region.removeAttribute('aria-label');
+            return;
+        }
+
+        region.setAttribute('role', 'region');
+        region.setAttribute('aria-label', label);
+    });
+}
+
 function syncStaticContentAccessibility() {
     syncDecorativeContentAccessibility();
     syncAnniversaryVideoAccessibility();
     syncEventShareButtonAccessibility();
     syncExternalLinkAccessibility();
+    syncNamedRegionAccessibility();
     syncLegalOverviewAccessibility();
     syncFooterNavigationAccessibility();
 

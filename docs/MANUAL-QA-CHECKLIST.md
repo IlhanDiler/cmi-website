@@ -75,11 +75,25 @@ Vor dem Start einmal kurz festhalten:
 
 ## Screenreader-Kurzcheck
 
+Wenn nur ein sehr kurzer NVDA-Lauf noetig ist, zuerst [docs/NVDA-QUICK-PASS.md](./NVDA-QUICK-PASS.md) verwenden und danach nur bei Auffaelligkeiten in diese Vollcheckliste zurueckfallen.
+
 - [ ] Seitenstruktur pruefen: Dokumenttitel, Landmarken und Hauptueberschriften wirken sinnvoll.
 - [ ] Sprachumschalter wird als Gruppe mit klaren Labels angekuendigt.
 - [ ] Nicht aktive `data-lang`-Varianten werden nicht mit vorgelesen.
 - [ ] Die Legal-Hero-Chips auf [datenschutz.html](../datenschutz.html) und [impressum.html](../impressum.html) werden als Liste angekuendigt.
 - [ ] Skip-Link, Mobile-Menue, Lightbox-Close und Review-Toggles haben sinnvolle Ankuendigungen.
+
+## Homepage-Screenreader-Pass
+
+Fuer einen kompakten Operator-Durchlauf steht derselbe Ablauf auch separat in [docs/NVDA-QUICK-PASS.md](./NVDA-QUICK-PASS.md).
+
+- [ ] [index.html](../index.html) in Deutsch laden und einmal mit sichtbarem Cookie-Dialog starten; wenn der Dialog erscheint, pruefen dass er als benannter Dialog angekuendigt wird und `Alle akzeptieren`, `Ablehnen` und die Checkbox per Tastatur erreichbar sind.
+- [ ] Danach die Hauptseite ohne offenen Dialog vom Seitenanfang lesen oder per Rotor/Landmark-Liste pruefen: erwartet werden mindestens `Hauptnavigation`, `main` und benannte Regionen fuer `Musik baut Bruecken`, `Werde Teil unserer Musikfamilie`, `Musikalisches Repertoire`, `Soziales Engagement`, `Kommende Konzerte & Begegnungen`, `Chronik`, `Dr. Astrid Eitschberger`, `Aktuelle Einblicke aus dem CMI`, `Seit 1981` und `Kontakt`.
+- [ ] Ueberschriftenliste pruefen: genau eine `h1`, danach sinnvolle `h2`-Abschnitte fuer die grossen Homepage-Bloecke; der Astrid-Block darf nicht mehr als isolierte `h3` zwischen zwei Top-Level-Sections auftauchen.
+- [ ] Jubilaeumsfilm-Link pruefen: der Link sollte mit einem beschreibenden Namen inkl. Hinweis `oeffnet in neuem Fenster` angekuendigt werden.
+- [ ] Event- und Kontaktbereich pruefen: Event-Sektion, Chronik und Kontakt sollen in der Landmark-Liste benannt erscheinen; Kontaktkarten sollen mit ihren `h4`-Titeln sinnvoll strukturiert sein.
+- [ ] Sprachwechsel auf Englisch ausfuehren und die Landmark-Liste erneut kurz pruefen; mindestens `Music family`, `Upcoming Concerts & Gatherings` und `Contact` muessen als umbenannte Regionen auftauchen.
+- [ ] News-Feed-Karten kurz anlesen: die Bildteaser duerfen keine zusaetzlichen redundanten Bildansagen erzeugen, die ueber den vorhandenen Linktext hinausgehen.
 
 ## Load- und Scroll-Verhalten
 
