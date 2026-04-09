@@ -166,6 +166,8 @@ let isHeroGalleryPaused = false;
 let hasHeroGalleryAutoplayOverride = false;
 let heroGalleryTimeout = null;
 let heroGalleryCounterAnnouncementTimeout = null;
+let pendingHeroGalleryIndex = null;
+let pendingHeroGalleryAnnouncement = false;
 
 function isCompactHeroGalleryViewport() {
     return window.matchMedia('(max-width: 700px)').matches;
@@ -332,7 +334,12 @@ function syncHeroGallerySlideAccessibility() {
 
 function refreshHeroGalleryCaption() {
     const title = getHeroGalleryTitle(heroGallery[heroIndex], getCurrentSiteLanguage(), isCompactHeroGalleryViewport());
-    document.querySelectorAll('.hero-bg-fade .fadein-text').forEach(function(captionNode) {
+    document.querySelectorAll('.hero-bg-fade').forEach(function(layer) {
+        const captionNode = ensureHeroGalleryCaptionLayer(layer);
+        if (!captionNode) {
+            return;
+        }
+
         captionNode.textContent = title;
         captionNode.style.opacity = title ? '1' : '0';
         captionNode.style.transform = 'none';
@@ -464,6 +471,21 @@ function getHeroGalleryCssImageUrl(src) {
     }
 }
 
+function ensureHeroGalleryCaptionLayer(layer) {
+    if (!layer) {
+        return null;
+    }
+
+    let fadeinDiv = layer.querySelector('.fadein-text');
+    if (!fadeinDiv) {
+        fadeinDiv = document.createElement('div');
+        fadeinDiv.className = 'fadein-text';
+        layer.appendChild(fadeinDiv);
+    }
+
+    return fadeinDiv;
+}
+
 function syncHeroGalleryActiveSlideStyle() {
     const fadeContainer = document.querySelector('.hero-bg-fade-container');
     if (!fadeContainer || fadeContainer.children.length < 2 || !heroGallery.length) {
@@ -476,15 +498,21 @@ function syncHeroGalleryActiveSlideStyle() {
 
 function setHeroBgCrossfade(idx, announce) {
     if (isFading) {
-        return;
+        pendingHeroGalleryIndex = idx;
+        pendingHeroGalleryAnnouncement = pendingHeroGalleryAnnouncement || Boolean(announce);
+        return false;
     }
 
     isFading = true;
     const fadeContainer = document.querySelector('.hero-bg-fade-container');
     if (!fadeContainer) {
         isFading = false;
-        return;
+        return false;
     }
+
+    pendingHeroGalleryIndex = null;
+    pendingHeroGalleryAnnouncement = false;
+    heroIndex = idx;
 
     const fadeA = fadeContainer.children[0];
     const fadeB = fadeContainer.children[1];
@@ -498,12 +526,7 @@ function setHeroBgCrossfade(idx, announce) {
     next.style.transition = `opacity ${heroFadeDuration / 1000}s cubic-bezier(.22,1,.36,1)`;
     applyHeroGallerySlideStyle(next, currentEntry, slideStyle);
 
-    let fadeinDiv = next.querySelector('.fadein-text');
-    if (!fadeinDiv) {
-        fadeinDiv = document.createElement('div');
-        fadeinDiv.className = 'fadein-text';
-        next.appendChild(fadeinDiv);
-    }
+    const fadeinDiv = ensureHeroGalleryCaptionLayer(next);
     fadeinDiv.textContent = heroTitle;
     if (heroTitle === '') {
         fadeinDiv.style.opacity = '0';
@@ -538,18 +561,26 @@ function setHeroBgCrossfade(idx, announce) {
         setTimeout(function() {
             fadeToggle = !fadeToggle;
             isFading = false;
+
+            if (pendingHeroGalleryIndex !== null && pendingHeroGalleryIndex !== heroIndex) {
+                const queuedIndex = pendingHeroGalleryIndex;
+                const queuedAnnounce = pendingHeroGalleryAnnouncement;
+                pendingHeroGalleryIndex = null;
+                pendingHeroGalleryAnnouncement = false;
+                setHeroBgCrossfade(queuedIndex, queuedAnnounce);
+            }
         }, heroFadeDuration);
     }, 50);
+
+    return true;
 }
 
 function nextHeroBgImage(announce) {
-    heroIndex = (heroIndex + 1) % heroGallery.length;
-    setHeroBgCrossfade(heroIndex, announce);
+    return setHeroBgCrossfade((heroIndex + 1) % heroGallery.length, announce);
 }
 
 function prevHeroBgImage(announce) {
-    heroIndex = (heroIndex - 1 + heroGallery.length) % heroGallery.length;
-    setHeroBgCrossfade(heroIndex, announce);
+    return setHeroBgCrossfade((heroIndex - 1 + heroGallery.length) % heroGallery.length, announce);
 }
 
 function renderHeroGalleryDots() {
@@ -578,8 +609,7 @@ function renderHeroGalleryDots() {
 
         button.addEventListener('click', function() {
             if (heroIndex !== index) {
-                heroIndex = index;
-                setHeroBgCrossfade(heroIndex, true);
+                setHeroBgCrossfade(index, true);
                 pauseHeroGalleryAuto();
             }
         });
@@ -643,7 +673,10 @@ function initHeroGallery() {
 
     const initialLayer = fadeContainer.children[0];
     const initialSlide = heroGallery[heroIndex];
+    fadeToggle = true;
+    isFading = false;
     applyHeroGallerySlideStyle(initialLayer, initialSlide, getHeroGallerySlideStyle(initialSlide));
+    initialLayer.style.opacity = '1';
     initialLayer.setAttribute('role', 'img');
     initialLayer.setAttribute('aria-hidden', 'false');
     initialLayer.setAttribute('aria-label', getHeroGalleryTitle(initialSlide));
@@ -651,7 +684,7 @@ function initHeroGallery() {
     fadeContainer.children[1].setAttribute('role', 'img');
     fadeContainer.children[1].setAttribute('aria-hidden', 'true');
 
-    setHeroBgCrossfade(heroIndex, false);
+    refreshHeroGalleryUi(false);
     scheduleHeroGalleryAuto(heroSlideDuration);
 
     if (typeof reducedMotionQuery.addEventListener === 'function') {
