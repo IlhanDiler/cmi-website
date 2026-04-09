@@ -22,17 +22,15 @@ Aktuelle grobe Kennzahlen aus dem Codebestand:
 - `data-lang`-Markup auf [impressum.html](../impressum.html): 413 Vorkommen
 - `data-lang`-Markup auf [chronik.html](../chronik.html): 343 Vorkommen
 - Verbleibendes Inline-`display:none` auf [index.html](../index.html): 1 Vorkommen, bewusst fuer den echten UI-Zustand der Event-Lightbox
-- Groesste verbliebene Interaktions-Runtime nach dem Review-Split: [scripts/site-language.js](../scripts/site-language.js) mit 420 Zeilen; der fruehere Review-Block ist jetzt in [scripts/review-navigation.js](../scripts/review-navigation.js) mit 266 Zeilen, [scripts/review-archive.js](../scripts/review-archive.js) mit 218 Zeilen und [scripts/review-interactions.js](../scripts/review-interactions.js) mit 5 Zeilen geschnitten; die Consent-Copy liegt weiter getrennt in [scripts/cookie-consent-content.js](../scripts/cookie-consent-content.js), waehrend [scripts/cookie-consent.js](../scripts/cookie-consent.js) bei 106 Zeilen bleibt
-- GitHub Actions existieren bereits unter [.github/workflows](../.github/workflows), sind aktuell aber faktisch deploy-orientiert und nicht als echter technischer Quality-Gate aufgebaut
+- Groesste verbliebene Interaktions-Runtimes nach dem Site-Language-Split: [scripts/site-language-accessibility.js](../scripts/site-language-accessibility.js) mit 307 Zeilen, [scripts/review-navigation.js](../scripts/review-navigation.js) mit 266 Zeilen und [scripts/review-archive.js](../scripts/review-archive.js) mit 218 Zeilen; [scripts/site-language.js](../scripts/site-language.js) ist auf 37 Zeilen geschrumpft, [scripts/site-language-variants.js](../scripts/site-language-variants.js) liegt bei 76 Zeilen und [scripts/cookie-consent.js](../scripts/cookie-consent.js) bei 106 Zeilen
+- GitHub Actions stellen jetzt mit [site-quality-gate.yaml](../.github/workflows/site-quality-gate.yaml) einen echten technischen Mindest-Check vor Push-Deployments bereit; der verbleibende Reifegrad-Hebel liegt eher in Assistive-Technology- und Geraete-QA als in fehlender CI-Automation
 
 ## Was fuer 10/10 noch getan werden muss
 
-1. Deployment darf nicht mehr die erste technische Pruefung sein. Vor dem Deploy braucht es einen reproduzierbaren Validierungs-Workflow.
-2. Die Mehrsprachigkeit muss an mindestens einem grossen Block strukturell entdupliziert werden. Reines Umschalten von sichtbaren Varianten ist nicht mehr der grosse Hebel.
-3. Die Runtime muss weiter zerlegt werden; nach dem Review-Split liegt der groesste verbliebene i18n-/Accessibility-Sammelblock jetzt in [scripts/site-language.js](../scripts/site-language.js).
-4. Accessibility muss mit echten Geraete-, Zoom-, Tastatur- und Screenreader-Checks abgesichert werden, nicht nur ueber gute Heuristik und Smoke-Runs.
-5. Die Share-Architektur sollte von handgepflegten Einzeldateien weiter in Richtung strukturierter Quelle plus Generierung bewegt werden.
-6. Release-Dokumentation, manuelle QA und automatisierte QA muessen zusammenspielen, statt lose nebeneinander zu stehen.
+1. Accessibility muss mit echten Geraete-, Zoom-, Tastatur- und Screenreader-Checks abgesichert werden, nicht nur ueber gute Heuristik und Smoke-Runs.
+2. Die verbleibenden grossen Sprachcluster auf der Startseite sollten weiter strukturell entdupliziert werden; die Generatorarchitektur deckt schon grosse Teile ab, aber noch nicht die komplette Seite.
+3. Die jetzt getrennten Runtime-Module duerfen nicht wieder zu Sammelbloecken anwachsen; weitere Schnitte in [scripts/site-language-accessibility.js](../scripts/site-language-accessibility.js) oder [scripts/review-navigation.js](../scripts/review-navigation.js) sollten nur noch durch echte QA- oder Produktfunde getrieben sein.
+4. Release-Dokumentation, manuelle QA und automatisierte QA muessen als wiederholbarer Betriebsmodus zusammen genutzt werden, nicht nur als einmaliger Aufraeumzustand.
 
 ## Zielbild fuer einen glaubwuerdigen 10/10-Stand
 
@@ -70,35 +68,36 @@ Die bislang empfohlenen Strukturhebel sind abgeschlossen:
 - Der Hero-/Gallery-Block wurde in [scripts/hero-layout.js](../scripts/hero-layout.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js) und [scripts/hero-gallery-ui.js](../scripts/hero-gallery-ui.js) aufgeteilt, ohne die oeffentlichen Einstiege in [scripts/core-runtime.js](../scripts/core-runtime.js) zu aendern.
 - Die Share-Architektur ist jetzt ebenfalls auf eine kanonische Quelle umgestellt: [share/share-pages-data.json](../share/share-pages-data.json) wird ueber [share/generate-share-pages.py](../share/generate-share-pages.py) in die einzelnen Share-HTMLs, [share/share-pages.json](../share/share-pages.json) und die Fallback-Liste in [share/instagram-export.js](../share/instagram-export.js) ausgerendert.
 - Der Review-/Rueckblick-Block wurde jetzt entlang echter Verantwortungen in [scripts/review-navigation.js](../scripts/review-navigation.js), [scripts/review-archive.js](../scripts/review-archive.js) und [scripts/review-interactions.js](../scripts/review-interactions.js) getrennt, ohne den oeffentlichen Einstieg in [scripts/core-runtime.js](../scripts/core-runtime.js) wieder aufzublaehen.
+- Der verbliebene Sprach-/Accessibility-Sammelblock wurde jetzt weiter geschnitten: [scripts/site-language-variants.js](../scripts/site-language-variants.js), [scripts/site-language-accessibility.js](../scripts/site-language-accessibility.js) und [scripts/site-language.js](../scripts/site-language.js) trennen `data-lang`-/`lang`-Sync, Label-/Accessibility-Sync und die Sprach-Orchestrierung.
 
-Nach Consent- und Review-Split liegt der naechste technische Schuldenhebel damit in [scripts/site-language.js](../scripts/site-language.js).
+Nach Consent-, Review- und Site-Language-Split liegt der naechste echte 10/10-Hebel damit weniger in weiterem Filesplitting als in einem bewussten Accessibility- und Device-Proof.
 
 Begruendung:
 
 - Die Consent-Copy und Tabellenlabels liegen weiter separat in [scripts/cookie-consent-content.js](../scripts/cookie-consent-content.js), waehrend [scripts/cookie-consent.js](../scripts/cookie-consent.js) nur noch Observer- und Sprachsync-Code enthaelt.
-- Die Review-Runtime ist jetzt in History-/Return-Logik, Archiv-/Card-Zustand und Orchestrierung getrennt; die Einstiegseiten laden dafuer [scripts/review-navigation.js](../scripts/review-navigation.js), [scripts/review-archive.js](../scripts/review-archive.js) und [scripts/review-interactions.js](../scripts/review-interactions.js) in dieser Reihenfolge.
-- Dynamisch erzeugte Review-Labels nutzen jetzt dasselbe `hidden`-/`aria-hidden`-Muster wie der restliche Sprach-Sync und werden sofort an die aktuell aktive Sprache angeglichen.
-- [scripts/site-language.js](../scripts/site-language.js) bleibt damit der groesste verbliebene Interaktionsblock und traegt weiterhin Sprachzustand, Fallback-Auswahl, `data-lang`-Sync und Accessibility-Sonderfaelle zusammen.
+- Die Review-Runtime ist weiter in History-/Return-Logik, Archiv-/Card-Zustand und Orchestrierung getrennt; die Einstiegseiten laden dafuer [scripts/review-navigation.js](../scripts/review-navigation.js), [scripts/review-archive.js](../scripts/review-archive.js) und [scripts/review-interactions.js](../scripts/review-interactions.js) in dieser Reihenfolge.
+- Die Sprach-Runtime trennt jetzt `data-lang`-/`lang`-Sync, statische Accessibility-Labels und Sprach-Orchestrierung; [scripts/site-language.js](../scripts/site-language.js) ist nur noch 37 Zeilen gross.
+- Chromium-Smoke und ein gezielter Playwright-Pass fuer Sprachwechsel, Mobile-Menue-Labels, Review-Buttons und Legal-Navigation liefen nach dem Split ohne Funde durch.
 
 Konkrete Empfehlung fuer den naechsten 15-Stunden-Block:
 
-1. [scripts/site-language.js](../scripts/site-language.js) entlang Sprachzustand, Fallback-Auswahl, DOM-Sync und Accessibility-Helfern weiter schneiden.
-2. Die gemeinsamen `data-lang`-Hilfen so herausziehen, dass dynamisch erzeugte Labels kuenftig ohne globale Sonderbehandlung sofort korrekt synchronisiert werden.
-3. Oeffentliche Hooks und das bestehende Verhalten fuer Sprachwechsel, `aria-hidden`-Sync, Nav-Labels und Legal-/Homepage-Varianten stabil lassen.
-4. Danach gezielt Sprachwechsel, dynamisch erzeugte Label-Gruppen, Hash-/Back-Navigation und lokalen Release-Smoke erneut laufen lassen.
+1. Einen vollstaendigen manuellen Accessibility-Sweep ueber [index.html](../index.html), [chronik.html](../chronik.html), [datenschutz.html](../datenschutz.html), [impressum.html](../impressum.html) und mindestens einen Share-Flow fahren.
+2. Geraete-, Zoom-, Tastatur- und Screenreader-Funde direkt mit Root-Cause-Fixes schliessen statt sie als spaetere Sammelliste liegen zu lassen.
+3. Die verbleibenden grossen Sprachcluster auf der Hauptseite nur dort weiter generatorisieren, wo der manuelle Sweep oder kuenftige Textpflege echten Wartungsdruck zeigt.
+4. Danach lokalen Release-Smoke, gezielte Sprach-/Review-Regression und die QA-Dokumentation erneut abgleichen.
 
 Repo-nahe Umsetzungsskizze:
 
-1. Den Kern von [scripts/site-language.js](../scripts/site-language.js) in einen kleinen Zustands-/Preferences-Block und einen separaten DOM-Sync-Block aufteilen.
-2. Accessibility-Sync fuer `data-lang`-Varianten und `lang`-Attribute so isolieren, dass andere Runtime-Dateien ihn gezielt wiederverwenden koennen.
-3. Die noch verbleibenden Nav-Label- und UI-Sonderfaelle aus dem Sprachkern herausloesen, damit Hash-/Navigationsthemen nicht wieder im i18n-Block landen.
-4. Danach Smoke-QA fuer Sprachwechsel, Review-Labels, Legal-Schnellnavigation und Back-Navigation erneut laufen lassen.
+1. Die Matrix in [docs/MANUAL-QA-CHECKLIST.md](../docs/MANUAL-QA-CHECKLIST.md) bewusst ueber Hauptseite, Chronik, Legal-Seiten und einen Share-/Export-Flow abarbeiten.
+2. Bei Funden zuerst die bestehenden Split-Grenzen nutzen, statt neue Sammelhelfer in [scripts/site-language-accessibility.js](../scripts/site-language-accessibility.js) oder [scripts/review-navigation.js](../scripts/review-navigation.js) aufzubauen.
+3. Wenn danach noch grosse Startseiten-Cluster uebrig bleiben, die Generatorarchitektur gezielt auf den naechsten wirklich wartungsintensiven Mehrsprachigkeitsblock ausweiten.
+4. Danach Smoke-QA, Manual-QA und Release-QA-Doku wieder auf denselben Stand bringen.
 
 Definition of Done fuer diesen naechsten Block:
 
-- Sprachzustand, `data-lang`-Fallback und Accessibility-Sync liegen nicht mehr als eng gekoppelter Sammelblock in einer Datei.
-- Sprachwechsel, dynamisch erzeugte Labels und bestehende Nav-/Legal-Varianten bleiben stabil.
-- Review-Navigation, Ruecksprung und Archivzustand funktionieren weiter zusammen mit dem Sprachsystem.
+- Hauptseite, Chronik, Legal-Seiten und ein Share-Flow sind bewusst ueber Desktop, Mobile, Tastatur, Zoom und Screenreader kurz gegengeprueft.
+- Gefundene Accessibility- oder Device-Probleme sind direkt geschlossen oder klar priorisiert.
+- Sprachwechsel, Review-Navigation und die gesplitteten Runtime-Module bleiben unter diesen Checks stabil.
 - Der Umbau bleibt im statischen Repo-Kontext reviewbar und ohne neues Laufzeit-Framework wartbar.
 
 ## Woche 1
@@ -198,7 +197,7 @@ Budget: 15 Stunden
 
 ### Stand 2026-04-09
 
-- Abgeschlossen: Der bisherige Navigation-/Sprach-Sammelblock ist schrittweise aufgeteilt worden; aktive Runtime-Dateien sind jetzt [scripts/site-language.js](../scripts/site-language.js), [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js) und [scripts/navigation-runtime.js](../scripts/navigation-runtime.js).
+- Abgeschlossen: Der bisherige Navigation-/Sprach-Sammelblock ist schrittweise aufgeteilt worden; aktive Runtime-Dateien sind jetzt [scripts/site-language-variants.js](../scripts/site-language-variants.js), [scripts/site-language-accessibility.js](../scripts/site-language-accessibility.js), [scripts/site-language.js](../scripts/site-language.js), [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js) und [scripts/navigation-runtime.js](../scripts/navigation-runtime.js).
 - Abgeschlossen: Der Hero-/Gallery-Block ist entlang echter Verantwortungen in [scripts/hero-layout.js](../scripts/hero-layout.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js) und [scripts/hero-gallery-ui.js](../scripts/hero-gallery-ui.js) getrennt worden.
 - Abgeschlossen: Die HTML-Ladereihenfolge auf [index.html](../index.html), [chronik.html](../chronik.html), [datenschutz.html](../datenschutz.html) und [impressum.html](../impressum.html) wurde entsprechend auf die neue Reihenfolge umgestellt.
 - Validiert: Statische Fehlerchecks liefen nach jedem Split ohne Funde durch.
