@@ -27,7 +27,7 @@ Die Website nutzt jetzt eine modulare CSS-Architektur mit einem klaren Einstiegs
 - [styles/components/subpages.css](../styles/components/subpages.css) kapselt generische Subpage-Struktur.
 - [styles/components/legal.css](../styles/components/legal.css) kapselt Datenschutz und Impressum.
 
-Die JavaScript-Runtime ist jetzt in elf Dateien geschnitten:
+Die JavaScript-Runtime ist jetzt in dreizehn Dateien geschnitten:
 
 - Ein kleines Inline-Snippet im HTML-`head` setzt frueh `history.scrollRestoration = 'manual'`, damit die Browser-eigene Scroll-Wiederherstellung die Runtime nicht ueberlagert.
 - [scripts/core-runtime.js](../scripts/core-runtime.js) kapselt Scroll-/Load-Verhalten, Sprach-Fallback und die zentrale Runtime-Initialisierung.
@@ -38,11 +38,13 @@ Die JavaScript-Runtime ist jetzt in elf Dateien geschnitten:
 - [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js) kapselt Smooth-Scroll, Hash-Zielbehandlung und aktiven Navigationszustand fuer In-Page-Links.
 - [scripts/navigation-shell.js](../scripts/navigation-shell.js) kapselt Navbar-Scrollzustand und den Mbonda-Timeline-Sonderfall.
 - [scripts/navigation-runtime.js](../scripts/navigation-runtime.js) kapselt nur noch die Orchestrierung der Navigationsmodule.
-- [scripts/hero-gallery.js](../scripts/hero-gallery.js) kapselt Hero-Layout, Hero-Slider, Galerie-UI und responsive Bildanpassungen.
+- [scripts/hero-layout.js](../scripts/hero-layout.js) kapselt Hero-Layout-Messung und responsive Bild-Sonderfaelle.
+- [scripts/hero-gallery.js](../scripts/hero-gallery.js) kapselt Galerie-Daten, Slider-Zustand, Crossfade, Autoplay und Initialisierung.
+- [scripts/hero-gallery-ui.js](../scripts/hero-gallery-ui.js) kapselt Galerie-Labels, Accessibility-Sync, Caption/Counter-UI und Dot-Navigation.
 - [scripts/site-effects.js](../scripts/site-effects.js) kapselt Scroll-Reveal, Shape-Parallax und den Jahreszaehler.
 - [scripts/review-interactions.js](../scripts/review-interactions.js) kapselt das Review-Archiv, Karten-Toggles und die hash-getriebene Oeffnungslogik fuer aeltere Rueckblicke.
 
-Wichtig: Die HTML-Dateien setzen zuerst das kleine Inline-Snippet fuer `history.scrollRestoration` im `head` und laden danach [scripts/core-runtime.js](../scripts/core-runtime.js), [scripts/event-lightbox.js](../scripts/event-lightbox.js), [scripts/cookie-consent.js](../scripts/cookie-consent.js), [scripts/site-language.js](../scripts/site-language.js), [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js), [scripts/navigation-runtime.js](../scripts/navigation-runtime.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js), [scripts/site-effects.js](../scripts/site-effects.js) und [scripts/review-interactions.js](../scripts/review-interactions.js), weil die spaeteren Runtime-Dateien auf Basisfunktionen aus den frueher geladenen Dateien aufsetzen.
+Wichtig: Die HTML-Dateien setzen zuerst das kleine Inline-Snippet fuer `history.scrollRestoration` im `head` und laden danach [scripts/core-runtime.js](../scripts/core-runtime.js), [scripts/event-lightbox.js](../scripts/event-lightbox.js), [scripts/cookie-consent.js](../scripts/cookie-consent.js), [scripts/site-language.js](../scripts/site-language.js), [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js), [scripts/navigation-runtime.js](../scripts/navigation-runtime.js), [scripts/hero-layout.js](../scripts/hero-layout.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js), [scripts/hero-gallery-ui.js](../scripts/hero-gallery-ui.js), [scripts/site-effects.js](../scripts/site-effects.js) und [scripts/review-interactions.js](../scripts/review-interactions.js), weil die spaeteren Runtime-Dateien auf Basisfunktionen aus den frueher geladenen Dateien aufsetzen.
 
 ## Wichtige Regeln
 
@@ -87,6 +89,7 @@ Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaet
 - Der Startseiten-Rollout ist jetzt deutlich breiter generatorbasiert: In [index.html](../index.html) kommen der komplette Musikfamilie-Block, die Repertoire- und Engagement-Karten, der obere "Musik baut Bruecken"-Introblock inklusive Jubiläumsfilm-Card, der Astrid-Abschnitt sowie die Event-Einfuehrung, beide Event-Karten, der Kontaktbereich und der Footer aus [scripts/legal-content/homepage-music-family.json](../scripts/legal-content/homepage-music-family.json), [scripts/legal-content/homepage-repertoire.json](../scripts/legal-content/homepage-repertoire.json), [scripts/legal-content/homepage-bridge-about.json](../scripts/legal-content/homepage-bridge-about.json), [scripts/legal-content/homepage-events.json](../scripts/legal-content/homepage-events.json) und [scripts/legal-content/homepage-contact-footer.json](../scripts/legal-content/homepage-contact-footer.json); der Renderer kann dafuer alternative Text-Tags, mehrzeiliges vertrauenswuerdiges HTML in Wrappern, sprachspezifische `lang`-Attribute und gezielt freigegebenes Listen-/Inline-HTML ausgeben, damit bestehende Karten-, Fakten-, Button- und Footer-Klassen erhalten bleiben.
 - Der Aktuelles-Bereich auf [index.html](../index.html) ist jetzt ebenfalls generatorbasiert: Intro und Kartenliste kommen aus [scripts/legal-content/homepage-curated-feed.json](../scripts/legal-content/homepage-curated-feed.json), waehrend [scripts/render-legal-content.py](../scripts/render-legal-content.py) wiederholte Kartenlisten statisch mit bestehenden Klassen rendert.
 - Der bisherige Navigations-Sammelblock ist jetzt entlang echter Verantwortungen zerlegt: [scripts/site-language.js](../scripts/site-language.js), [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js) und [scripts/navigation-runtime.js](../scripts/navigation-runtime.js) trennen Sprachzustand, Mobile-Menue, In-Page-Wayfinding, Navbar-/Mbonda-Logik und Orchestrierung.
+- Der Hero-/Gallery-Block ist jetzt ebenfalls entlang echter Verantwortungen zerlegt: [scripts/hero-layout.js](../scripts/hero-layout.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js) und [scripts/hero-gallery-ui.js](../scripts/hero-gallery-ui.js) trennen Layout-Messung, Slider-/Autoplay-Zustand sowie Accessibility- und UI-Sync.
 - Die technische Einordnung und der Abschlussabgleich stehen in [docs/SITE-ASSESSMENT.md](../docs/SITE-ASSESSMENT.md).
 
 ## Bewusst offene Grenzen
@@ -100,8 +103,8 @@ Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaet
 1. Den Generatoransatz von Legal-, Chronik- und Homepage-Bloecken auf weitere grosse Sprachbereiche oder den Share-Flow ausweiten.
 2. Vor einer finalen Freigabe einen kurzen manuellen Browser-, Mobile- und Screenreader-Sweep ueber Hauptseite, Chronik, Legal-Seiten und Share-Flow fahren.
 3. Fuer den neuen Aktuelles-/Rueckblick-Flow spaeter ein bewusstes UX-/UI-Fine-Tuning einplanen; die konkreten Follow-up-Punkte stehen in [docs/SOCIAL-FEED-ASSESSMENT.md](../docs/SOCIAL-FEED-ASSESSMENT.md).
-4. Als naechsten Runtime-Hebel [scripts/hero-gallery.js](../scripts/hero-gallery.js) in Layout-Messung, Slider-Zustand und UI-Sync schneiden, statt dort wieder einen neuen Sammelblock wachsen zu lassen.
-5. Die Share-Architektur unter [share](../share) in Richtung strukturierter Quelle plus Generierung weiterziehen, bevor neue Einzel-HTMLs denselben Pflegeaufwand wieder aufbauen.
+4. Als naechsten Strukturhebel die Share-Architektur unter [share](../share) in Richtung strukturierter Quelle plus Generierung weiterziehen, bevor neue Einzel-HTMLs denselben Pflegeaufwand wieder aufbauen.
+5. Falls danach weiterer Runtime-Abbau sinnvoll ist, die verbleibenden groesseren Bloecke in [scripts/review-interactions.js](../scripts/review-interactions.js), [scripts/site-language.js](../scripts/site-language.js) und [scripts/cookie-consent.js](../scripts/cookie-consent.js) priorisieren.
 
 ## Offene Grenze
 

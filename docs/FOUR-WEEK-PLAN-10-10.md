@@ -22,14 +22,14 @@ Aktuelle grobe Kennzahlen aus dem Codebestand:
 - `data-lang`-Markup auf [impressum.html](../impressum.html): 413 Vorkommen
 - `data-lang`-Markup auf [chronik.html](../chronik.html): 343 Vorkommen
 - Verbleibendes Inline-`display:none` auf [index.html](../index.html): 1 Vorkommen, bewusst fuer den echten UI-Zustand der Event-Lightbox
-- Groesste Runtime-Dateien nach den bisherigen Splits: [scripts/hero-gallery.js](../scripts/hero-gallery.js) mit 561 Zeilen, [scripts/site-language.js](../scripts/site-language.js) mit 511 Zeilen, [scripts/cookie-consent.js](../scripts/cookie-consent.js) mit 390 Zeilen
+- Groesste Runtime-Dateien nach dem Hero-Split: [scripts/review-interactions.js](../scripts/review-interactions.js) mit 453 Zeilen, [scripts/site-language.js](../scripts/site-language.js) mit 420 Zeilen, [scripts/cookie-consent.js](../scripts/cookie-consent.js) mit 390 Zeilen
 - GitHub Actions existieren bereits unter [.github/workflows](../.github/workflows), sind aktuell aber faktisch deploy-orientiert und nicht als echter technischer Quality-Gate aufgebaut
 
 ## Was fuer 10/10 noch getan werden muss
 
 1. Deployment darf nicht mehr die erste technische Pruefung sein. Vor dem Deploy braucht es einen reproduzierbaren Validierungs-Workflow.
 2. Die Mehrsprachigkeit muss an mindestens einem grossen Block strukturell entdupliziert werden. Reines Umschalten von sichtbaren Varianten ist nicht mehr der grosse Hebel.
-3. Die Runtime muss weiter zerlegt werden; der naechste groesste Hebel liegt jetzt vor allem in [scripts/hero-gallery.js](../scripts/hero-gallery.js), danach in weiteren grossen DOM-lastigen Hilfsmodulen.
+3. Die Runtime muss weiter zerlegt werden; nach dem Hero-Split liegen die groesseren verbleibenden Bloecke jetzt vor allem in [scripts/review-interactions.js](../scripts/review-interactions.js), [scripts/site-language.js](../scripts/site-language.js) und [scripts/cookie-consent.js](../scripts/cookie-consent.js).
 4. Accessibility muss mit echten Geraete-, Zoom-, Tastatur- und Screenreader-Checks abgesichert werden, nicht nur ueber gute Heuristik und Smoke-Runs.
 5. Die Share-Architektur sollte von handgepflegten Einzeldateien weiter in Richtung strukturierter Quelle plus Generierung bewegt werden.
 6. Release-Dokumentation, manuelle QA und automatisierte QA muessen zusammenspielen, statt lose nebeneinander zu stehen.
@@ -63,41 +63,42 @@ Ein echter 10/10-Stand ist hier nur dann glaubwuerdig, wenn am Ende dieses Folge
 
 Stand: 2026-04-09
 
-Der zuvor empfohlene Doppelhebel ist abgeschlossen:
+Die bislang empfohlenen Strukturhebel sind abgeschlossen:
 
 - Der Aktuelles-Bereich auf [index.html](../index.html) wird jetzt aus [scripts/legal-content/homepage-curated-feed.json](../scripts/legal-content/homepage-curated-feed.json) statisch gerendert.
 - Die fruehere Navigation-/Sprach-Sammeldatei wurde erst in [scripts/site-language.js](../scripts/site-language.js) und [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js) aufgeteilt und anschliessend weiter in [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js) und [scripts/navigation-runtime.js](../scripts/navigation-runtime.js) geschnitten.
+- Der Hero-/Gallery-Block wurde in [scripts/hero-layout.js](../scripts/hero-layout.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js) und [scripts/hero-gallery-ui.js](../scripts/hero-gallery-ui.js) aufgeteilt, ohne die oeffentlichen Einstiege in [scripts/core-runtime.js](../scripts/core-runtime.js) zu aendern.
 
-Der naechste technische Schuldenhebel liegt damit nicht mehr im Aktuelles-Bereich oder in der Navigation, sondern in der Hero-/Gallery-Runtime.
+Der naechste technische Schuldenhebel liegt damit nicht mehr im Aktuelles-, Navigations- oder Hero-Bereich, sondern in der Share-Architektur.
 
 Begruendung:
 
-- [scripts/hero-gallery.js](../scripts/hero-gallery.js) ist nach den Navigation-Splits jetzt der groesste verbleibende Frontend-Block.
-- Die Datei mischt weiterhin Layout-Messung, Slider-Zustand, UI-Refresh, Touch-/Button-Interaktion und responsive Bildlogik.
-- Gerade dort gab es juengst Root-Cause-Fixes fuer Fade-Zustand und Hero-Verhalten; der Bereich ist also funktional relevant und nicht nur kosmetisch gross.
-- Ein weiterer sauberer Split senkt das Risiko, dass kuenftige Hero- oder Gallery-Aenderungen wieder in einen schwer reviewbaren Sammelblock laufen.
+- Unter [share](../share) liegen viele handgepflegte Einzel-HTMLs mit stark aehnlicher Struktur, aber ohne eine kanonische inhaltliche Quelle.
+- [share/share-pages.json](../share/share-pages.json) und die Fallback-Liste in [share/instagram-export.js](../share/instagram-export.js) muessen aktuell parallel gepflegt werden; das ist ein klarer Drift-Punkt.
+- Neue Events oder Rueckblicke wuerden ohne Generator denselben Pflegeaufwand weiter verstaerken, obwohl die Datei- und Layoutstruktur dort schon gut standardisierbar ist.
+- Ein strukturierter Share-Generator reduziert nicht nur Duplikation, sondern schuetzt auch Export-, Manifest- und Release-QA vor manuellen Inkonsistenzen.
 
 Konkrete Empfehlung fuer den naechsten 15-Stunden-Block:
 
-1. [scripts/hero-gallery.js](../scripts/hero-gallery.js) entlang echter Verantwortungen schneiden: Layout-/Messlogik, Slider-/State-Logik und UI-/Input-Sync.
-2. Bestehende Fade-, Queue- und Initialisierungs-Fixes unveraendert lassen; Ziel ist lesbarere Struktur, nicht neues Verhalten.
-3. Die bereits vorhandenen Reduced-Motion-, Resize- und Control-Flows bei jedem Teilschritt gegenpruefen.
-4. Keine neue Abhaengigkeit zwischen Hero und anderen Runtime-Dateien einziehen; lieber kleine reine Helfer als neue Querverkopplung.
-5. Danach die Share-Architektur als naechsten grossen 10/10-Hebel angehen.
+1. Eine kanonische strukturierte Quelle fuer Share-Seiten anlegen, statt Manifest, Export-Fallback und Einzel-HTMLs getrennt zu pflegen.
+2. Die bestehenden Share-Dateinamen und URLs stabil lassen; Ziel ist Generierung bei gleicher Auslieferungsform, nicht ein neues Routing-Modell.
+3. [share/share-pages.json](../share/share-pages.json) und die Export-Fallback-Liste aus derselben Quelle ableiten oder durch einen klaren Generator-Schritt synchron halten.
+4. Den Generator auf wenige wiederkehrende Layout-Bausteine begrenzen, statt sofort ein voll generisches CMS im Repo zu bauen.
+5. Danach erst den naechsten Runtime-Hebel in [scripts/review-interactions.js](../scripts/review-interactions.js), [scripts/site-language.js](../scripts/site-language.js) oder [scripts/cookie-consent.js](../scripts/cookie-consent.js) ziehen.
 
 Repo-nahe Umsetzungsskizze:
 
-1. Reine Layout- und Messhelfer zuerst identifizieren und aus der Slider-Zustandslogik trennen.
-2. Danach Interaktionspfade fuer Controls, Touch und Auto-/Fade-Zustaende isolieren.
-3. Abschliessend die oeffentlichen UI-Refresh-/Init-Einstiegspunkte schlank halten, damit [scripts/core-runtime.js](../scripts/core-runtime.js) keine neuen Detailkenntnisse braucht.
-4. Nach jedem Schritt Smoke-QA fuer Hero, Galerie, Navigation und Reduced Motion erneut laufen lassen.
+1. Eine strukturierte Datenquelle fuer Share-Metadaten und Copy einfuehren, die mindestens Slug, Titel, Datum, Bild-Asset und Export-relevante Angaben traegt.
+2. Einen kleinen Generator schreiben, der daraus die statischen Share-HTMLs und das Manifest ableitet oder pruefbar aktualisiert.
+3. [share/instagram-export.js](../share/instagram-export.js) auf denselben Datenstand ziehen, damit Export und Dateisystem nicht auseinanderlaufen.
+4. Danach Smoke-QA fuer eine Share-Seite, den Export-Flow und den Dateisystem-/Manifest-Abgleich erneut laufen lassen.
 
 Definition of Done fuer diesen naechsten Block:
 
-- [scripts/hero-gallery.js](../scripts/hero-gallery.js) ist sichtbar kleiner oder in klar benannte Teilmodule zerlegt.
-- Bestehende Hero-/Gallery-Interaktionen verhalten sich unveraendert.
-- Reduced Motion, Resize und Navigation rund um den Hero bleiben lokal geprueft.
-- Der neue Schnitt ist reviewbar und fuehrt nicht wieder versteckt Logik in andere Sammeldateien zurueck.
+- Die Share-Seiten werden nicht mehr an mehreren Stellen manuell synchron gehalten.
+- Manifest und Export-Flow laufen gegen denselben inhaltlichen Datenstand.
+- Bestehende Share-Dateinamen, Links und Export-Erwartungen bleiben stabil.
+- Der Generator bleibt klein genug, um reviewbar und im statischen Repo-Kontext wartbar zu sein.
 
 ## Woche 1
 
@@ -197,23 +198,24 @@ Budget: 15 Stunden
 ### Stand 2026-04-09
 
 - Abgeschlossen: Der bisherige Navigation-/Sprach-Sammelblock ist schrittweise aufgeteilt worden; aktive Runtime-Dateien sind jetzt [scripts/site-language.js](../scripts/site-language.js), [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js) und [scripts/navigation-runtime.js](../scripts/navigation-runtime.js).
+- Abgeschlossen: Der Hero-/Gallery-Block ist entlang echter Verantwortungen in [scripts/hero-layout.js](../scripts/hero-layout.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js) und [scripts/hero-gallery-ui.js](../scripts/hero-gallery-ui.js) getrennt worden.
 - Abgeschlossen: Die HTML-Ladereihenfolge auf [index.html](../index.html), [chronik.html](../chronik.html), [datenschutz.html](../datenschutz.html) und [impressum.html](../impressum.html) wurde entsprechend auf die neue Reihenfolge umgestellt.
 - Validiert: Statische Fehlerchecks liefen nach jedem Split ohne Funde durch.
 - Validiert: Der Chromium-Release-Smoke lief nach den Runtime-Splits erneut mit 0 Funden.
 
 ### Block A - 5h
 
-- Den Navigationsteil weiter in kleine Verantwortungsbereiche schneiden und die Orchestrierung schlank halten
-- Sprachzustand, Mobile-Menue, Wayfinding, Navbar-Shell und Initialisierung nicht wieder zu einem neuen Mischblock zusammenfalten
+- [x] Den Navigationsteil weiter in kleine Verantwortungsbereiche schneiden und die Orchestrierung schlank halten
+- [x] Sprachzustand, Mobile-Menue, Wayfinding, Navbar-Shell und Initialisierung nicht wieder zu einem neuen Mischblock zusammenfalten
 
 ### Block B - 5h
 
-- [scripts/hero-gallery.js](../scripts/hero-gallery.js) auf Layout, Slider-Logik und Interaktionszustand pruefen und wenn sinnvoll trennen
-- Kleine pure Helfer aus DOM-lastiger Logik herausziehen, wenn das den Test- und Review-Aufwand senkt
+- [x] Den Hero-/Gallery-Block in Layout-Messung, Slider-/Autoplay-Zustand und UI-/Accessibility-Sync trennen
+- [x] Kleine pure Helfer aus DOM-lastiger Logik herausziehen, wenn das den Test- und Review-Aufwand senkt
 
 ### Block C - 5h
 
-- Smoke- und Browser-Matrix nach jedem groesseren Refactor mitlaufen lassen
+- [x] Nach jedem groesseren Refactor mindestens statische Fehlerchecks und den Chromium-Smoke mitlaufen lassen
 - Wenn moeglich eine kleine technische Schutzschicht einziehen: script-level checks, assertions oder sehr leichte Regression-Helfer
 - Keine grossen neuen Features in dieser Woche
 
