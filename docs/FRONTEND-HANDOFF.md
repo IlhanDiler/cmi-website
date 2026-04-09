@@ -27,7 +27,7 @@ Die Website nutzt jetzt eine modulare CSS-Architektur mit einem klaren Einstiegs
 - [styles/components/subpages.css](../styles/components/subpages.css) kapselt generische Subpage-Struktur.
 - [styles/components/legal.css](../styles/components/legal.css) kapselt Datenschutz und Impressum.
 
-Die JavaScript-Runtime ist jetzt in dreizehn Dateien geschnitten:
+Die JavaScript-Runtime ist jetzt in sechzehn Dateien geschnitten:
 
 - Ein kleines Inline-Snippet im HTML-`head` setzt frueh `history.scrollRestoration = 'manual'`, damit die Browser-eigene Scroll-Wiederherstellung die Runtime nicht ueberlagert.
 - [scripts/core-runtime.js](../scripts/core-runtime.js) kapselt Scroll-/Load-Verhalten, Sprach-Fallback und die zentrale Runtime-Initialisierung.
@@ -43,9 +43,11 @@ Die JavaScript-Runtime ist jetzt in dreizehn Dateien geschnitten:
 - [scripts/hero-gallery.js](../scripts/hero-gallery.js) kapselt Galerie-Daten, Slider-Zustand, Crossfade, Autoplay und Initialisierung.
 - [scripts/hero-gallery-ui.js](../scripts/hero-gallery-ui.js) kapselt Galerie-Labels, Accessibility-Sync, Caption/Counter-UI und Dot-Navigation.
 - [scripts/site-effects.js](../scripts/site-effects.js) kapselt Scroll-Reveal, Shape-Parallax und den Jahreszaehler.
-- [scripts/review-interactions.js](../scripts/review-interactions.js) kapselt das Review-Archiv, Karten-Toggles und die hash-getriebene Oeffnungslogik fuer aeltere Rueckblicke.
+- [scripts/review-navigation.js](../scripts/review-navigation.js) kapselt Review-Hash-/History-Navigation, Ruecksprung-Logik und die Sprach-Labels dynamisch erzeugter Review-Steuerelemente.
+- [scripts/review-archive.js](../scripts/review-archive.js) kapselt das Review-Archiv, Karten-Toggles und die hash-getriebene Oeffnungslogik fuer aeltere Rueckblicke.
+- [scripts/review-interactions.js](../scripts/review-interactions.js) kapselt nur noch die Orchestrierung der Review-Module.
 
-Wichtig: Die HTML-Dateien setzen zuerst das kleine Inline-Snippet fuer `history.scrollRestoration` im `head` und laden danach [scripts/core-runtime.js](../scripts/core-runtime.js), [scripts/event-lightbox.js](../scripts/event-lightbox.js), [scripts/cookie-consent-content.js](../scripts/cookie-consent-content.js), [scripts/cookie-consent.js](../scripts/cookie-consent.js), [scripts/site-language.js](../scripts/site-language.js), [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js), [scripts/navigation-runtime.js](../scripts/navigation-runtime.js), [scripts/hero-layout.js](../scripts/hero-layout.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js), [scripts/hero-gallery-ui.js](../scripts/hero-gallery-ui.js), [scripts/site-effects.js](../scripts/site-effects.js) und [scripts/review-interactions.js](../scripts/review-interactions.js), weil die spaeteren Runtime-Dateien auf Basisfunktionen aus den frueher geladenen Dateien aufsetzen.
+Wichtig: Die HTML-Dateien setzen zuerst das kleine Inline-Snippet fuer `history.scrollRestoration` im `head` und laden danach [scripts/core-runtime.js](../scripts/core-runtime.js), [scripts/event-lightbox.js](../scripts/event-lightbox.js), [scripts/cookie-consent-content.js](../scripts/cookie-consent-content.js), [scripts/cookie-consent.js](../scripts/cookie-consent.js), [scripts/site-language.js](../scripts/site-language.js), [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js), [scripts/navigation-runtime.js](../scripts/navigation-runtime.js), [scripts/hero-layout.js](../scripts/hero-layout.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js), [scripts/hero-gallery-ui.js](../scripts/hero-gallery-ui.js), [scripts/site-effects.js](../scripts/site-effects.js), [scripts/review-navigation.js](../scripts/review-navigation.js), [scripts/review-archive.js](../scripts/review-archive.js) und [scripts/review-interactions.js](../scripts/review-interactions.js), weil die spaeteren Runtime-Dateien auf Basisfunktionen aus den frueher geladenen Dateien aufsetzen.
 
 ## Wichtige Regeln
 
@@ -94,6 +96,7 @@ Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaet
 - Der bisherige Navigations-Sammelblock ist jetzt entlang echter Verantwortungen zerlegt: [scripts/site-language.js](../scripts/site-language.js), [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js) und [scripts/navigation-runtime.js](../scripts/navigation-runtime.js) trennen Sprachzustand, Mobile-Menue, In-Page-Wayfinding, Navbar-/Mbonda-Logik und Orchestrierung.
 - Der Hero-/Gallery-Block ist jetzt ebenfalls entlang echter Verantwortungen zerlegt: [scripts/hero-layout.js](../scripts/hero-layout.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js) und [scripts/hero-gallery-ui.js](../scripts/hero-gallery-ui.js) trennen Layout-Messung, Slider-/Autoplay-Zustand sowie Accessibility- und UI-Sync.
 - Der Share-Bereich ist jetzt generatorbasiert: [share/share-pages-data.json](../share/share-pages-data.json) ist die kanonische Quelle, [share/generate-share-pages.py](../share/generate-share-pages.py) erzeugt daraus die einzelnen Share-Seiten, [share/share-pages.json](../share/share-pages.json) und die Export-Fallback-Liste in [share/instagram-export.js](../share/instagram-export.js); ein lokaler Chromium-Smoke fuer Share-Seite und Export lief danach mit 0 Funden.
+- Der Review-/Rueckblick-Block ist jetzt ebenfalls entlang echter Verantwortungen zerlegt: [scripts/review-navigation.js](../scripts/review-navigation.js), [scripts/review-archive.js](../scripts/review-archive.js) und [scripts/review-interactions.js](../scripts/review-interactions.js) trennen Hash-/History-Navigation, Archiv-/Kartenzustand und die Orchestrierung; dynamisch erzeugte Review-Labels werden dabei sofort an den aktuellen Sprachzustand angeglichen.
 - Die technische Einordnung und der Abschlussabgleich stehen in [docs/SITE-ASSESSMENT.md](../docs/SITE-ASSESSMENT.md).
 
 ## Bewusst offene Grenzen
@@ -107,8 +110,8 @@ Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaet
 1. Den Generatoransatz von Legal-, Chronik- und Homepage-Bloecken auf weitere grosse Sprachbereiche oder den Share-Flow ausweiten.
 2. Vor einer finalen Freigabe einen kurzen manuellen Browser-, Mobile- und Screenreader-Sweep ueber Hauptseite, Chronik, Legal-Seiten und Share-Flow fahren.
 3. Fuer den neuen Aktuelles-/Rueckblick-Flow spaeter ein bewusstes UX-/UI-Fine-Tuning einplanen; die konkreten Follow-up-Punkte stehen in [docs/SOCIAL-FEED-ASSESSMENT.md](../docs/SOCIAL-FEED-ASSESSMENT.md).
-4. Als naechsten Strukturhebel die Share-Architektur unter [share](../share) in Richtung strukturierter Quelle plus Generierung weiterziehen, bevor neue Einzel-HTMLs denselben Pflegeaufwand wieder aufbauen.
-5. Falls danach weiterer Runtime-Abbau sinnvoll ist, die verbleibenden groesseren Interaktionsbloecke in [scripts/review-interactions.js](../scripts/review-interactions.js) und [scripts/site-language.js](../scripts/site-language.js) priorisieren.
+4. Als naechsten Strukturhebel den Sprach-/Fallback-Block in [scripts/site-language.js](../scripts/site-language.js) weiter schneiden, bevor dort wieder neue Accessibility- und i18n-Sonderfaelle auflaufen.
+5. Danach nur noch die kleineren Review-Module weiter glatten, falls echte Produkt- oder QA-Funde das rechtfertigen.
 
 ## Offene Grenze
 
