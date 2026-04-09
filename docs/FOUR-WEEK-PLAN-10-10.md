@@ -1,6 +1,8 @@
 # Follow-up Four-Week Plan: 10/10
 
-Stand: 2026-04-08
+Stand: 2026-04-09
+
+Kurzstatus: Woche 1 bis 3 sind im 10/10-Folgeplan abgeschlossen; Woche 4 ist technisch fast abgeschlossen, offen ist nur noch der echte manuelle NVDA-/VoiceOver-Pass.
 
 ## Ausgangslage
 
@@ -231,6 +233,14 @@ Ziel: Share-Architektur, finaler QA-Sweep und Release-Haertung zusammenziehen.
 
 Budget: 15 Stunden
 
+### Stand 2026-04-09
+
+- Abgeschlossen: Die Share-Architektur ist auf strukturierte Pflege umgestellt; [share/share-pages-data.json](../share/share-pages-data.json) ist die kanonische Quelle, [share/generate-share-pages.py](../share/generate-share-pages.py) rendert daraus die einzelnen Share-HTMLs, [share/share-pages.json](../share/share-pages.json) und die Fallback-Liste in [share/instagram-export.js](../share/instagram-export.js).
+- Abgeschlossen: Browser-Matrix, Share-Smokes und der technische Mindest-Gate wurden wiederholt mit 0 Funden gefahren; der letzte lokale Gate-Run mit `QA_BROWSER_TARGETS=chromium,firefox` und `QA_FAIL_ON_ISSUES=1` lief am 2026-04-09 erneut erfolgreich durch.
+- Abgeschlossen: [docs/MANUAL-QA-CHECKLIST.md](../docs/MANUAL-QA-CHECKLIST.md), [docs/RELEASE-QA-CHECKLIST.md](../docs/RELEASE-QA-CHECKLIST.md), [docs/FRONTEND-HANDOFF.md](../docs/FRONTEND-HANDOFF.md) und [docs/SITE-ASSESSMENT.md](../docs/SITE-ASSESSMENT.md) wurden auf denselben Release-/Accessibility-Stand gebracht.
+- Abgeschlossen: Fuer den manuellen Homepage-Screenreader-Pass existieren jetzt ein kompakter Operator-Ablauf in [docs/NVDA-QUICK-PASS.md](../docs/NVDA-QUICK-PASS.md) und ein fester Ergebnisblock im Handoff.
+- Offen: Der echte manuelle NVDA-/VoiceOver-Durchlauf selbst ist noch nicht ausgefuehrt; genau dieser Schritt ist der verbleibende Restpunkt fuer einen vollstaendig geschlossenen Week-4-Block.
+
 ### Block A - 5h
 
 - Share-System unter [share](../share) auf strukturierte Pflege pruefen
@@ -263,6 +273,8 @@ Budget: 15 Stunden
 5. Share-Generierung und Komfortgewinne
 
 ## Nicht im Scope
+
+Diese vier Grosshebel bleiben bewusst ausserhalb dieses Blocks und wandern in den Folgeplan [docs/POST-10-10-PLATFORM-PLAN.md](../docs/POST-10-10-PLATFORM-PLAN.md).
 
 - Vollstaendige Framework-Migration
 - Komplett neuer Design-Layer
