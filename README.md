@@ -19,7 +19,8 @@ Das Frontend-JavaScript ist jetzt ebenfalls fachlich aufgeteilt:
 - Ein kleines Inline-Snippet in den HTML-Koepfen setzt frueh `history.scrollRestoration = 'manual'`, damit Reloads und History-Navigation nicht gegen die spaetere Runtime-Steuerung arbeiten.
 - [scripts/core-runtime.js](scripts/core-runtime.js) kapselt Scroll-/Load-Verhalten, Sprach-Fallback und die zentrale Runtime-Initialisierung.
 - [scripts/event-lightbox.js](scripts/event-lightbox.js) kapselt die Event-Lightbox inklusive Caption-Ableitung, Fokus-Rueckgabe und Keyboard-/Overlay-Schliessen.
-- [scripts/cookie-consent.js](scripts/cookie-consent.js) kapselt Cookie-Consent-Texte, Mutation-Tracking und den Sprachsync fuer das Cookie-Script.
+- [scripts/cookie-consent-content.js](scripts/cookie-consent-content.js) kapselt die mehrsprachige Consent-Copy und die Tabellenlabels des eingebundenen Cookie-Scripts.
+- [scripts/cookie-consent.js](scripts/cookie-consent.js) kapselt nur noch Mutation-Tracking und den Sprachsync fuer das eingebundene Cookie-Script.
 - [scripts/site-language.js](scripts/site-language.js) kapselt Sprachumschaltung, Navigationslabels und die zugehoerigen Accessibility-Synchronisierungen.
 - [scripts/navigation-mobile.js](scripts/navigation-mobile.js) kapselt Mobile-Menue, Fokus-Falle und Close-/Restore-Focus-Logik.
 - [scripts/navigation-wayfinding.js](scripts/navigation-wayfinding.js) kapselt In-Page-Wayfinding, Hash-Navigation und Active-State-Sync.
@@ -33,7 +34,7 @@ Das Frontend-JavaScript ist jetzt ebenfalls fachlich aufgeteilt:
 
 Wichtig fuer die Einbindung:
 
-- Die HTML-Seiten setzen zuerst das kleine Inline-Snippet fuer `history.scrollRestoration` im Dokumentkopf und laden danach [scripts/core-runtime.js](scripts/core-runtime.js), [scripts/event-lightbox.js](scripts/event-lightbox.js), [scripts/cookie-consent.js](scripts/cookie-consent.js), [scripts/site-language.js](scripts/site-language.js), [scripts/navigation-mobile.js](scripts/navigation-mobile.js), [scripts/navigation-wayfinding.js](scripts/navigation-wayfinding.js), [scripts/navigation-shell.js](scripts/navigation-shell.js), [scripts/navigation-runtime.js](scripts/navigation-runtime.js), [scripts/hero-layout.js](scripts/hero-layout.js), [scripts/hero-gallery.js](scripts/hero-gallery.js), [scripts/hero-gallery-ui.js](scripts/hero-gallery-ui.js), [scripts/site-effects.js](scripts/site-effects.js) und [scripts/review-interactions.js](scripts/review-interactions.js).
+- Die HTML-Seiten setzen zuerst das kleine Inline-Snippet fuer `history.scrollRestoration` im Dokumentkopf und laden danach [scripts/core-runtime.js](scripts/core-runtime.js), [scripts/event-lightbox.js](scripts/event-lightbox.js), [scripts/cookie-consent-content.js](scripts/cookie-consent-content.js), [scripts/cookie-consent.js](scripts/cookie-consent.js), [scripts/site-language.js](scripts/site-language.js), [scripts/navigation-mobile.js](scripts/navigation-mobile.js), [scripts/navigation-wayfinding.js](scripts/navigation-wayfinding.js), [scripts/navigation-shell.js](scripts/navigation-shell.js), [scripts/navigation-runtime.js](scripts/navigation-runtime.js), [scripts/hero-layout.js](scripts/hero-layout.js), [scripts/hero-gallery.js](scripts/hero-gallery.js), [scripts/hero-gallery-ui.js](scripts/hero-gallery-ui.js), [scripts/site-effects.js](scripts/site-effects.js) und [scripts/review-interactions.js](scripts/review-interactions.js).
 - Die Reihenfolge ist relevant, weil die spaeteren Runtime-Dateien Basisfunktionen aus den frueher geladenen Dateien verwenden.
 
 Aktuelle Modulaufteilung:

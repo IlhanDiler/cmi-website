@@ -22,14 +22,14 @@ Aktuelle grobe Kennzahlen aus dem Codebestand:
 - `data-lang`-Markup auf [impressum.html](../impressum.html): 413 Vorkommen
 - `data-lang`-Markup auf [chronik.html](../chronik.html): 343 Vorkommen
 - Verbleibendes Inline-`display:none` auf [index.html](../index.html): 1 Vorkommen, bewusst fuer den echten UI-Zustand der Event-Lightbox
-- Groesste Runtime-Dateien nach dem Hero-Split: [scripts/review-interactions.js](../scripts/review-interactions.js) mit 453 Zeilen, [scripts/site-language.js](../scripts/site-language.js) mit 420 Zeilen, [scripts/cookie-consent.js](../scripts/cookie-consent.js) mit 390 Zeilen
+- Groesste verbliebene Interaktions-Runtimes nach dem Consent-Split: [scripts/review-interactions.js](../scripts/review-interactions.js) mit 453 Zeilen und [scripts/site-language.js](../scripts/site-language.js) mit 420 Zeilen; die Consent-Copy liegt jetzt getrennt in [scripts/cookie-consent-content.js](../scripts/cookie-consent-content.js), waehrend [scripts/cookie-consent.js](../scripts/cookie-consent.js) auf 106 Zeilen geschrumpft ist
 - GitHub Actions existieren bereits unter [.github/workflows](../.github/workflows), sind aktuell aber faktisch deploy-orientiert und nicht als echter technischer Quality-Gate aufgebaut
 
 ## Was fuer 10/10 noch getan werden muss
 
 1. Deployment darf nicht mehr die erste technische Pruefung sein. Vor dem Deploy braucht es einen reproduzierbaren Validierungs-Workflow.
 2. Die Mehrsprachigkeit muss an mindestens einem grossen Block strukturell entdupliziert werden. Reines Umschalten von sichtbaren Varianten ist nicht mehr der grosse Hebel.
-3. Die Runtime muss weiter zerlegt werden; nach dem Hero-Split liegen die groesseren verbleibenden Bloecke jetzt vor allem in [scripts/review-interactions.js](../scripts/review-interactions.js), [scripts/site-language.js](../scripts/site-language.js) und [scripts/cookie-consent.js](../scripts/cookie-consent.js).
+3. Die Runtime muss weiter zerlegt werden; nach dem Consent-Split liegen die groesseren verbleibenden Interaktionsbloecke jetzt vor allem in [scripts/review-interactions.js](../scripts/review-interactions.js) und [scripts/site-language.js](../scripts/site-language.js).
 4. Accessibility muss mit echten Geraete-, Zoom-, Tastatur- und Screenreader-Checks abgesichert werden, nicht nur ueber gute Heuristik und Smoke-Runs.
 5. Die Share-Architektur sollte von handgepflegten Einzeldateien weiter in Richtung strukturierter Quelle plus Generierung bewegt werden.
 6. Release-Dokumentation, manuelle QA und automatisierte QA muessen zusammenspielen, statt lose nebeneinander zu stehen.
@@ -70,34 +70,34 @@ Die bislang empfohlenen Strukturhebel sind abgeschlossen:
 - Der Hero-/Gallery-Block wurde in [scripts/hero-layout.js](../scripts/hero-layout.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js) und [scripts/hero-gallery-ui.js](../scripts/hero-gallery-ui.js) aufgeteilt, ohne die oeffentlichen Einstiege in [scripts/core-runtime.js](../scripts/core-runtime.js) zu aendern.
 - Die Share-Architektur ist jetzt ebenfalls auf eine kanonische Quelle umgestellt: [share/share-pages-data.json](../share/share-pages-data.json) wird ueber [share/generate-share-pages.py](../share/generate-share-pages.py) in die einzelnen Share-HTMLs, [share/share-pages.json](../share/share-pages.json) und die Fallback-Liste in [share/instagram-export.js](../share/instagram-export.js) ausgerendert.
 
-Der naechste technische Schuldenhebel liegt damit nicht mehr im Aktuelles-, Navigations-, Hero- oder Share-Bereich, sondern in [scripts/cookie-consent.js](../scripts/cookie-consent.js).
+Der Consent-Block ist jetzt entlang Content und Runtime getrennt; der naechste technische Schuldenhebel liegt damit in [scripts/review-interactions.js](../scripts/review-interactions.js).
 
 Begruendung:
 
-- Die Share-Seiten werden nicht mehr an mehreren Stellen manuell synchron gehalten; Share-HTMLs, Manifest und Export-Fallback kommen jetzt aus derselben Quelle.
-- Der lokale Chromium-Smoke fuer Share-Seite und Instagram-Export lief nach dem Umbau erneut mit 0 Funden durch.
-- [scripts/cookie-consent.js](../scripts/cookie-consent.js) ist aktuell der groesste verbliebene Runtime-Block und mischt mehrsprachige Copy, Cookie-Definitionen, Rendering, UI-Zustand und Persistenz in einer Datei.
-- Eine Trennung von strukturierten Consent-Daten und schlankerem Runtime-Code wuerde das gleiche Muster fortsetzen wie bei Navigation, Hero und Share.
+- Die Consent-Copy und Tabellenlabels liegen jetzt separat in [scripts/cookie-consent-content.js](../scripts/cookie-consent-content.js), waehrend [scripts/cookie-consent.js](../scripts/cookie-consent.js) nur noch Observer- und Sprachsync-Code enthaelt.
+- Die vier Einstiegseiten laden den neuen Content-Block vor dem Runtime-Sync, ohne die oeffentlichen Hooks `initCookieConsentLanguageSync()` und `scheduleCookieConsentLanguageUpdate()` zu aendern.
+- Der lokale Chromium-Smoke fuer Datenschutz, Impressum, Startseite, Chronik und Share-/Export-Flow lief nach dem Umbau erneut mit 0 Funden durch.
+- [scripts/review-interactions.js](../scripts/review-interactions.js) ist jetzt der groesste verbliebene Interaktionsblock und mischt Hash-/History-Navigation, Return-Link-Labels, Archiv-Toggles und Card-Zustand noch in einer Datei.
 
 Konkrete Empfehlung fuer den naechsten 15-Stunden-Block:
 
-1. Die Copy- und Tabelleninhalte aus [scripts/cookie-consent.js](../scripts/cookie-consent.js) in eine strukturierte Quelle auslagern, statt sieben Sprachen und Cookie-Details im Runtime-Block zu halten.
-2. Rendering, UI-Zustand und Persistenz im Consent-Runtime klar von diesen Daten trennen; wenn sinnvoll, den Block in kleinere Module schneiden.
-3. Oeffentliche Hooks, bestehendes Markup und das Consent-Verhalten fuer Badge, Dialog, Save/Accept/Reject stabil lassen.
-4. Danach gezielt den Privacy-/Consent-Flow, Sprachwechsel und den lokalen Release-Smoke erneut laufen lassen.
+1. Die Rueckblick-Navigation in [scripts/review-interactions.js](../scripts/review-interactions.js) entlang Hash-/History-Flows, Archiv-Toggles und UI-Labels schneiden.
+2. Den gemeinsamen Review-Status so trennen, dass Return-Navigation und Kartenzustand kuenftig mit kleineren, isolierten Diffs geaendert werden koennen.
+3. Oeffentliche Hooks und das bestehende Verhalten fuer News-Feed-Links, Review-Rueckspruenge, Archiv-Aufklappen und Hash-Oeffnungen stabil lassen.
+4. Danach gezielt Review-Hash-Flow, Archiv-Toggles, Sprachwechsel und lokalen Release-Smoke erneut laufen lassen.
 
 Repo-nahe Umsetzungsskizze:
 
-1. Eine strukturierte Quelle fuer Consent-Texte, Kategorie-Beschreibungen und Cookie-Definitionen anlegen, damit Sprachpflege und Rechtscopy nicht mehr im Runtime-Code stecken.
-2. Einen kleinen Render-/Hydrations-Schritt fuer den Consent-Dialog vorsehen oder die Daten zur Laufzeit sauber konsumieren, ohne das bestehende DOM-Verhalten zu aendern.
-3. [scripts/cookie-consent.js](../scripts/cookie-consent.js) entlang Content, Rendering und Persistenz so schneiden, dass kuenftige Rechts- oder Sprachupdates keine grossen Runtime-Diffs mehr ausloesen.
-4. Danach Smoke-QA fuer Datenschutz, Consent-Badge, Dialog und Sprachwechsel erneut laufen lassen.
+1. Die Review-Labels und kleinere Copy aus dem Navigations-/History-Code herausziehen oder zumindest klar von den Zustandsfunktionen trennen.
+2. Einen separaten Block fuer Review-History und Ruecksprung-Logik vorsehen, statt diese direkt mit DOM-Erzeugung und Archiv-Interaktion zu vermischen.
+3. [scripts/review-interactions.js](../scripts/review-interactions.js) so schneiden, dass Hash-Oeffnung, Ruecksprung und Archiv-Toggle spaeter einzeln test- und wartbar bleiben.
+4. Danach Smoke-QA fuer Review-Links, Hash-Oeffnung, Sprache und Back-Navigation erneut laufen lassen.
 
 Definition of Done fuer diesen naechsten Block:
 
-- Consent-Copy und Cookie-Tabellen stehen nicht mehr hartcodiert im Runtime-Block.
-- Der verbleibende Consent-Code ist kleiner und entlang Content, UI und Persistenz nachvollziehbar getrennt.
-- Badge, Dialog, Save/Accept/Reject, Sprachwechsel und Datenschutzerklaerungs-Verlinkung bleiben stabil.
+- Review-History, Ruecksprung und Archiv-Toggle liegen nicht mehr als eng gekoppelter Sammelblock in einer Datei.
+- Hash-Oeffnung, Return-Link-Verhalten und Karten-/Archivzustand bleiben stabil.
+- Sprachwechsel und Review-Navigation funktionieren nach dem Umbau weiter zusammen.
 - Der Umbau bleibt im statischen Repo-Kontext reviewbar und ohne neues Laufzeit-Framework wartbar.
 
 ## Woche 1
