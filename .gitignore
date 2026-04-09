@@ -4,3 +4,4 @@ share/querbeet-roundup-2025.pdf
 *.png
 tmp/visual-qa/*.html
 files/angebot*.pdf
+tmp/generate_offer_pdf.py
