@@ -1,4 +1,5 @@
 const reviewNewsFeedLinkSelector = '.news-feed-card-link[href^="#review-"]';
+const reviewSectionSelector = '.charity-projects-section[id^="review-"]';
 const reviewNavigationStateKey = 'cmiReviewNavigation';
 const reviewReturnOriginEntryType = 'review-return-origin';
 const reviewDetailEntryType = 'review-detail';
@@ -192,6 +193,7 @@ function fallbackReturnToReviewSource(reviewTargetId) {
         || document.getElementById(reviewReturnFallbackSectionId);
 
     clearReviewHashPreservingState();
+    syncReviewReturnLinksVisibility();
 
     if (!scrollTarget) {
         return;
@@ -207,6 +209,43 @@ function fallbackReturnToReviewSource(reviewTargetId) {
     });
 }
 
+function setReviewReturnLinkVisibility(section, isVisible) {
+    if (!section) {
+        return;
+    }
+
+    const wrap = section.querySelector('.review-return-link-wrap');
+
+    if (!wrap) {
+        return;
+    }
+
+    wrap.hidden = !isVisible;
+    section.classList.toggle('review-section--has-return-link', Boolean(isVisible));
+}
+
+function syncReviewReturnLinksVisibility() {
+    const reviewState = getReviewNavigationState();
+    const activeTarget = getReviewHashTarget();
+    const activeSection = activeTarget ? activeTarget.closest(reviewSectionSelector) : null;
+    const activeTargetId = reviewState
+        ? reviewState.targetId || reviewState.reviewTargetId || ''
+        : '';
+
+    document.querySelectorAll(reviewSectionSelector).forEach(function(section) {
+        const shouldShow = Boolean(
+            activeSection
+            && activeSection.id === section.id
+            && reviewState
+            && reviewState.entryType === reviewDetailEntryType
+            && activeTargetId === section.id
+            && getReviewReturnSourceLink(reviewState, section.id)
+        );
+
+        setReviewReturnLinkVisibility(section, shouldShow);
+    });
+}
+
 function createReviewReturnLink(section) {
     const textColumn = section.querySelector('.charity-flex-left');
 
@@ -216,6 +255,7 @@ function createReviewReturnLink(section) {
 
     const wrap = document.createElement('div');
     wrap.className = 'review-return-link-wrap';
+    wrap.hidden = true;
 
     const button = document.createElement('button');
     button.type = 'button';
@@ -321,13 +361,16 @@ function initReviewNewsFeedNavigation() {
         });
     });
 
+    syncReviewReturnLinksVisibility();
+    window.addEventListener('hashchange', syncReviewReturnLinksVisibility);
+
     window.addEventListener('popstate', function(event) {
         const reviewState = getReviewNavigationState(event.state);
 
-        if (!reviewState || reviewState.entryType !== reviewReturnOriginEntryType) {
-            return;
+        if (reviewState && reviewState.entryType === reviewReturnOriginEntryType) {
+            restoreReviewOriginFromHistory(reviewState);
         }
 
-        restoreReviewOriginFromHistory(reviewState);
+        syncReviewReturnLinksVisibility();
     });
 }

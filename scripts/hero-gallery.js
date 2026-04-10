@@ -20,6 +20,13 @@ const heroGalleryDesktopFocusImages = new Set([
     'bilder/concello.jfif'
 ]);
 
+const heroGalleryMobileContainImages = new Set([
+    'bilder/Gruppenbild2.jpg',
+    'bilder/gruppemitflagge.jpg',
+    'bilder/salboro_santa_maria_assunta_2024.jpg',
+    'bilder/Scheunenkonzert 17.07.jpg'
+]);
+
 let heroIndex = 0;
 const heroSlideDuration = 6500;
 const heroFadeDuration = 1400;
@@ -139,7 +146,7 @@ function getHeroGallerySlideStyle(entry) {
     if (window.innerWidth <= 700) {
         return {
             backgroundPosition: 'center center',
-            backgroundSize: 'contain'
+            backgroundSize: heroGalleryMobileContainImages.has(entry.src) ? 'contain' : 'cover'
         };
     }
 

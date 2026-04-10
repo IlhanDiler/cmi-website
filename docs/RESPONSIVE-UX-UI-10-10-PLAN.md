@@ -2,6 +2,8 @@
 
 Stand: 2026-04-09
 
+Aktuelle Arbeitsgrundlage fuer den Folgeblock: [docs/RESPONSIVE-UX-UI-FINDINGS.md](../docs/RESPONSIVE-UX-UI-FINDINGS.md).
+
 ## Zweck
 
 Dieser Folgeplan schliesst die Luecke zwischen dem aktuellen technischen 10/10-Block und einem spaeteren moeglichen Wechsel zu CMS, Design-Layer oder Framework. Ziel ist nicht ein kompletter Neustart, sondern ein bewusstes Hochziehen von Responsive Design, UX und UI von heute eher 8/10 auf einen glaubwuerdigen 10/10-Stand.
