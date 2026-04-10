@@ -8,6 +8,10 @@ const languageButtonLanguageMap = {
     langUk: 'uk'
 };
 
+const instagramExportRevision = '20260410-export-lang-fix-1';
+const localPreviewOriginDefault = 'http://127.0.0.1:8123';
+const productionSiteOrigin = 'https://www.cmi-ochsenfurt.de';
+
 const navigationUiLabels = {
     de: {
         mainNavigation: 'Hauptnavigation',
@@ -254,6 +258,64 @@ function getAccessibleEventTitle(container) {
     );
 }
 
+function getConfiguredLocalPreviewOrigin() {
+    try {
+        const storedPreviewOrigin = (window.localStorage.getItem('sitePreviewOrigin') || '').trim();
+
+        if (storedPreviewOrigin) {
+            return new URL(storedPreviewOrigin).origin;
+        }
+    } catch (_error) {}
+
+    return localPreviewOriginDefault;
+}
+
+function syncInstagramExportButtonHref(button, language) {
+    if (!button || !button.classList.contains('event-social-button--instagram') || !button.hasAttribute('href')) {
+        return;
+    }
+
+    if (!button.dataset.exportHrefBase) {
+        button.dataset.exportHrefBase = button.getAttribute('href') || '';
+    }
+
+    try {
+        const rawHref = button.dataset.exportHrefBase;
+        const shouldUseProductionExport = window.location.protocol === 'file:';
+        const localPreviewOrigin = getConfiguredLocalPreviewOrigin();
+        const exportUrl = shouldUseProductionExport
+            ? new URL(rawHref.replace(/^[./]+/, ''), `${localPreviewOrigin}/`)
+            : new URL(rawHref, window.location.href);
+
+        if (!/\/share\/instagram-export\.html$/i.test(exportUrl.pathname)) {
+            return;
+        }
+
+        exportUrl.searchParams.set('lang', language);
+        exportUrl.searchParams.set('v', instagramExportRevision);
+
+        const canUseRelativeHref = !shouldUseProductionExport && /^https?:$/i.test(window.location.protocol) && exportUrl.origin === window.location.origin;
+        const nextHref = canUseRelativeHref
+            ? `${exportUrl.pathname}${exportUrl.search}${exportUrl.hash}`
+            : exportUrl.href;
+
+        button.setAttribute('href', nextHref);
+    } catch (_error) {
+        if (window.location.protocol !== 'file:') {
+            return;
+        }
+
+        try {
+            const fallbackUrl = new URL(button.dataset.exportHrefBase.replace(/^[./]+/, ''), `${productionSiteOrigin}/`);
+            fallbackUrl.searchParams.set('lang', language);
+            fallbackUrl.searchParams.set('v', instagramExportRevision);
+            button.setAttribute('href', fallbackUrl.href);
+        } catch (_fallbackError) {
+            return;
+        }
+    }
+}
+
 function syncEventShareButtonAccessibility() {
     const language = getCurrentSiteLanguage();
     const labels = eventShareUiLabels[language] || eventShareUiLabels.de;
@@ -277,6 +339,10 @@ function syncEventShareButtonAccessibility() {
 
             button.setAttribute('aria-label', accessibilityLabel);
             button.setAttribute('title', accessibilityLabel);
+
+            if (button.classList.contains('event-social-button--instagram')) {
+                syncInstagramExportButtonHref(button, language);
+            }
         });
     });
 }

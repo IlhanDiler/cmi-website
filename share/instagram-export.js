@@ -75,11 +75,71 @@ const POST_COPY_TRANSLATIONS = {
     }
 };
 
+const SUPPORTED_POST_LANGUAGES = Object.freeze(Object.keys(POST_COPY_TRANSLATIONS));
+const DEFAULT_POST_LANGUAGE = "de";
+const LOCALIZED_SOURCE_URL = new URL("../index.html", window.location.href).href;
+const LOCALIZED_SUMMARY_MAX_LENGTH = 320;
+const POSTER_SOURCE_IDS = [
+    "review-neujahrskonzert-2025",
+    "review-internationales-benefizkonzert-2025",
+    "review-musik-an-der-furt-2025",
+    "review-concello-kurswoche-2025",
+    "review-johann-strauss-marktbreit-2025",
+    "review-weihnachtsklaenge-an-der-furt-2025"
+];
+const POSTER_COPY_TRANSLATIONS = {
+    de: {
+        title: "CMI Konzertjahr 2025",
+        meta: "Konzertcollage 2025",
+        lead: "Ein visueller Rueckblick auf Konzertmomente, Benefizprojekte und Begegnungen aus dem CMI-Jahr 2025.",
+        imageAlt: "CMI Konzertcollage 2025"
+    },
+    en: {
+        title: "CMI Concert Year 2025",
+        meta: "Concert collage 2025",
+        lead: "A visual recap of concert moments, benefit projects, and encounters from the CMI year 2025.",
+        imageAlt: "CMI concert collage 2025"
+    },
+    fr: {
+        title: "Annee de concerts du CMI 2025",
+        meta: "Collage de concerts 2025",
+        lead: "Un retour visuel sur les concerts, les projets benefices et les rencontres de l'annee CMI 2025.",
+        imageAlt: "Collage de concerts CMI 2025"
+    },
+    ln: {
+        title: "Mobu ya ba konser ya CMI 2025",
+        meta: "Kolaji ya ba konser 2025",
+        lead: "Talatala ya bililingi ya ba ntango ya konser, misala ya lisungi mpe bokutani ya mobu ya CMI 2025.",
+        imageAlt: "Kolaji ya ba konser ya CMI 2025"
+    },
+    it: {
+        title: "Stagione concertistica CMI 2025",
+        meta: "Collage concerti 2025",
+        lead: "Un riepilogo visivo di concerti, iniziative benefiche e incontri dell'anno CMI 2025.",
+        imageAlt: "Collage concerti CMI 2025"
+    },
+    tr: {
+        title: "CMI Konser Yili 2025",
+        meta: "Konser kolaji 2025",
+        lead: "CMI'nin 2025 konser yilindan muzik anlari, yardim projeleri ve bulusmalara gorsel bir bakis.",
+        imageAlt: "CMI konser kolaji 2025"
+    },
+    uk: {
+        title: "Концертний рік КМІ 2025",
+        meta: "Концертний колаж 2025",
+        lead: "Візуальний огляд концертних моментів, благодійних проєктів і зустрічей року КМІ 2025.",
+        imageAlt: "Концертний колаж КМІ 2025"
+    }
+};
+
+let localizedSourceDocumentPromise = null;
+
 const state = {
     posts: [],
     sharePages: [],
     failedFilesCount: 0,
     source: "manifest",
+    language: DEFAULT_POST_LANGUAGE,
     statusRestoreTimerId: 0
 };
 
@@ -111,6 +171,7 @@ const SITE_ASSET_PATH_PATTERN = /^\/(bilder|files)\//i;
 const PRODUCTION_SITE_HOSTNAMES = new Set(["www.cmi-ochsenfurt.de", "cmi-ochsenfurt.de"]);
 const BRAND_LOGO_URL = "/files/logo_cmi1%20-%20schwarz.svg";
 const initialSearchParams = new URLSearchParams(window.location.search);
+const preferredPostLanguage = getPreferredPostLanguage();
 
 const elements = {
     postGrid: document.getElementById("post-grid"),
@@ -182,6 +243,259 @@ function normalizePostLanguage(locale) {
 
 function getPostCopy(language) {
     return POST_COPY_TRANSLATIONS[normalizePostLanguage(language)];
+}
+
+function getStoredSiteLanguage() {
+    try {
+        return collapseWhitespace(window.localStorage.getItem("siteLang") || "");
+    } catch (_error) {
+        return "";
+    }
+}
+
+function getPreferredPostLanguage() {
+    return normalizePostLanguage(
+        initialSearchParams.get("lang") ||
+        getStoredSiteLanguage() ||
+        document.documentElement.getAttribute("lang") ||
+        navigator.language ||
+        DEFAULT_POST_LANGUAGE
+    );
+}
+
+function getLanguageFallbackOrder(language) {
+    return [...new Set([normalizePostLanguage(language), DEFAULT_POST_LANGUAGE, ...SUPPORTED_POST_LANGUAGES])];
+}
+
+function getLocalizedElement(container, selector, language) {
+    if (!container) {
+        return null;
+    }
+
+    const matches = Array.from(container.querySelectorAll(selector));
+    if (!matches.length) {
+        return null;
+    }
+
+    for (const fallbackLanguage of getLanguageFallbackOrder(language)) {
+        const matchingLanguageNode = matches.find((candidate) => candidate.getAttribute("data-lang") === fallbackLanguage);
+        if (matchingLanguageNode) {
+            return matchingLanguageNode;
+        }
+    }
+
+    return matches.find((candidate) => !candidate.hasAttribute("data-lang")) || matches[0];
+}
+
+function extractNodeText(node) {
+    if (!node) {
+        return "";
+    }
+
+    if (node.matches("ul, ol")) {
+        return Array.from(node.children)
+            .filter((child) => child.matches("li"))
+            .map((item) => collapseWhitespace(item.textContent))
+            .filter(Boolean)
+            .join(" · ");
+    }
+
+    return collapseWhitespace(node.textContent);
+}
+
+function getLocalizedText(container, selector, language) {
+    return extractNodeText(getLocalizedElement(container, selector, language));
+}
+
+function getSourceHashFromHref(value) {
+    const rawValue = collapseWhitespace(value);
+
+    if (!rawValue) {
+        return "";
+    }
+
+    try {
+        return new URL(rawValue, window.location.href).hash || "";
+    } catch (_error) {
+        const hashIndex = rawValue.indexOf("#");
+        return hashIndex >= 0 ? rawValue.slice(hashIndex) : "";
+    }
+}
+
+function getSourceHashFromShareDocument(doc) {
+    return getSourceHashFromHref(doc.querySelector(".share-card__button[href]")?.getAttribute("href") || "");
+}
+
+function getSourceElement(sourceDoc, sourceHash) {
+    if (!sourceDoc || !sourceHash.startsWith("#")) {
+        return null;
+    }
+
+    return sourceDoc.getElementById(sourceHash.slice(1));
+}
+
+function findLinkByHref(sourceDoc, selector, hrefValue) {
+    if (!sourceDoc) {
+        return null;
+    }
+
+    const normalizedHref = collapseWhitespace(hrefValue);
+    if (!normalizedHref) {
+        return null;
+    }
+
+    return Array.from(sourceDoc.querySelectorAll(selector)).find((candidate) => {
+        return collapseWhitespace(candidate.getAttribute("href")) === normalizedHref;
+    }) || null;
+}
+
+function shortenTextBySentence(text, maxLength) {
+    const normalizedText = collapseWhitespace(text);
+
+    if (normalizedText.length <= maxLength) {
+        return normalizedText;
+    }
+
+    const sentenceMatches = normalizedText.match(/[^.!?]+(?:[.!?]+|$)/g) || [normalizedText];
+    let summary = "";
+
+    for (const sentence of sentenceMatches) {
+        const trimmedSentence = collapseWhitespace(sentence);
+        if (!trimmedSentence) {
+            continue;
+        }
+
+        const candidate = summary ? `${summary} ${trimmedSentence}` : trimmedSentence;
+        if (candidate.length > maxLength) {
+            break;
+        }
+
+        summary = candidate;
+
+        if (summary.length >= maxLength * 0.7) {
+            break;
+        }
+    }
+
+    return summary || shortenText(normalizedText, maxLength);
+}
+
+function buildSummaryFromFragments(fragments, fallbackText) {
+    let summary = "";
+
+    for (const fragment of fragments) {
+        const normalizedFragment = collapseWhitespace(fragment);
+        if (!normalizedFragment) {
+            continue;
+        }
+
+        const candidate = summary ? `${summary} ${normalizedFragment}` : normalizedFragment;
+        summary = shortenTextBySentence(candidate, LOCALIZED_SUMMARY_MAX_LENGTH);
+
+        if (summary.length >= Math.min(220, LOCALIZED_SUMMARY_MAX_LENGTH * 0.7)) {
+            break;
+        }
+    }
+
+    return summary || collapseWhitespace(fallbackText);
+}
+
+function buildLocalizedReviewPost(sourceDoc, sourceHash, sourceRoot, language, fallbackPost) {
+    const title = getLocalizedText(sourceRoot, ".charity-title, .event-headline, .event-title", language) || fallbackPost.title;
+    const meta = getLocalizedText(sourceRoot, ".charity-meta", language) || fallbackPost.meta;
+    const newsCard = findLinkByHref(sourceDoc, ".news-feed-card-link[href]", sourceHash)?.closest(".news-feed-card");
+    const teaser = getLocalizedText(newsCard, ".news-feed-card-copy", language);
+    const description = getLocalizedText(sourceRoot, ".charity-description", language);
+    const text = buildSummaryFromFragments([teaser, description], fallbackPost.text);
+
+    return {
+        title,
+        meta,
+        text,
+        imageAlt: title || fallbackPost.imageAlt || fallbackPost.title,
+        language: normalizePostLanguage(language)
+    };
+}
+
+function buildLocalizedEventPost(sourceRoot, language, fallbackPost) {
+    const title = getLocalizedText(sourceRoot, ".event-headline, .event-title", language) || fallbackPost.title;
+    const date = collapseWhitespace(sourceRoot.querySelector(".event-date")?.textContent || "");
+    const location = getLocalizedText(sourceRoot, ".event-location", language);
+    const description = getLocalizedText(sourceRoot, ".event-description", language);
+    const program = getLocalizedText(sourceRoot, ".event-program", language);
+    const note = getLocalizedText(sourceRoot, ".event-note", language);
+    const meta = collapseWhitespace([date, location].filter(Boolean).join(" · ")) || fallbackPost.meta;
+    const text = buildSummaryFromFragments([description, program, note], fallbackPost.text);
+
+    return {
+        title,
+        meta,
+        text,
+        imageAlt: title || fallbackPost.imageAlt || fallbackPost.title,
+        language: normalizePostLanguage(language)
+    };
+}
+
+function getPosterCopy(language) {
+    return POSTER_COPY_TRANSLATIONS[normalizePostLanguage(language)] || POSTER_COPY_TRANSLATIONS[DEFAULT_POST_LANGUAGE];
+}
+
+function buildLocalizedPosterPost(sourceDoc, language, fallbackPost) {
+    const localizedPosterCopy = getPosterCopy(language);
+    const featuredTitles = sourceDoc
+        ? POSTER_SOURCE_IDS
+            .map((sourceId) => getLocalizedText(sourceDoc.getElementById(sourceId), ".charity-title, .event-headline", language))
+            .filter(Boolean)
+        : [];
+    const text = buildSummaryFromFragments([
+        localizedPosterCopy.lead,
+        featuredTitles.join(" · ")
+    ], fallbackPost.text || localizedPosterCopy.lead);
+
+    return {
+        title: localizedPosterCopy.title,
+        meta: localizedPosterCopy.meta,
+        text,
+        imageAlt: localizedPosterCopy.imageAlt,
+        language: normalizePostLanguage(language)
+    };
+}
+
+function resolveLocalizedPost(sourceDoc, sourceHash, language, fallbackPost) {
+    if (fallbackPost.fileName === "querbeet-roundup-2025.html") {
+        return buildLocalizedPosterPost(sourceDoc, language, fallbackPost);
+    }
+
+    const sourceRoot = getSourceElement(sourceDoc, sourceHash);
+    if (!sourceRoot) {
+        return null;
+    }
+
+    if (sourceRoot.id.startsWith("event-") || sourceRoot.classList.contains("event-card")) {
+        return buildLocalizedEventPost(sourceRoot, language, fallbackPost);
+    }
+
+    return buildLocalizedReviewPost(sourceDoc, sourceHash, sourceRoot, language, fallbackPost);
+}
+
+function loadLocalizedSourceDocument() {
+    if (!localizedSourceDocumentPromise) {
+        localizedSourceDocumentPromise = fetch(LOCALIZED_SOURCE_URL, { cache: "no-store" })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`Lokalisierte Inhaltsquelle konnte nicht geladen werden: ${LOCALIZED_SOURCE_URL}`);
+                }
+
+                return response.text();
+            })
+            .then((html) => new DOMParser().parseFromString(html, "text/html"))
+            .catch((error) => {
+                console.warn("Lokalisierte Inhalte aus index.html konnten nicht geladen werden, Share-Seiten-Fallback bleibt aktiv.", error);
+                return null;
+            });
+    }
+
+    return localizedSourceDocumentPromise;
 }
 
 function buildCaption(post) {
@@ -755,7 +1069,7 @@ async function exportInstagramStoryImage(post, trigger) {
     }
 }
 
-async function loadPost(fileName) {
+async function loadPost(fileName, localizedSourcePromise) {
     const response = await fetch(fileName, { cache: "no-store" });
     if (!response.ok) {
         throw new Error(`Share-Seite konnte nicht geladen werden: ${fileName}`);
@@ -765,7 +1079,7 @@ async function loadPost(fileName) {
     const doc = new DOMParser().parseFromString(html, "text/html");
     const title = collapseWhitespace(getMetaContent(doc, 'meta[property="og:title"]') || doc.title.trim());
     const description = collapseWhitespace(getMetaContent(doc, 'meta[name="description"]') || getMetaContent(doc, 'meta[property="og:description"]'));
-    const language = normalizePostLanguage(
+    const sharePageLanguage = normalizePostLanguage(
         getMetaContent(doc, 'meta[property="og:locale"]') || doc.documentElement.getAttribute("lang") || "de"
     );
     const image = resolveExportAssetUrl(
@@ -778,22 +1092,37 @@ async function loadPost(fileName) {
         title
     );
     const shareUrl = getMetaContent(doc, 'meta[property="og:url"]') || new URL(fileName, window.location.href).href;
-    const meta = collapseWhitespace(doc.querySelector(".share-card__meta")?.textContent) || "Share-Beitrag";
-    const text = collapseWhitespace(doc.querySelector(".share-card__text")?.textContent) || description;
-    const hashtags = buildHashtags(title, `${description} ${text}`);
+    const fallbackMeta = collapseWhitespace(doc.querySelector(".share-card__meta")?.textContent) || "Share-Beitrag";
+    const fallbackText = collapseWhitespace(doc.querySelector(".share-card__text")?.textContent) || description;
+    const sourceHash = getSourceHashFromShareDocument(doc);
+    const localizedSourceDoc = localizedSourcePromise ? await localizedSourcePromise : null;
+    const localizedPost = resolveLocalizedPost(localizedSourceDoc, sourceHash, preferredPostLanguage, {
+        fileName,
+        title,
+        meta: fallbackMeta,
+        text: fallbackText,
+        imageAlt,
+        language: sharePageLanguage
+    });
+    const resolvedLanguage = localizedPost?.language || preferredPostLanguage || sharePageLanguage;
+    const resolvedTitle = localizedPost?.title || title;
+    const resolvedMeta = localizedPost?.meta || fallbackMeta;
+    const resolvedText = localizedPost?.text || fallbackText;
+    const resolvedImageAlt = localizedPost?.imageAlt || imageAlt || resolvedTitle;
+    const hashtags = buildHashtags(resolvedTitle, resolvedText);
 
     return {
         fileName,
-        title,
-        description,
-        language,
+        title: resolvedTitle,
+        description: resolvedText || description,
+        language: resolvedLanguage,
         image,
-        imageAlt,
+        imageAlt: resolvedImageAlt,
         shareUrl,
-        meta,
-        text,
+        meta: resolvedMeta,
+        text: resolvedText,
         hashtags,
-        caption: buildCaption({ title, meta, text, hashtags, language })
+        caption: buildCaption({ title: resolvedTitle, meta: resolvedMeta, text: resolvedText, hashtags, language: resolvedLanguage })
     };
 }
 
@@ -834,7 +1163,8 @@ async function loadSharePageList() {
 
 async function loadPosts() {
     const { pages, source } = await loadSharePageList();
-    const results = await Promise.allSettled(pages.map(loadPost));
+    const localizedSourcePromise = loadLocalizedSourceDocument();
+    const results = await Promise.allSettled(pages.map((page) => loadPost(page, localizedSourcePromise)));
     const posts = [];
     const failedFiles = [];
 
@@ -1007,11 +1337,13 @@ function applySearchFilter() {
 
 async function initialize() {
     try {
+        document.documentElement.lang = preferredPostLanguage;
         const { posts, failedFiles, sharePages, source } = await loadPosts();
         state.posts = posts;
         state.sharePages = sharePages;
         state.failedFilesCount = failedFiles.length;
         state.source = source;
+        state.language = preferredPostLanguage;
         renderPosts(posts);
 
         if (!posts.length) {

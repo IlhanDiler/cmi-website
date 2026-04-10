@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start local preview server (8123)",
+			"type": "shell",
+			"command": "c:/repos/cmi-webseite_final - 4/.venv/Scripts/python.exe",
+			"args": [
+				"-m",
+				"http.server",
+				"8123"
+			],
+			"isBackground": true,
+			"group": "build"
+		}
+	]
+}

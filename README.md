@@ -154,3 +154,8 @@ Empfohlener Ablauf:
 5. Share-Link separat in Bio, Story oder eine Link-Sammlung uebernehmen.
 
 Hinweis: Die Export-Seite funktioniert ueber HTTP/HTTPS, also auf der deployed Website oder ueber einen lokalen Webserver. Direktes Oeffnen per `file://` blockiert die notwendigen `fetch`-Aufrufe im Browser. Die PNG-Exporte sind auf der live Website am verlaesslichsten, weil Browser lokale Cross-Origin-Bildquellen oft fuer Canvas blockieren.
+
+Lokale Vorschau ueber Datei-Aufruf:
+
+- Wenn [index.html](index.html) direkt per `file://` geoeffnet wird, schreiben die Instagram-Buttons automatisch auf den lokalen Preview-Host `http://127.0.0.1:8123` um.
+- Falls ein anderer lokaler Host oder Port verwendet wird, kann im Browser einmalig `localStorage.sitePreviewOrigin = 'http://127.0.0.1:8010'` gesetzt werden; danach nutzen die Instagram-Buttons diesen Ursprung fuer die Export-Seite.
