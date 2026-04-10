@@ -1,28 +1,9 @@
 const SHARE_MANIFEST_URL = "share-pages.json";
 
 const FALLBACK_SHARE_PAGES = [
-    "internationales-galakonzert-ochsenfurt-2026.html",
-    "internationales-galakonzert-giebelstadt-2026.html",
-    "benefiz-trommelworkshop-2026.html",
-    "masterclass-florian-meierott.html",
-    "christmette-2025.html",
-    "nikolausfeier-2025.html",
-    "weihnachtskonzert-zum-mitsingen-2025.html",
-    "weihnachtsklaenge-an-der-furt-2025.html",
-    "vdk-weihnachtsfeier-2025.html",
-    "johann-strauss-meintz-2025.html",
-    "johann-strauss-marktbreit-2025.html",
-    "wir-musizieren-gemeinsam-2025.html",
     "querbeet-roundup-2025.html",
-    "concello-kurswoche-2025.html",
-    "symphonic-mob-kissinger-sommer-2025.html",
-    "ausflug-nuernberg-2025.html",
-    "musik-an-der-furt-2025.html",
-    "internationales-benefizkonzert-2025.html",
-    "80-jahre-frieden-2025.html",
-    "neujahrskonzert-2025.html",
-    "kauzensitzung-2025.html",
-    "christmette-2024.html",
+    "internationales-galakonzert-ochsenfurt-2026.html",
+    "benefiz-trommelworkshop-2026.html",
 ];
 
 const DEFAULT_HASHTAGS = [
