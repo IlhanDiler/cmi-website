@@ -257,8 +257,8 @@ function getPreferredPostLanguage() {
     return normalizePostLanguage(
         initialSearchParams.get("lang") ||
         getStoredSiteLanguage() ||
-        document.documentElement.getAttribute("lang") ||
         navigator.language ||
+        document.documentElement.getAttribute("lang") ||
         DEFAULT_POST_LANGUAGE
     );
 }
