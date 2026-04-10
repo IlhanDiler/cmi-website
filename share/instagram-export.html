@@ -9,7 +9,7 @@
     <link rel="icon" href="/files/logo_cmi1%20-%20schwarz.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
     <link rel="icon" href="/files/logo_cmi1%20-%20wei%C3%9F.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="/files/logo_cmi1%20-%20schwarz.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="instagram-export.css?v=20260409-export-fix-2">
+    <link rel="stylesheet" href="instagram-export.css?v=20260410-export-density-fix-1">
 </head>
 <body>
     <main class="export-shell">
@@ -59,50 +59,67 @@
                     <p class="post-card__meta"></p>
                     <h2 class="post-card__title"></h2>
                 </div>
-                <div class="preview-stack">
-                    <div class="insta-preview" role="group" aria-label="Instagram 4 zu 5 Vorschau">
-                        <div class="insta-preview__image-wrap">
-                            <img class="insta-preview__image" alt="" aria-hidden="true">
-                            <div class="insta-preview__badge">Instagram 4:5</div>
+                <div class="post-card__content">
+                    <div class="post-card__overview">
+                        <div class="post-card__section-head">
+                            <p class="post-card__section-eyebrow">Visuelle Vorschau</p>
+                            <p class="post-card__section-note">Feed und Story direkt vergleichen, bevor die eigentlichen Arbeitsaktionen starten.</p>
                         </div>
-                        <div class="insta-preview__body">
-                            <p class="insta-preview__brand">Collegium Musicum Iuvenale Ochsenfurt</p>
-                            <p class="insta-preview__meta"></p>
-                            <h3 class="insta-preview__title"></h3>
-                            <p class="insta-preview__text"></p>
+                        <div class="preview-stack">
+                            <div class="insta-preview" role="group" aria-label="Instagram 4 zu 5 Vorschau">
+                                <div class="insta-preview__image-wrap">
+                                    <img class="insta-preview__image" alt="" aria-hidden="true">
+                                    <div class="insta-preview__badge">Instagram 4:5</div>
+                                </div>
+                                <div class="insta-preview__body">
+                                    <p class="insta-preview__brand">Collegium Musicum Iuvenale Ochsenfurt</p>
+                                    <p class="insta-preview__meta"></p>
+                                    <h3 class="insta-preview__title"></h3>
+                                    <p class="insta-preview__text"></p>
+                                </div>
+                            </div>
+
+                            <div class="story-preview" role="group" aria-label="Instagram 9 zu 16 Vorschau">
+                                <div class="story-preview__image-wrap">
+                                    <img class="story-preview__image" alt="" aria-hidden="true">
+                                    <div class="story-preview__badge">Story 9:16</div>
+                                </div>
+                                <div class="story-preview__overlay">
+                                    <p class="story-preview__brand">CMI Ochsenfurt</p>
+                                    <p class="story-preview__meta"></p>
+                                    <h3 class="story-preview__title"></h3>
+                                    <p class="story-preview__text"></p>
+                                    <div class="story-preview__cta">Mehr auf unserer Website</div>
+                                </div>
+                            </div>
                         </div>
+                        <p class="post-card__text"></p>
+                        <div class="post-card__hashtags"></div>
                     </div>
 
-                    <div class="story-preview" role="group" aria-label="Instagram 9 zu 16 Vorschau">
-                        <div class="story-preview__image-wrap">
-                            <img class="story-preview__image" alt="" aria-hidden="true">
-                            <div class="story-preview__badge">Story 9:16</div>
+                    <div class="post-card__workflow">
+                        <div class="post-card__section-head post-card__section-head--workflow">
+                            <p class="post-card__section-eyebrow">Arbeitsbereich</p>
+                            <p class="post-card__section-note">Erst Caption uebernehmen, danach Feed-, Story- oder Link-Aktion ausloesen.</p>
                         </div>
-                        <div class="story-preview__overlay">
-                            <p class="story-preview__brand">CMI Ochsenfurt</p>
-                            <p class="story-preview__meta"></p>
-                            <h3 class="story-preview__title"></h3>
-                            <p class="story-preview__text"></p>
-                            <div class="story-preview__cta">Mehr auf unserer Website</div>
+                        <span class="export-visually-hidden post-card__caption-label">Instagram-Caption</span>
+                        <textarea class="post-card__caption" rows="8" readonly></textarea>
+                        <div class="post-card__actions post-card__actions--primary">
+                            <button class="export-button export-button--primary post-card__copy-caption" type="button">Caption kopieren</button>
+                            <button class="export-button export-button--secondary post-card__export-image" type="button">PNG exportieren</button>
+                            <button class="export-button export-button--secondary post-card__export-story" type="button">Story PNG</button>
+                        </div>
+                        <div class="post-card__actions post-card__actions--secondary">
+                            <button class="export-button export-button--secondary post-card__copy-link" type="button">Link kopieren</button>
+                            <a class="export-button export-button--ghost post-card__open-image" target="_blank" rel="noopener noreferrer">Bild oeffnen</a>
+                            <a class="export-button export-button--ghost post-card__open-share" target="_blank" rel="noopener noreferrer">Share-Seite</a>
                         </div>
                     </div>
-                </div>
-                <p class="post-card__text"></p>
-                <div class="post-card__hashtags"></div>
-                <span class="export-visually-hidden post-card__caption-label">Instagram-Caption</span>
-                <textarea class="post-card__caption" rows="8" readonly></textarea>
-                <div class="post-card__actions">
-                    <button class="export-button export-button--secondary post-card__export-image" type="button">PNG exportieren</button>
-                    <button class="export-button export-button--secondary post-card__export-story" type="button">Story PNG</button>
-                    <button class="export-button export-button--primary post-card__copy-caption" type="button">Caption kopieren</button>
-                    <button class="export-button export-button--secondary post-card__copy-link" type="button">Link kopieren</button>
-                    <a class="export-button export-button--ghost post-card__open-image" target="_blank" rel="noopener noreferrer">Bild oeffnen</a>
-                    <a class="export-button export-button--ghost post-card__open-share" target="_blank" rel="noopener noreferrer">Share-Seite</a>
                 </div>
             </div>
         </article>
     </template>
 
-    <script src="instagram-export.js?v=20260410-export-lang-fix-1"></script>
+    <script src="instagram-export.js?v=20260410-export-lang-fix-2"></script>
 </body>
 </html>

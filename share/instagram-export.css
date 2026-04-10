@@ -81,10 +81,14 @@ body {
     font-size: 1.04rem;
 }
 
-.export-hero__actions,
-.post-card__actions {
+.export-hero__actions {
     display: flex;
     flex-wrap: wrap;
+    gap: 12px;
+}
+
+.post-card__actions {
+    display: grid;
     gap: 12px;
 }
 
@@ -235,6 +239,49 @@ body {
     padding: 22px;
     display: grid;
     gap: 14px;
+}
+
+.post-card__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr);
+    gap: 18px;
+    align-items: start;
+}
+
+.post-card__overview,
+.post-card__workflow {
+    display: grid;
+    gap: 14px;
+    min-width: 0;
+}
+
+.post-card__workflow {
+    align-self: stretch;
+    padding: 18px;
+    border-radius: 26px;
+    border: 1px solid rgba(21, 155, 140, 0.14);
+    background: linear-gradient(180deg, rgba(247, 252, 251, 0.96) 0%, rgba(232, 245, 243, 0.98) 100%);
+}
+
+.post-card__section-head {
+    display: grid;
+    gap: 6px;
+}
+
+.post-card__section-eyebrow {
+    margin: 0;
+    color: var(--export-accent-dark);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.post-card__section-note {
+    margin: 0;
+    color: var(--export-muted);
+    font-size: 0.94rem;
+    line-height: 1.55;
 }
 
 .preview-stack {
@@ -495,8 +542,40 @@ body {
     background: rgba(248, 251, 251, 0.9);
 }
 
+.post-card__actions--primary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.post-card__actions--primary .post-card__copy-caption {
+    grid-column: 1 / -1;
+}
+
+.post-card__actions--secondary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.post-card__actions--secondary .export-button {
+    min-height: 42px;
+    padding: 0 14px;
+    font-weight: 600;
+}
+
+.post-card__actions--secondary .export-button--ghost {
+    background: rgba(255, 255, 255, 0.72);
+}
+
 .post-card--hidden {
     display: none;
+}
+
+@media (max-width: 1180px) {
+    .post-card__content {
+        grid-template-columns: 1fr;
+    }
+
+    .post-card__workflow {
+        padding: 16px;
+    }
 }
 
 @media (max-width: 900px) {
@@ -518,13 +597,21 @@ body {
         aspect-ratio: 16 / 10;
     }
 
-    .insta-preview {
+    .insta-preview,
+    .story-preview {
         width: 100%;
-        max-width: 420px;
     }
 
-    .story-preview {
-        width: min(320px, 100%);
+    .preview-stack {
+        gap: 14px;
+    }
+
+    .post-card__actions--secondary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .post-card__open-share {
+        grid-column: 1 / -1;
     }
 }
 
@@ -539,5 +626,41 @@ body {
     .export-toolbar,
     .post-card__body {
         padding: 18px;
+    }
+
+    .post-card__workflow {
+        padding: 16px;
+        border-radius: 22px;
+    }
+
+    .preview-stack {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 6px;
+        margin-inline: -2px;
+        scroll-snap-type: x proximity;
+    }
+
+    .preview-stack > * {
+        flex: 0 0 min(82vw, 340px);
+        scroll-snap-align: start;
+    }
+
+    .story-preview {
+        flex-basis: min(72vw, 250px);
+    }
+
+    .post-card__caption {
+        min-height: 156px;
+    }
+
+    .post-card__actions--primary,
+    .post-card__actions--secondary {
+        grid-template-columns: 1fr;
+    }
+
+    .post-card__copy-caption,
+    .post-card__open-share {
+        grid-column: auto;
     }
 }

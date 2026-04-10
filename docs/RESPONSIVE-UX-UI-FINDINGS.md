@@ -60,7 +60,7 @@ Diese Fundliste uebersetzt den Folgeplan aus [docs/RESPONSIVE-UX-UI-10-10-PLAN.m
 - Problem: Jede Export-Karte kombiniert Bild, Feed-Vorschau, Story-Vorschau, Caption-Feld und sechs Aktionen. Das ist fuer das interne Tool funktional stark, aber in der visuellen Priorisierung noch dicht.
 - UX-Wirkung: Auf schmalen Viewports entsteht schneller eine Arbeitsflaeche mit hoher Interaktionsdichte statt ein klar gefuehrter Export-Flow.
 - Schwierigkeit: mittel
-- Status: offen
+- Status: am 2026-04-10 visuell entdichtet; Vorschau und Arbeitsbereich sind jetzt als getrennte Zonen priorisiert, Primäraktionen sitzen enger an der Caption und Sekundäraktionen fallen auf schmalen Viewports klarer zurück.
 
 ### 7. `low` - Section-CTA und Karten-CTA im Aktuelles-Block koennen noch klarer gewichtet werden
 
@@ -71,9 +71,14 @@ Diese Fundliste uebersetzt den Folgeplan aus [docs/RESPONSIVE-UX-UI-10-10-PLAN.m
 - Schwierigkeit: niedrig
 - Status: am 2026-04-10 nachgezogen; der Konzert-Link auf Section-Ebene ist jetzt bewusster sekundar, waehrend die Karten-CTAs als eigentliche naechste Aktion klarer markiert sind.
 
+## Letzte Verifikation
+
+- Am 2026-04-10 wurde ein gezielter Viewport-/Zoom-Pass gegen den lokalen Preview-Server auf `http://127.0.0.1:8123` gefahren.
+- Geprueft wurden Homepage Desktop/Mobile, Chronik, Datenschutz, Impressum, eine Share-Seite und der Instagram-Export in Chromium und Firefox.
+- Ergebnis: keine gemeldeten Issues; die aktuellen Screenshots und das QA-Protokoll liegen unter `tmp/visual-qa/`.
+
 ## Naechster Fokus
 
-Die naechsten zwei sinnvollen Arbeitsschritte nach dem ersten Rueckweg-Fix sind:
+Der naechste sinnvolle Arbeitsschritt nach den jetzt dokumentierten Folgeblock-Fixes ist:
 
-1. Share-/Export-Flow in [share/instagram-export.html](../share/instagram-export.html) visuell entdichten.
-2. Einen gezielten manuellen Viewport-/Zoom-Pass ueber die jetzt verfeinerten Homepage- und Review-Flows fahren.
+1. Die verfeinerten Homepage-, Review- und Share-/Export-Flows im naechsten echten Redaktionsdurchlauf beobachten und nur bei realen Reibungen weiter nachjustieren.
