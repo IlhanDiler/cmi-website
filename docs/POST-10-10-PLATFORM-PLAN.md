@@ -1,6 +1,6 @@
 # Post-10/10 Platform Plan
 
-Stand: 2026-04-09
+Stand: 2026-04-10
 
 ## Zweck
 
@@ -12,6 +12,15 @@ Dieser Plan startet erst nach dem Abschluss des aktuellen 10/10-Blocks in [docs/
 - Mehrmonatiger Neuaufbau aller Seitenquellen auf einmal
 
 Diese Punkte sind keine vergessenen Restarbeiten des laufenden Blocks, sondern eine eigene strategische Folgephase.
+
+Vor einem moeglichen Wechsel in einen Design-Layer-, CMS- oder Framework-Pfad sollte jedoch zuerst der vorgeschaltete UI-/Responsive-Block aus [docs/RESPONSIVE-UX-UI-10-10-PLAN.md](../docs/RESPONSIVE-UX-UI-10-10-PLAN.md) durchlaufen werden.
+
+## Entscheidungsampel
+
+- Jetzt: den offenen manuellen Screenreader-Pass schliessen und den aktuellen 10/10-Block formal beenden.
+- Danach: den Folgeblock aus [docs/RESPONSIVE-UX-UI-10-10-PLAN.md](../docs/RESPONSIVE-UX-UI-10-10-PLAN.md) fahren und Responsive-, Reflow-, Mobile- und Kernflow-UX sichtbar auf 10/10 ziehen.
+- Erst dann: den Architekturspike starten und auf der bereinigten UX-Basis entscheiden, ob ein Design-Layer-, CMS- oder Framework-Pilot wirklich noetig ist.
+- Erst nach einem positiven Spike: genau einen kleinen Pilotbereich waehlen, statt mehrere Grosshebel parallel zu starten.
 
 ## Klare Einordnung der vier Punkte
 
@@ -74,6 +83,16 @@ Budget: 0,5 bis 1 Tag
 - echten NVDA-/VoiceOver-Pass aus [docs/NVDA-QUICK-PASS.md](../docs/NVDA-QUICK-PASS.md) fahren
 - Ergebnis im Freigabestatus von [docs/FRONTEND-HANDOFF.md](../docs/FRONTEND-HANDOFF.md) eintragen
 - Woche 4 in [docs/FOUR-WEEK-PLAN-10-10.md](../docs/FOUR-WEEK-PLAN-10-10.md) final schliessen
+
+### Phase 0.5 - Responsive UX/UI auf 10/10 ziehen
+
+Ziel: die bestehende Seite in Responsive Design, UX und UI sichtbar beruhigen und systematisieren, bevor ueber CMS, Design-Layer oder Framework-Pilot entschieden wird.
+
+Budget: 4 Wochen
+
+- den Folgeblock aus [docs/RESPONSIVE-UX-UI-10-10-PLAN.md](../docs/RESPONSIVE-UX-UI-10-10-PLAN.md) durchlaufen
+- Responsive-, Reflow-, Karten-, Hero- und Rueckweg-Qualitaet bewusst auf 10/10-Niveau pruefen
+- erst danach ueber einen tieferen Plattformhebel entscheiden
 
 ### Phase 1 - Entscheidungs- und Architekturspike
 
