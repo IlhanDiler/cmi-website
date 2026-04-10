@@ -3,5 +3,6 @@ share/status-images/
 share/querbeet-roundup-2025.pdf
 *.png
 tmp/visual-qa/*.html
+tmp/private-docs-preview/
 files/angebot*.pdf
 tmp/generate_offer_pdf.py
