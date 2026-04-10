@@ -30,6 +30,35 @@ function initReviewArchiveToggle() {
     const collapsedLabels = toggle.querySelectorAll('[data-state="collapsed"]');
     const expandedLabels = toggle.querySelectorAll('[data-state="expanded"]');
 
+    function shouldEnableFloatingArchiveToggle() {
+        return window.innerWidth <= 1440 || window.innerHeight <= 1080;
+    }
+
+    function getArchiveToggleFloatThreshold() {
+        const navbar = document.querySelector('.navbar');
+        const navbarBottom = navbar ? Math.ceil(navbar.getBoundingClientRect().bottom) : 0;
+
+        return navbarBottom + 18;
+    }
+
+    function syncFloatingArchiveToggleState() {
+        if (!intro) {
+            toggle.classList.remove('review-archive-toggle--floating');
+            archive.classList.remove('review-archive--toggle-floating');
+            return;
+        }
+
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        const shouldFloat = isExpanded
+            && shouldEnableFloatingArchiveToggle()
+            && intro.getBoundingClientRect().bottom < getArchiveToggleFloatThreshold();
+
+        toggle.classList.toggle('review-archive-toggle--floating', shouldFloat);
+        archive.classList.toggle('review-archive--toggle-floating', shouldFloat);
+    }
+
+    const scheduleFloatingArchiveToggleStateSync = createAnimationFrameScheduler(syncFloatingArchiveToggleState);
+
     function scrollIntroIntoView() {
         if (!intro) {
             return;
@@ -67,6 +96,13 @@ function initReviewArchiveToggle() {
         }));
 
         if (!isExpanded) {
+            toggle.classList.remove('review-archive-toggle--floating');
+            archive.classList.remove('review-archive--toggle-floating');
+        }
+
+        scheduleFloatingArchiveToggleStateSync();
+
+        if (!isExpanded) {
             scheduleIntroScrollIntoView();
         }
     }
@@ -90,7 +126,13 @@ function initReviewArchiveToggle() {
 
     setArchiveExpanded(false);
     expandArchiveForHash();
-    window.addEventListener('hashchange', expandArchiveForHash);
+    scheduleFloatingArchiveToggleStateSync();
+    window.addEventListener('hashchange', function() {
+        expandArchiveForHash();
+        scheduleFloatingArchiveToggleStateSync();
+    });
+    window.addEventListener('scroll', scheduleFloatingArchiveToggleStateSync, { passive: true });
+    window.addEventListener('resize', scheduleFloatingArchiveToggleStateSync);
 }
 
 function initReviewCardToggles() {

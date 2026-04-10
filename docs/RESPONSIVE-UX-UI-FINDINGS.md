@@ -51,7 +51,7 @@ Diese Fundliste uebersetzt den Folgeplan aus [docs/RESPONSIVE-UX-UI-10-10-PLAN.m
 - Problem: Der Archiv-Toggle wird im offenen Zustand mehrfach als `position: fixed` an den unteren Bildschirmrand gelegt. Das ist funktional absichtlich, muss aber gegen Browser-Chrome, Touch-Komfort und konkurrierende Aktionen nochmals ruhig geprueft werden.
 - UX-Wirkung: Kann sich auf kleineren Hoehen wie ein eingeblendeter Fremd-CTA anfuehlen statt wie eine kontrollierte Archivsteuerung.
 - Schwierigkeit: mittel
-- Status: offen
+- Status: am 2026-04-10 beruhigt; der Toggle bleibt zunaechst inline im Intro und wechselt erst dann in einen kleineren Floating-Zustand, wenn der Intro-Bereich beim offenen Archiv wirklich aus dem Viewport gelaufen ist.
 
 ### 6. `medium` - Share-/Export-Flow ist in der Kartendichte noch arbeitsstark statt ruhig priorisiert
 
@@ -69,11 +69,11 @@ Diese Fundliste uebersetzt den Folgeplan aus [docs/RESPONSIVE-UX-UI-10-10-PLAN.m
 - Problem: Der Uebersichts-Link auf Section-Ebene und die Karten-CTAs sind stilistisch nah beieinander. Das ist nicht kaputt, aber noch nicht maximal klar priorisiert.
 - UX-Wirkung: Die naechste sinnvolle Aktion aus Besuchersicht ist etwas weniger eindeutig als moeglich.
 - Schwierigkeit: niedrig
-- Status: offen
+- Status: am 2026-04-10 nachgezogen; der Konzert-Link auf Section-Ebene ist jetzt bewusster sekundar, waehrend die Karten-CTAs als eigentliche naechste Aktion klarer markiert sind.
 
 ## Naechster Fokus
 
 Die naechsten zwei sinnvollen Arbeitsschritte nach dem ersten Rueckweg-Fix sind:
 
-1. Review-Archiv-Toggle im mobilen offenen Zustand auf Touch-Ruhe und Konkurrenz zu anderen Aktionen pruefen.
-2. CTA-Gewichtung im Aktuelles-Block zwischen Section-Link und Karten-CTAs nachziehen.
+1. Share-/Export-Flow in [share/instagram-export.html](../share/instagram-export.html) visuell entdichten.
+2. Einen gezielten manuellen Viewport-/Zoom-Pass ueber die jetzt verfeinerten Homepage- und Review-Flows fahren.
