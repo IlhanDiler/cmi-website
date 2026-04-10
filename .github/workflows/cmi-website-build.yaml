@@ -12,6 +12,9 @@ on:
       branch-id:
         required: true
         type: string
+      source-sha:
+        required: true
+        type: string
 
 env:
   DEPLOYMENT_FOLDER: ./
@@ -25,6 +28,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
         with:
+          ref: ${{ inputs.source-sha }}
           submodules: 'recursive'
 
 # Please do not touch the following action
@@ -35,7 +39,7 @@ jobs:
           service-host: api-eu.ionos.space
           project-id: 7c7fa450-8959-44b2-9961-6a3820c74469
           branch-id: ${{ inputs.branch-id }}
-          version: ${{ github.sha }}
+          version: ${{ inputs.source-sha }}
           folder: ${{ env.DEPLOYMENT_FOLDER }}
           config-file: .deploy-now/cmi-website/config.yaml
           action: upload
