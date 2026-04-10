@@ -3,6 +3,7 @@ const SHARE_MANIFEST_URL = "share-pages.json";
 const FALLBACK_SHARE_PAGES = [
     "internationales-galakonzert-ochsenfurt-2026.html",
     "internationales-galakonzert-giebelstadt-2026.html",
+    "benefiz-trommelworkshop-2026.html",
     "masterclass-florian-meierott.html",
     "christmette-2025.html",
     "nikolausfeier-2025.html",
