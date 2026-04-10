@@ -6,6 +6,8 @@ Diese Checkliste deckt die manuelle Browser-, Geraete- und Accessibility-QA nach
 
 Wenn nur eine schnelle Freigabe noetig ist, zuerst die Kurzfassung unter [docs/RELEASE-QA-CHECKLIST.md](../docs/RELEASE-QA-CHECKLIST.md) verwenden.
 
+Fuer den naechsten breiten manuellen Sweep ueber [index.html](../index.html), [chronik.html](../chronik.html), [datenschutz.html](../datenschutz.html), [impressum.html](../impressum.html), eine Share-Seite und [share/instagram-export.html](../share/instagram-export.html) steht zusaetzlich [docs/ACCESSIBILITY-SWEEP-PLAN.md](./ACCESSIBILITY-SWEEP-PLAN.md) bereit. Die Datei ist als operator-tauglicher Laufzettel mit Reihenfolge, Matrix und Ergebnisbloecken gedacht.
+
 ## Test-Setup
 
 - Seite ueber HTTP ausliefern, zum Beispiel mit `python -m http.server 8123` aus dem Projektwurzelverzeichnis.

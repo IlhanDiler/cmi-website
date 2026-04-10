@@ -1,6 +1,6 @@
 # Responsive UX/UI 10/10 Plan
 
-Stand: 2026-04-09
+Stand: 2026-04-10
 
 Aktuelle Arbeitsgrundlage fuer den Folgeblock: [docs/RESPONSIVE-UX-UI-FINDINGS.md](../docs/RESPONSIVE-UX-UI-FINDINGS.md).
 
@@ -8,7 +8,7 @@ Aktuelle Arbeitsgrundlage fuer den Folgeblock: [docs/RESPONSIVE-UX-UI-FINDINGS.m
 
 Dieser Folgeplan schliesst die Luecke zwischen dem aktuellen technischen 10/10-Block und einem spaeteren moeglichen Wechsel zu CMS, Design-Layer oder Framework. Ziel ist nicht ein kompletter Neustart, sondern ein bewusstes Hochziehen von Responsive Design, UX und UI von heute eher 8/10 auf einen glaubwuerdigen 10/10-Stand.
 
-Der Plan startet idealerweise direkt nach dem noch offenen manuellen Screenreader-Pass aus [docs/NVDA-QUICK-PASS.md](../docs/NVDA-QUICK-PASS.md).
+Der vorgeschaltete Homepage-Screenreader-Kurzpass aus [docs/NVDA-QUICK-PASS.md](../docs/NVDA-QUICK-PASS.md) ist dokumentiert abgeschlossen; dieser Folgeplan kann damit direkt starten.
 
 ## Ausgangspunkt
 
@@ -108,6 +108,13 @@ Ziel: sichtbare UX-/Responsive-Schwachstellen systematisch inventarisieren statt
 
 Budget: 12 bis 15 Stunden
 
+### Stand 2026-04-10
+
+- Abgeschlossen: Eine Screenshot- und Viewport-Matrix fuer Hauptseite, Chronik, Datenschutz, Impressum, eine Share-Seite und den Instagram-Export liegt unter [tmp/visual-qa](../tmp/visual-qa) vor.
+- Abgeschlossen: Die priorisierte Fundliste steht in [docs/RESPONSIVE-UX-UI-FINDINGS.md](../docs/RESPONSIVE-UX-UI-FINDINGS.md) und fuehrt die ersten Folgeblock-Funde mit Evidenz, Wirkung, Schwierigkeit und Status.
+- Abgeschlossen: Die offenen Rueckweg-/Aktuelles-Punkte aus [docs/SOCIAL-FEED-ASSESSMENT.md](../docs/SOCIAL-FEED-ASSESSMENT.md) sind in die Fundliste eingeflossen und wurden im ersten Folgeblock-Pass direkt nachgezogen.
+- Abgeschlossen: Die zuerst identifizierten Hebel fuer Mobile-Navigation, Hero-Mobile-Bildverhalten, Subpage-Topbar, Review-Archiv-Toggle, Share-/Export-Dichte und CTA-Gewichtung wurden am 2026-04-10 bereits als erste Responsive-/UX-Fixes umgesetzt.
+
 Arbeitspaket:
 
 - Screenshot- und Viewport-Matrix fuer Hauptseite, Chronik, Legal-Seiten und Share-/Export-Flow anlegen
@@ -121,6 +128,8 @@ Definition of Done:
 - eine konkrete Fundliste existiert
 - die groessten Hebel sind nach Wirkung und Aufwand sortiert
 - keine weiteren Arbeiten starten auf Basis von Bauchgefuehl allein
+
+Der Week-1-Block ist damit im aktuellen Scope faktisch abgeschlossen; weitere Arbeiten sollten ab hier nur noch auf neuer Matrix-Evidenz oder echten Redaktions-/Nutzungsfunden aufsetzen.
 
 ### Woche 2
 

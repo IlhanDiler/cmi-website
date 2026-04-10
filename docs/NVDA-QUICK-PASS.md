@@ -43,6 +43,15 @@ Erwartung: keine redundante zusaetzliche Bildansage, die den ohnehin vorhandenen
 - Status: `pass` / `pass with notes` / `fail`
 - Findings:
 
+## Wo finde ich die Angaben?
+
+- `Tester`: einfach Ihr Name oder Ihre Initialen.
+- `Datum`: das Testdatum des Laufs, zum Beispiel `2026-04-10`.
+- `Browser`: der Browser, in dem Sie den Pass gefahren haben, also zum Beispiel `Edge`, `Chrome` oder `Firefox`.
+- `NVDA-Version`: in NVDA mit `NVDA+N` das Menue oeffnen, dann `Hilfe` -> `Ueber NVDA`; die Versionsnummer steht im Dialog ganz oben.
+- `Status`: `pass`, wenn keine relevanten Accessibility-Funde auftauchen; `pass with notes`, wenn nur kleinere Hinweise ohne Release-Blocker auffallen; `fail`, wenn ein echter Bedien- oder Semantik-Blocker auftaucht.
+- `Findings`: ein bis zwei kurze Saetze reichen. Wenn nichts Relevantes aufgefallen ist, reicht `Keine Blocker.`
+
 ## Muster fuer erfolgreichen Handoff-Eintrag
 
 Wenn der Kurzpass ohne relevanten Fund durchlaeuft, kann folgender Block in [docs/FRONTEND-HANDOFF.md](../docs/FRONTEND-HANDOFF.md) verwendet werden:

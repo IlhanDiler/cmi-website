@@ -1,6 +1,6 @@
 # Site Assessment
 
-Stand: 2026-04-09
+Stand: 2026-04-10
 
 ## Kurzfazit
 
@@ -82,10 +82,12 @@ Aktueller realistischer Stand:
 11. Die strukturelle Entduplizierung ist nicht mehr nur Zielbild: Fuer den Impressum-Rechtsblock, sieben Datenschutz-Bloecke, breite Chronik-Bereiche bis hinein in alle Timeline-Stationen sowie grosse Hauptseiten-Bloecke vom oberen "Musik baut Bruecken"-/About-Bereich ueber Musikfamilie und Repertoire/Engagement bis zu Events, Kontakt und Footer existieren jetzt Generatorquellen nach statischem HTML; groessere Bloecke koennen dabei in separate Quelldateien unter [scripts/legal-content](../scripts/legal-content) ausgelagert werden.
 12. Die Homepage-Semantik wurde im letzten Pass nochmals sichtbar gehaertet: mehrere visuelle Untertitel und Kartentitel sind jetzt echte Headings, grosse Startseiten-Bloecke exponieren sprachsynchronisierte benannte Regionen, und der eigenstaendige Astrid-Block fuegt sich mit `h2` statt als isolierte `h3` sauber in die Outline ein.
 13. Fuer den letzten echten manuellen Freigabeschritt existieren jetzt ein kompakter NVDA-Kurzablauf in [docs/NVDA-QUICK-PASS.md](../docs/NVDA-QUICK-PASS.md) sowie ein fester Ergebnisblock in [docs/FRONTEND-HANDOFF.md](../docs/FRONTEND-HANDOFF.md).
+14. Der Share-/Export-Output ist inzwischen nicht nur generator- und smoke-validiert, sondern auch visuell als kompletter Satz gegengeprueft: 22 Social- und 22 Story-PNGs wurden ueber die Contact-Sheets in [tmp/visual-qa/share-social-contact-sheet.png](../tmp/visual-qa/share-social-contact-sheet.png) und [tmp/visual-qa/share-status-contact-sheet.png](../tmp/visual-qa/share-status-contact-sheet.png) ohne auffaellige Cropping-, Typo- oder Leerstandsfehler gesichtet.
+15. Der reale Homepage-Screenreader-Kurzpass ist jetzt ebenfalls dokumentiert: Am 2026-04-10 wurde der NVDA-Lauf laut [docs/FRONTEND-HANDOFF.md](../docs/FRONTEND-HANDOFF.md) ohne Blocker fuer Landmarken, Heading-Struktur, Jubilaeumsfilm-Link, Kontaktstruktur, Sprachwechsel Deutsch/Englisch und News-Teaser-Bildansagen abgeschlossen.
 
 ## Was noch fehlt für wirklich professionell-sauber
 
-1. Accessibility ist deutlich besser als beim ersten Assessment; Landmarken, Heading-Struktur, Sprachzustand und Cookie-Dialog wurden fuer die Hauptseite zuletzt browsernah erfolgreich geprueft, aber ein echter Screenreader- und Geraeteklassen-Check ueber alle Seiten und Zustaende steht weiterhin noch aus.
+1. Accessibility ist deutlich besser als beim ersten Assessment; der Homepage-NVDA-Kurzpass lief am 2026-04-10 ohne Blocker durch, aber ein breiter echter Screenreader- und Geraeteklassen-Check ueber Chronik, Legal-Seiten, Share-Flow und weitere Zustaende steht weiterhin noch aus.
 2. Historische Sonderfälle und inkonsistente Muster sind stark reduziert, aber nicht vollstaendig verschwunden.
 3. Die Browser-Matrix ist inzwischen belastbar, kann langfristig aber noch systematischer in manuelle und visuelle Checks eingebettet werden.
 4. Die groessten Sprachduplikations-Hotspots sind standardisiert; die eigentliche HTML-Duplikation ist fuer einen Impressum-Block, sieben Datenschutz-Bloecke, breite Chronik-Bereiche und grosse Hauptseiten-Bloecke vom Intro-/About-Bereich bis in Events, Kontakt und Footer sichtbar reduziert, aber architektonisch noch nicht ueber die gesamte Startseite hinweg aufgeloest.

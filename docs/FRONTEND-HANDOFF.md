@@ -83,7 +83,7 @@ Zum Abschluss der Migration wurde lokal ueber einen HTTP-Server geprueft:
 
 Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaetzlich wurde geprueft, dass [share/share-pages-data.json](../share/share-pages-data.json), [share/share-pages.json](../share/share-pages.json) und `FALLBACK_SHARE_PAGES` in [share/instagram-export.js](../share/instagram-export.js) denselben Datenstand ausliefern.
 
-## Abschlussstand 2026-04-09
+## Abschlussstand 2026-04-10
 
 - Der 4-Wochen-Arbeitsplan in [docs/FOUR-WEEK-PLAN.md](../docs/FOUR-WEEK-PLAN.md) ist im gesetzten Pragmatik-Scope abgeschlossen.
 - Die groessten `data-lang`-Hotspots auf Hauptseite, Chronik und Legal-Seiten sind auf ein gemeinsames `hidden`-/`aria-hidden`-Muster vereinheitlicht.
@@ -98,27 +98,29 @@ Dabei wurden sowohl HTTP-Erreichbarkeit als auch Strukturmarker geprueft. Zusaet
 - Der bisherige Navigations-/Sprach-Sammelblock ist jetzt entlang echter Verantwortungen zerlegt: [scripts/site-language-variants.js](../scripts/site-language-variants.js), [scripts/site-language-accessibility.js](../scripts/site-language-accessibility.js), [scripts/site-language.js](../scripts/site-language.js), [scripts/navigation-mobile.js](../scripts/navigation-mobile.js), [scripts/navigation-wayfinding.js](../scripts/navigation-wayfinding.js), [scripts/navigation-shell.js](../scripts/navigation-shell.js) und [scripts/navigation-runtime.js](../scripts/navigation-runtime.js) trennen Sprach-Fallbacks, Accessibility-/Label-Sync, Sprach-Orchestrierung, Mobile-Menue, In-Page-Wayfinding, Navbar-/Mbonda-Logik und Initialisierung.
 - Der Hero-/Gallery-Block ist jetzt ebenfalls entlang echter Verantwortungen zerlegt: [scripts/hero-layout.js](../scripts/hero-layout.js), [scripts/hero-gallery.js](../scripts/hero-gallery.js) und [scripts/hero-gallery-ui.js](../scripts/hero-gallery-ui.js) trennen Layout-Messung, Slider-/Autoplay-Zustand sowie Accessibility- und UI-Sync.
 - Der Share-Bereich ist jetzt generatorbasiert: [share/share-pages-data.json](../share/share-pages-data.json) ist die kanonische Quelle, [share/generate-share-pages.py](../share/generate-share-pages.py) erzeugt daraus die einzelnen Share-Seiten, [share/share-pages.json](../share/share-pages.json) und die Export-Fallback-Liste in [share/instagram-export.js](../share/instagram-export.js); ein lokaler Chromium-Smoke fuer Share-Seite und Export lief danach mit 0 Funden.
+- Der Share-/Export-Output ist jetzt auch manuell als kompletter Asset-Satz gegengeprueft: 22 Social- und 22 Story-PNGs wurden am 2026-04-10 ueber [tmp/visual-qa/share-social-contact-sheet.png](../tmp/visual-qa/share-social-contact-sheet.png) und [tmp/visual-qa/share-status-contact-sheet.png](../tmp/visual-qa/share-status-contact-sheet.png) visuell gesichtet, ohne leere Slots, abgeschnittene Karten oder auffaellige Typo-/Cropping-Ausreisser.
 - Der Review-/Rueckblick-Block ist jetzt ebenfalls entlang echter Verantwortungen zerlegt: [scripts/review-navigation.js](../scripts/review-navigation.js), [scripts/review-archive.js](../scripts/review-archive.js) und [scripts/review-interactions.js](../scripts/review-interactions.js) trennen Hash-/History-Navigation, Archiv-/Kartenzustand und die Orchestrierung; dynamisch erzeugte Review-Labels werden dabei sofort an den aktuellen Sprachzustand angeglichen.
 - Die Homepage-Semantik wurde im letzten Pass weiter gehaertet: der Jubilaeumsfilm nutzt jetzt einen statischen Initial-`aria-label`, mehrere bisher visuelle Untertitel und Kartentitel sind echte Headings, und der eigenstaendige Astrid-Block fuehrt nun mit `h2` statt mit einer isolierten `h3`.
 - Grosse Homepage-Bloecke exponieren jetzt sprachsynchronisierte Regionen ueber `data-region-label-selector` in [index.html](../index.html) und `syncNamedRegionAccessibility()` in [scripts/site-language-accessibility.js](../scripts/site-language-accessibility.js); dadurch tauchen Bruecken-Block, Musikfamilie, Repertoire, Engagement, Events, Chronik, Astrid-Block, News, Review-Ueberblick und Kontakt als benannte Regionen im Accessibility Tree auf.
 - Browsernahe A11y-Pruefungen mit Playwright und Chromium-CDP liefen fuer Hauptseite und Cookie-Dialog erfolgreich: geprueft wurden `h1`/`main`, sichtbare Fokusziele, Landmark-/Regionsnamen, der Jubilaeumsfilm-Link, Kontakt sowie die Tastaturbedienung des Cookie-Dialogs in Deutsch und stichprobenartig nach Sprachwechsel auch in Englisch.
-- Der automatische Mindest-Gate lief lokal am 2026-04-09 erneut mit `QA_BROWSER_TARGETS=chromium,firefox` und `QA_FAIL_ON_ISSUES=1` mit 0 Funden durch; der Ergebnisstand liegt in [tmp/visual-qa/release-qa-results.json](../tmp/visual-qa/release-qa-results.json).
-- Fuer den letzten manuellen Freigabeschritt fehlt nur noch ein echter NVDA-/VoiceOver-Durchlauf; der konkrete Ablauf steht jetzt unter `Homepage-Screenreader-Pass` in [docs/MANUAL-QA-CHECKLIST.md](../docs/MANUAL-QA-CHECKLIST.md).
+- Der automatische Mindest-Gate lief lokal am 2026-04-10 erneut mit `QA_BROWSER_TARGETS=chromium,firefox` und `QA_FAIL_ON_ISSUES=1` mit 0 Funden durch; der Ergebnisstand liegt in [tmp/visual-qa/release-qa-results.json](../tmp/visual-qa/release-qa-results.json).
+- Der geplante Homepage-NVDA-Kurzpass ist am 2026-04-10 erfolgreich dokumentiert worden; der konkrete Ablauf bleibt unter `Homepage-Screenreader-Pass` in [docs/MANUAL-QA-CHECKLIST.md](../docs/MANUAL-QA-CHECKLIST.md) festgehalten.
 - Die technische Einordnung und der Abschlussabgleich stehen in [docs/SITE-ASSESSMENT.md](../docs/SITE-ASSESSMENT.md).
 
 ## Freigabestatus
 
-- Automatischer QA-Status: bestanden am 2026-04-09; lokaler Mindest-Gate mit `chromium` und `firefox` lief mit 0 Funden durch, Details in [tmp/visual-qa/release-qa-results.json](../tmp/visual-qa/release-qa-results.json).
-- Manueller Screenreader-Status: offen
+- Automatischer QA-Status: bestanden am 2026-04-10; lokaler Mindest-Gate mit `chromium` und `firefox` lief mit 0 Funden durch, Details in [tmp/visual-qa/release-qa-results.json](../tmp/visual-qa/release-qa-results.json).
+- Manueller Share-/Export-PNG-Status: bestanden am 2026-04-10; 22 Social- und 22 Story-Exporte wurden ueber [tmp/visual-qa/share-social-contact-sheet.png](../tmp/visual-qa/share-social-contact-sheet.png) und [tmp/visual-qa/share-status-contact-sheet.png](../tmp/visual-qa/share-status-contact-sheet.png) gesichtet, ohne leere Slots, abgeschnittene Karten oder auffaellige Typo-/Cropping-Ausreisser.
+- Manueller Screenreader-Status: bestanden am 2026-04-10; Homepage-NVDA-Kurzpass durch Ilhan Diler mit `pass` in Edge oder Chrome, keine Blocker bei Landmarken, Heading-Struktur, Jubilaeumsfilm-Link, Kontaktstruktur, Sprachwechsel Deutsch/Englisch oder News-Teaser-Bildansagen.
 - Empfohlener Kurzablauf: [docs/NVDA-QUICK-PASS.md](../docs/NVDA-QUICK-PASS.md)
 - Erwartete Pruefziele: benannte Homepage-Regionen, `h1`/`h2`-Struktur, Jubilaeumsfilm-Link, Kontaktstruktur, Sprachwechsel Deutsch/Englisch
 - Ergebnisblock fuer den echten manuellen Lauf:
-  Tester:
-  Datum:
-  Screenreader / Version:
-  Browser:
-  Ergebnis: `pass` / `pass with notes` / `fail`
-  Findings:
+  Tester: Ilhan Diler
+  Datum: 10.04.2026
+  Screenreader / Version: NVDA, Version nicht protokolliert
+  Browser: Edge oder Chrome
+  Ergebnis: `pass`
+  Findings: Keine Blocker. Homepage-Landmarken, Heading-Struktur, Jubilaeumsfilm-Link, Kontaktstruktur und Sprachwechsel Deutsch/Englisch wurden sinnvoll angekuendigt; keine redundanten News-Teaser-Bildansagen aufgefallen.
 
 ## Bewusst offene Grenzen
 

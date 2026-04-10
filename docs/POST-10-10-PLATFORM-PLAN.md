@@ -17,7 +17,7 @@ Vor einem moeglichen Wechsel in einen Design-Layer-, CMS- oder Framework-Pfad so
 
 ## Entscheidungsampel
 
-- Jetzt: den offenen manuellen Screenreader-Pass schliessen und den aktuellen 10/10-Block formal beenden.
+- Abgeschlossen: Der manuelle Homepage-Screenreader-Pass ist dokumentiert; der aktuelle 10/10-Block ist damit formal beendet.
 - Danach: den Folgeblock aus [docs/RESPONSIVE-UX-UI-10-10-PLAN.md](../docs/RESPONSIVE-UX-UI-10-10-PLAN.md) fahren und Responsive-, Reflow-, Mobile- und Kernflow-UX sichtbar auf 10/10 ziehen.
 - Erst dann: den Architekturspike starten und auf der bereinigten UX-Basis entscheiden, ob ein Design-Layer-, CMS- oder Framework-Pilot wirklich noetig ist.
 - Erst nach einem positiven Spike: genau einen kleinen Pilotbereich waehlen, statt mehrere Grosshebel parallel zu starten.
@@ -74,15 +74,15 @@ Empfehlung:
 
 ## Empfohlene Reihenfolge
 
-### Phase 0 - Aktuellen Block schliessen
+### Phase 0 - Aktuellen Block schliessen (abgeschlossen am 2026-04-10)
 
 Ziel: den laufenden 10/10-Block wirklich abschliessen.
 
 Budget: 0,5 bis 1 Tag
 
-- echten NVDA-/VoiceOver-Pass aus [docs/NVDA-QUICK-PASS.md](../docs/NVDA-QUICK-PASS.md) fahren
-- Ergebnis im Freigabestatus von [docs/FRONTEND-HANDOFF.md](../docs/FRONTEND-HANDOFF.md) eintragen
-- Woche 4 in [docs/FOUR-WEEK-PLAN-10-10.md](../docs/FOUR-WEEK-PLAN-10-10.md) final schliessen
+- Abgeschlossen: Der Homepage-NVDA-Kurzpass aus [docs/NVDA-QUICK-PASS.md](../docs/NVDA-QUICK-PASS.md) lief am 2026-04-10 mit `pass` ohne dokumentierte Blocker.
+- Abgeschlossen: Das Ergebnis ist im Freigabestatus von [docs/FRONTEND-HANDOFF.md](../docs/FRONTEND-HANDOFF.md) eingetragen.
+- Abgeschlossen: Woche 4 in [docs/FOUR-WEEK-PLAN-10-10.md](../docs/FOUR-WEEK-PLAN-10-10.md) ist damit formal geschlossen.
 
 ### Phase 0.5 - Responsive UX/UI auf 10/10 ziehen
 
@@ -99,6 +99,8 @@ Budget: 4 Wochen
 Ziel: entscheiden, ob Framework, CMS oder neuer Design-Layer jetzt ueberhaupt gebraucht werden.
 
 Budget: 1 bis 2 Wochen
+
+Arbeitsartefakt fuer diese Phase: [docs/ARCHITECTURE-SPIKE-DECISION.md](./ARCHITECTURE-SPIKE-DECISION.md)
 
 - Pflege- und Redaktionsbedarf aufnehmen
 - aktuelle Wartungs- und Mehrsprachigkeitsschmerzen konkret benennen
@@ -133,7 +135,11 @@ Ziel: genau einen der Grosshebel an einem risikoarmen Bereich beweisen.
 
 Budget: 2 bis 4 Wochen
 
-- empfohlene Pilotbereiche: Share-Flow, Aktuelles-Bereich oder ein weiterer generatorisierter Homepage-Block
+- vorbefuellte Empfehlung aus dem heutigen Spike-Stand: zuerst der Share-Flow rund um [share/share-pages-data.json](../share/share-pages-data.json), die generierten Share-Seiten unter [share](../share), [share/share-pages.json](../share/share-pages.json) und [share/instagram-export.html](../share/instagram-export.html)
+- konkreter Pilotumriss fuer diese Empfehlung: [docs/SHARE-FLOW-PILOT-OUTLINE.md](./SHARE-FLOW-PILOT-OUTLINE.md)
+- direkte Umsetzungsstrecke fuer denselben Pilot: [docs/SHARE-FLOW-PILOT-CHECKLIST.md](./SHARE-FLOW-PILOT-CHECKLIST.md)
+- aktuell isolierter Phase-2-Snapshot-Pfad fuer denselben Pilot: [docs/SHARE-FLOW-PILOT-PATH-2026-04-10.md](./SHARE-FLOW-PILOT-PATH-2026-04-10.md)
+- Aktuelles-Bereich oder ein weiterer generatorisierter Homepage-Block bleiben nur Fallback-Kandidaten, falls der Responsive-Block oder der eigentliche Spike spaeter eine andere Hauptthese belegt
 - bei Framework-Pilot nur statischen Output fuer den Pilotbereich bauen
 - bei CMS-Pilot nur die Pilotquellen redaktionell anbinden
 - bei Design-Pilot nur einen kleinen Satz echter Komponenten sichtbar erneuern
@@ -169,7 +175,6 @@ Definition of Done:
 
 ## Empfohlene Prioritaet nach dem 10/10-Block
 
-1. Manuellen Screenreader-Pass abschliessen.
-2. Architekturspike und Entscheidungsdoku erstellen.
-3. Genau einen kleinen Pilotbereich waehlen.
-4. Erst danach ueber Framework, CMS oder Design-Layer im groesseren Umfang entscheiden.
+1. Architekturspike und Entscheidungsdoku erstellen.
+2. Genau einen kleinen Pilotbereich waehlen.
+3. Erst danach ueber Framework, CMS oder Design-Layer im groesseren Umfang entscheiden.
