@@ -208,6 +208,7 @@ Am Ende jeder Woche kurz festhalten:
 - [x] Browser-Matrix fuer Edge, Chrome und Firefox am 2026-04-08 erneut gegen den lokalen HTTP-Server ausgefuehrt; weiterhin 0 Funde in index, Chronik, Datenschutz, Impressum und share/querbeet-roundup-2025.html
 - [x] Release-Smoke am 2026-04-11 nach dem WIP-Stash erneut gegen den lokalen Preview-Server ausgefuehrt; weiterhin 0 Funde
 - [x] Strikter Browser-Matrix-Run am 2026-04-11 mit QA_BROWSER_TARGETS=msedge,chrome,firefox und QA_FAIL_ON_ISSUES=1 erneut gegen den lokalen Preview-Server ausgefuehrt; weiterhin 0 Funde
+- [x] CI-Profil-Gate am 2026-04-11 mit QA_BROWSER_TARGETS=chromium,firefox und QA_FAIL_ON_ISSUES=1 lokal nachgezogen; weiterhin 0 Funde
 
 ### Woche 4 - laufender Stand
 
