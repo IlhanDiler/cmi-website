@@ -1,7 +1,7 @@
 /* Timeline section */
 
 .timeline-section {
-    --timeline-section-padding: 84px 0 88px;
+    --timeline-section-padding: var(--layout-section-gap-desktop) 0 calc(var(--layout-section-gap-desktop) + 4px);
     --timeline-section-bg: linear-gradient(180deg, #edf3ef 0%, #f7f8f5 56%, #f1f5f1 100%);
     --timeline-title-color: #142f36;
     --timeline-item-title-color: #17343b;
@@ -14,7 +14,7 @@
     --timeline-orb-bottom-size: 360px;
     --timeline-orb-bottom-offset-block-end: -180px;
     --timeline-orb-bottom-offset-inline-start: -120px;
-    --timeline-container-width: min(92vw, 1120px);
+    --timeline-container-width: var(--layout-shell-width);
     --timeline-container-max-width: 1120px;
     --timeline-container-padding: 0;
     --timeline-container-radius: 0;
@@ -27,7 +27,7 @@
     --timeline-section-orb-top-bg: radial-gradient(circle, rgba(10, 117, 109, 0.08) 0%, transparent 70%);
     --timeline-section-orb-bottom-bg: radial-gradient(circle, rgba(18, 62, 70, 0.05) 0%, transparent 72%);
     --timeline-header-max-width: 880px;
-    --timeline-header-margin-bottom: 38px;
+    --timeline-header-margin-bottom: 42px;
     --timeline-header-accent-width: 88px;
     --timeline-header-accent-height: 3px;
     --timeline-header-accent-margin-top: 24px;
@@ -43,7 +43,7 @@
     --timeline-title-margin: 0 0 var(--premium-title-margin-bottom);
     --timeline-intro-font-size: var(--premium-lead-size);
     --timeline-intro-line-height: var(--premium-lead-line-height);
-    --timeline-list-gap: 16px;
+    --timeline-list-gap: 18px;
     --timeline-bar-left: 74px;
     --timeline-bar-width: 2px;
     --timeline-bar-bg: linear-gradient(180deg, rgba(10, 117, 109, 0.72), rgba(18, 62, 70, 0.18));
@@ -507,8 +507,8 @@
     }
 
     .timeline-section {
-        --timeline-section-padding: 66px 0 70px;
-        --timeline-container-width: min(94vw, 980px);
+        --timeline-section-padding: var(--layout-section-gap-tablet) 0 calc(var(--layout-section-gap-tablet) + 4px);
+        --timeline-container-width: var(--layout-shell-width-relaxed);
         --timeline-header-max-width: 100%;
         --timeline-header-margin-bottom: 30px;
         --timeline-header-accent-width: 72px;
@@ -545,7 +545,7 @@
     }
 
     .timeline-section {
-        --timeline-section-padding: 56px 0;
+        --timeline-section-padding: var(--layout-section-gap-mobile) 0;
         --timeline-container-width: 94vw;
         --timeline-header-margin-bottom: 28px;
         --timeline-header-accent-width: 64px;

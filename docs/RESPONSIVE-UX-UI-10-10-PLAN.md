@@ -137,6 +137,13 @@ Ziel: Responsive-Basis und visuelle Systematik fuer die grossen Flaechen nachzie
 
 Budget: 12 bis 15 Stunden
 
+### Stand 2026-04-11
+
+- Abgeschlossen: Erster technischer Week-2-Pass fuer Containerbreiten, vertikale Rhythmik und Typo-Dichte auf Homepage-Hero sowie Chronik-/Subpage-Hero und Timeline umgesetzt.
+- Abgeschlossen: Gemeinsame Layout-Tokens (`--layout-shell-*`, `--layout-section-gap-*`) in [styles/premium-foundation.css](../styles/premium-foundation.css) eingefuehrt und in [styles/components/subpages.css](../styles/components/subpages.css) sowie [styles/components/timeline.css](../styles/components/timeline.css) angebunden.
+- Abgeschlossen: Homepage-Hero-Panel und Mobile-Caption in [styles/components/hero.css](../styles/components/hero.css) auf ruhigere Breiten-/Textbalance feinjustiert.
+- Validiert: Release-Smoke nach dem CSS-Pass lief lokal erneut mit 0 Funden durch.
+
 Arbeitspaket:
 
 - Containerbreiten, Max-Widths, Innenabstaende und vertikale Rhythmik vereinheitlichen, wo aktuell sichtbare Bruche entstehen

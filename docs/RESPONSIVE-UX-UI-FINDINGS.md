@@ -84,3 +84,4 @@ Diese Fundliste uebersetzt den Folgeplan aus [docs/RESPONSIVE-UX-UI-10-10-PLAN.m
 Der naechste sinnvolle Arbeitsschritt nach den jetzt dokumentierten Folgeblock-Fixes ist:
 
 1. Die verfeinerten Homepage-, Review- und Share-/Export-Flows im naechsten echten Redaktionsdurchlauf beobachten und nur bei realen Reibungen weiter nachjustieren.
+2. Den gestarteten Week-2-Basispass fuer Container-/Rhythmik-Systematik (Homepage-Hero, Chronik-Subpage-Hero und Timeline) auf weitere Startseiten-Cluster ausdehnen, falls neue Matrix-Screenshots dort weiterhin Dichte- oder Prioritaetsbrueche zeigen.
