@@ -61,7 +61,24 @@ function getHomepageNavigationSections(homepageNavigationLinks) {
         .map(function(targetId) {
             return document.getElementById(targetId);
         })
-        .filter(Boolean);
+        .filter(Boolean)
+        .sort(function(firstSection, secondSection) {
+            if (firstSection === secondSection) {
+                return 0;
+            }
+
+            const documentPosition = firstSection.compareDocumentPosition(secondSection);
+
+            if (documentPosition & Node.DOCUMENT_POSITION_FOLLOWING) {
+                return -1;
+            }
+
+            if (documentPosition & Node.DOCUMENT_POSITION_PRECEDING) {
+                return 1;
+            }
+
+            return 0;
+        });
 }
 
 function getActiveHomepageSectionId(sections) {
