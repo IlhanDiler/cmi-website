@@ -267,11 +267,16 @@
                     return;
                 }
 
+                const isCompactViewport = window.matchMedia('(max-width: 700px)').matches;
+
                 try {
                     initialHeroLayer.style.setProperty('--hero-fade-image-url', 'url("' + new URL(heroSrc, window.location.href).href + '")');
                 } catch (error) {
                     initialHeroLayer.style.setProperty('--hero-fade-image-url', 'url("' + heroSrc.replace(/^\/+/, '') + '")');
                 }
+
+                initialHeroLayer.style.setProperty('--hero-fade-image-size', isCompactViewport ? 'contain' : 'cover');
+                initialHeroLayer.style.setProperty('--hero-fade-image-focus-position', isCompactViewport ? 'center center' : 'center 8%');
             })();
         </script>
         <div class="hero-gallery-ui" role="group" aria-label="Hero Gallery Controls">
@@ -3862,7 +3867,7 @@ Da oltre dieci anni, a Ochsenfurt, la rassegna estiva "Musik an der Furt" accomp
 <script src="scripts/navigation-shell.js?v=20260409-js-split-11"></script>
 <script src="scripts/navigation-runtime.js?v=20260409-js-split-11"></script>
 <script src="scripts/hero-layout.js?v=20260409-js-split-12"></script>
-<script src="scripts/hero-gallery.js?v=20260409-js-split-12"></script>
+<script src="scripts/hero-gallery.js?v=20260411-mobile-contain-1"></script>
 <script src="scripts/hero-gallery-ui.js?v=20260409-js-split-12"></script>
 <script src="scripts/site-effects.js?v=20260407-js-split-8"></script>
 <script src="scripts/review-navigation.js?v=20260409-review-split-1"></script>

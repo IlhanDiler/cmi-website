@@ -429,7 +429,7 @@
     }
 
     .hero-bg-fade {
-        --hero-fade-image-size: cover;
+        --hero-fade-image-size: contain;
         --hero-fade-image-focus-position: center center;
         background-color: #000000;
     }
