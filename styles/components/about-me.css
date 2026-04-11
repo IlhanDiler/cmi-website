@@ -274,6 +274,7 @@
 
     .about-me-modern-bio {
         width: 100%;
+        max-width: none;
     }
 
     .about-me-bio-text {
