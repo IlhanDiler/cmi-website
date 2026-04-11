@@ -76,6 +76,8 @@ Diese Fundliste uebersetzt den Folgeplan aus [docs/RESPONSIVE-UX-UI-10-10-PLAN.m
 - Am 2026-04-10 wurde ein gezielter Viewport-/Zoom-Pass gegen den lokalen Preview-Server auf `http://127.0.0.1:8123` gefahren.
 - Geprueft wurden Homepage Desktop/Mobile, Chronik, Datenschutz, Impressum, eine Share-Seite und der Instagram-Export in Chromium und Firefox.
 - Ergebnis: keine gemeldeten Issues; die aktuellen Screenshots und das QA-Protokoll liegen unter `tmp/visual-qa/`.
+- Am 2026-04-11 wurden die Checks erneut als strikter Browser-Matrix-Run in Edge, Chrome und Firefox sowie als CI-naher Gate-Run in Chromium und Firefox mit `QA_FAIL_ON_ISSUES=1` gegen denselben lokalen Preview-Server gefahren.
+- Ergebnis auch am 2026-04-11: weiterhin 0 gemeldete Issues; die aktualisierten Screenshots und das QA-Protokoll liegen unter `tmp/visual-qa/`.
 
 ## Naechster Fokus
 

@@ -1,8 +1,8 @@
 # Follow-up Four-Week Plan: 10/10
 
-Stand: 2026-04-10
+Stand: 2026-04-11
 
-Kurzstatus: Woche 1 bis 4 sind im 10/10-Folgeplan abgeschlossen; der letzte offene manuelle Freigabepunkt, der Homepage-NVDA-Kurzpass, wurde am 2026-04-10 mit `pass` ohne Blocker dokumentiert.
+Kurzstatus: Woche 1 bis 4 sind im 10/10-Folgeplan abgeschlossen; der letzte offene manuelle Freigabepunkt, der Homepage-NVDA-Kurzpass, wurde am 2026-04-10 mit `pass` ohne Blocker dokumentiert. Am 2026-04-11 wurde der technische Abschlussstand zusaetzlich durch einen strikten Browser-Matrix-Run (`msedge`, `chrome`, `firefox`) sowie den CI-nahen Gate-Run (`chromium`, `firefox` mit `QA_FAIL_ON_ISSUES=1`) erneut mit 0 Funden bestaetigt.
 
 ## Ausgangslage
 
