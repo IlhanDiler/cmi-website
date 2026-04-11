@@ -12,8 +12,8 @@
 
 .review-overview-section {
     --review-overview-section-bg: linear-gradient(180deg, var(--section-tone-a) 0%, var(--section-tone-b) 100%);
-    --review-overview-section-padding: 32px 0 24px;
-    --review-overview-shell-width: min(1120px, calc(100% - 40px));
+    --review-overview-section-padding: 38px 0 28px;
+    --review-overview-shell-width: var(--layout-shell-width);
     --review-overview-shell-padding: 0 20px;
     --review-overview-shell-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
     --review-overview-shell-gap: clamp(22px, 3vw, 36px);
@@ -158,7 +158,7 @@
 }
 
 .news-feed-section {
-    --news-feed-shell-width: min(1240px, calc(100% - 40px));
+    --news-feed-shell-width: var(--layout-shell-width);
     --news-feed-shell-padding: 0 20px;
     --news-feed-header-gap: 24px;
     --news-feed-grid-gap: 22px;
@@ -166,7 +166,7 @@
     --news-feed-section-bg:
         radial-gradient(circle at top left, rgba(10, 117, 109, 0.1) 0%, transparent 32%),
         linear-gradient(180deg, rgba(248, 250, 247, 0.98) 0%, rgba(240, 246, 243, 0.98) 100%);
-    padding: 20px 0 24px;
+    padding: 24px 0 30px;
     position: relative;
     overflow: hidden;
 }
@@ -192,7 +192,7 @@
     align-items: flex-end;
     justify-content: space-between;
     gap: var(--news-feed-header-gap);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .news-feed-copy {
@@ -278,7 +278,7 @@
 .news-feed-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--news-feed-grid-gap);
+    gap: clamp(18px, 2.2vw, 26px);
     align-items: stretch;
 }
 
@@ -2080,12 +2080,12 @@
     .review-archive-intro,
     .review-featured,
     .review-archive .charity-projects-section[id^="review-"] {
-        padding-top: 18px;
-        padding-bottom: 14px;
+        padding-top: 22px;
+        padding-bottom: 16px;
     }
 
     .review-overview-section {
-        --review-overview-shell-width: min(100%, calc(100% - 16px));
+        --review-overview-shell-width: min(100%, calc(100% - 20px));
         --review-overview-shell-padding: 0 8px;
         --review-overview-shell-columns: 1fr;
         --review-overview-shell-gap: 14px;
