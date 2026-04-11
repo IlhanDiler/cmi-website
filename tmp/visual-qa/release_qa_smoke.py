@@ -723,7 +723,7 @@ async def check_instagram_export_page(browser, issues, screenshots, browser_targ
     await page.wait_for_timeout(1400)
 
     await wait_visible(page, ".post-card", scope_name(browser_target, "instagram-export card"), issues)
-    await wait_visible(page, ".story-preview__cta", scope_name(browser_target, "instagram-export story cta"), issues)
+    await wait_visible(page, ".story-preview__image-shell", scope_name(browser_target, "instagram-export story preview"), issues)
 
     visible_post_count = await page.locator(".post-card").count()
     if visible_post_count <= 0:
@@ -732,15 +732,6 @@ async def check_instagram_export_page(browser, issues, screenshots, browser_targ
             "high",
             scope_name(browser_target, "instagram-export"),
             "Instagram export page did not render any post cards",
-        )
-
-    visible_story_cta = await first_visible_text(page, ".post-card:first-child .story-preview__cta")
-    if visible_story_cta != "Sitemizde daha fazlasi":
-        add_issue(
-            issues,
-            "high",
-            scope_name(browser_target, "instagram-export translation"),
-            f"Expected Turkish story CTA, got: {visible_story_cta or '[empty]'}",
         )
 
     first_caption = await page.locator(".post-card__caption").first.input_value()
@@ -753,10 +744,30 @@ async def check_instagram_export_page(browser, issues, screenshots, browser_targ
         )
 
     first_card = page.locator(".post-card").first
+    await first_card.locator(".preview-option--story").click()
+    await page.wait_for_timeout(250)
+
+    selected_story_format = await first_visible_text(page, ".post-card:first-child .post-card__format-value")
+    if selected_story_format != "Story 9:16":
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "instagram-export translation"),
+            f"Expected story format summary after selecting story preview, got: {selected_story_format or '[empty]'}",
+        )
+
+    selected_story_note = await first_visible_text(page, ".post-card:first-child .post-card__format-note")
+    if "www.cmi-ochsenfurt.de icin link etiketi ekleyin." not in selected_story_note:
+        add_issue(
+            issues,
+            "high",
+            scope_name(browser_target, "instagram-export translation"),
+            f"Expected Turkish story format note, got: {selected_story_note or '[empty]'}",
+        )
 
     try:
         async with page.expect_download(timeout=10000) as download_info:
-            await first_card.locator(".post-card__export-image").click()
+            await first_card.locator(".post-card__export-feed").click()
         feed_download = await download_info.value
         feed_download_name = feed_download.suggested_filename
         if not feed_download_name.endswith("-instagram-4x5.png"):
