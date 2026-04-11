@@ -250,7 +250,7 @@
             <main id="main-content">
     <div class="hero-bg" role="region" aria-label="Benefizkonzerte und Eindrücke aus dem Collegium Musicum Iuvenale Ochsenfurt">
         <div class="hero-bg-fade-container" id="heroGalleryViewport">
-            <div class="hero-bg-fade hero-bg-fade-current" data-initial-hero-src="bilder/Weihnachtskonzert Spitalkirche.png" style="--hero-fade-image-size:cover;--hero-fade-image-focus-position:center 8%;" role="img" aria-label="Weihnachtskonzert zum Mitsingen in der Spitalkirche Ochsenfurt"></div>
+            <div class="hero-bg-fade hero-bg-fade-current" data-initial-hero-src="bilder/Weihnachtskonzert Spitalkirche.png" style="--hero-fade-image-size:cover;--hero-fade-image-focus-position:center 60%;" role="img" aria-label="Weihnachtskonzert zum Mitsingen in der Spitalkirche Ochsenfurt"></div>
             <div class="hero-bg-fade hero-bg-fade-next" role="img" aria-hidden="true"></div>
         </div>
         <script>
@@ -267,16 +267,11 @@
                     return;
                 }
 
-                const isCompactViewport = window.matchMedia('(max-width: 700px)').matches;
-
                 try {
                     initialHeroLayer.style.setProperty('--hero-fade-image-url', 'url("' + new URL(heroSrc, window.location.href).href + '")');
                 } catch (error) {
                     initialHeroLayer.style.setProperty('--hero-fade-image-url', 'url("' + heroSrc.replace(/^\/+/, '') + '")');
                 }
-
-                initialHeroLayer.style.setProperty('--hero-fade-image-size', isCompactViewport ? 'contain' : 'cover');
-                initialHeroLayer.style.setProperty('--hero-fade-image-focus-position', isCompactViewport ? 'center center' : 'center 8%');
             })();
         </script>
         <div class="hero-gallery-ui" role="group" aria-label="Hero Gallery Controls">
