@@ -1,5 +1,5 @@
 .subpage-body {
-    --subpage-shell-width: min(92vw, 1120px);
+    --subpage-shell-width: var(--layout-shell-width);
     --subpage-panel-border: var(--surface-panel-border-soft);
     --subpage-panel-bg: rgba(255, 255, 255, 0.88);
     --subpage-card-bg: rgba(255, 255, 255, 0.84);
@@ -12,17 +12,17 @@
 }
 
 .subpage-main {
-    padding: 32px 0 56px;
+    padding: 36px 0 62px;
 }
 
 .subpage-hero,
 .history-overview {
     width: var(--subpage-shell-width);
-    margin: 0 auto 24px;
+    margin: 0 auto 28px;
 }
 
 .subpage-hero {
-    padding: 28px clamp(20px, 3vw, 34px);
+    padding: 30px clamp(20px, 3vw, 36px);
     border-radius: var(--surface-panel-radius-large);
     background: var(--subpage-panel-bg);
     border: 1px solid var(--subpage-panel-border);
@@ -45,7 +45,7 @@
 }
 
 .subpage-hero__title {
-    margin: 12px 0 14px;
+    margin: 10px 0 16px;
     font-size: clamp(2.04rem, 3.8vw, 2.9rem);
     font-weight: 650;
     line-height: var(--premium-title-line-height);
@@ -70,11 +70,11 @@
 .history-overview {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
+    gap: 20px;
 }
 
 .history-overview-card {
-    padding: 24px 22px;
+    padding: 26px 24px;
     border-radius: var(--surface-panel-radius);
     background: var(--subpage-card-bg);
     border: 1px solid var(--subpage-panel-border);
@@ -89,12 +89,16 @@
 }
 
 .history-overview-copy {
-    margin: 10px 0 0;
-    font-size: 0.98rem;
-    line-height: 1.68;
+    margin: 12px 0 0;
+    font-size: 1rem;
+    line-height: 1.66;
 }
 
 @media (max-width: 900px) {
+    .subpage-main {
+        padding: 30px 0 54px;
+    }
+
     .history-overview {
         grid-template-columns: 1fr;
     }
@@ -102,7 +106,7 @@
 
 @media (max-width: 600px) {
     .subpage-main {
-        padding: 20px 0 38px;
+        padding: 24px 0 42px;
     }
 
     .subpage-hero {

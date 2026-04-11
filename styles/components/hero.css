@@ -341,8 +341,8 @@
 }
 
 .hero-gallery-ui {
-    width: min(88vw, 760px);
-    padding: 9px 11px 11px;
+    width: min(90vw, 780px);
+    padding: 10px 12px 12px;
     box-shadow: none;
     transition: box-shadow 0.24s ease, border-color 0.24s ease, background 0.24s ease, transform 0.24s ease, opacity 0.24s ease;
 }
@@ -397,7 +397,7 @@
         --hero-gallery-pagination-gap: 6px;
         --hero-gallery-dot-size: 6px;
         --hero-gallery-dot-selected-width: 18px;
-        width: min(90vw, 336px);
+        width: min(91vw, 344px);
         padding: 7px 9px 8px;
         background: rgba(9, 21, 28, 0.88);
         border-color: rgba(255, 255, 255, 0.14);
@@ -411,9 +411,9 @@
     .fadein-text {
         --hero-fadein-left: 12px;
         --hero-fadein-bottom: 78px;
-        --hero-fadein-max-width: min(88vw, 320px);
+        --hero-fadein-max-width: min(86vw, 332px);
         --hero-fadein-padding: 10px 12px 11px;
-        --hero-fadein-font-size: 0.76rem;
+        --hero-fadein-font-size: 0.78rem;
         --hero-fadein-line-height: 1.24;
         --hero-fadein-letter-spacing: -0.01em;
         --hero-fadein-radius: 16px;
@@ -457,9 +457,9 @@
 
     .fadein-text {
         --hero-fadein-bottom: 70px;
-        --hero-fadein-max-width: min(72vw, 260px);
+        --hero-fadein-max-width: min(74vw, 272px);
         --hero-fadein-font-size: 0.82rem;
-        --hero-fadein-line-height: 1.14;
+        --hero-fadein-line-height: 1.18;
         --hero-fadein-translate-y: 0px;
     }
 }
