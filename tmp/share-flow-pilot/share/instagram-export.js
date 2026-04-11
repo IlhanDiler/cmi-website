@@ -949,18 +949,18 @@ async function exportPreviewElementAsPng(previewElement, exportWidth, exportHeig
         throw new Error("Preview-Element hat keine renderbare Groesse.");
     }
 
+    const backdropImageElement = previewElement.querySelector(".story-preview__backdrop-image");
     const previewImageElement = previewElement.querySelector(".story-preview__image");
-    const overlayElement = previewElement.querySelector(".story-preview__overlay");
-    const metaElement = previewElement.querySelector(".story-preview__meta");
-    const titleElement = previewElement.querySelector(".story-preview__title");
-    const footerElement = previewElement.querySelector(".story-preview__footer");
-    const siteElement = previewElement.querySelector(".story-preview__site");
+    const imageShellElement = previewElement.querySelector(".story-preview__image-shell");
 
-    if (!(previewImageElement instanceof HTMLImageElement) || !overlayElement || !metaElement || !titleElement || !footerElement || !siteElement) {
+    if (!(previewImageElement instanceof HTMLImageElement) || !(imageShellElement instanceof Element)) {
         throw new Error("Story-Preview ist unvollstaendig und kann nicht exportiert werden.");
     }
 
     const storyImage = await loadImage(previewImageElement.currentSrc || previewImageElement.src);
+    const backdropImage = backdropImageElement instanceof HTMLImageElement
+        ? await loadImage(backdropImageElement.currentSrc || backdropImageElement.src)
+        : storyImage;
     const scaleX = exportWidth / rootRect.width;
     const scaleY = exportHeight / rootRect.height;
     const scale = Math.min(scaleX, scaleY);
@@ -970,6 +970,8 @@ async function exportPreviewElementAsPng(previewElement, exportWidth, exportHeig
     const ctx = canvas.getContext("2d");
     const previewStyle = window.getComputedStyle(previewElement);
     const previewRadius = parseCssPx(previewStyle.borderTopLeftRadius) * scale;
+    const imageRect = getScaledContentRect(imageShellElement, rootRect, scaleX, scaleY);
+    const isLandscape = previewElement.classList.contains("story-preview--landscape") || isLandscapeFeedImage(storyImage);
 
     fillRoundedRectWithBackground(
         ctx,
@@ -983,22 +985,8 @@ async function exportPreviewElementAsPng(previewElement, exportWidth, exportHeig
     drawRoundedRect(ctx, 0, 0, exportWidth, exportHeight, previewRadius);
     ctx.clip();
 
-    const imageRect = getScaledContentRect(previewImageElement, rootRect, scaleX, scaleY);
-    drawContainedImage(ctx, storyImage, imageRect.x, imageRect.y, imageRect.width, imageRect.height);
-
-    const overlayRect = getScaledElementRect(overlayElement, rootRect, scaleX, scaleY);
-    drawComputedPanel(ctx, overlayElement, overlayRect, scaleX, scaleY, {
-        shadowColor: "rgba(18, 65, 58, 0.16)",
-        shadowBlur: 22,
-        shadowOffsetY: 10
-    });
-
-    drawComputedTextBlock(ctx, metaElement, getScaledElementRect(metaElement, rootRect, scaleX, scaleY), scaleY, 1);
-    drawComputedTextBlock(ctx, titleElement, getScaledElementRect(titleElement, rootRect, scaleX, scaleY), scaleY);
-
-    const footerRect = getScaledElementRect(footerElement, rootRect, scaleX, scaleY);
-    drawComputedPanel(ctx, footerElement, footerRect, scaleX, scaleY);
-    drawComputedTextBlock(ctx, siteElement, getScaledElementRect(siteElement, rootRect, scaleX, scaleY), scaleY, 2);
+    drawStoryBackdropImage(ctx, backdropImage, exportWidth, exportHeight, isLandscape);
+    drawStoryContainedImage(ctx, storyImage, imageRect.x, imageRect.y, imageRect.width, imageRect.height);
 
     ctx.restore();
 
@@ -1025,23 +1013,22 @@ async function exportPosterOnlyStoryImage(post, fileName) {
     const ctx = canvas.getContext("2d");
 
     const backgroundGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    backgroundGradient.addColorStop(0, "#f9fdfc");
-    backgroundGradient.addColorStop(1, "#dfefeb");
+    backgroundGradient.addColorStop(0, "#dbeceb");
+    backgroundGradient.addColorStop(1, "#eff8f7");
     ctx.fillStyle = backgroundGradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    drawImageStage(ctx, heroImage, {
-        x: 0,
-        y: 0,
-        width: canvas.width,
-        height: canvas.height,
-        framePadding: 24,
-        frameInset: 12,
-        frameRadius: 44,
-        backdropOpacity: 0.2,
-        backdropTint: "rgba(8, 30, 27, 0.08)",
-        frameFill: "rgba(255, 255, 255, 0.28)"
-    });
+    drawStoryBackdropImage(ctx, heroImage, canvas.width, canvas.height, isLandscapeFeedImage(heroImage));
+
+    const storyImageRect = getDefaultStoryImageRect(canvas.width, canvas.height, heroImage);
+    drawStoryContainedImage(
+        ctx,
+        heroImage,
+        storyImageRect.x,
+        storyImageRect.y,
+        storyImageRect.width,
+        storyImageRect.height
+    );
 
     const link = document.createElement("a");
     link.href = canvas.toDataURL("image/png");
@@ -1204,6 +1191,67 @@ function syncFeedPreviewLayout(previewElement, previewImageElement) {
     previewImageElement.addEventListener("error", () => {
         previewElement.classList.remove("insta-preview--landscape");
     }, { once: true });
+}
+
+function syncStoryPreviewLayout(previewElement, previewImageElement) {
+    if (!(previewElement instanceof Element) || !(previewImageElement instanceof HTMLImageElement)) {
+        return;
+    }
+
+    const applyLayout = () => {
+        const isLandscape = isLandscapeFeedImage(previewImageElement);
+        previewElement.classList.toggle("story-preview--landscape", isLandscape);
+        previewElement.classList.toggle("story-preview--portrait", !isLandscape);
+    };
+
+    if (previewImageElement.complete && previewImageElement.naturalWidth > 0 && previewImageElement.naturalHeight > 0) {
+        applyLayout();
+        return;
+    }
+
+    previewImageElement.addEventListener("load", applyLayout, { once: true });
+    previewImageElement.addEventListener("error", () => {
+        previewElement.classList.remove("story-preview--landscape");
+        previewElement.classList.remove("story-preview--portrait");
+    }, { once: true });
+}
+
+function drawStoryBackdropImage(ctx, image, width, height, isLandscape) {
+    const bleed = isLandscape ? 72 : 54;
+
+    ctx.save();
+    ctx.globalAlpha = isLandscape ? 0.56 : 0.48;
+    ctx.filter = `blur(${isLandscape ? 34 : 30}px) saturate(0.86)`;
+    drawCoverImage(ctx, image, -bleed, -bleed, width + bleed * 2, height + bleed * 2);
+    ctx.restore();
+
+    const softOverlay = ctx.createLinearGradient(0, 0, 0, height);
+    softOverlay.addColorStop(0, isLandscape ? "rgba(247, 251, 250, 0.38)" : "rgba(248, 252, 251, 0.42)");
+    softOverlay.addColorStop(1, isLandscape ? "rgba(230, 241, 239, 0.66)" : "rgba(231, 242, 240, 0.72)");
+    ctx.fillStyle = softOverlay;
+    ctx.fillRect(0, 0, width, height);
+}
+
+function drawStoryContainedImage(ctx, image, x, y, width, height) {
+    ctx.save();
+    ctx.shadowColor = "rgba(18, 65, 58, 0.22)";
+    ctx.shadowBlur = 30;
+    ctx.shadowOffsetY = 18;
+    drawContainedImage(ctx, image, x, y, width, height);
+    ctx.restore();
+}
+
+function getDefaultStoryImageRect(canvasWidth, canvasHeight, imageSource) {
+    const isLandscape = isLandscapeFeedImage(imageSource);
+    const insetX = isLandscape ? 26 : 16;
+    const insetY = isLandscape ? 140 : 34;
+
+    return {
+        x: insetX,
+        y: insetY,
+        width: Math.max(0, canvasWidth - insetX * 2),
+        height: Math.max(0, canvasHeight - insetY * 2)
+    };
 }
 
 function drawFeedBackdropImage(ctx, image, width, height) {
@@ -1567,9 +1615,9 @@ async function exportInstagramStoryImage(post, trigger, previewElement) {
         } catch (previewError) {
             console.warn(previewError);
             await exportPosterOnlyStoryImage(post, fileName);
-            window.alert("Die Story-Preview konnte in diesem Browser nicht direkt exportiert werden. Es wurde stattdessen nur das Plakat exportiert.");
-            setControlFeedbackState(trigger, "Poster exportiert", `Preview-Export nicht moeglich, Poster exportiert: ${postLabel}`);
-            announceTransientExportStatus(`Preview-Export nicht moeglich, Poster exportiert: ${postLabel}`);
+            window.alert("Die Story-Preview konnte in diesem Browser nicht direkt exportiert werden. Es wurde stattdessen nur das Motiv exportiert.");
+            setControlFeedbackState(trigger, "Motiv exportiert", `Preview-Export nicht moeglich, Motiv exportiert: ${postLabel}`);
+            announceTransientExportStatus(`Preview-Export nicht moeglich, Motiv exportiert: ${postLabel}`);
         }
     } catch (error) {
         console.error(error);
@@ -1742,12 +1790,8 @@ function renderPosts(posts) {
         const previewText = fragment.querySelector(".insta-preview__text");
         const storyPreviewOption = fragment.querySelector(".preview-option--story");
         const storyPreview = fragment.querySelector(".story-preview");
+        const storyPreviewBackdropImage = fragment.querySelector(".story-preview__backdrop-image");
         const storyPreviewImage = fragment.querySelector(".story-preview__image");
-        const storyPreviewMeta = fragment.querySelector(".story-preview__meta");
-        const storyPreviewTitle = fragment.querySelector(".story-preview__title");
-        const storyPreviewText = fragment.querySelector(".story-preview__text");
-        const storyPreviewCta = fragment.querySelector(".story-preview__cta");
-        const storyPreviewHint = fragment.querySelector(".story-preview__hint");
         const exportFeedButton = fragment.querySelector(".post-card__export-feed");
         const exportStoryButton = fragment.querySelector(".post-card__export-story");
         const copyCaptionButton = fragment.querySelector(".post-card__copy-caption");
@@ -1799,15 +1843,13 @@ function renderPosts(posts) {
         storyPreviewImage.setAttribute("aria-hidden", "true");
         storyPreviewImage.loading = "lazy";
         storyPreviewImage.decoding = "async";
-        storyPreviewMeta.textContent = post.meta;
-        storyPreviewTitle.textContent = post.title;
-        storyPreviewText.textContent = post.text;
-        if (storyPreviewCta) {
-            storyPreviewCta.textContent = getPostCopy(post.language).storyCta;
-        }
 
-        if (storyPreviewHint) {
-            storyPreviewHint.textContent = getPostCopy(post.language).storyLinkInstruction;
+        if (storyPreviewBackdropImage) {
+            storyPreviewBackdropImage.src = post.image;
+            storyPreviewBackdropImage.alt = "";
+            storyPreviewBackdropImage.setAttribute("aria-hidden", "true");
+            storyPreviewBackdropImage.loading = "lazy";
+            storyPreviewBackdropImage.decoding = "async";
         }
 
         if (feedPreview) {
@@ -1817,6 +1859,7 @@ function renderPosts(posts) {
 
         if (storyPreview) {
             storyPreview.setAttribute("aria-hidden", "true");
+            syncStoryPreviewLayout(storyPreview, storyPreviewImage);
         }
 
         openImageLink.href = post.image;
