@@ -27,12 +27,12 @@
     isolation: isolate;
     font-family: var(--font-ui-modern);
     background: linear-gradient(180deg, #e5ede7 0%, #edf3ee 100%);
-    padding: 74px 0 70px;
+    padding: var(--layout-section-gap-desktop) 0 calc(var(--layout-section-gap-desktop) - 6px);
     border-bottom: 1px solid rgba(17, 52, 58, 0.1);
 }
 
 .music-family-section .music-family-container {
-    width: min(1120px, calc(100% - 40px));
+    width: var(--layout-shell-width);
     margin: 0 auto;
     padding: 0 20px;
     position: relative;
@@ -391,11 +391,11 @@
 
 @media (min-width: 701px) and (max-width: 1024px) {
     .music-family-section {
-        padding: 58px 0 54px;
+        padding: var(--layout-section-gap-tablet) 0 calc(var(--layout-section-gap-tablet) - 8px);
     }
 
     .music-family-section .music-family-container {
-        width: min(1120px, calc(100% - 32px));
+        width: var(--layout-shell-width-relaxed);
         padding: 0 16px;
     }
 
@@ -438,7 +438,7 @@
 
 @media (max-width: 600px) {
     .music-family-section {
-        padding: 30px 0 26px;
+        padding: var(--layout-section-gap-mobile) 0 calc(var(--layout-section-gap-mobile) - 10px);
     }
 
     .music-family-section .music-family-container {

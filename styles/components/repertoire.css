@@ -10,7 +10,7 @@
     --repertoire-bullet-color: var(--color-secondary);
     --repertoire-bullet-shadow: none;
     --repertoire-section-min-height: auto;
-    --repertoire-section-padding: 76px 0 82px;
+    --repertoire-section-padding: var(--layout-section-gap-desktop) 0 calc(var(--layout-section-gap-desktop) + 2px);
     font-family: var(--font-ui-modern);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -31,7 +31,7 @@
     grid-template-columns: 1fr;
     gap: var(--repertoire-cards-gap);
     align-items: start;
-    width: min(1120px, calc(100% - (var(--desktop-content-side-gap) * 2)));
+    width: var(--layout-shell-width);
     max-width: none;
     margin: 0 auto;
     padding: 0;
@@ -925,7 +925,7 @@
 @media (max-width: 700px) {
     .musikalisches-repertoire-section {
         --repertoire-section-min-height: auto;
-        --repertoire-section-padding: 34px 0 38px;
+        --repertoire-section-padding: var(--layout-section-gap-mobile) 0 calc(var(--layout-section-gap-mobile) - 4px);
         align-items: flex-start;
         overflow-y: visible;
     }
