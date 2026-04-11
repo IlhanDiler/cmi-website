@@ -364,6 +364,18 @@
     }
 }
 
+@media (max-width: 1024px) {
+    .hero-bg {
+        background: #000000;
+    }
+
+    .hero-bg-fade {
+        --hero-fade-image-responsive-size: contain;
+        --hero-fade-image-responsive-position: center center;
+        background-color: #000000;
+    }
+}
+
 @media (max-width: 700px) {
     .hero-bg {
         --hero-bg-height: min(62vh, calc(100vw * 0.68));

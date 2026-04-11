@@ -37,6 +37,10 @@ function isCompactHeroGalleryViewport() {
     return window.matchMedia('(max-width: 700px)').matches;
 }
 
+function shouldAvoidHeroGalleryCropping() {
+    return window.matchMedia('(max-width: 1024px)').matches;
+}
+
 function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
@@ -129,18 +133,22 @@ function toggleHeroGalleryAutoplay() {
 }
 
 function getHeroGallerySlideStyle(entry) {
+    const nonCroppingStyle = {
+        backgroundPosition: 'center center',
+        backgroundSize: 'contain'
+    };
+
     if (!entry) {
-        return {
-            backgroundPosition: 'center 10%',
-            backgroundSize: 'cover'
-        };
+        return shouldAvoidHeroGalleryCropping()
+            ? nonCroppingStyle
+            : {
+                backgroundPosition: 'center 10%',
+                backgroundSize: 'cover'
+            };
     }
 
-    if (window.innerWidth <= 700) {
-        return {
-            backgroundPosition: 'center center',
-            backgroundSize: 'contain'
-        };
+    if (shouldAvoidHeroGalleryCropping()) {
+        return nonCroppingStyle;
     }
 
     const desktopPosition = heroGalleryDesktopFocusImages.has(entry.src) ? 'center 60%' : 'center 10%';

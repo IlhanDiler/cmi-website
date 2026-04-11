@@ -8,21 +8,71 @@
     --review-copy-mobile-line-height: var(--premium-body-mobile-line-height);
     --review-lead-mobile-size: var(--premium-lead-mobile-size);
     --review-lead-mobile-line-height: var(--premium-lead-mobile-line-height);
+    --review-panel-surface:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(247, 250, 248, 0.94) 100%);
+    --review-panel-surface-strong:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.985) 0%, rgba(244, 249, 247, 0.965) 100%);
+    --review-panel-border: rgba(18, 62, 70, 0.12);
+    --review-panel-border-strong: rgba(10, 117, 109, 0.26);
+    --review-panel-shadow: 0 24px 56px rgba(15, 34, 42, 0.12);
+    --review-panel-shadow-hover: 0 30px 74px rgba(15, 34, 42, 0.16);
+    --review-panel-shadow-soft: 0 18px 38px rgba(15, 34, 42, 0.09);
+    --review-panel-shadow-soft-hover: 0 24px 54px rgba(15, 34, 42, 0.13);
+    --review-media-shadow: 0 18px 42px rgba(15, 34, 42, 0.11);
+    --review-cta-shadow: 0 14px 30px rgba(15, 34, 42, 0.1);
+    --review-cta-shadow-hover: 0 20px 40px rgba(15, 34, 42, 0.14);
+    --review-accent-line: linear-gradient(180deg, rgba(53, 196, 199, 0.96) 0%, rgba(18, 62, 70, 0.96) 100%);
+    --review-soft-grid:
+        linear-gradient(90deg, rgba(18, 62, 70, 0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(18, 62, 70, 0.035) 1px, transparent 1px);
+    --review-sheen: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 58%);
+    --review-fade-surface: rgba(247, 250, 248, 0.98);
+    --review-card-clamp-lines: 6;
+    --review-floating-toggle-backdrop: blur(18px) saturate(1.08);
+    --review-prose-max-width: 64ch;
+    --review-prose-compact-max-width: 56ch;
+    --review-card-copy-max-width: 34ch;
 }
 
 .review-overview-section {
-    --review-overview-section-bg: linear-gradient(180deg, var(--section-tone-a) 0%, var(--section-tone-b) 100%);
-    --review-overview-section-padding: 38px 0 28px;
+    --review-overview-section-bg:
+        radial-gradient(circle at top left, rgba(53, 196, 199, 0.18) 0%, transparent 34%),
+        radial-gradient(circle at 88% 18%, rgba(18, 62, 70, 0.1) 0%, transparent 28%),
+        linear-gradient(180deg, #eef5f1 0%, #e3ebe5 56%, #edf2ee 100%);
+    --review-overview-section-padding: 42px 0 30px;
     --review-overview-shell-width: var(--layout-shell-width);
     --review-overview-shell-padding: 0 20px;
     --review-overview-shell-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
     --review-overview-shell-gap: clamp(22px, 3vw, 36px);
     --review-overview-copy-padding: 26px clamp(22px, 3vw, 30px);
-    --review-overview-copy-radius: 28px;
-    --review-overview-highlights-gap: 16px;
-    --review-overview-highlights-margin-top: 22px;
+    --review-overview-copy-radius: 30px;
+    --review-overview-highlights-gap: 18px;
+    --review-overview-highlights-margin-top: 24px;
     position: relative;
     overflow: hidden;
+    isolation: isolate;
+}
+
+.review-overview-section::before,
+.review-overview-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.review-overview-section::before {
+    background:
+        radial-gradient(circle at 14% 8%, rgba(255, 255, 255, 0.52) 0%, transparent 26%),
+        radial-gradient(circle at 76% 0%, rgba(255, 255, 255, 0.24) 0%, transparent 30%);
+    z-index: 0;
+}
+
+.review-overview-section::after {
+    background: var(--review-soft-grid);
+    background-size: 36px 36px;
+    opacity: 0.18;
+    z-index: 0;
 }
 
 .review-overview-shell {
@@ -39,16 +89,16 @@
 
 .review-overview-copy,
 .review-overview-media {
-    background: transparent;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    background: var(--review-panel-surface);
+    border: 1px solid var(--review-panel-border);
+    border-radius: var(--review-overview-copy-radius);
+    box-shadow: var(--review-panel-shadow-soft);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 }
 
 .review-overview-media {
-    padding: 0;
+    padding: clamp(10px, 1.4vw, 14px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,6 +107,8 @@
     max-width: 410px;
     justify-self: center;
     overflow: hidden;
+    background: var(--review-panel-surface-strong);
+    box-shadow: var(--review-media-shadow);
 }
 
 .review-overview-kicker,
@@ -83,14 +135,15 @@
 }
 
 .review-overview-intro {
-    max-width: 58ch;
+    max-width: var(--review-prose-compact-max-width);
     margin: 0;
-    color: #315159;
+    color: #294a52;
     font-family: var(--font-ui-modern);
     font-size: var(--premium-lead-size);
     font-weight: 500;
     line-height: var(--premium-lead-line-height);
     letter-spacing: var(--premium-lead-letter-spacing);
+    text-wrap: pretty;
 }
 
 .review-overview-highlights {
@@ -102,11 +155,12 @@
 
 .review-overview-highlight {
     position: relative;
-    padding: 18px 16px 16px 20px;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.98);
-    border: 1px solid rgba(18, 62, 70, 0.12);
-    box-shadow: none;
+    min-height: 100%;
+    padding: 20px 18px 18px 22px;
+    border-radius: 22px;
+    background: var(--review-panel-surface-strong);
+    border: 1px solid var(--review-panel-border);
+    box-shadow: var(--review-panel-shadow-soft);
     overflow: hidden;
 }
 
@@ -116,15 +170,35 @@
     top: 20px;
     bottom: 20px;
     left: 12px;
-    width: 3px;
+    width: 4px;
     inset: auto;
     border-radius: 999px;
-    background: linear-gradient(180deg, var(--color-secondary), var(--color-primary));
-    opacity: 0.44;
+    background: var(--review-accent-line);
+    opacity: 0.62;
+}
+
+.review-overview-highlight::after {
+    content: "";
+    position: absolute;
+    right: -26px;
+    top: -22px;
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(53, 196, 199, 0.18) 0%, transparent 72%);
+    pointer-events: none;
+}
+
+.review-overview-highlight:hover,
+.review-overview-highlight:focus-within {
+    transform: translateY(-4px);
+    border-color: var(--review-panel-border-strong);
+    box-shadow: var(--review-panel-shadow-soft-hover);
 }
 
 .review-overview-highlight-title {
     margin: 0;
+    max-width: 16ch;
     color: #173840;
     font-family: var(--font-ui-modern);
     font-size: clamp(1.08rem, 1.28vw, 1.22rem);
@@ -134,13 +208,14 @@
 }
 
 .review-overview-highlight-copy {
-    margin: 8px 0 0;
+    margin: 10px 0 0;
     color: #2b4e56;
     font-family: var(--font-ui-modern);
     font-size: var(--premium-body-size);
     font-weight: 500;
     line-height: var(--premium-body-line-height);
     letter-spacing: var(--premium-body-letter-spacing);
+    text-wrap: pretty;
 }
 
 .review-overview-image {
@@ -153,8 +228,9 @@
     object-fit: contain;
     object-position: center center;
     border-radius: 22px;
-    border: 1px solid rgba(18, 62, 70, 0.12);
-    box-shadow: none;
+    border: 0;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 12px 26px rgba(15, 34, 42, 0.08);
 }
 
 .news-feed-section {
@@ -164,19 +240,33 @@
     --news-feed-grid-gap: 22px;
     --news-feed-copy-max-width: 66ch;
     --news-feed-section-bg:
-        radial-gradient(circle at top left, rgba(10, 117, 109, 0.1) 0%, transparent 32%),
-        linear-gradient(180deg, rgba(248, 250, 247, 0.98) 0%, rgba(240, 246, 243, 0.98) 100%);
-    padding: 24px 0 30px;
+        radial-gradient(circle at top left, rgba(53, 196, 199, 0.16) 0%, transparent 34%),
+        radial-gradient(circle at 88% 18%, rgba(18, 62, 70, 0.08) 0%, transparent 26%),
+        linear-gradient(180deg, rgba(248, 251, 249, 0.98) 0%, rgba(238, 245, 241, 0.98) 100%);
+    padding: 28px 0 34px;
     position: relative;
     overflow: hidden;
+    isolation: isolate;
 }
 
-.news-feed-section::before {
+.news-feed-section::before,
+.news-feed-section::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: var(--news-feed-section-bg);
     pointer-events: none;
+}
+
+.news-feed-section::before {
+    background: var(--news-feed-section-bg);
+}
+
+.news-feed-section::after {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0) 34%),
+        var(--review-soft-grid);
+    background-size: auto, 34px 34px;
+    opacity: 0.18;
 }
 
 .news-feed-shell {
@@ -223,12 +313,14 @@
 
 .news-feed-intro {
     margin: 0;
+    max-width: var(--review-prose-max-width);
     color: #315159;
     font-family: var(--font-ui-modern);
     font-size: var(--premium-lead-size);
     font-weight: 500;
     line-height: var(--premium-lead-line-height);
     letter-spacing: var(--premium-lead-letter-spacing);
+    text-wrap: pretty;
 }
 
 .news-feed-overview-link {
@@ -249,7 +341,8 @@
     line-height: 1.3;
     text-decoration: none;
     white-space: nowrap;
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    box-shadow: var(--review-cta-shadow);
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .news-feed-overview-link:hover,
@@ -257,6 +350,8 @@
     background: rgba(255, 255, 255, 0.92);
     color: #0f726c;
     border-color: rgba(18, 62, 70, 0.18);
+    box-shadow: var(--review-cta-shadow-hover);
+    transform: translateY(-1px);
 }
 
 .news-feed-overview-link::after {
@@ -278,18 +373,19 @@
 .news-feed-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(18px, 2.2vw, 26px);
+    gap: var(--news-feed-grid-gap);
     align-items: stretch;
 }
 
 .news-feed-card {
+    position: relative;
     min-width: 0;
     height: 100%;
     border-radius: 28px;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.94);
-    border: 1px solid rgba(18, 62, 70, 0.12);
-    box-shadow: none;
+    background: var(--review-panel-surface-strong);
+    border: 1px solid var(--review-panel-border);
+    box-shadow: var(--review-panel-shadow-soft);
 }
 
 .news-feed-card-link {
@@ -299,6 +395,7 @@
     min-height: 100%;
     color: inherit;
     text-decoration: none;
+    border-radius: inherit;
 }
 
 .news-feed-card-media {
@@ -309,12 +406,12 @@
     box-sizing: border-box;
     min-height: 248px;
     aspect-ratio: 4 / 3;
-    padding: 12px;
+    padding: 14px;
     overflow: hidden;
     isolation: isolate;
     background:
-        radial-gradient(circle at top right, rgba(53, 196, 199, 0.14) 0%, transparent 36%),
-        linear-gradient(180deg, rgba(244, 249, 248, 0.98) 0%, rgba(234, 242, 240, 0.98) 100%);
+        radial-gradient(circle at top right, rgba(53, 196, 199, 0.2) 0%, transparent 38%),
+        linear-gradient(180deg, rgba(246, 250, 249, 0.98) 0%, rgba(233, 241, 238, 0.98) 100%);
 }
 
 .news-feed-card-image {
@@ -325,6 +422,7 @@
     display: block;
     border-radius: 18px;
     background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 14px 28px rgba(15, 34, 42, 0.08);
     object-fit: cover;
     object-position: center;
 }
@@ -345,17 +443,19 @@
     background: none;
     object-fit: cover;
     object-position: center;
-    filter: blur(14px) saturate(0.98) brightness(0.98);
-    transform: scale(1.045);
-    opacity: 0.32;
+    filter: blur(18px) saturate(1.02) brightness(0.96);
+    transform: scale(1.08);
+    opacity: 0.38;
     pointer-events: none;
 }
 
 .news-feed-card-body {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 18px 18px 20px;
+    gap: 12px;
+    padding: 20px 20px 22px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(252, 254, 253, 0.88) 18%, rgba(252, 254, 253, 0.96) 100%);
 }
 
 .news-feed-card-meta {
@@ -379,25 +479,26 @@
 
 .news-feed-card-badge {
     color: #13585f;
-    background: rgba(53, 196, 199, 0.14);
+    background: linear-gradient(180deg, rgba(53, 196, 199, 0.18) 0%, rgba(53, 196, 199, 0.1) 100%);
     border: 1px solid rgba(18, 62, 70, 0.12);
     font-weight: 700;
 }
 
 .news-feed-card-date {
     color: #4d666c;
-    background: rgba(247, 250, 249, 0.96);
+    background: rgba(247, 250, 249, 0.98);
     border: 1px solid rgba(18, 62, 70, 0.1);
     font-weight: 600;
 }
 
 .news-feed-card-title {
     margin: 0;
+    max-width: 18ch;
     color: #14353b;
     font-family: var(--font-ui-modern);
     font-size: clamp(1.14rem, 1.5vw, 1.38rem);
     font-weight: 620;
-    line-height: 1.14;
+    line-height: 1.1;
     letter-spacing: -0.02em;
     text-wrap: balance;
     hyphens: none;
@@ -411,18 +512,19 @@
 
 .news-feed-card-copy {
     margin: 0;
-    color: #305159;
+    max-width: var(--review-card-copy-max-width);
+    color: #2f4f57;
     font-family: var(--font-ui-modern);
     font-size: var(--premium-body-size);
     font-weight: 510;
-    line-height: var(--premium-body-line-height);
+    line-height: 1.64;
     letter-spacing: var(--premium-body-letter-spacing);
     text-align: left;
     text-wrap: pretty;
     hyphens: none;
     -webkit-hyphens: none;
     -ms-hyphens: none;
-    overflow-wrap: normal;
+    overflow-wrap: break-word;
 }
 
 .news-feed-overview-link > [data-lang],
@@ -442,14 +544,15 @@
     gap: 7px;
     padding: 0.46rem 0.8rem;
     border-radius: 999px;
-    border: 1px solid rgba(10, 117, 109, 0.14);
-    background: rgba(10, 117, 109, 0.08);
+    border: 1px solid rgba(10, 117, 109, 0.18);
+    background: linear-gradient(180deg, rgba(10, 117, 109, 0.12) 0%, rgba(10, 117, 109, 0.07) 100%);
     color: #0f726c;
     font-family: var(--font-ui-modern);
     font-size: 0.93rem;
     font-weight: 700;
     line-height: 1.3;
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.48);
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .news-feed-card-cta::after {
@@ -463,16 +566,29 @@
     color: #0f726c;
 }
 
+.news-feed-card:hover,
+.news-feed-card:focus-within {
+    transform: translateY(-6px);
+    border-color: var(--review-panel-border-strong);
+    box-shadow: var(--review-panel-shadow-hover);
+}
+
 .news-feed-card-link:hover .news-feed-card-cta,
 .news-feed-card-link:focus-visible .news-feed-card-cta {
     background: rgba(10, 117, 109, 0.14);
     border-color: rgba(10, 117, 109, 0.22);
     color: #0b5e5a;
+    box-shadow: var(--review-cta-shadow);
 }
 
 .news-feed-card-link:hover .news-feed-card-cta::after,
 .news-feed-card-link:focus-visible .news-feed-card-cta::after {
     transform: translateX(3px);
+}
+
+.news-feed-card-link:hover .news-feed-card-image,
+.news-feed-card-link:focus-visible .news-feed-card-image {
+    transform: scale(1.025);
 }
 
 .news-feed-card-link:focus-visible {
@@ -525,6 +641,10 @@
 }
 
 @media (max-width: 900px) {
+    .news-feed-section {
+        --news-feed-grid-gap: 18px;
+    }
+
     .news-feed-shell {
         width: min(1120px, calc(100% - 28px));
         padding: 0 14px;
@@ -546,6 +666,10 @@
 }
 
 @media (max-width: 640px) {
+    .news-feed-section {
+        --news-feed-grid-gap: 16px;
+    }
+
     .news-feed-grid {
         grid-template-columns: 1fr;
     }
@@ -561,6 +685,7 @@
 
 .review-archive {
     position: relative;
+    isolation: isolate;
 }
 
 .review-archive::before {
@@ -571,7 +696,7 @@
     width: min(1080px, calc(100% - 40px));
     height: 1px;
     transform: translateX(-50%);
-    background: rgba(18, 62, 70, 0.12);
+    background: linear-gradient(90deg, rgba(18, 62, 70, 0), rgba(18, 62, 70, 0.18) 18%, rgba(18, 62, 70, 0.18) 82%, rgba(18, 62, 70, 0));
 }
 
 .review-archive-intro__inner {
@@ -579,17 +704,28 @@
     margin: 0 auto;
     padding: 24px 24px 24px;
     border-radius: 28px;
-    border: 1px solid rgba(18, 62, 70, 0.16);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 251, 250, 0.98));
-    box-shadow: none;
+    border: 1px solid var(--review-panel-border);
+    background: var(--review-panel-surface-strong);
+    box-shadow: var(--review-panel-shadow);
     text-align: left;
+    overflow: hidden;
+    position: relative;
 }
 
 .review-archive-intro__inner::before {
+    content: "";
+    display: block;
     width: 72px;
     height: 4px;
     margin-bottom: 16px;
-    background: var(--color-primary);
+    background: linear-gradient(90deg, var(--color-primary), rgba(10, 117, 109, 0.32));
+}
+
+.review-archive-intro__inner:hover,
+.review-archive-intro__inner:focus-within {
+    transform: translateY(-2px);
+    border-color: var(--review-panel-border-strong);
+    box-shadow: var(--review-panel-shadow-hover);
 }
 
 .review-archive-intro__title {
@@ -612,11 +748,14 @@
     font-weight: 500;
     line-height: var(--premium-lead-line-height);
     letter-spacing: var(--premium-lead-letter-spacing);
+    text-wrap: pretty;
 }
 
 .review-archive-toggle,
 .review-card-toggle {
     min-height: 48px;
+    gap: 10px;
+    padding-inline: 18px;
     border-radius: 999px;
     -webkit-appearance: none;
     appearance: none;
@@ -625,7 +764,21 @@
     font-size: 0.95rem;
     font-weight: 620;
     line-height: 1.3;
-    box-shadow: none;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    box-shadow: var(--cta-shadow, var(--review-cta-shadow));
+}
+
+.review-archive-toggle::before,
+.review-card-toggle::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background: var(--review-sheen);
+    opacity: 0.78;
+    pointer-events: none;
 }
 
 .review-archive-toggle__label,
@@ -633,6 +786,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 1;
 }
 
 .review-archive-toggle__label[hidden],
@@ -643,6 +798,8 @@
 .review-archive-toggle::after,
 .review-card-toggle::after {
     content: "";
+    position: relative;
+    z-index: 1;
     width: 0.6rem;
     height: 0.6rem;
     border-right: 2px solid currentColor;
@@ -658,21 +815,34 @@
 }
 
 .review-archive-toggle {
-    --cta-bg: rgba(243, 248, 247, 0.96);
-    --cta-bg-hover: rgba(229, 239, 236, 0.98);
+    --cta-bg: linear-gradient(180deg, rgba(243, 248, 247, 0.98) 0%, rgba(235, 243, 240, 0.98) 100%);
+    --cta-bg-hover: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(229, 239, 236, 0.98) 100%);
     --cta-color: var(--color-primary);
     --cta-color-hover: var(--color-primary);
     --cta-border-color: rgba(18, 62, 70, 0.16);
     --cta-border-color-hover: rgba(10, 117, 109, 0.26);
+    --cta-shadow: var(--review-cta-shadow);
+    --cta-shadow-hover: var(--review-cta-shadow-hover);
+}
+
+.review-card-toggle {
+    --cta-bg: linear-gradient(180deg, rgba(242, 248, 246, 0.98) 0%, rgba(233, 242, 239, 0.96) 100%);
+    --cta-bg-hover: linear-gradient(180deg, rgba(250, 252, 251, 0.98) 0%, rgba(226, 238, 234, 0.98) 100%);
+    --cta-color: var(--color-primary);
+    --cta-color-hover: var(--color-primary);
+    --cta-border-color: rgba(18, 62, 70, 0.16);
+    --cta-border-color-hover: rgba(10, 117, 109, 0.26);
+    --cta-shadow: var(--review-cta-shadow);
+    --cta-shadow-hover: var(--review-cta-shadow-hover);
 }
 
 .review-archive-toggle.review-archive-toggle--floating {
-    --cta-bg: rgba(243, 248, 247, 0.98);
-    --cta-bg-hover: rgba(236, 244, 241, 1);
+    --cta-bg: linear-gradient(180deg, rgba(243, 248, 247, 1) 0%, rgba(233, 242, 239, 1) 100%);
+    --cta-bg-hover: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(236, 244, 241, 1) 100%);
     --cta-border-color: rgba(10, 117, 109, 0.24);
     --cta-border-color-hover: rgba(10, 117, 109, 0.32);
-    --cta-shadow: 0 14px 32px rgba(18, 36, 44, 0.18);
-    --cta-shadow-hover: 0 16px 34px rgba(18, 36, 44, 0.22);
+    --cta-shadow: 0 18px 38px rgba(18, 36, 44, 0.18);
+    --cta-shadow-hover: 0 24px 46px rgba(18, 36, 44, 0.22);
 }
 
 .charity-flex-row {
@@ -838,7 +1008,9 @@
     --charity-card-topline: #35c4c7;
     background: var(--charity-projects-bg);
     padding: 40px 0 32px;
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     margin-bottom: 0;
@@ -846,12 +1018,16 @@
 
 .charity-projects-section[id^="review-"] {
     --charity-projects-bg: var(--section-tone-b);
-    --charity-projects-surface: rgba(255, 255, 255, 0.92);
-    --charity-card-shadow: var(--shadow-surface);
+    --charity-projects-surface: var(--review-panel-surface-strong);
+    --charity-card-border: var(--review-panel-border);
+    --charity-card-shadow: var(--review-panel-shadow);
     --charity-card-topline: rgba(53, 196, 199, 0.78);
     --review-title-size: clamp(1.64rem, 2.08vw, 1.9rem);
-    --review-meta-bg: rgba(249, 243, 233, 0.94);
+    --review-meta-bg: rgba(18, 62, 70, 0.06);
     --review-meta-border: rgba(53, 196, 199, 0.22);
+    --review-card-fade-surface: var(--review-fade-surface);
+    position: relative;
+    isolation: isolate;
 }
 
 .review-featured#review-masterclass-florian-meierott .masterclass-flex__image {
@@ -860,6 +1036,19 @@
 
 .review-featured#review-weihnachtskonzert-zum-mitsingen-2025 .gruppenbild-img {
     object-position: center 28%;
+}
+
+#review-masterclass-florian-meierott,
+#review-christmette-2025,
+#review-weihnachtskonzert-zum-mitsingen-2025 {
+    --review-inline-media-width: clamp(260px, 36%, 340px);
+    --review-inline-media-image-max-height: 236px;
+    --review-inline-media-image-fit: cover;
+    --review-inline-media-margin: 4px 0 18px 24px;
+}
+
+.review-featured--tablet-article .review-inline-media {
+    display: none;
 }
 
 #review-benefiz-trommelworkshop-2026 .charity-flex-row {
@@ -886,8 +1075,9 @@
 #review-benefiz-trommelworkshop-2026 .review-donation-card {
     padding: 18px 20px;
     border-radius: 22px;
-    background: linear-gradient(180deg, rgba(231, 239, 235, 0.9), rgba(245, 248, 246, 0.96));
+    background: linear-gradient(180deg, rgba(18, 62, 70, 0.08) 0%, rgba(10, 117, 109, 0.12) 100%);
     border: 1px solid rgba(18, 62, 70, 0.1);
+    box-shadow: var(--review-panel-shadow-soft);
 }
 
 #review-benefiz-trommelworkshop-2026 .review-donation-card__copy {
@@ -915,6 +1105,8 @@
 }
 
 #review-masterclass-florian-meierott {
+    --review-inline-media-width: clamp(248px, 34%, 320px);
+    --review-inline-media-image-max-height: 220px;
     padding-top: 16px;
 }
 
@@ -964,7 +1156,12 @@
     --review-nikolaus-image-max-width: min(78%, 420px);
     --review-nikolaus-image-max-height: 390px;
     --review-nikolaus-image-margin-bottom: 10px;
+    --review-nikolaus-image-radius: 24px;
     --review-nikolaus-caption-font-size: 0.92em;
+    --review-inline-media-width: clamp(220px, 28%, 260px);
+    --review-inline-media-image-max-height: 300px;
+    --review-inline-media-image-fit: contain;
+    --review-inline-media-margin: 0 0 16px 22px;
 }
 
 #review-nikolausfeier-2025 .charity-flex-row > .gruppenbild-container {
@@ -975,18 +1172,35 @@
 }
 
 #review-nikolausfeier-2025 .gruppenbild-img-nikolaus {
-    max-width: var(--review-nikolaus-image-max-width);
+    max-width: 100%;
     max-height: var(--review-nikolaus-image-max-height);
-    width: auto;
+    width: 100%;
     height: auto;
     object-fit: contain;
     display: block;
-    margin: 0 auto var(--review-nikolaus-image-margin-bottom);
+    margin: 0 auto;
     box-shadow: none;
     background: transparent;
     border: 0;
     cursor: default;
     pointer-events: none;
+}
+
+#review-nikolausfeier-2025 .review-media-image-shell--nikolaus {
+    width: min(100%, var(--review-nikolaus-image-max-width));
+    max-width: 100%;
+    margin: 0 auto var(--review-nikolaus-image-margin-bottom);
+    border-radius: var(--review-nikolaus-image-radius);
+    overflow: hidden;
+    background: transparent;
+}
+
+#review-nikolausfeier-2025 .review-inline-media--nikolaus .review-media-image-card {
+    border-radius: 0;
+}
+
+#review-nikolausfeier-2025 .review-inline-media--nikolaus .review-media-image-shell--nikolaus {
+    width: 100%;
 }
 
 #review-nikolausfeier-2025 .charity-flex-row > .gruppenbild-container > div {
@@ -1143,6 +1357,8 @@
     }
 
     .charity-projects-section[id^="review-"] {
+        --review-section-padding: 22px 0 18px;
+        --review-container-padding: 24px 22px 22px;
         margin-left: 0;
         margin-right: 0;
         padding: 0;
@@ -1364,8 +1580,9 @@
         min-height: 100%;
         padding: 18px 18px 16px 22px;
         border-radius: 22px;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(244, 248, 246, 0.96) 100%);
-        border-color: rgba(18, 62, 70, 0.11);
+        background: var(--review-panel-surface-strong);
+        border-color: var(--review-panel-border);
+        box-shadow: var(--review-panel-shadow-soft);
     }
 
     .review-overview-highlight::before {
@@ -1374,7 +1591,7 @@
         left: 12px;
         width: 4px;
         border-radius: 999px;
-        opacity: 0.42;
+        opacity: 0.62;
     }
 
     .review-overview-highlight-title {
@@ -1392,10 +1609,11 @@
         grid-row: 1 / span 3;
         width: 100%;
         max-width: 438px;
-        padding: 10px;
-        border: 1px solid rgba(18, 62, 70, 0.1);
-        border-radius: 28px;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(242, 247, 245, 0.96) 100%);
+        padding: 12px;
+        border: 1px solid var(--review-panel-border);
+        border-radius: 32px;
+        background: var(--review-panel-surface-strong);
+        box-shadow: var(--review-panel-shadow);
         justify-self: end;
         align-self: start;
     }
@@ -1421,9 +1639,9 @@
         width: min(1360px, calc(100% - (var(--desktop-content-side-gap) * 2)));
         padding: 34px 34px 30px;
         border-radius: 32px;
-        border-color: rgba(18, 62, 70, 0.12);
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(245, 249, 247, 0.98) 100%);
-        box-shadow: none;
+        border-color: var(--review-panel-border);
+        background: var(--review-panel-surface-strong);
+        box-shadow: var(--review-panel-shadow);
     }
 
     .review-archive-intro__inner::before {
@@ -1485,9 +1703,9 @@
         width: min(1240px, calc(100% - (var(--desktop-content-side-gap) * 2)));
         padding: 26px 34px 30px;
         border-radius: 32px;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(244, 248, 246, 0.98) 100%);
-        border-color: rgba(18, 62, 70, 0.1);
-        box-shadow: none;
+        background: var(--review-panel-surface-strong);
+        border-color: var(--review-panel-border);
+        box-shadow: var(--review-panel-shadow);
     }
 
     .review-featured .charity-projects-container::after,
@@ -1498,8 +1716,8 @@
         left: 12px;
         width: 4px;
         border-radius: 999px;
-        background: linear-gradient(180deg, var(--color-secondary), var(--color-primary));
-        opacity: 0.42;
+        background: var(--review-accent-line);
+        opacity: 0.68;
     }
 
     .review-featured .charity-flex-row,
@@ -1551,7 +1769,7 @@
         width: 42px;
         height: 42px;
         border-color: rgba(18, 62, 70, 0.1);
-        box-shadow: none;
+        box-shadow: var(--review-cta-shadow);
     }
 
     .review-featured .charity-flex-row > .gruppenbild-container,
@@ -1559,8 +1777,9 @@
     .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container {
         padding: 14px;
         border-radius: 28px;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(243, 247, 245, 0.96) 100%);
-        border-color: rgba(18, 62, 70, 0.1);
+        background: var(--review-panel-surface);
+        border-color: var(--review-panel-border);
+        box-shadow: var(--review-panel-shadow-soft);
     }
 
     .review-featured .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
@@ -1585,8 +1804,9 @@
     #review-benefiz-trommelworkshop-2026 .review-donation-card {
         padding: 22px 22px 20px;
         border-radius: 24px;
-        background: linear-gradient(180deg, rgba(18, 62, 70, 0.06) 0%, rgba(10, 117, 109, 0.08) 100%);
+        background: linear-gradient(180deg, rgba(18, 62, 70, 0.08) 0%, rgba(10, 117, 109, 0.14) 100%);
         border-color: rgba(18, 62, 70, 0.1);
+        box-shadow: var(--review-panel-shadow-soft);
     }
 }
 
@@ -1612,7 +1832,7 @@
     padding-bottom: 18px;
 }
 
-.review-archive .charity-projects-section[id^="review-"] {
+.charity-projects-section[id^="review-"] {
     scroll-margin-top: 88px;
 }
 
@@ -1622,9 +1842,20 @@
     margin: 0 auto 12px;
     padding: 22px 28px 24px;
     border-radius: 30px;
-    background: rgba(255, 255, 255, 0.98);
-    border-color: rgba(18, 62, 70, 0.12);
-    box-shadow: none;
+    background: var(--review-panel-surface-strong);
+    border-color: var(--review-panel-border);
+    box-shadow: var(--review-panel-shadow);
+}
+
+.review-featured .charity-projects-container:hover,
+.review-featured .charity-projects-container:focus-within,
+.review-archive .charity-projects-section[id^="review-"] .charity-projects-container:hover,
+.review-archive .charity-projects-section[id^="review-"] .charity-projects-container:focus-within,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container:hover,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container:focus-within {
+    transform: translateY(-4px);
+    border-color: var(--review-panel-border-strong);
+    box-shadow: var(--review-panel-shadow-hover);
 }
 
 .review-featured .charity-projects-container::after,
@@ -1638,8 +1869,8 @@
     height: auto;
     inset: auto;
     border-radius: 999px;
-    background: linear-gradient(180deg, var(--color-secondary), var(--color-primary));
-    opacity: 0.5;
+    background: var(--review-accent-line);
+    opacity: 0.7;
 }
 
 .review-featured .charity-flex-row,
@@ -1660,8 +1891,8 @@
 
 .review-featured .charity-title,
 .review-archive .charity-projects-section[id^="review-"] .charity-title {
-    max-width: 24ch;
-    margin-bottom: 8px;
+    max-width: 22ch;
+    margin-bottom: 10px;
     color: #173941;
     font-family: var(--font-ui-modern);
     font-size: clamp(1.72rem, 2.55vw, 2.18rem);
@@ -1672,18 +1903,21 @@
 }
 
 .charity-projects-section[id^="review-"] .charity-meta {
-    display: block;
-    width: 100%;
-    max-width: none;
-    margin-bottom: 12px;
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    margin-bottom: 14px;
     margin-right: 0;
-    padding: 0;
+    padding: 0.54em 0.94em;
     color: #45656d;
-    background: transparent;
-    border: 0;
-    border-radius: 0;
+    background: var(--review-meta-bg);
+    border: 1px solid var(--review-meta-border);
+    border-radius: 999px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.48);
     text-align: left !important;
     align-self: flex-start;
+    white-space: normal;
+    text-wrap: pretty;
 }
 
 .review-overview-kicker,
@@ -1702,22 +1936,21 @@
 
 .review-featured .charity-description,
 .review-archive .charity-projects-section[id^="review-"] .charity-description {
-    max-width: 64ch;
+    max-width: var(--review-prose-max-width);
     color: #28484f;
     font-family: var(--font-ui-modern);
     font-size: 1rem;
     font-weight: 500;
-    line-height: 1.66;
+    line-height: 1.7;
     letter-spacing: 0;
-    text-align: justify;
-    text-align-last: left;
-    text-justify: auto;
+    text-align: left;
+    text-align-last: auto;
     word-break: normal;
     overflow-wrap: break-word;
     hyphens: auto;
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
-    text-wrap: auto;
+    text-wrap: pretty;
 }
 
 .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions {
@@ -1729,19 +1962,52 @@
 .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
     align-self: flex-start;
     padding: 12px;
-    background: rgba(255, 255, 255, 0.98);
-    border-color: rgba(18, 62, 70, 0.12);
+    background: var(--review-panel-surface);
+    border-color: var(--review-panel-border);
+    box-shadow: var(--review-panel-shadow-soft);
 }
 
+
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:only-of-type),
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-right:has(> img:only-of-type),
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:only-of-type),
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right:has(> img:only-of-type) {
+    flex: 0 1 clamp(300px, 29vw, 372px);
+    width: auto;
+    max-width: clamp(300px, 29vw, 372px);
+    min-width: 0;
+    padding: 10px;
+}
 .review-featured .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
 .review-featured .charity-flex-right img:not(.gruppenbild-img-nikolaus),
-.review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
-.review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
 .charity-projects-section[id^="review-"] .review-media-image-card {
     width: 100%;
     max-height: 360px;
     object-fit: contain;
     border-radius: 22px;
+}
+
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right img:not(.gruppenbild-img-nikolaus) {
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    border-radius: 22px;
+}
+
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:only-of-type) img:not(.gruppenbild-img-nikolaus),
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-right:has(> img:only-of-type) img:not(.gruppenbild-img-nikolaus),
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:only-of-type) img:not(.gruppenbild-img-nikolaus),
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right:has(> img:only-of-type) img:not(.gruppenbild-img-nikolaus) {
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+    height: auto;
+    object-fit: contain;
+    border-radius: 22px;
+    display: block;
 }
 
 .charity-projects-section[id^="review-"] .review-media-caption,
@@ -1755,13 +2021,13 @@
 }
 
 .review-card-toggle-wrap {
-    margin-top: 8px;
+    margin-top: 12px;
 }
 
 .review-return-link-wrap {
     display: flex;
     align-items: center;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 .review-return-link {
@@ -1813,8 +2079,8 @@
 .review-card--collapsible:not(.review-card--expanded):not([data-review-card-expanded="true"]) .charity-description {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 6;
-    line-clamp: 6;
+    -webkit-line-clamp: var(--review-card-clamp-lines);
+    line-clamp: var(--review-card-clamp-lines);
     overflow: hidden;
 }
 
@@ -1839,15 +2105,24 @@
     right: 0;
     top: -24px;
     height: 28px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0), #ffffff 80%);
+    background: linear-gradient(180deg, rgba(247, 250, 248, 0), var(--review-card-fade-surface) 80%);
     pointer-events: none;
 }
 
 .review-overview-copy,
+.review-overview-media,
 .review-overview-highlight,
+.review-archive-intro__inner,
+.news-feed-card,
+.news-feed-card-media,
+.news-feed-card-image,
+.news-feed-card-cta,
+.review-archive-toggle,
+.review-card-toggle,
 .review-overview-image,
-.charity-projects-section[id^="review-"] .charity-projects-container {
-    transition: box-shadow 0.24s ease, border-color 0.24s ease, background 0.24s ease, transform 0.24s ease, opacity 0.24s ease;
+.charity-projects-section[id^="review-"] .charity-projects-container,
+.charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
+    transition: box-shadow 0.24s ease, border-color 0.24s ease, background 0.24s ease, transform 0.24s ease, opacity 0.24s ease, filter 0.24s ease;
 }
 
 .review-overview-section {
@@ -1861,7 +2136,7 @@
 }
 
 .charity-projects-section[id^="review-"] .charity-projects-container {
-    box-shadow: none;
+    box-shadow: var(--charity-card-shadow);
 }
 
 @media (max-width: 900px) {
@@ -2022,13 +2297,42 @@
 
     .review-featured .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
     .review-featured .charity-flex-right img:not(.gruppenbild-img-nikolaus),
-    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
-    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
     .charity-projects-section[id^="review-"] .review-media-image-card {
         width: 100%;
         max-height: 300px;
         object-fit: contain;
         border-radius: 20px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right img:not(.gruppenbild-img-nikolaus) {
+        width: 100%;
+        max-height: 200px;
+        object-fit: contain;
+        border-radius: 20px;
+    }
+}
+
+@media (min-width: 821px) and (max-width: 1024px) {
+    .review-overview-shell {
+        grid-template-columns: minmax(0, 1fr) minmax(248px, 32vw);
+        align-items: start;
+        gap: clamp(18px, 2.6vw, 26px);
+    }
+
+    .review-overview-copy {
+        min-width: 0;
+    }
+
+    .review-overview-media {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 12px;
+        justify-self: stretch;
+        align-self: start;
     }
 }
 
@@ -2038,10 +2342,25 @@
         align-items: flex-start;
     }
 
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
     .review-featured.charity-projects-section[id^="review-"] .charity-flex-left {
         flex: 1 1 0;
         width: auto;
         max-width: none;
+        padding-right: clamp(12px, 1.8vw, 24px);
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-left,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-left {
+        flex: 1 1 0;
+        width: auto;
+        max-width: none;
+        min-width: 0;
         padding-right: clamp(12px, 1.8vw, 24px);
     }
 
@@ -2054,11 +2373,150 @@
         margin: 0;
     }
 
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container {
+        flex: 0 1 clamp(220px, 28%, 290px);
+        width: auto;
+        max-width: clamp(220px, 28%, 290px);
+        min-width: 210px;
+        margin: 0;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:only-of-type),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right:has(> img:only-of-type),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:only-of-type),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right:has(> img:only-of-type) {
+        flex: 0 1 clamp(260px, 31%, 340px);
+        width: auto;
+        max-width: clamp(260px, 31%, 340px);
+        min-width: 0;
+        padding: 10px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-image-card--narrow,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-image-card--narrow {
+        max-width: 100%;
+    }
+
+    @supports selector(.review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2))) {
+        .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)),
+        .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-items: start;
+            gap: 10px;
+        }
+
+        .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) > img,
+        .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) > img {
+            width: 100%;
+            max-width: 100%;
+            max-height: 132px;
+            margin: 0;
+        }
+
+        .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) > img:first-of-type,
+        .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) > img:first-of-type {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) > img:last-of-type,
+        .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) > img:last-of-type {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) > .review-media-caption,
+        .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) > .review-media-caption {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            width: 100%;
+            margin-top: 0;
+        }
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .charity-flex-left {
+        display: block;
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding-right: 0;
+        box-sizing: border-box;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .review-inline-media {
+        display: flex;
+        flex-direction: column;
+        float: right;
+        clear: right;
+        width: var(--review-inline-media-width);
+        max-width: var(--review-inline-media-width);
+        min-width: 220px;
+        margin: var(--review-inline-media-margin);
+        padding: 10px;
+        background: var(--review-panel-surface);
+        border: 1px solid var(--review-panel-border);
+        border-radius: 24px;
+        box-shadow: var(--review-panel-shadow-soft);
+        box-sizing: border-box;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media:not(.review-archive-inline-media--gallery),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media:not(.review-archive-inline-media--gallery) {
+        width: clamp(280px, 34%, 344px);
+        max-width: min(100%, 344px);
+        min-width: 240px;
+        padding: 10px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media:not(.review-archive-inline-media--gallery) img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media:not(.review-archive-inline-media--gallery) img:not(.gruppenbild-img-nikolaus) {
+        max-height: none;
+        height: auto;
+        border-radius: 20px;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .review-inline-media .review-media-image-card,
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .review-inline-media .masterclass-flex__image {
+        width: 100%;
+        max-width: 100%;
+        max-height: var(--review-inline-media-image-max-height);
+        object-fit: var(--review-inline-media-image-fit);
+        object-position: center center;
+        border-radius: 20px;
+        display: block;
+        margin: 0 auto;
+        background: transparent;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .charity-flex-left::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .charity-description {
+        max-width: none;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] > .charity-projects-container > .charity-flex-row > .gruppenbild-container {
+        display: none;
+    }
+
     .review-featured.charity-projects-section[id^="review-"] .charity-title {
         max-width: 22ch;
     }
 
     .review-featured.charity-projects-section[id^="review-"] .charity-description {
+        max-width: min(100%, 60ch);
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-description,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-description {
         max-width: min(100%, 60ch);
     }
 
@@ -2072,6 +2530,118 @@
 
     .review-featured.charity-projects-section[id^="review-"] .review-media-block--top-128 {
         --review-media-margin-top: 56px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-block--top-28,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-block--top-28 {
+        --review-media-margin-top: 20px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-block--top-88,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-block--top-88 {
+        --review-media-margin-top: 38px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-block--top-128,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-block--top-128 {
+        --review-media-margin-top: 56px;
+    }
+}
+
+@media (min-width: 821px) and (max-width: 1200px) {
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .charity-flex-row,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .charity-flex-row {
+        display: block;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .charity-flex-left,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .charity-flex-left {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding-right: 0;
+        box-sizing: border-box;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .charity-flex-left::after,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .charity-flex-left::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media {
+        display: flex;
+        flex-direction: column;
+        float: right;
+        clear: right;
+        width: clamp(272px, 34%, 320px);
+        max-width: min(100%, 320px);
+        min-width: 240px;
+        margin: 0 0 18px 24px;
+        padding: 12px;
+        background: var(--review-panel-surface);
+        border: 1px solid var(--review-panel-border);
+        border-radius: 24px;
+        box-shadow: var(--review-panel-shadow-soft);
+        box-sizing: border-box;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media img:not(.gruppenbild-img-nikolaus) {
+        width: 100%;
+        max-width: 100%;
+        max-height: 228px;
+        object-fit: contain;
+        border-radius: 20px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media .review-media-caption,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media .review-media-caption {
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media--gallery,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery {
+        width: clamp(320px, 42%, 380px);
+        max-width: min(100%, 380px);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media--gallery > img,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > img {
+        max-height: 220px;
+        margin: 0;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media--gallery > img:first-of-type,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > img:first-of-type {
+        order: 1;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media--gallery > img:last-of-type,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > img:last-of-type {
+        order: 2;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media--gallery > .review-media-caption,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > .review-media-caption {
+        order: 3;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .charity-description,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .charity-description {
+        max-width: none;
     }
 }
 
@@ -2167,8 +2737,8 @@
     }
 
     .review-archive .charity-projects-section[id^="review-"].review-card--collapsible:not(.review-card--expanded) .charity-description {
-        -webkit-line-clamp: 6;
-        line-clamp: 6;
+        -webkit-line-clamp: var(--review-card-clamp-lines);
+        line-clamp: var(--review-card-clamp-lines);
     }
 
     .review-featured .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
@@ -2208,6 +2778,8 @@
         transform: none;
         z-index: 60;
         border-color: rgba(10, 117, 109, 0.3);
+        backdrop-filter: var(--review-floating-toggle-backdrop);
+        -webkit-backdrop-filter: var(--review-floating-toggle-backdrop);
     }
 
     .review-archive-toggle.review-archive-toggle--floating[aria-expanded="true"]:hover,
@@ -2219,7 +2791,7 @@
     .review-featured .charity-projects-container,
     .review-archive .charity-projects-section[id^="review-"] .charity-projects-container,
     .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container {
-        width: min(calc(100vw - 32px), 720px);
+        width: min(calc(100% - 32px), 720px);
         padding: 22px 22px 18px;
         border-radius: 24px;
     }
@@ -2250,20 +2822,25 @@
     }
 
     .review-featured .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
-    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
-    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
-    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right img:not(.gruppenbild-img-nikolaus),
-    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
     .review-featured .charity-flex-right img:not(.gruppenbild-img-nikolaus) {
         min-height: 0;
         max-height: 440px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right img:not(.gruppenbild-img-nikolaus) {
+        min-height: 0;
+        max-height: 190px;
     }
 
     .review-overview-section {
         --review-overview-section-padding: 24px 0 18px;
         --review-overview-shell-columns: 1fr;
         --review-overview-shell-gap: 20px;
-        --review-overview-copy-padding: 0;
+        --review-overview-copy-padding: 20px 18px 18px;
+        --review-overview-highlights-margin-top: 18px;
     }
 
     .review-archive-intro {
@@ -2271,7 +2848,7 @@
     }
 
     .review-archive-intro__inner {
-        width: min(calc(100vw - 32px), 720px);
+        width: min(calc(100% - 32px), 720px);
         padding: 20px 20px 22px;
         border-radius: 24px;
     }
@@ -2306,7 +2883,7 @@
 
     .charity-projects-section[id^="review-"] {
         --review-section-padding: 20px 0 16px;
-        --review-container-width: min(calc(100vw - 32px), 720px);
+        --review-container-width: min(calc(100% - 32px), 720px);
         --review-container-padding: 22px 22px 18px;
         --review-flex-gap: 16px;
         --review-media-mobile-margin-top: 14px;
@@ -2338,6 +2915,46 @@
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .review-overview-copy,
+    .review-overview-media,
+    .review-overview-highlight,
+    .review-overview-image,
+    .review-archive-intro__inner,
+    .news-feed-card,
+    .news-feed-card-media,
+    .news-feed-card-image,
+    .news-feed-card-cta,
+    .review-archive-toggle,
+    .review-card-toggle,
+    .review-return-link,
+    .charity-projects-section[id^="review-"] .charity-projects-container,
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
+        transition: none !important;
+    }
+
+    .review-overview-highlight:hover,
+    .review-overview-highlight:focus-within,
+    .news-feed-card:hover,
+    .news-feed-card:focus-within,
+    .review-archive-intro__inner:hover,
+    .review-archive-intro__inner:focus-within,
+    .review-featured .charity-projects-container:hover,
+    .review-featured .charity-projects-container:focus-within,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container:hover,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container:focus-within,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container:hover,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container:focus-within,
+    .news-feed-card-link:hover .news-feed-card-image,
+    .news-feed-card-link:focus-visible .news-feed-card-image,
+    .news-feed-overview-link:hover,
+    .news-feed-overview-link:focus-visible,
+    .review-return-link:hover,
+    .review-return-link:focus-visible {
+        transform: none !important;
+    }
+}
+
 @media (min-width: 901px) and (max-width: 1440px), (min-width: 901px) and (max-height: 1080px) {
     .review-archive.review-archive--toggle-floating {
         padding-bottom: 104px;
@@ -2356,6 +2973,8 @@
         transform: none;
         z-index: 60;
         border-color: rgba(10, 117, 109, 0.3);
+        backdrop-filter: var(--review-floating-toggle-backdrop);
+        -webkit-backdrop-filter: var(--review-floating-toggle-backdrop);
     }
 
     .review-archive-toggle.review-archive-toggle--floating[aria-expanded="true"]:hover,
@@ -2408,7 +3027,7 @@
     .charity-projects-section[id^="review-"] .charity-description {
         padding-left: 0;
         padding-right: 0;
-        max-width: 100vw;
+        max-width: 100%;
         margin-left: 0;
         margin-right: 0;
         margin-bottom: 2px;
@@ -2417,7 +3036,8 @@
     }
 
     .review-featured .charity-projects-container {
-        width: calc(100vw - 32px);
+        width: 100%;
+        max-width: 100%;
         padding: 18px 16px 14px;
         border-radius: 20px;
     }
@@ -2458,7 +3078,7 @@
     }
 
     .review-archive-intro__inner {
-        width: min(calc(100vw - 24px), 100%);
+        width: 100%;
         padding: 18px 16px 18px;
         border-radius: 22px;
     }
@@ -2570,17 +3190,19 @@
 
     .charity-projects-section[id^="review-"] .charity-meta {
         margin-bottom: var(--review-meta-margin-bottom);
-        display: block;
-        width: 100%;
+        display: inline-flex;
+        width: fit-content;
         max-width: 100%;
         margin-left: 0;
         margin-right: 0;
-        padding: 0;
-        border-radius: 0;
+        padding: 0.62em 0.88em;
+        border: 1px solid var(--review-meta-border);
+        border-radius: 16px;
         font-size: clamp(0.92rem, 3.25vw, 0.99rem);
         line-height: 1.42;
         letter-spacing: 0.01em;
-        box-shadow: none;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.48);
+        background: rgba(255, 255, 255, 0.78);
         text-wrap: pretty;
         text-align: left !important;
         text-justify: auto;

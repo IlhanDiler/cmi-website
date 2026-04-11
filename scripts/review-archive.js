@@ -135,6 +135,144 @@ function initReviewArchiveToggle() {
     window.addEventListener('resize', scheduleFloatingArchiveToggleStateSync);
 }
 
+function initReviewArchiveInlineMedia() {
+    const archive = document.getElementById('reviewArchive');
+    const archiveCards = Array.from(document.querySelectorAll('.review-archive .charity-projects-section[id^="review-"]'));
+
+    if (!archive || !archiveCards.length) {
+        return;
+    }
+
+    const mediaPlaceholders = new WeakMap();
+
+    function shouldUseInlineArchiveMedia() {
+        return window.matchMedia('(min-width: 821px) and (max-width: 1200px)').matches;
+    }
+
+    function getRow(section) {
+        return section.querySelector('.charity-flex-row');
+    }
+
+    function getTextColumn(section) {
+        const row = getRow(section);
+        return row ? row.querySelector('.charity-flex-left') : null;
+    }
+
+    function getMovedMedia(section) {
+        const textColumn = getTextColumn(section);
+        return textColumn ? textColumn.querySelector('.review-archive-inline-media') : null;
+    }
+
+    function getDefaultMedia(section) {
+        const row = getRow(section);
+        const textColumn = getTextColumn(section);
+
+        if (!row || !textColumn) {
+            return null;
+        }
+
+        return Array.from(row.children).find(function(child) {
+            return child !== textColumn
+                && child instanceof HTMLElement
+                && (child.classList.contains('gruppenbild-container') || child.classList.contains('charity-flex-right'));
+        }) || null;
+    }
+
+    function countDirectImages(media) {
+        return Array.from(media.children).filter(function(child) {
+            return child.tagName === 'IMG';
+        }).length;
+    }
+
+    function syncMediaClasses(media) {
+        media.classList.add('review-archive-inline-media');
+        media.classList.toggle('review-archive-inline-media--gallery', countDirectImages(media) > 1);
+    }
+
+    function moveMediaIntoText(section) {
+        const textColumn = getTextColumn(section);
+        const movedMedia = getMovedMedia(section);
+        const media = movedMedia || getDefaultMedia(section);
+
+        if (!textColumn || !media) {
+            return false;
+        }
+
+        syncMediaClasses(media);
+        section.classList.add('review-archive-card--inline-media');
+
+        if (movedMedia) {
+            return false;
+        }
+
+        const placeholder = document.createElement('div');
+        placeholder.hidden = true;
+        placeholder.className = 'review-archive-inline-media-placeholder';
+
+        media.before(placeholder);
+        mediaPlaceholders.set(media, placeholder);
+
+        const socialActions = textColumn.querySelector('.event-social-actions.review-social-actions');
+        const firstDescription = textColumn.querySelector('.charity-description');
+
+        if (socialActions) {
+            socialActions.insertAdjacentElement('afterend', media);
+        } else if (firstDescription) {
+            firstDescription.before(media);
+        } else {
+            textColumn.appendChild(media);
+        }
+
+        return true;
+    }
+
+    function restoreMedia(section) {
+        const movedMedia = getMovedMedia(section);
+
+        if (!movedMedia) {
+            section.classList.remove('review-archive-card--inline-media');
+            return false;
+        }
+
+        const placeholder = mediaPlaceholders.get(movedMedia);
+
+        if (placeholder && placeholder.parentNode) {
+            placeholder.before(movedMedia);
+            placeholder.remove();
+        }
+
+        mediaPlaceholders.delete(movedMedia);
+        movedMedia.classList.remove('review-archive-inline-media', 'review-archive-inline-media--gallery');
+        section.classList.remove('review-archive-card--inline-media');
+
+        return true;
+    }
+
+    function syncArchiveInlineMedia() {
+        const shouldInline = shouldUseInlineArchiveMedia();
+        let hasLayoutChanged = false;
+
+        archiveCards.forEach(function(section) {
+            if (shouldInline) {
+                hasLayoutChanged = moveMediaIntoText(section) || hasLayoutChanged;
+                return;
+            }
+
+            hasLayoutChanged = restoreMedia(section) || hasLayoutChanged;
+        });
+
+        if (hasLayoutChanged) {
+            document.dispatchEvent(new CustomEvent('review-archive-inline-media-layout-change'));
+        }
+    }
+
+    const scheduleArchiveInlineMediaSync = createAnimationFrameScheduler(syncArchiveInlineMedia);
+
+    syncArchiveInlineMedia();
+    window.addEventListener('resize', scheduleArchiveInlineMediaSync);
+    document.addEventListener('review-archive-state-change', scheduleArchiveInlineMediaSync);
+}
+
 function initReviewCardToggles() {
     const archive = document.getElementById('reviewArchive');
     const archiveCards = document.querySelectorAll('.review-archive .charity-projects-section[id^="review-"]');
@@ -306,6 +444,11 @@ function initReviewCardToggles() {
     });
     document.addEventListener('review-archive-state-change', function(event) {
         if (event.detail && event.detail.expanded) {
+            scheduleSyncAllCardToggles();
+        }
+    });
+    document.addEventListener('review-archive-inline-media-layout-change', function() {
+        if (!archive.hidden) {
             scheduleSyncAllCardToggles();
         }
     });
