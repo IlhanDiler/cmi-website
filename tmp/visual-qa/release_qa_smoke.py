@@ -241,7 +241,7 @@ def scope_name(browser_target, name):
     return f"{browser_target}:{name}"
 
 
-def get_mobile_context_options(browser_target, device):
+def get_device_context_options(browser_target, device):
     context_options = dict(device)
 
     if browser_target == "firefox":
@@ -598,7 +598,7 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
 
 
 async def check_index_mobile(browser, issues, screenshots, browser_target, device):
-    context = await browser.new_context(**get_mobile_context_options(browser_target, device), locale="de-DE")
+    context = await browser.new_context(**get_device_context_options(browser_target, device), locale="de-DE")
     page = await context.new_page()
     attach_page_monitors(page, issues, scope_name(browser_target, "index-mobile"))
 
@@ -645,6 +645,40 @@ async def check_index_mobile(browser, issues, screenshots, browser_target, devic
 
     mobile_shot = OUT_DIR / f"index-release-mobile-{browser_target}.png"
     await save_page_screenshot(page, mobile_shot, screenshots, browser_target)
+
+    await context.close()
+
+
+async def check_index_tablet(browser, issues, screenshots, browser_target, device):
+    context = await browser.new_context(**get_device_context_options(browser_target, device), locale="de-DE")
+    page = await context.new_page()
+    attach_page_monitors(page, issues, scope_name(browser_target, "index-tablet"))
+
+    await page.goto(f"{BASE_URL}/index.html", wait_until="domcontentloaded")
+    await page.wait_for_timeout(1200)
+
+    for selector, label in (
+        (".navbar", "index-tablet navigation"),
+        (".hero-bg", "index-tablet hero"),
+        (".news-feed-section", "index-tablet news"),
+        (".event-section", "index-tablet events"),
+    ):
+        await wait_visible(page, selector, scope_name(browser_target, label), issues)
+
+    await page.locator("#langEn").click()
+    await page.wait_for_timeout(250)
+
+    visible_contact_title = await first_visible_text(page, ".contact-info-title[data-lang]")
+    if visible_contact_title != "Contact":
+        add_issue(
+            issues,
+            "medium",
+            scope_name(browser_target, "index-tablet language"),
+            f"Expected English contact title on tablet, got: {visible_contact_title or '[empty]'}",
+        )
+
+    tablet_shot = OUT_DIR / f"index-release-tablet-portrait-{browser_target}.png"
+    await save_page_screenshot(page, tablet_shot, screenshots, browser_target)
 
     await context.close()
 
@@ -838,6 +872,7 @@ async def run_release_smoke_for_target(playwright, requested_target):
     try:
         await check_index_desktop(browser, issues, screenshots, resolved_target)
         await check_index_mobile(browser, issues, screenshots, resolved_target, playwright.devices["iPhone 12"])
+        await check_index_tablet(browser, issues, screenshots, resolved_target, playwright.devices["iPad Pro 11"])
         await check_subpage(browser, issues, screenshots, resolved_target, "chronik.html", "chronik-release", ".timeline-section", "The CMI Timeline")
         await check_subpage(browser, issues, screenshots, resolved_target, "datenschutz.html", "datenschutz-release", ".subpage-hero--privacy", "Privacy Policy")
         await check_subpage(browser, issues, screenshots, resolved_target, "impressum.html", "impressum-release", ".subpage-hero--imprint", "Legal Notice")

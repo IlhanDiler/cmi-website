@@ -78,10 +78,11 @@ Diese Fundliste uebersetzt den Folgeplan aus [docs/RESPONSIVE-UX-UI-10-10-PLAN.m
 - Ergebnis: keine gemeldeten Issues; die aktuellen Screenshots und das QA-Protokoll liegen unter `tmp/visual-qa/`.
 - Am 2026-04-11 wurden die Checks erneut als strikter Browser-Matrix-Run in Edge, Chrome und Firefox sowie als CI-naher Gate-Run in Chromium und Firefox mit `QA_FAIL_ON_ISSUES=1` gegen denselben lokalen Preview-Server gefahren.
 - Ergebnis auch am 2026-04-11: weiterhin 0 gemeldete Issues; die aktualisierten Screenshots und das QA-Protokoll liegen unter `tmp/visual-qa/`.
+- Am 2026-04-11 wurde der Matrixlauf zusaetzlich um einen Tablet-Portrait-Screenshot pro Browser erweitert (`index-release-tablet-portrait-*`); der erneute strikte Browser-Matrix-Run in Edge, Chrome und Firefox blieb weiterhin bei 0 gemeldeten Issues.
 
 ## Naechster Fokus
 
 Der naechste sinnvolle Arbeitsschritt nach den jetzt dokumentierten Folgeblock-Fixes ist:
 
 1. Die verfeinerten Homepage-, Review- und Share-/Export-Flows im naechsten echten Redaktionsdurchlauf beobachten und nur bei realen Reibungen weiter nachjustieren.
-2. Nach dem abgeschlossenen dritten Week-2-Basispass (Event, Kontakt, Footer) als naechstes einen gezielten Matrix-Screenshot-Refresh fuer Desktop/Tablet/Mobile laufen lassen und nur dann weitere UI-Politur nachziehen, wenn dort noch klare Prioritaets- oder Reflow-Brueche sichtbar bleiben.
+2. Nach dem abgeschlossenen Desktop-/Tablet-/Mobile-Refresh nur dann weitere UI-Politur nachziehen, wenn in den naechsten echten Content- oder Redaktionsaenderungen wieder sichtbare Prioritaets- oder Reflow-Brueche auftreten.
