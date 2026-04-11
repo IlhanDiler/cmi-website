@@ -1,0 +1,167 @@
+{
+  "targets": {
+    "homepage-review-overview-copy": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "review-overview-kicker",
+          "text": {
+            "de": "Chronik",
+            "en": "Timeline",
+            "fr": "Chronique",
+            "ln": "Lisolo ya bambula",
+            "it": "Cronaca",
+            "tr": "Kronoloji",
+            "uk": "Хроніка"
+          }
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "className": "review-overview-title",
+          "text": {
+            "de": "Seit 1981",
+            "en": "Since 1981",
+            "fr": "Depuis 1981",
+            "ln": "Uta 1981",
+            "it": "Dal 1981",
+            "tr": "1981'den beri",
+            "uk": "З 1981 року"
+          }
+        },
+        {
+          "type": "paragraph",
+          "className": "review-overview-intro",
+          "allowHtml": true,
+          "langAttribute": true,
+          "text": {
+            "de": "Seit 1981 wachsen wir als Gemeinschaft durch Musik, persönliche Begegnungen und Konzerte, mit denen wir immer wieder auch andere unterstützen.",
+            "en": "Since 1981, we have grown as a community through music, personal encounters, and concerts that help support others.",
+            "fr": "Depuis 1981, notre communaute grandit par la musique, les rencontres et des concerts qui nous permettent aussi de soutenir les autres.",
+            "ln": "Uta 1981, lisanga na biso ezali kokola na nzela ya miziki, bokutani ya bato mpe ba konser oyo esungaka bato mosusu.",
+            "it": "Dal 1981 cresciamo come comunità attraverso la musica, gli incontri e i concerti con cui sosteniamo anche gli altri.",
+            "tr": "1981'den beri müzik, kişi&shy;sel buluşmalar ve başkalarına da destek veren konserler sayesinde bir toplu&shy;luk olarak büyüyoruz.",
+            "uk": "З 1981 року ми зростаємо як спільнота через музику, особисті зустрічі та концерти, якими підтримуємо інших."
+          }
+        },
+        {
+          "type": "group",
+          "className": "review-overview-highlights",
+          "children": [
+            {
+              "type": "group",
+              "tagName": "article",
+              "className": "review-overview-highlight",
+              "children": [
+                {
+                  "type": "heading",
+                  "level": 3,
+                  "className": "review-overview-highlight-title",
+                  "text": {
+                    "de": "Gemeinsames Musizieren",
+                    "en": "Making music together",
+                    "fr": "Faire de la musique ensemble",
+                    "ln": "Kosala miziki elongo",
+                    "it": "Musica condivisa",
+                    "tr": "Birlikte müzik yapmak",
+                    "uk": "Спільне музикування"
+                  }
+                },
+                {
+                  "type": "paragraph",
+                  "className": "review-overview-highlight-copy",
+                  "allowHtml": true,
+                  "langAttribute": true,
+                  "text": {
+                    "de": "Regelmäßige Proben, gemeinsames Lernen und Auftritte haben uns über die Jahre als Ensemble geprägt.",
+                    "en": "Regular rehearsals, shared learning, and performances have shaped us as an ensemble over the years.",
+                    "fr": "Les repetitions regulieres, l'apprentissage en commun et les concerts ont peu a peu forge notre identite d'ensemble.",
+                    "ln": "Ba repetision ya mbala na mbala, boyekoli elongo mpe ba konser esali ete lisanga na biso ekoma makasi.",
+                    "it": "Prove regolari, crescita condivisa e concerti hanno plasmato nel tempo la nostra identità di ensemble.",
+                    "tr": "Düzenli provalar, birlikte öğrenme ve sahne dene&shy;yimleri bizi yıllar içinde güçlü bir toplu&shy;luğa dönüştürdü.",
+                    "uk": "Регулярні репетиції, спільне навчання й виступи протягом років сформували нас як ансамбль."
+                  }
+                }
+              ]
+            },
+            {
+              "type": "group",
+              "tagName": "article",
+              "className": "review-overview-highlight",
+              "children": [
+                {
+                  "type": "heading",
+                  "level": 3,
+                  "className": "review-overview-highlight-title",
+                  "text": {
+                    "de": "Internationale Begegnungen",
+                    "en": "International encounters",
+                    "fr": "Rencontres internationales",
+                    "ln": "Bokutani ya mokili mobimba",
+                    "it": "Incontri internazionali",
+                    "tr": "Uluslararası buluşmalar",
+                    "uk": "Міжнародні зустрічі"
+                  }
+                },
+                {
+                  "type": "paragraph",
+                  "className": "review-overview-highlight-copy",
+                  "allowHtml": true,
+                  "langAttribute": true,
+                  "text": {
+                    "de": "Konzertreisen, Partnerschaften und gemeinsame Projekte haben über die Jahre Freundschaften und enge Verbindungen entstehen lassen.",
+                    "en": "Concert tours, partnerships, and shared projects have developed over the years into friendships and close connections.",
+                    "fr": "Les tournees, les partenariats et les projets menes ensemble ont fait naitre au fil des ans des amities durables et des liens tres forts.",
+                    "ln": "Ba mobembo ya konser, boyokani mpe misala ya elongo ememi na boninga mpe boyokani ya makasi.",
+                    "it": "Viaggi musicali, collaborazioni e progetti condivisi hanno fatto nascere nel tempo amicizie durature e legami profondi.",
+                    "tr": "Konser gezileri, iş bir&shy;likleri ve ortak projeler zamanla dost&shy;luklara ve kalıcı bağlara dönüştü.",
+                    "uk": "Концертні подорожі, партнерства та спільні проєкти з роками переросли у дружбу й тісні зв'язки."
+                  }
+                }
+              ]
+            },
+            {
+              "type": "group",
+              "tagName": "article",
+              "className": "review-overview-highlight",
+              "children": [
+                {
+                  "type": "heading",
+                  "level": 3,
+                  "className": "review-overview-highlight-title",
+                  "text": {
+                    "de": "Benefizprojekte",
+                    "en": "Benefit projects",
+                    "fr": "Projets solidaires",
+                    "ln": "Misala ya lisungi",
+                    "it": "Iniziative benefiche",
+                    "tr": "Yardım projeleri",
+                    "uk": "Благодійні проєкти"
+                  }
+                },
+                {
+                  "type": "paragraph",
+                  "className": "review-overview-highlight-copy",
+                  "allowHtml": true,
+                  "langAttribute": true,
+                  "text": {
+                    "de": "Mit Konzerten und gemeinsamen Aktionen tragen wir seit vielen Jahren soziale und kulturelle Anliegen mit.",
+                    "en": "Through concerts and shared initiatives, we have supported social and cultural causes for many years.",
+                    "fr": "Par des concerts et des actions communes, nous soutenons depuis de nombreuses annees des initiatives sociales et culturelles.",
+                    "ln": "Na ba konser mpe misala ya elongo, banda bambula mingi tozali kosunga makambo ya bato mpe ya mimeseno.",
+                    "it": "Da molti anni sosteniamo progetti sociali e culturali attraverso concerti e iniziative condivise.",
+                    "tr": "Konserler ve ortak giri&shy;şimlerle uzun yıllardır sosyal ve kültürel giri&shy;şimleri destek&shy;liyoruz.",
+                    "uk": "Концертами та спільними ініціативами ми вже багато років підтримуємо соціальні й культурні справи."
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
