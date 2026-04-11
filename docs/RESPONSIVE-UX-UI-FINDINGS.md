@@ -84,4 +84,4 @@ Diese Fundliste uebersetzt den Folgeplan aus [docs/RESPONSIVE-UX-UI-10-10-PLAN.m
 Der naechste sinnvolle Arbeitsschritt nach den jetzt dokumentierten Folgeblock-Fixes ist:
 
 1. Die verfeinerten Homepage-, Review- und Share-/Export-Flows im naechsten echten Redaktionsdurchlauf beobachten und nur bei realen Reibungen weiter nachjustieren.
-2. Nach dem abgeschlossenen zweiten Week-2-Basispass (Aktuelles, Musikfamilie, Repertoire) als naechstes nur noch die verbleibenden Prioritaets- und Dichtekanten in Event-/Kontakt- und Footer-Nahtstellen nachziehen, falls neue Matrix-Screenshots dort weiterhin Brueche zeigen.
+2. Nach dem abgeschlossenen dritten Week-2-Basispass (Event, Kontakt, Footer) als naechstes einen gezielten Matrix-Screenshot-Refresh fuer Desktop/Tablet/Mobile laufen lassen und nur dann weitere UI-Politur nachziehen, wenn dort noch klare Prioritaets- oder Reflow-Brueche sichtbar bleiben.

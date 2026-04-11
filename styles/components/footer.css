@@ -1,8 +1,8 @@
 /* Footer module */
 
 .site-footer {
-    --site-footer-padding: 42px 0 18px;
-    --site-footer-padding-bottom: 16px;
+    --site-footer-padding: calc(var(--layout-section-gap-desktop) - 24px) 0 20px;
+    --site-footer-padding-bottom: 18px;
     --site-footer-surface: #0e1618;
     --site-footer-border-color: rgba(255, 255, 255, 0.08);
     --site-footer-heading-color: #ffffff;
@@ -38,7 +38,7 @@
 }
 
 .site-footer__inner {
-    max-width: 1120px;
+    max-width: var(--layout-shell-max-width);
     margin: 0 auto;
     padding: 0 16px;
 }
@@ -266,7 +266,7 @@
 
 @media (min-width: 1180px) {
     .site-footer {
-        --site-footer-padding: 58px 0 20px;
+        --site-footer-padding: calc(var(--layout-section-gap-desktop) - 10px) 0 22px;
         --site-footer-surface: linear-gradient(180deg, #0a1216 0%, #0d171c 100%);
         --site-footer-border-color: rgba(255, 255, 255, 0.06);
         --site-footer-link-bg: transparent;
@@ -404,7 +404,7 @@
 
 @media (max-width: 600px) {
     .site-footer {
-        --site-footer-padding: 34px 0 14px;
+        --site-footer-padding: calc(var(--layout-section-gap-mobile) - 12px) 0 14px;
     }
 
     .site-footer__grid {
