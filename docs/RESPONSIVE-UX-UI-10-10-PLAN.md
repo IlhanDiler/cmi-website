@@ -143,6 +143,7 @@ Budget: 12 bis 15 Stunden
 - Abgeschlossen: Gemeinsame Layout-Tokens (`--layout-shell-*`, `--layout-section-gap-*`) in [styles/premium-foundation.css](../styles/premium-foundation.css) eingefuehrt und in [styles/components/subpages.css](../styles/components/subpages.css) sowie [styles/components/timeline.css](../styles/components/timeline.css) angebunden.
 - Abgeschlossen: Homepage-Hero-Panel und Mobile-Caption in [styles/components/hero.css](../styles/components/hero.css) auf ruhigere Breiten-/Textbalance feinjustiert.
 - Abgeschlossen: Zweiter technischer Week-2-Pass fuer Homepage-Kartencluster umgesetzt; [styles/components/review.css](../styles/components/review.css), [styles/components/music-family.css](../styles/components/music-family.css) und [styles/components/repertoire.css](../styles/components/repertoire.css) nutzen jetzt dieselbe Shell- und Rhythmik-Logik fuer konsistentere Dichte zwischen Aktuelles, Musikfamilie und Repertoire.
+- Abgeschlossen: Dritter technischer Week-2-Pass fuer die Nahtstellen Event -> Kontakt -> Footer umgesetzt; [styles/components/events.css](../styles/components/events.css), [styles/components/contact.css](../styles/components/contact.css) und [styles/components/footer.css](../styles/components/footer.css) sind jetzt auf denselben Abschnittsrhythmus und konsistentere Shell-Breiten abgestimmt.
 - Validiert: Release-Smoke nach dem CSS-Pass lief lokal erneut mit 0 Funden durch.
 
 Arbeitspaket:

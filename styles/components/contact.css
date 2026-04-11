@@ -10,12 +10,12 @@
     --contact-radius-small: 22px;
     --contact-lead-gap: 20px;
     --contact-grid-gap: 18px;
-    --contact-section-width: min(1120px, calc(100% - 40px));
+    --contact-section-width: var(--layout-shell-width);
     --contact-section-padding: 0 20px;
     background:
         radial-gradient(circle at top right, rgba(10, 117, 109, 0.08) 0%, transparent 28%),
         linear-gradient(180deg, #eef3ef 0%, #f7f8f5 100%);
-    padding: 28px 0 52px;
+    padding: calc(var(--layout-section-gap-desktop) - 36px) 0 calc(var(--layout-section-gap-desktop) - 12px);
 }
 
 .contact-info-container {
@@ -349,7 +349,7 @@
         --contact-section-padding: 0;
         --contact-lead-gap: 24px;
         --contact-grid-gap: 20px;
-        padding: 84px 0 92px;
+        padding: var(--layout-section-gap-desktop) 0 calc(var(--layout-section-gap-desktop) + 6px);
     }
 
     .contact-info-kicker,
@@ -409,8 +409,8 @@
 
 @media (max-width: 900px) {
     .contact-info-section {
-        padding-top: 24px;
-        padding-bottom: 24px;
+        padding-top: var(--layout-section-gap-tablet);
+        padding-bottom: calc(var(--layout-section-gap-tablet) - 18px);
     }
 
     .contact-info-lead {
@@ -428,8 +428,8 @@
         --contact-section-padding: 0 14px;
         --contact-lead-gap: 14px;
         --contact-grid-gap: 14px;
-        padding-top: 18px;
-        padding-bottom: 14px;
+        padding-top: var(--layout-section-gap-mobile);
+        padding-bottom: calc(var(--layout-section-gap-mobile) - 20px);
     }
 
     .contact-info-kicker,

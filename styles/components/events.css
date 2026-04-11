@@ -112,7 +112,7 @@
 }
 
 .event-section {
-    --event-shell-width: min(1240px, calc(100% - 40px));
+    --event-shell-width: var(--layout-shell-width);
     --event-shell-padding: 0 20px;
     --event-list-gap: 24px;
     --event-card-radius: 28px;
@@ -130,7 +130,7 @@
     background:
         radial-gradient(circle at top left, rgba(10, 117, 109, 0.08) 0%, transparent 32%),
         linear-gradient(180deg, rgba(248, 250, 247, 0.98) 0%, rgba(239, 246, 243, 0.98) 100%);
-    padding: 64px 0;
+    padding: var(--layout-section-gap-desktop) 0;
 }
 
 .event-section-intro,
@@ -587,8 +587,8 @@
     }
 
     .event-section {
-        --event-shell-width: min(1360px, calc(100% - 56px));
-        padding: 78px 0 68px;
+        --event-shell-width: min(1360px, calc(100% - (var(--desktop-content-side-gap) * 2)));
+        padding: var(--layout-section-gap-desktop) 0 calc(var(--layout-section-gap-desktop) - 8px);
     }
 
     .event-section-intro,
@@ -650,7 +650,7 @@
     }
 
     .event-section {
-        padding: 30px 0;
+        padding: var(--layout-section-gap-tablet) 0;
     }
 
     .event-section-intro {
@@ -742,7 +742,7 @@
         --event-card-radius: 20px;
         --event-content-padding: 18px 16px 16px;
         --event-poster-radius: 14px;
-        padding: 26px 0;
+        padding: var(--layout-section-gap-mobile) 0;
     }
 
     .event-title {
@@ -818,7 +818,7 @@
         --event-content-padding: 18px 16px 16px;
         --event-poster-width: min(100%, 320px);
         --event-poster-radius: 20px;
-        padding: 36px 0 34px;
+        padding: var(--layout-section-gap-mobile) 0 calc(var(--layout-section-gap-mobile) - 6px);
     }
 
     .event-badge {
