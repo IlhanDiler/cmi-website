@@ -291,6 +291,7 @@ function syncInstagramExportButtonHref(button, language) {
             return;
         }
 
+        exportUrl.searchParams.set('format', 'story');
         exportUrl.searchParams.set('lang', language);
         exportUrl.searchParams.set('v', instagramExportRevision);
 
@@ -307,6 +308,7 @@ function syncInstagramExportButtonHref(button, language) {
 
         try {
             const fallbackUrl = new URL(button.dataset.exportHrefBase.replace(/^[./]+/, ''), `${productionSiteOrigin}/`);
+            fallbackUrl.searchParams.set('format', 'story');
             fallbackUrl.searchParams.set('lang', language);
             fallbackUrl.searchParams.set('v', instagramExportRevision);
             button.setAttribute('href', fallbackUrl.href);

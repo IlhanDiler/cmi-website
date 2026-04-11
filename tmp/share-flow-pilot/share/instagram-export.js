@@ -172,8 +172,11 @@ const INSTAGRAM_STORY_EXPORT = {
 const SITE_ASSET_PATH_PATTERN = /^\/(bilder|files)\//i;
 const PRODUCTION_SITE_HOSTNAMES = new Set(["www.cmi-ochsenfurt.de", "cmi-ochsenfurt.de"]);
 const BRAND_LOGO_URL = "/files/logo_cmi1%20-%20schwarz.svg";
+const EXPORT_WEBSITE_LABEL = "www.cmi-ochsenfurt.de";
+const INSTAGRAM_FEED_LANDSCAPE_THRESHOLD = 1.08;
 const initialSearchParams = new URLSearchParams(window.location.search);
 const preferredPostLanguage = getPreferredPostLanguage();
+const preferredInitialExportFormat = getInitialExportFormat();
 
 const elements = {
     postGrid: document.getElementById("post-grid"),
@@ -535,6 +538,12 @@ function getInitialSearchQuery() {
     return collapseWhitespace(initialSearchParams.get("post") || initialSearchParams.get("search") || "");
 }
 
+function getInitialExportFormat() {
+    const rawFormat = collapseWhitespace(initialSearchParams.get("format") || initialSearchParams.get("view") || "").toLowerCase();
+
+    return rawFormat === "story" ? "story" : "feed";
+}
+
 function scrollToFirstVisiblePost() {
     const firstCard = elements.postGrid.querySelector(".post-card");
     if (!firstCard) {
@@ -543,6 +552,24 @@ function scrollToFirstVisiblePost() {
 
     window.requestAnimationFrame(() => {
         firstCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+}
+
+function focusFirstVisibleExportControl(format) {
+    const firstCard = elements.postGrid.querySelector(".post-card");
+    if (!firstCard) {
+        return;
+    }
+
+    const selector = format === "story" ? ".post-card__export-story" : ".post-card__export-feed";
+    const targetControl = firstCard.querySelector(selector);
+
+    if (!(targetControl instanceof HTMLElement)) {
+        return;
+    }
+
+    window.requestAnimationFrame(() => {
+        targetControl.focus({ preventScroll: true });
     });
 }
 
@@ -1140,6 +1167,162 @@ function drawImageStage(ctx, image, options) {
     ctx.restore();
 }
 
+function getImageAspectRatio(imageSource) {
+    if (typeof imageSource === "number") {
+        return Number.isFinite(imageSource) && imageSource > 0 ? imageSource : 1;
+    }
+
+    const width = Number(imageSource?.naturalWidth || imageSource?.width || 0);
+    const height = Number(imageSource?.naturalHeight || imageSource?.height || 0);
+
+    if (!width || !height) {
+        return 1;
+    }
+
+    return width / height;
+}
+
+function isLandscapeFeedImage(imageSource) {
+    return getImageAspectRatio(imageSource) > INSTAGRAM_FEED_LANDSCAPE_THRESHOLD;
+}
+
+function syncFeedPreviewLayout(previewElement, previewImageElement) {
+    if (!(previewElement instanceof Element) || !(previewImageElement instanceof HTMLImageElement)) {
+        return;
+    }
+
+    const applyLayout = () => {
+        previewElement.classList.toggle("insta-preview--landscape", isLandscapeFeedImage(previewImageElement));
+    };
+
+    if (previewImageElement.complete && previewImageElement.naturalWidth > 0 && previewImageElement.naturalHeight > 0) {
+        applyLayout();
+        return;
+    }
+
+    previewImageElement.addEventListener("load", applyLayout, { once: true });
+    previewImageElement.addEventListener("error", () => {
+        previewElement.classList.remove("insta-preview--landscape");
+    }, { once: true });
+}
+
+function drawFeedBackdropImage(ctx, image, width, height) {
+    const bleed = 56;
+
+    ctx.save();
+    ctx.globalAlpha = 0.42;
+    ctx.filter = "blur(28px) saturate(0.82)";
+    drawCoverImage(ctx, image, -bleed, -bleed, width + bleed * 2, height + bleed * 2);
+    ctx.restore();
+
+    const softOverlay = ctx.createLinearGradient(0, 0, 0, height);
+    softOverlay.addColorStop(0, "rgba(245, 250, 248, 0.18)");
+    softOverlay.addColorStop(1, "rgba(245, 250, 248, 0.58)");
+    ctx.fillStyle = softOverlay;
+    ctx.fillRect(0, 0, width, height);
+
+    const topAura = ctx.createRadialGradient(width * 0.2, height * 0.14, 30, width * 0.2, height * 0.14, width * 0.46);
+    topAura.addColorStop(0, "rgba(21, 155, 140, 0.18)");
+    topAura.addColorStop(1, "rgba(21, 155, 140, 0)");
+    ctx.fillStyle = topAura;
+    ctx.fillRect(0, 0, width, height);
+
+    const bottomAura = ctx.createRadialGradient(width * 0.82, height * 0.84, 36, width * 0.82, height * 0.84, width * 0.38);
+    bottomAura.addColorStop(0, "rgba(17, 120, 109, 0.12)");
+    bottomAura.addColorStop(1, "rgba(17, 120, 109, 0)");
+    ctx.fillStyle = bottomAura;
+    ctx.fillRect(0, 0, width, height);
+}
+
+function drawFeedWebsitePill(ctx, canvasWidth, canvasHeight) {
+    const pillHeight = 76;
+    const pillPaddingX = 32;
+    const pillFont = "800 28px 'Segoe UI', sans-serif";
+
+    ctx.save();
+    ctx.font = pillFont;
+    const pillWidth = ctx.measureText(EXPORT_WEBSITE_LABEL).width + pillPaddingX * 2;
+    ctx.restore();
+
+    const pillX = (canvasWidth - pillWidth) / 2;
+    const pillY = canvasHeight - pillHeight - 36;
+
+    drawRoundedPanel(ctx, {
+        x: pillX,
+        y: pillY,
+        width: pillWidth,
+        height: pillHeight,
+        radius: pillHeight / 2,
+        fillStyle: "rgba(255, 255, 255, 0.84)",
+        shadowColor: "rgba(18, 65, 58, 0.14)",
+        shadowBlur: 26,
+        shadowOffsetY: 10
+    });
+
+    ctx.save();
+    ctx.fillStyle = "#11786d";
+    ctx.font = pillFont;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(EXPORT_WEBSITE_LABEL, pillX + pillWidth / 2, pillY + pillHeight / 2 + 1);
+    ctx.restore();
+}
+
+function drawDefaultInstagramFeedExport(ctx, heroImage, canvasWidth, canvasHeight) {
+    ctx.fillStyle = "#f4fbfa";
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+    const backgroundGradient = ctx.createLinearGradient(0, 0, 0, canvasHeight);
+    backgroundGradient.addColorStop(0, "#fdfefe");
+    backgroundGradient.addColorStop(1, "#e8f3f1");
+    ctx.fillStyle = backgroundGradient;
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+    const topAura = ctx.createRadialGradient(170, 120, 36, 170, 120, 460);
+    topAura.addColorStop(0, "rgba(21, 155, 140, 0.18)");
+    topAura.addColorStop(1, "rgba(21, 155, 140, 0)");
+    ctx.fillStyle = topAura;
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+    const bottomAura = ctx.createRadialGradient(canvasWidth - 150, canvasHeight - 120, 40, canvasWidth - 150, canvasHeight - 120, 360);
+    bottomAura.addColorStop(0, "rgba(17, 120, 109, 0.12)");
+    bottomAura.addColorStop(1, "rgba(17, 120, 109, 0)");
+    ctx.fillStyle = bottomAura;
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+    drawImageStage(ctx, heroImage, {
+        x: 0,
+        y: 0,
+        width: canvasWidth,
+        height: canvasHeight,
+        framePadding: 48,
+        frameInset: 24,
+        frameRadius: 44,
+        backdropOpacity: 0.18,
+        backdropTint: "rgba(8, 30, 27, 0.08)",
+        frameFill: "rgba(255, 255, 255, 0.3)"
+    });
+}
+
+function drawLandscapeInstagramFeedExport(ctx, heroImage, canvasWidth, canvasHeight) {
+    const backgroundGradient = ctx.createLinearGradient(0, 0, 0, canvasHeight);
+    backgroundGradient.addColorStop(0, "#f6fbf9");
+    backgroundGradient.addColorStop(1, "#edf5f2");
+    ctx.fillStyle = backgroundGradient;
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+    drawFeedBackdropImage(ctx, heroImage, canvasWidth, canvasHeight);
+
+    ctx.save();
+    ctx.shadowColor = "rgba(18, 65, 58, 0.22)";
+    ctx.shadowBlur = 38;
+    ctx.shadowOffsetY = 18;
+    drawContainedImage(ctx, heroImage, 44, 72, canvasWidth - 88, canvasHeight - 178);
+    ctx.restore();
+
+    drawFeedWebsitePill(ctx, canvasWidth, canvasHeight);
+}
+
 function drawRoundedPanel(ctx, options) {
     const {
         x,
@@ -1332,39 +1515,11 @@ async function exportInstagramImage(post, trigger) {
         canvas.height = INSTAGRAM_EXPORT.height;
         const ctx = canvas.getContext("2d");
 
-        ctx.fillStyle = "#f4fbfa";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        const backgroundGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-        backgroundGradient.addColorStop(0, "#fdfefe");
-        backgroundGradient.addColorStop(1, "#e8f3f1");
-        ctx.fillStyle = backgroundGradient;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        const topAura = ctx.createRadialGradient(170, 120, 36, 170, 120, 460);
-        topAura.addColorStop(0, "rgba(21, 155, 140, 0.18)");
-        topAura.addColorStop(1, "rgba(21, 155, 140, 0)");
-        ctx.fillStyle = topAura;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        const bottomAura = ctx.createRadialGradient(canvas.width - 150, canvas.height - 120, 40, canvas.width - 150, canvas.height - 120, 360);
-        bottomAura.addColorStop(0, "rgba(17, 120, 109, 0.12)");
-        bottomAura.addColorStop(1, "rgba(17, 120, 109, 0)");
-        ctx.fillStyle = bottomAura;
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        drawImageStage(ctx, heroImage.value, {
-            x: 0,
-            y: 0,
-            width: canvas.width,
-            height: canvas.height,
-            framePadding: 48,
-            frameInset: 24,
-            frameRadius: 44,
-            backdropOpacity: 0.18,
-            backdropTint: "rgba(8, 30, 27, 0.08)",
-            frameFill: "rgba(255, 255, 255, 0.3)"
-        });
+        if (isLandscapeFeedImage(heroImage.value)) {
+            drawLandscapeInstagramFeedExport(ctx, heroImage.value, canvas.width, canvas.height);
+        } else {
+            drawDefaultInstagramFeedExport(ctx, heroImage.value, canvas.width, canvas.height);
+        }
 
         const link = document.createElement("a");
         link.href = canvas.toDataURL("image/png");
@@ -1580,6 +1735,7 @@ function renderPosts(posts) {
         const formatNote = fragment.querySelector(".post-card__format-note");
         const feedPreviewOption = fragment.querySelector(".preview-option--feed");
         const feedPreview = fragment.querySelector(".insta-preview");
+        const previewBackdropImage = fragment.querySelector(".insta-preview__backdrop-image");
         const previewImage = fragment.querySelector(".insta-preview__image");
         const previewMeta = fragment.querySelector(".insta-preview__meta");
         const previewTitle = fragment.querySelector(".insta-preview__title");
@@ -1623,6 +1779,13 @@ function renderPosts(posts) {
         caption.value = post.caption;
         caption.setAttribute("aria-labelledby", captionLabel ? captionLabelId : titleId);
         caption.setAttribute("title", `Instagram-Caption: ${postLabel}`);
+        if (previewBackdropImage) {
+            previewBackdropImage.src = post.image;
+            previewBackdropImage.alt = "";
+            previewBackdropImage.setAttribute("aria-hidden", "true");
+            previewBackdropImage.loading = "lazy";
+            previewBackdropImage.decoding = "async";
+        }
         previewImage.src = post.image;
         previewImage.alt = "";
         previewImage.setAttribute("aria-hidden", "true");
@@ -1649,6 +1812,7 @@ function renderPosts(posts) {
 
         if (feedPreview) {
             feedPreview.setAttribute("aria-hidden", "true");
+            syncFeedPreviewLayout(feedPreview, previewImage);
         }
 
         if (storyPreview) {
@@ -1670,7 +1834,7 @@ function renderPosts(posts) {
         exportStoryButton.setAttribute("aria-label", `Story PNG exportieren: ${postLabel}`);
         exportStoryButton.setAttribute("title", `Story PNG exportieren: ${postLabel}`);
 
-        let selectedFormat = "feed";
+        let selectedFormat = preferredInitialExportFormat;
 
         function syncSelectedFormat(format) {
             selectedFormat = format === "story" ? "story" : "feed";
@@ -1805,7 +1969,12 @@ async function initialize() {
             elements.postSearch.value = initialSearchQuery;
             applySearchFilter();
             scrollToFirstVisiblePost();
+            focusFirstVisibleExportControl(preferredInitialExportFormat);
             return;
+        }
+
+        if (preferredInitialExportFormat === "story") {
+            focusFirstVisibleExportControl(preferredInitialExportFormat);
         }
 
         syncExportResultsStatus();
