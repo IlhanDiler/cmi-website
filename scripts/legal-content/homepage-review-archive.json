@@ -1,0 +1,313 @@
+{
+  "targets": {
+    "homepage-review-archive-eyebrow": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "langAttribute": true,
+          "text": {
+            "de": "Mehr entdecken",
+            "en": "More to discover",
+            "fr": "A decouvrir aussi",
+            "ln": "Makambo mosusu",
+            "it": "Da scoprire anche",
+            "tr": "Daha fazlası",
+            "uk": "Ще більше спогадів"
+          }
+        }
+      ]
+    },
+    "homepage-review-archive-title": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "langAttribute": true,
+          "text": {
+            "de": "Weitere Rückblicke aus 2025 und früher",
+            "en": "Further highlights from 2025 and earlier",
+            "fr": "D'autres temps forts de 2025 et des annees precedentes",
+            "ln": "Makambo mosusu ya 2025 mpe bambula oyo eleki",
+            "it": "Altri momenti del 2025 e degli anni passati",
+            "tr": "2025 ve daha öncesinden diğer öne çıkanlar",
+            "uk": "Інші огляди за 2025 рік і попередні роки"
+          }
+        }
+      ]
+    },
+    "homepage-review-archive-copy": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "langAttribute": true,
+          "text": {
+            "de": "Die neuesten Einblicke bleiben direkt sichtbar. Ältere Konzertberichte, Benefizaktionen und Ausflüge kannst du bei Bedarf aufklappen.",
+            "en": "The latest highlights remain visible right away. Older concert reports, charity projects, and excursions can be expanded whenever you like.",
+            "fr": "Les temps forts les plus recents restent visibles d'emblee. Vous pouvez ouvrir si besoin d'anciens comptes rendus de concerts, actions solidaires et sorties.",
+            "ln": "Makambo ya sika emonanaka mbala moko. Soki olingi, okoki kofungola lisusu ba rapor ya ba konser ya kala, misala ya lisungi mpe ba mobembo ya kala.",
+            "it": "I momenti più recenti restano subito visibili. Se vuoi, puoi aprire anche concerti, iniziative benefiche e gite degli anni passati.",
+            "tr": "En yeni öne çıkanlar doğrudan görünür kalır. Daha eski konser notlarını, yardım etkinliklerini ve gezileri istersen buradan görüntüleyebilirsin.",
+            "uk": "Найновіші враження видно одразу. Давніші концертні відгуки, благодійні акції та поїздки можна розгорнути за потреби."
+          }
+        }
+      ]
+    },
+    "homepage-review-archive-toggle-collapsed": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "langAttribute": true,
+          "text": {
+            "de": "Weitere Rückblicke anzeigen",
+            "en": "Show more highlights",
+            "fr": "Afficher d'autres temps forts",
+            "ln": "Mona makambo mosusu",
+            "it": "Mostra altri momenti salienti",
+            "tr": "Diğer öne çıkanları göster",
+            "uk": "Показати більше оглядів"
+          }
+        }
+      ]
+    },
+    "homepage-review-archive-toggle-expanded": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "langAttribute": true,
+          "text": {
+            "de": "Weniger Rückblicke anzeigen",
+            "en": "Show fewer highlights",
+            "fr": "Afficher moins de temps forts",
+            "ln": "Monisa moke makambo mosusu",
+            "it": "Mostra meno momenti salienti",
+            "tr": "Daha az göster",
+            "uk": "Показати менше оглядів"
+          }
+        }
+      ]
+    },
+    "homepage-review-caption-christmette-2025": {
+      "file": "index.html",
+      "indentSpaces": 20,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "text": {
+            "de": "Foto: Ilhan Diler",
+            "en": "Photo: Ilhan Diler",
+            "fr": "Photo : Ilhan Diler",
+            "ln": "Foto: Ilhan Diler",
+            "it": "Foto: Ilhan Diler",
+            "tr": "Fotoğraf: Ilhan Diler",
+            "uk": "Фото: Ільхан Ділер"
+          }
+        }
+      ]
+    },
+    "homepage-review-caption-nikolausfeier-2025": {
+      "file": "index.html",
+      "indentSpaces": 20,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "text": {
+            "de": "Foto: Astrid Eitschberger",
+            "en": "Photo: Astrid Eitschberger",
+            "fr": "Photo : Astrid Eitschberger",
+            "ln": "Foto: Astrid Eitschberger",
+            "it": "Foto: Astrid Eitschberger",
+            "tr": "Fotoğraf: Astrid Eitschberger",
+            "uk": "Фото: Астрід Айчберґер"
+          }
+        }
+      ]
+    },
+    "homepage-review-caption-weihnachtskonzert-2025": {
+      "file": "index.html",
+      "indentSpaces": 24,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "text": {
+            "de": "Foto: Emil Korbmann",
+            "en": "Photo: Emil Korbmann",
+            "fr": "Photo : Emil Korbmann",
+            "ln": "Foto: Emil Korbmann",
+            "it": "Foto: Emil Korbmann",
+            "tr": "Fotoğraf: Emil Korbmann",
+            "uk": "Фото: Еміль Корбманн"
+          }
+        }
+      ]
+    },
+    "homepage-review-caption-weihnachtsklaenge-an-der-furt-2025": {
+      "file": "index.html",
+      "indentSpaces": 24,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "text": {
+            "de": "Foto: Gertrud Friedrich",
+            "en": "Photo: Gertrud Friedrich",
+            "fr": "Photo : Gertrud Friedrich",
+            "ln": "Foto: Gertrud Friedrich",
+            "it": "Foto: Gertrud Friedrich",
+            "tr": "Fotoğraf: Gertrud Friedrich",
+            "uk": "Фото: Гертруд Фрідріх"
+          }
+        }
+      ]
+    },
+    "homepage-review-caption-vdk-weihnachtsfeier-2025": {
+      "file": "index.html",
+      "indentSpaces": 24,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "text": {
+            "de": "Foto: Helmut Gerbig",
+            "en": "Photo: Helmut Gerbig",
+            "fr": "Photo : Helmut Gerbig",
+            "ln": "Foto: Helmut Gerbig",
+            "it": "Foto: Helmut Gerbig",
+            "tr": "Fotoğraf: Helmut Gerbig",
+            "uk": "Фото: Гельмут Гербіг"
+          }
+        }
+      ]
+    },
+    "homepage-review-caption-johann-strauss-meintz-2025": {
+      "file": "index.html",
+      "indentSpaces": 24,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "text": {
+            "de": "Foto (Bert Eitschberger): alle Mitwirkenden nach dem Konzert im Hotel Meintz, Ochsenfurt",
+            "en": "Photo (Bert Eitschberger): all participants after the concert at Hotel Meintz, Ochsenfurt",
+            "fr": "Photo (Bert Eitschberger) : toutes les personnes participantes apres le concert a l'Hotel Meintz, Ochsenfurt",
+            "ln": "Foto (Bert Eitschberger): bato nyonso oyo basalaki nsima ya konser na Hotel Meintz, Ochsenfurt",
+            "it": "Foto (Bert Eitschberger): tutti i partecipanti dopo il concerto all'Hotel Meintz, Ochsenfurt",
+            "tr": "Fotoğraf (Bert Eitschberger): Hotel Meintz, Ochsenfurt'taki konserin ardından tüm katılımcılar",
+            "uk": "Фото (Берт Айчберґер): усі учасники після концерту в готелі «Майнц», Оксенфурт"
+          }
+        }
+      ]
+    },
+    "homepage-review-caption-johann-strauss-marktbreit-2025": {
+      "file": "index.html",
+      "indentSpaces": 24,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "text": {
+            "de": "Foto: Ilhan Diler",
+            "en": "Photo: Ilhan Diler",
+            "fr": "Photo : Ilhan Diler",
+            "ln": "Foto: Ilhan Diler",
+            "it": "Foto: Ilhan Diler",
+            "tr": "Fotoğraf: Ilhan Diler",
+            "uk": "Фото: Ільхан Ділер"
+          }
+        }
+      ]
+    },
+    "homepage-review-caption-wir-musizieren-gemeinsam-2025": {
+      "file": "index.html",
+      "indentSpaces": 24,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "text": {
+            "de": "Foto: Ilhan Diler",
+            "en": "Photo: Ilhan Diler",
+            "fr": "Photo : Ilhan Diler",
+            "ln": "Foto: Ilhan Diler",
+            "it": "Foto: Ilhan Diler",
+            "tr": "Fotoğraf: Ilhan Diler",
+            "uk": "Фото: Ільхан Ділер"
+          }
+        }
+      ]
+    },
+    "homepage-review-caption-neujahrskonzert-2025": {
+      "file": "index.html",
+      "indentSpaces": 36,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "text": {
+            "de": "Foto: Thilo Weiskopf",
+            "en": "Photo: Thilo Weiskopf",
+            "fr": "Photo : Thilo Weiskopf",
+            "ln": "Foto: Thilo Weiskopf",
+            "it": "Foto: Thilo Weiskopf",
+            "tr": "Fotoğraf: Thilo Weiskopf",
+            "uk": "Фото: Тіло Вайскопф"
+          }
+        }
+      ]
+    },
+    "homepage-review-caption-kauzensitzung-2025": {
+      "file": "index.html",
+      "indentSpaces": 36,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "text": {
+            "de": "Foto: Arlena Ridler",
+            "en": "Photo: Arlena Ridler",
+            "fr": "Photo : Arlena Ridler",
+            "ln": "Foto: Arlena Ridler",
+            "it": "Foto: Arlena Ridler",
+            "tr": "Fotoğraf: Arlena Ridler",
+            "uk": "Фото: Арлена Рідлер"
+          }
+        }
+      ]
+    },
+    "homepage-review-caption-christmette-2024": {
+      "file": "index.html",
+      "indentSpaces": 20,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "text": {
+            "de": "Foto: Michael Koch",
+            "en": "Photo: Michael Koch",
+            "fr": "Photo : Michael Koch",
+            "ln": "Foto: Michael Koch",
+            "it": "Foto: Michael Koch",
+            "tr": "Fotoğraf: Michael Koch",
+            "uk": "Фото: Міхаель Кох"
+          }
+        }
+      ]
+    }
+  }
+}

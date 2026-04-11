@@ -19,6 +19,27 @@ def build_attributes(language: str) -> str:
     return " ".join(attributes)
 
 
+def build_static_attributes(attributes: dict[str, object] | None) -> list[str]:
+    if not attributes:
+        return []
+
+    rendered_attributes: list[str] = []
+    for key, value in attributes.items():
+        attribute_name = html.escape(str(key), quote=True)
+
+        if isinstance(value, bool):
+            if value:
+                rendered_attributes.append(attribute_name)
+            continue
+
+        if value is None:
+            continue
+
+        rendered_attributes.append(f'{attribute_name}="{html.escape(str(value), quote=True)}"')
+
+    return rendered_attributes
+
+
 def get_indent(target: dict[str, object]) -> str:
     return " " * int(target.get("indentSpaces", 8))
 
@@ -159,6 +180,7 @@ def render_translated_tag(
     indent: str,
     *,
     class_name: str | None = None,
+    attributes: dict[str, object] | None = None,
     icon: str | None = None,
     allow_html: bool = False,
     lang_attribute: bool = False,
@@ -167,9 +189,9 @@ def render_translated_tag(
     for language in LANGUAGE_ORDER:
         if language not in translations:
             raise KeyError(f"Missing translation for language '{language}'")
-        tag_attributes = []
+        tag_attributes = build_static_attributes(attributes)
         if class_name:
-            tag_attributes.append(f'class="{class_name}"')
+            tag_attributes.insert(0, f'class="{class_name}"')
         tag_attributes.append(build_attributes(language))
         if lang_attribute:
             tag_attributes.append(f'lang="{language}"')
@@ -231,6 +253,7 @@ def render_rich_block(block: dict[str, object], indent: str) -> list[str]:
             block["text"],
             indent,
             class_name=block.get("className"),
+            attributes=block.get("attributes"),
             icon=block.get("icon"),
             allow_html=bool(block.get("allowHtml", False)),
             lang_attribute=bool(block.get("langAttribute", False)),
@@ -243,6 +266,7 @@ def render_rich_block(block: dict[str, object], indent: str) -> list[str]:
             block["text"],
             indent,
             class_name=block.get("className"),
+            attributes=block.get("attributes"),
             allow_html=bool(block.get("allowHtml", False)),
             lang_attribute=bool(block.get("langAttribute", False)),
         )
@@ -259,11 +283,12 @@ def render_rich_block(block: dict[str, object], indent: str) -> list[str]:
         return render_news_feed_cards(block, indent)
 
     if block_type == "group":
-        lines = [f"{indent}<div class=\"{block['className']}\">"]
+        tag_name = str(block.get("tagName", "div"))
+        lines = [f"{indent}<{tag_name} class=\"{block['className']}\">"]
         child_indent = indent + "  "
         for child in block["children"]:
             lines.extend(render_rich_block(child, child_indent))
-        lines.append(f"{indent}</div>")
+        lines.append(f"{indent}</{tag_name}>")
         return lines
 
     raise ValueError(f"Unsupported block type: {block_type}")

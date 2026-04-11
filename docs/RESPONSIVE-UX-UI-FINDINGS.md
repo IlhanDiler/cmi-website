@@ -60,7 +60,7 @@ Diese Fundliste uebersetzt den Folgeplan aus [docs/RESPONSIVE-UX-UI-10-10-PLAN.m
 - Problem: Jede Export-Karte kombiniert Bild, Feed-Vorschau, Story-Vorschau, Caption-Feld und sechs Aktionen. Das ist fuer das interne Tool funktional stark, aber in der visuellen Priorisierung noch dicht.
 - UX-Wirkung: Auf schmalen Viewports entsteht schneller eine Arbeitsflaeche mit hoher Interaktionsdichte statt ein klar gefuehrter Export-Flow.
 - Schwierigkeit: mittel
-- Status: am 2026-04-10 visuell entdichtet; Vorschau und Arbeitsbereich sind jetzt als getrennte Zonen priorisiert, Primäraktionen sitzen enger an der Caption und Sekundäraktionen fallen auf schmalen Viewports klarer zurück.
+- Status: am 2026-04-10 visuell entdichtet; Vorschau und Arbeitsbereich sind jetzt als getrennte Zonen priorisiert, Primäraktionen sitzen enger an der Caption und Sekundäraktionen fallen auf schmalen Viewports klarer zurück. Am 2026-04-11 wurde der technische Folgepunkt ohne Sichtcheck nachgezogen: Die Export-UI folgt jetzt der aktiven Exportsprache auch bei Hilfstexten, CTA-Labels und Statusmeldungen, und die Vorlagenwahl nutzt echte Buttons statt simulierter `div role="button"`-Zustaende.
 
 ### 7. `low` - Section-CTA und Karten-CTA im Aktuelles-Block koennen noch klarer gewichtet werden
 

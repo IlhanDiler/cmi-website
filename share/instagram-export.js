@@ -96,6 +96,590 @@ const POST_COPY_TRANSLATIONS = {
     }
 };
 
+const EXPORT_UI_TRANSLATIONS = {
+    de: {
+        pageTitle: "Instagram Export | Collegium Musicum Iuvenale Ochsenfurt",
+        metaDescription: "Interne Arbeitsseite zum Vorbereiten von Instagram-Posts auf Basis der bestehenden Share-Seiten.",
+        heroEyebrow: "Interne Social-Media-Werkbank",
+        heroTitle: "Instagram-Posts und Stories aus der Website vorbereiten",
+        heroText: "Die Seite liest Titel, Kurztext, Bild und Share-Link direkt aus den vorhandenen Share-Seiten. So pflegt ihr die Inhalte nicht doppelt und habt trotzdem sofort nutzbare Captions sowie exportierbare Layouts fuer Feed und Story.",
+        copyAllJsonButton: "Alle Daten als JSON kopieren",
+        exampleSharePageButton: "Beispiel-Share-Seite ansehen",
+        guideAriaLabel: "Empfohlener Workflow",
+        guideTitle: "Empfohlener Ablauf",
+        guideSteps: [
+            "Beitrag auswaehlen, in der Vorschau 4:5 fuer Feed oder 9:16 fuer Story aktivieren und dann als PNG exportieren.",
+            "Caption kopieren und in Instagram oder Meta Business Suite einfuegen.",
+            "Share-Link separat kopieren und spaeter in Bio, Story oder einen Link-Sammeldienst setzen."
+        ],
+        noteTitle: "Wichtig fuer Instagram",
+        noteText: "Instagram macht Links in normalen Beitrags-Captions nicht klickbar. Fuer eine klickbare Story muss nach dem Upload in Instagram ein Link-Sticker auf www.cmi-ochsenfurt.de gesetzt werden. Der PNG-Export fuer Feed und Story funktioniert ueber die live Website oder lokal ueber einen Webserver, aber nicht direkt ueber file://.",
+        toolbarAriaLabel: "Filter und Status",
+        searchLabel: "Suche",
+        searchPlaceholder: "Titel, Ort oder Stichwort durchsuchen",
+        statusLoading: "Share-Seiten werden geladen...",
+        noMatches: "Keine passenden Beitraege gefunden.",
+        noPages: "Keine Share-Seiten konnten geladen werden. Die Export-Seite funktioniert nur ueber einen Webserver und nicht ueber file://.",
+        loadError: "Die Share-Seiten konnten nicht geladen werden. Die Export-Seite funktioniert nur ueber einen Webserver und nicht ueber file://.",
+        previewEyebrow: "Visuelle Vorschau",
+        previewNote: "4:5 oder 9:16 direkt in der Vorschau waehlen. Die PNG-Datei entsteht erst beim Export, nicht aus dem HTML selbst.",
+        previewGroupLabel: "Vorlagen fuer Feed oder Story auswaehlen",
+        feedOptionLabel: "Feed-Vorlage 4:5",
+        storyOptionLabel: "Story-Vorlage 9:16",
+        optionStateActive: "Aktiv fuer Export",
+        optionStateInactive: "Zum Aktivieren",
+        workflowEyebrow: "Arbeitsbereich",
+        workflowNote: "Erst Vorlage waehlen und exportieren. Caption und Link bleiben darunter separat kopierbar.",
+        formatKicker: "Aktive Vorlage",
+        captionLabel: "Instagram-Caption",
+        captionNote: "Direkt kopierbar fuer Instagram oder die Meta Business Suite. Der Link kommt separat.",
+        copyCaptionButton: "Caption kopieren",
+        copyLinkButton: "Link kopieren",
+        openImageButton: "Bild oeffnen",
+        openShareButton: "Share-Seite",
+        feedSummaryLabel: "Feed 4:5",
+        storySummaryLabel: "Story 9:16",
+        feedSummaryNote: "Der Feed-Export nutzt nur Motiv oder Plakat. Alle weiteren Infos stehen in der Caption.",
+        exportFeedButton: "4:5 PNG exportieren",
+        exportStoryButton: "9:16 PNG exportieren",
+        defaultPostLabel: "Share-Beitrag",
+        copyCaptionAction: "Caption kopieren",
+        copyLinkAction: "Link kopieren",
+        openImageAction: "Bild oeffnen",
+        openShareAction: "Share-Seite oeffnen",
+        openInNewWindowHint: "oeffnet in neuem Fenster",
+        feedExportAction: "Feed PNG exportieren",
+        storyExportAction: "Story PNG exportieren",
+        activatedState: "aktiviert",
+        feedExportRunning: "Export laeuft...",
+        feedExported: "PNG exportiert",
+        feedExportFailed: "Export fehlgeschlagen",
+        pngExportStatus: "PNG-Export laeuft",
+        pngExportFailedStatus: "PNG-Export fehlgeschlagen",
+        pngExportAlert: "Der PNG-Export hat nicht funktioniert. Bitte die Export-Seite ueber die live Website oder lokal ueber einen Webserver oeffnen; direkt ueber file:// klappt der Canvas-Export nicht.",
+        storyExportRunning: "Story laeuft...",
+        storyExported: "Story exportiert",
+        storyFallbackExported: "Motiv exportiert",
+        storyExportFailed: "Story fehlgeschlagen",
+        storyExportStatus: "Story-Export laeuft",
+        storyExportFailedStatus: "Story-Export fehlgeschlagen",
+        previewFallbackStatus: "Preview-Export nicht moeglich, Motiv exportiert",
+        storyPreviewFallbackAlert: "Die Story-Preview konnte in diesem Browser nicht direkt exportiert werden. Es wurde stattdessen nur das Motiv exportiert.",
+        storyExportAlert: "Der Story-Export hat nicht funktioniert. Bitte die Export-Seite ueber die live Website oder lokal ueber einen Webserver oeffnen; direkt ueber file:// klappt der Export nicht.",
+        captionCopied: "Caption kopiert",
+        linkCopied: "Link kopiert",
+        jsonCopied: "JSON kopiert",
+        copyAllJsonSuccess: "Alle Daten als JSON kopiert",
+        copyFailedStatus: "Kopieren fehlgeschlagen. Bitte Text manuell kopieren.",
+        copyFailedAlert: "Kopieren hat im Browser nicht funktioniert. Bitte den Text manuell kopieren.",
+        fallbackSourceStatus: " (Fallback-Liste aktiv)",
+        resultsStatus: function(visibleCount, totalCount) {
+            return `${visibleCount} von ${totalCount} Beitraegen sichtbar`;
+        },
+        skippedFilesStatus: function(count) {
+            return count === 1 ? ", 1 Datei uebersprungen" : `, ${count} Dateien uebersprungen`;
+        }
+    },
+    en: {
+        pageTitle: "Instagram Export | Collegium Musicum Iuvenale Ochsenfurt",
+        metaDescription: "Internal workspace for preparing Instagram posts from the existing share pages.",
+        heroEyebrow: "Internal social media workspace",
+        heroTitle: "Prepare Instagram posts and stories from the website",
+        heroText: "This page reads title, summary, image and share link directly from the existing share pages. That keeps the content single-sourced while still giving you ready-to-use captions and exportable feed and story layouts.",
+        copyAllJsonButton: "Copy all data as JSON",
+        exampleSharePageButton: "Open example share page",
+        guideAriaLabel: "Recommended workflow",
+        guideTitle: "Recommended workflow",
+        guideSteps: [
+            "Choose a post, switch the preview to 4:5 for feed or 9:16 for story, then export it as PNG.",
+            "Copy the caption and paste it into Instagram or Meta Business Suite.",
+            "Copy the share link separately and place it later in your bio, story or link hub."
+        ],
+        noteTitle: "Important for Instagram",
+        noteText: "Instagram does not make links in regular post captions clickable. For a clickable story you still need to add a link sticker to www.cmi-ochsenfurt.de after upload. PNG export for feed and story works on the live site or locally through a web server, but not directly via file://.",
+        toolbarAriaLabel: "Filter and status",
+        searchLabel: "Search",
+        searchPlaceholder: "Search title, place or keyword",
+        statusLoading: "Loading share pages...",
+        noMatches: "No matching posts found.",
+        noPages: "No share pages could be loaded. The export page only works via a web server, not via file://.",
+        loadError: "The share pages could not be loaded. The export page only works via a web server, not via file://.",
+        previewEyebrow: "Visual preview",
+        previewNote: "Choose 4:5 or 9:16 directly in the preview. The PNG file is only created during export, not from the HTML itself.",
+        previewGroupLabel: "Choose feed or story templates",
+        feedOptionLabel: "Feed template 4:5",
+        storyOptionLabel: "Story template 9:16",
+        optionStateActive: "Active for export",
+        optionStateInactive: "Activate to use",
+        workflowEyebrow: "Workspace",
+        workflowNote: "Choose the template and export first. Caption and link stay separately copyable below.",
+        formatKicker: "Active template",
+        captionLabel: "Instagram caption",
+        captionNote: "Ready to copy for Instagram or Meta Business Suite. The link stays separate.",
+        copyCaptionButton: "Copy caption",
+        copyLinkButton: "Copy link",
+        openImageButton: "Open image",
+        openShareButton: "Share page",
+        feedSummaryLabel: "Feed 4:5",
+        storySummaryLabel: "Story 9:16",
+        feedSummaryNote: "The feed export only uses the image or poster. All other information stays in the caption.",
+        exportFeedButton: "Export 4:5 PNG",
+        exportStoryButton: "Export 9:16 PNG",
+        defaultPostLabel: "Share post",
+        copyCaptionAction: "Copy caption",
+        copyLinkAction: "Copy link",
+        openImageAction: "Open image",
+        openShareAction: "Open share page",
+        openInNewWindowHint: "opens in new window",
+        feedExportAction: "Export feed PNG",
+        storyExportAction: "Export story PNG",
+        activatedState: "activated",
+        feedExportRunning: "Export running...",
+        feedExported: "PNG exported",
+        feedExportFailed: "Export failed",
+        pngExportStatus: "PNG export running",
+        pngExportFailedStatus: "PNG export failed",
+        pngExportAlert: "PNG export did not work. Please open the export page via the live website or locally through a web server; canvas export does not work directly via file://.",
+        storyExportRunning: "Story running...",
+        storyExported: "Story exported",
+        storyFallbackExported: "Image exported",
+        storyExportFailed: "Story failed",
+        storyExportStatus: "Story export running",
+        storyExportFailedStatus: "Story export failed",
+        previewFallbackStatus: "Preview export unavailable, image exported",
+        storyPreviewFallbackAlert: "The story preview could not be exported directly in this browser. The image was exported instead.",
+        storyExportAlert: "Story export did not work. Please open the export page via the live website or locally through a web server; export does not work directly via file://.",
+        captionCopied: "Caption copied",
+        linkCopied: "Link copied",
+        jsonCopied: "JSON copied",
+        copyAllJsonSuccess: "All data copied as JSON",
+        copyFailedStatus: "Copying failed. Please copy the text manually.",
+        copyFailedAlert: "Copying did not work in the browser. Please copy the text manually.",
+        fallbackSourceStatus: " (fallback list active)",
+        resultsStatus: function(visibleCount, totalCount) {
+            return `${visibleCount} of ${totalCount} posts visible`;
+        },
+        skippedFilesStatus: function(count) {
+            return count === 1 ? ", 1 file skipped" : `, ${count} files skipped`;
+        }
+    },
+    fr: {
+        pageTitle: "Export Instagram | Collegium Musicum Iuvenale Ochsenfurt",
+        metaDescription: "Espace interne pour preparer des publications Instagram a partir des pages de partage existantes.",
+        heroEyebrow: "Atelier interne reseaux sociaux",
+        heroTitle: "Preparer des publications et stories Instagram depuis le site",
+        heroText: "Cette page lit directement le titre, le resume, l'image et le lien de partage depuis les pages de partage existantes. Vous gardez ainsi une seule source de contenu tout en obtenant des captions et des mises en page exportables pour le feed et la story.",
+        copyAllJsonButton: "Copier toutes les donnees en JSON",
+        exampleSharePageButton: "Ouvrir une page de partage exemple",
+        guideAriaLabel: "Workflow recommande",
+        guideTitle: "Deroulement recommande",
+        guideSteps: [
+            "Choisissez une publication, activez l'aperçu 4:5 pour le feed ou 9:16 pour la story, puis exportez en PNG.",
+            "Copiez la legende et collez-la dans Instagram ou Meta Business Suite.",
+            "Copiez le lien de partage separement et placez-le ensuite dans la bio, la story ou une page de liens."
+        ],
+        noteTitle: "Important pour Instagram",
+        noteText: "Instagram ne rend pas les liens cliquables dans les legendes normales. Pour une story cliquable, il faut encore ajouter un sticker de lien vers www.cmi-ochsenfurt.de apres l'upload. L'export PNG pour le feed et la story fonctionne sur le site en ligne ou localement via un serveur web, mais pas directement avec file://.",
+        toolbarAriaLabel: "Filtres et statut",
+        searchLabel: "Recherche",
+        searchPlaceholder: "Rechercher un titre, un lieu ou un mot-cle",
+        statusLoading: "Chargement des pages de partage...",
+        noMatches: "Aucune publication correspondante trouvee.",
+        noPages: "Aucune page de partage n'a pu etre chargee. La page d'export fonctionne uniquement via un serveur web, pas via file://.",
+        loadError: "Les pages de partage n'ont pas pu etre chargees. La page d'export fonctionne uniquement via un serveur web, pas via file://.",
+        previewEyebrow: "Apercu visuel",
+        previewNote: "Choisissez 4:5 ou 9:16 directement dans l'aperçu. Le fichier PNG n'est cree qu'au moment de l'export, pas a partir du HTML.",
+        previewGroupLabel: "Choisir les modeles feed ou story",
+        feedOptionLabel: "Modele feed 4:5",
+        storyOptionLabel: "Modele story 9:16",
+        optionStateActive: "Actif pour l'export",
+        optionStateInactive: "Activer",
+        workflowEyebrow: "Espace de travail",
+        workflowNote: "Choisissez d'abord le modele puis lancez l'export. La legende et le lien restent copiables separement en dessous.",
+        formatKicker: "Modele actif",
+        captionLabel: "Legende Instagram",
+        captionNote: "Pret a copier pour Instagram ou Meta Business Suite. Le lien reste separe.",
+        copyCaptionButton: "Copier la legende",
+        copyLinkButton: "Copier le lien",
+        openImageButton: "Ouvrir l'image",
+        openShareButton: "Page de partage",
+        feedSummaryLabel: "Feed 4:5",
+        storySummaryLabel: "Story 9:16",
+        feedSummaryNote: "L'export feed utilise seulement l'image ou l'affiche. Toutes les autres informations restent dans la legende.",
+        exportFeedButton: "Exporter PNG 4:5",
+        exportStoryButton: "Exporter PNG 9:16",
+        defaultPostLabel: "Publication partagee",
+        copyCaptionAction: "Copier la legende",
+        copyLinkAction: "Copier le lien",
+        openImageAction: "Ouvrir l'image",
+        openShareAction: "Ouvrir la page de partage",
+        openInNewWindowHint: "ouvre dans une nouvelle fenetre",
+        feedExportAction: "Exporter le PNG feed",
+        storyExportAction: "Exporter le PNG story",
+        activatedState: "active",
+        feedExportRunning: "Export en cours...",
+        feedExported: "PNG exporte",
+        feedExportFailed: "Export echoue",
+        pngExportStatus: "Export PNG en cours",
+        pngExportFailedStatus: "Export PNG echoue",
+        pngExportAlert: "L'export PNG n'a pas fonctionne. Ouvrez la page d'export via le site en ligne ou localement avec un serveur web; l'export canvas ne fonctionne pas directement via file://.",
+        storyExportRunning: "Story en cours...",
+        storyExported: "Story exportee",
+        storyFallbackExported: "Image exportee",
+        storyExportFailed: "Story echouee",
+        storyExportStatus: "Export story en cours",
+        storyExportFailedStatus: "Export story echoue",
+        previewFallbackStatus: "Export de l'aperçu indisponible, image exportee",
+        storyPreviewFallbackAlert: "L'aperçu story n'a pas pu etre exporte directement dans ce navigateur. L'image a ete exportee a la place.",
+        storyExportAlert: "L'export story n'a pas fonctionne. Ouvrez la page d'export via le site en ligne ou localement avec un serveur web; l'export ne fonctionne pas directement via file://.",
+        captionCopied: "Legende copiee",
+        linkCopied: "Lien copie",
+        jsonCopied: "JSON copie",
+        copyAllJsonSuccess: "Toutes les donnees ont ete copiees en JSON",
+        copyFailedStatus: "La copie a echoue. Merci de copier le texte manuellement.",
+        copyFailedAlert: "La copie n'a pas fonctionne dans le navigateur. Merci de copier le texte manuellement.",
+        fallbackSourceStatus: " (liste de secours active)",
+        resultsStatus: function(visibleCount, totalCount) {
+            return `${visibleCount} sur ${totalCount} publications visibles`;
+        },
+        skippedFilesStatus: function(count) {
+            return count === 1 ? ", 1 fichier ignore" : `, ${count} fichiers ignores`;
+        }
+    },
+    ln: {
+        pageTitle: "Instagram Export | Collegium Musicum Iuvenale Ochsenfurt",
+        metaDescription: "Esika ya mosala ya kati mpo na kobongisa ba posts ya Instagram uta na ba share pages oyo ezali.",
+        heroEyebrow: "Esika ya mosala ya social media na kati",
+        heroTitle: "Bongisa ba posts mpe ba stories ya Instagram uta na site",
+        heroText: "Lokasa oyo ezwi titre, mokuse ya makambo, image mpe lien ya share mbala moko uta na ba share pages oyo ezali. Ndenge wana bozali kobatela contenu na esika moko kasi bozali kozwa mbala moko ba captions mpe ba layouts mpo na feed mpe story.",
+        copyAllJsonButton: "Copier ba donnees nyonso lokola JSON",
+        exampleSharePageButton: "Fungola exemple ya share page",
+        guideAriaLabel: "Molongo ya mosala oyo eteyami",
+        guideTitle: "Molongo ya mosala oyo eteyami",
+        guideSteps: [
+            "Pona post, tia preview 4:5 mpo na feed to 9:16 mpo na story, sima exporte yango lokola PNG.",
+            "Copier caption mpe tia yango na Instagram to Meta Business Suite.",
+            "Copier share link na ndenge ekeseni mpe tia yango sima na bio, story to esika ya ba links."
+        ],
+        noteTitle: "Likambo ya ntina mpo na Instagram",
+        noteText: "Instagram esalaka te ete ba links na ba captions ya posts ezala clickable. Mpo na story oyo ekoki kofinama, osengeli kobakisa link sticker na www.cmi-ochsenfurt.de sima ya upload. PNG export mpo na feed mpe story esalaka na site ya live to na web server ya local, kasi te na file:// mbala moko.",
+        toolbarAriaLabel: "Ba filtres mpe etat",
+        searchLabel: "Luka",
+        searchPlaceholder: "Luka titre, esika to mot-clé",
+        statusLoading: "Ba share pages ezali kocharger...",
+        noMatches: "Ata post moko ya kokokana ezwami te.",
+        noPages: "Share page moko te ekokaki kocharger. Lokasa ya export esalaka kaka na web server, kasi te na file://.",
+        loadError: "Ba share pages ekokaki te kocharger. Lokasa ya export esalaka kaka na web server, kasi te na file://.",
+        previewEyebrow: "Preview ya komona",
+        previewNote: "Pona 4:5 to 9:16 mbala moko na preview. Fichier PNG esalamaka kaka tango ya export, kasi te uta na HTML yango moko.",
+        previewGroupLabel: "Pona ba modeles ya feed to story",
+        feedOptionLabel: "Modele ya feed 4:5",
+        storyOptionLabel: "Modele ya story 9:16",
+        optionStateActive: "Ezali actif mpo na export",
+        optionStateInactive: "Activer",
+        workflowEyebrow: "Esika ya mosala",
+        workflowNote: "Pona modele mpe sala export liboso. Caption mpe lien ezali se kokoka ko-copier na se.",
+        formatKicker: "Modele oyo ezali actif",
+        captionLabel: "Caption ya Instagram",
+        captionNote: "Esili mpo na ko-copier na Instagram to Meta Business Suite. Lien etikali na ndenge ekeseni.",
+        copyCaptionButton: "Copier caption",
+        copyLinkButton: "Copier lien",
+        openImageButton: "Fungola image",
+        openShareButton: "Share page",
+        feedSummaryLabel: "Feed 4:5",
+        storySummaryLabel: "Story 9:16",
+        feedSummaryNote: "Export ya feed esaleli kaka image to poster. Makambo mosusu nyonso ezali na caption.",
+        exportFeedButton: "Exporter PNG 4:5",
+        exportStoryButton: "Exporter PNG 9:16",
+        defaultPostLabel: "Post ya share",
+        copyCaptionAction: "Copier caption",
+        copyLinkAction: "Copier lien",
+        openImageAction: "Fungola image",
+        openShareAction: "Fungola share page",
+        openInNewWindowHint: "efungwami na fenetre ya sika",
+        feedExportAction: "Exporter PNG ya feed",
+        storyExportAction: "Exporter PNG ya story",
+        activatedState: "esili koactiver",
+        feedExportRunning: "Export ezali kotambola...",
+        feedExported: "PNG eexportami",
+        feedExportFailed: "Export elongi te",
+        pngExportStatus: "PNG export ezali kotambola",
+        pngExportFailedStatus: "PNG export elongi te",
+        pngExportAlert: "PNG export esalemi te. Fungola lokasa ya export na site ya live to na web server ya local; canvas export esalaka te mbala moko na file://.",
+        storyExportRunning: "Story ezali kotambola...",
+        storyExported: "Story eexportami",
+        storyFallbackExported: "Image eexportami",
+        storyExportFailed: "Story elongi te",
+        storyExportStatus: "Story export ezali kotambola",
+        storyExportFailedStatus: "Story export elongi te",
+        previewFallbackStatus: "Preview export ekoki te, image eexportami",
+        storyPreviewFallbackAlert: "Story preview ekokaki te koexportama mbala moko na navigateur oyo. Image nde eexportamaki na esika na yango.",
+        storyExportAlert: "Story export esalemi te. Fungola lokasa ya export na site ya live to na web server ya local; export esalaka te mbala moko na file://.",
+        captionCopied: "Caption ecopyami",
+        linkCopied: "Lien ecopyami",
+        jsonCopied: "JSON ecopyami",
+        copyAllJsonSuccess: "Ba donnees nyonso ecopyami lokola JSON",
+        copyFailedStatus: "Copier elongi te. Svp copier texte na maboko.",
+        copyFailedAlert: "Copier esalemi te na navigateur. Svp copier texte na maboko.",
+        fallbackSourceStatus: " (liste ya secours ezali actif)",
+        resultsStatus: function(visibleCount, totalCount) {
+            return `${visibleCount} kati na ${totalCount} posts emonani`;
+        },
+        skippedFilesStatus: function(count) {
+            return count === 1 ? ", fichier 1 epumbwami" : `, ba fichiers ${count} epumbwami`;
+        }
+    },
+    it: {
+        pageTitle: "Instagram Export | Collegium Musicum Iuvenale Ochsenfurt",
+        metaDescription: "Area interna per preparare post Instagram a partire dalle share page esistenti.",
+        heroEyebrow: "Laboratorio interno social media",
+        heroTitle: "Preparare post e stories Instagram dal sito",
+        heroText: "Questa pagina legge titolo, testo breve, immagine e link di condivisione direttamente dalle share page esistenti. In questo modo i contenuti restano in un solo punto ma avete comunque caption pronte e layout esportabili per feed e story.",
+        copyAllJsonButton: "Copia tutti i dati come JSON",
+        exampleSharePageButton: "Apri una share page di esempio",
+        guideAriaLabel: "Flusso consigliato",
+        guideTitle: "Procedura consigliata",
+        guideSteps: [
+            "Scegli il post, attiva l'anteprima 4:5 per il feed o 9:16 per la story, poi esporta in PNG.",
+            "Copia la caption e incollala in Instagram o Meta Business Suite.",
+            "Copia il link separatamente e inseriscilo poi nella bio, nella story o in una raccolta link."
+        ],
+        noteTitle: "Importante per Instagram",
+        noteText: "Instagram non rende cliccabili i link nelle normali caption dei post. Per una story cliccabile devi ancora aggiungere un link sticker a www.cmi-ochsenfurt.de dopo il caricamento. L'export PNG per feed e story funziona sul sito live o in locale tramite web server, ma non direttamente via file://.",
+        toolbarAriaLabel: "Filtri e stato",
+        searchLabel: "Cerca",
+        searchPlaceholder: "Cerca titolo, luogo o parola chiave",
+        statusLoading: "Caricamento share page in corso...",
+        noMatches: "Nessun post corrispondente trovato.",
+        noPages: "Non e' stato possibile caricare alcuna share page. La pagina di export funziona solo tramite web server, non via file://.",
+        loadError: "Le share page non sono state caricate. La pagina di export funziona solo tramite web server, non via file://.",
+        previewEyebrow: "Anteprima visiva",
+        previewNote: "Scegli 4:5 o 9:16 direttamente nell'anteprima. Il file PNG viene creato solo durante l'export, non dal solo HTML.",
+        previewGroupLabel: "Scegli i modelli feed o story",
+        feedOptionLabel: "Modello feed 4:5",
+        storyOptionLabel: "Modello story 9:16",
+        optionStateActive: "Attivo per l'export",
+        optionStateInactive: "Attiva",
+        workflowEyebrow: "Area di lavoro",
+        workflowNote: "Scegli prima il modello ed esporta. Caption e link restano copiabili separatamente sotto.",
+        formatKicker: "Modello attivo",
+        captionLabel: "Caption Instagram",
+        captionNote: "Pronta da copiare per Instagram o Meta Business Suite. Il link resta separato.",
+        copyCaptionButton: "Copia caption",
+        copyLinkButton: "Copia link",
+        openImageButton: "Apri immagine",
+        openShareButton: "Share page",
+        feedSummaryLabel: "Feed 4:5",
+        storySummaryLabel: "Story 9:16",
+        feedSummaryNote: "L'export feed usa solo immagine o poster. Tutte le altre informazioni restano nella caption.",
+        exportFeedButton: "Esporta PNG 4:5",
+        exportStoryButton: "Esporta PNG 9:16",
+        defaultPostLabel: "Post share",
+        copyCaptionAction: "Copia caption",
+        copyLinkAction: "Copia link",
+        openImageAction: "Apri immagine",
+        openShareAction: "Apri share page",
+        openInNewWindowHint: "si apre in una nuova finestra",
+        feedExportAction: "Esporta PNG feed",
+        storyExportAction: "Esporta PNG story",
+        activatedState: "attivato",
+        feedExportRunning: "Export in corso...",
+        feedExported: "PNG esportato",
+        feedExportFailed: "Export non riuscito",
+        pngExportStatus: "Export PNG in corso",
+        pngExportFailedStatus: "Export PNG non riuscito",
+        pngExportAlert: "L'export PNG non ha funzionato. Apri la pagina di export tramite il sito live o localmente con un web server; l'export canvas non funziona direttamente via file://.",
+        storyExportRunning: "Story in corso...",
+        storyExported: "Story esportata",
+        storyFallbackExported: "Immagine esportata",
+        storyExportFailed: "Story non riuscita",
+        storyExportStatus: "Export story in corso",
+        storyExportFailedStatus: "Export story non riuscito",
+        previewFallbackStatus: "Export anteprima non disponibile, immagine esportata",
+        storyPreviewFallbackAlert: "L'anteprima story non ha potuto essere esportata direttamente in questo browser. Al suo posto e' stata esportata l'immagine.",
+        storyExportAlert: "L'export story non ha funzionato. Apri la pagina di export tramite il sito live o localmente con un web server; l'export non funziona direttamente via file://.",
+        captionCopied: "Caption copiata",
+        linkCopied: "Link copiato",
+        jsonCopied: "JSON copiato",
+        copyAllJsonSuccess: "Tutti i dati copiati come JSON",
+        copyFailedStatus: "Copia non riuscita. Copia il testo manualmente.",
+        copyFailedAlert: "La copia non ha funzionato nel browser. Copia il testo manualmente.",
+        fallbackSourceStatus: " (lista fallback attiva)",
+        resultsStatus: function(visibleCount, totalCount) {
+            return `${visibleCount} di ${totalCount} post visibili`;
+        },
+        skippedFilesStatus: function(count) {
+            return count === 1 ? ", 1 file saltato" : `, ${count} file saltati`;
+        }
+    },
+    tr: {
+        pageTitle: "Instagram Export | Collegium Musicum Iuvenale Ochsenfurt",
+        metaDescription: "Mevcut share sayfalarindan Instagram gonderileri hazirlamak icin dahili calisma alani.",
+        heroEyebrow: "Dahili sosyal medya calisma alani",
+        heroTitle: "Web sitesinden Instagram gonderileri ve hikayeleri hazirlayin",
+        heroText: "Bu sayfa baslik, ozet, gorsel ve share baglantisini dogrudan mevcut share sayfalarindan okur. Boylece icerik tek kaynaktan gelir ama yine de hazir captionlar ve feed ile story icin disa aktarilabilir yerlesimler elde edersiniz.",
+        copyAllJsonButton: "Tum verileri JSON olarak kopyala",
+        exampleSharePageButton: "Ornek share sayfasini ac",
+        guideAriaLabel: "Onerilen akis",
+        guideTitle: "Onerilen akis",
+        guideSteps: [
+            "Gonderiyi secin, onizlemede feed icin 4:5 veya story icin 9:16 secin ve sonra PNG olarak disa aktarın.",
+            "Caption'ı kopyalayin ve Instagram'a veya Meta Business Suite'e yapistirin.",
+            "Share baglantisini ayri kopyalayin ve sonra biyografi, hikaye ya da link koleksiyonuna yerlestirin."
+        ],
+        noteTitle: "Instagram icin onemli",
+        noteText: "Instagram normal gonderi captionlarindaki baglantilari tiklanabilir yapmaz. Tiklanabilir bir story icin yuklemeden sonra yine de www.cmi-ochsenfurt.de adresine bir link cikartmasi eklemelisiniz. Feed ve story icin PNG disa aktarma canli sitede veya yerel bir web sunucusunda calisir, ancak dogrudan file:// uzerinden calismaz.",
+        toolbarAriaLabel: "Filtreler ve durum",
+        searchLabel: "Ara",
+        searchPlaceholder: "Baslik, yer veya anahtar kelime ara",
+        statusLoading: "Share sayfalari yukleniyor...",
+        noMatches: "Eslesen gonderi bulunamadi.",
+        noPages: "Hicbir share sayfasi yuklenemedi. Export sayfasi yalnizca bir web sunucusu uzerinden calisir, file:// ile degil.",
+        loadError: "Share sayfalari yuklenemedi. Export sayfasi yalnizca bir web sunucusu uzerinden calisir, file:// ile degil.",
+        previewEyebrow: "Gorsel onizleme",
+        previewNote: "4:5 veya 9:16 secimini dogrudan onizlemede yapin. PNG dosyasi ancak disa aktarma sirasinda olusturulur, HTML'den dogrudan olusmaz.",
+        previewGroupLabel: "Feed veya story sablonlarini secin",
+        feedOptionLabel: "Feed sablonu 4:5",
+        storyOptionLabel: "Story sablonu 9:16",
+        optionStateActive: "Export icin aktif",
+        optionStateInactive: "Etkinlestir",
+        workflowEyebrow: "Calisma alani",
+        workflowNote: "Once sablonu secin ve disa aktarın. Caption ve baglanti asagida ayri olarak kopyalanabilir kalir.",
+        formatKicker: "Aktif sablon",
+        captionLabel: "Instagram caption",
+        captionNote: "Instagram veya Meta Business Suite icin hemen kopyalanabilir. Baglanti ayri kalir.",
+        copyCaptionButton: "Caption kopyala",
+        copyLinkButton: "Baglantiyi kopyala",
+        openImageButton: "Gorseli ac",
+        openShareButton: "Share sayfasi",
+        feedSummaryLabel: "Feed 4:5",
+        storySummaryLabel: "Story 9:16",
+        feedSummaryNote: "Feed disa aktarmasi sadece gorsel ya da afisi kullanir. Diger tum bilgiler caption'da kalir.",
+        exportFeedButton: "4:5 PNG disa aktar",
+        exportStoryButton: "9:16 PNG disa aktar",
+        defaultPostLabel: "Share gonderisi",
+        copyCaptionAction: "Caption kopyala",
+        copyLinkAction: "Baglantiyi kopyala",
+        openImageAction: "Gorseli ac",
+        openShareAction: "Share sayfasini ac",
+        openInNewWindowHint: "yeni pencerede acilir",
+        feedExportAction: "Feed PNG disa aktar",
+        storyExportAction: "Story PNG disa aktar",
+        activatedState: "etkinlestirildi",
+        feedExportRunning: "Disa aktarma suruyor...",
+        feedExported: "PNG disa aktarildi",
+        feedExportFailed: "Disa aktarma basarisiz",
+        pngExportStatus: "PNG disa aktarma suruyor",
+        pngExportFailedStatus: "PNG disa aktarma basarisiz",
+        pngExportAlert: "PNG disa aktarma calismadi. Lutfen export sayfasini canli site uzerinden ya da yerelde bir web sunucusuyla acin; canvas disa aktarmasi dogrudan file:// uzerinden calismaz.",
+        storyExportRunning: "Story suruyor...",
+        storyExported: "Story disa aktarildi",
+        storyFallbackExported: "Gorsel disa aktarildi",
+        storyExportFailed: "Story basarisiz",
+        storyExportStatus: "Story disa aktarma suruyor",
+        storyExportFailedStatus: "Story disa aktarma basarisiz",
+        previewFallbackStatus: "Onizleme disa aktarmasi yok, gorsel disa aktarildi",
+        storyPreviewFallbackAlert: "Story onizlemesi bu tarayicida dogrudan disa aktarılamadi. Onun yerine gorsel disa aktarildi.",
+        storyExportAlert: "Story disa aktarma calismadi. Lutfen export sayfasini canli site uzerinden ya da yerelde bir web sunucusuyla acin; export dogrudan file:// uzerinden calismaz.",
+        captionCopied: "Caption kopyalandi",
+        linkCopied: "Baglanti kopyalandi",
+        jsonCopied: "JSON kopyalandi",
+        copyAllJsonSuccess: "Tum veriler JSON olarak kopyalandi",
+        copyFailedStatus: "Kopyalama basarisiz. Lutfen metni elle kopyalayin.",
+        copyFailedAlert: "Kopyalama tarayicida calismadi. Lutfen metni elle kopyalayin.",
+        fallbackSourceStatus: " (yedek liste aktif)",
+        resultsStatus: function(visibleCount, totalCount) {
+            return `${visibleCount} / ${totalCount} gonderi gorunuyor`;
+        },
+        skippedFilesStatus: function(count) {
+            return count === 1 ? ", 1 dosya atlandi" : `, ${count} dosya atlandi`;
+        }
+    },
+    uk: {
+        pageTitle: "Експорт Instagram | Collegium Musicum Iuvenale Ochsenfurt",
+        metaDescription: "Внутрішня сторінка для підготовки дописів Instagram на основі наявних share-сторінок.",
+        heroEyebrow: "Внутрішня social media майстерня",
+        heroTitle: "Підготуйте дописи та сторіз Instagram з вебсайту",
+        heroText: "Ця сторінка читає заголовок, короткий текст, зображення й посилання на share-сторінку безпосередньо з наявних сторінок. Так контент залишається в одному джерелі, але ви все одно одразу отримуєте готові підписи та експортовані макети для feed і story.",
+        copyAllJsonButton: "Скопіювати всі дані як JSON",
+        exampleSharePageButton: "Відкрити приклад share-сторінки",
+        guideAriaLabel: "Рекомендований сценарій",
+        guideTitle: "Рекомендований порядок",
+        guideSteps: [
+            "Виберіть допис, увімкніть у прев'ю формат 4:5 для feed або 9:16 для story, а потім експортуйте PNG.",
+            "Скопіюйте підпис і вставте його в Instagram або Meta Business Suite.",
+            "Окремо скопіюйте share-посилання й пізніше розмістіть його в біо, сторіз або добірці посилань."
+        ],
+        noteTitle: "Важливо для Instagram",
+        noteText: "Instagram не робить посилання у звичайних підписах клікабельними. Щоб сторіз була клікабельною, після завантаження потрібно додати стікер-посилання на www.cmi-ochsenfurt.de. Експорт PNG для feed і story працює на live-сайті або локально через вебсервер, але не напряму через file://.",
+        toolbarAriaLabel: "Фільтри та статус",
+        searchLabel: "Пошук",
+        searchPlaceholder: "Шукати заголовок, місце або ключове слово",
+        statusLoading: "Share-сторінки завантажуються...",
+        noMatches: "Відповідних дописів не знайдено.",
+        noPages: "Не вдалося завантажити жодної share-сторінки. Сторінка експорту працює лише через вебсервер, а не через file://.",
+        loadError: "Не вдалося завантажити share-сторінки. Сторінка експорту працює лише через вебсервер, а не через file://.",
+        previewEyebrow: "Візуальне прев'ю",
+        previewNote: "Оберіть 4:5 або 9:16 безпосередньо в прев'ю. PNG-файл створюється лише під час експорту, а не з самого HTML.",
+        previewGroupLabel: "Оберіть шаблон feed або story",
+        feedOptionLabel: "Шаблон feed 4:5",
+        storyOptionLabel: "Шаблон story 9:16",
+        optionStateActive: "Активно для експорту",
+        optionStateInactive: "Активувати",
+        workflowEyebrow: "Робоча зона",
+        workflowNote: "Спочатку виберіть шаблон і виконайте експорт. Підпис і посилання нижче залишаються окремо доступними для копіювання.",
+        formatKicker: "Активний шаблон",
+        captionLabel: "Підпис Instagram",
+        captionNote: "Готово до копіювання для Instagram або Meta Business Suite. Посилання лишається окремо.",
+        copyCaptionButton: "Скопіювати підпис",
+        copyLinkButton: "Скопіювати посилання",
+        openImageButton: "Відкрити зображення",
+        openShareButton: "Share-сторінка",
+        feedSummaryLabel: "Feed 4:5",
+        storySummaryLabel: "Story 9:16",
+        feedSummaryNote: "Експорт feed використовує лише зображення або афішу. Уся інша інформація залишається в підписі.",
+        exportFeedButton: "Експортувати PNG 4:5",
+        exportStoryButton: "Експортувати PNG 9:16",
+        defaultPostLabel: "Share-допис",
+        copyCaptionAction: "Скопіювати підпис",
+        copyLinkAction: "Скопіювати посилання",
+        openImageAction: "Відкрити зображення",
+        openShareAction: "Відкрити share-сторінку",
+        openInNewWindowHint: "відкривається в новому вікні",
+        feedExportAction: "Експортувати PNG feed",
+        storyExportAction: "Експортувати PNG story",
+        activatedState: "активовано",
+        feedExportRunning: "Експорт триває...",
+        feedExported: "PNG експортовано",
+        feedExportFailed: "Експорт не вдався",
+        pngExportStatus: "Триває експорт PNG",
+        pngExportFailedStatus: "Експорт PNG не вдався",
+        pngExportAlert: "Експорт PNG не спрацював. Відкрийте сторінку експорту через live-сайт або локально через вебсервер; canvas-експорт не працює напряму через file://.",
+        storyExportRunning: "Story триває...",
+        storyExported: "Story експортовано",
+        storyFallbackExported: "Зображення експортовано",
+        storyExportFailed: "Story не вдалася",
+        storyExportStatus: "Триває експорт story",
+        storyExportFailedStatus: "Експорт story не вдався",
+        previewFallbackStatus: "Експорт прев'ю недоступний, зображення експортовано",
+        storyPreviewFallbackAlert: "Прев'ю story не вдалося напряму експортувати в цьому браузері. Натомість було експортовано зображення.",
+        storyExportAlert: "Експорт story не спрацював. Відкрийте сторінку експорту через live-сайт або локально через вебсервер; експорт не працює напряму через file://.",
+        captionCopied: "Підпис скопійовано",
+        linkCopied: "Посилання скопійовано",
+        jsonCopied: "JSON скопійовано",
+        copyAllJsonSuccess: "Усі дані скопійовано як JSON",
+        copyFailedStatus: "Не вдалося скопіювати. Скопіюйте текст вручну.",
+        copyFailedAlert: "Копіювання не спрацювало в браузері. Скопіюйте текст вручну.",
+        fallbackSourceStatus: " (активний резервний список)",
+        resultsStatus: function(visibleCount, totalCount) {
+            return `${visibleCount} з ${totalCount} дописів видно`;
+        },
+        skippedFilesStatus: function(count) {
+            return count === 1 ? ", 1 файл пропущено" : `, ${count} файлів пропущено`;
+        }
+    }
+};
+
 const SUPPORTED_POST_LANGUAGES = Object.freeze(Object.keys(POST_COPY_TRANSLATIONS));
 const DEFAULT_POST_LANGUAGE = "de";
 const LOCALIZED_SOURCE_URL = new URL("../index.html", window.location.href).href;
@@ -267,6 +851,99 @@ function normalizePostLanguage(locale) {
 
 function getPostCopy(language) {
     return POST_COPY_TRANSLATIONS[normalizePostLanguage(language)];
+}
+
+function getExportUiCopy(language) {
+    return EXPORT_UI_TRANSLATIONS[normalizePostLanguage(language)] || EXPORT_UI_TRANSLATIONS[DEFAULT_POST_LANGUAGE];
+}
+
+function buildPostScopedLabel(baseLabel, postLabel, suffixLabel) {
+    const normalizedBaseLabel = collapseWhitespace(baseLabel);
+    const normalizedPostLabel = collapseWhitespace(postLabel);
+    const normalizedSuffixLabel = collapseWhitespace(suffixLabel);
+    let label = normalizedBaseLabel;
+
+    if (normalizedPostLabel) {
+        label = `${label}: ${normalizedPostLabel}`;
+    }
+
+    if (normalizedSuffixLabel) {
+        label = `${label} (${normalizedSuffixLabel})`;
+    }
+
+    return label;
+}
+
+function setTextContentIfPresent(element, text) {
+    if (element) {
+        element.textContent = text;
+    }
+}
+
+function updateStaticUiLanguage(language) {
+    const uiCopy = getExportUiCopy(language);
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const guideCards = document.querySelectorAll('.export-guide__card');
+    const workflowSteps = guideCards[0] ? guideCards[0].querySelectorAll('li') : [];
+    const heroGhostLink = document.querySelector('.export-hero__actions .export-button--ghost');
+    const searchLabel = document.querySelector('.export-search span');
+
+    document.documentElement.lang = normalizePostLanguage(language);
+    document.title = uiCopy.pageTitle;
+
+    if (metaDescription) {
+        metaDescription.setAttribute('content', uiCopy.metaDescription);
+    }
+
+    setTextContentIfPresent(document.querySelector('.export-hero__eyebrow'), uiCopy.heroEyebrow);
+    setTextContentIfPresent(document.querySelector('.export-hero__title'), uiCopy.heroTitle);
+    setTextContentIfPresent(document.querySelector('.export-hero__text'), uiCopy.heroText);
+
+    if (elements.copyAllJson) {
+        elements.copyAllJson.textContent = uiCopy.copyAllJsonButton;
+        elements.copyAllJson.setAttribute('aria-label', uiCopy.copyAllJsonButton);
+        elements.copyAllJson.setAttribute('title', uiCopy.copyAllJsonButton);
+    }
+
+    if (heroGhostLink) {
+        heroGhostLink.textContent = uiCopy.exampleSharePageButton;
+        heroGhostLink.setAttribute('aria-label', uiCopy.exampleSharePageButton);
+        heroGhostLink.setAttribute('title', uiCopy.exampleSharePageButton);
+    }
+
+    if (guideCards[0]) {
+        guideCards[0].querySelector('h2').textContent = uiCopy.guideTitle;
+        workflowSteps.forEach((step, index) => {
+            step.textContent = uiCopy.guideSteps[index] || '';
+        });
+    }
+
+    if (guideCards[1]) {
+        guideCards[1].querySelector('h2').textContent = uiCopy.noteTitle;
+        guideCards[1].querySelector('p').textContent = uiCopy.noteText;
+    }
+
+    if (guideCards.length) {
+        document.querySelector('.export-guide').setAttribute('aria-label', uiCopy.guideAriaLabel);
+    }
+
+    const toolbar = document.querySelector('.export-toolbar');
+    if (toolbar) {
+        toolbar.setAttribute('aria-label', uiCopy.toolbarAriaLabel);
+    }
+
+    if (searchLabel) {
+        searchLabel.textContent = uiCopy.searchLabel;
+    }
+
+    if (elements.postSearch) {
+        elements.postSearch.setAttribute('placeholder', uiCopy.searchPlaceholder);
+        elements.postSearch.setAttribute('title', uiCopy.searchPlaceholder);
+    }
+
+    if (elements.exportStatus && !state.posts.length) {
+        elements.exportStatus.textContent = uiCopy.statusLoading;
+    }
 }
 
 function getStoredSiteLanguage() {
@@ -615,15 +1292,16 @@ function setExportStatusMessage(message) {
 }
 
 function getExportResultsStatusMessage() {
+    const uiCopy = getExportUiCopy(state.language);
     const visibleCount = elements.postGrid.querySelectorAll(".post-card").length;
-    let message = `${visibleCount} von ${state.posts.length} Beitraegen sichtbar`;
+    let message = uiCopy.resultsStatus(visibleCount, state.posts.length);
 
     if (state.failedFilesCount) {
-        message += `, ${state.failedFilesCount} Datei(en) uebersprungen`;
+        message += uiCopy.skippedFilesStatus(state.failedFilesCount);
     }
 
     if (state.source === "fallback") {
-        message += " (Fallback-Liste aktiv)";
+        message += uiCopy.fallbackSourceStatus;
     }
 
     return message;
@@ -688,6 +1366,7 @@ function setControlFeedbackState(trigger, text, accessibilityLabel) {
 async function copyText(value, trigger, successLabel, successAccessibilityLabel) {
     const originalState = captureControlLabelState(trigger);
     const successStatus = successAccessibilityLabel || successLabel;
+    const uiCopy = getExportUiCopy(state.language);
 
     try {
         await navigator.clipboard.writeText(value);
@@ -697,30 +1376,31 @@ async function copyText(value, trigger, successLabel, successAccessibilityLabel)
             applyControlLabelState(trigger, originalState);
         }, 1500);
     } catch (error) {
-        announceTransientExportStatus("Kopieren fehlgeschlagen. Bitte Text manuell kopieren.", 2200);
-        window.alert("Kopieren hat im Browser nicht funktioniert. Bitte den Text manuell kopieren.");
+        announceTransientExportStatus(uiCopy.copyFailedStatus, 2200);
+        window.alert(uiCopy.copyFailedAlert);
     }
 }
 
 function getExportFormatPresentation(format, language) {
     const postCopy = getPostCopy(language);
+    const uiCopy = getExportUiCopy(language);
 
     if (format === "story") {
         return {
-            summaryLabel: "Story 9:16",
-            buttonLabel: "9:16 PNG exportieren",
-            exportLabel: "Story PNG exportieren",
-            optionLabel: "Story-Vorlage 9 zu 16",
+            summaryLabel: uiCopy.storySummaryLabel,
+            buttonLabel: uiCopy.exportStoryButton,
+            exportLabel: uiCopy.storyExportAction,
+            optionLabel: uiCopy.storyOptionLabel,
             summaryNote: postCopy.storyFormatNote
         };
     }
 
     return {
-        summaryLabel: "Feed 4:5",
-        buttonLabel: "4:5 PNG exportieren",
-        exportLabel: "Feed PNG exportieren",
-        optionLabel: "Feed-Vorlage 4 zu 5",
-        summaryNote: "Der Feed-Export nutzt nur Motiv oder Plakat. Alle weiteren Infos stehen in der Caption."
+        summaryLabel: uiCopy.feedSummaryLabel,
+        buttonLabel: uiCopy.exportFeedButton,
+        exportLabel: uiCopy.feedExportAction,
+        optionLabel: uiCopy.feedOptionLabel,
+        summaryNote: uiCopy.feedSummaryNote
     };
 }
 
@@ -1563,9 +2243,10 @@ function drawWebsiteRow(ctx, options) {
 
 async function exportInstagramImage(post, trigger) {
     const originalState = captureControlLabelState(trigger);
-    const postLabel = post.title || post.fileName || "Share-Beitrag";
+    const uiCopy = getExportUiCopy(post.language);
+    const postLabel = post.title || post.fileName || uiCopy.defaultPostLabel;
 
-    setControlFeedbackState(trigger, "Export laeuft...", `PNG-Export laeuft: ${postLabel}`);
+    setControlFeedbackState(trigger, uiCopy.feedExportRunning, buildPostScopedLabel(uiCopy.pngExportStatus, postLabel));
     trigger.disabled = true;
 
     try {
@@ -1593,13 +2274,13 @@ async function exportInstagramImage(post, trigger) {
         link.download = buildExportFileName(post, "-instagram-4x5");
         link.click();
 
-        setControlFeedbackState(trigger, "PNG exportiert", `PNG exportiert: ${postLabel}`);
-        announceTransientExportStatus(`PNG exportiert: ${postLabel}`);
+        setControlFeedbackState(trigger, uiCopy.feedExported, buildPostScopedLabel(uiCopy.feedExported, postLabel));
+        announceTransientExportStatus(buildPostScopedLabel(uiCopy.feedExported, postLabel));
     } catch (error) {
         console.error(error);
-        announceTransientExportStatus(`PNG-Export fehlgeschlagen: ${postLabel}`, 2200);
-        window.alert("Der PNG-Export hat nicht funktioniert. Bitte die Export-Seite ueber die live Website oder lokal ueber einen Webserver oeffnen; direkt ueber file:// klappt der Canvas-Export nicht.");
-        setControlFeedbackState(trigger, "Export fehlgeschlagen", `PNG-Export fehlgeschlagen: ${postLabel}`);
+        announceTransientExportStatus(buildPostScopedLabel(uiCopy.pngExportFailedStatus, postLabel), 2200);
+        window.alert(uiCopy.pngExportAlert);
+        setControlFeedbackState(trigger, uiCopy.feedExportFailed, buildPostScopedLabel(uiCopy.pngExportFailedStatus, postLabel));
     } finally {
         window.setTimeout(() => {
             applyControlLabelState(trigger, originalState);
@@ -1610,10 +2291,11 @@ async function exportInstagramImage(post, trigger) {
 
 async function exportInstagramStoryImage(post, trigger, previewElement) {
     const originalState = captureControlLabelState(trigger);
-    const postLabel = post.title || post.fileName || "Share-Beitrag";
+    const uiCopy = getExportUiCopy(post.language);
+    const postLabel = post.title || post.fileName || uiCopy.defaultPostLabel;
     const fileName = buildExportFileName(post, "-instagram-story-9x16");
 
-    setControlFeedbackState(trigger, "Story laeuft...", `Story-Export laeuft: ${postLabel}`);
+    setControlFeedbackState(trigger, uiCopy.storyExportRunning, buildPostScopedLabel(uiCopy.storyExportStatus, postLabel));
     trigger.disabled = true;
 
     try {
@@ -1629,20 +2311,20 @@ async function exportInstagramStoryImage(post, trigger, previewElement) {
                 fileName
             );
 
-            setControlFeedbackState(trigger, "Story exportiert", `Story exportiert: ${postLabel}`);
-            announceTransientExportStatus(`Story exportiert: ${postLabel}`);
+            setControlFeedbackState(trigger, uiCopy.storyExported, buildPostScopedLabel(uiCopy.storyExported, postLabel));
+            announceTransientExportStatus(buildPostScopedLabel(uiCopy.storyExported, postLabel));
         } catch (previewError) {
             console.warn(previewError);
             await exportPosterOnlyStoryImage(post, fileName);
-            window.alert("Die Story-Preview konnte in diesem Browser nicht direkt exportiert werden. Es wurde stattdessen nur das Motiv exportiert.");
-            setControlFeedbackState(trigger, "Motiv exportiert", `Preview-Export nicht moeglich, Motiv exportiert: ${postLabel}`);
-            announceTransientExportStatus(`Preview-Export nicht moeglich, Motiv exportiert: ${postLabel}`);
+            window.alert(uiCopy.storyPreviewFallbackAlert);
+            setControlFeedbackState(trigger, uiCopy.storyFallbackExported, buildPostScopedLabel(uiCopy.previewFallbackStatus, postLabel));
+            announceTransientExportStatus(buildPostScopedLabel(uiCopy.previewFallbackStatus, postLabel));
         }
     } catch (error) {
         console.error(error);
-        announceTransientExportStatus(`Story-Export fehlgeschlagen: ${postLabel}`, 2200);
-        window.alert("Der Story-Export hat nicht funktioniert. Bitte die Export-Seite ueber die live Website oder lokal ueber einen Webserver oeffnen; direkt ueber file:// klappt der Export nicht.");
-        setControlFeedbackState(trigger, "Story fehlgeschlagen", `Story-Export fehlgeschlagen: ${postLabel}`);
+        announceTransientExportStatus(buildPostScopedLabel(uiCopy.storyExportFailedStatus, postLabel), 2200);
+        window.alert(uiCopy.storyExportAlert);
+        setControlFeedbackState(trigger, uiCopy.storyExportFailed, buildPostScopedLabel(uiCopy.storyExportFailedStatus, postLabel));
     } finally {
         window.setTimeout(() => {
             applyControlLabelState(trigger, originalState);
@@ -1783,7 +2465,7 @@ function renderPosts(posts) {
     if (!posts.length) {
         const empty = document.createElement("p");
         empty.className = "export-status";
-        empty.textContent = "Keine passenden Beitraege gefunden.";
+        empty.textContent = getExportUiCopy(state.language).noMatches;
         elements.postGrid.appendChild(empty);
         return;
     }
@@ -1798,9 +2480,15 @@ function renderPosts(posts) {
         const hashtags = fragment.querySelector(".post-card__hashtags");
         const captionLabel = fragment.querySelector(".post-card__caption-label");
         const caption = fragment.querySelector(".post-card__caption");
+        const captionNote = fragment.querySelector(".post-card__caption-note");
         const formatValue = fragment.querySelector(".post-card__format-value");
         const formatNote = fragment.querySelector(".post-card__format-note");
+        const formatKicker = fragment.querySelector(".post-card__format-kicker");
+        const previewSectionEyebrow = fragment.querySelector(".post-card__overview .post-card__section-eyebrow");
+        const previewSectionNote = fragment.querySelector(".post-card__overview .post-card__section-note");
+        const previewStack = fragment.querySelector(".preview-stack");
         const feedPreviewOption = fragment.querySelector(".preview-option--feed");
+        const feedPreviewLabel = fragment.querySelector(".preview-option--feed .preview-option__label");
         const feedPreview = fragment.querySelector(".insta-preview");
         const previewBackdropImage = fragment.querySelector(".insta-preview__backdrop-image");
         const previewImage = fragment.querySelector(".insta-preview__image");
@@ -1808,24 +2496,38 @@ function renderPosts(posts) {
         const previewTitle = fragment.querySelector(".insta-preview__title");
         const previewText = fragment.querySelector(".insta-preview__text");
         const storyPreviewOption = fragment.querySelector(".preview-option--story");
+        const storyPreviewLabel = fragment.querySelector(".preview-option--story .preview-option__label");
         const storyPreview = fragment.querySelector(".story-preview");
         const storyPreviewBackdropImage = fragment.querySelector(".story-preview__backdrop-image");
         const storyPreviewImage = fragment.querySelector(".story-preview__image");
+        const workflowEyebrow = fragment.querySelector(".post-card__workflow .post-card__section-eyebrow");
+        const workflowNote = fragment.querySelector(".post-card__workflow .post-card__section-note");
         const exportFeedButton = fragment.querySelector(".post-card__export-feed");
         const exportStoryButton = fragment.querySelector(".post-card__export-story");
         const copyCaptionButton = fragment.querySelector(".post-card__copy-caption");
         const copyLinkButton = fragment.querySelector(".post-card__copy-link");
         const openImageLink = fragment.querySelector(".post-card__open-image");
         const openShareLink = fragment.querySelector(".post-card__open-share");
-        const postLabel = post.title || post.fileName || "Share-Beitrag";
+        const uiCopy = getExportUiCopy(post.language);
+        const postLabel = post.title || post.fileName || uiCopy.defaultPostLabel;
         const postDomId = buildPostDomId(post, index);
         const titleId = `${postDomId}-title`;
         const captionLabelId = `${postDomId}-caption-label`;
         const captionId = `${postDomId}-caption`;
-        const openInNewWindowHint = "oeffnet in neuem Fenster";
 
         card.dataset.search = buildSearchIndex(post);
         card.setAttribute("aria-labelledby", titleId);
+        setTextContentIfPresent(previewSectionEyebrow, uiCopy.previewEyebrow);
+        setTextContentIfPresent(previewSectionNote, uiCopy.previewNote);
+        setTextContentIfPresent(feedPreviewLabel, uiCopy.feedOptionLabel);
+        setTextContentIfPresent(storyPreviewLabel, uiCopy.storyOptionLabel);
+        setTextContentIfPresent(workflowEyebrow, uiCopy.workflowEyebrow);
+        setTextContentIfPresent(workflowNote, uiCopy.workflowNote);
+        setTextContentIfPresent(formatKicker, uiCopy.formatKicker);
+        setTextContentIfPresent(captionNote, uiCopy.captionNote);
+        if (previewStack) {
+            previewStack.setAttribute("aria-label", uiCopy.previewGroupLabel);
+        }
         image.src = post.image;
         image.alt = post.imageAlt;
         image.loading = "lazy";
@@ -1836,12 +2538,12 @@ function renderPosts(posts) {
         text.textContent = post.text;
         if (captionLabel) {
             captionLabel.id = captionLabelId;
-            captionLabel.textContent = `Instagram-Caption fuer ${postLabel}`;
+            captionLabel.textContent = buildPostScopedLabel(uiCopy.captionLabel, postLabel);
         }
         caption.id = captionId;
         caption.value = post.caption;
         caption.setAttribute("aria-labelledby", captionLabel ? captionLabelId : titleId);
-        caption.setAttribute("title", `Instagram-Caption: ${postLabel}`);
+        caption.setAttribute("title", buildPostScopedLabel(uiCopy.captionLabel, postLabel));
         if (previewBackdropImage) {
             previewBackdropImage.src = post.image;
             previewBackdropImage.alt = "";
@@ -1883,18 +2585,24 @@ function renderPosts(posts) {
 
         openImageLink.href = post.image;
         openShareLink.href = post.shareUrl;
-        copyCaptionButton.setAttribute("aria-label", `Caption kopieren: ${postLabel}`);
-        copyCaptionButton.setAttribute("title", `Caption kopieren: ${postLabel}`);
-        copyLinkButton.setAttribute("aria-label", `Link kopieren: ${postLabel}`);
-        copyLinkButton.setAttribute("title", `Link kopieren: ${postLabel}`);
-        openImageLink.setAttribute("aria-label", `Bild oeffnen: ${postLabel} (${openInNewWindowHint})`);
-        openImageLink.setAttribute("title", `Bild oeffnen: ${postLabel} (${openInNewWindowHint})`);
-        openShareLink.setAttribute("aria-label", `Share-Seite oeffnen: ${postLabel} (${openInNewWindowHint})`);
-        openShareLink.setAttribute("title", `Share-Seite oeffnen: ${postLabel} (${openInNewWindowHint})`);
-        exportFeedButton.setAttribute("aria-label", `Feed PNG exportieren: ${postLabel}`);
-        exportFeedButton.setAttribute("title", `Feed PNG exportieren: ${postLabel}`);
-        exportStoryButton.setAttribute("aria-label", `Story PNG exportieren: ${postLabel}`);
-        exportStoryButton.setAttribute("title", `Story PNG exportieren: ${postLabel}`);
+        copyCaptionButton.textContent = uiCopy.copyCaptionButton;
+        copyCaptionButton.setAttribute("aria-label", buildPostScopedLabel(uiCopy.copyCaptionAction, postLabel));
+        copyCaptionButton.setAttribute("title", buildPostScopedLabel(uiCopy.copyCaptionAction, postLabel));
+        copyLinkButton.textContent = uiCopy.copyLinkButton;
+        copyLinkButton.setAttribute("aria-label", buildPostScopedLabel(uiCopy.copyLinkAction, postLabel));
+        copyLinkButton.setAttribute("title", buildPostScopedLabel(uiCopy.copyLinkAction, postLabel));
+        openImageLink.textContent = uiCopy.openImageButton;
+        openImageLink.setAttribute("aria-label", buildPostScopedLabel(uiCopy.openImageAction, postLabel, uiCopy.openInNewWindowHint));
+        openImageLink.setAttribute("title", buildPostScopedLabel(uiCopy.openImageAction, postLabel, uiCopy.openInNewWindowHint));
+        openShareLink.textContent = uiCopy.openShareButton;
+        openShareLink.setAttribute("aria-label", buildPostScopedLabel(uiCopy.openShareAction, postLabel, uiCopy.openInNewWindowHint));
+        openShareLink.setAttribute("title", buildPostScopedLabel(uiCopy.openShareAction, postLabel, uiCopy.openInNewWindowHint));
+        exportFeedButton.textContent = uiCopy.exportFeedButton;
+        exportFeedButton.setAttribute("aria-label", buildPostScopedLabel(uiCopy.feedExportAction, postLabel));
+        exportFeedButton.setAttribute("title", buildPostScopedLabel(uiCopy.feedExportAction, postLabel));
+        exportStoryButton.textContent = uiCopy.exportStoryButton;
+        exportStoryButton.setAttribute("aria-label", buildPostScopedLabel(uiCopy.storyExportAction, postLabel));
+        exportStoryButton.setAttribute("title", buildPostScopedLabel(uiCopy.storyExportAction, postLabel));
 
         let selectedFormat = preferredInitialExportFormat;
 
@@ -1933,11 +2641,14 @@ function renderPosts(posts) {
                 option.setAttribute("aria-pressed", String(isActive));
                 option.setAttribute(
                     "aria-label",
-                    `${optionPresentation.optionLabel} ${isActive ? "aktiv" : "aktivieren"}: ${post.title}`
+                    buildPostScopedLabel(
+                        `${optionPresentation.optionLabel} ${isActive ? uiCopy.optionStateActive : uiCopy.optionStateInactive}`,
+                        postLabel
+                    )
                 );
 
                 if (stateLabel) {
-                    stateLabel.textContent = isActive ? "Aktiv fuer Export" : "Zum Aktivieren";
+                    stateLabel.textContent = isActive ? uiCopy.optionStateActive : uiCopy.optionStateInactive;
                 }
             });
         }
@@ -1950,7 +2661,13 @@ function renderPosts(posts) {
             }
 
             syncSelectedFormat(nextFormat);
-            announceTransientExportStatus(`${getExportFormatPresentation(nextFormat, post.language).summaryLabel} aktiviert: ${postLabel}`, 1200);
+            announceTransientExportStatus(
+                buildPostScopedLabel(
+                    `${getExportFormatPresentation(nextFormat, post.language).summaryLabel} ${uiCopy.activatedState}`,
+                    postLabel
+                ),
+                1200
+            );
         }
 
         function bindPreviewSelection(option, format) {
@@ -1959,15 +2676,6 @@ function renderPosts(posts) {
             }
 
             option.addEventListener("click", () => {
-                activateSelectedFormat(format);
-            });
-
-            option.addEventListener("keydown", (event) => {
-                if (event.key !== "Enter" && event.key !== " ") {
-                    return;
-                }
-
-                event.preventDefault();
                 activateSelectedFormat(format);
             });
         }
@@ -1989,11 +2697,11 @@ function renderPosts(posts) {
         });
 
         copyCaptionButton.addEventListener("click", () => {
-            copyText(post.caption, copyCaptionButton, "Caption kopiert", `Caption kopiert: ${postLabel}`);
+            copyText(post.caption, copyCaptionButton, uiCopy.captionCopied, buildPostScopedLabel(uiCopy.captionCopied, postLabel));
         });
 
         copyLinkButton.addEventListener("click", () => {
-            copyText(post.shareUrl, copyLinkButton, "Link kopiert", `Link kopiert: ${postLabel}`);
+            copyText(post.shareUrl, copyLinkButton, uiCopy.linkCopied, buildPostScopedLabel(uiCopy.linkCopied, postLabel));
         });
 
         elements.postGrid.appendChild(fragment);
@@ -2012,17 +2720,17 @@ function applySearchFilter() {
 
 async function initialize() {
     try {
-        document.documentElement.lang = preferredPostLanguage;
+        state.language = preferredPostLanguage;
+        updateStaticUiLanguage(state.language);
         const { posts, failedFiles, sharePages, source } = await loadPosts();
         state.posts = posts;
         state.sharePages = sharePages;
         state.failedFilesCount = failedFiles.length;
         state.source = source;
-        state.language = preferredPostLanguage;
         renderPosts(posts);
 
         if (!posts.length) {
-            setExportStatusMessage("Keine Share-Seiten konnten geladen werden. Die Export-Seite funktioniert nur ueber einen Webserver und nicht ueber file://.");
+            setExportStatusMessage(getExportUiCopy(state.language).noPages);
             return;
         }
 
@@ -2041,13 +2749,14 @@ async function initialize() {
 
         syncExportResultsStatus();
     } catch (error) {
-        setExportStatusMessage("Die Share-Seiten konnten nicht geladen werden. Die Export-Seite funktioniert nur ueber einen Webserver und nicht ueber file://.");
+        setExportStatusMessage(getExportUiCopy(state.language).loadError);
         console.error(error);
     }
 }
 
 elements.postSearch.addEventListener("input", applySearchFilter);
 elements.copyAllJson.addEventListener("click", () => {
+    const uiCopy = getExportUiCopy(state.language);
     const exportPayload = state.posts.map((post) => ({
         title: post.title,
         meta: post.meta,
@@ -2058,7 +2767,7 @@ elements.copyAllJson.addEventListener("click", () => {
         caption: post.caption
     }));
 
-    copyText(JSON.stringify(exportPayload, null, 2), elements.copyAllJson, "JSON kopiert", "Alle Daten als JSON kopiert");
+    copyText(JSON.stringify(exportPayload, null, 2), elements.copyAllJson, uiCopy.jsonCopied, uiCopy.copyAllJsonSuccess);
 });
 
 initialize();

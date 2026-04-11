@@ -167,6 +167,16 @@ Ziel: Flow- und Interaktionsqualitaet auf 10/10-Niveau bringen.
 
 Budget: 12 bis 15 Stunden
 
+### Stand 2026-04-11
+
+- Abgeschlossen: Der Share-/Export-Flow auf [share/instagram-export.html](../share/instagram-export.html) zieht seine Shell-, Hilfs-, CTA- und Status-Copy jetzt an die aktive Exportsprache an, statt bei lokalisierten Share-Inhalten weiterhin deutschsprachige Werkzeugtexte zu mischen.
+- Abgeschlossen: Die Vorlagenwahl im Export nutzt fuer Feed und Story jetzt echte `button`-Elemente mit `aria-pressed` statt simulierte `div role="button"`-Zustaende; dadurch ist die Auswahl robuster fuer Tastatur- und Assistive-Technology-Nutzung.
+- Abgeschlossen: Der mehrsprachige Rueckblick-Overview auf [index.html](../index.html) wird jetzt aus [scripts/legal-content/homepage-review-overview.json](../scripts/legal-content/homepage-review-overview.json) gerendert; damit ist ein weiterer grosser Sprachcluster aus dem Startseiten-HTML in die Generator-Strecke verschoben.
+- Abgeschlossen: Skip-Link, Brand-Tagline sowie Desktop- und Mobile-Navigation auf [index.html](../index.html) werden jetzt aus [scripts/legal-content/homepage-header-navigation.json](../scripts/legal-content/homepage-header-navigation.json) gerendert; damit liegt der verbliebene groesste statische Sprachcluster im Header ebenfalls in der Generator-Strecke.
+- Abgeschlossen: Review-Archiv-Intro sowie die verteilten Foto-Credits im Rueckblick auf [index.html](../index.html) werden jetzt aus [scripts/legal-content/homepage-review-archive.json](../scripts/legal-content/homepage-review-archive.json) gerendert; damit sind die verbliebenen kleinen Roh-Sprachcluster des Rueckblick-Bereichs in die Generator-Strecke uebernommen.
+- Validiert: Der bestehende Release-Smoke lief am 2026-04-11 erneut lokal mit `QA_BROWSER_TARGETS=chromium,firefox` und `QA_FAIL_ON_ISSUES=1` gegen den Preview-Server mit 0 Funden durch.
+- Weiter offen: Der bewusst manuelle Desktop-/Mobile-/Touch-Flow-Proof aus Woche 3 bleibt ohne Sichtcheck weiterhin ausserhalb dieses Laufs.
+
 Arbeitspaket:
 
 - Aktuelles-, Rueckblick- und Deep-Link-Flow aus Besuchersicht feinjustieren
