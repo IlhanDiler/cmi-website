@@ -117,6 +117,8 @@
     --layout-shell-max-width: 1120px;
     --layout-shell-width: min(92vw, var(--layout-shell-max-width));
     --layout-shell-width-relaxed: min(94vw, var(--layout-shell-max-width));
+    --layout-shell-max-width-wide: 1360px;
+    --layout-shell-width-wide: min(var(--layout-shell-max-width-wide), calc(100% - (var(--desktop-content-side-gap, 24px) * 2)));
     --layout-section-gap-desktop: clamp(66px, 6vw, 86px);
     --layout-section-gap-tablet: clamp(54px, 7vw, 72px);
     --layout-section-gap-mobile: clamp(42px, 9vw, 58px);

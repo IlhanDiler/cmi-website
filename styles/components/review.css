@@ -414,6 +414,13 @@
         linear-gradient(180deg, rgba(246, 250, 249, 0.98) 0%, rgba(233, 241, 238, 0.98) 100%);
 }
 
+.news-feed-card-media--full-image {
+    --news-feed-full-image-pad: clamp(10px, 1.1vw, 14px);
+    min-height: 0;
+    aspect-ratio: var(--news-feed-full-image-ratio, 16 / 10);
+    padding: var(--news-feed-full-image-pad);
+}
+
 .news-feed-card-image {
     position: relative;
     z-index: 1;
@@ -447,6 +454,19 @@
     transform: scale(1.08);
     opacity: 0.38;
     pointer-events: none;
+}
+
+.news-feed-card-media--full-image .news-feed-card-image--backdrop {
+    inset: var(--news-feed-full-image-pad);
+    width: calc(100% - (var(--news-feed-full-image-pad) * 2));
+    height: calc(100% - (var(--news-feed-full-image-pad) * 2));
+    filter: blur(22px) saturate(1.04) brightness(0.94);
+    transform: scale(1.05);
+    opacity: 0.42;
+}
+
+.news-feed-card-media--full-image .news-feed-card-image--contain {
+    border-radius: 20px;
 }
 
 .news-feed-card-body {
@@ -693,14 +713,14 @@
     position: absolute;
     top: 0;
     left: 50%;
-    width: min(1080px, calc(100% - 40px));
+    width: var(--layout-shell-width);
     height: 1px;
     transform: translateX(-50%);
     background: linear-gradient(90deg, rgba(18, 62, 70, 0), rgba(18, 62, 70, 0.18) 18%, rgba(18, 62, 70, 0.18) 82%, rgba(18, 62, 70, 0));
 }
 
 .review-archive-intro__inner {
-    width: min(1120px, calc(100% - 40px));
+    width: var(--layout-shell-width);
     margin: 0 auto;
     padding: 24px 24px 24px;
     border-radius: 28px;
@@ -753,21 +773,40 @@
 
 .review-archive-toggle,
 .review-card-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     min-height: 48px;
     gap: 10px;
     padding-inline: 18px;
+    border: 1px solid var(--cta-border-color);
     border-radius: 999px;
+    background: var(--cta-bg);
+    color: var(--cta-color);
+    font-family: var(--font-ui-modern);
     -webkit-appearance: none;
     appearance: none;
+    -webkit-tap-highlight-color: transparent;
     background-clip: padding-box;
     cursor: pointer;
     font-size: 0.95rem;
     font-weight: 620;
     line-height: 1.3;
+    text-decoration: none;
     position: relative;
     overflow: hidden;
     isolation: isolate;
     box-shadow: var(--cta-shadow, var(--review-cta-shadow));
+}
+
+.review-archive-toggle:hover,
+.review-archive-toggle:focus-visible,
+.review-card-toggle:hover,
+.review-card-toggle:focus-visible {
+    background: var(--cta-bg-hover);
+    color: var(--cta-color-hover);
+    border-color: var(--cta-border-color-hover);
+    box-shadow: var(--cta-shadow-hover, var(--review-cta-shadow-hover));
 }
 
 .review-archive-toggle::before,
@@ -1041,10 +1080,10 @@
 #review-masterclass-florian-meierott,
 #review-christmette-2025,
 #review-weihnachtskonzert-zum-mitsingen-2025 {
-    --review-inline-media-width: clamp(260px, 36%, 340px);
-    --review-inline-media-image-max-height: 236px;
+    --review-inline-media-width: clamp(292px, 37.2%, 368px);
+    --review-inline-media-image-max-height: 256px;
     --review-inline-media-image-fit: cover;
-    --review-inline-media-margin: 4px 0 18px 24px;
+    --review-inline-media-margin: 2px 8px 18px 28px;
 }
 
 .review-featured--tablet-article .review-inline-media {
@@ -1063,6 +1102,9 @@
     flex: 0 1 40%;
     max-width: clamp(340px, 40vw, 470px);
     gap: 16px;
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
 }
 
 #review-benefiz-trommelworkshop-2026 .review-benefit-workshop-media > .review-media-image-card {
@@ -1102,6 +1144,15 @@
     font-weight: 600;
     line-height: 1.72;
     letter-spacing: -0.01em;
+}
+
+#review-johann-strauss-marktbreit-2025 .gruppenbild-container {
+    --review-strauss-gallery-image-radius: 24px;
+}
+
+#review-johann-strauss-marktbreit-2025 .gruppenbild-container > .gruppenbild-img {
+    border-radius: var(--review-strauss-gallery-image-radius);
+    clip-path: inset(0 round var(--review-strauss-gallery-image-radius));
 }
 
 #review-masterclass-florian-meierott {
@@ -1838,7 +1889,7 @@
 
 .review-featured .charity-projects-container,
 .review-archive .charity-projects-section[id^="review-"] .charity-projects-container {
-    width: min(1120px, calc(100% - 40px));
+    width: var(--layout-shell-width);
     margin: 0 auto 12px;
     padding: 22px 28px 24px;
     border-radius: 30px;
@@ -2214,6 +2265,22 @@
         padding-bottom: 18px;
     }
 
+    .review-featured,
+    .review-archive .charity-projects-section[id^="review-"] {
+        padding-inline: 0;
+        box-sizing: border-box;
+    }
+
+    .review-featured .charity-projects-container,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container {
+        width: var(--layout-shell-width);
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        padding: 24px 30px 22px 22px;
+    }
+
     .review-overview-highlights {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 16px;
@@ -2230,6 +2297,10 @@
     .review-featured .charity-projects-container,
     .review-archive .charity-projects-section[id^="review-"] .charity-projects-container {
         padding: 24px 22px 22px;
+    }
+
+    .review-featured.review-featured--tablet-article .charity-projects-container {
+        padding: 24px 32px 22px 22px;
     }
 
     .review-featured .charity-title,
@@ -2337,6 +2408,27 @@
 }
 
 @media (min-width: 901px) and (max-width: 1200px) {
+    .review-featured,
+    .review-archive .charity-projects-section[id^="review-"] {
+        padding-inline: 0;
+        box-sizing: border-box;
+    }
+
+    .review-featured .charity-projects-container,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container {
+        width: var(--layout-shell-width);
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        padding-right: clamp(30px, 3.2vw, 38px);
+    }
+
+    .review-featured.review-featured--tablet-article .charity-projects-container {
+        padding-right: clamp(32px, 3.4vw, 40px);
+    }
+
     .review-featured.charity-projects-section[id^="review-"] .charity-flex-row {
         flex-direction: row;
         align-items: flex-start;
@@ -2630,6 +2722,15 @@
     .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media--gallery > img:last-of-type,
     .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > img:last-of-type {
         order: 2;
+    }
+
+    .review-archive #review-johann-strauss-marktbreit-2025.review-archive-card--inline-media .review-archive-inline-media--gallery > img:last-of-type,
+    .review-archive #review-johann-strauss-marktbreit-2025.review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > img:last-of-type {
+        width: 100%;
+        max-width: 100%;
+        max-height: none;
+        border-radius: 20px;
+        clip-path: inset(0 round 20px);
     }
 
     .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media--gallery > .review-media-caption,
