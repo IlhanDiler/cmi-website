@@ -2642,6 +2642,57 @@
     }
 }
 
+@media (min-width: 1201px) {
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .charity-flex-left {
+        display: block;
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding-right: 0;
+        box-sizing: border-box;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .review-inline-media {
+        display: flex;
+        flex-direction: column;
+        float: right;
+        clear: right;
+        width: var(--review-inline-media-width);
+        max-width: var(--review-inline-media-width);
+        min-width: 220px;
+        margin: var(--review-inline-media-margin);
+        box-sizing: border-box;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .review-inline-media .review-media-image-card,
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .review-inline-media .masterclass-flex__image {
+        width: 100%;
+        max-width: 100%;
+        max-height: var(--review-inline-media-image-max-height);
+        object-fit: var(--review-inline-media-image-fit);
+        object-position: center center;
+        border-radius: 20px;
+        display: block;
+        margin: 0 auto;
+        background: transparent;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .charity-flex-left::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .charity-description {
+        max-width: none;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] > .charity-projects-container > .charity-flex-row > .gruppenbild-container {
+        display: none;
+    }
+}
+
 @media (min-width: 821px) and (max-width: 1200px) {
     .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .charity-flex-row,
     .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .charity-flex-row {

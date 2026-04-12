@@ -164,6 +164,7 @@
 }
 
 .event-title {
+    width: 100%;
     margin: 10px 0 16px;
     color: #0c3038;
     font-family: var(--font-ui-modern);
@@ -176,7 +177,8 @@
 }
 
 .event-section-copy {
-    max-width: 58ch;
+    width: 100%;
+    max-width: none;
     margin: 0 auto;
     color: #274850;
     font-family: var(--font-ui-modern);
@@ -615,7 +617,6 @@
     }
 
     .event-title {
-        max-width: 12ch;
         margin-bottom: 16px;
         font-size: clamp(2.12rem, 2.85vw, 3.02rem);
         line-height: 1.01;
@@ -623,7 +624,6 @@
     }
 
     .event-section-copy {
-        max-width: 52ch;
         margin-left: 0;
         margin-right: 0;
         font-size: 1.02rem;
@@ -783,7 +783,6 @@
     }
 
     .event-section-copy {
-        max-width: 34ch;
         font-size: 1rem;
         line-height: 1.64;
     }
@@ -997,6 +996,12 @@
 :root[data-theme="dark"] .event-poster-hint-text,
 :root[data-theme="dark"] .event-lightbox-caption-meta {
     color: #d7ebe8;
+}
+
+:root[data-theme="dark"] .event-poster-hint-text {
+    background: rgba(var(--theme-dark-brand-surface-rgb), 0.3);
+    border: 1px solid rgba(var(--color-secondary-rgb), 0.2);
+    color: #f1f8f6;
 }
 
 :root[data-theme="dark"] .event-program,

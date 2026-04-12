@@ -274,7 +274,7 @@ function createThemeToggleButton() {
         '</span>',
         '<span class="theme-switch-button__icon theme-switch-button__icon--moon" aria-hidden="true">',
         '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">',
-        '<path d="M18.45 14.88A7.7 7.7 0 0 1 9.12 5.55a8.55 8.55 0 1 0 9.33 9.33Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>',
+        '<path d="M21 12.79A9 9 0 1 1 11.21 3A7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
         '</svg>',
         '</span>'
     ].join('');
