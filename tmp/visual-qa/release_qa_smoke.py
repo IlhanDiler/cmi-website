@@ -48,6 +48,13 @@ BROWSER_LAUNCH_CONFIGS = {
     },
 }
 
+COOKIE_CONSENT_DIALOG_SELECTOR = "#cookiescript_injected_wrapper, #cookiescript_injected, #cookiescript_injected_fsd, #cookiescript_fsd_wrapper"
+COOKIE_CONSENT_DISMISS_SELECTORS = (
+    "#cookiescript_reject",
+    "#cookiescript_accept",
+    "#cookiescript_close",
+)
+
 
 def should_fail_on_issues():
     return os.environ.get("QA_FAIL_ON_ISSUES", "").strip().lower() in {"1", "true", "yes", "on"}
@@ -203,6 +210,93 @@ async def save_page_screenshot(page, screenshot_path, screenshots, browser_targe
     screenshots.append(str(screenshot_path))
 
 
+async def dismiss_cookie_consent(page, timeout=1000):
+    dialog = page.locator(COOKIE_CONSENT_DIALOG_SELECTOR).first
+
+    try:
+        await dialog.wait_for(state="visible", timeout=timeout)
+    except PlaywrightTimeoutError:
+        return
+
+    for selector in COOKIE_CONSENT_DISMISS_SELECTORS:
+        control = page.locator(selector).first
+        if await control.count() == 0:
+            continue
+
+        try:
+            if not await control.is_visible():
+                continue
+        except PlaywrightTimeoutError:
+            continue
+
+        try:
+            await control.click(timeout=5000)
+        except PlaywrightTimeoutError:
+            await control.evaluate("node => node.click()")
+
+        break
+
+    try:
+        await page.wait_for_function(
+            """
+            (selector) => {
+                const nodes = Array.from(document.querySelectorAll(selector));
+                if (nodes.length === 0) {
+                    return true;
+                }
+
+                return nodes.every((node) => {
+                    if (!(node instanceof HTMLElement)) {
+                        return true;
+                    }
+
+                    if (node.hidden || node.getAttribute('aria-hidden') === 'true') {
+                        return true;
+                    }
+
+                    const style = window.getComputedStyle(node);
+                    return style.display === 'none' || style.visibility === 'hidden' || style.pointerEvents === 'none';
+                });
+            }
+            """,
+            arg=COOKIE_CONSENT_DIALOG_SELECTOR,
+            timeout=5000,
+        )
+    except PlaywrightTimeoutError:
+        await page.evaluate(
+            """
+            (selector) => {
+                document.querySelectorAll(selector).forEach((node) => {
+                    if (!(node instanceof HTMLElement)) {
+                        return;
+                    }
+
+                    node.style.setProperty('display', 'none', 'important');
+                    node.style.setProperty('pointer-events', 'none', 'important');
+                    node.setAttribute('aria-hidden', 'true');
+                });
+            }
+            """,
+            COOKIE_CONSENT_DIALOG_SELECTOR,
+        )
+
+
+async def safe_click(page, locator, timeout=5000):
+    await dismiss_cookie_consent(page)
+    await locator.scroll_into_view_if_needed()
+
+    try:
+        await locator.click(timeout=timeout)
+    except PlaywrightTimeoutError:
+        await dismiss_cookie_consent(page, timeout=3000)
+        await locator.evaluate("node => node.scrollIntoView({ block: 'center', inline: 'nearest' })")
+
+        try:
+            await locator.click(timeout=timeout)
+        except PlaywrightTimeoutError:
+            await locator.evaluate("node => node.click()")
+
+
 def get_requested_browser_targets():
     raw_targets = os.environ.get("QA_BROWSER_TARGETS", "auto")
     requested_targets = []
@@ -258,6 +352,7 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
 
     await page.goto(f"{BASE_URL}/index.html", wait_until="domcontentloaded")
     await page.wait_for_timeout(1200)
+    await dismiss_cookie_consent(page)
 
     for selector, label in (
         (".navbar", "index-desktop navigation"),
@@ -269,7 +364,7 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
     desktop_shot = OUT_DIR / f"index-release-desktop-{browser_target}.png"
     await save_page_screenshot(page, desktop_shot, screenshots, browser_target)
 
-    await page.locator("#langEn").click()
+    await safe_click(page, page.locator("#langEn"))
     await page.wait_for_timeout(250)
 
     visible_review_label = await first_visible_text(page, 'a[href="#review"][data-lang]')
@@ -377,7 +472,7 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
     news_feed_link = page.locator(".news-feed-grid .news-feed-card:first-child .news-feed-card-link")
     await news_feed_link.scroll_into_view_if_needed()
     news_feed_scroll_before = await page.evaluate("() => window.scrollY")
-    await news_feed_link.click()
+    await safe_click(page, news_feed_link)
 
     try:
         await page.wait_for_function(
@@ -471,7 +566,7 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
         )
 
     current_before = (await page.locator("#heroGalleryCurrent").text_content() or "").strip()
-    await page.locator(".hero-gallery-control--next").click()
+    await safe_click(page, page.locator(".hero-gallery-control--next"))
     try:
         await page.wait_for_function(
             "previous => (document.getElementById('heroGalleryCurrent')?.textContent || '').trim() !== previous",
@@ -497,7 +592,7 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
 
     trigger = page.locator(".event-lightbox-trigger").first
     await trigger.scroll_into_view_if_needed()
-    await trigger.click()
+    await safe_click(page, trigger)
     if await wait_visible(page, "#eventLightboxModal", scope_name(browser_target, "event-lightbox open"), issues, timeout=5000):
         await page.keyboard.press("Escape")
         try:
@@ -521,7 +616,7 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
 
     archive_toggle = page.locator(".review-archive-toggle")
     await archive_toggle.scroll_into_view_if_needed()
-    await archive_toggle.click()
+    await safe_click(page, archive_toggle)
     try:
         await page.wait_for_function(
             "() => { const archive = document.getElementById('reviewArchive'); return archive && !archive.hidden; }",
@@ -544,7 +639,7 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
             "No review card toggle found inside the archive",
         )
     else:
-        await first_review_toggle.click()
+        await safe_click(page, first_review_toggle)
         if await first_review_toggle.get_attribute("aria-expanded") != "true":
             add_issue(
                 issues,
@@ -552,7 +647,7 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
                 scope_name(browser_target, "review-archive"),
                 "Review card did not expand on first toggle",
             )
-        await first_review_toggle.click()
+        await safe_click(page, first_review_toggle)
         if await first_review_toggle.get_attribute("aria-expanded") != "false":
             add_issue(
                 issues,
@@ -604,9 +699,10 @@ async def check_index_mobile(browser, issues, screenshots, browser_target, devic
 
     await page.goto(f"{BASE_URL}/index.html", wait_until="domcontentloaded")
     await page.wait_for_timeout(1200)
+    await dismiss_cookie_consent(page)
 
     mobile_button = page.locator(".mobile-menu-btn")
-    await mobile_button.click()
+    await safe_click(page, mobile_button)
 
     try:
         await page.wait_for_function(
@@ -656,6 +752,7 @@ async def check_index_tablet(browser, issues, screenshots, browser_target, devic
 
     await page.goto(f"{BASE_URL}/index.html", wait_until="domcontentloaded")
     await page.wait_for_timeout(1200)
+    await dismiss_cookie_consent(page)
 
     for selector, label in (
         (".navbar", "index-tablet navigation"),
@@ -665,7 +762,7 @@ async def check_index_tablet(browser, issues, screenshots, browser_target, devic
     ):
         await wait_visible(page, selector, scope_name(browser_target, label), issues)
 
-    await page.locator("#langEn").click()
+    await safe_click(page, page.locator("#langEn"))
     await page.wait_for_timeout(250)
 
     visible_contact_title = await first_visible_text(page, ".contact-info-title[data-lang]")
@@ -690,12 +787,13 @@ async def check_subpage(browser, issues, screenshots, browser_target, path_name,
 
     await page.goto(f"{BASE_URL}/{path_name}", wait_until="domcontentloaded")
     await page.wait_for_timeout(1000)
+    await dismiss_cookie_consent(page)
 
     await wait_visible(page, ".subpage-topbar", scope_name(browser_target, f"{page_name} topbar"), issues)
     await wait_visible(page, unique_selector, scope_name(browser_target, f"{page_name} main content"), issues)
 
     if await page.locator("#langEn").count() > 0:
-        await page.locator("#langEn").click()
+        await safe_click(page, page.locator("#langEn"))
         await page.wait_for_timeout(250)
         visible_title = await first_visible_text(page, ".subpage-hero__title[data-lang]")
         if visible_title != expected_title:
@@ -718,6 +816,7 @@ async def check_share_page(browser, issues, screenshots, browser_target, path_na
 
     await page.goto(f"{BASE_URL}/{path_name}", wait_until="domcontentloaded")
     await page.wait_for_timeout(1000)
+    await dismiss_cookie_consent(page)
 
     await wait_visible(page, main_selector, scope_name(browser_target, f"{page_name} main content"), issues)
     await wait_visible(page, ".share-card__poster-image", scope_name(browser_target, f"{page_name} hero image"), issues)
@@ -755,6 +854,7 @@ async def check_instagram_export_page(browser, issues, screenshots, browser_targ
 
     await page.goto(f"{BASE_URL}/share/instagram-export.html", wait_until="domcontentloaded")
     await page.wait_for_timeout(1400)
+    await dismiss_cookie_consent(page)
 
     await wait_visible(page, ".post-card", scope_name(browser_target, "instagram-export card"), issues)
     await wait_visible(page, ".story-preview__image-shell", scope_name(browser_target, "instagram-export story preview"), issues)
@@ -778,7 +878,7 @@ async def check_instagram_export_page(browser, issues, screenshots, browser_targ
         )
 
     first_card = page.locator(".post-card").first
-    await first_card.locator(".preview-option--story").click()
+    await safe_click(page, first_card.locator(".preview-option--story"))
     await page.wait_for_timeout(250)
 
     selected_story_format = await first_visible_text(page, ".post-card:first-child .post-card__format-value")
@@ -801,7 +901,7 @@ async def check_instagram_export_page(browser, issues, screenshots, browser_targ
 
     try:
         async with page.expect_download(timeout=10000) as download_info:
-            await first_card.locator(".post-card__export-feed").click()
+            await safe_click(page, first_card.locator(".post-card__export-feed"), timeout=10000)
         feed_download = await download_info.value
         feed_download_name = feed_download.suggested_filename
         if not feed_download_name.endswith("-instagram-4x5.png"):
@@ -821,7 +921,7 @@ async def check_instagram_export_page(browser, issues, screenshots, browser_targ
 
     try:
         async with page.expect_download(timeout=10000) as download_info:
-            await first_card.locator(".post-card__export-story").click()
+            await safe_click(page, first_card.locator(".post-card__export-story"), timeout=10000)
         story_download = await download_info.value
         story_download_name = story_download.suggested_filename
         if not story_download_name.endswith("-instagram-story-9x16.png"):
