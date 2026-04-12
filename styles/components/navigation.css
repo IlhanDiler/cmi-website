@@ -347,8 +347,8 @@
     outline: 3px solid rgba(var(--color-secondary-rgb), 0.72);
 }
 
-.subpage-body--privacy .theme-switch-button,
-.subpage-body--imprint .theme-switch-button {
+:root[data-theme="dark"] .subpage-body--privacy .theme-switch-button,
+:root[data-theme="dark"] .subpage-body--imprint .theme-switch-button {
     --theme-button-bg: rgba(255, 255, 255, 0.06);
     --theme-button-bg-hover: rgba(255, 255, 255, 0.12);
     --theme-button-bg-active: rgba(var(--color-secondary-rgb), 0.26);
@@ -372,8 +372,8 @@
     --lang-button-active-border-color: var(--color-primary);
 }
 
-.subpage-body--privacy .subpage-language-switch,
-.subpage-body--imprint .subpage-language-switch {
+:root[data-theme="dark"] .subpage-body--privacy .subpage-language-switch,
+:root[data-theme="dark"] .subpage-body--imprint .subpage-language-switch {
     --lang-switcher-gap: 8px;
     --lang-switcher-padding: 4px;
     --lang-switcher-bg: rgba(9, 21, 28, 0.9);
