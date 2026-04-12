@@ -381,10 +381,10 @@
 
 .event-program {
     display: grid;
-    gap: 8px;
+    gap: 10px;
     max-width: none;
     margin: 0;
-    padding: 16px 16px 14px;
+    padding: 16px 18px 14px;
     list-style: none;
     border: 1px solid rgba(18, 62, 70, 0.08);
     border-radius: 18px;
@@ -393,16 +393,18 @@
 
 .event-program li {
     position: relative;
-    padding-left: 18px;
+    padding-left: 22px;
 }
 
 .event-program li::before {
     content: "";
     position: absolute;
-    top: 0.62em;
-    left: 0;
-    width: 8px;
-    height: 8px;
+    top: 0.82em;
+    left: 2px;
+    --interaction-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background: var(--event-accent);
 }
@@ -729,6 +731,37 @@
     }
 }
 
+@media (min-width: 701px) and (max-width: 1180px) {
+    .event-section {
+        --event-content-columns: minmax(0, 1fr) minmax(248px, 320px);
+        --event-poster-width: 100%;
+    }
+
+    .event-content {
+        column-gap: clamp(20px, 2.8vw, 28px);
+        row-gap: 18px;
+        align-items: stretch;
+    }
+
+    .event-copy {
+        min-width: 0;
+        align-self: stretch;
+        min-height: 100%;
+    }
+
+    .event-copy > .event-note {
+        margin-top: auto;
+    }
+
+    .event-poster-stage {
+        width: 100%;
+        max-width: 320px;
+        justify-self: end;
+        align-self: start;
+        margin: 0;
+    }
+}
+
 @media (max-width: 700px) {
     .event-lightbox-caption-kicker,
     .event-section-kicker,
@@ -860,7 +893,13 @@
     }
 
     .event-program li {
-        padding-left: 16px;
+        padding-left: 19px;
+    }
+
+    .event-program li::before {
+        left: 1px;
+        width: 6px;
+        height: 6px;
     }
 
     .event-note {

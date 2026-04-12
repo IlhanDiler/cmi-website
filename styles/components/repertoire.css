@@ -1,6 +1,7 @@
 /* Repertoire section */
 
 .musikalisches-repertoire-section {
+    --repertoire-shell-width: var(--layout-shell-width);
     --repertoire-bg: var(--section-tone-a);
     --repertoire-surface: #ffffff;
     --repertoire-title-color: #123e46;
@@ -31,7 +32,7 @@
     grid-template-columns: 1fr;
     gap: var(--repertoire-cards-gap);
     align-items: start;
-    width: var(--layout-shell-width);
+    width: var(--repertoire-shell-width);
     max-width: none;
     margin: 0 auto;
     padding: 0;
@@ -769,6 +770,44 @@
 .musikalisches-repertoire-card--engagement > .musikalisches-repertoire-list[data-lang="uk"] li > span {
     font-family: var(--font-ui-modern);
     letter-spacing: 0;
+}
+
+@media (min-width: 1180px) {
+    .musikalisches-repertoire-section {
+        --repertoire-shell-width: var(--layout-shell-width-wide);
+    }
+
+    .musikalisches-repertoire-cards-wrapper {
+        --repertoire-cards-gap: clamp(32px, 2.5vw, 42px);
+    }
+
+    .musikalisches-repertoire-card {
+        --repertoire-card-padding: 36px 38px 34px;
+    }
+
+    .musikalisches-repertoire-intro {
+        max-width: 60ch;
+    }
+
+    .musikalisches-repertoire-card--repertoire .repertoire-story-grid {
+        gap: 22px;
+        grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+    }
+
+    .musikalisches-repertoire-card--engagement {
+        grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
+        column-gap: clamp(28px, 2.4vw, 36px);
+        row-gap: 22px;
+    }
+
+    .musikalisches-repertoire-card--engagement .engagement-focus-grid {
+        gap: 14px;
+    }
+
+    .musikalisches-repertoire-card--engagement .charity-list-item--project {
+        grid-template-columns: minmax(0, 1fr) minmax(240px, 300px);
+        gap: 22px;
+    }
 }
 
 @media (min-width: 701px) and (max-width: 1024px) {

@@ -1,4 +1,5 @@
 .music-family-section {
+    --music-family-shell-width: var(--layout-shell-width);
     --music-family-heading: #123e46;
     --music-family-accent: var(--color-secondary);
     --music-family-copy: #193940;
@@ -32,7 +33,7 @@
 }
 
 .music-family-section .music-family-container {
-    width: var(--layout-shell-width);
+    width: var(--music-family-shell-width);
     margin: 0 auto;
     padding: 0 20px;
     position: relative;
@@ -371,11 +372,43 @@
 }
 
 @media (min-width: 1180px) {
+    .music-family-section {
+        --music-family-shell-width: var(--layout-shell-width-wide);
+    }
+
     .music-family-section .music-family-container {
-        width: min(1120px, calc(100% - (var(--desktop-content-side-gap) * 2)));
         max-width: none;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .music-family-section .music-family-intro {
+        max-width: 60ch;
+        margin-bottom: 32px;
+    }
+
+    .music-family-section .music-family-highlights {
+        gap: clamp(20px, 1.8vw, 28px) !important;
+        margin-bottom: 32px !important;
+    }
+
+    .music-family-section .music-family-highlight-card {
+        padding: 24px 24px 20px !important;
+    }
+
+    .music-family-section .music-family-benefits-row {
+        --music-family-benefits-gap: clamp(28px, 2.6vw, 36px);
+        --music-family-benefits-margin-bottom: 42px;
+        --music-family-benefits-padding: 28px 34px 26px;
+        grid-template-columns: minmax(0, 1.24fr) minmax(168px, 220px);
+    }
+
+    .music-family-section .music-family-groups {
+        --music-family-groups-gap: clamp(26px, 2vw, 34px);
+    }
+
+    .music-family-section .music-family-contact-card {
+        width: min(100%, 620px);
     }
 
     .music-family-section .music-family-title,
@@ -433,6 +466,29 @@
 
     .music-family-section .music-family-groups {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 821px) and (max-width: 1024px) {
+    .music-family-section .music-family-title,
+    .music-family-section .music-family-intro {
+        max-width: none;
+    }
+
+    .music-family-section .music-family-benefits-row {
+        --music-family-benefits-gap: clamp(18px, 2.4vw, 26px);
+        grid-template-columns: minmax(0, 1fr) minmax(150px, 190px);
+        align-items: center;
+    }
+
+    .music-family-section .music-family-benefits {
+        max-width: none;
+    }
+
+    .music-family-section .music-family-logo-mobile {
+        justify-self: end;
+        align-self: center;
+        width: 100%;
     }
 }
 
