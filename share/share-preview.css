@@ -1,11 +1,16 @@
 :root {
-    --share-bg: linear-gradient(180deg, #f6fbff 0%, #eef7f5 100%);
-    --share-card-bg: rgba(255, 255, 255, 0.94);
-    --share-border: rgba(14, 83, 74, 0.12);
-    --share-text: #17312d;
-    --share-muted: #49635f;
-    --share-accent: #159b8c;
-    --share-shadow: 0 18px 50px rgba(18, 65, 58, 0.16);
+    --share-bg: linear-gradient(180deg, #f9fbfb 0%, #f3f6f6 100%);
+    --share-card-bg: rgba(255, 255, 255, 0.96);
+    --share-border: rgba(18, 62, 70, 0.12);
+    --share-text: #123e46;
+    --share-muted: #5d7270;
+    --share-accent: #0a756d;
+    --share-shadow: 0 18px 50px rgba(18, 65, 58, 0.12);
+    --share-surface-soft: #edf3f3;
+    --share-surface-muted: #f3f6f6;
+    --share-surface-strong: #fafcfc;
+    --share-accent-soft: rgba(10, 117, 109, 0.08);
+    --share-accent-soft-strong: rgba(10, 117, 109, 0.14);
     --poster-trim-width-mm: 850mm;
     --poster-trim-height-mm: 2000mm;
     --poster-bleed-mm: 3mm;
@@ -47,7 +52,7 @@ body {
     aspect-ratio: 1200 / 630;
     object-fit: cover;
     display: block;
-    background: #dfeceb;
+    background: var(--share-surface-soft);
 }
 
 .share-card__body {
@@ -67,7 +72,7 @@ body {
     border-radius: 12px;
     background: #fff;
     padding: 6px;
-    border: 1px solid rgba(21, 155, 140, 0.14);
+    border: 1px solid var(--share-accent-soft-strong);
 }
 
 .share-card__eyebrow {
@@ -113,10 +118,10 @@ body {
     background: none;
     border-radius: 0;
     box-shadow: none;
-    color: #116f65;
+    color: var(--share-accent);
     font-weight: 600;
     text-decoration: underline;
-    text-decoration-color: rgba(21, 155, 140, 0.65);
+    text-decoration-color: rgba(10, 117, 109, 0.48);
     text-decoration-thickness: 0.08em;
     text-underline-offset: 0.12em;
     white-space: normal;
@@ -124,7 +129,7 @@ body {
 
 .share-card__text .external-link:hover,
 .share-card__text .external-link:focus {
-    color: #0c5e55;
+    color: var(--share-text);
     background: none;
     box-shadow: none;
     text-decoration: underline;
@@ -163,22 +168,22 @@ body {
     flex-direction: column;
     border-top-color: var(--share-border);
     background:
-        radial-gradient(circle at top, rgba(21, 155, 140, 0.14), transparent 26%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 248, 246, 0.98) 100%);
+        radial-gradient(circle at top, rgba(10, 117, 109, 0.08), transparent 26%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(244, 247, 247, 0.99) 100%);
 }
 
 .share-card__visual {
     padding: 18px 18px 0;
     background:
-        radial-gradient(circle at top left, rgba(21, 155, 140, 0.2), transparent 34%),
-        linear-gradient(180deg, #e6f3f1 0%, #f3f8fb 100%);
+    radial-gradient(circle at top left, rgba(10, 117, 109, 0.1), transparent 34%),
+    linear-gradient(180deg, var(--share-surface-soft) 0%, var(--share-surface-strong) 100%);
 }
 
 .share-card__visual--bottom {
     padding: 0 18px 18px;
     background:
-        radial-gradient(circle at bottom right, rgba(21, 155, 140, 0.18), transparent 34%),
-        linear-gradient(180deg, #f3f8fb 0%, #e7f4f2 100%);
+    radial-gradient(circle at bottom right, rgba(10, 117, 109, 0.09), transparent 34%),
+    linear-gradient(180deg, var(--share-surface-strong) 0%, var(--share-surface-muted) 100%);
 }
 
 .share-card__hero-frame {
@@ -186,7 +191,7 @@ body {
     overflow: hidden;
     border-radius: 28px;
     box-shadow: 0 22px 42px rgba(18, 65, 58, 0.16);
-    background: #dfeceb;
+    background: var(--share-surface-soft);
 }
 
 .share-card--roundup .share-card__hero {
@@ -211,8 +216,8 @@ body {
     margin: 0;
     padding: 9px 14px;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.92);
-    color: #0d655c;
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--share-accent);
     font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -226,8 +231,8 @@ body {
     justify-content: center;
     padding: 28px 28px 24px;
     background:
-        radial-gradient(circle at top right, rgba(21, 155, 140, 0.12), transparent 34%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(246, 251, 255, 0.98) 100%);
+        radial-gradient(circle at top right, rgba(10, 117, 109, 0.08), transparent 34%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(246, 249, 249, 0.99) 100%);
 }
 
 .share-card__lead {
@@ -251,9 +256,9 @@ body {
     min-height: 34px;
     padding: 0 14px;
     border-radius: 999px;
-    background: rgba(21, 155, 140, 0.1);
-    border: 1px solid rgba(21, 155, 140, 0.16);
-    color: #0d655c;
+    background: var(--share-accent-soft);
+    border: 1px solid var(--share-accent-soft-strong);
+    color: var(--share-accent);
     font-size: 0.9rem;
     font-weight: 600;
 }
@@ -268,8 +273,8 @@ body {
 .share-card__fact {
     padding: 15px 14px;
     border-radius: 18px;
-    border: 1px solid rgba(14, 83, 74, 0.1);
-    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(18, 62, 70, 0.1);
+    background: rgba(255, 255, 255, 0.92);
 }
 
 .share-card__fact strong {
@@ -290,8 +295,8 @@ body {
 }
 
 .share-card__button--secondary {
-    background: rgba(21, 155, 140, 0.12);
-    color: #0d655c;
+    background: var(--share-accent-soft);
+    color: var(--share-accent);
 }
 
 .share-card--poster {
@@ -301,15 +306,15 @@ body {
     padding: clamp(8px, 0.65vw, 11px);
     border: 0;
     background:
-    radial-gradient(circle at top, rgba(214, 235, 230, 0.42), transparent 34%),
-    linear-gradient(180deg, #fbfaf6 0%, #f1f6f0 100%);
+        radial-gradient(circle at top, rgba(10, 117, 109, 0.08), transparent 34%),
+        linear-gradient(180deg, #fcfdfd 0%, #f3f7f7 100%);
 }
 
 .share-card--poster::before {
     content: "";
     position: absolute;
     inset: clamp(8px, 0.65vw, 11px);
-    border: 1px dashed rgba(31, 107, 96, 0.25);
+    border: 1px dashed rgba(18, 62, 70, 0.18);
     border-radius: 18px;
     pointer-events: none;
 }
@@ -323,14 +328,14 @@ body {
     border-radius: 18px;
     overflow: hidden;
     background:
-        linear-gradient(180deg, rgba(251, 250, 246, 0.96) 0%, rgba(241, 246, 240, 0.96) 100%);
+        linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(245, 248, 248, 0.97) 100%);
 }
 
 .share-card--poster .share-card__body::after {
     content: "";
     position: absolute;
     inset: clamp(20px, 1.8vw, 28px);
-    border: 1px dashed rgba(31, 107, 96, 0.18);
+    border: 1px dashed rgba(18, 62, 70, 0.12);
     border-radius: 12px;
     pointer-events: none;
 }
@@ -355,7 +360,7 @@ body {
 
 .share-card__title-year {
     display: block;
-    color: #1f6b60;
+    color: var(--share-accent);
     font-size: clamp(3.1rem, 5.2vw, 5.8rem);
     font-weight: 760;
     line-height: 0.9;
@@ -384,9 +389,9 @@ body {
 
 .share-card__poster-head {
     background:
-        radial-gradient(circle at top right, rgba(21, 155, 140, 0.1), transparent 34%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(247, 249, 244, 0.86) 100%);
-    border-bottom: 1px solid rgba(28, 76, 67, 0.08);
+        radial-gradient(circle at top right, rgba(10, 117, 109, 0.08), transparent 34%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(246, 249, 249, 0.9) 100%);
+    border-bottom: 1px solid rgba(18, 62, 70, 0.08);
 }
 
 .share-card__poster-head-inner {
@@ -407,8 +412,8 @@ body {
     margin: 0 0 10px;
     padding: 0 15px;
     border-radius: 999px;
-    background: rgba(33, 108, 94, 0.08);
-    color: #20584f;
+    background: var(--share-accent-soft);
+    color: var(--share-accent);
     font-size: clamp(0.72rem, 0.76vw, 0.84rem);
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -444,9 +449,9 @@ body {
 .share-card__poster-panel {
     margin: 0;
     padding: clamp(10px, 0.8vw, 14px);
-    border: 1px solid rgba(28, 76, 67, 0.1);
+    border: 1px solid rgba(18, 62, 70, 0.1);
     border-radius: 22px;
-    background: rgba(255, 255, 255, 0.78);
+    background: rgba(255, 255, 255, 0.84);
     box-shadow: 0 12px 26px rgba(18, 65, 58, 0.06);
 }
 
@@ -457,7 +462,7 @@ body {
     min-height: clamp(180px, 15vw, 240px);
     border-radius: 16px;
     background:
-        linear-gradient(180deg, rgba(239, 244, 241, 0.96) 0%, rgba(251, 252, 249, 0.96) 100%);
+        linear-gradient(180deg, rgba(242, 246, 246, 0.96) 0%, rgba(252, 253, 253, 0.96) 100%);
     overflow: hidden;
 }
 
@@ -501,7 +506,7 @@ body {
 
 .share-card__poster-footer {
     padding-top: 12px;
-    border-top: 1px solid rgba(28, 76, 67, 0.08);
+    border-top: 1px solid rgba(18, 62, 70, 0.08);
 }
 
 .share-card--poster .share-card__facts {
@@ -511,7 +516,7 @@ body {
 
 .share-card__poster-note {
     margin: 0;
-    color: #2d4d48;
+    color: #335450;
     font-size: clamp(0.84rem, 0.84vw, 0.96rem);
     line-height: 1.35;
     font-weight: 600;
@@ -520,7 +525,7 @@ body {
 
 .share-card__poster-link {
     margin: 4px 0 0;
-    color: #1f6b60;
+    color: var(--share-accent);
     font-size: clamp(0.96rem, 1vw, 1.08rem);
     line-height: 1.1;
     font-weight: 760;
@@ -555,7 +560,7 @@ body {
     padding: 7px;
     border-radius: 14px;
     background: rgba(255, 255, 255, 0.94);
-    border: 1px solid rgba(28, 76, 67, 0.1);
+    border: 1px solid rgba(18, 62, 70, 0.1);
     box-shadow: 0 8px 18px rgba(18, 65, 58, 0.06);
 }
 

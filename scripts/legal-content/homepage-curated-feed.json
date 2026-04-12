@@ -165,7 +165,7 @@
               "href": "#review-nikolausfeier-2025",
               "image": {
                 "src": "bilder/nikolaus.jpeg",
-                "mode": "contained",
+                "mode": "contained-portrait",
                 "alt": ""
               },
               "badge": {

@@ -7,7 +7,7 @@
     min-height: 760px;
     overflow: hidden;
     isolation: isolate;
-    background: #1d484b;
+    background: var(--theme-dark-brand-deep);
 }
 
 .hero-bg::after {
@@ -82,8 +82,8 @@
     --hero-gallery-ui-gap: 10px;
     --hero-gallery-ui-padding: 10px 12px 12px;
     --hero-gallery-ui-radius: 26px;
-    --hero-gallery-ui-bg: rgba(9, 21, 28, 0.94);
-    --hero-gallery-ui-border-color: rgba(235, 246, 243, 0.16);
+    --hero-gallery-ui-bg: rgba(var(--theme-dark-brand-deep-rgb), 0.94);
+    --hero-gallery-ui-border-color: rgba(var(--color-secondary-rgb), 0.18);
     --hero-gallery-ui-shadow: none;
     --hero-gallery-ui-transition: none;
     --hero-gallery-ui-z-index: 20;
@@ -99,26 +99,26 @@
     --hero-gallery-counter-separator-letter-spacing: -0.04em;
     --hero-gallery-progress-height: 4px;
     --hero-gallery-progress-bg: rgba(255, 255, 255, 0.1);
-    --hero-gallery-progress-bar-bg: #8cf5cf;
+    --hero-gallery-progress-bar-bg: var(--color-secondary);
     --hero-gallery-controls-columns: auto 1fr auto auto;
     --hero-gallery-controls-gap: 8px;
     --hero-gallery-control-size: 42px;
     --hero-gallery-control-border-color: rgba(255, 255, 255, 0.15);
     --hero-gallery-control-bg: rgba(255, 255, 255, 0.06);
-    --hero-gallery-control-bg-hover: rgba(14, 140, 130, 0.18);
+    --hero-gallery-control-bg-hover: rgba(var(--color-secondary-rgb), 0.18);
     --hero-gallery-control-color: rgba(246, 255, 255, 0.92);
     --hero-gallery-control-color-hover: #ffffff;
-    --hero-gallery-control-border-color-hover: rgba(14, 140, 130, 0.28);
+    --hero-gallery-control-border-color-hover: rgba(var(--color-secondary-rgb), 0.28);
     --hero-gallery-control-shadow: none;
     --hero-gallery-control-transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     --hero-gallery-control-icon-size: 16px;
     --hero-gallery-pagination-gap: 7px;
     --hero-gallery-dot-size: 7px;
     --hero-gallery-dot-bg: rgba(255, 255, 255, 0.30);
-    --hero-gallery-dot-focus-color: rgba(158, 243, 234, 0.88);
+    --hero-gallery-dot-focus-color: rgba(var(--color-secondary-rgb), 0.88);
     --hero-gallery-dot-selected-width: 24px;
-    --hero-gallery-dot-selected-bg: rgba(158, 243, 234, 0.96);
-    --hero-gallery-dot-selected-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14);
+    --hero-gallery-dot-selected-bg: rgba(var(--color-secondary-rgb), 0.96);
+    --hero-gallery-dot-selected-shadow: 0 0 0 1px rgba(var(--color-secondary-rgb), 0.28);
     position: absolute;
     left: 50%;
     bottom: var(--hero-gallery-ui-bottom);

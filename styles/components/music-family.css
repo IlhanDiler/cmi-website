@@ -27,7 +27,7 @@
     overflow: hidden;
     isolation: isolate;
     font-family: var(--font-ui-modern);
-    background: linear-gradient(180deg, #e5ede7 0%, #edf3ee 100%);
+    background: var(--section-tone-b);
     padding: var(--layout-section-gap-desktop) 0 calc(var(--layout-section-gap-desktop) - 6px);
     border-bottom: 1px solid rgba(17, 52, 58, 0.1);
 }
@@ -369,6 +369,34 @@
     letter-spacing: 0 !important;
     text-decoration: none;
     overflow-wrap: anywhere;
+}
+
+:root[data-theme="dark"] .music-family-section {
+    --music-family-heading: #f7fbfa;
+    --music-family-copy: #d7ebe8;
+    --music-family-copy-soft: #d7ebe8;
+    --music-family-card-border: rgba(229, 240, 238, 0.14);
+    --music-family-card-highlight: rgba(var(--theme-dark-brand-deep-rgb), 0.96);
+    background: var(--theme-bg-canvas);
+    border-bottom-color: rgba(var(--color-secondary-rgb), 0.14);
+}
+
+:root[data-theme="dark"] .music-family-section .music-family-highlight-card,
+:root[data-theme="dark"] .music-family-group,
+:root[data-theme="dark"] .music-family-section .music-family-contact-card {
+    background: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+}
+
+:root[data-theme="dark"] .music-family-section .music-family-benefits-row,
+:root[data-theme="dark"] .music-family-section .music-family-logo-mobile,
+:root[data-theme="dark"] .music-family-section .music-family-group-fact,
+:root[data-theme="dark"] .music-family-group-details li {
+    background: rgba(var(--theme-dark-brand-deep-rgb), 0.82);
+    border-color: rgba(229, 240, 238, 0.12);
+}
+
+:root[data-theme="dark"] .music-family-section .music-family-contact-link {
+    color: #f7fbfa;
 }
 
 @media (min-width: 1180px) {

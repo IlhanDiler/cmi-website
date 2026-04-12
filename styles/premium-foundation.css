@@ -45,7 +45,28 @@
     --premium-section-title-tablet-size: clamp(1.4rem, 5.4vw, 1.72rem);
     --premium-caption-tablet-size: 0.9rem;
     --premium-caption-tablet-line-height: 1.46;
-    --premium-surface-soft: rgba(247, 251, 250, 0.92);
+    --theme-bg-canvas: #f7f9f8;
+    --theme-bg-muted: #f8faf9;
+    --theme-bg-soft: #f3f6f4;
+    --theme-surface-base: #ffffff;
+    --theme-surface-soft: #f5f7f6;
+    --theme-surface-panel: #ffffff;
+    --theme-surface-panel-strong: #f7f9f8;
+    --theme-border-soft: rgba(18, 62, 70, 0.1);
+    --theme-border-strong: rgba(18, 62, 70, 0.14);
+    --theme-text-primary: #123e46;
+    --theme-text-muted: #58706e;
+    --theme-dark-brand-deep: #0c4d52;
+    --theme-dark-brand-deep-rgb: 12, 77, 82;
+    --theme-dark-brand-muted: #0d5a60;
+    --theme-dark-brand-muted-rgb: 13, 90, 96;
+    --theme-dark-brand-surface: #0f676c;
+    --theme-dark-brand-surface-rgb: 15, 103, 108;
+    --theme-dark-brand-soft: #138087;
+    --theme-dark-brand-soft-rgb: 19, 128, 135;
+    --theme-dark-brand-accent: #17aaa0;
+    --theme-dark-brand-accent-rgb: 23, 170, 160;
+    --premium-surface-soft: var(--theme-surface-soft);
     --font-ui-modern: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
     --font-ui: var(--font-ui-modern);
     --font-display: var(--font-ui-modern);
@@ -77,43 +98,46 @@
     --font-weight-body: 500;
     --font-weight-label: 560;
     --font-weight-heading: 560;
-    --section-tone-a: #edf2ee;
-    --section-tone-b: #e3ebe5;
-    --color-primary: #123e46;
-    --color-secondary: #0a756d;
+    --section-tone-a: var(--theme-bg-muted);
+    --section-tone-b: var(--theme-bg-soft);
+    --color-primary: #0f676c;
+    --color-primary-rgb: 15, 103, 108;
+    --color-secondary: #17aaa0;
+    --color-secondary-rgb: 23, 170, 160;
     --color-white: #fff;
-    --color-text: var(--color-primary);
+    --color-text: var(--theme-text-primary);
     --color-accent: var(--color-secondary);
     --color-accent-dark: var(--color-primary);
-    --color-accent-deep: #10363e;
-    --color-bg-soft: #f4eee4;
-    --surface-card: rgba(255, 255, 255, 0.92);
-    --surface-card-soft: rgba(248, 244, 237, 0.9);
-    --border-soft: rgba(18, 62, 70, 0.10);
-    --border-soft-strong: rgba(18, 62, 70, 0.14);
+    --color-accent-deep: #0b4b50;
+    --color-bg-soft: var(--theme-bg-soft);
+    --surface-card: var(--theme-surface-base);
+    --surface-card-soft: var(--theme-surface-soft);
+    --border-soft: var(--theme-border-soft);
+    --border-soft-strong: var(--theme-border-strong);
     --radius-card: 24px;
     --radius-card-large: 32px;
     --radius-card-inner: 18px;
-    --glass-dark-bg: rgba(11, 20, 28, 0.72);
-    --glass-dark-bg-strong: rgba(8, 17, 24, 0.88);
+    --glass-dark-bg: rgba(var(--theme-dark-brand-deep-rgb), 0.72);
+    --glass-dark-bg-strong: rgba(var(--theme-dark-brand-deep-rgb), 0.88);
     --glass-dark-border: rgba(235, 246, 243, 0.18);
-    --glass-dark-shadow: 0 26px 68px rgba(5, 11, 16, 0.26);
-    --shadow-soft: 0 16px 40px rgba(17, 33, 42, 0.08);
-    --shadow-soft-strong: 0 24px 56px rgba(17, 33, 42, 0.12);
-    --shadow-surface: 0 22px 56px rgba(17, 33, 42, 0.09);
-    --shadow-surface-strong: 0 30px 72px rgba(17, 33, 42, 0.14);
-    --surface-panel-bg: rgba(255, 255, 255, 0.94);
-    --surface-panel-bg-strong: rgba(255, 255, 255, 0.97);
+    --glass-dark-shadow: none;
+    --shadow-soft: none;
+    --shadow-soft-strong: none;
+    --shadow-surface: none;
+    --shadow-surface-strong: none;
+    --surface-panel-bg: var(--theme-surface-panel);
+    --surface-panel-bg-strong: var(--theme-surface-panel-strong);
     --surface-panel-border: rgba(18, 62, 70, 0.12);
     --surface-panel-border-soft: rgba(18, 62, 70, 0.08);
     --surface-panel-radius: 26px;
     --surface-panel-radius-large: 30px;
     --surface-panel-radius-mobile: 22px;
-    --shadow-panel: 0 20px 48px rgba(17, 33, 42, 0.09);
-    --button-pill-shadow: 0 12px 28px rgba(17, 33, 42, 0.08);
-    --button-pill-shadow-strong: 0 18px 36px rgba(17, 33, 42, 0.14);
+    --shadow-panel: none;
+    --button-pill-shadow: none;
+    --button-pill-shadow-strong: none;
     --button-pill-transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-    --focus-ring-soft: 0 0 0 3px rgba(10, 117, 109, 0.18);
+    --focus-ring-soft: 0 0 0 3px rgba(23, 170, 160, 0.18);
+    --page-shell-bg: var(--theme-bg-canvas);
     --layout-shell-max-width: 1120px;
     --layout-shell-width: min(92vw, var(--layout-shell-max-width));
     --layout-shell-width-relaxed: min(94vw, var(--layout-shell-max-width));
@@ -122,6 +146,33 @@
     --layout-section-gap-desktop: clamp(66px, 6vw, 86px);
     --layout-section-gap-tablet: clamp(54px, 7vw, 72px);
     --layout-section-gap-mobile: clamp(42px, 9vw, 58px);
+    color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+    --theme-bg-canvas: var(--theme-dark-brand-deep);
+    --theme-bg-muted: var(--theme-dark-brand-muted);
+    --theme-bg-soft: var(--theme-dark-brand-surface);
+    --theme-surface-base: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+    --theme-surface-soft: rgba(var(--theme-dark-brand-surface-rgb), 0.9);
+    --theme-surface-panel: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+    --theme-surface-panel-strong: rgba(var(--theme-dark-brand-surface-rgb), 0.92);
+    --theme-border-soft: rgba(229, 240, 238, 0.14);
+    --theme-border-strong: rgba(var(--color-secondary-rgb), 0.24);
+    --theme-text-primary: #f7fbfa;
+    --theme-text-muted: #d7ebe8;
+    --color-bg-soft: var(--theme-dark-brand-muted);
+    --surface-panel-border: rgba(229, 240, 238, 0.16);
+    --surface-panel-border-soft: rgba(229, 240, 238, 0.1);
+    --shadow-soft: none;
+    --shadow-soft-strong: none;
+    --shadow-surface: none;
+    --shadow-surface-strong: none;
+    --shadow-panel: none;
+    --button-pill-shadow: none;
+    --button-pill-shadow-strong: none;
+    --focus-ring-soft: 0 0 0 3px rgba(23, 170, 160, 0.3);
+    color-scheme: dark;
 }
 
 html {
@@ -131,13 +182,13 @@ html {
 body {
     font-kerning: normal;
     font-family: var(--font-ui-modern);
+    color: var(--color-text);
 }
 
 html,
 body {
     --page-shell-width: 100vw;
     --page-shell-min-height: 100%;
-    --page-shell-bg: #f6edde;
     margin: 0;
     padding: 0;
     width: var(--page-shell-width);

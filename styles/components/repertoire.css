@@ -1173,3 +1173,52 @@
         border-radius: 16px;
     }
 }
+
+:root[data-theme="dark"] .musikalisches-repertoire-section {
+    --repertoire-bg: var(--theme-bg-canvas);
+    --repertoire-surface: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+    --repertoire-title-color: #f7fbfa;
+    --repertoire-copy-color: #d7ebe8;
+    --repertoire-copy-soft: #d7ebe8;
+    --repertoire-detail-border: rgba(229, 240, 238, 0.14);
+    --repertoire-feature-surface: rgba(var(--theme-dark-brand-deep-rgb), 0.82);
+    --repertoire-detail-surface: rgba(var(--theme-dark-brand-deep-rgb), 0.82);
+    border-top-color: rgba(var(--color-secondary-rgb), 0.16);
+}
+
+:root[data-theme="dark"] .musikalisches-repertoire-card,
+:root[data-theme="dark"] .musikalisches-repertoire-card--repertoire,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement,
+:root[data-theme="dark"] .musikalisches-repertoire-card--repertoire .repertoire-story-card,
+:root[data-theme="dark"] .repertoire-highlight-card,
+:root[data-theme="dark"] .engagement-focus-card,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .engagement-focus-card--primary,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .engagement-focus-card--secondary,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .charity-certificate-card,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .charity-certificate-img,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .charity-list-item--project .kinshasa-card-img,
+:root[data-theme="dark"] .ensemble-chip {
+    background: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+    border-color: rgba(229, 240, 238, 0.14);
+}
+
+:root[data-theme="dark"] .musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list li,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement > .musikalisches-repertoire-list li {
+    background: rgba(var(--theme-dark-brand-deep-rgb), 0.82);
+    border-color: rgba(229, 240, 238, 0.14);
+}
+
+:root[data-theme="dark"] .musikalisches-repertoire-intro,
+:root[data-theme="dark"] .repertoire-story-card-copy,
+:root[data-theme="dark"] .repertoire-highlight-copy,
+:root[data-theme="dark"] .engagement-focus-copy,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .charity-list-item-certificate-copy {
+    color: #d7ebe8;
+}
+
+:root[data-theme="dark"] .musikalisches-repertoire-list li > span,
+:root[data-theme="dark"] .engagement-focus-title,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .charity-certificate-card-title,
+:root[data-theme="dark"] .ensemble-chip {
+    color: #f7fbfa;
+}

@@ -1,51 +1,61 @@
 .news-feed-section,
 .review-overview-section,
+.review-featured,
 .review-archive-intro,
 .review-archive,
 .review-archive .charity-projects-section[id^="review-"] {
-    background: var(--section-tone-b);
+    background: var(--review-section-surface);
+    --review-section-surface: var(--section-tone-b);
+    --review-section-surface-alt: var(--section-tone-a);
     --review-copy-mobile-size: var(--premium-body-mobile-size);
     --review-copy-mobile-line-height: var(--premium-body-mobile-line-height);
     --review-lead-mobile-size: var(--premium-lead-mobile-size);
     --review-lead-mobile-line-height: var(--premium-lead-mobile-line-height);
-    --review-panel-surface:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(247, 250, 248, 0.94) 100%);
-    --review-panel-surface-strong:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.985) 0%, rgba(244, 249, 247, 0.965) 100%);
-    --review-panel-border: rgba(18, 62, 70, 0.12);
-    --review-panel-border-strong: rgba(10, 117, 109, 0.26);
-    --review-panel-shadow: 0 24px 56px rgba(15, 34, 42, 0.12);
-    --review-panel-shadow-hover: 0 30px 74px rgba(15, 34, 42, 0.16);
-    --review-panel-shadow-soft: 0 18px 38px rgba(15, 34, 42, 0.09);
-    --review-panel-shadow-soft-hover: 0 24px 54px rgba(15, 34, 42, 0.13);
-    --review-media-shadow: 0 18px 42px rgba(15, 34, 42, 0.11);
-    --review-cta-shadow: 0 14px 30px rgba(15, 34, 42, 0.1);
-    --review-cta-shadow-hover: 0 20px 40px rgba(15, 34, 42, 0.14);
-    --review-accent-line: linear-gradient(180deg, rgba(53, 196, 199, 0.96) 0%, rgba(18, 62, 70, 0.96) 100%);
-    --review-soft-grid:
-        linear-gradient(90deg, rgba(18, 62, 70, 0.035) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(18, 62, 70, 0.035) 1px, transparent 1px);
-    --review-sheen: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 58%);
-    --review-fade-surface: rgba(247, 250, 248, 0.98);
+    --review-panel-surface: var(--surface-panel-bg);
+    --review-panel-surface-strong: var(--surface-panel-bg-strong);
+    --review-panel-border: var(--surface-panel-border);
+    --review-panel-border-strong: rgba(var(--color-secondary-rgb), 0.22);
+    --review-panel-shadow: none;
+    --review-panel-shadow-hover: none;
+    --review-panel-shadow-soft: none;
+    --review-panel-shadow-soft-hover: none;
+    --review-media-shadow: none;
+    --review-cta-shadow: none;
+    --review-cta-shadow-hover: none;
+    --review-accent-line: var(--color-secondary);
+    --review-soft-grid: none;
+    --review-sheen: none;
+    --review-fade-surface: var(--surface-panel-bg-strong);
+    --review-kicker-color: rgba(var(--color-primary-rgb), 0.68);
+    --review-title-color: var(--color-primary);
+    --review-copy-color: rgba(var(--color-primary-rgb), 0.84);
+    --review-caption-color: rgba(var(--color-primary-rgb), 0.7);
+    --review-border-color: rgba(var(--color-primary-rgb), 0.12);
+    --review-border-color-strong: rgba(var(--color-primary-rgb), 0.18);
+    --review-secondary-wash: rgba(var(--color-secondary-rgb), 0.18);
+    --review-secondary-wash-soft: rgba(var(--color-secondary-rgb), 0.1);
+    --review-focus-outline: rgba(var(--color-secondary-rgb), 0.42);
     --review-card-clamp-lines: 6;
-    --review-floating-toggle-backdrop: blur(18px) saturate(1.08);
+    --review-floating-toggle-backdrop: none;
+    --review-panel-radius: 22px;
+    --review-panel-radius-large: 26px;
+    --review-panel-radius-tight: 18px;
+    --review-chip-radius: 16px;
+    --review-image-radius: 18px;
     --review-prose-max-width: 64ch;
     --review-prose-compact-max-width: 56ch;
     --review-card-copy-max-width: 34ch;
 }
 
 .review-overview-section {
-    --review-overview-section-bg:
-        radial-gradient(circle at top left, rgba(53, 196, 199, 0.18) 0%, transparent 34%),
-        radial-gradient(circle at 88% 18%, rgba(18, 62, 70, 0.1) 0%, transparent 28%),
-        linear-gradient(180deg, #eef5f1 0%, #e3ebe5 56%, #edf2ee 100%);
+    --review-overview-section-bg: var(--theme-bg-muted);
     --review-overview-section-padding: 42px 0 30px;
     --review-overview-shell-width: var(--layout-shell-width);
     --review-overview-shell-padding: 0 20px;
     --review-overview-shell-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
     --review-overview-shell-gap: clamp(22px, 3vw, 36px);
     --review-overview-copy-padding: 26px clamp(22px, 3vw, 30px);
-    --review-overview-copy-radius: 30px;
+    --review-overview-copy-radius: var(--review-panel-radius-large);
     --review-overview-highlights-gap: 18px;
     --review-overview-highlights-margin-top: 24px;
     position: relative;
@@ -62,16 +72,12 @@
 }
 
 .review-overview-section::before {
-    background:
-        radial-gradient(circle at 14% 8%, rgba(255, 255, 255, 0.52) 0%, transparent 26%),
-        radial-gradient(circle at 76% 0%, rgba(255, 255, 255, 0.24) 0%, transparent 30%);
+    background: none;
     z-index: 0;
 }
 
 .review-overview-section::after {
-    background: var(--review-soft-grid);
-    background-size: 36px 36px;
-    opacity: 0.18;
+    background: none;
     z-index: 0;
 }
 
@@ -93,8 +99,8 @@
     border: 1px solid var(--review-panel-border);
     border-radius: var(--review-overview-copy-radius);
     box-shadow: var(--review-panel-shadow-soft);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
 .review-overview-media {
@@ -114,7 +120,7 @@
 .review-overview-kicker,
 .review-archive-intro__eyebrow,
 .charity-projects-section[id^="review-"] .charity-meta {
-    color: #58706e;
+    color: var(--review-kicker-color);
     font-family: var(--font-ui-modern);
     font-size: 0.84rem;
     font-weight: 620;
@@ -125,7 +131,7 @@
 
 .review-overview-title {
     margin: 10px 0 12px;
-    color: #163840;
+    color: var(--review-title-color);
     font-family: var(--font-ui-modern);
     font-size: clamp(1.72rem, 2.55vw, 2.18rem);
     font-weight: 580;
@@ -137,7 +143,7 @@
 .review-overview-intro {
     max-width: var(--review-prose-compact-max-width);
     margin: 0;
-    color: #294a52;
+    color: var(--review-copy-color);
     font-family: var(--font-ui-modern);
     font-size: var(--premium-lead-size);
     font-weight: 500;
@@ -157,7 +163,7 @@
     position: relative;
     min-height: 100%;
     padding: 20px 18px 18px 22px;
-    border-radius: 22px;
+    border-radius: var(--review-panel-radius-tight);
     background: var(--review-panel-surface-strong);
     border: 1px solid var(--review-panel-border);
     box-shadow: var(--review-panel-shadow-soft);
@@ -170,11 +176,11 @@
     top: 20px;
     bottom: 20px;
     left: 12px;
-    width: 4px;
+    width: 3px;
     inset: auto;
     border-radius: 999px;
     background: var(--review-accent-line);
-    opacity: 0.62;
+    opacity: 0.42;
 }
 
 .review-overview-highlight::after {
@@ -185,21 +191,19 @@
     width: 132px;
     height: 132px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(53, 196, 199, 0.18) 0%, transparent 72%);
+    background: none;
     pointer-events: none;
 }
 
 .review-overview-highlight:hover,
 .review-overview-highlight:focus-within {
-    transform: translateY(-4px);
     border-color: var(--review-panel-border-strong);
-    box-shadow: var(--review-panel-shadow-soft-hover);
 }
 
 .review-overview-highlight-title {
     margin: 0;
     max-width: 16ch;
-    color: #173840;
+    color: var(--review-title-color);
     font-family: var(--font-ui-modern);
     font-size: clamp(1.08rem, 1.28vw, 1.22rem);
     font-weight: 600;
@@ -209,7 +213,7 @@
 
 .review-overview-highlight-copy {
     margin: 10px 0 0;
-    color: #2b4e56;
+    color: var(--review-copy-color);
     font-family: var(--font-ui-modern);
     font-size: var(--premium-body-size);
     font-weight: 500;
@@ -227,10 +231,10 @@
     max-height: none;
     object-fit: contain;
     object-position: center center;
-    border-radius: 22px;
+    border-radius: var(--review-image-radius);
     border: 0;
-    background: rgba(255, 255, 255, 0.86);
-    box-shadow: 0 12px 26px rgba(15, 34, 42, 0.08);
+    background: var(--theme-surface-soft);
+    box-shadow: none;
 }
 
 .news-feed-section {
@@ -239,10 +243,7 @@
     --news-feed-header-gap: 24px;
     --news-feed-grid-gap: 22px;
     --news-feed-copy-max-width: 66ch;
-    --news-feed-section-bg:
-        radial-gradient(circle at top left, rgba(53, 196, 199, 0.16) 0%, transparent 34%),
-        radial-gradient(circle at 88% 18%, rgba(18, 62, 70, 0.08) 0%, transparent 26%),
-        linear-gradient(180deg, rgba(248, 251, 249, 0.98) 0%, rgba(238, 245, 241, 0.98) 100%);
+    --news-feed-section-bg: var(--theme-bg-soft);
     padding: 28px 0 34px;
     position: relative;
     overflow: hidden;
@@ -262,11 +263,7 @@
 }
 
 .news-feed-section::after {
-    background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0) 34%),
-        var(--review-soft-grid);
-    background-size: auto, 34px 34px;
-    opacity: 0.18;
+    background: none;
 }
 
 .news-feed-shell {
@@ -291,7 +288,7 @@
 }
 
 .news-feed-kicker {
-    color: #58706e;
+    color: var(--review-kicker-color);
     font-family: var(--font-ui-modern);
     font-size: 0.84rem;
     font-weight: 620;
@@ -302,7 +299,7 @@
 
 .news-feed-title {
     margin: 10px 0 12px;
-    color: #163840;
+    color: var(--review-title-color);
     font-family: var(--font-ui-modern);
     font-size: clamp(1.78rem, 2.8vw, 2.34rem);
     font-weight: 580;
@@ -314,7 +311,7 @@
 .news-feed-intro {
     margin: 0;
     max-width: var(--review-prose-max-width);
-    color: #315159;
+    color: var(--review-copy-color);
     font-family: var(--font-ui-modern);
     font-size: var(--premium-lead-size);
     font-weight: 500;
@@ -331,10 +328,10 @@
     gap: 7px;
     min-height: 44px;
     padding: 0.66rem 1rem;
-    border-radius: 999px;
-    border: 1px solid rgba(18, 62, 70, 0.12);
-    background: rgba(255, 255, 255, 0.68);
-    color: #4f676d;
+    border-radius: var(--review-chip-radius);
+    border: 1px solid var(--review-border-color);
+    background: var(--review-panel-surface-strong);
+    color: var(--review-kicker-color);
     font-family: var(--font-ui-modern);
     font-size: 0.9rem;
     font-weight: 640;
@@ -342,16 +339,14 @@
     text-decoration: none;
     white-space: nowrap;
     box-shadow: var(--review-cta-shadow);
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .news-feed-overview-link:hover,
 .news-feed-overview-link:focus-visible {
-    background: rgba(255, 255, 255, 0.92);
-    color: #0f726c;
-    border-color: rgba(18, 62, 70, 0.18);
-    box-shadow: var(--review-cta-shadow-hover);
-    transform: translateY(-1px);
+    background: var(--review-panel-surface);
+    color: var(--color-secondary);
+    border-color: var(--review-border-color-strong);
 }
 
 .news-feed-overview-link::after {
@@ -366,7 +361,7 @@
 }
 
 .news-feed-overview-link:focus-visible {
-    outline: 2px solid rgba(10, 117, 109, 0.42);
+    outline: 2px solid var(--review-focus-outline);
     outline-offset: 4px;
 }
 
@@ -381,7 +376,7 @@
     position: relative;
     min-width: 0;
     height: 100%;
-    border-radius: 28px;
+    border-radius: var(--review-panel-radius);
     overflow: hidden;
     background: var(--review-panel-surface-strong);
     border: 1px solid var(--review-panel-border);
@@ -401,24 +396,31 @@
 .news-feed-card-media {
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     box-sizing: border-box;
     min-height: 248px;
     aspect-ratio: 4 / 3;
-    padding: 14px;
+    padding: 0;
     overflow: hidden;
     isolation: isolate;
-    background:
-        radial-gradient(circle at top right, rgba(53, 196, 199, 0.2) 0%, transparent 38%),
-        linear-gradient(180deg, rgba(246, 250, 249, 0.98) 0%, rgba(233, 241, 238, 0.98) 100%);
+    background: transparent;
+    border-bottom: 1px solid var(--review-panel-border);
 }
 
 .news-feed-card-media--full-image {
-    --news-feed-full-image-pad: clamp(10px, 1.1vw, 14px);
+    --news-feed-full-image-pad: 0px;
     min-height: 0;
     aspect-ratio: var(--news-feed-full-image-ratio, 16 / 10);
     padding: var(--news-feed-full-image-pad);
+}
+
+.news-feed-card-media--portrait {
+    display: grid;
+    place-items: end center;
+    min-height: clamp(248px, 28vw, 318px);
+    aspect-ratio: auto;
+    padding: 14px 0 0;
 }
 
 .news-feed-card-image {
@@ -427,9 +429,9 @@
     width: 100%;
     height: 100%;
     display: block;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.96);
-    box-shadow: 0 14px 28px rgba(15, 34, 42, 0.08);
+    border-radius: var(--review-image-radius) var(--review-image-radius) 0 0;
+    background: transparent;
+    box-shadow: none;
     object-fit: cover;
     object-position: center;
 }
@@ -437,7 +439,19 @@
 .news-feed-card-image--contain {
     background: transparent;
     object-fit: contain;
-    border-radius: 24px;
+    border-radius: var(--review-image-radius) var(--review-image-radius) 0 0;
+}
+
+.news-feed-card-media--portrait .news-feed-card-image--contain {
+    width: auto;
+    height: auto;
+    max-width: min(100%, 184px);
+    max-height: clamp(248px, 28vw, 318px);
+    object-position: center top;
+}
+
+.news-feed-card-media--portrait .news-feed-card-image--backdrop {
+    display: none;
 }
 
 .news-feed-card-image--backdrop {
@@ -446,13 +460,14 @@
     z-index: 0;
     width: calc(100% - 24px);
     height: calc(100% - 24px);
-    border-radius: 24px;
+    display: none;
+    border-radius: var(--review-image-radius);
     background: none;
     object-fit: cover;
     object-position: center;
-    filter: blur(18px) saturate(1.02) brightness(0.96);
-    transform: scale(1.08);
-    opacity: 0.38;
+    filter: none;
+    transform: none;
+    opacity: 0;
     pointer-events: none;
 }
 
@@ -460,22 +475,21 @@
     inset: var(--news-feed-full-image-pad);
     width: calc(100% - (var(--news-feed-full-image-pad) * 2));
     height: calc(100% - (var(--news-feed-full-image-pad) * 2));
-    filter: blur(22px) saturate(1.04) brightness(0.94);
-    transform: scale(1.05);
-    opacity: 0.42;
+    filter: none;
+    transform: none;
+    opacity: 0;
 }
 
 .news-feed-card-media--full-image .news-feed-card-image--contain {
-    border-radius: 20px;
+    border-radius: var(--review-image-radius) var(--review-image-radius) 0 0;
 }
 
 .news-feed-card-body {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding: 20px 20px 22px;
-    background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(252, 254, 253, 0.88) 18%, rgba(252, 254, 253, 0.96) 100%);
+    padding: 18px 20px 22px;
+    background: transparent;
 }
 
 .news-feed-card-meta {
@@ -491,7 +505,7 @@
     align-items: center;
     min-height: 30px;
     padding: 0.28rem 0.78rem;
-    border-radius: 999px;
+    border-radius: var(--review-chip-radius);
     font-family: var(--font-ui-modern);
     font-size: 0.82rem;
     line-height: 1.3;
@@ -499,22 +513,22 @@
 
 .news-feed-card-badge {
     color: #13585f;
-    background: linear-gradient(180deg, rgba(53, 196, 199, 0.18) 0%, rgba(53, 196, 199, 0.1) 100%);
-    border: 1px solid rgba(18, 62, 70, 0.12);
+    background: rgba(var(--color-secondary-rgb), 0.12);
+    border: 1px solid var(--review-border-color);
     font-weight: 700;
 }
 
 .news-feed-card-date {
     color: #4d666c;
     background: rgba(247, 250, 249, 0.98);
-    border: 1px solid rgba(18, 62, 70, 0.1);
+    border: 1px solid rgba(var(--color-primary-rgb), 0.1);
     font-weight: 600;
 }
 
 .news-feed-card-title {
     margin: 0;
     max-width: 18ch;
-    color: #14353b;
+    color: var(--review-title-color);
     font-family: var(--font-ui-modern);
     font-size: clamp(1.14rem, 1.5vw, 1.38rem);
     font-weight: 620;
@@ -533,7 +547,7 @@
 .news-feed-card-copy {
     margin: 0;
     max-width: var(--review-card-copy-max-width);
-    color: #2f4f57;
+    color: var(--review-copy-color);
     font-family: var(--font-ui-modern);
     font-size: var(--premium-body-size);
     font-weight: 510;
@@ -563,16 +577,16 @@
     width: fit-content;
     gap: 7px;
     padding: 0.46rem 0.8rem;
-    border-radius: 999px;
-    border: 1px solid rgba(10, 117, 109, 0.18);
-    background: linear-gradient(180deg, rgba(10, 117, 109, 0.12) 0%, rgba(10, 117, 109, 0.07) 100%);
-    color: #0f726c;
+    border-radius: var(--review-chip-radius);
+    border: 1px solid var(--review-border-color);
+    background: var(--review-panel-surface);
+    color: var(--review-kicker-color);
     font-family: var(--font-ui-modern);
     font-size: 0.93rem;
     font-weight: 700;
     line-height: 1.3;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.48);
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: none;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .news-feed-card-cta::after {
@@ -583,22 +597,19 @@
 
 .news-feed-card-link:hover .news-feed-card-title,
 .news-feed-card-link:focus-visible .news-feed-card-title {
-    color: #0f726c;
+    color: var(--color-secondary);
 }
 
 .news-feed-card:hover,
 .news-feed-card:focus-within {
-    transform: translateY(-6px);
     border-color: var(--review-panel-border-strong);
-    box-shadow: var(--review-panel-shadow-hover);
 }
 
 .news-feed-card-link:hover .news-feed-card-cta,
 .news-feed-card-link:focus-visible .news-feed-card-cta {
-    background: rgba(10, 117, 109, 0.14);
-    border-color: rgba(10, 117, 109, 0.22);
-    color: #0b5e5a;
-    box-shadow: var(--review-cta-shadow);
+    background: var(--review-panel-surface-strong);
+    border-color: var(--review-panel-border-strong);
+    color: var(--color-secondary);
 }
 
 .news-feed-card-link:hover .news-feed-card-cta::after,
@@ -608,18 +619,16 @@
 
 .news-feed-card-link:hover .news-feed-card-image,
 .news-feed-card-link:focus-visible .news-feed-card-image {
-    transform: scale(1.025);
+    transform: none;
 }
 
 .news-feed-card-link:focus-visible {
-    outline: 2px solid rgba(10, 117, 109, 0.42);
+    outline: 2px solid var(--review-focus-outline);
     outline-offset: 4px;
 }
 
 .news-feed-card-link:focus-visible .news-feed-card-media {
-    background:
-        radial-gradient(circle at top right, rgba(53, 196, 199, 0.2) 0%, transparent 38%),
-        linear-gradient(180deg, rgba(246, 251, 250, 0.98) 0%, rgba(228, 239, 236, 0.98) 100%);
+    background: transparent;
 }
 
 @media (min-width: 1180px) {
@@ -683,6 +692,17 @@
         min-height: 220px;
         aspect-ratio: 16 / 10;
     }
+
+    .news-feed-card-media--portrait {
+        min-height: clamp(228px, 58vw, 292px);
+        aspect-ratio: auto;
+        padding-top: 12px;
+    }
+
+    .news-feed-card-media--portrait .news-feed-card-image--contain {
+        max-width: min(100%, 168px);
+        max-height: clamp(228px, 58vw, 292px);
+    }
 }
 
 @media (max-width: 640px) {
@@ -716,14 +736,14 @@
     width: var(--layout-shell-width);
     height: 1px;
     transform: translateX(-50%);
-    background: linear-gradient(90deg, rgba(18, 62, 70, 0), rgba(18, 62, 70, 0.18) 18%, rgba(18, 62, 70, 0.18) 82%, rgba(18, 62, 70, 0));
+    background: rgba(var(--color-primary-rgb), 0.18);
 }
 
 .review-archive-intro__inner {
     width: var(--layout-shell-width);
     margin: 0 auto;
     padding: 24px 24px 24px;
-    border-radius: 28px;
+    border-radius: var(--review-panel-radius-large);
     border: 1px solid var(--review-panel-border);
     background: var(--review-panel-surface-strong);
     box-shadow: var(--review-panel-shadow);
@@ -735,22 +755,20 @@
 .review-archive-intro__inner::before {
     content: "";
     display: block;
-    width: 72px;
-    height: 4px;
-    margin-bottom: 16px;
-    background: linear-gradient(90deg, var(--color-primary), rgba(10, 117, 109, 0.32));
+    width: 56px;
+    height: 2px;
+    margin-bottom: 14px;
+    background: var(--color-secondary);
 }
 
 .review-archive-intro__inner:hover,
 .review-archive-intro__inner:focus-within {
-    transform: translateY(-2px);
     border-color: var(--review-panel-border-strong);
-    box-shadow: var(--review-panel-shadow-hover);
 }
 
 .review-archive-intro__title {
     margin: 10px 0 10px;
-    color: #14353b;
+    color: var(--review-title-color);
     font-family: var(--font-ui-modern);
     font-size: clamp(1.42rem, 2vw, 1.76rem);
     font-weight: 555;
@@ -762,7 +780,7 @@
 .review-archive-intro__copy {
     max-width: 52ch;
     margin: 0 0 18px;
-    color: #35545a;
+    color: var(--review-copy-color);
     font-family: var(--font-ui-modern);
     font-size: var(--premium-lead-size);
     font-weight: 500;
@@ -780,7 +798,7 @@
     gap: 10px;
     padding-inline: 18px;
     border: 1px solid var(--cta-border-color);
-    border-radius: 999px;
+    border-radius: var(--review-chip-radius);
     background: var(--cta-bg);
     color: var(--cta-color);
     font-family: var(--font-ui-modern);
@@ -854,39 +872,39 @@
 }
 
 .review-archive-toggle {
-    --cta-bg: linear-gradient(180deg, rgba(243, 248, 247, 0.98) 0%, rgba(235, 243, 240, 0.98) 100%);
-    --cta-bg-hover: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(229, 239, 236, 0.98) 100%);
+    --cta-bg: var(--review-panel-surface-strong);
+    --cta-bg-hover: var(--review-panel-surface);
     --cta-color: var(--color-primary);
     --cta-color-hover: var(--color-primary);
-    --cta-border-color: rgba(18, 62, 70, 0.16);
-    --cta-border-color-hover: rgba(10, 117, 109, 0.26);
+    --cta-border-color: rgba(var(--color-primary-rgb), 0.16);
+    --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.26);
     --cta-shadow: var(--review-cta-shadow);
     --cta-shadow-hover: var(--review-cta-shadow-hover);
 }
 
 .review-card-toggle {
-    --cta-bg: linear-gradient(180deg, rgba(242, 248, 246, 0.98) 0%, rgba(233, 242, 239, 0.96) 100%);
-    --cta-bg-hover: linear-gradient(180deg, rgba(250, 252, 251, 0.98) 0%, rgba(226, 238, 234, 0.98) 100%);
+    --cta-bg: var(--review-panel-surface-strong);
+    --cta-bg-hover: var(--review-panel-surface);
     --cta-color: var(--color-primary);
     --cta-color-hover: var(--color-primary);
-    --cta-border-color: rgba(18, 62, 70, 0.16);
-    --cta-border-color-hover: rgba(10, 117, 109, 0.26);
+    --cta-border-color: rgba(var(--color-primary-rgb), 0.16);
+    --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.26);
     --cta-shadow: var(--review-cta-shadow);
     --cta-shadow-hover: var(--review-cta-shadow-hover);
 }
 
 .review-archive-toggle.review-archive-toggle--floating {
-    --cta-bg: linear-gradient(180deg, rgba(243, 248, 247, 1) 0%, rgba(233, 242, 239, 1) 100%);
-    --cta-bg-hover: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(236, 244, 241, 1) 100%);
-    --cta-border-color: rgba(10, 117, 109, 0.24);
-    --cta-border-color-hover: rgba(10, 117, 109, 0.32);
-    --cta-shadow: 0 18px 38px rgba(18, 36, 44, 0.18);
-    --cta-shadow-hover: 0 24px 46px rgba(18, 36, 44, 0.22);
+    --cta-bg: var(--review-panel-surface);
+    --cta-bg-hover: var(--review-panel-surface);
+    --cta-border-color: rgba(var(--color-secondary-rgb), 0.24);
+    --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.32);
+    --cta-shadow: none;
+    --cta-shadow-hover: none;
 }
 
 .charity-flex-row {
     --charity-review-surface: #fff;
-    --charity-review-image-radius: 28px;
+    --charity-review-image-radius: var(--review-image-radius);
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -950,12 +968,12 @@
 .review-media-block {
     --review-media-narrow-width: 70%;
     --review-media-surface: #fff;
-    --review-media-caption-color: #48636d;
-    --review-media-frame-bg: rgba(255, 255, 255, 0.94);
-    --review-media-frame-border: rgba(18, 62, 70, 0.08);
+    --review-media-caption-color: var(--review-caption-color);
+    --review-media-frame-bg: var(--review-panel-surface);
+    --review-media-frame-border: rgba(var(--color-primary-rgb), 0.08);
     --review-media-frame-shadow: none;
     --review-media-frame-padding: clamp(10px, 1.3vw, 14px);
-    --review-media-frame-radius: 28px;
+    --review-media-frame-radius: var(--review-panel-radius);
     width: 100%;
 }
 
@@ -979,7 +997,7 @@
 
 .review-media-caption {
     margin: 8px auto 18px;
-    color: #48636d;
+    color: var(--review-media-caption-color);
     font-family: var(--font-ui-modern);
     font-size: 0.92rem;
     font-weight: var(--font-weight-body);
@@ -1037,14 +1055,14 @@
 }
 
 .charity-projects-section {
-    --charity-projects-bg: #f6edde;
-    --charity-projects-surface: rgba(255, 250, 241, 0.95);
-    --charity-title-color: #11323a;
-    --charity-meta-color: #208b91;
-    --charity-copy-color: #173941;
-    --charity-card-border: rgba(18, 62, 70, 0.12);
+    --charity-projects-bg: var(--review-section-surface);
+    --charity-projects-surface: rgba(255, 255, 255, 0.96);
+    --charity-title-color: var(--color-primary);
+    --charity-meta-color: var(--color-secondary);
+    --charity-copy-color: var(--review-copy-color);
+    --charity-card-border: rgba(var(--color-primary-rgb), 0.12);
     --charity-card-shadow: var(--shadow-surface-strong);
-    --charity-card-topline: #35c4c7;
+    --charity-card-topline: var(--color-secondary);
     background: var(--charity-projects-bg);
     padding: 40px 0 32px;
     width: 100%;
@@ -1056,14 +1074,14 @@
 }
 
 .charity-projects-section[id^="review-"] {
-    --charity-projects-bg: var(--section-tone-b);
+    --charity-projects-bg: var(--review-section-surface);
     --charity-projects-surface: var(--review-panel-surface-strong);
     --charity-card-border: var(--review-panel-border);
     --charity-card-shadow: var(--review-panel-shadow);
-    --charity-card-topline: rgba(53, 196, 199, 0.78);
+    --charity-card-topline: rgba(var(--color-secondary-rgb), 0.78);
     --review-title-size: clamp(1.64rem, 2.08vw, 1.9rem);
-    --review-meta-bg: rgba(18, 62, 70, 0.06);
-    --review-meta-border: rgba(53, 196, 199, 0.22);
+    --review-meta-bg: rgba(var(--color-primary-rgb), 0.06);
+    --review-meta-border: rgba(var(--color-secondary-rgb), 0.22);
     --review-card-fade-surface: var(--review-fade-surface);
     position: relative;
     isolation: isolate;
@@ -1116,9 +1134,9 @@
 
 #review-benefiz-trommelworkshop-2026 .review-donation-card {
     padding: 18px 20px;
-    border-radius: 22px;
-    background: linear-gradient(180deg, rgba(18, 62, 70, 0.08) 0%, rgba(10, 117, 109, 0.12) 100%);
-    border: 1px solid rgba(18, 62, 70, 0.1);
+    border-radius: var(--review-panel-radius-tight);
+    background: rgba(var(--color-secondary-rgb), 0.08);
+    border: 1px solid rgba(var(--color-primary-rgb), 0.1);
     box-shadow: var(--review-panel-shadow-soft);
 }
 
@@ -1162,13 +1180,13 @@
 }
 
 .rueckblick-flex {
-    --review-masterclass-image-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+    --review-masterclass-image-shadow: none;
     --masterclass-media-basis: 48%;
     --masterclass-media-max-width: min(48vw, 760px);
     --masterclass-credit-margin-top: 8px;
     --masterclass-credit-font-size: 0.98em;
     --masterclass-credit-line-height: 1.4;
-    --masterclass-credit-color: #48636d;
+    --masterclass-credit-color: var(--review-caption-color);
     flex-wrap: wrap;
 }
 
@@ -1247,7 +1265,7 @@
 }
 
 #review-nikolausfeier-2025 .review-inline-media--nikolaus .review-media-image-card {
-    border-radius: 0;
+    border-radius: inherit;
 }
 
 #review-nikolausfeier-2025 .review-inline-media--nikolaus .review-media-image-shell--nikolaus {
@@ -1349,7 +1367,7 @@
 .charity-description .external-link:hover,
 .charity-description .external-link:focus,
 .charity-description .external-link:focus-visible {
-    color: var(--inline-link-hover-color, #123e46);
+    color: var(--inline-link-hover-color, var(--color-primary));
     background: none;
     box-shadow: none;
     transform: none;
@@ -1358,7 +1376,7 @@
 }
 
 .charity-description .external-link:focus-visible {
-    outline: 2px solid rgba(10, 117, 109, 0.24);
+    outline: 2px solid rgba(var(--color-secondary-rgb), 0.24);
     outline-offset: 2px;
     border-radius: 6px;
 }
@@ -1565,9 +1583,7 @@
 
 @media (min-width: 1180px) {
     .review-overview-section {
-        --review-overview-section-bg:
-            radial-gradient(circle at top right, rgba(10, 117, 109, 0.08) 0%, transparent 30%),
-            linear-gradient(180deg, #eef3ef 0%, #f8f8f5 100%);
+        --review-overview-section-bg: var(--theme-bg-muted);
         --review-overview-section-padding: 78px 0 26px;
         --review-overview-shell-width: min(1360px, calc(100% - (var(--desktop-content-side-gap) * 2)));
         --review-overview-shell-padding: 0;
@@ -1598,7 +1614,7 @@
     }
 
     .review-overview-kicker {
-        color: rgba(18, 62, 70, 0.6);
+        color: var(--review-kicker-color);
         font-size: 0.72rem;
         font-weight: 620;
         letter-spacing: 0.18em;
@@ -1614,7 +1630,7 @@
 
     .review-overview-intro {
         max-width: 56ch;
-        color: #27474f;
+        color: var(--review-copy-color);
         font-size: 1.02rem;
         line-height: 1.66;
     }
@@ -1662,7 +1678,7 @@
         max-width: 438px;
         padding: 12px;
         border: 1px solid var(--review-panel-border);
-        border-radius: 32px;
+        border-radius: var(--review-panel-radius-large);
         background: var(--review-panel-surface-strong);
         box-shadow: var(--review-panel-shadow);
         justify-self: end;
@@ -1683,30 +1699,30 @@
 
     .review-archive-intro {
         padding: 28px 0 12px;
-        background: #f8f8f5;
+        background: var(--review-section-surface-alt);
     }
 
     .review-archive-intro__inner {
-        width: min(1360px, calc(100% - (var(--desktop-content-side-gap) * 2)));
+        width: min(1240px, calc(100% - (var(--desktop-content-side-gap) * 2)));
         padding: 34px 34px 30px;
-        border-radius: 32px;
+        border-radius: var(--review-panel-radius-large);
         border-color: var(--review-panel-border);
         background: var(--review-panel-surface-strong);
         box-shadow: var(--review-panel-shadow);
     }
 
     .review-archive-intro__inner::before {
-        width: 88px;
-        height: 3px;
-        margin-bottom: 20px;
-        background: linear-gradient(90deg, var(--color-primary), rgba(10, 117, 109, 0.26));
+        width: 64px;
+        height: 2px;
+        margin-bottom: 18px;
+        background: var(--color-secondary);
     }
 
     .review-archive-intro__eyebrow {
         font-size: 0.72rem;
         font-weight: 620;
         letter-spacing: 0.18em;
-        color: rgba(18, 62, 70, 0.6);
+        color: var(--review-kicker-color);
     }
 
     .review-archive-intro__title {
@@ -1720,7 +1736,7 @@
 
     .review-archive-intro__copy {
         max-width: 56ch;
-        color: #31535b;
+        color: var(--review-copy-color);
         font-size: 1.02rem;
         line-height: 1.66;
     }
@@ -1732,13 +1748,13 @@
     .review-archive-toggle {
         min-height: 46px;
         padding: 0 18px;
-        border-radius: 999px;
-        --cta-bg: rgba(243, 248, 247, 0.98);
-        --cta-bg-hover: rgba(229, 239, 236, 0.98);
+        border-radius: var(--review-chip-radius);
+        --cta-bg: var(--review-panel-surface-strong);
+        --cta-bg-hover: var(--review-panel-surface);
         --cta-color: var(--color-primary);
         --cta-color-hover: var(--color-primary);
-        --cta-border-color: rgba(18, 62, 70, 0.16);
-        --cta-border-color-hover: rgba(10, 117, 109, 0.26);
+        --cta-border-color: rgba(var(--color-primary-rgb), 0.16);
+        --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.26);
         font-weight: 600;
     }
 
@@ -1753,7 +1769,7 @@
     .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container {
         width: min(1240px, calc(100% - (var(--desktop-content-side-gap) * 2)));
         padding: 26px 34px 30px;
-        border-radius: 32px;
+        border-radius: var(--review-panel-radius-large);
         background: var(--review-panel-surface-strong);
         border-color: var(--review-panel-border);
         box-shadow: var(--review-panel-shadow);
@@ -1765,10 +1781,10 @@
         top: 20px;
         bottom: 20px;
         left: 12px;
-        width: 4px;
+        width: 2px;
         border-radius: 999px;
         background: var(--review-accent-line);
-        opacity: 0.68;
+        opacity: 0.46;
     }
 
     .review-featured .charity-flex-row,
@@ -1791,7 +1807,7 @@
     .review-featured .charity-meta,
     .review-archive .charity-projects-section[id^="review-"] .charity-meta,
     .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-meta {
-        color: rgba(18, 62, 70, 0.68);
+        color: var(--review-kicker-color);
         font-size: 0.8rem;
         font-weight: 620;
         letter-spacing: 0.14em;
@@ -1802,7 +1818,7 @@
     .review-archive .charity-projects-section[id^="review-"] .charity-description,
     .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-description {
         max-width: 64ch;
-        color: #28484f;
+        color: var(--review-copy-color);
         font-size: 1.03rem;
         line-height: 1.72;
     }
@@ -1827,8 +1843,9 @@
     .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container,
     .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container {
         padding: 14px;
-        border-radius: 28px;
+        border-radius: var(--review-panel-radius);
         background: var(--review-panel-surface);
+        border: 1px solid var(--review-panel-border);
         border-color: var(--review-panel-border);
         box-shadow: var(--review-panel-shadow-soft);
     }
@@ -1846,17 +1863,17 @@
     .review-featured .masterclass-flex__credit,
     .review-archive .charity-projects-section[id^="review-"] .review-media-caption,
     .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-caption {
-        color: #537078;
+        color: var(--review-caption-color);
         font-size: 0.84rem;
-        background: rgba(255, 255, 255, 0.84);
-        border-color: rgba(18, 62, 70, 0.1);
+        background: var(--review-panel-surface);
+        border-color: var(--review-border-color);
     }
 
     #review-benefiz-trommelworkshop-2026 .review-donation-card {
         padding: 22px 22px 20px;
-        border-radius: 24px;
-        background: linear-gradient(180deg, rgba(18, 62, 70, 0.08) 0%, rgba(10, 117, 109, 0.14) 100%);
-        border-color: rgba(18, 62, 70, 0.1);
+        border-radius: var(--review-panel-radius-tight);
+        background: rgba(var(--color-secondary-rgb), 0.1);
+        border-color: rgba(var(--color-primary-rgb), 0.1);
         box-shadow: var(--review-panel-shadow-soft);
     }
 }
@@ -1892,7 +1909,7 @@
     width: var(--layout-shell-width);
     margin: 0 auto 12px;
     padding: 22px 28px 24px;
-    border-radius: 30px;
+    border-radius: var(--review-panel-radius-large);
     background: var(--review-panel-surface-strong);
     border-color: var(--review-panel-border);
     box-shadow: var(--review-panel-shadow);
@@ -1904,9 +1921,7 @@
 .review-archive .charity-projects-section[id^="review-"] .charity-projects-container:focus-within,
 .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container:hover,
 .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container:focus-within {
-    transform: translateY(-4px);
     border-color: var(--review-panel-border-strong);
-    box-shadow: var(--review-panel-shadow-hover);
 }
 
 .review-featured .charity-projects-container::after,
@@ -1916,12 +1931,12 @@
     top: 20px;
     bottom: 20px;
     left: 12px;
-    width: 3px;
+    width: 2px;
     height: auto;
     inset: auto;
     border-radius: 999px;
     background: var(--review-accent-line);
-    opacity: 0.7;
+    opacity: 0.45;
 }
 
 .review-featured .charity-flex-row,
@@ -1944,7 +1959,7 @@
 .review-archive .charity-projects-section[id^="review-"] .charity-title {
     max-width: 22ch;
     margin-bottom: 10px;
-    color: #173941;
+    color: var(--review-title-color);
     font-family: var(--font-ui-modern);
     font-size: clamp(1.72rem, 2.55vw, 2.18rem);
     font-weight: 580;
@@ -1960,11 +1975,11 @@
     margin-bottom: 14px;
     margin-right: 0;
     padding: 0.54em 0.94em;
-    color: #45656d;
+    color: var(--review-kicker-color);
     background: var(--review-meta-bg);
     border: 1px solid var(--review-meta-border);
     border-radius: 999px;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.48);
+    box-shadow: none;
     text-align: left !important;
     align-self: flex-start;
     white-space: normal;
@@ -1988,7 +2003,7 @@
 .review-featured .charity-description,
 .review-archive .charity-projects-section[id^="review-"] .charity-description {
     max-width: var(--review-prose-max-width);
-    color: #28484f;
+    color: var(--review-copy-color);
     font-family: var(--font-ui-modern);
     font-size: 1rem;
     font-weight: 500;
@@ -2012,7 +2027,7 @@
 .review-featured .charity-flex-row > .gruppenbild-container,
 .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
     align-self: flex-start;
-    padding: 12px;
+    padding: 10px;
     background: var(--review-panel-surface);
     border-color: var(--review-panel-border);
     box-shadow: var(--review-panel-shadow-soft);
@@ -2063,7 +2078,7 @@
 
 .charity-projects-section[id^="review-"] .review-media-caption,
 .review-featured .masterclass-flex__credit {
-    color: #547078;
+    color: var(--review-caption-color);
     font-family: var(--font-ui-modern);
     font-size: 0.9rem;
     font-weight: 500;
@@ -2123,7 +2138,7 @@
 }
 
 .review-card--expanded .review-card-toggle {
-    --interaction-transform: translateY(-1px);
+    --interaction-transform: none;
 }
 
 .review-card--collapsible[data-review-card-expanded="false"] .charity-description,
@@ -2156,7 +2171,7 @@
     right: 0;
     top: -24px;
     height: 28px;
-    background: linear-gradient(180deg, rgba(247, 250, 248, 0), var(--review-card-fade-surface) 80%);
+    background: linear-gradient(180deg, rgba(247, 250, 248, 0), var(--review-card-fade-surface) 62%, var(--review-card-fade-surface) 100%);
     pointer-events: none;
 }
 
@@ -2173,7 +2188,7 @@
 .review-overview-image,
 .charity-projects-section[id^="review-"] .charity-projects-container,
 .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
-    transition: box-shadow 0.24s ease, border-color 0.24s ease, background 0.24s ease, transform 0.24s ease, opacity 0.24s ease, filter 0.24s ease;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
 }
 
 .review-overview-section {
@@ -2209,20 +2224,7 @@
     }
 
     .review-archive-intro__inner::after {
-        content: "2025+";
-        position: absolute;
-        right: clamp(22px, 3vw, 40px);
-        top: 50%;
-        transform: translateY(-50%);
-        color: rgba(18, 62, 70, 0.08);
-        font-family: var(--font-ui-modern);
-        font-size: clamp(3.1rem, 7vw, 5.7rem);
-        font-weight: 520;
-        line-height: 0.9;
-        letter-spacing: -0.08em;
-        pointer-events: none;
-        z-index: 0;
-        white-space: nowrap;
+        content: none;
     }
 
     .review-archive-toggle {
@@ -3016,6 +3018,278 @@
     }
 }
 
+.review-featured .charity-projects-container,
+.review-archive .charity-projects-section[id^="review-"] .charity-projects-container,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container {
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--review-panel-border);
+}
+
+.review-featured .charity-projects-container::after,
+.review-archive .charity-projects-section[id^="review-"] .charity-projects-container::after,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container::after {
+    top: 20px;
+    bottom: 20px;
+    left: 12px;
+    width: 2px;
+    height: auto;
+    inset: auto;
+    border-radius: 999px;
+    background: var(--review-accent-line);
+    opacity: 0.45;
+}
+
+@media (max-width: 900px) {
+    .review-featured .charity-projects-container::after,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container::after,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container::after {
+        top: 16px;
+        bottom: 16px;
+        left: 8px;
+        width: 3px;
+        opacity: 0.46;
+    }
+}
+
+.charity-projects-section[id^="review-"] {
+    --review-media-surface: transparent;
+    --review-media-frame-bg: transparent;
+    --review-media-frame-border: transparent;
+    --review-media-frame-padding: 0;
+    --review-media-frame-radius: var(--review-panel-radius);
+}
+
+.review-featured .charity-projects-container,
+.review-archive .charity-projects-section[id^="review-"] .charity-projects-container,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container {
+    border-radius: var(--surface-panel-radius-large);
+    overflow: hidden;
+}
+
+.charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container,
+.review-featured .charity-flex-row > .gruppenbild-container,
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container,
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:only-of-type),
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:only-of-type),
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-right:has(> img:only-of-type),
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right:has(> img:only-of-type),
+.review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .review-inline-media,
+.review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: var(--review-media-frame-radius);
+    box-shadow: none;
+    overflow: hidden;
+}
+
+.charity-projects-section[id^="review-"] .review-media-caption,
+.review-featured .masterclass-flex__credit {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 8px 0 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    color: var(--review-caption-color);
+    font-family: var(--font-ui-modern);
+    font-size: 0.84rem;
+    font-weight: 500;
+    line-height: 1.42;
+    letter-spacing: 0.01em;
+    text-align: center;
+    font-style: normal;
+    box-shadow: none;
+}
+
+#review-nikolausfeier-2025 .gruppenbild-img-nikolaus,
+#review-nikolausfeier-2025 .review-inline-media--nikolaus .review-media-image-card {
+    border-radius: var(--review-nikolaus-image-radius);
+}
+
+:root[data-theme="dark"] .news-feed-section,
+:root[data-theme="dark"] .review-overview-section,
+:root[data-theme="dark"] .review-featured,
+:root[data-theme="dark"] .review-archive-intro,
+:root[data-theme="dark"] .review-archive,
+:root[data-theme="dark"] .review-archive .charity-projects-section[id^="review-"] {
+    --review-section-surface: var(--theme-bg-muted);
+    --review-section-surface-alt: var(--theme-bg-muted);
+    --review-panel-surface: var(--theme-surface-panel);
+    --review-panel-surface-strong: var(--theme-surface-panel);
+    --review-panel-border: rgba(229, 240, 238, 0.14);
+    --review-panel-border-strong: rgba(var(--color-secondary-rgb), 0.34);
+    --review-panel-shadow: none;
+    --review-panel-shadow-hover: none;
+    --review-panel-shadow-soft: none;
+    --review-panel-shadow-soft-hover: none;
+    --review-media-shadow: none;
+    --review-cta-shadow: none;
+    --review-cta-shadow-hover: none;
+    --review-soft-grid: none;
+    --review-sheen: none;
+    --review-fade-surface: var(--theme-surface-panel);
+    --review-meta-bg: rgba(255, 255, 255, 0.08);
+    --review-meta-border: rgba(var(--color-secondary-rgb), 0.24);
+}
+
+:root[data-theme="dark"] .review-overview-section {
+    --review-overview-section-bg: var(--review-section-surface);
+}
+
+:root[data-theme="dark"] .review-overview-section::before {
+    background: none;
+}
+
+:root[data-theme="dark"] .news-feed-section {
+    --news-feed-section-bg: var(--review-section-surface);
+}
+
+:root[data-theme="dark"] .news-feed-section::after {
+    background: none;
+}
+
+:root[data-theme="dark"] .review-overview-kicker,
+:root[data-theme="dark"] .review-archive-intro__eyebrow,
+:root[data-theme="dark"] .charity-projects-section[id^="review-"] .charity-meta,
+:root[data-theme="dark"] .news-feed-kicker,
+:root[data-theme="dark"] .news-feed-card-date,
+:root[data-theme="dark"] .review-media-caption,
+:root[data-theme="dark"] .review-featured .masterclass-flex__credit,
+:root[data-theme="dark"] .review-return-link {
+    color: #c9ddda;
+}
+
+:root[data-theme="dark"] .review-overview-title,
+:root[data-theme="dark"] .review-overview-highlight-title,
+:root[data-theme="dark"] .news-feed-title,
+:root[data-theme="dark"] .news-feed-card-title,
+:root[data-theme="dark"] .review-archive-intro__title,
+:root[data-theme="dark"] .review-featured .charity-title,
+:root[data-theme="dark"] .review-archive .charity-projects-section[id^="review-"] .charity-title {
+    color: var(--theme-text-primary);
+}
+
+:root[data-theme="dark"] .review-overview-intro,
+:root[data-theme="dark"] .review-overview-highlight-copy,
+:root[data-theme="dark"] .news-feed-intro,
+:root[data-theme="dark"] .news-feed-card-copy,
+:root[data-theme="dark"] .review-archive-intro__copy,
+:root[data-theme="dark"] .review-featured .charity-description,
+:root[data-theme="dark"] .review-archive .charity-projects-section[id^="review-"] .charity-description,
+:root[data-theme="dark"] #review-benefiz-trommelworkshop-2026 .review-donation-card__copy {
+    color: #dbe8e5;
+}
+
+:root[data-theme="dark"] .review-overview-image,
+:root[data-theme="dark"] .news-feed-card-image {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: none;
+}
+
+:root[data-theme="dark"] .news-feed-card-body {
+    background: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+}
+
+:root[data-theme="dark"] .news-feed-overview-link {
+    background: var(--review-panel-surface);
+    border-color: rgba(var(--color-secondary-rgb), 0.18);
+}
+
+:root[data-theme="dark"] .news-feed-overview-link:hover,
+:root[data-theme="dark"] .news-feed-overview-link:focus-visible {
+    background: var(--review-panel-surface);
+    color: #ffffff;
+    border-color: rgba(var(--color-secondary-rgb), 0.28);
+}
+
+:root[data-theme="dark"] .news-feed-card-badge {
+    color: #f7fbfa;
+    background: rgba(var(--color-secondary-rgb), 0.16);
+    border-color: rgba(var(--color-secondary-rgb), 0.18);
+}
+
+:root[data-theme="dark"] .news-feed-card-date {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(229, 240, 238, 0.12);
+}
+
+:root[data-theme="dark"] .news-feed-card-link:hover .news-feed-card-title,
+:root[data-theme="dark"] .news-feed-card-link:focus-visible .news-feed-card-title,
+:root[data-theme="dark"] .news-feed-card-cta,
+:root[data-theme="dark"] .review-return-link:hover,
+:root[data-theme="dark"] .review-return-link:focus-visible {
+    color: #9fe7de;
+}
+
+:root[data-theme="dark"] .news-feed-card-cta {
+    border-color: rgba(var(--color-secondary-rgb), 0.18);
+    background: var(--review-panel-surface);
+    box-shadow: none;
+}
+
+:root[data-theme="dark"] .news-feed-card-link:hover .news-feed-card-cta,
+:root[data-theme="dark"] .news-feed-card-link:focus-visible .news-feed-card-cta {
+    background: var(--review-panel-surface);
+    border-color: rgba(var(--color-secondary-rgb), 0.28);
+    color: #9fe7de;
+}
+
+:root[data-theme="dark"] .review-archive::before {
+    background: rgba(var(--color-secondary-rgb), 0.22);
+}
+
+:root[data-theme="dark"] .review-archive-intro__inner::before {
+    background: var(--color-secondary);
+}
+
+:root[data-theme="dark"] .review-archive-toggle,
+:root[data-theme="dark"] .review-card-toggle {
+    --cta-bg: var(--review-panel-surface);
+    --cta-bg-hover: var(--review-panel-surface);
+    --cta-color: #f7fbfa;
+    --cta-color-hover: #ffffff;
+    --cta-border-color: rgba(var(--color-secondary-rgb), 0.2);
+    --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.28);
+}
+
+:root[data-theme="dark"] .review-archive-toggle.review-archive-toggle--floating {
+    --cta-bg: var(--review-panel-surface);
+    --cta-bg-hover: var(--review-panel-surface);
+    --cta-border-color: rgba(var(--color-secondary-rgb), 0.24);
+    --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.32);
+}
+
+:root[data-theme="dark"] .charity-projects-section {
+    --charity-title-color: var(--theme-text-primary);
+    --charity-meta-color: #9fe7de;
+    --charity-copy-color: #dbe8e5;
+    --charity-card-border: rgba(229, 240, 238, 0.14);
+    --charity-card-shadow: none;
+    --charity-card-topline: var(--color-secondary);
+}
+
+:root[data-theme="dark"] .review-media-block {
+    --review-media-caption-color: #c9ddda;
+    --review-media-frame-bg: rgba(255, 255, 255, 0.05);
+    --review-media-frame-border: rgba(229, 240, 238, 0.12);
+}
+
+:root[data-theme="dark"] .charity-projects-section[id^="review-"] .review-media-caption {
+    background: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+    border-color: rgba(var(--color-secondary-rgb), 0.18);
+}
+
+:root[data-theme="dark"] #review-benefiz-trommelworkshop-2026 .review-donation-card {
+    background: rgba(var(--theme-dark-brand-surface-rgb), 0.68);
+    border-color: rgba(var(--color-secondary-rgb), 0.18);
+}
+
 @media (prefers-reduced-motion: reduce) {
     .review-overview-copy,
     .review-overview-media,
@@ -3197,7 +3471,6 @@
     .review-archive-toggle {
         width: 100%;
     }
-
     .review-archive-toggle.review-archive-toggle--floating[aria-expanded="true"] {
         left: 12px;
         right: 12px;
@@ -3302,7 +3575,7 @@
         font-size: clamp(0.92rem, 3.25vw, 0.99rem);
         line-height: 1.42;
         letter-spacing: 0.01em;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.48);
+        box-shadow: none;
         background: rgba(255, 255, 255, 0.78);
         text-wrap: pretty;
         text-align: left !important;
@@ -3364,4 +3637,140 @@
     .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
         margin-top: var(--review-media-mobile-margin-top);
     }
+}
+
+.review-featured .charity-projects-container,
+.review-archive .charity-projects-section[id^="review-"] .charity-projects-container,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container {
+    border: 1px solid var(--review-panel-border) !important;
+}
+
+.review-featured .charity-projects-container::after,
+.review-archive .charity-projects-section[id^="review-"] .charity-projects-container::after,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container::after {
+    top: 20px !important;
+    bottom: 20px !important;
+    left: 12px !important;
+    width: 2px !important;
+    height: auto !important;
+    inset: auto !important;
+    border-radius: 999px !important;
+    background: var(--review-accent-line) !important;
+    opacity: 0.46 !important;
+}
+
+.charity-projects-section[id^="review-"] .review-media-caption,
+.review-featured .masterclass-flex__credit,
+:root[data-theme="dark"] .charity-projects-section[id^="review-"] .review-media-caption,
+:root[data-theme="dark"] .review-featured .masterclass-flex__credit {
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+@media (max-width: 900px) {
+    .review-featured .charity-projects-container::after,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container::after,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container::after {
+        top: 16px !important;
+        bottom: 16px !important;
+        left: 8px !important;
+        width: 3px !important;
+    }
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025.review-archive-card--inline-media .review-archive-inline-media--gallery,
+.review-archive #review-johann-strauss-marktbreit-2025.review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025.review-archive-card--inline-media .review-archive-inline-media--gallery > img,
+.review-archive #review-johann-strauss-marktbreit-2025.review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > img {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    margin: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025.review-archive-card--inline-media .review-archive-inline-media--gallery > img:first-of-type,
+.review-archive #review-johann-strauss-marktbreit-2025.review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > img:first-of-type {
+    order: 1 !important;
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025.review-archive-card--inline-media .review-archive-inline-media--gallery > img:last-of-type,
+.review-archive #review-johann-strauss-marktbreit-2025.review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > img:last-of-type {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    border-radius: var(--review-image-radius) !important;
+    clip-path: inset(0 round var(--review-image-radius)) !important;
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025.review-archive-card--inline-media .review-archive-inline-media--gallery > .review-media-caption,
+.review-archive #review-johann-strauss-marktbreit-2025.review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > .review-media-caption {
+    order: 3 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025 .charity-flex-row > .gruppenbild-container {
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    gap: 12px !important;
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025 .charity-flex-row > .gruppenbild-container > img:first-of-type {
+    order: 1;
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025 .charity-flex-row > .gruppenbild-container > img:last-of-type {
+    order: 2;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    height: auto !important;
+    object-fit: contain !important;
+    border-radius: var(--review-image-radius) !important;
+    clip-path: inset(0 round var(--review-image-radius)) !important;
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025 .charity-flex-row > .gruppenbild-container > .review-media-caption {
+    order: 3;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+.review-featured .charity-flex-row > .gruppenbild-container,
+.review-featured .charity-flex-right:has(> img:only-of-type),
+.review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .review-inline-media {
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+:root[data-theme="dark"] .review-featured {
+    --review-panel-border: rgba(229, 240, 238, 0.22);
 }

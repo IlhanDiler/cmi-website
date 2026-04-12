@@ -99,11 +99,15 @@ def render_news_feed_cards(block: dict[str, object], indent: str) -> list[str]:
         loading = html.escape(str(image.get("loading", "lazy")), quote=True)
         decoding = html.escape(str(image.get("decoding", "async")), quote=True)
 
+        media_class_names = ["news-feed-card-media"]
+        if image_mode == "contained-portrait":
+            media_class_names.append("news-feed-card-media--portrait")
+
         lines.append(f'{card_indent}<article class="news-feed-card">')
         lines.append(f'{card_indent}  <a class="news-feed-card-link" href="{href}">')
-        lines.append(f'{card_indent}    <div class="news-feed-card-media">')
+        lines.append(f'{card_indent}    <div class="{" ".join(media_class_names)}">')
 
-        if image_mode == "contained":
+        if image_mode in {"contained", "contained-portrait"}:
             lines.append(
                 f'{card_indent}      <img class="news-feed-card-image news-feed-card-image--backdrop" src="{image_src}" alt="" aria-hidden="true" loading="{loading}" decoding="{decoding}">'
             )

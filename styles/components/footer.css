@@ -3,17 +3,17 @@
 .site-footer {
     --site-footer-padding: calc(var(--layout-section-gap-desktop) - 24px) 0 20px;
     --site-footer-padding-bottom: 18px;
-    --site-footer-surface: #0e1618;
-    --site-footer-border-color: rgba(255, 255, 255, 0.08);
+    --site-footer-surface: var(--theme-dark-brand-deep);
+    --site-footer-border-color: rgba(var(--color-secondary-rgb), 0.18);
     --site-footer-heading-color: #ffffff;
     --site-footer-copy-color: rgba(255, 255, 255, 0.78);
     --site-footer-copy-soft: rgba(255, 255, 255, 0.58);
     --site-footer-link-bg: rgba(255, 255, 255, 0.05);
-    --site-footer-link-bg-hover: rgba(127, 232, 219, 0.12);
+    --site-footer-link-bg-hover: rgba(var(--color-secondary-rgb), 0.12);
     --site-footer-link-border-color: rgba(255, 255, 255, 0.10);
-    --site-footer-link-border-color-hover: rgba(127, 232, 219, 0.24);
+    --site-footer-link-border-color-hover: rgba(var(--color-secondary-rgb), 0.24);
     --site-footer-link-color: #ffffff;
-    --site-footer-link-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+    --site-footer-link-shadow: none;
     margin-bottom: 0;
     padding: var(--site-footer-padding);
     padding-bottom: var(--site-footer-padding-bottom);
@@ -151,14 +151,14 @@
     --cta-padding: 10px 16px;
     --cta-font-size: 0.94rem;
     --cta-font-weight: 640;
-    --cta-bg: rgba(127, 232, 219, 0.12);
-    --cta-bg-hover: rgba(127, 232, 219, 0.2);
+    --cta-bg: rgba(var(--color-secondary-rgb), 0.12);
+    --cta-bg-hover: rgba(var(--color-secondary-rgb), 0.2);
     --cta-color: #ffffff;
     --cta-color-hover: #ffffff;
-    --cta-border-color: rgba(127, 232, 219, 0.26);
-    --cta-border-color-hover: rgba(127, 232, 219, 0.38);
-    --cta-shadow: 0 12px 24px rgba(4, 15, 22, 0.14);
-    --cta-shadow-hover: 0 18px 32px rgba(4, 15, 22, 0.2);
+    --cta-border-color: rgba(var(--color-secondary-rgb), 0.26);
+    --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.38);
+    --cta-shadow: none;
+    --cta-shadow-hover: none;
 }
 
 .site-footer__link {
@@ -173,7 +173,7 @@
     --cta-border-color: var(--site-footer-link-border-color);
     --cta-border-color-hover: var(--site-footer-link-border-color-hover);
     --cta-shadow: var(--site-footer-link-shadow);
-    --cta-shadow-hover: 0 14px 28px rgba(0, 0, 0, 0.22);
+    --cta-shadow-hover: none;
 }
 
 .site-footer__contact-link,
@@ -267,12 +267,12 @@
 @media (min-width: 1180px) {
     .site-footer {
         --site-footer-padding: calc(var(--layout-section-gap-desktop) - 10px) 0 22px;
-        --site-footer-surface: linear-gradient(180deg, #0a1216 0%, #0d171c 100%);
-        --site-footer-border-color: rgba(255, 255, 255, 0.06);
+        --site-footer-surface: var(--theme-dark-brand-deep);
+        --site-footer-border-color: rgba(var(--color-secondary-rgb), 0.14);
         --site-footer-link-bg: transparent;
-        --site-footer-link-bg-hover: rgba(127, 232, 219, 0.1);
+        --site-footer-link-bg-hover: rgba(var(--color-secondary-rgb), 0.1);
         --site-footer-link-border-color: rgba(255, 255, 255, 0.08);
-        --site-footer-link-border-color-hover: rgba(127, 232, 219, 0.18);
+        --site-footer-link-border-color-hover: rgba(var(--color-secondary-rgb), 0.18);
         --site-footer-link-shadow: none;
     }
 
