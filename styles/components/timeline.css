@@ -2,7 +2,7 @@
 
 .timeline-section {
     --timeline-section-padding: var(--layout-section-gap-desktop) 0 calc(var(--layout-section-gap-desktop) + 4px);
-    --timeline-section-bg: linear-gradient(180deg, #edf3ef 0%, #f7f8f5 56%, #f1f5f1 100%);
+    --timeline-section-bg: var(--section-tone-a);
     --timeline-title-color: #142f36;
     --timeline-item-title-color: #17343b;
     --timeline-intro-color: #28454d;
@@ -24,14 +24,14 @@
     --timeline-container-blur: 0px;
     --timeline-border-color: rgba(18, 62, 70, 0.11);
     --timeline-accent: #2c7b72;
-    --timeline-section-orb-top-bg: radial-gradient(circle, rgba(10, 117, 109, 0.08) 0%, transparent 70%);
-    --timeline-section-orb-bottom-bg: radial-gradient(circle, rgba(18, 62, 70, 0.05) 0%, transparent 72%);
-    --timeline-header-max-width: 880px;
+    --timeline-section-orb-top-bg: none;
+    --timeline-section-orb-bottom-bg: none;
+    --timeline-header-max-width: 100%;
     --timeline-header-margin-bottom: 42px;
     --timeline-header-accent-width: 88px;
     --timeline-header-accent-height: 3px;
     --timeline-header-accent-margin-top: 24px;
-    --timeline-header-accent-bg: linear-gradient(90deg, var(--color-secondary), rgba(18, 62, 70, 0.18));
+    --timeline-header-accent-bg: var(--color-secondary);
     --timeline-eyebrow-bg: transparent;
     --timeline-eyebrow-border-color: transparent;
     --timeline-eyebrow-color: rgba(18, 62, 70, 0.62);
@@ -46,14 +46,14 @@
     --timeline-list-gap: 18px;
     --timeline-bar-left: 74px;
     --timeline-bar-width: 2px;
-    --timeline-bar-bg: linear-gradient(180deg, rgba(10, 117, 109, 0.72), rgba(18, 62, 70, 0.18));
+    --timeline-bar-bg: rgba(var(--color-secondary-rgb), 0.38);
     --timeline-item-gap: 28px;
     --timeline-item-padding: 24px 28px 22px;
     --timeline-item-radius: 28px;
     --timeline-item-shadow: none;
-    --timeline-item-before-bg: linear-gradient(180deg, var(--color-secondary), rgba(18, 62, 70, 0.2));
-    --timeline-item-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(247, 250, 249, 0.95) 100%);
-    --timeline-item-surface-alt: linear-gradient(180deg, rgba(252, 253, 252, 0.98) 0%, rgba(242, 247, 244, 0.96) 100%);
+    --timeline-item-before-bg: var(--color-secondary);
+    --timeline-item-surface: #ffffff;
+    --timeline-item-surface-alt: var(--surface-panel-bg-strong);
     --timeline-item-overlay-bg: transparent;
     --timeline-item-border-color-hover: rgba(10, 117, 109, 0.22);
     --timeline-item-hover-translate-y: 0px;
@@ -105,7 +105,7 @@
     --timeline-item-text-line-height: var(--premium-body-line-height);
     --timeline-item-text-max-width: 68ch;
     --timeline-content-gap: 8px;
-    --timeline-summary-card-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(244, 248, 246, 0.96) 100%);
+    --timeline-summary-card-bg: var(--surface-panel-bg-strong);
     --timeline-summary-card-border-color: rgba(18, 62, 70, 0.12);
     --timeline-summary-value-color: #16363e;
     --timeline-summary-copy-color: #28474f;
@@ -117,6 +117,36 @@
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
+}
+
+:root[data-theme="dark"] .timeline-section {
+    --timeline-section-bg: var(--theme-bg-canvas);
+    --timeline-title-color: #f7fbfa;
+    --timeline-item-title-color: #f7fbfa;
+    --timeline-intro-color: #d7ebe8;
+    --timeline-copy-color: #d7ebe8;
+    --timeline-border-color: rgba(229, 240, 238, 0.14);
+    --timeline-section-orb-top-bg: none;
+    --timeline-section-orb-bottom-bg: none;
+    --timeline-header-accent-bg: var(--color-secondary);
+    --timeline-eyebrow-color: rgba(var(--color-secondary-rgb), 0.78);
+    --timeline-bar-bg: rgba(var(--color-secondary-rgb), 0.42);
+    --timeline-item-surface: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+    --timeline-item-surface-alt: rgba(var(--theme-dark-brand-surface-rgb), 0.9);
+    --timeline-item-before-bg: var(--color-secondary);
+    --timeline-item-border-color-hover: rgba(var(--color-secondary-rgb), 0.28);
+    --timeline-dot-bg: rgba(255, 255, 255, 0.96);
+    --timeline-dot-border-color: rgba(var(--color-secondary-rgb), 0.42);
+    --timeline-link-color: #f7fbfa;
+    --timeline-link-color-hover: #ffffff;
+    --timeline-highlight-link-color: rgba(var(--color-secondary-rgb), 0.9);
+    --timeline-highlight-link-color-hover: #ffffff;
+    --timeline-highlight-link-decoration-color: rgba(var(--color-secondary-rgb), 0.5);
+    --timeline-highlight-link-decoration-color-hover: rgba(var(--color-secondary-rgb), 0.82);
+    --timeline-summary-card-bg: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+    --timeline-summary-card-border-color: rgba(229, 240, 238, 0.14);
+    --timeline-summary-value-color: #f7fbfa;
+    --timeline-summary-copy-color: #d7ebe8;
 }
 
 .timeline-section::before,
@@ -168,6 +198,7 @@
 }
 
 .timeline-header {
+    width: 100%;
     max-width: var(--timeline-header-max-width);
     margin-bottom: var(--timeline-header-margin-bottom);
     position: relative;
@@ -260,7 +291,7 @@
 }
 
 .timeline-summary-card:first-child {
-    background: linear-gradient(145deg, var(--color-primary) 0%, #1a5660 100%);
+    background: linear-gradient(145deg, var(--color-primary) 0%, var(--theme-dark-brand-soft) 100%);
     border-color: transparent;
 }
 
@@ -450,7 +481,7 @@
 .timeline-item-title a:focus-visible {
     --interaction-box-shadow: var(--focus-ring-soft);
     box-shadow: var(--focus-ring-soft);
-    outline: 2px solid rgba(10, 117, 109, 0.24);
+    outline: 2px solid rgba(var(--color-secondary-rgb), 0.24);
     outline-offset: 2px;
 }
 

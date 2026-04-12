@@ -147,7 +147,7 @@ html body .image-caption-copy {
     justify-self: center;
     padding: 12px;
     border-radius: 28px;
-    background: linear-gradient(180deg, rgba(246, 249, 248, 0.95), rgba(255, 255, 255, 1));
+    background: var(--surface-panel-bg-strong);
     border: 1px solid rgba(18, 62, 70, 0.08);
     box-shadow: none;
     align-self: stretch;
@@ -223,7 +223,7 @@ html body .image-caption-copy {
 
 .image-caption-card-link:hover,
 .image-caption-card-link:focus-visible {
-    border-color: rgba(10, 117, 109, 0.28);
+    border-color: rgba(var(--color-secondary-rgb), 0.28);
     outline: none;
 }
 
@@ -258,7 +258,7 @@ html body .image-caption-copy {
 .image-caption-card-link:hover .image-caption-card-play,
 .image-caption-card-link:focus-visible .image-caption-card-play {
     transform: scale(1.04);
-    border-color: rgba(10, 117, 109, 0.28);
+    border-color: rgba(var(--color-secondary-rgb), 0.28);
 }
 
 .image-caption-card-play svg {
@@ -478,4 +478,51 @@ html body .image-caption-copy {
         width: 34px;
         height: 34px;
     }
+}
+
+:root[data-theme="dark"] .image-caption-section {
+    background: var(--theme-bg-canvas);
+}
+
+:root[data-theme="dark"] .image-caption-copy-card,
+:root[data-theme="dark"] .image-caption-video-card {
+    background: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+    border-color: rgba(229, 240, 238, 0.14);
+}
+
+:root[data-theme="dark"] .image-caption-kicker,
+:root[data-theme="dark"] .image-caption-video-kicker {
+    color: rgba(var(--color-secondary-rgb), 0.8);
+}
+
+:root[data-theme="dark"] .image-caption-title,
+:root[data-theme="dark"] .image-caption-video-title,
+:root[data-theme="dark"] .image-caption-copy--lead {
+    color: #f7fbfa;
+}
+
+:root[data-theme="dark"] .image-caption-copy,
+:root[data-theme="dark"] .image-caption-card-footer {
+    color: #d7ebe8;
+}
+
+:root[data-theme="dark"] .image-caption-divider {
+    background: rgba(var(--color-secondary-rgb), 0.54);
+}
+
+:root[data-theme="dark"] .image-caption-photo-stage,
+:root[data-theme="dark"] .image-caption-card-link {
+    background: rgba(var(--theme-dark-brand-muted-rgb), 0.9);
+    border-color: rgba(229, 240, 238, 0.12);
+}
+
+:root[data-theme="dark"] .image-caption-photo,
+:root[data-theme="dark"] .image-caption-card-img {
+    border-color: rgba(229, 240, 238, 0.12);
+    background: rgba(var(--theme-dark-brand-surface-rgb), 0.9);
+}
+
+:root[data-theme="dark"] .image-caption-card-play {
+    background: rgba(var(--theme-dark-brand-surface-rgb), 0.24);
+    border-color: rgba(var(--color-secondary-rgb), 0.26);
 }

@@ -6,9 +6,17 @@
     --subpage-heading: #12333a;
     --subpage-copy: #4b6368;
     --subpage-kicker: #59726f;
-    background:
-        radial-gradient(circle at top left, rgba(127, 232, 219, 0.12), transparent 34%),
-        linear-gradient(180deg, #f5fbfb 0%, #edf5f2 100%);
+    background: var(--section-tone-a);
+}
+
+:root[data-theme="dark"] .subpage-body {
+    --subpage-panel-border: rgba(229, 240, 238, 0.1);
+    --subpage-panel-bg: rgba(var(--theme-dark-brand-muted-rgb), 0.92);
+    --subpage-card-bg: rgba(var(--theme-dark-brand-surface-rgb), 0.88);
+    --subpage-heading: #e5f0ee;
+    --subpage-copy: #c2d4d1;
+    --subpage-kicker: rgba(var(--color-secondary-rgb), 0.74);
+    background: var(--theme-bg-canvas);
 }
 
 .subpage-main {

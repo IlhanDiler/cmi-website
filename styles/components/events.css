@@ -127,9 +127,7 @@
     --event-poster-controls-gap: 10px;
     --event-social-size: 50px;
     position: relative;
-    background:
-        radial-gradient(circle at top left, rgba(10, 117, 109, 0.08) 0%, transparent 32%),
-        linear-gradient(180deg, rgba(248, 250, 247, 0.98) 0%, rgba(239, 246, 243, 0.98) 100%);
+    background: var(--section-tone-a);
     padding: var(--layout-section-gap-desktop) 0;
 }
 
@@ -148,7 +146,7 @@
     padding: 34px clamp(24px, 3vw, 38px);
     border: 1px solid rgba(18, 62, 70, 0.12);
     border-radius: 28px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(244, 249, 247, 0.98) 100%);
+    background: var(--surface-panel-bg-strong);
     overflow: hidden;
 }
 
@@ -197,8 +195,8 @@
 }
 
 .event-card {
-    --event-accent: #0a756d;
-    --event-accent-rgb: 10, 117, 109;
+    --event-accent: var(--color-secondary);
+    --event-accent-rgb: var(--color-secondary-rgb);
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -207,7 +205,7 @@
     margin: 0 auto;
     border: 1px solid var(--event-card-border);
     border-radius: var(--event-card-radius);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 250, 249, 0.98) 100%);
+    background: #ffffff;
     overflow: hidden;
     box-sizing: border-box;
     position: relative;
@@ -218,7 +216,7 @@
     position: absolute;
     inset: 0 0 auto 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--event-accent) 0%, rgba(var(--event-accent-rgb), 0.45) 100%);
+    background: var(--event-accent);
     pointer-events: none;
 }
 
@@ -230,7 +228,7 @@
     gap: 14px;
     min-width: var(--event-badge-width);
     padding: var(--event-badge-padding);
-    background: linear-gradient(135deg, rgba(var(--event-accent-rgb), 0.98) 0%, rgba(var(--event-accent-rgb), 0.82) 100%);
+    background: var(--event-accent);
     color: #ffffff;
     font-family: var(--font-ui-modern);
     font-size: 1.05rem;
@@ -965,4 +963,55 @@
         width: 100%;
         max-width: 100%;
     }
+}
+
+:root[data-theme="dark"] .event-section {
+    background: var(--theme-bg-canvas);
+}
+
+:root[data-theme="dark"] .event-section-intro,
+:root[data-theme="dark"] .event-card {
+    background: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+    border-color: rgba(229, 240, 238, 0.14);
+}
+
+:root[data-theme="dark"] .event-section-kicker,
+:root[data-theme="dark"] .event-location,
+:root[data-theme="dark"] .event-lightbox-caption-kicker {
+    color: rgba(229, 240, 238, 0.74);
+}
+
+:root[data-theme="dark"] .event-title,
+:root[data-theme="dark"] .event-headline,
+:root[data-theme="dark"] .event-poster-download,
+:root[data-theme="dark"] .event-social-button,
+:root[data-theme="dark"] .event-lightbox-caption-title,
+:root[data-theme="dark"] .event-lightbox-close {
+    color: #f7fbfa;
+}
+
+:root[data-theme="dark"] .event-section-copy,
+:root[data-theme="dark"] .event-description,
+:root[data-theme="dark"] .event-note,
+:root[data-theme="dark"] .event-program li,
+:root[data-theme="dark"] .event-poster-hint-text,
+:root[data-theme="dark"] .event-lightbox-caption-meta {
+    color: #d7ebe8;
+}
+
+:root[data-theme="dark"] .event-program,
+:root[data-theme="dark"] .event-note,
+:root[data-theme="dark"] .event-poster-stage,
+:root[data-theme="dark"] .event-lightbox-caption,
+:root[data-theme="dark"] .event-lightbox-image,
+:root[data-theme="dark"] .event-poster-image {
+    background: rgba(var(--theme-dark-brand-deep-rgb), 0.84);
+    border-color: rgba(229, 240, 238, 0.12);
+}
+
+:root[data-theme="dark"] .event-poster-download,
+:root[data-theme="dark"] .event-social-button,
+:root[data-theme="dark"] .event-lightbox-close {
+    background: rgba(var(--theme-dark-brand-surface-rgb), 0.2);
+    border-color: rgba(var(--color-secondary-rgb), 0.22);
 }

@@ -2,9 +2,9 @@
 
 .about-me-section-modern {
     --about-me-accent: var(--color-secondary);
-    --about-me-panel-bg: #ffffff;
+    --about-me-panel-bg: var(--surface-panel-bg);
     --about-me-image-shadow: none;
-    --about-me-section-bg: linear-gradient(180deg, #f6f8f5 0%, #eef3ef 100%);
+    --about-me-section-bg: var(--section-tone-a);
     --about-me-section-padding: 82px 0 88px;
     --about-me-panel-border: rgba(18, 62, 70, 0.14);
     --about-me-panel-shadow: none;
@@ -234,6 +234,24 @@
     border-radius: 28px;
 }
 
+:root[data-theme="dark"] .about-me-section-modern {
+    --about-me-panel-bg: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+    --about-me-panel-border: rgba(229, 240, 238, 0.14);
+    --about-me-section-bg: var(--theme-bg-canvas);
+}
+
+:root[data-theme="dark"] .about-me-modern-title {
+    color: #f7fbfa;
+}
+
+:root[data-theme="dark"] .about-me-modern-subtitle {
+    color: rgba(var(--color-secondary-rgb), 0.86);
+}
+
+:root[data-theme="dark"] .about-me-bio-text {
+    color: #d7ebe8;
+}
+
 @media (max-width: 1024px) {
     .about-me-section-modern {
         --about-me-section-padding: 28px 0;
@@ -369,7 +387,7 @@
         background: var(--about-me-panel-bg);
         --about-me-text-padding: 18px 16px 15px;
         border-radius: 16px;
-        box-shadow: 0 14px 26px rgba(17, 33, 42, 0.05);
+        box-shadow: none;
     }
 
     .about-me-text-modern::before {

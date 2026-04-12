@@ -41,11 +41,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20260410-stage-cache-1">
+    <link rel="stylesheet" href="style.css?v=20260412-theme-toggle-8">
     <script>
+      (function() {
+        try {
+          var storedTheme = localStorage.getItem('siteTheme');
+          if (storedTheme === 'light' || storedTheme === 'dark') {
+            document.documentElement.dataset.theme = storedTheme;
+            document.documentElement.style.colorScheme = storedTheme;
+          }
+        } catch (e) {}
+
         if ('scrollRestoration' in history) {
-            history.scrollRestoration = 'manual';
+          history.scrollRestoration = 'manual';
         }
+      })();
     </script>
 
 </head>
@@ -2078,7 +2088,7 @@
       </article>
       <article class="news-feed-card">
         <a class="news-feed-card-link" href="#review-nikolausfeier-2025">
-          <div class="news-feed-card-media">
+          <div class="news-feed-card-media news-feed-card-media--portrait">
             <img class="news-feed-card-image news-feed-card-image--backdrop" src="bilder/nikolaus.jpeg" alt="" aria-hidden="true" loading="lazy" decoding="async">
             <img class="news-feed-card-image news-feed-card-image--contain" src="bilder/nikolaus.jpeg" alt="" loading="lazy" decoding="async">
           </div>
@@ -3958,7 +3968,7 @@ Da oltre dieci anni, a Ochsenfurt, la rassegna estiva "Musik an der Furt" accomp
 </body>
 <!-- Materialize JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="scripts/core-runtime.js?v=20260409-ui-nav-fix-2"></script>
+<script src="scripts/core-runtime.js?v=20260412-theme-toggle-1"></script>
 <script src="scripts/event-lightbox.js?v=20260407-js-split-8"></script>
 <script src="scripts/cookie-consent-content.js?v=20260409-cookie-consent-split-1"></script>
 <script src="scripts/cookie-consent.js?v=20260409-cookie-consent-split-1"></script>
