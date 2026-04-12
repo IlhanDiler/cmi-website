@@ -111,8 +111,8 @@
 
 .subpage-topbar {
     --subpage-topbar-blur: 14px;
-    --subpage-topbar-bg: rgba(245, 251, 251, 0.82);
-    --subpage-topbar-border: rgba(18, 62, 70, 0.08);
+    --subpage-topbar-bg: rgba(252, 255, 255, 0.94);
+    --subpage-topbar-border: rgba(18, 62, 70, 0.06);
     --subpage-topbar-brand: #10343c;
     --subpage-topbar-muted: #58716e;
     --subpage-topbar-gap: clamp(16px, 2vw, 26px);
@@ -205,9 +205,9 @@
     min-width: 0;
     max-width: 100%;
     padding: 5px;
-    border: 1px solid rgba(18, 62, 70, 0.08);
+    border: 1px solid rgba(18, 62, 70, 0.07);
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.54);
+    background: rgba(255, 255, 255, 0.8);
 }
 
 .subpage-topbar__actions {
@@ -247,6 +247,29 @@
 .subpage-topbar .subpage-language-switch {
     margin-left: 0;
     justify-self: end;
+    --lang-switcher-bg: rgba(255, 255, 255, 0.88);
+    --lang-switcher-border-color: rgba(var(--color-primary-rgb), 0.08);
+    --lang-button-bg: rgba(255, 255, 255, 0.82);
+    --lang-button-border-color: rgba(var(--color-primary-rgb), 0.08);
+    --lang-button-hover-bg: rgba(var(--color-secondary-rgb), 0.16);
+    --lang-button-hover-border-color: rgba(var(--color-primary-rgb), 0.14);
+    --lang-button-active-bg: rgba(var(--color-secondary-rgb), 0.18);
+    --lang-button-active-border-color: rgba(var(--color-secondary-rgb), 0.26);
+}
+
+@media (min-width: 901px) {
+    .subpage-topbar .subpage-language-switch {
+        --lang-switcher-gap: clamp(4px, 0.45vw, 7px);
+        --lang-switcher-padding: 4px clamp(6px, 0.6vw, 9px);
+        --lang-switcher-bg: rgba(255, 255, 255, 0.92);
+        --lang-switcher-border-color: rgba(var(--color-primary-rgb), 0.1);
+        --lang-button-width: clamp(32px, 2.05vw, 36px);
+        --lang-button-height: clamp(30px, 1.95vw, 34px);
+        --lang-button-svg-width: clamp(18px, 1.1vw, 20px);
+        --lang-button-svg-height: clamp(12px, 0.76vw, 13px);
+        --lang-button-bg: rgba(255, 255, 255, 0.9);
+        --lang-button-border-color: rgba(var(--color-primary-rgb), 0.09);
+    }
 }
 
 .theme-switch-button {
@@ -330,11 +353,11 @@
 }
 
 .subpage-topbar .theme-switch-button {
-    --theme-button-bg: rgba(255, 255, 255, 0.74);
-    --theme-button-bg-hover: rgba(var(--color-secondary-rgb), 0.18);
+    --theme-button-bg: rgba(255, 255, 255, 0.84);
+    --theme-button-bg-hover: rgba(var(--color-secondary-rgb), 0.16);
     --theme-button-bg-active: var(--color-primary);
     --theme-button-border: rgba(var(--color-primary-rgb), 0.08);
-    --theme-button-border-hover: rgba(var(--color-primary-rgb), 0.16);
+    --theme-button-border-hover: rgba(var(--color-primary-rgb), 0.14);
     --theme-button-border-active: var(--color-primary);
     --theme-button-color: var(--color-primary);
     --theme-button-color-active: #ffffff;
@@ -376,21 +399,12 @@
 :root[data-theme="dark"] .subpage-body--imprint .subpage-language-switch {
     --lang-switcher-gap: 8px;
     --lang-switcher-padding: 4px;
-    --lang-switcher-bg: rgba(9, 21, 28, 0.9);
-    --lang-switcher-border-color: rgba(235, 246, 243, 0.16);
     --lang-button-width: 40px;
     --lang-button-height: 34px;
     --lang-button-svg-width: 21px;
     --lang-button-svg-height: 14px;
-    --lang-button-border-color: rgba(255, 255, 255, 0.1);
-    --lang-button-bg: rgba(255, 255, 255, 0.06);
-    --lang-button-color: #ffffff;
     --lang-button-letter-spacing: 0.04em;
     --lang-button-transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-    --lang-button-hover-bg: rgba(255, 255, 255, 0.12);
-    --lang-button-hover-border-color: rgba(255, 255, 255, 0.2);
-    --lang-button-active-bg: rgba(var(--color-secondary-rgb), 0.26);
-    --lang-button-active-border-color: rgba(var(--color-secondary-rgb), 0.42);
     box-shadow: none;
 }
 
@@ -398,12 +412,12 @@
     --cta-min-height: 40px;
     --cta-padding: 10px 18px;
     --cta-font-size: 0.92rem;
-    --cta-bg: rgba(255, 255, 255, 0.72);
-    --cta-bg-hover: rgba(var(--color-secondary-rgb), 0.18);
+    --cta-bg: rgba(255, 255, 255, 0.84);
+    --cta-bg-hover: rgba(var(--color-secondary-rgb), 0.16);
     --cta-color: #163c44;
     --cta-color-hover: #163c44;
-    --cta-border-color: rgba(18, 62, 70, 0.08);
-    --cta-border-color-hover: rgba(18, 62, 70, 0.16);
+    --cta-border-color: rgba(18, 62, 70, 0.07);
+    --cta-border-color-hover: rgba(18, 62, 70, 0.14);
     --cta-shadow: none;
     --cta-shadow-hover: none;
     display: inline-flex;
@@ -426,14 +440,47 @@
 }
 
 .subpage-topbar__link[aria-current="page"] {
-    --cta-bg: var(--color-primary);
-    --cta-bg-hover: var(--color-primary);
-    --cta-color: #ffffff;
-    --cta-color-hover: #ffffff;
-    --cta-border-color: var(--color-primary);
-    --cta-border-color-hover: var(--color-primary);
+    --cta-bg: rgba(var(--color-secondary-rgb), 0.18);
+    --cta-bg-hover: rgba(var(--color-secondary-rgb), 0.22);
+    --cta-color: var(--color-primary);
+    --cta-color-hover: var(--color-primary);
+    --cta-border-color: rgba(var(--color-secondary-rgb), 0.28);
+    --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.34);
     --cta-shadow: none;
     --cta-shadow-hover: none;
+}
+
+html[lang="ln"] .subpage-topbar__inner {
+    width: min(96vw, 1440px);
+    column-gap: clamp(12px, 1.4vw, 22px);
+}
+
+html[lang="ln"] .subpage-topbar__brand-subtitle {
+    font-size: clamp(0.76rem, 0.72rem + 0.06vw, 0.82rem);
+    letter-spacing: 0;
+}
+
+html[lang="ln"] .subpage-topbar__actions {
+    grid-template-columns: minmax(0, 1fr) max-content;
+    column-gap: clamp(8px, 0.85vw, 14px);
+}
+
+html[lang="ln"] .subpage-topbar__links {
+    gap: 4px;
+    padding: 4px;
+}
+
+html[lang="ln"] .subpage-topbar__link {
+    --cta-padding: 9px 14px;
+    --cta-font-size: 0.86rem;
+}
+
+html[lang="ln"] .subpage-topbar__link[aria-current="page"],
+html[lang="ln"] .subpage-topbar__link[data-nav-current="page"] {
+    max-width: 20ch;
+    line-height: 1.16;
+    text-align: center;
+    white-space: normal;
 }
 
 @media (max-width: 1180px) {
@@ -845,6 +892,55 @@
     }
 }
 
+@media (min-width: 1025px) {
+    html[lang="ln"] .navbar {
+        --navbar-gap: clamp(8px, 1vw, 14px);
+        --navbar-padding: 9px clamp(10px, 1.15vw, 18px);
+        --nav-brand-gap: clamp(4px, 0.55vw, 8px);
+        --nav-menu-gap: clamp(4px, 0.45vw, 8px);
+        --nav-link-font-size: clamp(0.74rem, 0.68rem + 0.1vw, 0.82rem);
+        --nav-link-letter-spacing: 0.01em;
+        --nav-link-padding: 0.48em 0;
+        --lang-switcher-gap: 2px;
+        --lang-switcher-padding: 2px 3px;
+        --lang-button-width: clamp(30px, 1.9vw, 34px);
+        --lang-button-height: clamp(27px, 1.8vw, 30px);
+        --lang-button-svg-width: clamp(17px, 1.05vw, 19px);
+        --lang-button-svg-height: clamp(11px, 0.72vw, 13px);
+        column-gap: clamp(8px, 1vw, 16px);
+    }
+
+    html[lang="ln"] .nav-link {
+        text-transform: none;
+        letter-spacing: 0.01em;
+    }
+
+    html[lang="ln"] .brand-text {
+        padding-left: 6px;
+        padding-right: 0;
+    }
+
+    html[lang="ln"] .brand-text .brand-main {
+        font-size: clamp(0.9rem, 0.78rem + 0.18vw, 1rem);
+    }
+
+    html[lang="ln"] .brand-text .brand-sub {
+        font-size: 0.64em;
+        letter-spacing: 0.08em;
+    }
+
+    html[lang="ln"] .brand-tagline {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1500px) {
+    html[lang="ln"] .brand-text .brand-sub,
+    html[lang="ln"] .subpage-topbar__brand-subtitle {
+        display: none;
+    }
+}
+
 .nav-brand {
     display: flex;
     align-items: center;
@@ -1177,6 +1273,15 @@
     --lang-button-color: #e5f0ee;
     --lang-button-active-bg: rgba(var(--color-secondary-rgb), 0.22);
     --lang-button-active-border-color: rgba(var(--color-secondary-rgb), 0.34);
+}
+
+@media (min-width: 901px) {
+    :root[data-theme="dark"] .subpage-topbar .subpage-language-switch {
+        --lang-switcher-bg: rgba(var(--theme-dark-brand-surface-rgb), 0.82);
+        --lang-switcher-border-color: rgba(229, 240, 238, 0.16);
+        --lang-button-bg: rgba(255, 255, 255, 0.08);
+        --lang-button-border-color: rgba(229, 240, 238, 0.14);
+    }
 }
 
 .lang-switch-button {
