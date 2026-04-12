@@ -1,5 +1,5 @@
 .legal-document {
-    width: min(92vw, 1120px);
+    width: min(96vw, 1120px);
     margin: 0 auto;
 }
 
@@ -18,7 +18,7 @@
 
 .impressum-card,
 .md-card {
-    --legal-copy-max-width: 78ch;
+    --legal-copy-max-width: 100%;
     background: rgba(255, 255, 255, 0.94);
     border: 1px solid rgba(18, 62, 70, 0.08);
     border-radius: 26px;
@@ -75,9 +75,14 @@
 }
 
 .impressum-card p,
+.impressum-card ul,
+.impressum-card ol,
+.impressum-card li,
 .md-card p,
 .md-card ul,
+.md-card ol,
 .md-card li {
+    width: 100%;
     max-width: var(--legal-copy-max-width);
     color: #214249;
     font-size: var(--premium-body-size);
@@ -107,6 +112,8 @@
     text-decoration: underline;
     text-decoration-color: rgba(23, 101, 106, 0.36);
     text-underline-offset: 0.15em;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .impressum-link:hover,
@@ -569,7 +576,7 @@
 
 .subpage-body--privacy .legal-document,
 .subpage-body--imprint .legal-document {
-    width: min(92vw, 1180px);
+    width: min(96vw, 1180px);
 }
 
 .subpage-body--privacy .legal-document__content,
@@ -925,13 +932,19 @@
     }
 }
 
-.subpage-body--privacy .subpage-hero__intro,
-.subpage-body--imprint .subpage-hero__intro,
 .subpage-body--privacy .md-card p,
+.subpage-body--privacy .md-card ul,
+.subpage-body--privacy .md-card ol,
 .subpage-body--privacy .md-card li,
+.subpage-body--imprint .impressum-card ul,
+.subpage-body--imprint .impressum-card ol,
+.subpage-body--imprint .impressum-card li,
 .subpage-body--imprint .impressum-card p:not(.impressum-contact-row) {
-    text-align: left !important;
-    text-justify: auto;
+    width: 100%;
+    max-width: 100%;
+    text-align: justify !important;
+    text-align-last: auto;
+    text-justify: inter-word;
     hyphens: auto !important;
     -webkit-hyphens: auto !important;
     -ms-hyphens: auto !important;
