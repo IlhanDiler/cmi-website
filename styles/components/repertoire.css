@@ -10,6 +10,9 @@
     --repertoire-copy-soft: #48636d;
     --repertoire-bullet-color: var(--color-secondary);
     --repertoire-bullet-shadow: none;
+    --repertoire-chip-bg: #ffffff;
+    --repertoire-chip-border: rgba(18, 62, 70, 0.12);
+    --repertoire-chip-color: var(--color-primary);
     --repertoire-section-min-height: auto;
     --repertoire-section-padding: var(--layout-section-gap-desktop) 0 calc(var(--layout-section-gap-desktop) + 2px);
     font-family: var(--font-ui-modern);
@@ -487,9 +490,9 @@
     justify-content: center;
     padding: 7px 12px;
     border-radius: 999px;
-    background: #ffffff;
-    border: 1px solid rgba(18, 62, 70, 0.12);
-    color: var(--color-primary);
+    background: var(--repertoire-chip-bg);
+    border: 1px solid var(--repertoire-chip-border);
+    color: var(--repertoire-chip-color);
     font-family: var(--font-ui-modern);
     font-size: 0.98rem;
     line-height: 1.3;
@@ -500,8 +503,8 @@
 }
 
 .musikalisches-repertoire-card--repertoire .ensemble-chip {
-    background: #ffffff;
-    border-color: rgba(18, 62, 70, 0.12);
+    background: var(--repertoire-chip-bg);
+    border-color: var(--repertoire-chip-border);
     box-shadow: none;
 }
 
@@ -1261,6 +1264,9 @@
     --repertoire-detail-border: rgba(229, 240, 238, 0.14);
     --repertoire-feature-surface: rgba(var(--theme-dark-brand-deep-rgb), 0.82);
     --repertoire-detail-surface: rgba(var(--theme-dark-brand-deep-rgb), 0.82);
+    --repertoire-chip-bg: rgba(var(--theme-dark-brand-deep-rgb), 0.96);
+    --repertoire-chip-border: rgba(var(--color-secondary-rgb), 0.3);
+    --repertoire-chip-color: #f7fbfa;
     border-top-color: rgba(var(--color-secondary-rgb), 0.16);
 }
 
@@ -1280,10 +1286,14 @@
 :root[data-theme="dark"] .musikalisches-repertoire-card--engagement .engagement-focus-card--primary,
 :root[data-theme="dark"] .musikalisches-repertoire-card--engagement .engagement-focus-card--secondary,
 :root[data-theme="dark"] .musikalisches-repertoire-card--engagement .charity-certificate-img,
-:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .charity-list-item--project .kinshasa-card-img,
-:root[data-theme="dark"] .ensemble-chip {
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .charity-list-item--project .kinshasa-card-img {
     background: rgba(var(--theme-dark-brand-muted-rgb), 0.96);
     border-color: rgba(229, 240, 238, 0.18);
+}
+
+:root[data-theme="dark"] .ensemble-chip {
+    background: var(--repertoire-chip-bg);
+    border-color: var(--repertoire-chip-border);
 }
 
 :root[data-theme="dark"] .musikalisches-repertoire-card--engagement .charity-certificate-card {

@@ -99,23 +99,6 @@
           "tagName": "a",
           "className": "nav-link",
           "attributes": {
-            "href": "#news-feed"
-          },
-          "text": {
-            "de": "Aktuelles",
-            "en": "Latest",
-            "fr": "Actualites",
-            "ln": "Sika",
-            "it": "Novita",
-            "tr": "Guncel",
-            "uk": "Актуальне"
-          }
-        },
-        {
-          "type": "paragraph",
-          "tagName": "a",
-          "className": "nav-link",
-          "attributes": {
             "href": "#timeline-section"
           },
           "text": {
@@ -126,6 +109,23 @@
             "it": "Cronologia",
             "tr": "Kronoloji",
             "uk": "Хроніка"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "a",
+          "className": "nav-link",
+          "attributes": {
+            "href": "#news-feed"
+          },
+          "text": {
+            "de": "Aktuelles",
+            "en": "Latest",
+            "fr": "Actualites",
+            "ln": "Sika",
+            "it": "Novita",
+            "tr": "Guncel",
+            "uk": "Актуальне"
           }
         },
         {
@@ -224,23 +224,6 @@
           "tagName": "a",
           "className": "mobile-nav-link",
           "attributes": {
-            "href": "#news-feed"
-          },
-          "text": {
-            "de": "Aktuelles",
-            "en": "Latest",
-            "fr": "Actualites",
-            "ln": "Sika",
-            "it": "Novita",
-            "tr": "Guncel",
-            "uk": "Актуальне"
-          }
-        },
-        {
-          "type": "paragraph",
-          "tagName": "a",
-          "className": "mobile-nav-link",
-          "attributes": {
             "href": "#timeline-section"
           },
           "text": {
@@ -251,6 +234,23 @@
             "it": "Cronologia",
             "tr": "Kronoloji",
             "uk": "Хроніка"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "a",
+          "className": "mobile-nav-link",
+          "attributes": {
+            "href": "#news-feed"
+          },
+          "text": {
+            "de": "Aktuelles",
+            "en": "Latest",
+            "fr": "Actualites",
+            "ln": "Sika",
+            "it": "Novita",
+            "tr": "Guncel",
+            "uk": "Актуальне"
           }
         },
         {
