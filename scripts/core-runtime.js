@@ -322,6 +322,7 @@ function initSiteFeatures() {
     initSiteTheme();
 
     initEventLightbox();
+    initEventCardLayout();
     initHeroLayout();
     initHeroGallery();
     initCookieConsentLanguageSync();

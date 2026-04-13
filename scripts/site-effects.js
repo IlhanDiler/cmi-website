@@ -38,6 +38,37 @@ function initShapeParallax() {
     window.addEventListener('scroll', syncShapeParallax, { passive: true });
 }
 
+function initEventCardLayout() {
+    const eventContents = document.querySelectorAll('.event-card .event-content');
+    if (!eventContents.length) {
+        return;
+    }
+
+    if (document.body.dataset.eventCardLayoutInit === 'true') {
+        return;
+    }
+
+    document.body.dataset.eventCardLayoutInit = 'true';
+
+    eventContents.forEach(function(content) {
+        const copyColumn = content.querySelector('.event-copy');
+        const posterStage = content.querySelector('.event-poster-stage');
+        const notes = copyColumn ? Array.from(copyColumn.querySelectorAll(':scope > .event-note')) : [];
+
+        if (!copyColumn || !posterStage || !notes.length) {
+            return;
+        }
+
+        const noteStack = document.createElement('div');
+        noteStack.className = 'event-note-stack';
+        posterStage.insertAdjacentElement('afterend', noteStack);
+
+        notes.forEach(function(note) {
+            noteStack.appendChild(note);
+        });
+    });
+}
+
 function updateYearsPassed() {
     const yearsPassedEl = document.getElementById('yearsPassed');
     if (!yearsPassedEl) {
