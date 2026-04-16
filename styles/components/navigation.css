@@ -1858,3 +1858,133 @@ html[lang="uk"] #langUk,
     background: rgba(255, 255, 255, 0.12);
     border-color: rgba(229, 240, 238, 0.3);
 }
+
+/* Keep the homepage desktop navbar calm and transparent without chip-style frames. */
+@media (min-width: 1025px) {
+    .navbar {
+        --navbar-padding: 10px clamp(18px, 2vw, 30px);
+        --navbar-bg: rgba(6, 10, 12, 0.56);
+        --navbar-scrolled-bg: rgba(6, 10, 12, 0.72);
+        --navbar-border-color: rgba(255, 255, 255, 0.1);
+        --navbar-scrolled-border-color: rgba(255, 255, 255, 0.14);
+        --navbar-backdrop-blur: 14px;
+        --navbar-scrolled-backdrop-blur: 18px;
+        --nav-menu-gap: clamp(14px, 1.2vw, 22px);
+        --nav-link-font-size: clamp(0.84rem, 0.78rem + 0.12vw, 0.92rem);
+        --nav-link-letter-spacing: 0.01em;
+        --lang-switcher-gap: clamp(5px, 0.45vw, 8px);
+        --lang-switcher-padding: 0;
+        --lang-button-width: clamp(32px, 2.05vw, 36px);
+        --lang-button-height: clamp(30px, 1.95vw, 34px);
+        --lang-button-svg-width: clamp(18px, 1.1vw, 20px);
+        --lang-button-svg-height: clamp(12px, 0.76vw, 13px);
+        column-gap: clamp(16px, 1.8vw, 28px);
+    }
+
+    .nav-menu {
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: var(--nav-menu-gap);
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+    }
+
+    .navbar.navbar-scrolled .nav-menu {
+        background: transparent;
+        border-color: transparent;
+    }
+
+    .nav-link {
+        min-height: auto;
+        padding: 0.56em 0 0.7em;
+        border-radius: 0;
+        border: 0;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: var(--nav-link-font-size);
+        font-weight: 640;
+        letter-spacing: var(--nav-link-letter-spacing);
+        line-height: 1.2;
+        text-transform: none;
+        white-space: nowrap;
+    }
+
+    .nav-link::after {
+        display: block;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.96);
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+        color: #ffffff;
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+    }
+
+    .nav-link.active,
+    .nav-link[aria-current="location"] {
+        color: #ffffff;
+        background: transparent;
+        border-color: transparent;
+        font-weight: 680;
+    }
+
+    .navbar > .site-toolbar-controls {
+        gap: clamp(8px, 0.8vw, 12px);
+        margin-right: 0;
+    }
+
+    .navbar #langSwitcher,
+    .navbar.navbar-scrolled #langSwitcher {
+        background: transparent;
+        border-color: transparent;
+    }
+
+    .navbar .lang-switch-button {
+        background: rgba(0, 0, 0, 0.22);
+        border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .navbar .theme-switch-button {
+        --theme-button-bg: rgba(0, 0, 0, 0.24);
+        --theme-button-bg-hover: rgba(0, 0, 0, 0.36);
+        --theme-button-bg-active: rgba(255, 255, 255, 0.18);
+        --theme-button-border: rgba(255, 255, 255, 0.16);
+        --theme-button-border-hover: rgba(255, 255, 255, 0.28);
+        --theme-button-border-active: rgba(255, 255, 255, 0.3);
+        --theme-button-color: #f7fbfa;
+        --theme-button-color-active: #ffffff;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .navbar {
+        --navbar-padding: 9px clamp(14px, 1.5vw, 22px);
+        column-gap: clamp(12px, 1.4vw, 20px);
+    }
+
+    .nav-menu {
+        gap: clamp(10px, 0.9vw, 16px);
+    }
+
+    .nav-link {
+        padding: 0.52em 0 0.64em;
+        font-size: clamp(0.8rem, 0.76rem + 0.08vw, 0.88rem);
+    }
+}
+
+@media (min-width: 1025px) {
+    html[lang="ln"] .nav-menu {
+        gap: 10px;
+    }
+
+    html[lang="ln"] .nav-link {
+        padding: 0.5em 0 0.62em;
+        font-size: clamp(0.78rem, 0.74rem + 0.06vw, 0.84rem);
+    }
+}

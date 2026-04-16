@@ -327,6 +327,28 @@
     border-radius: 22px;
 }
 
+.partner-mark--meierott {
+    width: 104px;
+    height: 104px;
+    padding: 0;
+    border-radius: 24px;
+    background: #000;
+    border: 1px solid rgba(var(--partner-accent-rgb, 111, 85, 185), 0.18);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+:root[data-theme="dark"] .partner-mark--meierott {
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+}
+
+.partner-mark--meierott .partner-mark__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
 .partner-mark__image {
     display: block;
     width: 100%;
@@ -365,6 +387,47 @@
 
 .partner-teaser-card-top {
     margin-bottom: 16px;
+}
+
+.partner-teaser-card .partner-mark--logo {
+    padding: 7px;
+}
+
+.partner-teaser-card .partner-mark--wide {
+    width: 146px;
+    height: 62px;
+    padding: 7px 10px 8px;
+    border-radius: 20px;
+}
+
+.partner-teaser-card .partner-mark--map {
+    width: 74px;
+    height: 72px;
+}
+
+.partner-teaser-card .partner-mark--poster {
+    width: 84px;
+    height: 84px;
+    padding: 5px;
+    border-radius: 22px;
+}
+
+.partner-teaser-card .partner-mark--padova {
+    width: 78px;
+    height: 78px;
+    padding: 8px;
+    border-radius: 20px;
+}
+
+.partner-teaser-card .partner-mark--meierott {
+    width: 84px;
+    height: 84px;
+    border-radius: 20px;
+}
+
+.partner-teaser-card .partner-mark--meierott .partner-mark__image {
+    width: 100%;
+    height: 100%;
 }
 
 .partner-teaser-card-title {
@@ -599,10 +662,20 @@
         padding: 8px;
     }
 
+    .partner-teaser-card .partner-mark--logo {
+        padding: 6px;
+    }
+
     .partner-mark--wide {
         width: 148px;
         height: 64px;
         padding: 7px 10px 8px;
+    }
+
+    .partner-teaser-card .partner-mark--wide {
+        width: 132px;
+        height: 58px;
+        padding: 6px 9px 7px;
     }
 
     .partner-mark--aog {
@@ -615,10 +688,21 @@
         padding: 0;
     }
 
+    .partner-teaser-card .partner-mark--map {
+        width: 68px;
+        height: 66px;
+    }
+
     .partner-mark--poster {
         width: 92px;
         height: 92px;
         padding: 5px;
+    }
+
+    .partner-teaser-card .partner-mark--poster {
+        width: 76px;
+        height: 76px;
+        border-radius: 20px;
     }
 
     .partner-mark--padova {
@@ -626,5 +710,24 @@
         height: 82px;
         padding: 8px;
         border-radius: 20px;
+    }
+
+    .partner-mark--meierott {
+        width: 92px;
+        height: 92px;
+        border-radius: 22px;
+    }
+
+    .partner-teaser-card .partner-mark--padova {
+        width: 72px;
+        height: 72px;
+        padding: 7px;
+        border-radius: 18px;
+    }
+
+    .partner-teaser-card .partner-mark--meierott {
+        width: 76px;
+        height: 76px;
+        border-radius: 18px;
     }
 }
