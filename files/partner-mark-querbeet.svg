@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="160" viewBox="0 0 96 160" role="img" aria-labelledby="title desc">
+  <title id="title">Querbeet logo</title>
+  <desc id="desc">Vertical logo artwork for the Veeh harp group Querbeet with blue red and ochre background and a stylized harp.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a6994"/>
+      <stop offset="0.28" stop-color="#6e556f"/>
+      <stop offset="0.56" stop-color="#b44439"/>
+      <stop offset="0.8" stop-color="#d1843e"/>
+      <stop offset="1" stop-color="#d0b85a"/>
+    </linearGradient>
+    <linearGradient id="harpFront" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#845432"/>
+      <stop offset="1" stop-color="#5a331f"/>
+    </linearGradient>
+    <linearGradient id="harpSide" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#a46a42"/>
+      <stop offset="1" stop-color="#6c4026"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="2" y="2" width="92" height="156" rx="16" fill="url(#sky)" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+  <path d="M6 124 C20 116, 34 114, 48 120 S74 130, 90 122" fill="none" stroke="#fff4c7" stroke-opacity="0.32" stroke-width="3" stroke-linecap="round"/>
+
+  <g fill="#d8eef9" font-family="Georgia, 'Times New Roman', serif" font-size="10" letter-spacing="1.6">
+    <text x="10" y="20" transform="rotate(-24 10 20)">Q</text>
+    <text x="22" y="13" transform="rotate(-16 22 13)">U</text>
+    <text x="35" y="9" transform="rotate(-8 35 9)">E</text>
+    <text x="48" y="8" transform="rotate(2 48 8)">R</text>
+    <text x="60" y="10" transform="rotate(10 60 10)">B</text>
+    <text x="72" y="16" transform="rotate(18 72 16)">E</text>
+    <text x="82" y="25" transform="rotate(24 82 25)">E</text>
+    <text x="85" y="38" transform="rotate(32 85 38)">T</text>
+  </g>
+
+  <g transform="translate(18 42)">
+    <path d="M24 6 L50 102 L6 102 Z" fill="url(#harpFront)" stroke="#e5bf78" stroke-opacity="0.45" stroke-width="1.2"/>
+    <path d="M24 6 L62 24 L50 102 L24 6 Z" fill="url(#harpSide)" stroke="#f0d49a" stroke-opacity="0.42" stroke-width="1.1"/>
+    <path d="M6 102 L50 102 L62 24" fill="none" stroke="#4d2c1e" stroke-width="1.2" opacity="0.6"/>
+    <g stroke="#d9c7a1" stroke-width="1" stroke-linecap="round" opacity="0.78">
+      <line x1="14" y1="92" x2="28" y2="12"/>
+      <line x1="19" y1="94" x2="32" y2="15"/>
+      <line x1="24" y1="96" x2="36" y2="18"/>
+      <line x1="29" y1="98" x2="40" y2="21"/>
+      <line x1="34" y1="99" x2="44" y2="24"/>
+      <line x1="39" y1="100" x2="48" y2="27"/>
+      <line x1="44" y1="101" x2="52" y2="31"/>
+      <line x1="49" y1="101" x2="56" y2="35"/>
+    </g>
+  </g>
+</svg>
