@@ -26,10 +26,10 @@
     --review-soft-grid: none;
     --review-sheen: none;
     --review-fade-surface: var(--surface-panel-bg-strong);
-    --review-kicker-color: rgba(var(--color-primary-rgb), 0.76);
-    --review-title-color: var(--color-primary);
-    --review-copy-color: rgba(var(--color-primary-rgb), 0.9);
-    --review-caption-color: rgba(var(--color-primary-rgb), 0.76);
+    --review-kicker-color: rgba(18, 62, 70, 0.56);
+    --review-title-color: #0c3038;
+    --review-copy-color: #28484f;
+    --review-caption-color: #5d7680;
     --review-border-color: rgba(var(--color-primary-rgb), 0.12);
     --review-border-color-strong: rgba(var(--color-primary-rgb), 0.18);
     --review-secondary-wash: rgba(var(--color-secondary-rgb), 0.18);
@@ -907,10 +907,12 @@
 }
 
 .review-archive-toggle.review-archive-toggle--floating {
-    --cta-bg: var(--review-panel-surface);
-    --cta-bg-hover: var(--review-panel-surface);
+    --cta-bg: rgba(255, 255, 255, 0.96);
+    --cta-bg-hover: rgba(var(--color-secondary-rgb), 0.1);
+    --cta-color: var(--review-title-color);
+    --cta-color-hover: var(--review-title-color);
     --cta-border-color: rgba(var(--color-secondary-rgb), 0.24);
-    --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.32);
+    --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.34);
     --cta-shadow: none;
     --cta-shadow-hover: none;
 }
@@ -3838,4 +3840,130 @@
 
 :root[data-theme="dark"] .review-featured {
     --review-panel-border: rgba(229, 240, 238, 0.22);
+}
+
+/* Align Rueckblick typography with the Events section scale. */
+.review-overview-kicker,
+.news-feed-kicker,
+.review-archive-intro__eyebrow,
+.charity-projects-section[id^="review-"] .charity-meta {
+    font-family: var(--font-ui-modern);
+    font-size: var(--premium-label-size);
+    font-weight: var(--premium-label-weight);
+    line-height: var(--premium-label-line-height);
+    letter-spacing: var(--premium-label-letter-spacing);
+    text-transform: uppercase;
+}
+
+.review-overview-title,
+.news-feed-title,
+.review-featured .charity-title,
+.review-archive .charity-projects-section[id^="review-"] .charity-title {
+    font-family: var(--font-ui-modern);
+    font-size: var(--premium-title-size);
+    font-weight: 580;
+    line-height: var(--premium-title-line-height);
+    letter-spacing: var(--premium-title-letter-spacing);
+}
+
+.review-overview-intro,
+.news-feed-intro,
+.review-archive-intro__copy {
+    font-family: var(--font-ui-modern);
+    font-size: var(--premium-lead-size);
+    font-weight: 560;
+    line-height: var(--premium-lead-line-height);
+    letter-spacing: var(--premium-lead-letter-spacing);
+}
+
+.review-overview-highlight-title,
+.news-feed-card-title,
+.review-archive-intro__title {
+    font-family: var(--font-ui-modern);
+    font-size: var(--premium-card-title-size);
+    font-weight: 600;
+    line-height: var(--premium-card-title-line-height);
+    letter-spacing: var(--premium-card-title-letter-spacing);
+}
+
+.review-overview-highlight-copy,
+.news-feed-card-copy,
+.review-featured .charity-description,
+.review-archive .charity-projects-section[id^="review-"] .charity-description {
+    font-family: var(--font-ui-modern);
+    font-size: var(--premium-body-size);
+    font-weight: 500;
+    line-height: 1.64;
+    letter-spacing: var(--premium-body-letter-spacing);
+}
+
+@media (min-width: 1180px) {
+    .review-overview-title,
+    .news-feed-title,
+    .review-featured .charity-title,
+    .review-archive .charity-projects-section[id^="review-"] .charity-title {
+        font-size: clamp(2.12rem, 2.85vw, 3.02rem);
+        line-height: 1.01;
+        letter-spacing: -0.046em;
+    }
+
+    .review-overview-intro,
+    .news-feed-intro,
+    .review-archive-intro__copy {
+        font-size: 1.02rem;
+        line-height: 1.66;
+    }
+}
+
+@media (max-width: 1200px) {
+    .review-overview-kicker,
+    .news-feed-kicker,
+    .review-archive-intro__eyebrow,
+    .charity-projects-section[id^="review-"] .charity-meta {
+        font-size: var(--premium-label-tablet-size);
+        line-height: var(--premium-label-tablet-line-height);
+        letter-spacing: var(--premium-label-tablet-letter-spacing);
+    }
+}
+
+@media (max-width: 700px) {
+    .review-overview-kicker,
+    .news-feed-kicker,
+    .review-archive-intro__eyebrow,
+    .charity-projects-section[id^="review-"] .charity-meta {
+        font-size: var(--premium-label-mobile-size);
+        line-height: var(--premium-label-mobile-line-height);
+        letter-spacing: var(--premium-label-mobile-letter-spacing);
+    }
+
+    .review-overview-title,
+    .news-feed-title,
+    .review-featured .charity-title,
+    .review-archive .charity-projects-section[id^="review-"] .charity-title {
+        font-size: clamp(1.38rem, 6vw, 1.64rem);
+        line-height: 1.14;
+        letter-spacing: -0.022em;
+    }
+
+    .review-overview-intro,
+    .news-feed-intro,
+    .review-archive-intro__copy {
+        font-size: 1rem;
+        line-height: 1.64;
+    }
+
+    .review-overview-highlight-title,
+    .news-feed-card-title,
+    .review-archive-intro__title {
+        font-size: var(--premium-card-title-mobile-size);
+        line-height: var(--premium-card-title-line-height);
+    }
+
+    .review-overview-highlight-copy,
+    .news-feed-card-copy,
+    .review-featured .charity-description,
+    .review-archive .charity-projects-section[id^="review-"] .charity-description {
+        font-size: 1rem;
+        line-height: 1.62;
+    }
 }
