@@ -299,19 +299,19 @@
 }
 
 .fadein-text {
-    --hero-fadein-left: clamp(18px, 4vw, 42px);
-    --hero-fadein-bottom: clamp(106px, 10vw, 130px);
-    --hero-fadein-max-width: min(34vw, 380px);
+    --hero-fadein-left: clamp(22px, 4vw, 48px);
+    --hero-fadein-bottom: clamp(118px, 10vw, 144px);
+    --hero-fadein-max-width: min(38vw, 430px);
     --interaction-transform: translateY(var(--hero-fadein-translate-y));
-    --hero-fadein-padding: 10px 14px 11px;
-    --hero-fadein-radius: 18px;
-    --hero-fadein-bg: rgba(8, 20, 27, 0.9);
+    --hero-fadein-padding: 13px 18px 14px;
+    --hero-fadein-radius: 22px;
+    --hero-fadein-bg: linear-gradient(180deg, rgba(8, 20, 27, 0.78) 0%, rgba(8, 20, 27, 0.9) 100%);
     --hero-fadein-color: rgba(255, 255, 255, 0.96);
-    --hero-fadein-font-size: clamp(0.92rem, 1vw, 1.02rem);
-    --hero-fadein-line-height: 1.28;
-    --hero-fadein-letter-spacing: -0.02em;
+    --hero-fadein-font-size: clamp(0.9rem, 0.98vw, 1rem);
+    --hero-fadein-line-height: 1.42;
+    --hero-fadein-letter-spacing: -0.01em;
     --hero-fadein-shadow: none;
-    --hero-fadein-border-color: rgba(255, 255, 255, 0.16);
+    --hero-fadein-border-color: rgba(255, 255, 255, 0.14);
     --hero-fadein-translate-y: 0px;
     --hero-fadein-transition: none;
     position: absolute;
@@ -326,13 +326,13 @@
     color: var(--hero-fadein-color);
     font-family: var(--font-ui-modern);
     font-size: var(--hero-fadein-font-size);
-    font-weight: var(--font-weight-heading);
+    font-weight: 520;
     line-height: var(--hero-fadein-line-height);
     letter-spacing: var(--hero-fadein-letter-spacing);
     text-align: left;
     box-shadow: var(--hero-fadein-shadow);
     border: 1px solid var(--hero-fadein-border-color);
-    text-wrap: pretty;
+    text-wrap: balance;
     transform: translateY(var(--hero-fadein-translate-y));
     opacity: 1;
     transition: var(--hero-fadein-transition);
@@ -360,7 +360,7 @@
     }
 
     .fadein-text {
-        --hero-fadein-max-width: min(62vw, 340px);
+        --hero-fadein-max-width: min(66vw, 390px);
     }
 }
 
@@ -421,20 +421,20 @@
     }
 
     .fadein-text {
-        --hero-fadein-left: 12px;
-        --hero-fadein-bottom: 78px;
-        --hero-fadein-max-width: min(86vw, 332px);
-        --hero-fadein-padding: 10px 12px 11px;
-        --hero-fadein-font-size: 0.78rem;
-        --hero-fadein-line-height: 1.24;
-        --hero-fadein-letter-spacing: -0.01em;
-        --hero-fadein-radius: 16px;
-        --hero-fadein-bg: rgba(8, 20, 27, 0.82);
+        --hero-fadein-left: 14px;
+        --hero-fadein-bottom: 86px;
+        --hero-fadein-max-width: min(88vw, 344px);
+        --hero-fadein-padding: 11px 14px 12px;
+        --hero-fadein-font-size: 0.82rem;
+        --hero-fadein-line-height: 1.32;
+        --hero-fadein-letter-spacing: -0.006em;
+        --hero-fadein-radius: 18px;
+        --hero-fadein-bg: linear-gradient(180deg, rgba(8, 20, 27, 0.74) 0%, rgba(8, 20, 27, 0.86) 100%);
         --hero-fadein-translate-y: 0px;
-        right: 12px;
+        right: 14px;
         display: -webkit-box;
-        line-clamp: 2;
-        -webkit-line-clamp: 2;
+        line-clamp: 3;
+        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-align: left;
@@ -468,10 +468,10 @@
     }
 
     .fadein-text {
-        --hero-fadein-bottom: 70px;
-        --hero-fadein-max-width: min(74vw, 272px);
-        --hero-fadein-font-size: 0.82rem;
-        --hero-fadein-line-height: 1.18;
+        --hero-fadein-bottom: 74px;
+        --hero-fadein-max-width: min(80vw, 286px);
+        --hero-fadein-font-size: 0.8rem;
+        --hero-fadein-line-height: 1.28;
         --hero-fadein-translate-y: 0px;
     }
 }

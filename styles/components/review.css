@@ -26,10 +26,10 @@
     --review-soft-grid: none;
     --review-sheen: none;
     --review-fade-surface: var(--surface-panel-bg-strong);
-    --review-kicker-color: rgba(var(--color-primary-rgb), 0.68);
+    --review-kicker-color: rgba(var(--color-primary-rgb), 0.76);
     --review-title-color: var(--color-primary);
-    --review-copy-color: rgba(var(--color-primary-rgb), 0.84);
-    --review-caption-color: rgba(var(--color-primary-rgb), 0.7);
+    --review-copy-color: rgba(var(--color-primary-rgb), 0.9);
+    --review-caption-color: rgba(var(--color-primary-rgb), 0.76);
     --review-border-color: rgba(var(--color-primary-rgb), 0.12);
     --review-border-color-strong: rgba(var(--color-primary-rgb), 0.18);
     --review-secondary-wash: rgba(var(--color-secondary-rgb), 0.18);
@@ -133,9 +133,9 @@
     margin: 10px 0 12px;
     color: var(--review-title-color);
     font-family: var(--font-ui-modern);
-    font-size: clamp(1.72rem, 2.55vw, 2.18rem);
-    font-weight: 580;
-    line-height: 1.02;
+    font-size: clamp(1.94rem, 2.78vw, 2.54rem);
+    font-weight: 600;
+    line-height: 1.04;
     letter-spacing: -0.038em;
     text-wrap: balance;
 }
@@ -303,9 +303,9 @@
     margin: 10px 0 12px;
     color: var(--review-title-color);
     font-family: var(--font-ui-modern);
-    font-size: clamp(1.78rem, 2.8vw, 2.34rem);
-    font-weight: 580;
-    line-height: 1.02;
+    font-size: clamp(1.94rem, 2.9vw, 2.56rem);
+    font-weight: 600;
+    line-height: 1.04;
     letter-spacing: -0.038em;
     text-wrap: balance;
 }
@@ -654,9 +654,9 @@
     .news-feed-title {
         max-width: 11ch;
         margin-bottom: 14px;
-        font-size: clamp(2.08rem, 2.72vw, 2.82rem);
-        line-height: 1.01;
-        letter-spacing: -0.044em;
+        font-size: clamp(2rem, 2.52vw, 2.58rem);
+        line-height: 1.03;
+        letter-spacing: -0.04em;
     }
 
     .news-feed-intro {
@@ -1636,9 +1636,9 @@
     .review-overview-title {
         max-width: 11ch;
         margin: 12px 0 16px;
-        font-size: clamp(2.12rem, 2.72vw, 2.82rem);
-        line-height: 0.98;
-        letter-spacing: -0.044em;
+        font-size: clamp(2rem, 2.48vw, 2.54rem);
+        line-height: 1.02;
+        letter-spacing: -0.04em;
     }
 
     .review-overview-intro {
@@ -2830,7 +2830,7 @@
     }
 
     .review-overview-title {
-        font-size: clamp(1.78rem, 7vw, 2.16rem);
+        font-size: clamp(1.74rem, 6.8vw, 2.02rem);
     }
 
     .review-overview-intro {

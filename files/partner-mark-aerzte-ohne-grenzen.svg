@@ -1,0 +1,10 @@
+<svg width="392" height="132" viewBox="0 0 392 132" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="82" cy="15" r="14" fill="#EE1C25"/>
+  <rect x="90" y="28" width="112" height="17" rx="8.5" transform="rotate(-12 90 28)" fill="#EE1C25"/>
+  <rect x="50" y="61" width="143" height="20" rx="10" transform="rotate(-18 50 61)" fill="#EE1C25"/>
+  <rect x="26" y="95" width="140" height="20" rx="10" transform="rotate(-24 26 95)" fill="#EE1C25"/>
+  <path d="M113 46L139 39L122 106L96 112L106 73L79 85L73 66L104 53L113 46Z" fill="#EE1C25"/>
+  <path d="M116 56L132 53L118 105L96 110L104 76L89 82L84 69L109 58L116 56Z" fill="white"/>
+  <text x="156" y="76" fill="#151515" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="800">&#196;RZTE</text>
+  <text x="156" y="104" fill="#151515" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="800">OHNE GRENZEN</text>
+</svg>
