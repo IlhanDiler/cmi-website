@@ -68,7 +68,7 @@
 
 .contact-info-kicker,
 .contact-info-subtitle {
-    color: rgba(18, 62, 70, 0.66);
+    color: rgba(18, 62, 70, 0.74);
 }
 
 .contact-info-lead-card-kicker {
@@ -84,9 +84,9 @@
     margin: 0 0 14px;
     color: var(--color-primary);
     font-family: var(--font-ui-modern);
-    font-size: clamp(1.62rem, 2.3vw, 2.02rem);
-    font-weight: 580;
-    line-height: 1.02;
+    font-size: clamp(1.9rem, 2.6vw, 2.42rem);
+    font-weight: 600;
+    line-height: 1.04;
     letter-spacing: -0.04em;
     text-wrap: balance;
 }
@@ -96,7 +96,7 @@
 .contact-info-lead-points li,
 .contact-info-card-text,
 .contact-info-card-link {
-    color: #315159;
+    color: #28484f;
     font-family: var(--font-ui-modern);
     font-size: var(--premium-body-size);
     font-weight: 500;
@@ -414,9 +414,9 @@
 
     .contact-info-title {
         margin: 12px 0 16px;
-        font-size: clamp(2.12rem, 3vw, 2.96rem);
-        line-height: 0.98;
-        letter-spacing: -0.052em;
+        font-size: clamp(2rem, 2.55vw, 2.58rem);
+        line-height: 1.02;
+        letter-spacing: -0.042em;
     }
 
     .contact-info-intro {
@@ -499,9 +499,9 @@
     }
 
     .contact-info-title {
-        font-size: clamp(1.5rem, 5.8vw, 1.78rem);
-        line-height: 1.08;
-        letter-spacing: -0.028em;
+        font-size: clamp(1.68rem, 6.2vw, 1.94rem);
+        line-height: 1.06;
+        letter-spacing: -0.032em;
     }
 
     .contact-info-intro {

@@ -1,0 +1,36 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="240" rx="44" fill="white"/>
+  <rect x="28" y="44" width="184" height="26" rx="13" transform="rotate(2.5 28 44)" fill="#8EDCF6"/>
+  <rect x="16" y="72" width="202" height="28" rx="14" transform="rotate(1.8 16 72)" fill="#8EDCF6"/>
+  <rect x="12" y="100" width="198" height="26" rx="13" transform="rotate(1.2 12 100)" fill="#8EDCF6"/>
+  <rect x="18" y="136" width="202" height="30" rx="15" transform="rotate(-1.5 18 136)" fill="#FFF3A9"/>
+  <rect x="28" y="164" width="184" height="28" rx="14" transform="rotate(-2 28 164)" fill="#FFF3A9"/>
+  <path d="M58 90H88V120H58V90Z" fill="white" stroke="#2B2B2B" stroke-width="2"/>
+  <path d="M73 96V113M73 96C70 101 67 103 63.5 105.5M73 96C76 101 79 103 82.5 105.5M63.5 105.5V113M63.5 105.5C66 106.5 68.3 108 70 110M82.5 105.5V113M82.5 105.5C80 106.5 77.7 108 76 110M70 110V113H76V110" stroke="#2B2B2B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M120 82C147 82 170 96 182 118C188 130 191 143 191 157" stroke="#2B2B2B" stroke-width="1.4"/>
+  <path d="M65 92C53 104 46 119 43 136C39 158 46 181 63 197" stroke="#2B2B2B" stroke-width="1.4"/>
+  <text x="113" y="115" fill="#141414" font-family="Georgia, 'Times New Roman', serif" font-size="33" font-weight="700" text-anchor="middle">UA</text>
+  <text x="123" y="149" fill="#2D2D2D" font-family="Georgia, 'Times New Roman', serif" font-size="25" font-weight="700" text-anchor="middle">HILFE</text>
+  <text x="119" y="191" fill="#141414" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="700" text-anchor="middle">WÜ</text>
+  <g>
+    <ellipse cx="72" cy="51" rx="12" ry="23" transform="rotate(16 72 51)" fill="#BBD8F6"/>
+    <ellipse cx="84" cy="53" rx="10" ry="20" transform="rotate(-6 84 53)" fill="#C9E2FA"/>
+    <ellipse cx="94" cy="61" rx="10" ry="18" transform="rotate(18 94 61)" fill="#D8EEFD"/>
+    <circle cx="114" cy="58" r="8" fill="#E7332A"/>
+    <circle cx="132" cy="54" r="10" fill="#F3D34A"/>
+    <circle cx="144" cy="58" r="4" fill="#8EC74F"/>
+  </g>
+  <g>
+    <circle cx="182" cy="150" r="14" fill="#A5D7F8"/>
+    <circle cx="182" cy="150" r="4" fill="#F6D54A"/>
+    <path d="M182 132V168M164 150H200M169 137L195 163M169 163L195 137" stroke="#6CA6D8" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="199" cy="172" r="8" fill="#E63B31"/>
+    <circle cx="169" cy="186" r="6" fill="#BFDFFF"/>
+  </g>
+  <g stroke="#6B9F59" stroke-width="2.2" stroke-linecap="round">
+    <path d="M52 171C44 178 41 188 42 198"/>
+    <path d="M56 176C66 181 74 189 78 198"/>
+    <path d="M181 92C191 94 199 100 204 109"/>
+    <path d="M171 96C166 106 164 115 166 124"/>
+  </g>
+</svg>

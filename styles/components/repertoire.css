@@ -122,16 +122,17 @@
 }
 
 .musikalisches-repertoire-title {
-    --repertoire-title-font-size: clamp(1.82rem, 2.35vw, 2.34rem);
-    --repertoire-title-margin-bottom: 10px;
-    --repertoire-title-line-height: 1.08;
+    --repertoire-title-font-size: var(--premium-title-size);
+    --repertoire-title-margin-bottom: 12px;
+    --repertoire-title-line-height: var(--premium-title-line-height);
+    --repertoire-title-letter-spacing: var(--premium-title-letter-spacing);
     color: var(--repertoire-title-color);
     font-size: var(--repertoire-title-font-size);
     margin-bottom: var(--repertoire-title-margin-bottom);
     font-family: var(--font-ui-modern);
-    font-weight: 560;
+    font-weight: 580;
     line-height: var(--repertoire-title-line-height);
-    letter-spacing: -0.028em;
+    letter-spacing: var(--repertoire-title-letter-spacing);
     text-wrap: balance;
 }
 
@@ -148,13 +149,13 @@
 }
 
 .musikalisches-repertoire-intro {
-    margin: 0 0 22px;
-    max-width: 56ch;
-    color: var(--repertoire-copy-soft);
+    margin: 0 0 24px;
+    max-width: 60ch;
+    color: var(--repertoire-copy-color);
     font-family: var(--font-ui-modern);
     font-size: var(--premium-lead-size);
-    line-height: var(--premium-lead-line-height);
-    font-weight: 520;
+    line-height: 1.64;
+    font-weight: 560;
     letter-spacing: var(--premium-lead-letter-spacing);
     text-align: left;
     text-justify: auto;
@@ -247,19 +248,19 @@
     margin: 0;
     color: var(--repertoire-title-color);
     font-family: var(--font-ui-modern);
-    font-size: clamp(1.14rem, 1.34vw, 1.32rem);
-    font-weight: 620;
-    line-height: 1.18;
-    letter-spacing: -0.02em;
+    font-size: var(--premium-card-title-size);
+    font-weight: 600;
+    line-height: var(--premium-card-title-line-height);
+    letter-spacing: var(--premium-card-title-letter-spacing);
     text-wrap: balance;
 }
 
 .musikalisches-repertoire-card--repertoire .repertoire-story-card-copy {
     margin: 0;
-    color: #3d5c63;
-    font-size: 1rem;
-    line-height: 1.66;
-    font-weight: 520;
+    color: var(--repertoire-copy-color);
+    font-size: var(--premium-body-size);
+    line-height: 1.64;
+    font-weight: 500;
     max-width: 36ch;
     text-align: left;
     text-justify: auto;
@@ -314,19 +315,20 @@
     margin: 0;
     color: var(--repertoire-title-color);
     font-family: var(--font-ui-modern);
-    font-size: clamp(1.02rem, 1.2vw, 1.14rem);
+    font-size: var(--premium-card-title-size);
     font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -0.016em;
+    line-height: var(--premium-card-title-line-height);
+    letter-spacing: var(--premium-card-title-letter-spacing);
+    text-wrap: balance;
 }
 
 .repertoire-highlight-copy,
 .engagement-focus-copy {
-    margin: 7px 0 0;
-    color: var(--repertoire-copy-soft);
+    margin: 8px 0 0;
+    color: var(--repertoire-copy-color);
     font-size: var(--premium-body-size);
-    line-height: var(--premium-body-line-height);
-    font-weight: var(--font-weight-body);
+    line-height: 1.64;
+    font-weight: 500;
     letter-spacing: var(--premium-body-letter-spacing);
     text-align: left;
     text-justify: auto;
@@ -603,18 +605,18 @@
 }
 
 .musikalisches-repertoire-card--engagement .engagement-focus-card--primary .engagement-focus-title {
-    font-size: clamp(1.07rem, 1.25vw, 1.18rem);
+    font-size: var(--premium-card-title-size);
 }
 
 .musikalisches-repertoire-card--engagement .engagement-focus-card--primary .engagement-focus-copy {
-    margin-top: 0;
-    font-size: 0.95rem;
-    line-height: 1.54;
+    margin-top: 8px;
+    font-size: var(--premium-body-size);
+    line-height: 1.64;
 }
 
 .musikalisches-repertoire-card--engagement .engagement-focus-copy {
-    margin-top: 0;
-    line-height: 1.5;
+    margin-top: 8px;
+    line-height: 1.64;
 }
 
 .musikalisches-repertoire-card--engagement .engagement-focus-card--secondary .engagement-focus-title {
@@ -622,10 +624,10 @@
 }
 
 .musikalisches-repertoire-card--engagement .engagement-focus-card--secondary .engagement-focus-copy {
-    margin-top: 0;
+    margin-top: 8px;
     max-width: 30ch;
-    font-size: 0.93rem;
-    line-height: 1.48;
+    font-size: var(--premium-body-size);
+    line-height: 1.64;
 }
 
 .musikalisches-repertoire-card--engagement .musikalisches-repertoire-list li::before {
@@ -680,10 +682,12 @@
     grid-row: 1;
     margin: 0;
     color: var(--repertoire-title-color);
-    font-size: 0.99em;
-    line-height: 1.28;
-    font-weight: 620;
+    font-size: var(--premium-card-title-size);
+    line-height: var(--premium-card-title-line-height);
+    font-weight: 600;
+    letter-spacing: var(--premium-card-title-letter-spacing);
     font-family: var(--font-ui-modern);
+    text-wrap: balance;
 }
 
 .musikalisches-repertoire-card--engagement .charity-certificate-img {
@@ -753,10 +757,10 @@
     grid-row: 2;
     margin: 0;
     max-width: 32ch;
-    color: #27474e;
-    font-size: 0.96rem;
-    line-height: 1.62;
-    font-weight: 540;
+    color: var(--repertoire-copy-color);
+    font-size: var(--premium-body-size);
+    line-height: 1.64;
+    font-weight: 500;
     font-family: var(--font-ui-modern);
     text-align: left;
     text-justify: auto;
@@ -842,8 +846,17 @@
         --repertoire-card-padding: 36px 38px 34px;
     }
 
+    .musikalisches-repertoire-title {
+        --repertoire-title-font-size: clamp(2.12rem, 2.85vw, 3.02rem);
+        --repertoire-title-margin-bottom: 16px;
+        --repertoire-title-line-height: 1.01;
+        --repertoire-title-letter-spacing: -0.046em;
+    }
+
     .musikalisches-repertoire-intro {
         max-width: 60ch;
+        font-size: 1.02rem;
+        line-height: 1.66;
     }
 
     .musikalisches-repertoire-card--repertoire .repertoire-story-grid {
@@ -890,19 +903,19 @@
     .musikalisches-repertoire-card--engagement .charity-certificate-card-title {
         color: var(--repertoire-title-color);
         font-family: var(--font-ui-modern);
-        font-size: clamp(1.18rem, 5.1vw, 1.32rem);
+        font-size: var(--premium-card-title-tablet-size);
         font-weight: 600;
-        line-height: 1.2;
-        letter-spacing: -0.02em;
+        line-height: var(--premium-card-title-line-height);
+        letter-spacing: var(--premium-card-title-letter-spacing);
     }
 
     .musikalisches-repertoire-card--engagement .engagement-focus-copy,
     .musikalisches-repertoire-card--engagement .charity-list-item-certificate-copy,
     .musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-support li,
     .musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-project li {
-        color: #3a5961;
+        color: var(--repertoire-copy-color);
         font-family: var(--font-ui-modern);
-        font-size: 1.02rem;
+        font-size: var(--premium-body-tablet-size);
         line-height: 1.66;
         letter-spacing: 0;
         text-align: left;
@@ -915,7 +928,7 @@
     .engagement-focus-copy,
     .ensemble-chip {
         font-family: var(--font-ui-modern);
-        font-size: 1rem;
+        font-size: var(--premium-body-tablet-size);
         line-height: 1.62;
         letter-spacing: 0;
     }
@@ -1048,9 +1061,10 @@
     }
 
     .musikalisches-repertoire-title {
-        --repertoire-title-font-size: clamp(1.58rem, 5.6vw, 1.86rem);
+        --repertoire-title-font-size: clamp(1.38rem, 6vw, 1.64rem);
         --repertoire-title-margin-bottom: 8px;
-        --repertoire-title-line-height: 1.12;
+        --repertoire-title-line-height: 1.14;
+        --repertoire-title-letter-spacing: -0.022em;
     }
 
     .musikalisches-repertoire-divider {
@@ -1102,8 +1116,8 @@
 
     .musikalisches-repertoire-intro {
         margin-bottom: 12px;
-        font-size: 1.04rem;
-        line-height: 1.56;
+        font-size: 1rem;
+        line-height: 1.64;
         text-align: left;
         text-justify: auto;
         hyphens: auto;
@@ -1126,12 +1140,12 @@
     }
 
     .musikalisches-repertoire-card--repertoire .repertoire-story-card-title {
-        font-size: 1.14rem;
-        line-height: 1.2;
+        font-size: var(--premium-card-title-mobile-size);
+        line-height: var(--premium-card-title-line-height);
     }
 
     .musikalisches-repertoire-card--repertoire .repertoire-story-card-copy {
-        font-size: 1.01rem;
+        font-size: 1rem;
         line-height: 1.62;
         max-width: none;
         width: 100%;
@@ -1146,8 +1160,14 @@
 
     .repertoire-highlight-copy,
     .engagement-focus-copy {
-        font-size: 0.92rem;
-        line-height: 1.5;
+        font-size: 1rem;
+        line-height: 1.62;
+    }
+
+    .engagement-focus-title,
+    .musikalisches-repertoire-card--engagement .charity-certificate-card-title {
+        font-size: var(--premium-card-title-mobile-size);
+        line-height: var(--premium-card-title-line-height);
     }
 
     .musikalisches-repertoire-card--engagement .engagement-focus-copy {
@@ -1224,12 +1244,13 @@
     }
 
     .musikalisches-repertoire-card--engagement .charity-list-item {
-        font-size: clamp(1.03rem, 3.5vw, 1.1rem);
-        line-height: 1.46;
+        font-size: 1rem;
+        line-height: 1.62;
     }
 
     .musikalisches-repertoire-card--engagement .charity-list-item-certificate-copy {
-        font-size: clamp(1rem, 3.6vw, 1.08rem);
+        font-size: 1rem;
+        line-height: 1.62;
         max-width: none;
     }
 

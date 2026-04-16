@@ -150,6 +150,16 @@
 }
 
 :root[data-theme="dark"] {
+    --theme-dark-brand-deep: #09393f;
+    --theme-dark-brand-deep-rgb: 9, 57, 63;
+    --theme-dark-brand-muted: #0e4a51;
+    --theme-dark-brand-muted-rgb: 14, 74, 81;
+    --theme-dark-brand-surface: #125b62;
+    --theme-dark-brand-surface-rgb: 18, 91, 98;
+    --theme-dark-brand-soft: #1a7078;
+    --theme-dark-brand-soft-rgb: 26, 112, 120;
+    --theme-dark-brand-accent: #72afa0;
+    --theme-dark-brand-accent-rgb: 114, 175, 160;
     --theme-bg-canvas: var(--theme-dark-brand-deep);
     --theme-bg-muted: var(--theme-dark-brand-muted);
     --theme-bg-soft: var(--theme-dark-brand-surface);
@@ -159,8 +169,15 @@
     --theme-surface-panel-strong: rgba(var(--theme-dark-brand-surface-rgb), 0.92);
     --theme-border-soft: rgba(229, 240, 238, 0.14);
     --theme-border-strong: rgba(var(--color-secondary-rgb), 0.24);
-    --theme-text-primary: #f7fbfa;
+    --theme-text-primary: #f4fbf6;
     --theme-text-muted: #d7ebe8;
+    --color-primary: var(--theme-dark-brand-surface);
+    --color-primary-rgb: var(--theme-dark-brand-surface-rgb);
+    --color-secondary: var(--theme-dark-brand-accent);
+    --color-secondary-rgb: var(--theme-dark-brand-accent-rgb);
+    --color-accent: var(--color-secondary);
+    --color-accent-dark: var(--color-primary);
+    --color-accent-deep: #125b62;
     --color-bg-soft: var(--theme-dark-brand-muted);
     --surface-panel-border: rgba(229, 240, 238, 0.16);
     --surface-panel-border-soft: rgba(229, 240, 238, 0.1);
@@ -171,7 +188,7 @@
     --shadow-panel: none;
     --button-pill-shadow: none;
     --button-pill-shadow-strong: none;
-    --focus-ring-soft: 0 0 0 3px rgba(23, 170, 160, 0.3);
+    --focus-ring-soft: 0 0 0 3px rgba(var(--color-secondary-rgb), 0.3);
     color-scheme: dark;
 }
 
