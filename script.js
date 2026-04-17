@@ -891,11 +891,170 @@ function applySiteLanguage(lang) {
 
 window.setLang = applySiteLanguage;
 
+let cookieConsentVendorLoaderRequested = false;
+
+const cookieConsentVendorScriptId = 'cookie-consent-vendor-script';
+const cookieConsentVendorScriptUrl = 'https://cdn.cookie-script.com/s/e2339902bc70c6b4887f38770587d9d3.js';
+const cookieConsentCookieName = 'CookieScriptConsent';
+const cookieConsentPromptSessionKey = 'cookieConsentPromptShown';
+
+function getCookieConsentCookieValue() {
+    const cookiePrefix = cookieConsentCookieName + '=';
+    const matchingCookie = document.cookie.split(';').map(function(part) {
+        return part.trim();
+    }).find(function(part) {
+        return part.indexOf(cookiePrefix) === 0;
+    });
+
+    if (!matchingCookie) {
+        return null;
+    }
+
+    return matchingCookie.slice(cookiePrefix.length);
+}
+
+function getPersistedCookieConsentState() {
+    const cookieValue = getCookieConsentCookieValue();
+    if (!cookieValue) {
+        return null;
+    }
+
+    try {
+        return JSON.parse(decodeURIComponent(cookieValue));
+    } catch (error) {
+        return null;
+    }
+}
+
+function hasPersistedCookieConsentChoiceInCookie() {
+    const persistedState = getPersistedCookieConsentState();
+    return Boolean(persistedState && (persistedState.action === 'accept' || persistedState.action === 'reject'));
+}
+
+function shouldLoadCookieConsentVendor() {
+    if (window.CookieScript || document.getElementById(cookieConsentVendorScriptId)) {
+        return false;
+    }
+
+    if (hasPersistedCookieConsentChoiceInCookie()) {
+        return true;
+    }
+
+    try {
+        if (window.sessionStorage.getItem(cookieConsentPromptSessionKey) === '1') {
+            return false;
+        }
+
+        window.sessionStorage.setItem(cookieConsentPromptSessionKey, '1');
+        return true;
+    } catch (error) {
+        return true;
+    }
+}
+
+function ensureCookieConsentVendorLoaded() {
+    if (cookieConsentVendorLoaderRequested || !shouldLoadCookieConsentVendor()) {
+        return;
+    }
+
+    const scriptParent = document.body || document.head || document.documentElement;
+    if (!scriptParent) {
+        return;
+    }
+
+    const vendorScript = document.createElement('script');
+    vendorScript.id = cookieConsentVendorScriptId;
+    vendorScript.type = 'text/javascript';
+    vendorScript.charset = 'UTF-8';
+    vendorScript.src = cookieConsentVendorScriptUrl;
+
+    scriptParent.appendChild(vendorScript);
+    cookieConsentVendorLoaderRequested = true;
+}
+
+function hasPersistedCookieConsentChoice() {
+    if (!window.CookieScript || !window.CookieScript.instance || typeof window.CookieScript.instance.currentState !== 'function') {
+        return hasPersistedCookieConsentChoiceInCookie();
+    }
+
+    const state = window.CookieScript.instance.currentState();
+    return Boolean(state && (state.action === 'accept' || state.action === 'reject'));
+}
+
+function persistCookieConsentOnClose(event) {
+    if (!(event.target instanceof Element)) {
+        return;
+    }
+
+    if (!event.target.closest('#cookiescript_close') || hasPersistedCookieConsentChoice()) {
+        return;
+    }
+
+    if (!window.CookieScript || !window.CookieScript.instance) {
+        return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (typeof event.stopImmediatePropagation === 'function') {
+        event.stopImmediatePropagation();
+    }
+
+    if (typeof window.CookieScript.instance.rejectAllAction === 'function') {
+        window.CookieScript.instance.rejectAllAction();
+    }
+}
+
+function initCookieConsentClosePersistence() {
+    if (document.documentElement.dataset.cookieConsentClosePersistenceInitialized === 'true') {
+        return;
+    }
+
+    document.addEventListener('click', persistCookieConsentOnClose, true);
+    document.documentElement.dataset.cookieConsentClosePersistenceInitialized = 'true';
+}
+
+function bridgeCookieConsentCheckboxClick(event) {
+    if (!(event.target instanceof Element)) {
+        return;
+    }
+
+    if (event.target.closest('label[for^="cookiescript_category_"]') ||
+        event.target.closest('.cookiescript_checkbox_input')) {
+        return;
+    }
+
+    const checkboxShell = event.target.closest('.cookiescript_checkbox .mdc-checkbox');
+    if (!checkboxShell) {
+        return;
+    }
+
+    const input = checkboxShell.querySelector('.cookiescript_checkbox_input');
+    if (!(input instanceof HTMLInputElement) || input.disabled) {
+        return;
+    }
+
+    event.preventDefault();
+    input.click();
+    input.focus();
+}
+
+function initCookieConsentCheckboxBridge() {
+    if (document.documentElement.dataset.cookieConsentCheckboxBridgeInitialized === 'true') {
+        return;
+    }
+
+    document.addEventListener('click', bridgeCookieConsentCheckboxClick, true);
+    document.documentElement.dataset.cookieConsentCheckboxBridgeInitialized = 'true';
+}
+
 function initSiteLanguage() {
     applySiteLanguage(getCurrentSiteLanguage());
 }
 
 function initSiteFeatures() {
+    ensureCookieConsentVendorLoaded();
     initEventLightbox();
     initHeroLayout();
     initHeroGallery();
@@ -909,6 +1068,8 @@ function initSiteFeatures() {
     initShapeParallax();
     initFieldValidation();
     updateYearsPassed();
+    initCookieConsentClosePersistence();
+    initCookieConsentCheckboxBridge();
     initSiteLanguage();
 }
 
