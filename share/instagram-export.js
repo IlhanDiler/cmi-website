@@ -1,6 +1,7 @@
 const SHARE_MANIFEST_URL = "share-pages.json";
 
 const FALLBACK_SHARE_PAGES = [
+    "kanalstart-cmi-ochsenfurt-2026.html",
     "internationales-galakonzert-ochsenfurt-2026.html",
     "internationales-galakonzert-giebelstadt-2026.html",
     "benefiz-trommelworkshop-2026.html",
@@ -30,6 +31,7 @@ const DEFAULT_HASHTAGS = [
     "#CollegiumMusicum",
     "#Ochsenfurt",
     "#MusikVerbindet",
+    "#MusikbautBrücken",
     "#KlassischeMusik"
 ];
 
@@ -47,7 +49,7 @@ const KEYWORD_TAGS = [
 const POST_COPY_TRANSLATIONS = {
     de: {
         storyCta: "Mehr auf unserer Website",
-        captionFootnote: "Mehr dazu auf unserer Website. Den passenden Link legen wir in Bio, Story oder Link-Sammlung.",
+        captionFootnote: "Weitere Informationen gibt es auf unserer Website. Den passenden Link teilen wir über Bio, Story oder unsere Link-Sammlung.",
         storyLinkInstruction: "Link-Sticker hier setzen",
         storyLinkSupport: "Nur so wird die Story in Instagram klickbar.",
         storyFormatNote: "Die Story-Datei bleibt ein Bild. Fuer eine klickbare Story in Instagram danach den Link-Sticker auf www.cmi-ochsenfurt.de setzen."

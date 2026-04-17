@@ -3,7 +3,25 @@ share/status-images/
 share/querbeet-roundup-2025.pdf
 astrid-eitschberger-rede-1-minute.pdf
 *.png
+*.pyc
+__pycache__/
+tmp/
 tmp/visual-qa/*.html
 tmp/private-docs-preview/
 files/angebot*.pdf
 tmp/generate_offer_pdf.py
+
+# Generated social plan files in docs/
+docs/CMI-*
+docs/[Ff]acebook-*
+docs/[Ii]nstagram-*
+
+# Local social planning workfiles
+scripts/build_instagram_kurzfassung_pdf.py
+scripts/build_instagram_post_presentation.py
+scripts/export_startplan_freigabe_pdf.ps1
+scripts/export_startplan_pdf.py
+share/instagram-export.js
+share/instagram-startplan-freigabe-2026-04-17.html
+share/instagram-startplan-freigabe-mobil-2026-04-17.html
+share/kanalstart-cmi-ochsenfurt-2026.html

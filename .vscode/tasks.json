@@ -12,6 +12,36 @@
 			],
 			"isBackground": true,
 			"group": "build"
+		},
+		{
+			"label": "Export Instagram Freigabe PDF",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/scripts/export_startplan_freigabe_pdf.ps1",
+				"-Plan",
+				"instagram"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Export Facebook Freigabe PDF",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/scripts/export_startplan_freigabe_pdf.ps1",
+				"-Plan",
+				"facebook"
+			],
+			"problemMatcher": [],
+			"group": "build"
 		}
 	]
 }

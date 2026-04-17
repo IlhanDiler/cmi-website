@@ -511,7 +511,7 @@ html[lang="ln"] .subpage-topbar__link[data-nav-current="page"] {
     white-space: normal;
 }
 
-@media (max-width: 1540px) {
+@media (max-width: 1279px) {
     .subpage-topbar__inner {
         grid-template-columns: minmax(0, 1fr);
         row-gap: 12px;
@@ -846,7 +846,8 @@ html[lang="ln"] .subpage-topbar__link[data-nav-current="page"] {
     --lang-button-active-border-color: rgba(127, 232, 219, 0.42);
     position: fixed;
     top: 0;
-    width: 100vw;
+    width: auto;
+    box-sizing: border-box;
     left: 0;
     right: 0;
     z-index: var(--navbar-z-index);
@@ -1735,10 +1736,17 @@ html[lang="uk"] #langUk,
 
     .navbar > .site-toolbar-controls {
         gap: 5px;
+        flex: 1 1 auto;
+        min-width: 0;
+        justify-content: flex-end;
+        overflow: hidden;
     }
 
     .navbar .theme-switch-button {
         --theme-button-size: 34px;
+        order: 2;
+        flex: 0 0 auto;
+        margin-left: 2px;
     }
 
     .navbar .theme-switch-button__icon svg {
@@ -1779,10 +1787,23 @@ html[lang="uk"] #langUk,
     }
 
     #langSwitcher {
+        order: 1;
+        flex: 1 1 auto;
+        min-width: 0;
+        max-width: 100%;
         padding: 0;
         background: transparent;
         border-color: transparent;
         gap: 3px;
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    #langSwitcher::-webkit-scrollbar {
+        display: none;
     }
 
     .lang-switch-button {
@@ -1804,6 +1825,10 @@ html[lang="uk"] #langUk,
     .mobile-nav-link {
         margin: 0 16px;
         padding: 13px 0;
+    }
+
+    .nav-brand {
+        flex: 0 0 auto;
     }
 }
 
