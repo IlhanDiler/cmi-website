@@ -239,6 +239,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
     gap: 14px;
     min-width: var(--event-badge-width);
     padding: var(--event-badge-padding);
@@ -448,6 +449,7 @@
     align-content: start;
     justify-self: stretch;
     justify-items: center;
+    box-sizing: border-box;
     width: var(--event-poster-width);
     margin: 0;
     padding: 14px;
@@ -829,6 +831,10 @@
     .event-list {
         gap: 18px;
         padding: 0 10px;
+    }
+
+    .event-poster-stage {
+        justify-self: center;
     }
 
     .event-badge {

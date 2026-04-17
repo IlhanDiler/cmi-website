@@ -36,6 +36,7 @@
 }
 
 .partner-teaser-shell {
+    box-sizing: border-box;
     padding: clamp(22px, 2.8vw, 34px);
 }
 
@@ -222,6 +223,7 @@
 .partner-teaser-card-link {
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
     min-height: 100%;
     padding: 18px;
     color: inherit;
@@ -284,7 +286,9 @@
 }
 
 .partner-mark--aog {
-    width: 198px;
+    width: 214px;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 .partner-mark--map {
@@ -325,6 +329,16 @@
     height: 92px;
     padding: 10px;
     border-radius: 22px;
+    color: rgba(var(--partner-accent-rgb, 190, 74, 71), 0.94);
+    border-color: rgba(var(--partner-accent-rgb, 190, 74, 71), 0.24);
+    font-size: 1.26rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+}
+
+:root[data-theme="dark"] .partner-mark--padova {
+    color: rgba(var(--partner-accent-rgb, 190, 74, 71), 0.96);
+    border-color: rgba(var(--partner-accent-rgb, 190, 74, 71), 0.3);
 }
 
 .partner-mark--faino {
@@ -417,6 +431,22 @@
     margin-bottom: 16px;
 }
 
+.partner-mark-group {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 8px;
+    flex: 0 0 auto;
+    min-width: 0;
+}
+
+.partner-mark-group .partner-mark {
+    flex: 0 0 auto;
+}
+
+.partner-mark-group--regional-network {
+    max-width: 100%;
+}
+
 .partner-teaser-card .partner-mark--logo {
     padding: 7px;
 }
@@ -453,10 +483,22 @@
     border-radius: 16px;
 }
 
+.partner-teaser-card .partner-mark--faino-compact {
+    width: 96px;
+    height: 38px;
+    border-radius: 12px;
+}
+
 .partner-teaser-card .partner-mark--querbeet {
     width: 60px;
     height: 98px;
     border-radius: 16px;
+}
+
+.partner-teaser-card .partner-mark--querbeet-compact {
+    width: 40px;
+    height: 66px;
+    border-radius: 12px;
 }
 
 .partner-teaser-card .partner-mark--meierott {
@@ -549,6 +591,11 @@
     border-top: 0;
 }
 
+:root[data-theme="dark"] .partners-hero__aside-copy,
+:root[data-theme="dark"] .partners-hero__list-item {
+    color: #f4fbf6;
+}
+
 :root[data-theme="dark"] .partners-hero__list-item {
     border-top-color: rgba(229, 240, 238, 0.12);
 }
@@ -571,18 +618,27 @@
 }
 
 .partners-overview + .partners-section {
-    margin-top: 8px;
+    margin-top: 14px;
+    padding-top: 18px;
 }
 
 .partners-section__head {
     max-width: 68ch;
     margin-bottom: 22px;
-    padding-top: 4px;
+    padding-top: 10px;
+}
+
+.partners-overview + .partners-section .partners-section__head {
+    padding-top: 18px;
 }
 
 .partners-section .partners-section__eyebrow {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.partners-overview + .partners-section .partners-section__eyebrow {
+    margin-bottom: 16px;
 }
 
 .partners-section .partners-section__title {
@@ -719,7 +775,9 @@
     }
 
     .partner-mark--aog {
-        width: 170px;
+        width: 182px;
+        padding-left: 8px;
+        padding-right: 8px;
     }
 
     .partner-mark--map {
@@ -783,10 +841,22 @@
         border-radius: 14px;
     }
 
+    .partner-teaser-card .partner-mark--faino-compact {
+        width: 88px;
+        height: 34px;
+        border-radius: 12px;
+    }
+
     .partner-teaser-card .partner-mark--querbeet {
         width: 54px;
         height: 88px;
         border-radius: 14px;
+    }
+
+    .partner-teaser-card .partner-mark--querbeet-compact {
+        width: 34px;
+        height: 56px;
+        border-radius: 12px;
     }
 
     .partner-teaser-card .partner-mark--meierott {

@@ -23,13 +23,13 @@
           "level": 2,
           "className": "event-title",
           "text": {
-            "de": "Kommende Konzerte & Begegnungen",
-            "en": "Upcoming Concerts & Gatherings",
-            "fr": "Prochains concerts et rencontres",
-            "ln": "Ba konser mpe bokutani oyo ezali koya",
-            "it": "Concerti e incontri in programma",
-            "tr": "Önümüzdeki konserler ve buluşmalar",
-            "uk": "Найближчі концерти та зустрічі"
+            "de": "Kommende Veranstaltungen",
+            "en": "Upcoming Events",
+            "fr": "Prochains evenements",
+            "ln": "Makambo oyo ezali koya",
+            "it": "Prossimi eventi",
+            "tr": "Önümüzdeki etkinlikler",
+            "uk": "Найближчі події"
           }
         },
         {

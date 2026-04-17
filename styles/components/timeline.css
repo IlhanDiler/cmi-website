@@ -343,6 +343,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
     min-height: 46px;
     padding: 11px 18px;
     border-radius: 999px;
