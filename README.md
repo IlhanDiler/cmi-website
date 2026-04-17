@@ -20,7 +20,7 @@ Das Frontend-JavaScript ist jetzt ebenfalls fachlich aufgeteilt:
 - [scripts/core-runtime.js](scripts/core-runtime.js) kapselt Scroll-/Load-Verhalten, Sprach-Fallback und die zentrale Runtime-Initialisierung.
 - [scripts/event-lightbox.js](scripts/event-lightbox.js) kapselt die Event-Lightbox inklusive Caption-Ableitung, Fokus-Rueckgabe und Keyboard-/Overlay-Schliessen.
 - [scripts/cookie-consent-content.js](scripts/cookie-consent-content.js) kapselt die mehrsprachige Consent-Copy und die Tabellenlabels des eingebundenen Cookie-Scripts.
-- [scripts/cookie-consent.js](scripts/cookie-consent.js) kapselt nur noch Mutation-Tracking und den Sprachsync fuer das eingebundene Cookie-Script.
+- [scripts/cookie-consent.js](scripts/cookie-consent.js) kapselt den session-aware Vendor-Loader, Mutation-Tracking, Sprachsync und das persistente Ablehnen optionaler Cookies beim Schliessen des eingebundenen Cookie-Scripts.
 - [scripts/site-language-variants.js](scripts/site-language-variants.js) kapselt Sprach-Fallbacks, `data-lang`-Variantengruppen und den `lang`-Attribut-Sync.
 - [scripts/site-language-accessibility.js](scripts/site-language-accessibility.js) kapselt Navigationslabels, Link-/Share-Labels und den statischen Accessibility-Sync.
 - [scripts/site-language.js](scripts/site-language.js) kapselt nur noch die Orchestrierung der Sprachmodule und den oeffentlichen Einstieg `setLang(...)`.

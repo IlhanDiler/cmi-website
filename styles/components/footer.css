@@ -428,8 +428,10 @@
 
     .site-footer__links {
         width: 100%;
-        justify-content: center;
-        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+        justify-content: stretch;
+        align-items: stretch;
         gap: 8px;
     }
 
@@ -442,10 +444,18 @@
 
     .site-footer__link {
         width: 100%;
-        max-width: 320px;
-        font-size: 0.94rem;
+        max-width: none;
+        min-height: 44px;
+        padding: 10px 12px;
+        font-size: 0.9rem;
         justify-content: center;
         text-align: center;
+    }
+
+    .site-footer__contact-link {
+        min-height: 44px;
+        padding: 10px 14px;
+        font-size: 0.92rem;
     }
 
     .site-footer__meta-line {
