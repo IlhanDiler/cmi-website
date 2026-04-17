@@ -339,6 +339,7 @@
 
 .music-family-section .music-family-contact-card {
     width: min(100%, 560px);
+    box-sizing: border-box;
     padding: 16px 18px;
     background: rgba(255, 255, 255, 0.98);
     border: 1px solid var(--music-family-card-border);

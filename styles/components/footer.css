@@ -181,6 +181,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
     min-height: var(--cta-min-height);
     max-width: 100%;
     padding: var(--cta-padding);

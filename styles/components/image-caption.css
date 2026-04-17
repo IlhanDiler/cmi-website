@@ -20,6 +20,7 @@
 .image-caption-copy-card,
 .image-caption-video-card {
     position: relative;
+    box-sizing: border-box;
     border-radius: var(--surface-panel-radius-large);
     overflow: hidden;
 }

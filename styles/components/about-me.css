@@ -61,6 +61,7 @@
 
 .about-me-text-modern,
 .about-me-image-modern {
+    box-sizing: border-box;
     width: 100%;
     min-width: 0;
 }

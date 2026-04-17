@@ -144,6 +144,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
     gap: 8px;
     min-height: var(--cta-min-height);
     padding: var(--cta-padding);
@@ -272,6 +273,7 @@
     --contact-card-accent: var(--color-secondary);
     display: flex;
     align-items: flex-start;
+    box-sizing: border-box;
     gap: 16px;
     height: 100%;
     padding: 22px 22px 24px;
