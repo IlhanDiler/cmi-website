@@ -957,6 +957,10 @@
             "youth";
     }
 
+    .musikalisches-repertoire-card--repertoire .repertoire-story-card {
+        min-height: 0;
+    }
+
     .musikalisches-repertoire-card--repertoire .repertoire-story-card--ensembles .repertoire-story-card-copy {
         max-width: none;
     }
