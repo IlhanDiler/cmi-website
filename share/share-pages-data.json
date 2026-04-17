@@ -1,6 +1,28 @@
 {
   "pages": [
     {
+      "filename": "kanalstart-cmi-ochsenfurt-2026.html",
+      "variant": "standard",
+      "lang": "de",
+      "locale": "de_DE",
+      "page_title": "Musik baut Brücken | CMI Ochsenfurt",
+      "description": "Seit 45 Jahren bringt das Collegium Musicum Iuvenale Ochsenfurt Menschen durch die Kraft der Musik zusammen. Der Startbeitrag gibt einen ersten Überblick über Ensemble, Projekte und kommende Termine.",
+      "og_image": "https://www.cmi-ochsenfurt.de/bilder/gruppemitflagge.jpg",
+      "og_image_alt": "Gruppenbild des Collegium Musicum Iuvenale Ochsenfurt",
+      "og_url": "https://www.cmi-ochsenfurt.de/share/kanalstart-cmi-ochsenfurt-2026.html",
+      "canonical_url": "https://www.cmi-ochsenfurt.de/share/kanalstart-cmi-ochsenfurt-2026.html",
+      "redirect_url": "https://www.cmi-ochsenfurt.de/",
+      "hero_src": "https://www.cmi-ochsenfurt.de/bilder/gruppemitflagge.jpg",
+      "hero_alt": "Gruppenbild des Collegium Musicum Iuvenale Ochsenfurt",
+      "eyebrow": "Collegium Musicum Iuvenale Ochsenfurt",
+      "title": "Musik baut Brücken | CMI Ochsenfurt",
+      "meta": "19. April 2026 · CMI Ochsenfurt · Musik baut Brücken",
+      "text_html": "Seit 45 Jahren bringt das Collegium Musicum Iuvenale Ochsenfurt Menschen durch die Kraft der Musik zusammen. Der Startbeitrag zeigt, wofür CMI steht: gemeinsames Musizieren, Benefizprojekte, internationale Freundschaften und kommende Termine in Ochsenfurt und der Region.",
+      "button_href": "https://www.cmi-ochsenfurt.de/",
+      "button_label": "Zur Website",
+      "hint": "Automatische Weiterleitung in 2 Sekunden."
+    },
+    {
       "filename": "internationales-galakonzert-ochsenfurt-2026.html",
       "variant": "standard",
       "lang": "tr",
