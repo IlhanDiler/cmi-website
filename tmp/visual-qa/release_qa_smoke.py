@@ -14,6 +14,7 @@ BASE_URL = os.environ.get("QA_BASE_URL", "http://127.0.0.1:8123")
 OUT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = OUT_DIR.parent.parent
 SHARE_DIR = PROJECT_ROOT / "share"
+SHARE_DATA_PATH = SHARE_DIR / "share-pages-data.json"
 SHARE_MANIFEST_PATH = SHARE_DIR / "share-pages.json"
 INSTAGRAM_EXPORT_SCRIPT_PATH = SHARE_DIR / "instagram-export.js"
 RESULT_PATH = OUT_DIR / "release-qa-results.json"
@@ -70,6 +71,42 @@ def add_issue(issues, severity, area, message):
     )
 
 
+def load_canonical_share_pages(issues):
+    if not SHARE_DATA_PATH.is_file():
+        add_issue(issues, "high", "release-files", f"Missing share data source: {SHARE_DATA_PATH.relative_to(PROJECT_ROOT)}")
+        return None
+
+    try:
+        data = json.loads(SHARE_DATA_PATH.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        add_issue(issues, "high", "release-files", f"Invalid share data JSON: {error}")
+        return None
+
+    entries = data.get("pages")
+    if not isinstance(entries, list):
+        add_issue(issues, "high", "release-files", "share/share-pages-data.json must expose a 'pages' array")
+        return None
+
+    filenames = []
+
+    for entry in entries:
+        if not isinstance(entry, dict):
+            add_issue(issues, "high", "release-files", "share/share-pages-data.json contains a non-object page entry")
+            return None
+
+        filename = entry.get("filename")
+        if not isinstance(filename, str) or not filename.endswith(".html"):
+            add_issue(issues, "high", "release-files", "share/share-pages-data.json contains a page without a valid HTML filename")
+            return None
+
+        filenames.append(filename)
+
+    if len(filenames) != len(set(filenames)):
+        add_issue(issues, "medium", "release-files", "share/share-pages-data.json contains duplicate filenames")
+
+    return filenames
+
+
 def load_share_manifest(issues):
     if not SHARE_MANIFEST_PATH.is_file():
         add_issue(issues, "high", "release-files", f"Missing share manifest: {SHARE_MANIFEST_PATH.relative_to(PROJECT_ROOT)}")
@@ -123,30 +160,66 @@ def validate_release_files(issues):
         if "Sitemap:" not in robots_text:
             add_issue(issues, "medium", "release-files", "robots.txt does not declare a sitemap")
 
+    canonical_pages = load_canonical_share_pages(issues)
     manifest_pages = load_share_manifest(issues)
     fallback_pages = load_instagram_export_fallback_pages(issues)
 
-    share_page_files = sorted(
-        path.name for path in SHARE_DIR.glob("*.html") if path.name != "instagram-export.html"
-    )
-
-    if manifest_pages is not None:
-        missing_share_files = sorted(page for page in manifest_pages if not (SHARE_DIR / page).is_file())
+    if canonical_pages is not None:
+        missing_share_files = sorted(page for page in canonical_pages if not (SHARE_DIR / page).is_file())
         if missing_share_files:
             add_issue(
                 issues,
                 "high",
                 "release-files",
-                f"Manifest entries without matching share file: {', '.join(missing_share_files)}",
+                f"Share pages declared in share/share-pages-data.json are missing generated HTML files: {', '.join(missing_share_files)}",
             )
 
-        unlisted_share_files = sorted(set(share_page_files) - set(manifest_pages))
-        if unlisted_share_files:
+    if canonical_pages is not None and manifest_pages is not None and manifest_pages != canonical_pages:
+        missing_manifest_entries = [page for page in canonical_pages if page not in manifest_pages]
+        unexpected_manifest_entries = [page for page in manifest_pages if page not in canonical_pages]
+        manifest_drift = []
+
+        if missing_manifest_entries:
+            manifest_drift.append(f"missing: {', '.join(missing_manifest_entries)}")
+
+        if unexpected_manifest_entries:
+            manifest_drift.append(f"unexpected: {', '.join(unexpected_manifest_entries)}")
+
+        add_issue(
+            issues,
+            "medium",
+            "release-files",
+            "share/share-pages.json is out of sync with share/share-pages-data.json"
+            + (f" ({'; '.join(manifest_drift)})" if manifest_drift else ""),
+        )
+
+    if canonical_pages is not None and fallback_pages is not None and fallback_pages != canonical_pages:
+        missing_fallback_entries = [page for page in canonical_pages if page not in fallback_pages]
+        unexpected_fallback_entries = [page for page in fallback_pages if page not in canonical_pages]
+        fallback_drift = []
+
+        if missing_fallback_entries:
+            fallback_drift.append(f"missing: {', '.join(missing_fallback_entries)}")
+
+        if unexpected_fallback_entries:
+            fallback_drift.append(f"unexpected: {', '.join(unexpected_fallback_entries)}")
+
+        add_issue(
+            issues,
+            "medium",
+            "release-files",
+            "FALLBACK_SHARE_PAGES in share/instagram-export.js is out of sync with share/share-pages-data.json"
+            + (f" ({'; '.join(fallback_drift)})" if fallback_drift else ""),
+        )
+
+    if manifest_pages is not None:
+        missing_manifest_files = sorted(page for page in manifest_pages if not (SHARE_DIR / page).is_file())
+        if missing_manifest_files:
             add_issue(
                 issues,
-                "medium",
+                "high",
                 "release-files",
-                f"Share HTML files missing from share/share-pages.json: {', '.join(unlisted_share_files)}",
+                f"Manifest entries without matching share file: {', '.join(missing_manifest_files)}",
             )
 
     if manifest_pages is not None and fallback_pages is not None and manifest_pages != fallback_pages:
@@ -422,7 +495,7 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
         )
 
     visible_event_title = await first_visible_text(page, ".event-title[data-lang]")
-    if visible_event_title != "Upcoming Concerts & Gatherings":
+    if visible_event_title != "Upcoming Events":
         add_issue(
             issues,
             "medium",
