@@ -1206,6 +1206,11 @@ html body *:active::after {
         color: #315159 !important;
     }
 
+    html[data-theme="dark"] body .review-archive-intro__copy {
+        color: #eef7f5 !important;
+        font-weight: 560 !important;
+    }
+
     html body .music-family-highlight-copy,
     html body .review-overview-highlight-copy,
     html body .charity-projects-section[id^="review-"] .charity-description,

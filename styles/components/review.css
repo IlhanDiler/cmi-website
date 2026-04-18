@@ -3425,6 +3425,35 @@
     --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.32);
 }
 
+@media (min-width: 701px) and (max-width: 1199px) {
+    :root[data-theme="dark"] .review-archive-intro__inner {
+        background: rgba(var(--theme-dark-brand-muted-rgb), 0.98);
+        border-color: rgba(var(--color-secondary-rgb), 0.24);
+    }
+
+    :root[data-theme="dark"] .review-archive-intro__eyebrow {
+        color: rgba(233, 244, 241, 0.78);
+    }
+
+    :root[data-theme="dark"] .review-archive-intro__title {
+        color: #f7fbfa;
+    }
+
+    :root[data-theme="dark"] .review-archive-intro__copy {
+        color: #eef7f5;
+        font-weight: 560;
+    }
+
+    :root[data-theme="dark"] .review-archive-toggle {
+        --cta-bg: rgba(var(--theme-dark-brand-surface-rgb), 0.74);
+        --cta-bg-hover: rgba(var(--theme-dark-brand-surface-rgb), 0.9);
+        --cta-color: #f7fbfa;
+        --cta-color-hover: #ffffff;
+        --cta-border-color: rgba(var(--color-secondary-rgb), 0.28);
+        --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.36);
+    }
+}
+
 :root[data-theme="dark"] .charity-projects-section {
     --charity-title-color: var(--theme-text-primary);
     --charity-meta-color: #9fe7de;
