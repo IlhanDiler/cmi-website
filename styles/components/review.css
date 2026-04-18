@@ -654,7 +654,7 @@
 
 @media (min-width: 1180px) {
     .news-feed-section {
-        --news-feed-shell-width: min(1360px, calc(100% - (var(--desktop-content-side-gap) * 2)));
+        --news-feed-shell-width: var(--layout-shell-width-wide);
         --news-feed-shell-padding: 0;
         --news-feed-header-gap: clamp(30px, 4vw, 48px);
         --news-feed-grid-gap: clamp(22px, 1.8vw, 28px);
@@ -1661,7 +1661,7 @@
     .review-overview-section {
         --review-overview-section-bg: var(--theme-bg-muted);
         --review-overview-section-padding: 78px 0 26px;
-        --review-overview-shell-width: min(1360px, calc(100% - (var(--desktop-content-side-gap) * 2)));
+        --review-overview-shell-width: var(--layout-shell-width-wide);
         --review-overview-shell-padding: 0;
         --review-overview-shell-columns: minmax(0, 1fr) minmax(360px, 0.86fr);
         --review-overview-shell-gap: clamp(34px, 4vw, 56px);
@@ -1779,7 +1779,7 @@
     }
 
     .review-archive-intro__inner {
-        width: min(1240px, calc(100% - (var(--desktop-content-side-gap) * 2)));
+        width: var(--layout-shell-width-feature);
         padding: 34px 34px 30px;
         border-radius: var(--review-panel-radius-large);
         border-color: var(--review-panel-border);
@@ -1818,7 +1818,7 @@
     }
 
     .review-archive::before {
-        width: min(1240px, calc(100% - (var(--desktop-content-side-gap) * 2)));
+        width: var(--layout-shell-width-feature);
     }
 
     .review-archive-toggle {
@@ -1843,7 +1843,7 @@
     .review-featured .charity-projects-container,
     .review-archive .charity-projects-section[id^="review-"] .charity-projects-container,
     .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container {
-        width: min(1240px, calc(100% - (var(--desktop-content-side-gap) * 2)));
+        width: var(--layout-shell-width-feature);
         padding: 26px 34px 30px;
         border-radius: var(--review-panel-radius-large);
         background: var(--review-panel-surface-strong);
