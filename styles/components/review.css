@@ -429,6 +429,21 @@
     padding: 14px 0 0;
 }
 
+.news-feed-card-media:not(.news-feed-card-media--portrait) {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.news-feed-card-media:not(.news-feed-card-media--portrait) .news-feed-card-image,
+.news-feed-card-media:not(.news-feed-card-media--portrait) .news-feed-card-image--contain,
+.news-feed-card-media--full-image .news-feed-card-image--backdrop {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    clip-path: inset(0 round var(--review-panel-radius) var(--review-panel-radius) 0 0);
+}
+
 .news-feed-card-image {
     position: relative;
     z-index: 1;
@@ -1145,6 +1160,13 @@
     box-shadow: none;
 }
 
+@media (min-width: 901px) {
+    #review-benefiz-trommelworkshop-2026 .review-benefit-workshop-media {
+        align-self: flex-start;
+        margin-top: clamp(20px, 1.8vw, 30px);
+    }
+}
+
 #review-benefiz-trommelworkshop-2026 .review-benefit-workshop-media > .review-media-image-card {
     border-radius: 24px;
     overflow: hidden;
@@ -1290,6 +1312,20 @@
 
 #review-nikolausfeier-2025 .review-inline-media--nikolaus .review-media-image-shell--nikolaus {
     width: 100%;
+}
+
+#review-nikolausfeier-2025 .review-media-image-shell--nikolaus,
+#review-nikolausfeier-2025 .gruppenbild-container > .review-media-image-shell--nikolaus,
+#review-nikolausfeier-2025 .review-inline-media--nikolaus .review-media-image-shell--nikolaus {
+    border-radius: var(--review-nikolaus-image-radius);
+    overflow: hidden;
+    clip-path: inset(0 round var(--review-nikolaus-image-radius));
+}
+
+#review-nikolausfeier-2025 .gruppenbild-img-nikolaus,
+#review-nikolausfeier-2025 .review-inline-media--nikolaus .review-media-image-card {
+    border-radius: var(--review-nikolaus-image-radius);
+    clip-path: inset(0 round var(--review-nikolaus-image-radius));
 }
 
 #review-nikolausfeier-2025 .charity-flex-row > .gruppenbild-container > div {
@@ -1525,10 +1561,14 @@
         flex: 0 0 auto;
     }
 
+    #review-nikolausfeier-2025 .charity-flex-left {
+        flex: 0 0 auto;
+    }
+
     #review-nikolausfeier-2025 {
         --review-nikolaus-media-width: min(66%, 420px);
-        --review-nikolaus-media-flex: 1 1 auto;
-        --review-nikolaus-media-margin-top: 18px;
+        --review-nikolaus-media-flex: 0 0 auto;
+        --review-nikolaus-media-margin-top: 10px;
     }
 }
 
@@ -1568,10 +1608,26 @@
     }
 
     #review-nikolausfeier-2025 {
-        --review-nikolaus-media-width: min(100%, 300px);
-        --review-nikolaus-media-margin-top: 12px;
-        --review-nikolaus-image-max-width: min(100%, 300px);
-        --review-nikolaus-image-max-height: 280px;
+        --review-nikolaus-media-width: min(100%, 340px);
+        --review-nikolaus-media-margin-top: 6px;
+        --review-nikolaus-image-max-width: min(100%, 340px);
+        --review-nikolaus-image-max-height: none;
+    }
+
+    #review-nikolausfeier-2025 .charity-flex-row > .gruppenbild-container {
+        width: min(100%, 340px);
+        max-width: 100%;
+        min-width: 0;
+        margin-inline: auto;
+    }
+
+    #review-nikolausfeier-2025 .gruppenbild-img-nikolaus,
+    #review-nikolausfeier-2025 .review-inline-media--nikolaus .review-media-image-card {
+        width: 100%;
+        max-width: 100%;
+        max-height: none;
+        height: auto;
+        object-fit: contain;
     }
 }
 
@@ -1933,6 +1989,10 @@
     background: var(--review-panel-surface-strong);
     border-color: var(--review-panel-border);
     box-shadow: var(--review-panel-shadow);
+}
+
+.review-overview-section + #review-masterclass-florian-meierott .charity-projects-container {
+    margin-top: clamp(10px, 1.6vw, 18px);
 }
 
 .review-featured .charity-projects-container:hover,
@@ -2836,6 +2896,22 @@
         --review-overview-highlights-gap: 14px;
     }
 
+    .review-overview-shell,
+    .review-overview-copy,
+    .review-overview-highlights,
+    .review-overview-highlight,
+    .review-overview-media,
+    .review-overview-image {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .review-overview-highlights {
+        align-content: start;
+    }
+
     .review-overview-title {
         font-size: clamp(1.74rem, 6.8vw, 2.02rem);
     }
@@ -2852,8 +2928,15 @@
     }
 
     .review-overview-highlight {
+        min-height: 0;
         padding: 16px 14px 14px 18px;
         border-radius: 18px;
+    }
+
+    .review-overview-highlight-title,
+    .review-overview-highlight-copy {
+        max-width: 100%;
+        overflow-wrap: break-word;
     }
 
     .review-overview-image {
@@ -3205,8 +3288,8 @@
     --review-soft-grid: none;
     --review-sheen: none;
     --review-fade-surface: var(--theme-surface-panel);
-    --review-meta-bg: rgba(255, 255, 255, 0.08);
-    --review-meta-border: rgba(var(--color-secondary-rgb), 0.24);
+    --review-meta-bg: rgba(var(--theme-dark-brand-surface-rgb), 0.88);
+    --review-meta-border: rgba(var(--color-secondary-rgb), 0.34);
 }
 
 :root[data-theme="dark"] .review-overview-section {
@@ -3227,13 +3310,18 @@
 
 :root[data-theme="dark"] .review-overview-kicker,
 :root[data-theme="dark"] .review-archive-intro__eyebrow,
-:root[data-theme="dark"] .charity-projects-section[id^="review-"] .charity-meta,
 :root[data-theme="dark"] .news-feed-kicker,
 :root[data-theme="dark"] .news-feed-card-date,
 :root[data-theme="dark"] .review-media-caption,
 :root[data-theme="dark"] .review-featured .masterclass-flex__credit,
 :root[data-theme="dark"] .review-return-link {
     color: #c9ddda;
+}
+
+:root[data-theme="dark"] .charity-projects-section[id^="review-"] .charity-meta {
+    color: #f3fbf9;
+    background: var(--review-meta-bg);
+    border-color: var(--review-meta-border);
 }
 
 :root[data-theme="dark"] .review-overview-title,
