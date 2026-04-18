@@ -533,6 +533,15 @@
     }
 }
 
+@media (min-width: 821px) and (max-width: 1199px) {
+    .music-family-section .music-family-container {
+        width: var(--layout-shell-width-relaxed);
+        max-width: 100%;
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+}
+
 @media (min-width: 1025px) {
     .music-family-section .music-family-group-facts {
         grid-template-columns: minmax(0, 1.52fr) minmax(0, 0.9fr) minmax(0, 0.78fr);

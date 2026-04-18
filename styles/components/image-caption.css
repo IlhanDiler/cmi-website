@@ -376,6 +376,15 @@ html body .image-caption-copy {
     }
 }
 
+@media (min-width: 821px) and (max-width: 1199px) {
+    .image-caption-shell {
+        width: var(--layout-shell-width-relaxed);
+        max-width: 100%;
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+}
+
 @media (max-width: 980px) {
     .image-caption-shell {
         grid-template-columns: 1fr;
