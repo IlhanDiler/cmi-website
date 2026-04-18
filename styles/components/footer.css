@@ -54,7 +54,8 @@
 .site-footer__brand {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     gap: 10px;
     margin-bottom: 0;
 }
@@ -63,6 +64,7 @@
     display: block;
     width: auto;
     height: 52px;
+    transform: translateX(0);
 }
 
 .site-footer__title {
@@ -83,6 +85,11 @@
     line-height: var(--premium-body-line-height);
     letter-spacing: var(--premium-body-letter-spacing);
     text-wrap: pretty;
+}
+
+.site-footer__title,
+.site-footer__subtitle {
+    margin-inline: auto;
 }
 
 .site-footer__links {

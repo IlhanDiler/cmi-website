@@ -83,8 +83,10 @@
 
 .review-overview-shell {
     width: var(--review-overview-shell-width);
+    max-width: 100%;
     margin: 0 auto;
     padding: var(--review-overview-shell-padding);
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: var(--review-overview-shell-columns);
     gap: var(--review-overview-shell-gap);
@@ -4115,10 +4117,10 @@
 
 @media (max-width: 700px) {
     .review-overview-section {
-        --review-overview-shell-width: min(100%, calc(100% - 16px));
-        --review-overview-shell-padding: 0 6px;
-        --review-overview-shell-gap: 12px;
-        --review-overview-copy-padding: 18px 15px 15px;
+        --review-overview-shell-width: 100%;
+        --review-overview-shell-padding: 0 clamp(12px, 4vw, 16px);
+        --review-overview-shell-gap: 18px;
+        --review-overview-copy-padding: 18px 16px 15px;
         --review-overview-highlights-gap: 12px;
         --review-overview-highlights-margin-top: 16px;
     }
@@ -4161,13 +4163,18 @@
         font-size: 0.94rem;
         line-height: 1.54;
     }
+
+    .review-overview-media {
+        margin-top: 2px;
+    }
 }
 
 @media (max-width: 390px) {
     .review-overview-section {
-        --review-overview-shell-width: min(100%, calc(100% - 12px));
-        --review-overview-shell-padding: 0 4px;
-        --review-overview-copy-padding: 16px 13px 14px;
+        --review-overview-shell-width: 100%;
+        --review-overview-shell-padding: 0 12px;
+        --review-overview-shell-gap: 16px;
+        --review-overview-copy-padding: 16px 14px 14px;
     }
 
     .review-overview-title {
@@ -4182,5 +4189,234 @@
 
     .review-overview-highlight-title {
         font-size: clamp(0.94rem, 4.4vw, 1.04rem);
+    }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+    .news-feed-section {
+        --news-feed-grid-gap: 20px;
+    }
+
+    .news-feed-shell {
+        width: min(1120px, calc(100% - 48px));
+        padding: 0 24px;
+        box-sizing: border-box;
+    }
+
+    .news-feed-card-media {
+        min-height: clamp(244px, 31vw, 300px);
+    }
+
+    .news-feed-card-media--portrait {
+        min-height: clamp(274px, 35vw, 330px);
+        padding-top: 10px;
+    }
+
+    .news-feed-card-media--portrait .news-feed-card-image--contain {
+        max-width: min(100%, 210px);
+        max-height: clamp(274px, 35vw, 330px);
+    }
+
+    .review-overview-media {
+        max-width: 520px;
+    }
+
+    .charity-projects-section[id^="review-"] {
+        --review-container-width: min(calc(100% - 48px), 780px);
+        --review-container-padding: 24px 26px 22px;
+        --review-flex-gap: 20px;
+        --review-media-mobile-margin-top: 8px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-block {
+        --review-media-narrow-width: 100%;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        align-self: stretch;
+        margin-inline: 0;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container.review-media-block--top-28,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container.review-media-block--top-88,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container.review-media-block--top-128 {
+        margin-top: clamp(6px, 1.6vw, 12px);
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-image-card--narrow,
+    .review-archive .charity-projects-section[id^="review-"] .review-media-caption--narrow {
+        max-width: 100%;
+    }
+
+    .review-featured .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-featured .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .charity-projects-section[id^="review-"] .review-media-image-card {
+        width: 100%;
+        max-width: 100%;
+        max-height: min(52vh, 430px);
+        object-fit: contain;
+        object-position: center top;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-block .review-media-image-card,
+    .review-archive .charity-projects-section[id^="review-"] .review-media-block img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-block .review-media-image-card,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-block img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right img:not(.gruppenbild-img-nikolaus) {
+        max-height: none;
+        height: auto;
+    }
+
+    #review-benefiz-trommelworkshop-2026 .review-benefit-workshop-media {
+        flex: 1 1 100%;
+        width: min(100%, 560px);
+        max-width: min(100%, 560px);
+        min-width: 0;
+        margin: 2px auto 0;
+        align-self: center;
+        gap: 18px;
+    }
+
+    #review-benefiz-trommelworkshop-2026 .review-donation-card {
+        width: 100%;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-left,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-left {
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+        padding-right: 0;
+        box-sizing: border-box;
+    }
+
+    .charity-projects-section[id^="review-"] .review-media-block {
+        --review-media-narrow-width: 100%;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container.review-media-block,
+    .charity-projects-section[id^="review-"] .charity-flex-right.review-media-block,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right {
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+        align-self: stretch;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container.review-media-block--top-28,
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container.review-media-block--top-88,
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container.review-media-block--top-128,
+    .charity-projects-section[id^="review-"] .charity-flex-right.review-media-block--top-28,
+    .charity-projects-section[id^="review-"] .charity-flex-right.review-media-block--top-88,
+    .charity-projects-section[id^="review-"] .charity-flex-right.review-media-block--top-128 {
+        margin-top: 10px;
+    }
+
+    .charity-projects-section[id^="review-"] .review-media-image-card--narrow,
+    .charity-projects-section[id^="review-"] .review-media-caption--narrow {
+        max-width: 100%;
+    }
+
+    .charity-projects-section[id^="review-"] .review-media-block .review-media-image-card,
+    .charity-projects-section[id^="review-"] .review-media-block img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .review-media-image-card,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-image-card,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right img:not(.gruppenbild-img-nikolaus) {
+        width: 100%;
+        max-width: 100%;
+        max-height: none;
+        height: auto;
+        object-fit: contain;
+        object-position: center top;
+        display: block;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1200px) {
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 18px !important;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-left,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-left,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container {
+        flex: 1 1 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding-right: 0 !important;
+        box-sizing: border-box !important;
+        align-self: stretch !important;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-block,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-block {
+        --review-media-narrow-width: 100%;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        margin: 10px 0 0 !important;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-image-card,
+    .review-archive .charity-projects-section[id^="review-"] .review-media-image-card--narrow,
+    .review-archive .charity-projects-section[id^="review-"] .review-media-block img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-image-card,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-image-card--narrow,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-block img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right img:not(.gruppenbild-img-nikolaus) {
+        display: block !important;
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        height: auto !important;
+        max-height: none !important;
+        margin: 0 !important;
+        object-fit: contain !important;
+        object-position: center top !important;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-caption,
+    .review-archive .charity-projects-section[id^="review-"] .review-media-caption--narrow,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-caption,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-caption--narrow {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 10px 0 0 !important;
+        text-align: center !important;
     }
 }
