@@ -371,16 +371,16 @@
 
     .about-me-section-modern-inner {
         grid-template-columns: 1fr;
-        --about-me-inner-width: min(100%, calc(100% - 20px));
-        --about-me-inner-max-width: min(100%, calc(100% - 20px));
-        --about-me-inner-padding: 0;
-        --about-me-inner-gap: 10px;
+        --about-me-inner-width: 100%;
+        --about-me-inner-max-width: 100%;
+        --about-me-inner-padding: 0 clamp(12px, 4vw, 16px);
+        --about-me-inner-gap: 12px;
     }
 
     .about-me-text-modern,
     .about-me-image-modern {
         width: 100%;
-        max-width: 720px;
+        max-width: 100%;
         margin: 0 auto;
     }
 
@@ -388,7 +388,7 @@
         display: flex;
         flex-direction: column;
         background: var(--about-me-panel-bg);
-        --about-me-text-padding: 16px 14px 14px;
+        --about-me-text-padding: 16px 16px 15px;
         border-radius: 16px;
         box-shadow: none;
     }
@@ -450,12 +450,13 @@
 
 @media (max-width: 390px) {
     .about-me-section-modern-inner {
-        --about-me-inner-width: min(100%, calc(100% - 16px));
-        --about-me-inner-max-width: min(100%, calc(100% - 16px));
+        --about-me-inner-width: 100%;
+        --about-me-inner-max-width: 100%;
+        --about-me-inner-padding: 0 12px;
     }
 
     .about-me-text-modern {
-        --about-me-text-padding: 15px 13px 13px;
+        --about-me-text-padding: 15px 14px 13px;
     }
 
     .about-me-modern-title {

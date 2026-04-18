@@ -274,6 +274,17 @@
     text-wrap: pretty;
 }
 
+.music-family-group:first-child .music-family-group-lead[data-lang="de"] {
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    text-wrap: auto;
+}
+
 .music-family-section .music-family-group-facts {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
