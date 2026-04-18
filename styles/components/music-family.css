@@ -142,6 +142,15 @@
     text-wrap: pretty;
 }
 
+.music-family-section .music-family-desc,
+.music-family-section .music-family-highlight-copy,
+.music-family-section .music-family-benefits li,
+.music-family-group-lead,
+.music-family-group-details li {
+    text-align: left !important;
+    text-justify: auto !important;
+}
+
 .music-family-section .music-family-benefits-row {
     --music-family-benefits-gap: 24px;
     --music-family-benefits-margin-bottom: 38px;
@@ -559,25 +568,27 @@
 
     .music-family-section .music-family-container {
         width: min(100%, calc(100% - 24px));
+        max-width: 100%;
         padding: 0 12px;
+        box-sizing: border-box;
     }
 
     .music-family-section .music-family-title {
         max-width: 100%;
         margin-bottom: 12px !important;
-        font-size: clamp(1.38rem, 6vw, 1.64rem) !important;
-        line-height: 1.14 !important;
+        font-size: clamp(1.32rem, 5.8vw, 1.56rem) !important;
+        line-height: 1.12 !important;
         letter-spacing: -0.022em !important;
     }
 
     .music-family-section .music-family-intro {
-        max-width: 34ch;
+        max-width: none;
         margin-bottom: 18px;
     }
 
     .music-family-section .music-family-desc {
-        font-size: 1rem !important;
-        line-height: 1.64 !important;
+        font-size: 0.98rem !important;
+        line-height: 1.6 !important;
     }
 
     .music-family-section .music-family-highlights {
@@ -593,14 +604,15 @@
 
     .music-family-section .music-family-highlight-title,
     .music-family-section .music-family-contact-title {
-        font-size: var(--premium-card-title-mobile-size) !important;
-        line-height: var(--premium-card-title-line-height) !important;
+        font-size: clamp(1.04rem, 4.9vw, 1.18rem) !important;
+        line-height: 1.18 !important;
     }
 
     .music-family-section .music-family-highlight-copy {
-        font-size: 1rem !important;
-        line-height: 1.62 !important;
-        text-align: left;
+        font-size: 0.97rem !important;
+        line-height: 1.58 !important;
+        text-align: left !important;
+        text-justify: auto !important;
         text-wrap: pretty;
     }
 
@@ -686,5 +698,30 @@
     .music-family-section .music-family-contact-link {
         font-size: 1rem !important;
         line-height: 1.62 !important;
+    }
+}
+
+@media (max-width: 390px) {
+    .music-family-section .music-family-container {
+        width: min(100%, calc(100% - 20px));
+        padding: 0 10px;
+    }
+
+    .music-family-section .music-family-title {
+        font-size: clamp(1.24rem, 5.5vw, 1.42rem) !important;
+    }
+
+    .music-family-section .music-family-highlight-card {
+        padding: 15px 14px 14px !important;
+    }
+
+    .music-family-section .music-family-desc,
+    .music-family-section .music-family-highlight-copy,
+    .music-family-section .music-family-benefits li,
+    .music-family-group-lead,
+    .music-family-group-details li,
+    .music-family-section .music-family-contact-link {
+        font-size: 0.95rem !important;
+        line-height: 1.56 !important;
     }
 }

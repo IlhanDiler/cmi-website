@@ -223,6 +223,12 @@
     text-wrap: pretty;
 }
 
+.review-overview-copy .review-overview-intro,
+.review-overview-highlight .review-overview-highlight-copy {
+    text-align: left !important;
+    text-justify: auto !important;
+}
+
 .review-overview-image {
     width: 100%;
     max-width: none;
@@ -3964,7 +3970,7 @@
     --review-panel-border: rgba(229, 240, 238, 0.22);
 }
 
-/* Align Rueckblick typography with the Events section scale. */
+/* Align Rueckblick typography with the Partner page rhythm. */
 .review-overview-kicker,
 .news-feed-kicker,
 .review-archive-intro__eyebrow,
@@ -3978,34 +3984,41 @@
 }
 
 .review-overview-title,
-.news-feed-title,
+.news-feed-title {
+    font-family: var(--font-ui-modern);
+    font-size: clamp(1.92rem, 3.1vw, 2.56rem);
+    font-weight: 600;
+    line-height: var(--premium-title-line-height);
+    letter-spacing: var(--premium-title-letter-spacing);
+}
+
 .review-featured .charity-title,
 .review-archive .charity-projects-section[id^="review-"] .charity-title {
     font-family: var(--font-ui-modern);
-    font-size: var(--premium-title-size);
-    font-weight: 580;
-    line-height: var(--premium-title-line-height);
-    letter-spacing: var(--premium-title-letter-spacing);
+    font-size: clamp(1.22rem, 1.08rem + 0.52vw, 1.5rem);
+    font-weight: 650;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
 }
 
 .review-overview-intro,
 .news-feed-intro,
 .review-archive-intro__copy {
     font-family: var(--font-ui-modern);
-    font-size: var(--premium-lead-size);
-    font-weight: 560;
-    line-height: var(--premium-lead-line-height);
-    letter-spacing: var(--premium-lead-letter-spacing);
+    font-size: var(--premium-body-size);
+    font-weight: 500;
+    line-height: var(--premium-body-line-height);
+    letter-spacing: var(--premium-body-letter-spacing);
 }
 
 .review-overview-highlight-title,
 .news-feed-card-title,
 .review-archive-intro__title {
     font-family: var(--font-ui-modern);
-    font-size: var(--premium-card-title-size);
-    font-weight: 600;
-    line-height: var(--premium-card-title-line-height);
-    letter-spacing: var(--premium-card-title-letter-spacing);
+    font-size: clamp(1.08rem, 1rem + 0.45vw, 1.3rem);
+    font-weight: 650;
+    line-height: 1.24;
+    letter-spacing: -0.02em;
 }
 
 .review-overview-highlight-copy,
@@ -4015,25 +4028,30 @@
     font-family: var(--font-ui-modern);
     font-size: var(--premium-body-size);
     font-weight: 500;
-    line-height: 1.64;
+    line-height: var(--premium-body-line-height);
     letter-spacing: var(--premium-body-letter-spacing);
 }
 
 @media (min-width: 1180px) {
     .review-overview-title,
-    .news-feed-title,
+    .news-feed-title {
+        font-size: clamp(1.92rem, 3.1vw, 2.56rem);
+        line-height: var(--premium-title-line-height);
+        letter-spacing: var(--premium-title-letter-spacing);
+    }
+
     .review-featured .charity-title,
     .review-archive .charity-projects-section[id^="review-"] .charity-title {
-        font-size: clamp(2.12rem, 2.85vw, 3.02rem);
-        line-height: 1.01;
-        letter-spacing: -0.046em;
+        font-size: clamp(1.22rem, 1.08rem + 0.52vw, 1.5rem);
+        line-height: 1.18;
+        letter-spacing: -0.02em;
     }
 
     .review-overview-intro,
     .news-feed-intro,
     .review-archive-intro__copy {
-        font-size: 1.02rem;
-        line-height: 1.66;
+        font-size: var(--premium-body-size);
+        line-height: var(--premium-body-line-height);
     }
 }
 
@@ -4059,33 +4077,110 @@
     }
 
     .review-overview-title,
-    .news-feed-title,
+    .news-feed-title {
+        font-size: var(--premium-title-mobile-size);
+        line-height: var(--premium-title-line-height);
+        letter-spacing: var(--premium-title-letter-spacing);
+    }
+
     .review-featured .charity-title,
     .review-archive .charity-projects-section[id^="review-"] .charity-title {
-        font-size: clamp(1.38rem, 6vw, 1.64rem);
-        line-height: 1.14;
-        letter-spacing: -0.022em;
+        font-size: clamp(1.14rem, 5vw, 1.34rem);
+        line-height: 1.18;
+        letter-spacing: -0.02em;
     }
 
     .review-overview-intro,
     .news-feed-intro,
     .review-archive-intro__copy {
-        font-size: 1rem;
-        line-height: 1.64;
+        font-size: var(--premium-body-mobile-size);
+        line-height: var(--premium-body-mobile-line-height);
     }
 
     .review-overview-highlight-title,
     .news-feed-card-title,
     .review-archive-intro__title {
-        font-size: var(--premium-card-title-mobile-size);
-        line-height: var(--premium-card-title-line-height);
+        font-size: clamp(1rem, 4.6vw, 1.14rem);
+        line-height: 1.22;
     }
 
     .review-overview-highlight-copy,
     .news-feed-card-copy,
     .review-featured .charity-description,
     .review-archive .charity-projects-section[id^="review-"] .charity-description {
-        font-size: 1rem;
-        line-height: 1.62;
+        font-size: var(--premium-body-mobile-size);
+        line-height: var(--premium-body-mobile-line-height);
+    }
+}
+
+@media (max-width: 700px) {
+    .review-overview-section {
+        --review-overview-shell-width: min(100%, calc(100% - 16px));
+        --review-overview-shell-padding: 0 6px;
+        --review-overview-shell-gap: 12px;
+        --review-overview-copy-padding: 18px 15px 15px;
+        --review-overview-highlights-gap: 12px;
+        --review-overview-highlights-margin-top: 16px;
+    }
+
+    .review-overview-kicker {
+        font-size: 0.72rem;
+        line-height: 1.26;
+        letter-spacing: 0.1em;
+    }
+
+    .review-overview-title {
+        margin: 8px 0 10px;
+        font-size: clamp(1.26rem, 5.6vw, 1.5rem);
+        line-height: 1.1;
+        letter-spacing: -0.024em;
+    }
+
+    .review-overview-intro {
+        font-size: 0.95rem;
+        line-height: 1.56;
+    }
+
+    .review-overview-highlight {
+        padding: 14px 13px 13px 16px;
+        border-radius: 16px;
+    }
+
+    .review-overview-highlight::before {
+        top: 16px;
+        bottom: 16px;
+        left: 10px;
+    }
+
+    .review-overview-highlight-title {
+        font-size: clamp(0.98rem, 4.7vw, 1.12rem);
+        line-height: 1.18;
+    }
+
+    .review-overview-highlight-copy {
+        font-size: 0.94rem;
+        line-height: 1.54;
+    }
+}
+
+@media (max-width: 390px) {
+    .review-overview-section {
+        --review-overview-shell-width: min(100%, calc(100% - 12px));
+        --review-overview-shell-padding: 0 4px;
+        --review-overview-copy-padding: 16px 13px 14px;
+    }
+
+    .review-overview-title {
+        font-size: clamp(1.18rem, 5.1vw, 1.38rem);
+    }
+
+    .review-overview-intro,
+    .review-overview-highlight-copy {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .review-overview-highlight-title {
+        font-size: clamp(0.94rem, 4.4vw, 1.04rem);
     }
 }
