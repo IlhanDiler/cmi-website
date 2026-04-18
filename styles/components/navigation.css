@@ -632,6 +632,11 @@ html[lang="ln"] .subpage-topbar__link[data-nav-current="page"] {
         gap: 10px;
     }
 
+    .subpage-topbar__actions > .site-toolbar-controls {
+        width: 100%;
+        justify-content: center;
+    }
+
     .subpage-topbar__links {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
@@ -668,6 +673,11 @@ html[lang="ln"] .subpage-topbar__link[data-nav-current="page"] {
         --lang-button-svg-width: 20px;
         --lang-button-svg-height: 13px;
     }
+
+    .subpage-topbar #langSwitcher {
+        margin-left: 0;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 600px) {
@@ -686,6 +696,11 @@ html[lang="ln"] .subpage-topbar__link[data-nav-current="page"] {
 
     .subpage-language-switch {
         width: 100%;
+        justify-content: center;
+    }
+
+    .subpage-topbar #langSwitcher {
+        margin-left: 0;
         justify-content: center;
     }
 
