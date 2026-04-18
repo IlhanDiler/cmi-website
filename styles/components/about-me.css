@@ -371,8 +371,8 @@
 
     .about-me-section-modern-inner {
         grid-template-columns: 1fr;
-        --about-me-inner-width: min(calc(100vw - 20px), 100%);
-        --about-me-inner-max-width: min(calc(100vw - 20px), 100%);
+        --about-me-inner-width: min(100%, calc(100% - 20px));
+        --about-me-inner-max-width: min(100%, calc(100% - 20px));
         --about-me-inner-padding: 0;
         --about-me-inner-gap: 10px;
     }
@@ -388,7 +388,7 @@
         display: flex;
         flex-direction: column;
         background: var(--about-me-panel-bg);
-        --about-me-text-padding: 18px 16px 15px;
+        --about-me-text-padding: 16px 14px 14px;
         border-radius: 16px;
         box-shadow: none;
     }
@@ -400,14 +400,14 @@
     }
 
     .about-me-modern-title {
-        font-size: clamp(1.64rem, 6.4vw, 1.94rem);
-        line-height: 1.06;
+        font-size: clamp(1.48rem, 5.8vw, 1.76rem);
+        line-height: 1.04;
         letter-spacing: -0.03em;
     }
 
     .about-me-modern-subtitle {
-        font-size: 0.82rem;
-        letter-spacing: 0.1em;
+        font-size: 0.76rem;
+        letter-spacing: 0.09em;
         padding: 0;
         background: transparent;
     }
@@ -421,17 +421,17 @@
     }
 
     .about-me-bio-text {
-        font-size: var(--premium-body-mobile-size);
-        line-height: var(--premium-body-mobile-line-height);
-        text-align: justify;
-        text-align-last: left;
-        text-justify: auto;
+        font-size: clamp(0.92rem, 3.9vw, 0.98rem);
+        line-height: 1.56;
+        text-align: left !important;
+        text-align-last: auto;
+        text-justify: auto !important;
         hyphens: auto;
         -webkit-hyphens: auto;
         -ms-hyphens: auto;
         overflow-wrap: break-word;
         word-break: normal;
-        text-wrap: auto;
+        text-wrap: pretty;
     }
 
     .about-me-mobile-image {
@@ -445,5 +445,25 @@
     .about-me-image-modern {
         --about-me-image-display: none;
         display: var(--about-me-image-display);
+    }
+}
+
+@media (max-width: 390px) {
+    .about-me-section-modern-inner {
+        --about-me-inner-width: min(100%, calc(100% - 16px));
+        --about-me-inner-max-width: min(100%, calc(100% - 16px));
+    }
+
+    .about-me-text-modern {
+        --about-me-text-padding: 15px 13px 13px;
+    }
+
+    .about-me-modern-title {
+        font-size: clamp(1.38rem, 5.4vw, 1.62rem);
+    }
+
+    .about-me-bio-text {
+        font-size: 0.9rem;
+        line-height: 1.52;
     }
 }
