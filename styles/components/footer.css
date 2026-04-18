@@ -278,7 +278,7 @@
     }
 
     .site-footer__inner {
-        max-width: 1240px;
+        max-width: var(--layout-shell-max-width-feature);
     }
 
     .site-footer__grid {

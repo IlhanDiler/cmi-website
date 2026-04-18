@@ -278,6 +278,8 @@
     --layout-shell-width-relaxed: min(94vw, var(--layout-shell-max-width));
     --layout-shell-max-width-wide: 1360px;
     --layout-shell-width-wide: min(var(--layout-shell-max-width-wide), calc(100% - (var(--desktop-content-side-gap, 24px) * 2)));
+    --layout-shell-max-width-feature: 1240px;
+    --layout-shell-width-feature: min(var(--layout-shell-max-width-feature), calc(100% - (var(--desktop-content-side-gap, 24px) * 2)));
     --layout-section-gap-desktop: clamp(66px, 6vw, 86px);
     --layout-section-gap-tablet: clamp(54px, 7vw, 72px);
     --layout-section-gap-mobile: clamp(42px, 9vw, 58px);
@@ -1084,6 +1086,25 @@ html body *:active::after {
 @media (min-width: 1180px) {
     html body #main-content {
         --desktop-content-side-gap: clamp(24px, 2.1vw, 30px);
+    }
+}
+
+@media (min-width: 1180px) and (max-width: 1536px) {
+    :root {
+        --premium-label-desktop-size: 0.7rem;
+        --premium-label-desktop-letter-spacing: 0.15em;
+        --premium-title-size: clamp(1.82rem, 2.12vw, 2.32rem);
+        --premium-card-title-size: clamp(1.22rem, 1.42vw, 1.44rem);
+        --premium-lead-size: 1rem;
+        --premium-body-size: 1rem;
+        --layout-shell-max-width: 1060px;
+        --layout-shell-max-width-wide: 1240px;
+        --layout-shell-max-width-feature: 1160px;
+        --layout-section-gap-desktop: clamp(58px, 5vw, 74px);
+    }
+
+    html body #main-content {
+        --desktop-content-side-gap: clamp(20px, 1.8vw, 26px);
     }
 }
 
