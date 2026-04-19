@@ -5424,6 +5424,11 @@ html[lang="it"] #langIt {
     --review-masterclass-image-shadow: none;
 }
 
+.event-card .event-social-button--instagram,
+.charity-projects-section[id^="review-"] .event-social-button--instagram {
+    display: none;
+}
+
 .rueckblick-flex img {
     box-shadow: var(--review-masterclass-image-shadow);
 }
