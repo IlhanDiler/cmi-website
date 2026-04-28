@@ -1,0 +1,249 @@
+{
+  "targets": {
+    "chronik-timeline-foundation": {
+      "file": "chronik.html",
+      "indentSpaces": 14,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "timeline-item-title",
+          "text": {
+            "de": "Gründung",
+            "en": "Foundation",
+            "fr": "Fondation",
+            "ln": "Ebandeli",
+            "it": "Fondazione",
+            "tr": "Kuruluş",
+            "uk": "Заснування"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "timeline-item-text",
+          "allowHtml": true,
+          "text": {
+            "de": "Auf Initiative von Astrid Eitschberger und einer Gruppe musikbegeisterter Jugendlicher entsteht in Ochsenfurt ein Ensemble, das gemeinsames Musizieren als kulturellen und sozialen Raum versteht.",
+            "en": "On the initiative of Astrid Eitschberger and a group of music-loving young people, an ensemble is founded in Ochsenfurt that understands making music together as a cultural and social space.",
+            "fr": "A l'initiative d'Astrid Eitschberger et d'un groupe de jeunes passionnes de musique, un ensemble voit le jour a Ochsenfurt et fait de la pratique musicale commune un espace culturel et social.",
+            "ln": "Na likanisi ya Astrid Eitschberger mpe etuluku ya bilenge balingaki miziki, lisanga ya babeti miziki ebandi na Ochsenfurt oyo emonaka kosala miziki elongo lokola esika ya mimeseno mpe ya lisanga.",
+            "it": "Su iniziativa di Astrid Eitschberger e di un gruppo di giovani appassionati di musica, a Ochsenfurt nasce un ensemble che concepisce la musica d'insieme come uno spazio culturale e sociale.",
+            "tr": "Astrid Eitschberger ve müziğe tutkuyla bağlı genç&shy;lerden oluşan bir grubun girişi&shy;miyle Ochsenfurt'ta, birlikte müzik yapmayı kültürel ve sosyal bir alan olarak gören bir toplu&shy;luk kurulur.",
+            "uk": "З ініціативи Астрід Айчберґер та групи молодих людей, закоханих у музику, в Оксенфурті виникає ансамбль, який розуміє спільне музикування як культурний і соціальний простір."
+          }
+        }
+      ]
+    },
+    "chronik-timeline-current-name": {
+      "file": "chronik.html",
+      "indentSpaces": 14,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "timeline-item-title",
+          "text": {
+            "de": "Erste Konzerte unter dem heutigen Namen",
+            "en": "First concerts under the current name",
+            "fr": "Premiers concerts sous le nom actuel",
+            "ln": "Ba konser ya liboso na nkombo ya lelo",
+            "it": "Primi concerti con il nome attuale",
+            "tr": "Bugünkü adla ilk konserler",
+            "uk": "Перші концерти під теперішньою назвою"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "timeline-item-text",
+          "allowHtml": true,
+          "text": {
+            "de": "Seit 1985 tritt das Collegium Musicum Iuvenale bei öffentlichen und privaten Veranstaltungen auf und wird zu einem festen Bestandteil des musikalischen Lebens in der Region.",
+            "en": "Since 1985, Collegium Musicum Iuvenale has performed at public and private events and has become a steady part of musical life in the region.",
+            "fr": "Depuis 1985, le Collegium Musicum Iuvenale se produit lors de manifestations publiques et privees et devient une composante durable de la vie musicale de la region.",
+            "ln": "Banda 1985, Collegium Musicum Iuvenale ezali komonana na makambo ya bato nyonso mpe ya moto na moto, mpe ekomi eteni ya seko ya bomoi ya miziki na etuka.",
+            "it": "Dal 1985 il Collegium Musicum Iuvenale si esibisce in occasioni pubbliche e private, diventando una presenza stabile nella vita musicale della regione.",
+            "tr": "Collegium Musicum Iuvenale 1985'ten beri kamusal ve özel etkin&shy;liklerde sahne alıyor ve bölge&shy;deki müzik yaşa&shy;mının kalıcı bir parçası hâline geliyor.",
+            "uk": "З 1985 року «Колегіум Музікум Ювенале» виступає на публічних і приватних заходах та є сталою частиною музичного життя регіону."
+          }
+        }
+      ]
+    },
+    "chronik-timeline-european-music-meeting": {
+      "file": "chronik.html",
+      "indentSpaces": 14,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "timeline-item-title",
+          "text": {
+            "de": "European Music Meeting",
+            "en": "European Music Meeting",
+            "fr": "European Music Meeting",
+            "ln": "European Music Meeting",
+            "it": "European Music Meeting",
+            "tr": "European Music Meeting",
+            "uk": "Європейська музична зустріч"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "timeline-item-text",
+          "allowHtml": true,
+          "text": {
+            "de": "Als Mitinitiator des Projekts in Padua, Pianiga und Ochsenfurt organisiert das CMI gemeinsame Konzerte mit Orchestern und Chören aus Italien, Frankreich und England und stärkt so den internationalen Austausch.",
+            "en": "As co-initiator of the project in Padua, Pianiga, and Ochsenfurt, CMI organizes joint concerts with orchestras and choirs from Italy, France, and England, strengthening international exchange.",
+            "fr": "Comme co-initiateur du projet a Padoue, Pianiga et Ochsenfurt, le CMI organise des concerts communs avec des orchestres et des choeurs venus d'Italie, de France et d'Angleterre et renforce ainsi l'echange international.",
+            "ln": "Lokola moko ya babandisi ya mwango na Padoue, Pianiga mpe Ochsenfurt, CMI ebongisaka ba konser ya elongo na ba orchestre mpe ba chorale ya Italie, France mpe Angleterre, mpe yango elendisaka bokutani ya mokili mobimba.",
+            "it": "Tra Padova, Pianiga e Ochsenfurt, il CMI è tra i promotori del progetto e organizza concerti insieme a orchestre e cori provenienti da Italia, Francia e Inghilterra, rafforzando così lo scambio internazionale.",
+            "tr": "Padova, Pianiga ve Ochsenfurt'taki projenin ortak başlatıcılarından biri olan CMI, İtalya, Fransa ve İngiltere'den orkestralar ve korolarla ortak konserler düzenleyerek uluslararası işbirliğini güçlendirir.",
+            "uk": "Як співініціатор проєкту в Падуї, П'янізі та Оксенфурті, КМІ організовує спільні концерти з оркестрами й хорами з Італії, Франції та Англії, зміцнюючи міжнародний обмін."
+          }
+        }
+      ]
+    },
+    "chronik-timeline-beginner-group": {
+      "file": "chronik.html",
+      "indentSpaces": 14,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "timeline-item-title",
+          "text": {
+            "de": "Gründung einer Anfängergruppe",
+            "en": "Beginner group founded",
+            "fr": "Creation d'un groupe debutant",
+            "ln": "Ebandeli ya etuluku ya ebandeli",
+            "it": "Nasce il gruppo principianti",
+            "tr": "Başlangıç grubunun kurulması",
+            "uk": "Створення групи початківців"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "timeline-item-text",
+          "allowHtml": true,
+          "text": {
+            "de": "Im selben Jahr entsteht eine Anfängergruppe, die jüngeren Mitspielenden den Einstieg in das Orchesterspiel ermöglicht und musikalische Bildung dauerhaft verankert.",
+            "en": "In the same year, a beginner group is founded to give younger players an entry into ensemble playing and to anchor musical education for the long term.",
+            "fr": "La meme annee, un groupe debutant est cree afin d'offrir aux plus jeunes un acces au jeu d'ensemble et d'ancrer durablement la formation musicale.",
+            "ln": "Na mbula yango moko, etuluku ya ebandeli ebandi mpo na kopesa babeti ya bilenge nzela ya kokota na miziki ya lisanga mpe kokangisa boyekoli ya miziki mpo na ntango molai.",
+            "it": "Nello stesso anno nasce un gruppo per principianti che permette ai più giovani di avvicinarsi alla musica d'insieme e rafforza nel tempo la formazione musicale.",
+            "tr": "Aynı yıl, genç müzis&shy;yenlere orkestrada çalmaya ilk adımı atma imkânı sunan ve müzik eğiti&shy;mini kalıcı biçimde yer&shy;leştiren bir başlan&shy;gıç grubu kurulur.",
+            "uk": "Того ж року виникає група початківців, яка відкриває молодшим учасникам шлях до оркестрової гри й надовго закріплює музичну освіту в житті ансамблю."
+          }
+        }
+      ]
+    },
+    "chronik-timeline-kinshasa-benefit": {
+      "file": "chronik.html",
+      "indentSpaces": 14,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "timeline-item-title",
+          "text": {
+            "de": "Erstes Benefizkonzert für Kinshasa",
+            "en": "First benefit concert for Kinshasa",
+            "fr": "Premier concert de bienfaisance pour Kinshasa",
+            "ln": "Konser ya liboso ya lisungi mpo na Kinshasa",
+            "it": "Primo concerto di beneficenza a favore di Kinshasa",
+            "tr": "Kinşasa için ilk yardım konseri",
+            "uk": "Перший благодійний концерт для Кіншаси"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "timeline-item-text",
+          "allowHtml": true,
+          "text": {
+            "de": "Mit dem Konzert \"Tor für Afrika\" beginnt ein dauerhaftes Engagement zugunsten der Schule Vabatu Ngoma in Kinshasa. Musik wird damit ausdrücklich auch zum Mittel konkreter Hilfe.",
+            "en": "With the concert \"Gate for Africa,\" a long-term commitment begins in support of the Vabatu Ngoma school in Kinshasa. Music explicitly becomes a means of concrete help.",
+            "fr": "Avec le concert \"Porte pour l'Afrique\", commence un engagement durable en faveur de l'ecole Vabatu Ngoma a Kinshasa. La musique devient ainsi aussi un moyen d'aide concrete.",
+            "ln": "Na konser \"Tor für Afrika\", boyokani ya ntango molai mpo na kelasi ya Vabatu Ngoma na Kinshasa ebandi. Uta wana, miziki ekomi polele nzela ya kopesa lisungi ya solo.",
+            "it": "Con il concerto \"Porta per l'Africa\" prende avvio un impegno destinato a durare a sostegno della scuola Vabatu Ngoma di Kinshasa. La musica diventa così anche uno strumento di aiuto concreto.",
+            "tr": "\"Afrika için Kapı\" konseriyle Kinşasa'daki Vabatu Ngoma okuluna yönelik uzun soluklu bir destek başlar. Böylece müzik, somut desteğin de açık bir aracı hâline gelir.",
+            "uk": "Із концертом «Брама для Африки» починається тривала підтримка школи «Вабату Нгома» в Кіншасі. Відтоді музика стає ще й безпосереднім інструментом конкретної допомоги."
+          }
+        }
+      ]
+    },
+    "chronik-timeline-anniversary-30": {
+      "file": "chronik.html",
+      "indentSpaces": 14,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "timeline-item-title",
+          "text": {
+            "de": "30-jähriges Jubiläum",
+            "en": "30th anniversary",
+            "fr": "30e anniversaire",
+            "ln": "Jubile ya mbula 30",
+            "it": "30° anniversario",
+            "tr": "30. yıl dönümü",
+            "uk": "30-річний ювілей"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "timeline-item-text",
+          "allowHtml": true,
+          "text": {
+            "de": "Das dreißigjährige Bestehen feiert das Orchester mit einem besonderen Konzert im Kaisersaal der Würzburger Residenz und unterstreicht damit seinen künstlerischen Anspruch.",
+            "en": "The orchestra celebrates its 30th anniversary with a special concert in the Kaisersaal of the Würzburg Residence, underlining its artistic ambition.",
+            "fr": "L'orchestre fete son trentieme anniversaire par un concert exceptionnel dans la salle imperiale de la Residence de Wurzbourg et souligne ainsi son exigence artistique.",
+            "ln": "CMI esepelisaki jubile na yango ya mbula tuku misato na konser moko ya ndenge na yango na Kaisersaal ya Residenz na Wurzburg, mpe emonisi ndenge etyaka motuya na mosala ya mayele.",
+            "it": "L'orchestra celebra il suo 30° anniversario con un concerto straordinario nella Sala Imperiale della Residenza di Würzburg, confermando così il proprio profilo artistico.",
+            "tr": "Orkestra 30. yılını Würzburg Rezi&shy;dansı'nın Kaisersaal salonunda verdiği özel bir konserle kutlar ve böylece sanat&shy;sal iddiasını da vurgu&shy;lar.",
+            "uk": "Свій тридцятирічний ювілей оркестр відзначає особливим концертом у Кайзерзалі Вюрцбурзької резиденції, підкреслюючи цим свої високі мистецькі амбіції."
+          }
+        }
+      ]
+    },
+    "chronik-timeline-lockdown-40": {
+      "file": "chronik.html",
+      "indentSpaces": 14,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "timeline-item-title",
+          "text": {
+            "de": "40 Jahre CMI im Ausnahmezustand",
+            "en": "40 years of CMI under extraordinary circumstances",
+            "fr": "40 ans du CMI dans des circonstances exceptionnelles",
+            "ln": "Mbula 40 ya CMI na tango ya mpasi",
+            "it": "40 anni di CMI in un momento eccezionale",
+            "tr": "Olağanüstü koşullarda CMI'nin 40 yılı",
+            "uk": "40 років КМІ в надзвичайних умовах"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "timeline-item-text",
+          "allowHtml": true,
+          "text": {
+            "de": "Während des Lockdowns entsteht anstelle eines Live-Konzerts ein aufwendig produziertes Klang- und Videoprojekt. So zeigt das CMI, dass Gemeinschaft und Kreativität auch unter schwierigen Bedingungen tragfähig bleiben.",
+            "en": "During lockdown, an elaborately produced sound and video project is created instead of a live concert. CMI thus shows that community and creativity remain resilient even under difficult conditions.",
+            "fr": "Pendant le confinement, un projet sonore et video elabore voit le jour a la place d'un concert en direct. Le CMI montre ainsi que l'esprit de communaute et la creativite tiennent bon meme dans des conditions difficiles.",
+            "ln": "Na tango ya lockdown, na esika ya konser ya bomoi, mosala moko ya son mpe video esalemaki na bokebi mingi. CMI elakisaki bongo ete lisanga mpe bokeli ekoki kotikala makasi ata na makambo ya mpasi.",
+            "it": "Durante il lockdown, al posto di un concerto dal vivo prende forma un articolato progetto audio-video. Il CMI dimostra così che spirito di comunità e creatività restano vivi anche nelle situazioni difficili.",
+            "tr": "Kapanma döneminde canlı konserin yerini özenle hazırlan&shy;mış bir ses ve video projesi alır. Böylece CMI, toplu&shy;luk duygu&shy;sunun ve yaratı&shy;cılığın zor koşul&shy;larda da ayakta kalabil&shy;diğini gösterir.",
+            "uk": "Під час локдауну замість живого концерту виникає ретельно підготовлений аудіо- та відеопроєкт. Так КМІ показує, що спільність і творчість залишаються життєздатними навіть у складних обставинах."
+          }
+        }
+      ]
+    }
+  }
+}

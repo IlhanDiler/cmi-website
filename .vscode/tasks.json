@@ -1,0 +1,47 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start local preview server (8123)",
+			"type": "shell",
+			"command": "c:/repos/cmi-webseite_final - 4/.venv/Scripts/python.exe",
+			"args": [
+				"-m",
+				"http.server",
+				"8123"
+			],
+			"isBackground": true,
+			"group": "build"
+		},
+		{
+			"label": "Export Instagram Freigabe PDF",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/scripts/export_startplan_freigabe_pdf.ps1",
+				"-Plan",
+				"instagram"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Export Facebook Freigabe PDF",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-ExecutionPolicy",
+				"Bypass",
+				"-File",
+				"${workspaceFolder}/scripts/export_startplan_freigabe_pdf.ps1",
+				"-Plan",
+				"facebook"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

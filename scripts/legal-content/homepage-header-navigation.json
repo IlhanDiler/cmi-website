@@ -1,0 +1,293 @@
+{
+  "targets": {
+    "homepage-skip-link-label": {
+      "file": "index.html",
+      "indentSpaces": 8,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "text": {
+            "de": "Zum Inhalt springen",
+            "en": "Skip to main content",
+            "fr": "Aller au contenu principal",
+            "ln": "Kende na makambo ya ntina",
+            "it": "Vai al contenuto principale",
+            "tr": "Ana içeriğe geç",
+            "uk": "Перейти до основного вмісту"
+          }
+        }
+      ]
+    },
+    "homepage-brand-tagline": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "className": "brand-tagline",
+          "text": {
+            "de": "Musik baut Brücken",
+            "en": "Music builds bridges",
+            "fr": "La musique construit des ponts",
+            "ln": "Miziki etongaka baponti",
+            "it": "La musica costruisce ponti",
+            "tr": "Müzik köprüler kurar",
+            "uk": "Музика будує мости"
+          }
+        }
+      ]
+    },
+    "homepage-desktop-nav-links": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "a",
+          "className": "nav-link",
+          "attributes": {
+            "href": "#musik-baut-bruecken"
+          },
+          "text": {
+            "de": "Über uns",
+            "en": "About us",
+            "fr": "A propos",
+            "ln": "Na ntina na biso",
+            "it": "Chi siamo",
+            "tr": "Hakkımızda",
+            "uk": "Про нас"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "a",
+          "className": "nav-link",
+          "attributes": {
+            "href": "#music-family-section"
+          },
+          "text": {
+            "de": "MITMACHEN",
+            "en": "JOIN US",
+            "fr": "PARTICIPER",
+            "ln": "Sangana na biso",
+            "it": "PARTECIPA",
+            "tr": "KATIL",
+            "uk": "ДОЛУЧИТИСЯ"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "a",
+          "className": "nav-link",
+          "attributes": {
+            "href": "#events"
+          },
+          "text": {
+            "de": "Termine",
+            "en": "Events",
+            "fr": "Agenda",
+            "ln": "Makambo",
+            "it": "Eventi",
+            "tr": "Etkinlikler",
+            "uk": "Події"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "a",
+          "className": "nav-link",
+          "attributes": {
+            "href": "#timeline-section"
+          },
+          "text": {
+            "de": "Chronik",
+            "en": "Timeline",
+            "fr": "Chronique",
+            "ln": "Lisolo ya bambula",
+            "it": "Cronologia",
+            "tr": "Kronoloji",
+            "uk": "Хроніка"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "a",
+          "className": "nav-link",
+          "attributes": {
+            "href": "#news-feed"
+          },
+          "text": {
+            "de": "Aktuelles",
+            "en": "Latest",
+            "fr": "Actualites",
+            "ln": "Sika",
+            "it": "Novita",
+            "tr": "Guncel",
+            "uk": "Актуальне"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "a",
+          "className": "nav-link",
+          "attributes": {
+            "href": "#review"
+          },
+          "text": {
+            "de": "Rückblick",
+            "en": "Review",
+            "fr": "Regards",
+            "ln": "Makambo eleki",
+            "it": "Retrospettiva",
+            "tr": "Geriye bakış",
+            "uk": "Огляд"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "a",
+          "className": "nav-link",
+          "attributes": {
+            "href": "#contact"
+          },
+          "text": {
+            "de": "Kontakt",
+            "en": "Contact",
+            "fr": "Contact",
+            "ln": "Kontak",
+            "it": "Contatto",
+            "tr": "İletişim",
+            "uk": "Контакт"
+          }
+        }
+      ]
+    },
+    "homepage-mobile-nav-links": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "a",
+          "className": "mobile-nav-link",
+          "attributes": {
+            "href": "#musik-baut-bruecken"
+          },
+          "text": {
+            "de": "Über uns",
+            "en": "About us",
+            "fr": "A propos",
+            "ln": "Na ntina na biso",
+            "it": "Chi siamo",
+            "tr": "Hakkımızda",
+            "uk": "Про нас"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "a",
+          "className": "mobile-nav-link",
+          "attributes": {
+            "href": "#music-family-section"
+          },
+          "text": {
+            "de": "MITMACHEN",
+            "en": "JOIN US",
+            "fr": "PARTICIPER",
+            "ln": "Sangana na biso",
+            "it": "PARTECIPA",
+            "tr": "KATIL",
+            "uk": "ДОЛУЧИТИСЯ"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "a",
+          "className": "mobile-nav-link",
+          "attributes": {
+            "href": "#events"
+          },
+          "text": {
+            "de": "Termine",
+            "en": "Events",
+            "fr": "Agenda",
+            "ln": "Makambo",
+            "it": "Eventi",
+            "tr": "Etkinlikler",
+            "uk": "Події"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "a",
+          "className": "mobile-nav-link",
+          "attributes": {
+            "href": "#timeline-section"
+          },
+          "text": {
+            "de": "Chronik",
+            "en": "Timeline",
+            "fr": "Chronique",
+            "ln": "Lisolo ya bambula",
+            "it": "Cronologia",
+            "tr": "Kronoloji",
+            "uk": "Хроніка"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "a",
+          "className": "mobile-nav-link",
+          "attributes": {
+            "href": "#news-feed"
+          },
+          "text": {
+            "de": "Aktuelles",
+            "en": "Latest",
+            "fr": "Actualites",
+            "ln": "Sika",
+            "it": "Novita",
+            "tr": "Guncel",
+            "uk": "Актуальне"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "a",
+          "className": "mobile-nav-link",
+          "attributes": {
+            "href": "#review"
+          },
+          "text": {
+            "de": "Rückblick",
+            "en": "Review",
+            "fr": "Regards",
+            "ln": "Makambo eleki",
+            "it": "Retrospettiva",
+            "tr": "Geriye bakış",
+            "uk": "Огляд"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "a",
+          "className": "mobile-nav-link",
+          "attributes": {
+            "href": "#contact"
+          },
+          "text": {
+            "de": "Kontakt",
+            "en": "Contact",
+            "fr": "Contact",
+            "ln": "Kontak",
+            "it": "Contatto",
+            "tr": "İletişim",
+            "uk": "Контакт"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,4504 @@
+.news-feed-section,
+.review-overview-section,
+.review-featured,
+.review-archive-intro,
+.review-archive,
+.review-archive .charity-projects-section[id^="review-"] {
+    background: var(--review-section-surface);
+    --review-section-surface: var(--section-tone-b);
+    --review-section-surface-alt: var(--section-tone-a);
+    --review-copy-mobile-size: var(--premium-body-mobile-size);
+    --review-copy-mobile-line-height: var(--premium-body-mobile-line-height);
+    --review-lead-mobile-size: var(--premium-lead-mobile-size);
+    --review-lead-mobile-line-height: var(--premium-lead-mobile-line-height);
+    --review-panel-surface: var(--surface-panel-bg);
+    --review-panel-surface-strong: var(--surface-panel-bg-strong);
+    --review-panel-border: var(--surface-panel-border);
+    --review-panel-border-strong: rgba(var(--color-secondary-rgb), 0.22);
+    --review-panel-shadow: none;
+    --review-panel-shadow-hover: none;
+    --review-panel-shadow-soft: none;
+    --review-panel-shadow-soft-hover: none;
+    --review-media-shadow: none;
+    --review-cta-shadow: none;
+    --review-cta-shadow-hover: none;
+    --review-accent-line: var(--color-secondary);
+    --review-soft-grid: none;
+    --review-sheen: none;
+    --review-fade-surface: var(--surface-panel-bg-strong);
+    --review-kicker-color: rgba(18, 62, 70, 0.56);
+    --review-title-color: #0c3038;
+    --review-copy-color: #28484f;
+    --review-caption-color: #5d7680;
+    --review-border-color: rgba(var(--color-primary-rgb), 0.12);
+    --review-border-color-strong: rgba(var(--color-primary-rgb), 0.18);
+    --review-secondary-wash: rgba(var(--color-secondary-rgb), 0.18);
+    --review-secondary-wash-soft: rgba(var(--color-secondary-rgb), 0.1);
+    --review-focus-outline: rgba(var(--color-secondary-rgb), 0.42);
+    --review-card-clamp-lines: 6;
+    --review-floating-toggle-backdrop: none;
+    --review-panel-radius: 22px;
+    --review-panel-radius-large: 26px;
+    --review-panel-radius-tight: 18px;
+    --review-chip-radius: 16px;
+    --review-image-radius: 18px;
+    --review-prose-max-width: 64ch;
+    --review-prose-compact-max-width: 56ch;
+    --review-card-copy-max-width: 34ch;
+}
+
+.review-overview-section {
+    --review-overview-section-bg: var(--theme-bg-muted);
+    --review-overview-section-padding: 42px 0 30px;
+    --review-overview-shell-width: var(--layout-shell-width);
+    --review-overview-shell-padding: 0 20px;
+    --review-overview-shell-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+    --review-overview-shell-gap: clamp(22px, 3vw, 36px);
+    --review-overview-copy-padding: 26px clamp(22px, 3vw, 30px);
+    --review-overview-copy-radius: var(--review-panel-radius-large);
+    --review-overview-highlights-gap: 18px;
+    --review-overview-highlights-margin-top: 24px;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.review-overview-section::before,
+.review-overview-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.review-overview-section::before {
+    background: none;
+    z-index: 0;
+}
+
+.review-overview-section::after {
+    background: none;
+    z-index: 0;
+}
+
+.review-overview-shell {
+    width: var(--review-overview-shell-width);
+    max-width: 100%;
+    margin: 0 auto;
+    padding: var(--review-overview-shell-padding);
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: var(--review-overview-shell-columns);
+    gap: var(--review-overview-shell-gap);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.review-overview-copy,
+.review-overview-media {
+    background: var(--review-panel-surface);
+    border: 1px solid var(--review-panel-border);
+    border-radius: var(--review-overview-copy-radius);
+    box-shadow: var(--review-panel-shadow-soft);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.review-overview-media {
+    box-sizing: border-box;
+    padding: clamp(10px, 1.4vw, 14px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    width: 100%;
+    max-width: 410px;
+    justify-self: center;
+    overflow: hidden;
+    background: var(--review-panel-surface-strong);
+    box-shadow: var(--review-media-shadow);
+}
+
+.review-overview-kicker,
+.review-archive-intro__eyebrow,
+.charity-projects-section[id^="review-"] .charity-meta {
+    color: var(--review-kicker-color);
+    font-family: var(--font-ui-modern);
+    font-size: 0.84rem;
+    font-weight: 620;
+    line-height: 1.34;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+}
+
+.review-overview-title {
+    margin: 10px 0 12px;
+    color: var(--review-title-color);
+    font-family: var(--font-ui-modern);
+    font-size: clamp(1.94rem, 2.78vw, 2.54rem);
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: -0.038em;
+    text-wrap: balance;
+}
+
+.review-overview-intro {
+    max-width: var(--review-prose-compact-max-width);
+    margin: 0;
+    color: var(--review-copy-color);
+    font-family: var(--font-ui-modern);
+    font-size: var(--premium-lead-size);
+    font-weight: 500;
+    line-height: var(--premium-lead-line-height);
+    letter-spacing: var(--premium-lead-letter-spacing);
+    text-wrap: pretty;
+}
+
+.review-overview-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--review-overview-highlights-gap);
+    margin-top: var(--review-overview-highlights-margin-top);
+}
+
+.review-overview-highlight {
+    position: relative;
+    min-height: 100%;
+    padding: 20px 18px 18px 22px;
+    border-radius: var(--review-panel-radius-tight);
+    background: var(--review-panel-surface-strong);
+    border: 1px solid var(--review-panel-border);
+    box-shadow: var(--review-panel-shadow-soft);
+    overflow: hidden;
+}
+
+.review-overview-highlight::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 12px;
+    width: 3px;
+    inset: auto;
+    border-radius: 999px;
+    background: var(--review-accent-line);
+    opacity: 0.42;
+}
+
+.review-overview-highlight::after {
+    content: "";
+    position: absolute;
+    right: -26px;
+    top: -22px;
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
+    background: none;
+    pointer-events: none;
+}
+
+.review-overview-highlight:hover,
+.review-overview-highlight:focus-within {
+    border-color: var(--review-panel-border-strong);
+}
+
+.review-overview-highlight-title {
+    margin: 0;
+    max-width: 16ch;
+    color: var(--review-title-color);
+    font-family: var(--font-ui-modern);
+    font-size: clamp(1.08rem, 1.28vw, 1.22rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.review-overview-highlight-copy {
+    margin: 10px 0 0;
+    color: var(--review-copy-color);
+    font-family: var(--font-ui-modern);
+    font-size: var(--premium-body-size);
+    font-weight: 500;
+    line-height: var(--premium-body-line-height);
+    letter-spacing: var(--premium-body-letter-spacing);
+    text-wrap: pretty;
+}
+
+.review-overview-copy .review-overview-intro,
+.review-overview-highlight .review-overview-highlight-copy {
+    text-align: left !important;
+    text-justify: auto !important;
+}
+
+.review-overview-image {
+    width: 100%;
+    max-width: none;
+    display: block;
+    height: auto;
+    aspect-ratio: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center center;
+    border-radius: var(--review-image-radius);
+    border: 0;
+    background: var(--theme-surface-soft);
+    box-shadow: none;
+}
+
+.news-feed-section {
+    --news-feed-shell-width: var(--layout-shell-width);
+    --news-feed-shell-padding: 0 20px;
+    --news-feed-header-gap: 24px;
+    --news-feed-grid-gap: 22px;
+    --news-feed-copy-max-width: 66ch;
+    --news-feed-section-bg: var(--theme-bg-soft);
+    padding: 28px 0 34px;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.news-feed-section::before,
+.news-feed-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.news-feed-section::before {
+    background: var(--news-feed-section-bg);
+}
+
+.news-feed-section::after {
+    background: none;
+}
+
+.news-feed-shell {
+    width: var(--news-feed-shell-width);
+    margin: 0 auto;
+    padding: var(--news-feed-shell-padding);
+    position: relative;
+    z-index: 1;
+}
+
+.news-feed-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--news-feed-header-gap);
+    margin-bottom: 24px;
+}
+
+.news-feed-copy {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: var(--news-feed-copy-max-width);
+    margin-bottom: 0;
+}
+
+.news-feed-kicker {
+    color: var(--review-kicker-color);
+    font-family: var(--font-ui-modern);
+    font-size: 0.84rem;
+    font-weight: 620;
+    line-height: 1.34;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+}
+
+.news-feed-title {
+    margin: 10px 0 12px;
+    color: var(--review-title-color);
+    font-family: var(--font-ui-modern);
+    font-size: clamp(1.94rem, 2.9vw, 2.56rem);
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: -0.038em;
+    text-wrap: balance;
+}
+
+.news-feed-intro {
+    margin: 0;
+    max-width: var(--review-prose-max-width);
+    color: var(--review-copy-color);
+    font-family: var(--font-ui-modern);
+    font-size: var(--premium-lead-size);
+    font-weight: 500;
+    line-height: var(--premium-lead-line-height);
+    letter-spacing: var(--premium-lead-letter-spacing);
+    text-wrap: pretty;
+}
+
+.news-feed-overview-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    gap: 7px;
+    min-height: 44px;
+    padding: 0.66rem 1rem;
+    border-radius: var(--review-chip-radius);
+    border: 1px solid var(--review-border-color);
+    background: var(--review-panel-surface-strong);
+    color: var(--review-kicker-color);
+    font-family: var(--font-ui-modern);
+    font-size: 0.9rem;
+    font-weight: 640;
+    line-height: 1.3;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: var(--review-cta-shadow);
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.news-feed-overview-link:hover,
+.news-feed-overview-link:focus-visible {
+    background: var(--review-panel-surface);
+    color: var(--color-secondary);
+    border-color: var(--review-border-color-strong);
+}
+
+.news-feed-overview-link::after {
+    content: ">";
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.news-feed-overview-link:hover::after,
+.news-feed-overview-link:focus-visible::after {
+    transform: translateX(3px);
+}
+
+.news-feed-overview-link:focus-visible {
+    outline: 2px solid var(--review-focus-outline);
+    outline-offset: 4px;
+}
+
+.news-feed-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--news-feed-grid-gap);
+    align-items: stretch;
+}
+
+.news-feed-card {
+    position: relative;
+    min-width: 0;
+    height: 100%;
+    border-radius: var(--review-panel-radius);
+    overflow: hidden;
+    background: var(--review-panel-surface-strong);
+    border: 1px solid var(--review-panel-border);
+    box-shadow: var(--review-panel-shadow-soft);
+}
+
+.news-feed-card-link {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    min-height: 100%;
+    color: inherit;
+    text-decoration: none;
+    border-radius: inherit;
+}
+
+.news-feed-card-media {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 248px;
+    aspect-ratio: 4 / 3;
+    padding: 0;
+    overflow: hidden;
+    isolation: isolate;
+    background: transparent;
+    border-bottom: 1px solid var(--review-panel-border);
+}
+
+.news-feed-card-media--full-image {
+    --news-feed-full-image-pad: 0px;
+    min-height: 0;
+    aspect-ratio: var(--news-feed-full-image-ratio, 16 / 10);
+    padding: var(--news-feed-full-image-pad);
+}
+
+.news-feed-card-media--portrait {
+    display: grid;
+    place-items: end center;
+    min-height: clamp(248px, 28vw, 318px);
+    aspect-ratio: auto;
+    padding: 14px 0 0;
+}
+
+.news-feed-card-media:not(.news-feed-card-media--portrait) {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.news-feed-card-media:not(.news-feed-card-media--portrait) .news-feed-card-image,
+.news-feed-card-media:not(.news-feed-card-media--portrait) .news-feed-card-image--contain,
+.news-feed-card-media--full-image .news-feed-card-image--backdrop {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    clip-path: inset(0 round var(--review-panel-radius) var(--review-panel-radius) 0 0);
+}
+
+.news-feed-card-image {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: var(--review-image-radius) var(--review-image-radius) 0 0;
+    background: transparent;
+    box-shadow: none;
+    object-fit: cover;
+    object-position: center;
+}
+
+.news-feed-card-image--contain {
+    background: transparent;
+    object-fit: contain;
+    border-radius: var(--review-image-radius) var(--review-image-radius) 0 0;
+}
+
+.news-feed-card-media--portrait .news-feed-card-image--contain {
+    width: auto;
+    height: auto;
+    max-width: min(100%, 184px);
+    max-height: clamp(248px, 28vw, 318px);
+    object-position: center top;
+}
+
+.news-feed-card-media--portrait .news-feed-card-image--backdrop {
+    display: none;
+}
+
+.news-feed-card-image--backdrop {
+    position: absolute;
+    inset: 12px;
+    z-index: 0;
+    width: calc(100% - 24px);
+    height: calc(100% - 24px);
+    display: none;
+    border-radius: var(--review-image-radius);
+    background: none;
+    object-fit: cover;
+    object-position: center;
+    filter: none;
+    transform: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.news-feed-card-media--full-image .news-feed-card-image--backdrop {
+    inset: var(--news-feed-full-image-pad);
+    width: calc(100% - (var(--news-feed-full-image-pad) * 2));
+    height: calc(100% - (var(--news-feed-full-image-pad) * 2));
+    filter: none;
+    transform: none;
+    opacity: 0;
+}
+
+.news-feed-card-media--full-image .news-feed-card-image--contain {
+    border-radius: var(--review-image-radius) var(--review-image-radius) 0 0;
+}
+
+.news-feed-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px 20px 22px;
+    background: transparent;
+}
+
+.news-feed-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.news-feed-card-badge,
+.news-feed-card-date {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 0.28rem 0.78rem;
+    border-radius: var(--review-chip-radius);
+    font-family: var(--font-ui-modern);
+    font-size: 0.82rem;
+    line-height: 1.3;
+}
+
+.news-feed-card-badge {
+    color: #13585f;
+    background: rgba(var(--color-secondary-rgb), 0.12);
+    border: 1px solid var(--review-border-color);
+    font-weight: 700;
+}
+
+.news-feed-card-date {
+    color: #4d666c;
+    background: rgba(247, 250, 249, 0.98);
+    border: 1px solid rgba(var(--color-primary-rgb), 0.1);
+    font-weight: 600;
+}
+
+.news-feed-card-title {
+    margin: 0;
+    max-width: 18ch;
+    color: var(--review-title-color);
+    font-family: var(--font-ui-modern);
+    font-size: clamp(1.14rem, 1.5vw, 1.38rem);
+    font-weight: 620;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+}
+
+.news-feed-card--featured .news-feed-card-title {
+    font-size: clamp(1.5rem, 2.05vw, 1.88rem);
+}
+
+.news-feed-card-copy {
+    margin: 0;
+    max-width: var(--review-card-copy-max-width);
+    color: var(--review-copy-color);
+    font-family: var(--font-ui-modern);
+    font-size: var(--premium-body-size);
+    font-weight: 510;
+    line-height: 1.64;
+    letter-spacing: var(--premium-body-letter-spacing);
+    text-align: left;
+    text-wrap: pretty;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    overflow-wrap: break-word;
+}
+
+.news-feed-overview-link > [data-lang],
+.news-feed-card-badge > [data-lang],
+.news-feed-card-date > [data-lang],
+.news-feed-card-title > [data-lang],
+.news-feed-card-copy > [data-lang],
+.news-feed-card-cta > [data-lang] {
+    display: block;
+}
+
+.news-feed-card-cta {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    gap: 7px;
+    padding: 0.46rem 0.8rem;
+    border-radius: var(--review-chip-radius);
+    border: 1px solid var(--review-border-color);
+    background: var(--review-panel-surface);
+    color: var(--review-kicker-color);
+    font-family: var(--font-ui-modern);
+    font-size: 0.93rem;
+    font-weight: 700;
+    line-height: 1.3;
+    box-shadow: none;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.news-feed-card-cta::after {
+    content: ">";
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.news-feed-card-link:hover .news-feed-card-title,
+.news-feed-card-link:focus-visible .news-feed-card-title {
+    color: var(--color-secondary);
+}
+
+.news-feed-card:hover,
+.news-feed-card:focus-within {
+    border-color: var(--review-panel-border-strong);
+}
+
+.news-feed-card-link:hover .news-feed-card-cta,
+.news-feed-card-link:focus-visible .news-feed-card-cta {
+    background: var(--review-panel-surface-strong);
+    border-color: var(--review-panel-border-strong);
+    color: var(--color-secondary);
+}
+
+.news-feed-card-link:hover .news-feed-card-cta::after,
+.news-feed-card-link:focus-visible .news-feed-card-cta::after {
+    transform: translateX(3px);
+}
+
+.news-feed-card-link:hover .news-feed-card-image,
+.news-feed-card-link:focus-visible .news-feed-card-image {
+    transform: none;
+}
+
+.news-feed-card-link:focus-visible {
+    outline: 2px solid var(--review-focus-outline);
+    outline-offset: 4px;
+}
+
+.news-feed-card-link:focus-visible .news-feed-card-media {
+    background: transparent;
+}
+
+@media (min-width: 1180px) {
+    .news-feed-section {
+        --news-feed-shell-width: var(--layout-shell-width-wide);
+        --news-feed-shell-padding: 0;
+        --news-feed-header-gap: clamp(30px, 4vw, 48px);
+        --news-feed-grid-gap: clamp(22px, 1.8vw, 28px);
+        --news-feed-copy-max-width: 58ch;
+        padding: 34px 0 38px;
+    }
+
+    .news-feed-shell {
+        max-width: none;
+    }
+
+    .news-feed-header {
+        margin-bottom: 26px;
+    }
+
+    .news-feed-title {
+        max-width: 11ch;
+        margin-bottom: 14px;
+        font-size: clamp(2rem, 2.52vw, 2.58rem);
+        line-height: 1.03;
+        letter-spacing: -0.04em;
+    }
+
+    .news-feed-intro {
+        max-width: 56ch;
+        font-size: 1.02rem;
+        line-height: 1.66;
+    }
+
+    .news-feed-card-body {
+        gap: 12px;
+        padding: 20px 20px 22px;
+    }
+}
+
+@media (min-width: 901px) {
+    .news-feed-section {
+        --news-feed-copy-max-width: none;
+    }
+
+    .news-feed-title,
+    .review-archive-intro__title {
+        max-width: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .news-feed-section {
+        --news-feed-grid-gap: 18px;
+    }
+
+    .news-feed-shell {
+        width: min(1120px, calc(100% - 28px));
+        padding: 0 14px;
+    }
+
+    .news-feed-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .news-feed-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .news-feed-card-media {
+        min-height: 220px;
+        aspect-ratio: 16 / 10;
+    }
+
+    .news-feed-card-media--portrait {
+        min-height: clamp(228px, 58vw, 292px);
+        aspect-ratio: auto;
+        padding-top: 12px;
+    }
+
+    .news-feed-card-media--portrait .news-feed-card-image--contain {
+        max-width: min(100%, 168px);
+        max-height: clamp(228px, 58vw, 292px);
+    }
+}
+
+@media (max-width: 640px) {
+    .news-feed-section {
+        --news-feed-grid-gap: 16px;
+    }
+
+    .news-feed-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.review-archive-intro {
+    padding: 20px 0 10px;
+}
+
+.review-archive[hidden] {
+    display: none;
+}
+
+.review-archive {
+    position: relative;
+    isolation: isolate;
+}
+
+.review-archive::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: var(--layout-shell-width);
+    height: 1px;
+    transform: translateX(-50%);
+    background: rgba(var(--color-primary-rgb), 0.18);
+}
+
+.review-archive-intro__inner {
+    width: var(--layout-shell-width);
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 24px 24px 24px;
+    border-radius: var(--review-panel-radius-large);
+    border: 1px solid var(--review-panel-border);
+    background: var(--review-panel-surface-strong);
+    box-shadow: var(--review-panel-shadow);
+    text-align: left;
+    overflow: hidden;
+    position: relative;
+}
+
+.review-archive-intro__inner::before {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 2px;
+    margin-bottom: 14px;
+    background: var(--color-secondary);
+}
+
+.review-archive-intro__inner:hover,
+.review-archive-intro__inner:focus-within {
+    border-color: var(--review-panel-border-strong);
+}
+
+.review-archive-intro__title {
+    margin: 10px 0 10px;
+    color: var(--review-title-color);
+    font-family: var(--font-ui-modern);
+    font-size: clamp(1.42rem, 2vw, 1.76rem);
+    font-weight: 555;
+    line-height: 1.1;
+    letter-spacing: -0.024em;
+    text-wrap: balance;
+}
+
+.review-archive-intro__copy {
+    max-width: 52ch;
+    margin: 0 0 18px;
+    color: var(--review-copy-color);
+    font-family: var(--font-ui-modern);
+    font-size: var(--premium-lead-size);
+    font-weight: 500;
+    line-height: var(--premium-lead-line-height);
+    letter-spacing: var(--premium-lead-letter-spacing);
+    text-wrap: pretty;
+}
+
+.review-archive-toggle,
+.review-card-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    gap: 10px;
+    padding-inline: 18px;
+    border: 1px solid var(--cta-border-color);
+    border-radius: var(--review-chip-radius);
+    background: var(--cta-bg);
+    color: var(--cta-color);
+    font-family: var(--font-ui-modern);
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    background-clip: padding-box;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 620;
+    line-height: 1.3;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    box-shadow: var(--cta-shadow, var(--review-cta-shadow));
+}
+
+.review-archive-toggle:hover,
+.review-archive-toggle:focus-visible,
+.review-card-toggle:hover,
+.review-card-toggle:focus-visible {
+    background: var(--cta-bg-hover);
+    color: var(--cta-color-hover);
+    border-color: var(--cta-border-color-hover);
+    box-shadow: var(--cta-shadow-hover, var(--review-cta-shadow-hover));
+}
+
+.review-archive-toggle::before,
+.review-card-toggle::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background: var(--review-sheen);
+    opacity: 0.78;
+    pointer-events: none;
+}
+
+.review-archive-toggle__label,
+.review-card-toggle__label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.review-archive-toggle__label[hidden],
+.review-card-toggle__label[hidden] {
+    display: none;
+}
+
+.review-archive-toggle::after,
+.review-card-toggle::after {
+    content: "";
+    position: relative;
+    z-index: 1;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg) translateY(-1px);
+    transform-origin: center;
+    transition: transform 0.22s ease;
+}
+
+.review-archive-toggle[aria-expanded="true"]::after,
+.review-card-toggle[aria-expanded="true"]::after {
+    transform: rotate(-135deg) translateY(-1px);
+}
+
+.review-archive-toggle {
+    --cta-bg: var(--review-panel-surface-strong);
+    --cta-bg-hover: var(--review-panel-surface);
+    --cta-color: var(--color-primary);
+    --cta-color-hover: var(--color-primary);
+    --cta-border-color: rgba(var(--color-primary-rgb), 0.16);
+    --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.26);
+    --cta-shadow: var(--review-cta-shadow);
+    --cta-shadow-hover: var(--review-cta-shadow-hover);
+}
+
+.review-card-toggle {
+    --cta-bg: var(--review-panel-surface-strong);
+    --cta-bg-hover: var(--review-panel-surface);
+    --cta-color: var(--color-primary);
+    --cta-color-hover: var(--color-primary);
+    --cta-border-color: rgba(var(--color-primary-rgb), 0.16);
+    --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.26);
+    --cta-shadow: var(--review-cta-shadow);
+    --cta-shadow-hover: var(--review-cta-shadow-hover);
+}
+
+.review-archive-toggle.review-archive-toggle--floating {
+    --cta-bg: rgba(255, 255, 255, 0.96);
+    --cta-bg-hover: rgba(var(--color-secondary-rgb), 0.1);
+    --cta-color: var(--review-title-color);
+    --cta-color-hover: var(--review-title-color);
+    --cta-border-color: rgba(var(--color-secondary-rgb), 0.24);
+    --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.34);
+    --cta-shadow: none;
+    --cta-shadow-hover: none;
+}
+
+.charity-flex-row {
+    --charity-review-surface: #fff;
+    --charity-review-image-radius: var(--review-image-radius);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: clamp(24px, 3vw, 44px);
+    width: 100%;
+    min-height: 340px;
+}
+
+.charity-flex-left,
+.charity-flex-right,
+.charity-flex-row > .gruppenbild-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+.charity-flex-left {
+    flex: 1 1 0;
+    max-width: none;
+    min-width: 0;
+    display: flex;
+    padding-right: clamp(8px, 1vw, 16px);
+    box-sizing: border-box;
+}
+
+.charity-flex-right,
+.charity-flex-row > .gruppenbild-container {
+    flex: 0 1 42%;
+    max-width: clamp(320px, 42vw, 640px);
+    min-width: 280px;
+    width: auto;
+    margin: 0;
+    display: flex;
+    align-items: stretch;
+    align-self: flex-start;
+    box-sizing: border-box;
+    gap: 8px;
+}
+
+.charity-flex-row > .gruppenbild-container img,
+.charity-flex-right img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    border-radius: var(--charity-review-image-radius);
+    display: block;
+    margin: 0 auto;
+    background: var(--charity-review-surface);
+}
+
+.charity-flex-row > .gruppenbild-container > div {
+    width: 100%;
+    max-width: 100%;
+    margin: 8px auto 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.review-media-block {
+    --review-media-narrow-width: 70%;
+    --review-media-surface: #fff;
+    --review-media-caption-color: var(--review-caption-color);
+    --review-media-frame-bg: var(--review-panel-surface);
+    --review-media-frame-border: rgba(var(--color-primary-rgb), 0.08);
+    --review-media-frame-shadow: none;
+    --review-media-frame-padding: clamp(10px, 1.3vw, 14px);
+    --review-media-frame-radius: var(--review-panel-radius);
+    width: 100%;
+}
+
+.charity-flex-row > .gruppenbild-container.review-media-block--top-28,
+.charity-flex-row > .gruppenbild-container.review-media-block--top-88,
+.charity-flex-row > .gruppenbild-container.review-media-block--top-128 {
+    margin: calc(var(--review-media-margin-top) + var(--review-media-desktop-offset, 0px)) auto 0;
+}
+
+.review-media-block--top-28 {
+    --review-media-margin-top: 28px;
+}
+
+.review-media-block--top-88 {
+    --review-media-margin-top: 88px;
+}
+
+.review-media-block--top-128 {
+    --review-media-margin-top: 128px;
+}
+
+.review-media-caption {
+    margin: 8px auto 18px;
+    color: var(--review-media-caption-color);
+    font-family: var(--font-ui-modern);
+    font-size: 0.92rem;
+    font-weight: var(--font-weight-body);
+    letter-spacing: 0.02em;
+    text-align: center;
+    font-style: italic;
+}
+
+.charity-projects-section[id^="review-"] .review-media-caption {
+    width: fit-content;
+    max-width: 100%;
+    margin: 2px auto 0;
+    padding: 0.46em 0.92em;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.68);
+    border: 1px solid rgba(79, 141, 135, 0.14);
+}
+
+.review-media-caption--narrow {
+    max-width: var(--review-media-narrow-width);
+}
+
+.review-media-image-card {
+    height: auto;
+    display: block;
+    background: var(--review-media-surface, #fff);
+    box-shadow: none;
+}
+
+.charity-projects-section[id^="review-"] .review-media-image-card,
+.charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img,
+.charity-projects-section[id^="review-"] .charity-flex-right img {
+    box-shadow: none;
+    background: transparent;
+}
+
+.review-media-image-card--narrow {
+    max-width: var(--review-media-narrow-width);
+}
+
+.charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
+    padding: var(--review-media-frame-padding);
+    background: var(--review-media-frame-bg);
+    border: 1px solid var(--review-media-frame-border);
+    border-radius: var(--review-media-frame-radius);
+    box-shadow: var(--review-media-frame-shadow);
+}
+
+.event-social-actions.review-social-actions {
+    justify-content: flex-start;
+    align-self: flex-start;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 18px;
+}
+
+.charity-projects-section {
+    --charity-projects-bg: var(--review-section-surface);
+    --charity-projects-surface: rgba(255, 255, 255, 0.96);
+    --charity-title-color: var(--color-primary);
+    --charity-meta-color: var(--color-secondary);
+    --charity-copy-color: var(--review-copy-color);
+    --charity-card-border: rgba(var(--color-primary-rgb), 0.12);
+    --charity-card-shadow: var(--shadow-surface-strong);
+    --charity-card-topline: var(--color-secondary);
+    background: var(--charity-projects-bg);
+    padding: 40px 0 32px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.charity-projects-section[id^="review-"] {
+    --charity-projects-bg: var(--review-section-surface);
+    --charity-projects-surface: var(--review-panel-surface-strong);
+    --charity-card-border: var(--review-panel-border);
+    --charity-card-shadow: var(--review-panel-shadow);
+    --charity-card-topline: rgba(var(--color-secondary-rgb), 0.78);
+    --review-title-size: clamp(1.64rem, 2.08vw, 1.9rem);
+    --review-meta-bg: rgba(var(--color-primary-rgb), 0.06);
+    --review-meta-border: rgba(var(--color-secondary-rgb), 0.22);
+    --review-card-fade-surface: var(--review-fade-surface);
+    position: relative;
+    isolation: isolate;
+}
+
+.review-featured#review-masterclass-florian-meierott .masterclass-flex__image {
+    object-position: center 24%;
+}
+
+.review-featured#review-weihnachtskonzert-zum-mitsingen-2025 .gruppenbild-img {
+    object-position: center 28%;
+}
+
+#review-masterclass-florian-meierott,
+#review-christmette-2025,
+#review-weihnachtskonzert-zum-mitsingen-2025 {
+    --review-inline-media-width: clamp(292px, 37.2%, 368px);
+    --review-inline-media-image-max-height: 256px;
+    --review-inline-media-image-fit: cover;
+    --review-inline-media-margin: 2px 8px 18px 28px;
+}
+
+.review-featured--tablet-article .review-inline-media {
+    display: none;
+}
+
+#review-benefiz-trommelworkshop-2026 .charity-flex-row {
+    align-items: flex-start;
+}
+
+#review-benefiz-trommelworkshop-2026 .charity-flex-left {
+    flex: 1 1 58%;
+}
+
+#review-benefiz-trommelworkshop-2026 .review-benefit-workshop-media {
+    flex: 0 1 40%;
+    max-width: clamp(340px, 40vw, 470px);
+    gap: 16px;
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+@media (min-width: 901px) {
+    #review-benefiz-trommelworkshop-2026 .review-benefit-workshop-media {
+        align-self: flex-start;
+        margin-top: clamp(20px, 1.8vw, 30px);
+    }
+}
+
+#review-benefiz-trommelworkshop-2026 .review-benefit-workshop-media > .review-media-image-card {
+    border-radius: 24px;
+    overflow: hidden;
+    mask-image: radial-gradient(white, black);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+#review-benefiz-trommelworkshop-2026 .review-donation-card {
+    padding: 18px 20px;
+    border-radius: var(--review-panel-radius-tight);
+    background: rgba(var(--color-secondary-rgb), 0.08);
+    border: 1px solid rgba(var(--color-primary-rgb), 0.1);
+    box-shadow: var(--review-panel-shadow-soft);
+}
+
+#review-benefiz-trommelworkshop-2026 .review-donation-card__copy {
+    color: #26484e;
+}
+
+#review-benefiz-trommelworkshop-2026 .review-donation-card__intro,
+#review-benefiz-trommelworkshop-2026 .review-donation-card__details {
+    margin: 0;
+}
+
+#review-benefiz-trommelworkshop-2026 .review-donation-card__intro {
+    font-family: var(--font-ui-modern);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+#review-benefiz-trommelworkshop-2026 .review-donation-card__details {
+    margin-top: 12px;
+    font-family: var(--font-ui-modern);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.72;
+    letter-spacing: -0.01em;
+}
+
+#review-johann-strauss-marktbreit-2025 .gruppenbild-container {
+    --review-strauss-gallery-image-radius: 24px;
+}
+
+#review-johann-strauss-marktbreit-2025 .gruppenbild-container > .gruppenbild-img {
+    border-radius: var(--review-strauss-gallery-image-radius);
+    clip-path: inset(0 round var(--review-strauss-gallery-image-radius));
+}
+
+#review-masterclass-florian-meierott {
+    --review-inline-media-width: clamp(248px, 34%, 320px);
+    --review-inline-media-image-max-height: 220px;
+    padding-top: 16px;
+}
+
+.rueckblick-flex {
+    --review-masterclass-image-shadow: none;
+    --masterclass-media-basis: 48%;
+    --masterclass-media-max-width: min(48vw, 760px);
+    --masterclass-credit-margin-top: 8px;
+    --masterclass-credit-font-size: 0.98em;
+    --masterclass-credit-line-height: 1.4;
+    --masterclass-credit-color: var(--review-caption-color);
+    flex-wrap: wrap;
+}
+
+.charity-projects-section[id^="review-"] .rueckblick-flex {
+    --review-masterclass-image-shadow: none;
+}
+
+.rueckblick-flex img {
+    box-shadow: var(--review-masterclass-image-shadow);
+}
+
+.masterclass-flex .masterclass-flex__media {
+    flex-basis: var(--masterclass-media-basis);
+    max-width: var(--masterclass-media-max-width);
+}
+
+.masterclass-flex .masterclass-flex__image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.masterclass-flex .masterclass-flex__credit {
+    margin-top: var(--masterclass-credit-margin-top);
+    font-size: var(--masterclass-credit-font-size);
+    line-height: var(--masterclass-credit-line-height);
+    color: var(--masterclass-credit-color);
+    text-align: center;
+    font-style: italic;
+}
+
+#review-nikolausfeier-2025 {
+    --review-nikolaus-media-width: min(39%, 430px);
+    --review-nikolaus-media-flex: 0 0 min(39%, 430px);
+    --review-nikolaus-media-margin-top: 28px;
+    --review-nikolaus-image-max-width: min(78%, 420px);
+    --review-nikolaus-image-max-height: 390px;
+    --review-nikolaus-image-margin-bottom: 10px;
+    --review-nikolaus-image-radius: 24px;
+    --review-nikolaus-caption-font-size: 0.92em;
+    --review-inline-media-width: clamp(220px, 28%, 260px);
+    --review-inline-media-image-max-height: 300px;
+    --review-inline-media-image-fit: contain;
+    --review-inline-media-margin: 0 0 16px 22px;
+}
+
+#review-nikolausfeier-2025 .charity-flex-row > .gruppenbild-container {
+    width: var(--review-nikolaus-media-width);
+    flex: var(--review-nikolaus-media-flex);
+    margin-top: calc(var(--review-nikolaus-media-margin-top) + var(--review-media-desktop-offset, 0px));
+    align-self: flex-start;
+}
+
+#review-nikolausfeier-2025 .gruppenbild-img-nikolaus {
+    max-width: 100%;
+    max-height: var(--review-nikolaus-image-max-height);
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    box-shadow: none;
+    background: transparent;
+    border: 0;
+    cursor: default;
+    pointer-events: none;
+}
+
+#review-nikolausfeier-2025 .review-media-image-shell--nikolaus {
+    width: min(100%, var(--review-nikolaus-image-max-width));
+    max-width: 100%;
+    margin: 0 auto var(--review-nikolaus-image-margin-bottom);
+    border-radius: var(--review-nikolaus-image-radius);
+    overflow: hidden;
+    background: transparent;
+}
+
+#review-nikolausfeier-2025 .review-inline-media--nikolaus .review-media-image-card {
+    border-radius: inherit;
+}
+
+#review-nikolausfeier-2025 .review-inline-media--nikolaus .review-media-image-shell--nikolaus {
+    width: 100%;
+}
+
+#review-nikolausfeier-2025 .review-media-image-shell--nikolaus,
+#review-nikolausfeier-2025 .gruppenbild-container > .review-media-image-shell--nikolaus,
+#review-nikolausfeier-2025 .review-inline-media--nikolaus .review-media-image-shell--nikolaus {
+    border-radius: var(--review-nikolaus-image-radius);
+    overflow: hidden;
+    clip-path: inset(0 round var(--review-nikolaus-image-radius));
+}
+
+#review-nikolausfeier-2025 .gruppenbild-img-nikolaus,
+#review-nikolausfeier-2025 .review-inline-media--nikolaus .review-media-image-card {
+    border-radius: var(--review-nikolaus-image-radius);
+    clip-path: inset(0 round var(--review-nikolaus-image-radius));
+}
+
+#review-nikolausfeier-2025 .charity-flex-row > .gruppenbild-container > div {
+    font-size: var(--review-nikolaus-caption-font-size);
+}
+
+.charity-projects-container {
+    max-width: 2800px;
+    width: 85vw;
+    margin: 0 auto 18px;
+    background: var(--charity-projects-surface);
+    border-radius: var(--radius-card-large);
+    box-shadow: var(--charity-card-shadow);
+    border: 1px solid var(--border-soft);
+    padding: 38px 28px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.charity-projects-container::before {
+    content: none;
+}
+
+.charity-title,
+.charity-meta,
+.charity-description {
+    font-family: var(--font-ui-modern);
+}
+
+.charity-title {
+    font-family: var(--font-ui-modern);
+    font-weight: var(--font-weight-heading);
+    color: var(--charity-title-color);
+    font-size: clamp(2.2rem, 4.2vw, 2.9rem);
+    line-height: var(--premium-title-line-height);
+    margin-bottom: 18px;
+    letter-spacing: var(--premium-title-letter-spacing);
+    text-align: left;
+    text-wrap: balance;
+}
+
+.charity-meta {
+    color: var(--charity-meta-color);
+    font-size: clamp(0.96rem, 0.78rem + 0.45vw, 1.08rem);
+    font-weight: 800;
+    margin-bottom: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: left;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.56em 0.9em;
+    border-radius: 999px;
+    background: rgba(13, 136, 126, 0.08);
+    border: 1px solid rgba(13, 136, 126, 0.16);
+}
+
+.charity-description {
+    color: var(--charity-copy-color);
+    font-size: var(--premium-body-size);
+    line-height: var(--premium-body-line-height);
+    font-weight: 520;
+    word-break: break-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    overflow-wrap: anywhere;
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+    text-align: left;
+    text-wrap: pretty;
+}
+
+.charity-description .external-link {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    color: var(--inline-link-color, #159b8c);
+    font-weight: var(--inline-link-weight, 600);
+    text-decoration: underline;
+    text-decoration-color: var(--inline-link-decoration-color, rgba(21, 155, 140, 0.65));
+    text-decoration-thickness: var(--inline-link-thickness, 0.08em);
+    text-underline-offset: var(--inline-link-offset, 0.12em);
+}
+
+.charity-description .external-link:hover,
+.charity-description .external-link:focus,
+.charity-description .external-link:focus-visible {
+    color: var(--inline-link-hover-color, var(--color-primary));
+    background: none;
+    box-shadow: none;
+    transform: none;
+    text-decoration-color: currentColor;
+    outline: none;
+}
+
+.charity-description .external-link:focus-visible {
+    outline: 2px solid rgba(var(--color-secondary-rgb), 0.24);
+    outline-offset: 2px;
+    border-radius: 6px;
+}
+
+.charity-title--compact,
+.review-archive .charity-projects-section[id^="review-"] .charity-title {
+    margin-bottom: 0.2em;
+}
+
+.charity-title--flush-top {
+    margin-top: 0;
+}
+
+.charity-description--left {
+    text-align: left;
+}
+
+.charity-projects-section[id^="review-"] .charity-description--left {
+    text-align: left;
+    text-justify: auto;
+}
+
+@media (min-width: 1301px) {
+    .charity-description {
+        font-size: 1.14rem;
+    }
+}
+
+@media (max-width: 1300px) {
+    .charity-title {
+        font-size: 1.5em;
+    }
+
+    .charity-meta,
+    .charity-description {
+        font-size: 0.98em;
+    }
+}
+
+@media (max-width: 1200px) {
+    .charity-title {
+        margin-bottom: 14px;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-title {
+        margin-bottom: 12px;
+    }
+
+    .charity-projects-section[id^="review-"] {
+        --review-section-padding: 22px 0 18px;
+        --review-container-padding: 24px 22px 22px;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+        border-radius: 0;
+        --review-container-radius: 20px;
+        --review-container-margin-bottom: 10px;
+        --review-flex-gap: 20px;
+        padding: var(--review-section-padding);
+        text-align: left !important;
+        text-justify: auto;
+        align-self: flex-start;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-projects-container {
+        padding: var(--review-container-padding);
+        border-radius: var(--review-container-radius);
+        margin-bottom: var(--review-container-margin-bottom);
+        box-sizing: border-box;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--review-flex-gap);
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-left,
+    .charity-projects-section[id^="review-"] .charity-flex-right,
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
+        max-width: 100%;
+        flex: 1 1 100%;
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-left,
+    .charity-projects-section[id^="review-"] .charity-flex-right {
+        padding: 0;
+        padding-right: 0;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
+        padding: var(--review-media-frame-padding);
+        padding-right: var(--review-media-frame-padding);
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-right,
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
+        margin: 0 auto;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-title,
+    .charity-projects-section[id^="review-"] .charity-meta,
+    .charity-projects-section[id^="review-"] .charity-description {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        box-sizing: border-box;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img,
+    .charity-projects-section[id^="review-"] .charity-flex-right img {
+        margin: 0 auto;
+    }
+
+    #review-masterclass-florian-meierott .masterclass-flex {
+        min-height: 0;
+    }
+
+    #review-masterclass-florian-meierott .masterclass-flex .charity-flex-left,
+    #review-masterclass-florian-meierott .masterclass-flex .masterclass-flex__media {
+        flex: 0 0 auto;
+    }
+
+    #review-nikolausfeier-2025 .charity-flex-left {
+        flex: 0 0 auto;
+    }
+
+    #review-nikolausfeier-2025 {
+        --review-nikolaus-media-width: min(66%, 420px);
+        --review-nikolaus-media-flex: 0 0 auto;
+        --review-nikolaus-media-margin-top: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .charity-meta {
+        font-size: 0.9rem;
+        line-height: 1.35;
+        letter-spacing: 0.035em;
+        padding: 0.5em 0.78em;
+        border-radius: 18px;
+        max-width: 100%;
+        white-space: normal;
+        text-wrap: pretty;
+        text-align: left;
+    }
+
+    .charity-title {
+        margin-bottom: 10px;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-title {
+        font-size: clamp(1.48rem, 5.2vw, 1.82rem);
+        line-height: 1.16;
+        letter-spacing: -0.01em;
+        margin-bottom: 10px;
+    }
+
+    .masterclass-flex {
+        --masterclass-image-width: 100%;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .masterclass-flex .masterclass-flex__image {
+        width: var(--masterclass-image-width);
+        margin: 0;
+    }
+
+    #review-nikolausfeier-2025 {
+        --review-nikolaus-media-width: min(100%, 340px);
+        --review-nikolaus-media-margin-top: 6px;
+        --review-nikolaus-image-max-width: min(100%, 340px);
+        --review-nikolaus-image-max-height: none;
+    }
+
+    #review-nikolausfeier-2025 .charity-flex-row > .gruppenbild-container {
+        width: min(100%, 340px);
+        max-width: 100%;
+        min-width: 0;
+        margin-inline: auto;
+    }
+
+    #review-nikolausfeier-2025 .gruppenbild-img-nikolaus,
+    #review-nikolausfeier-2025 .review-inline-media--nikolaus .review-media-image-card {
+        width: 100%;
+        max-width: 100%;
+        max-height: none;
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+@media (min-width: 1201px) {
+    .charity-projects-section[id^="review-"] {
+        --review-media-desktop-offset: 44px;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:not(.review-media-block) {
+        margin-top: var(--review-media-desktop-offset);
+    }
+
+    #review-masterclass-florian-meierott {
+        --review-masterclass-media-margin-top-desktop: 42px;
+    }
+
+    #review-masterclass-florian-meierott .masterclass-flex .masterclass-flex__media {
+        margin-top: calc(var(--review-masterclass-media-margin-top-desktop) + var(--review-media-desktop-offset, 0px));
+    }
+
+    #review-wir-musizieren-gemeinsam-2025 {
+        --review-wir-musizieren-media-margin-top-desktop: 168px;
+    }
+
+    #review-wir-musizieren-gemeinsam-2025 .charity-flex-row > .gruppenbild-container {
+        margin-top: calc(var(--review-wir-musizieren-media-margin-top-desktop) + var(--review-media-desktop-offset, 0px));
+    }
+}
+
+@media (min-width: 1180px) {
+    .review-overview-section {
+        --review-overview-section-bg: var(--theme-bg-muted);
+        --review-overview-section-padding: 78px 0 26px;
+        --review-overview-shell-width: var(--layout-shell-width-wide);
+        --review-overview-shell-padding: 0;
+        --review-overview-shell-columns: minmax(0, 1fr) minmax(360px, 0.86fr);
+        --review-overview-shell-gap: clamp(34px, 4vw, 56px);
+        --review-overview-copy-padding: 0;
+        --review-overview-highlights-gap: 16px;
+        --review-overview-highlights-margin-top: 28px;
+    }
+
+    .review-overview-shell {
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: stretch;
+        grid-template-columns: minmax(0, 1fr) minmax(360px, 438px);
+        grid-template-rows: auto auto auto;
+    }
+
+    .review-overview-copy {
+        display: contents;
+    }
+
+    .review-overview-kicker,
+    .review-overview-title,
+    .review-overview-intro {
+        grid-column: 1;
+    }
+
+    .review-overview-kicker {
+        color: var(--review-kicker-color);
+        font-size: 0.72rem;
+        font-weight: 620;
+        letter-spacing: 0.18em;
+    }
+
+    .review-overview-title {
+        max-width: 11ch;
+        margin: 12px 0 16px;
+        font-size: clamp(2rem, 2.48vw, 2.54rem);
+        line-height: 1.02;
+        letter-spacing: -0.04em;
+    }
+
+    .review-overview-intro {
+        max-width: 56ch;
+        color: var(--review-copy-color);
+        font-size: 1.02rem;
+        line-height: 1.66;
+    }
+
+    .review-overview-highlights {
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        max-width: none;
+        margin-top: 30px;
+    }
+
+    .review-overview-highlight {
+        min-height: 100%;
+        padding: 18px 18px 16px 22px;
+        border-radius: 22px;
+        background: var(--review-panel-surface-strong);
+        border-color: var(--review-panel-border);
+        box-shadow: var(--review-panel-shadow-soft);
+    }
+
+    .review-overview-highlight::before {
+        top: 20px;
+        bottom: 20px;
+        left: 12px;
+        width: 4px;
+        border-radius: 999px;
+        opacity: 0.62;
+    }
+
+    .review-overview-highlight-title {
+        font-size: clamp(1.04rem, 1.45vw, 1.24rem);
+        line-height: 1.14;
+    }
+
+    .review-overview-highlight-copy {
+        font-size: var(--premium-body-size);
+        line-height: var(--premium-body-line-height);
+    }
+
+    .review-overview-media {
+        grid-column: 2;
+        grid-row: 1 / span 3;
+        width: 100%;
+        max-width: 438px;
+        padding: 12px;
+        border: 1px solid var(--review-panel-border);
+        border-radius: var(--review-panel-radius-large);
+        background: var(--review-panel-surface-strong);
+        box-shadow: var(--review-panel-shadow);
+        justify-self: end;
+        align-self: start;
+    }
+
+    .review-overview-image {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        max-height: none;
+        aspect-ratio: auto;
+        object-fit: contain;
+        object-position: center center;
+        border: 0;
+        border-radius: 22px;
+    }
+
+    .review-archive-intro {
+        padding: 28px 0 12px;
+        background: var(--review-section-surface-alt);
+    }
+
+    .review-archive-intro__inner {
+        width: var(--layout-shell-width-feature);
+        padding: 34px 34px 30px;
+        border-radius: var(--review-panel-radius-large);
+        border-color: var(--review-panel-border);
+        background: var(--review-panel-surface-strong);
+        box-shadow: var(--review-panel-shadow);
+    }
+
+    .review-archive-intro__inner::before {
+        width: 64px;
+        height: 2px;
+        margin-bottom: 18px;
+        background: var(--color-secondary);
+    }
+
+    .review-archive-intro__eyebrow {
+        font-size: 0.72rem;
+        font-weight: 620;
+        letter-spacing: 0.18em;
+        color: var(--review-kicker-color);
+    }
+
+    .review-archive-intro__title {
+        max-width: 11ch;
+        margin: 12px 0 12px;
+        font-size: clamp(2.08rem, 2.72vw, 2.82rem);
+        font-weight: 555;
+        line-height: 1.01;
+        letter-spacing: -0.044em;
+    }
+
+    .review-archive-intro__copy {
+        max-width: 56ch;
+        color: var(--review-copy-color);
+        font-size: 1.02rem;
+        line-height: 1.66;
+    }
+
+    .review-archive::before {
+        width: var(--layout-shell-width-feature);
+    }
+
+    .review-archive-toggle {
+        min-height: 46px;
+        padding: 0 18px;
+        border-radius: var(--review-chip-radius);
+        --cta-bg: var(--review-panel-surface-strong);
+        --cta-bg-hover: var(--review-panel-surface);
+        --cta-color: var(--color-primary);
+        --cta-color-hover: var(--color-primary);
+        --cta-border-color: rgba(var(--color-primary-rgb), 0.16);
+        --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.26);
+        font-weight: 600;
+    }
+
+    .review-featured,
+    .review-archive .charity-projects-section[id^="review-"] {
+        padding-top: 22px;
+        padding-bottom: 20px;
+    }
+
+    .review-featured .charity-projects-container,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container {
+        width: var(--layout-shell-width-feature);
+        padding: 26px 34px 30px;
+        border-radius: var(--review-panel-radius-large);
+        background: var(--review-panel-surface-strong);
+        border-color: var(--review-panel-border);
+        box-shadow: var(--review-panel-shadow);
+    }
+
+    .review-featured .charity-projects-container::after,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container::after,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container::after {
+        top: 20px;
+        bottom: 20px;
+        left: 12px;
+        width: 2px;
+        border-radius: 999px;
+        background: var(--review-accent-line);
+        opacity: 0.46;
+    }
+
+    .review-featured .charity-flex-row,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row {
+        gap: 28px;
+    }
+
+    .review-featured .charity-title,
+    .review-archive .charity-projects-section[id^="review-"] .charity-title,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-title {
+        max-width: 19ch;
+        font-family: var(--font-ui-modern);
+        font-size: clamp(2.12rem, 2.75vw, 2.75rem);
+        font-weight: 590;
+        line-height: 1.02;
+        letter-spacing: -0.04em;
+    }
+
+    .review-featured .charity-meta,
+    .review-archive .charity-projects-section[id^="review-"] .charity-meta,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-meta {
+        color: var(--review-kicker-color);
+        font-size: 0.8rem;
+        font-weight: 620;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+    }
+
+    .review-featured .charity-description,
+    .review-archive .charity-projects-section[id^="review-"] .charity-description,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-description {
+        max-width: 64ch;
+        color: var(--review-copy-color);
+        font-size: 1.03rem;
+        line-height: 1.72;
+    }
+
+    .review-featured .event-social-actions.review-social-actions,
+    .review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions {
+        gap: 10px;
+        margin-bottom: 18px;
+    }
+
+    .review-featured .event-social-actions.review-social-actions .event-social-button,
+    .review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions .event-social-button {
+        width: 42px;
+        height: 42px;
+        border-color: rgba(18, 62, 70, 0.1);
+        box-shadow: var(--review-cta-shadow);
+    }
+
+    .review-featured .charity-flex-row > .gruppenbild-container,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container {
+        padding: 14px;
+        border-radius: var(--review-panel-radius);
+        background: var(--review-panel-surface);
+        border: 1px solid var(--review-panel-border);
+        border-color: var(--review-panel-border);
+        box-shadow: var(--review-panel-shadow-soft);
+    }
+
+    .review-featured .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-featured .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right img:not(.gruppenbild-img-nikolaus) {
+        border-radius: 22px;
+    }
+
+    .review-featured .review-media-caption,
+    .review-featured .masterclass-flex__credit,
+    .review-archive .charity-projects-section[id^="review-"] .review-media-caption,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-caption {
+        color: var(--review-caption-color);
+        font-size: 0.84rem;
+        background: var(--review-panel-surface);
+        border-color: var(--review-border-color);
+    }
+
+    #review-benefiz-trommelworkshop-2026 .review-donation-card {
+        padding: 22px 22px 20px;
+        border-radius: var(--review-panel-radius-tight);
+        background: rgba(var(--color-secondary-rgb), 0.1);
+        border-color: rgba(var(--color-primary-rgb), 0.1);
+        box-shadow: var(--review-panel-shadow-soft);
+    }
+}
+
+@media (max-width: 900px) {
+    .masterclass-flex {
+        --masterclass-image-width: min(100%, 560px);
+    }
+
+    .masterclass-flex .masterclass-flex__image {
+        width: var(--masterclass-image-width);
+    }
+
+    #review-nikolausfeier-2025 {
+        --review-nikolaus-media-width: min(80%, 360px);
+        --review-nikolaus-image-max-width: min(86%, 360px);
+        --review-nikolaus-image-max-height: 320px;
+    }
+}
+
+.review-featured,
+.review-archive .charity-projects-section[id^="review-"] {
+    padding-top: 22px;
+    padding-bottom: 18px;
+}
+
+.charity-projects-section[id^="review-"] {
+    scroll-margin-top: 88px;
+}
+
+.review-featured .charity-projects-container,
+.review-archive .charity-projects-section[id^="review-"] .charity-projects-container {
+    width: var(--layout-shell-width);
+    margin: 0 auto 12px;
+    padding: 22px 28px 24px;
+    border-radius: var(--review-panel-radius-large);
+    background: var(--review-panel-surface-strong);
+    border-color: var(--review-panel-border);
+    box-shadow: var(--review-panel-shadow);
+}
+
+.review-overview-section + #review-masterclass-florian-meierott .charity-projects-container {
+    margin-top: clamp(10px, 1.6vw, 18px);
+}
+
+.review-featured .charity-projects-container:hover,
+.review-featured .charity-projects-container:focus-within,
+.review-archive .charity-projects-section[id^="review-"] .charity-projects-container:hover,
+.review-archive .charity-projects-section[id^="review-"] .charity-projects-container:focus-within,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container:hover,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container:focus-within {
+    border-color: var(--review-panel-border-strong);
+}
+
+.review-featured .charity-projects-container::after,
+.review-archive .charity-projects-section[id^="review-"] .charity-projects-container::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 12px;
+    width: 2px;
+    height: auto;
+    inset: auto;
+    border-radius: 999px;
+    background: var(--review-accent-line);
+    opacity: 0.45;
+}
+
+.review-featured .charity-flex-row,
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-row {
+    gap: clamp(18px, 2.2vw, 30px);
+    align-items: stretch;
+}
+
+.review-featured .charity-flex-left,
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-left {
+    justify-content: flex-start;
+    padding-right: clamp(12px, 1.4vw, 22px);
+}
+
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-left {
+    gap: 0;
+}
+
+.review-featured .charity-title,
+.review-archive .charity-projects-section[id^="review-"] .charity-title {
+    max-width: 22ch;
+    margin-bottom: 10px;
+    color: var(--review-title-color);
+    font-family: var(--font-ui-modern);
+    font-size: clamp(1.72rem, 2.55vw, 2.18rem);
+    font-weight: 580;
+    line-height: 1.08;
+    letter-spacing: -0.026em;
+    text-wrap: balance;
+}
+
+.charity-projects-section[id^="review-"] .charity-meta {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    margin-bottom: 14px;
+    margin-right: 0;
+    padding: 0.54em 0.94em;
+    color: var(--review-kicker-color);
+    background: var(--review-meta-bg);
+    border: 1px solid var(--review-meta-border);
+    border-radius: 999px;
+    box-shadow: none;
+    text-align: left !important;
+    align-self: flex-start;
+    white-space: normal;
+    text-wrap: pretty;
+}
+
+.review-overview-kicker,
+.charity-projects-section[id^="review-"] .charity-meta {
+    font-size: 0.78rem;
+    font-weight: 520;
+    letter-spacing: 0.14em;
+}
+
+.review-overview-title,
+.charity-projects-section[id^="review-"] .charity-title {
+    font-family: var(--font-ui-modern);
+    font-weight: 560;
+    letter-spacing: -0.03em;
+}
+
+.review-featured .charity-description,
+.review-archive .charity-projects-section[id^="review-"] .charity-description {
+    max-width: var(--review-prose-max-width);
+    color: var(--review-copy-color);
+    font-family: var(--font-ui-modern);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.7;
+    letter-spacing: 0;
+    text-align: left;
+    text-align-last: auto;
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    text-wrap: pretty;
+}
+
+.charity-projects-section[id^="review-"] .event-social-actions.review-social-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: fit-content;
+    max-width: 100%;
+    gap: 10px;
+    margin-top: 8px;
+    margin-bottom: 14px;
+}
+
+.review-featured .charity-flex-row > .gruppenbild-container,
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
+    align-self: flex-start;
+    padding: 10px;
+    background: var(--review-panel-surface);
+    border-color: var(--review-panel-border);
+    box-shadow: var(--review-panel-shadow-soft);
+}
+
+.review-featured .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link,
+.review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link {
+    --event-social-copy-icon-offset: 12px;
+    background: var(--review-secondary-wash-soft);
+    border-color: var(--review-panel-border-strong);
+    color: var(--review-title-color);
+}
+
+.review-featured .event-social-actions.review-social-actions .event-social-copy-status,
+.review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-copy-status,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions .event-social-copy-status {
+    text-align: left;
+}
+
+.review-featured .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link svg,
+.review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link svg,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+}
+
+.review-featured .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label,
+.review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label {
+    display: none;
+}
+
+
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:only-of-type),
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-right:has(> img:only-of-type),
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:only-of-type),
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right:has(> img:only-of-type) {
+    flex: 0 1 clamp(300px, 29vw, 372px);
+    width: auto;
+    max-width: clamp(300px, 29vw, 372px);
+    min-width: 0;
+    padding: 10px;
+}
+
+.review-featured .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link,
+.review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link {
+    height: 42px;
+    min-height: 42px;
+}
+
+@media (min-width: 1180px) {
+    .review-featured .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link,
+    .review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link {
+        width: auto;
+        min-width: 0;
+        max-width: none;
+        padding: 0 14px 0 12px;
+        gap: 9px;
+        flex: 0 0 auto;
+    }
+
+    .review-featured .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label,
+    .review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label {
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.9rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .review-featured .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label [data-lang],
+    .review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label [data-lang],
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label [data-lang] {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        clip-path: none;
+        border: 0;
+        white-space: nowrap;
+    }
+}
+
+.review-featured .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+.review-featured .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+.charity-projects-section[id^="review-"] .review-media-image-card {
+    width: 100%;
+    max-height: 360px;
+    object-fit: contain;
+    border-radius: 22px;
+}
+
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right img:not(.gruppenbild-img-nikolaus) {
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    border-radius: 22px;
+}
+
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:only-of-type) img:not(.gruppenbild-img-nikolaus),
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-right:has(> img:only-of-type) img:not(.gruppenbild-img-nikolaus),
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:only-of-type) img:not(.gruppenbild-img-nikolaus),
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right:has(> img:only-of-type) img:not(.gruppenbild-img-nikolaus) {
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+    height: auto;
+    object-fit: contain;
+    border-radius: 22px;
+    display: block;
+}
+
+.charity-projects-section[id^="review-"] .review-media-caption,
+.review-featured .masterclass-flex__credit {
+    color: var(--review-caption-color);
+    font-family: var(--font-ui-modern);
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.46;
+    letter-spacing: 0.004em;
+}
+
+.review-card-toggle-wrap {
+    margin-top: 12px;
+}
+
+.review-return-link-wrap {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.review-return-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    padding: 2px 0;
+    border: 0;
+    background: transparent;
+    color: #5f7775;
+    font-family: var(--font-ui-modern);
+    font-size: 0.92rem;
+    font-weight: 620;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.review-return-link::before {
+    content: "‹";
+    font-size: 1.12rem;
+    line-height: 1;
+}
+
+.review-return-link > [data-lang] {
+    display: block;
+}
+
+.review-return-link:hover,
+.review-return-link:focus-visible {
+    color: #0f726c;
+    transform: translateX(-1px);
+    outline: none;
+}
+
+.review-return-link:focus-visible {
+    border-radius: 999px;
+    --interaction-box-shadow: var(--focus-ring-soft);
+    box-shadow: var(--focus-ring-soft);
+}
+
+.review-card--expanded .review-card-toggle {
+    --interaction-transform: none;
+}
+
+.review-card--collapsible[data-review-card-expanded="false"] .charity-description,
+.review-card--collapsible:not(.review-card--expanded):not([data-review-card-expanded="true"]) .charity-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--review-card-clamp-lines);
+    line-clamp: var(--review-card-clamp-lines);
+    overflow: hidden;
+}
+
+.review-card--collapsible[data-review-card-expanded="true"] .charity-description,
+.review-card--expanded .charity-description {
+    display: block;
+    -webkit-box-orient: unset;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
+}
+
+.review-card--collapsible:not(.review-card--expanded) .review-card-toggle-wrap {
+    position: relative;
+    padding-top: 12px;
+}
+
+.review-card--collapsible:not(.review-card--expanded) .review-card-toggle-wrap::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -24px;
+    height: 28px;
+    background: linear-gradient(180deg, rgba(247, 250, 248, 0), var(--review-card-fade-surface) 62%, var(--review-card-fade-surface) 100%);
+    pointer-events: none;
+}
+
+.review-overview-copy,
+.review-overview-media,
+.review-overview-highlight,
+.review-archive-intro__inner,
+.news-feed-card,
+.news-feed-card-media,
+.news-feed-card-image,
+.news-feed-card-cta,
+.review-archive-toggle,
+.review-card-toggle,
+.review-overview-image,
+.charity-projects-section[id^="review-"] .charity-projects-container,
+.charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.review-overview-section {
+    background: var(--review-overview-section-bg);
+    padding: var(--review-overview-section-padding);
+}
+
+.review-overview-copy {
+    padding: var(--review-overview-copy-padding);
+    border-radius: var(--review-overview-copy-radius);
+}
+
+.charity-projects-section[id^="review-"] .charity-projects-container {
+    box-shadow: var(--charity-card-shadow);
+}
+
+@media (max-width: 900px) {
+    .review-overview-section {
+        --review-overview-copy-padding: 22px 20px;
+    }
+}
+
+@media (min-width: 901px) {
+    .review-archive-intro__inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(248px, auto);
+        column-gap: clamp(34px, 4vw, 54px);
+        row-gap: 12px;
+        align-items: center;
+        padding: 30px 32px 28px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .review-archive-intro__inner::after {
+        content: none;
+    }
+
+    .review-archive-toggle {
+        grid-column: 2;
+        grid-row: 2 / span 2;
+        align-self: center;
+        justify-self: end;
+        min-width: clamp(220px, 24vw, 270px);
+        padding-inline: 20px;
+        --cta-bg: var(--color-primary);
+        --cta-bg-hover: var(--color-secondary);
+        --cta-color: #ffffff;
+        --cta-color-hover: #ffffff;
+        --cta-border-color: var(--color-primary);
+        --cta-border-color-hover: var(--color-secondary);
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1180px) {
+    .review-archive-intro__inner::after {
+        right: 18px;
+        top: auto;
+        bottom: 18px;
+        transform: none;
+        font-size: clamp(2.8rem, 6.2vw, 4.6rem);
+        opacity: 0.92;
+    }
+
+    .review-archive-toggle {
+        min-width: clamp(200px, 22vw, 248px);
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1024px) {
+    .review-overview-section,
+    .review-archive-intro,
+    .review-featured,
+    .review-archive .charity-projects-section[id^="review-"] {
+        padding-top: 22px;
+        padding-bottom: 18px;
+    }
+
+    .review-featured,
+    .review-archive .charity-projects-section[id^="review-"] {
+        padding-inline: 0;
+        box-sizing: border-box;
+    }
+
+    .review-featured .charity-projects-container,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container {
+        width: var(--layout-shell-width);
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        padding: 24px 30px 22px 22px;
+    }
+
+    .review-overview-highlights {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .review-overview-highlight,
+    .review-archive-intro__inner,
+    .review-featured .charity-projects-container,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container {
+        border-radius: 22px;
+    }
+
+    .review-archive-intro__inner,
+    .review-featured .charity-projects-container,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container {
+        padding: 24px 22px 22px;
+    }
+
+    .review-featured.review-featured--tablet-article .charity-projects-container {
+        padding: 24px 32px 22px 22px;
+    }
+
+    .review-featured .charity-title,
+    .review-archive .charity-projects-section[id^="review-"] .charity-title {
+        font-size: clamp(1.52rem, 6.2vw, 1.86rem);
+    }
+
+    .review-overview-shell {
+        width: min(1120px, calc(100% - 32px));
+        padding: 0 16px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .review-overview-copy .review-overview-title {
+        max-width: 9ch;
+        font-size: clamp(1.68rem, 4.1vw, 2rem) !important;
+        line-height: 1.02 !important;
+        letter-spacing: -0.04em !important;
+    }
+
+    .review-overview-copy,
+    .review-overview-media,
+    .review-archive-intro__inner {
+        padding: 22px 20px;
+        border-radius: 24px;
+    }
+
+    .review-overview-media {
+        max-width: 460px;
+        margin: 0 auto;
+    }
+
+    .review-featured .charity-projects-container,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container {
+        margin-bottom: 12px;
+    }
+
+    .review-featured .charity-flex-row,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row {
+        gap: 18px;
+    }
+
+    .review-featured .event-social-actions.review-social-actions,
+    .review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions {
+        margin-top: 8px;
+        margin-bottom: 14px;
+    }
+
+    .review-archive-toggle,
+    .review-card-toggle {
+        min-height: 48px;
+        padding: 11px 16px;
+        font-size: 0.95rem;
+    }
+
+    .charity-projects-section[id^="review-"] .review-media-caption {
+        width: 100%;
+        font-size: 0.84rem;
+        line-height: 1.44;
+        padding: 0.54em 0.78em;
+        border-radius: 14px;
+        text-align: center;
+    }
+
+    .review-featured .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-featured .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .charity-projects-section[id^="review-"] .review-media-image-card {
+        width: 100%;
+        max-height: 300px;
+        object-fit: contain;
+        border-radius: 20px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right img:not(.gruppenbild-img-nikolaus) {
+        width: 100%;
+        max-height: 200px;
+        object-fit: contain;
+        border-radius: 20px;
+    }
+}
+
+@media (min-width: 821px) and (max-width: 1024px) {
+    .review-overview-shell {
+        grid-template-columns: minmax(0, 1fr) minmax(248px, 32vw);
+        align-items: start;
+        gap: clamp(18px, 2.6vw, 26px);
+    }
+
+    .review-overview-copy {
+        min-width: 0;
+    }
+
+    .review-overview-media {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 12px;
+        justify-self: stretch;
+        align-self: start;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+    .review-featured,
+    .review-archive .charity-projects-section[id^="review-"] {
+        padding-inline: 0;
+        box-sizing: border-box;
+    }
+
+    .review-featured .charity-projects-container,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container {
+        width: var(--layout-shell-width);
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        padding-right: clamp(30px, 3.2vw, 38px);
+    }
+
+    .review-featured.review-featured--tablet-article .charity-projects-container {
+        padding-right: clamp(32px, 3.4vw, 40px);
+    }
+
+    .review-featured.charity-projects-section[id^="review-"] .charity-flex-row {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .review-featured.charity-projects-section[id^="review-"] .charity-flex-left {
+        flex: 1 1 0;
+        width: auto;
+        max-width: none;
+        padding-right: clamp(12px, 1.8vw, 24px);
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-left,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-left {
+        flex: 1 1 0;
+        width: auto;
+        max-width: none;
+        min-width: 0;
+        padding-right: clamp(12px, 1.8vw, 24px);
+    }
+
+    .review-featured.charity-projects-section[id^="review-"] .charity-flex-right,
+    .review-featured.charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
+        flex: 0 1 clamp(320px, 38%, 420px);
+        width: auto;
+        max-width: clamp(320px, 38%, 420px);
+        min-width: 280px;
+        margin: 0;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container {
+        flex: 0 1 clamp(220px, 28%, 290px);
+        width: auto;
+        max-width: clamp(220px, 28%, 290px);
+        min-width: 210px;
+        margin: 0;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:only-of-type),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right:has(> img:only-of-type),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:only-of-type),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right:has(> img:only-of-type) {
+        flex: 0 1 clamp(260px, 31%, 340px);
+        width: auto;
+        max-width: clamp(260px, 31%, 340px);
+        min-width: 0;
+        padding: 10px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-image-card--narrow,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-image-card--narrow {
+        max-width: 100%;
+    }
+
+    @supports selector(.review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2))) {
+        .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)),
+        .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-items: start;
+            gap: 10px;
+        }
+
+        .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) > img,
+        .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) > img {
+            width: 100%;
+            max-width: 100%;
+            max-height: 132px;
+            margin: 0;
+        }
+
+        .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) > img:first-of-type,
+        .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) > img:first-of-type {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) > img:last-of-type,
+        .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) > img:last-of-type {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) > .review-media-caption,
+        .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:nth-of-type(2)) > .review-media-caption {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            width: 100%;
+            margin-top: 0;
+        }
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .charity-flex-left {
+        display: block;
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding-right: 0;
+        box-sizing: border-box;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .review-inline-media {
+        display: flex;
+        flex-direction: column;
+        float: right;
+        clear: right;
+        width: var(--review-inline-media-width);
+        max-width: var(--review-inline-media-width);
+        min-width: 220px;
+        margin: var(--review-inline-media-margin);
+        padding: 10px;
+        background: var(--review-panel-surface);
+        border: 1px solid var(--review-panel-border);
+        border-radius: 24px;
+        box-shadow: var(--review-panel-shadow-soft);
+        box-sizing: border-box;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media:not(.review-archive-inline-media--gallery),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media:not(.review-archive-inline-media--gallery) {
+        width: clamp(280px, 34%, 344px);
+        max-width: min(100%, 344px);
+        min-width: 240px;
+        padding: 10px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media:not(.review-archive-inline-media--gallery) img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media:not(.review-archive-inline-media--gallery) img:not(.gruppenbild-img-nikolaus) {
+        max-height: none;
+        height: auto;
+        border-radius: 20px;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .review-inline-media .review-media-image-card,
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .review-inline-media .masterclass-flex__image {
+        width: 100%;
+        max-width: 100%;
+        max-height: var(--review-inline-media-image-max-height);
+        object-fit: var(--review-inline-media-image-fit);
+        object-position: center center;
+        border-radius: 20px;
+        display: block;
+        margin: 0 auto;
+        background: transparent;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .charity-flex-left::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .charity-description {
+        max-width: none;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] > .charity-projects-container > .charity-flex-row > .gruppenbild-container {
+        display: none;
+    }
+
+    .review-featured.charity-projects-section[id^="review-"] .charity-title {
+        max-width: 22ch;
+    }
+
+    .review-featured.charity-projects-section[id^="review-"] .charity-description {
+        max-width: min(100%, 60ch);
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-description,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-description {
+        max-width: min(100%, 60ch);
+    }
+
+    .review-featured.charity-projects-section[id^="review-"] .review-media-block--top-28 {
+        --review-media-margin-top: 20px;
+    }
+
+    .review-featured.charity-projects-section[id^="review-"] .review-media-block--top-88 {
+        --review-media-margin-top: 38px;
+    }
+
+    .review-featured.charity-projects-section[id^="review-"] .review-media-block--top-128 {
+        --review-media-margin-top: 56px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-block--top-28,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-block--top-28 {
+        --review-media-margin-top: 20px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-block--top-88,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-block--top-88 {
+        --review-media-margin-top: 38px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-block--top-128,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-block--top-128 {
+        --review-media-margin-top: 56px;
+    }
+}
+
+@media (min-width: 1201px) {
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .charity-flex-left {
+        display: block;
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding-right: 0;
+        box-sizing: border-box;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .review-inline-media {
+        display: flex;
+        flex-direction: column;
+        float: right;
+        clear: right;
+        width: var(--review-inline-media-width);
+        max-width: var(--review-inline-media-width);
+        min-width: 220px;
+        margin: var(--review-inline-media-margin);
+        box-sizing: border-box;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .review-inline-media .review-media-image-card,
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .review-inline-media .masterclass-flex__image {
+        width: 100%;
+        max-width: 100%;
+        max-height: var(--review-inline-media-image-max-height);
+        object-fit: var(--review-inline-media-image-fit);
+        object-position: center center;
+        border-radius: 20px;
+        display: block;
+        margin: 0 auto;
+        background: transparent;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .charity-flex-left::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .charity-description {
+        max-width: none;
+    }
+
+    .review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] > .charity-projects-container > .charity-flex-row > .gruppenbild-container {
+        display: none;
+    }
+}
+
+@media (min-width: 821px) and (max-width: 1200px) {
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .charity-flex-row,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .charity-flex-row {
+        display: block;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .charity-flex-left,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .charity-flex-left {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding-right: 0;
+        box-sizing: border-box;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .charity-flex-left::after,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .charity-flex-left::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media {
+        display: flex;
+        flex-direction: column;
+        float: right;
+        clear: right;
+        width: clamp(272px, 34%, 320px);
+        max-width: min(100%, 320px);
+        min-width: 240px;
+        margin: 0 0 18px 24px;
+        padding: 12px;
+        background: var(--review-panel-surface);
+        border: 1px solid var(--review-panel-border);
+        border-radius: 24px;
+        box-shadow: var(--review-panel-shadow-soft);
+        box-sizing: border-box;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media img:not(.gruppenbild-img-nikolaus) {
+        width: 100%;
+        max-width: 100%;
+        max-height: 228px;
+        object-fit: contain;
+        border-radius: 20px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media .review-media-caption,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media .review-media-caption {
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media--gallery,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery {
+        width: clamp(320px, 42%, 380px);
+        max-width: min(100%, 380px);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media--gallery > img,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > img {
+        max-height: 220px;
+        margin: 0;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media--gallery > img:first-of-type,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > img:first-of-type {
+        order: 1;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media--gallery > img:last-of-type,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > img:last-of-type {
+        order: 2;
+    }
+
+    .review-archive #review-johann-strauss-marktbreit-2025.review-archive-card--inline-media .review-archive-inline-media--gallery > img:last-of-type,
+    .review-archive #review-johann-strauss-marktbreit-2025.review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > img:last-of-type {
+        width: 100%;
+        max-width: 100%;
+        max-height: none;
+        border-radius: 20px;
+        clip-path: inset(0 round 20px);
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media--gallery > .review-media-caption,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > .review-media-caption {
+        order: 3;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .charity-description,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .charity-description {
+        max-width: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .review-overview-section,
+    .review-archive-intro,
+    .review-featured,
+    .review-archive .charity-projects-section[id^="review-"] {
+        padding-top: 22px;
+        padding-bottom: 16px;
+    }
+
+    .review-overview-section {
+        --review-overview-shell-width: min(100%, calc(100% - 20px));
+        --review-overview-shell-padding: 0 8px;
+        --review-overview-shell-columns: 1fr;
+        --review-overview-shell-gap: 14px;
+        --review-overview-highlights-gap: 14px;
+    }
+
+    .review-overview-shell,
+    .review-overview-copy,
+    .review-overview-highlights,
+    .review-overview-highlight,
+    .review-overview-media,
+    .review-overview-image {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .review-overview-highlights {
+        align-content: start;
+    }
+
+    .review-overview-title {
+        font-size: clamp(1.74rem, 6.8vw, 2.02rem);
+    }
+
+    .review-overview-intro {
+        max-width: none;
+        font-size: var(--review-lead-mobile-size);
+        line-height: var(--review-lead-mobile-line-height);
+    }
+
+    .review-overview-highlights {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .review-overview-highlight {
+        min-height: 0;
+        padding: 16px 14px 14px 18px;
+        border-radius: 18px;
+    }
+
+    .review-overview-highlight-title,
+    .review-overview-highlight-copy {
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    .review-overview-image {
+        border-radius: 20px;
+    }
+
+    .review-archive-intro__inner,
+    .review-featured .charity-projects-container,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container {
+        width: min(100%, calc(100% - 16px));
+        padding: 18px 16px;
+        border-radius: 20px;
+    }
+
+    .review-archive-intro__title {
+        font-size: clamp(1.42rem, 5.5vw, 1.64rem);
+    }
+
+    .review-archive-intro__copy {
+        max-width: 31ch;
+        font-size: var(--review-lead-mobile-size);
+        line-height: var(--review-lead-mobile-line-height);
+    }
+
+    .review-archive-toggle,
+    .review-card-toggle {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .review-archive-toggle.review-archive-toggle--floating[aria-expanded="true"] {
+        width: min(calc(100vw - 24px), 360px);
+    }
+
+    .review-featured .charity-flex-row,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row {
+        gap: 14px;
+    }
+
+    .review-featured .charity-title,
+    .review-archive .charity-projects-section[id^="review-"] .charity-title {
+        font-size: clamp(1.52rem, 6.2vw, 1.86rem);
+    }
+
+    .review-featured .charity-description,
+    .review-archive .charity-projects-section[id^="review-"] .charity-description {
+        margin-bottom: 14px;
+        font-size: var(--review-copy-mobile-size);
+        line-height: var(--review-copy-mobile-line-height);
+    }
+
+    .review-overview-highlight-copy {
+        font-size: var(--review-copy-mobile-size);
+        line-height: var(--review-copy-mobile-line-height);
+    }
+
+    .review-archive .charity-projects-section[id^="review-"].review-card--collapsible:not(.review-card--expanded) .charity-description {
+        -webkit-line-clamp: var(--review-card-clamp-lines);
+        line-clamp: var(--review-card-clamp-lines);
+    }
+
+    .review-featured .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-featured .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .charity-projects-section[id^="review-"] .review-media-image-card {
+        max-height: 300px;
+        border-radius: 20px;
+    }
+
+    .charity-projects-section[id^="review-"] .review-media-caption {
+        width: 100%;
+        font-size: 0.84rem;
+        line-height: 1.44;
+        padding: 0.54em 0.78em;
+        border-radius: 14px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 900px) {
+    .review-archive.review-archive--toggle-floating {
+        padding-bottom: 92px;
+    }
+
+    .review-archive-toggle.review-archive-toggle--floating[aria-expanded="true"] {
+        position: fixed;
+        left: 16px;
+        right: 16px;
+        bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+        width: auto;
+        max-width: 420px;
+        min-height: 54px;
+        padding-inline: 18px;
+        margin-inline: auto;
+        transform: none;
+        z-index: 60;
+        border-color: rgba(10, 117, 109, 0.3);
+        backdrop-filter: var(--review-floating-toggle-backdrop);
+        -webkit-backdrop-filter: var(--review-floating-toggle-backdrop);
+    }
+
+    .review-archive-toggle.review-archive-toggle--floating[aria-expanded="true"]:hover,
+    .review-archive-toggle.review-archive-toggle--floating[aria-expanded="true"]:focus-visible,
+    .review-archive-toggle.review-archive-toggle--floating[aria-expanded="true"]:active {
+        transform: none;
+    }
+
+    .review-featured .charity-projects-container,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container {
+        width: min(calc(100% - 32px), 720px);
+        padding: 22px 22px 18px;
+        border-radius: 24px;
+    }
+
+    .review-featured .charity-projects-container::after,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container::after,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container::after {
+        top: 16px;
+        bottom: 16px;
+        left: 8px;
+        width: 3px;
+        height: auto;
+        inset: auto;
+        border-radius: 999px;
+        opacity: 0.46;
+    }
+
+    .review-featured .charity-flex-row,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row {
+        gap: 16px;
+    }
+
+    .review-featured .charity-title,
+    .review-archive .charity-projects-section[id^="review-"] .charity-title,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-title {
+        max-width: 18ch;
+    }
+
+    .review-featured .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-featured .charity-flex-right img:not(.gruppenbild-img-nikolaus) {
+        min-height: 0;
+        max-height: 440px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right img:not(.gruppenbild-img-nikolaus) {
+        min-height: 0;
+        max-height: 190px;
+    }
+
+    .review-overview-section {
+        --review-overview-section-padding: 24px 0 18px;
+        --review-overview-shell-columns: 1fr;
+        --review-overview-shell-gap: 20px;
+        --review-overview-copy-padding: 20px 18px 18px;
+        --review-overview-highlights-margin-top: 18px;
+    }
+
+    .review-archive-intro {
+        padding: 16px 0 8px;
+    }
+
+    .review-archive-intro__inner {
+        width: min(calc(100% - 32px), 720px);
+        padding: 20px 20px 22px;
+        border-radius: 24px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] {
+        padding-top: 18px;
+        padding-bottom: 14px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row {
+        gap: 16px;
+    }
+
+    .review-overview-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .review-overview-media {
+        max-width: 440px;
+        width: 100%;
+        margin: 0 auto;
+        align-self: auto;
+    }
+
+    .masterclass-flex {
+        --masterclass-image-width: min(100%, 560px);
+    }
+
+    .masterclass-flex .masterclass-flex__image {
+        width: var(--masterclass-image-width);
+    }
+
+    .charity-projects-section[id^="review-"] {
+        --review-section-padding: 20px 0 16px;
+        --review-container-width: min(calc(100% - 32px), 720px);
+        --review-container-padding: 22px 22px 18px;
+        --review-flex-gap: 16px;
+        --review-media-mobile-margin-top: 14px;
+        --review-title-size: clamp(1.68rem, 4.6vw, 1.98rem);
+        padding: var(--review-section-padding);
+    }
+
+    .charity-projects-section[id^="review-"] .charity-projects-container {
+        width: var(--review-container-width);
+        padding: var(--review-container-padding);
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-row {
+        gap: var(--review-flex-gap);
+    }
+
+    .charity-projects-section[id^="review-"] .charity-meta {
+        max-width: min(100%, 34rem);
+    }
+
+    .charity-projects-section[id^="review-"] .review-media-caption {
+        font-size: 0.86rem;
+        line-height: 1.42;
+        padding: 0.42em 0.82em;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
+        margin-top: var(--review-media-mobile-margin-top);
+    }
+}
+
+.review-featured .charity-projects-container,
+.review-archive .charity-projects-section[id^="review-"] .charity-projects-container,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container {
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--review-panel-border);
+}
+
+.review-featured .charity-projects-container::after,
+.review-archive .charity-projects-section[id^="review-"] .charity-projects-container::after,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container::after {
+    top: 20px;
+    bottom: 20px;
+    left: 12px;
+    width: 2px;
+    height: auto;
+    inset: auto;
+    border-radius: 999px;
+    background: var(--review-accent-line);
+    opacity: 0.45;
+}
+
+@media (max-width: 900px) {
+    .review-featured .charity-projects-container::after,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container::after,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container::after {
+        top: 16px;
+        bottom: 16px;
+        left: 8px;
+        width: 3px;
+        opacity: 0.46;
+    }
+}
+
+.charity-projects-section[id^="review-"] {
+    --review-media-surface: transparent;
+    --review-media-frame-bg: transparent;
+    --review-media-frame-border: transparent;
+    --review-media-frame-padding: 0;
+    --review-media-frame-radius: var(--review-panel-radius);
+}
+
+.review-featured .charity-projects-container,
+.review-archive .charity-projects-section[id^="review-"] .charity-projects-container,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container {
+    border-radius: var(--surface-panel-radius-large);
+    overflow: hidden;
+}
+
+.charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container,
+.review-featured .charity-flex-row > .gruppenbild-container,
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container,
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:has(> img:only-of-type),
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container:has(> img:only-of-type),
+.review-archive .charity-projects-section[id^="review-"] .charity-flex-right:has(> img:only-of-type),
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right:has(> img:only-of-type),
+.review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .review-inline-media,
+.review-archive .charity-projects-section[id^="review-"].review-archive-card--inline-media .review-archive-inline-media,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded.review-archive-card--inline-media .review-archive-inline-media {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: var(--review-media-frame-radius);
+    box-shadow: none;
+    overflow: hidden;
+}
+
+.charity-projects-section[id^="review-"] .review-media-caption,
+.review-featured .masterclass-flex__credit {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 8px 0 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    color: var(--review-caption-color);
+    font-family: var(--font-ui-modern);
+    font-size: 0.84rem;
+    font-weight: 500;
+    line-height: 1.42;
+    letter-spacing: 0.01em;
+    text-align: center;
+    font-style: normal;
+    box-shadow: none;
+}
+
+#review-nikolausfeier-2025 .gruppenbild-img-nikolaus,
+#review-nikolausfeier-2025 .review-inline-media--nikolaus .review-media-image-card {
+    border-radius: var(--review-nikolaus-image-radius);
+}
+
+:root[data-theme="dark"] .news-feed-section,
+:root[data-theme="dark"] .review-overview-section,
+:root[data-theme="dark"] .review-featured,
+:root[data-theme="dark"] .review-archive-intro,
+:root[data-theme="dark"] .review-archive,
+:root[data-theme="dark"] .review-archive .charity-projects-section[id^="review-"] {
+    --review-section-surface: var(--theme-bg-muted);
+    --review-section-surface-alt: var(--theme-bg-muted);
+    --review-panel-surface: var(--theme-surface-panel);
+    --review-panel-surface-strong: var(--theme-surface-panel);
+    --review-panel-border: rgba(229, 240, 238, 0.14);
+    --review-panel-border-strong: rgba(var(--color-secondary-rgb), 0.34);
+    --review-panel-shadow: none;
+    --review-panel-shadow-hover: none;
+    --review-panel-shadow-soft: none;
+    --review-panel-shadow-soft-hover: none;
+    --review-media-shadow: none;
+    --review-cta-shadow: none;
+    --review-cta-shadow-hover: none;
+    --review-soft-grid: none;
+    --review-sheen: none;
+    --review-fade-surface: var(--theme-surface-panel);
+    --review-meta-bg: rgba(var(--theme-dark-brand-surface-rgb), 0.88);
+    --review-meta-border: rgba(var(--color-secondary-rgb), 0.34);
+}
+
+:root[data-theme="dark"] .review-overview-section {
+    --review-overview-section-bg: var(--review-section-surface);
+}
+
+:root[data-theme="dark"] .review-overview-section::before {
+    background: none;
+}
+
+:root[data-theme="dark"] .news-feed-section {
+    --news-feed-section-bg: var(--review-section-surface);
+}
+
+:root[data-theme="dark"] .news-feed-section::after {
+    background: none;
+}
+
+:root[data-theme="dark"] .review-overview-kicker,
+:root[data-theme="dark"] .review-archive-intro__eyebrow,
+:root[data-theme="dark"] .news-feed-kicker,
+:root[data-theme="dark"] .news-feed-card-date,
+:root[data-theme="dark"] .review-media-caption,
+:root[data-theme="dark"] .review-featured .masterclass-flex__credit,
+:root[data-theme="dark"] .review-return-link {
+    color: #c9ddda;
+}
+
+:root[data-theme="dark"] .charity-projects-section[id^="review-"] .charity-meta {
+    color: #f3fbf9;
+    background: var(--review-meta-bg);
+    border-color: var(--review-meta-border);
+}
+
+:root[data-theme="dark"] .review-overview-title,
+:root[data-theme="dark"] .review-overview-highlight-title,
+:root[data-theme="dark"] .news-feed-title,
+:root[data-theme="dark"] .news-feed-card-title,
+:root[data-theme="dark"] .review-archive-intro__title,
+:root[data-theme="dark"] .review-featured .charity-title,
+:root[data-theme="dark"] .review-archive .charity-projects-section[id^="review-"] .charity-title {
+    color: var(--theme-text-primary);
+}
+
+:root[data-theme="dark"] .review-overview-intro,
+:root[data-theme="dark"] .review-overview-highlight-copy,
+:root[data-theme="dark"] .news-feed-intro,
+:root[data-theme="dark"] .news-feed-card-copy,
+:root[data-theme="dark"] .review-archive-intro__copy,
+:root[data-theme="dark"] .review-featured .charity-description,
+:root[data-theme="dark"] .review-archive .charity-projects-section[id^="review-"] .charity-description,
+:root[data-theme="dark"] #review-benefiz-trommelworkshop-2026 .review-donation-card__copy {
+    color: #dbe8e5;
+}
+
+:root[data-theme="dark"] .review-overview-image,
+:root[data-theme="dark"] .news-feed-card-image {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: none;
+}
+
+:root[data-theme="dark"] .news-feed-card-body {
+    background: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+}
+
+:root[data-theme="dark"] .news-feed-overview-link {
+    background: rgba(var(--theme-dark-brand-surface-rgb), 0.42);
+    color: #f7fbfa;
+    border-color: rgba(229, 240, 238, 0.22);
+}
+
+:root[data-theme="dark"] .news-feed-overview-link:hover,
+:root[data-theme="dark"] .news-feed-overview-link:focus-visible {
+    background: rgba(var(--theme-dark-brand-surface-rgb), 0.68);
+    color: #ffffff;
+    border-color: rgba(var(--color-secondary-rgb), 0.34);
+}
+
+:root[data-theme="dark"] .news-feed-card-badge {
+    color: #f7fbfa;
+    background: rgba(var(--color-secondary-rgb), 0.16);
+    border-color: rgba(var(--color-secondary-rgb), 0.18);
+}
+
+:root[data-theme="dark"] .news-feed-card-date {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(229, 240, 238, 0.12);
+}
+
+:root[data-theme="dark"] .news-feed-card-link:hover .news-feed-card-title,
+:root[data-theme="dark"] .news-feed-card-link:focus-visible .news-feed-card-title,
+:root[data-theme="dark"] .news-feed-card-cta,
+:root[data-theme="dark"] .review-return-link:hover,
+:root[data-theme="dark"] .review-return-link:focus-visible {
+    color: #9fe7de;
+}
+
+:root[data-theme="dark"] .news-feed-card-cta {
+    border-color: rgba(var(--color-secondary-rgb), 0.18);
+    background: var(--review-panel-surface);
+    box-shadow: none;
+}
+
+:root[data-theme="dark"] .news-feed-card-link:hover .news-feed-card-cta,
+:root[data-theme="dark"] .news-feed-card-link:focus-visible .news-feed-card-cta {
+    background: var(--review-panel-surface);
+    border-color: rgba(var(--color-secondary-rgb), 0.28);
+    color: #9fe7de;
+}
+
+:root[data-theme="dark"] .review-archive::before {
+    background: rgba(var(--color-secondary-rgb), 0.22);
+}
+
+:root[data-theme="dark"] .review-archive-intro__inner::before {
+    background: var(--color-secondary);
+}
+
+:root[data-theme="dark"] .review-archive-toggle,
+:root[data-theme="dark"] .review-card-toggle {
+    --cta-bg: var(--review-panel-surface);
+    --cta-bg-hover: var(--review-panel-surface);
+    --cta-color: #f7fbfa;
+    --cta-color-hover: #ffffff;
+    --cta-border-color: rgba(var(--color-secondary-rgb), 0.2);
+    --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.28);
+}
+
+:root[data-theme="dark"] .review-archive-toggle.review-archive-toggle--floating {
+    --cta-bg: var(--review-panel-surface);
+    --cta-bg-hover: var(--review-panel-surface);
+    --cta-border-color: rgba(var(--color-secondary-rgb), 0.24);
+    --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.32);
+}
+
+@media (min-width: 701px) and (max-width: 1199px) {
+    :root[data-theme="dark"] .review-archive-intro__inner {
+        background: rgba(var(--theme-dark-brand-muted-rgb), 0.98);
+        border-color: rgba(var(--color-secondary-rgb), 0.24);
+    }
+
+    :root[data-theme="dark"] .review-archive-intro__eyebrow {
+        color: rgba(233, 244, 241, 0.78);
+    }
+
+    :root[data-theme="dark"] .review-archive-intro__title {
+        color: #f7fbfa;
+    }
+
+    :root[data-theme="dark"] .review-archive-intro__copy {
+        color: #eef7f5;
+        font-weight: 560;
+    }
+
+    :root[data-theme="dark"] .review-archive-toggle {
+        --cta-bg: rgba(var(--theme-dark-brand-surface-rgb), 0.74);
+        --cta-bg-hover: rgba(var(--theme-dark-brand-surface-rgb), 0.9);
+        --cta-color: #f7fbfa;
+        --cta-color-hover: #ffffff;
+        --cta-border-color: rgba(var(--color-secondary-rgb), 0.28);
+        --cta-border-color-hover: rgba(var(--color-secondary-rgb), 0.36);
+    }
+}
+
+:root[data-theme="dark"] .charity-projects-section {
+    --charity-title-color: var(--theme-text-primary);
+    --charity-meta-color: #9fe7de;
+    --charity-copy-color: #dbe8e5;
+    --charity-card-border: rgba(229, 240, 238, 0.14);
+    --charity-card-shadow: none;
+    --charity-card-topline: var(--color-secondary);
+}
+
+:root[data-theme="dark"] .review-media-block {
+    --review-media-caption-color: #c9ddda;
+    --review-media-frame-bg: rgba(255, 255, 255, 0.05);
+    --review-media-frame-border: rgba(229, 240, 238, 0.12);
+}
+
+:root[data-theme="dark"] .charity-projects-section[id^="review-"] .review-media-caption {
+    background: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+    border-color: rgba(var(--color-secondary-rgb), 0.18);
+}
+
+:root[data-theme="dark"] #review-benefiz-trommelworkshop-2026 .review-donation-card {
+    background: rgba(var(--theme-dark-brand-surface-rgb), 0.68);
+    border-color: rgba(var(--color-secondary-rgb), 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .review-overview-copy,
+    .review-overview-media,
+    .review-overview-highlight,
+    .review-overview-image,
+    .review-archive-intro__inner,
+    .news-feed-card,
+    .news-feed-card-media,
+    .news-feed-card-image,
+    .news-feed-card-cta,
+    .review-archive-toggle,
+    .review-card-toggle,
+    .review-return-link,
+    .charity-projects-section[id^="review-"] .charity-projects-container,
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
+        transition: none !important;
+    }
+
+    .review-overview-highlight:hover,
+    .review-overview-highlight:focus-within,
+    .news-feed-card:hover,
+    .news-feed-card:focus-within,
+    .review-archive-intro__inner:hover,
+    .review-archive-intro__inner:focus-within,
+    .review-featured .charity-projects-container:hover,
+    .review-featured .charity-projects-container:focus-within,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container:hover,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container:focus-within,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container:hover,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container:focus-within,
+    .news-feed-card-link:hover .news-feed-card-image,
+    .news-feed-card-link:focus-visible .news-feed-card-image,
+    .news-feed-overview-link:hover,
+    .news-feed-overview-link:focus-visible,
+    .review-return-link:hover,
+    .review-return-link:focus-visible {
+        transform: none !important;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1440px), (min-width: 901px) and (max-height: 1080px) {
+    .review-archive.review-archive--toggle-floating {
+        padding-bottom: 104px;
+    }
+
+    .review-archive-toggle.review-archive-toggle--floating[aria-expanded="true"] {
+        position: fixed;
+        left: 24px;
+        right: 24px;
+        bottom: calc(env(safe-area-inset-bottom, 0px) + 18px);
+        width: fit-content;
+        max-width: min(440px, calc(100vw - 48px));
+        min-height: 54px;
+        padding-inline: 22px;
+        margin-inline: auto;
+        transform: none;
+        z-index: 60;
+        border-color: rgba(10, 117, 109, 0.3);
+        backdrop-filter: var(--review-floating-toggle-backdrop);
+        -webkit-backdrop-filter: var(--review-floating-toggle-backdrop);
+    }
+
+    .review-archive-toggle.review-archive-toggle--floating[aria-expanded="true"]:hover,
+    .review-archive-toggle.review-archive-toggle--floating[aria-expanded="true"]:focus-visible,
+    .review-archive-toggle.review-archive-toggle--floating[aria-expanded="true"]:active {
+        transform: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .review-overview-intro {
+        width: 100%;
+        max-width: none;
+        font-size: var(--review-lead-mobile-size);
+        line-height: var(--review-lead-mobile-line-height);
+        text-align: left;
+        text-justify: auto;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        overflow-wrap: break-word;
+        text-wrap: pretty;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-left {
+        padding-right: 0;
+        box-sizing: border-box;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-title,
+    .charity-projects-section[id^="review-"] .charity-meta,
+    .charity-projects-section[id^="review-"] .charity-description {
+        padding-right: 0;
+        box-sizing: border-box;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-meta {
+        max-width: 100%;
+    }
+
+    .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions {
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .review-featured .charity-flex-row > .gruppenbild-container {
+        padding: 10px;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-description {
+        padding-left: 0;
+        padding-right: 0;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 2px;
+        font-size: var(--review-copy-mobile-size);
+        line-height: var(--review-copy-mobile-line-height);
+    }
+
+    .review-featured .charity-projects-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 18px 16px 14px;
+        border-radius: 20px;
+    }
+
+    .review-featured .charity-projects-container::after {
+        top: 14px;
+        bottom: 14px;
+        left: 8px;
+        width: 3px;
+        border-radius: 999px;
+        opacity: 0.46;
+    }
+
+    .review-featured .charity-title {
+        max-width: 100%;
+        font-size: clamp(1.54rem, 6vw, 1.88rem);
+    }
+
+    .review-featured .charity-meta {
+        margin-bottom: 10px;
+        line-height: var(--review-copy-mobile-line-height);
+        text-align: left;
+    }
+
+    .review-featured .charity-flex-row > .gruppenbild-container {
+        padding: 10px;
+    }
+
+    .review-featured .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-featured .charity-flex-right img:not(.gruppenbild-img-nikolaus) {
+        max-height: 300px;
+        border-radius: 18px;
+    }
+
+    .review-overview-section {
+        --review-overview-section-padding: 20px 0 12px;
+        --review-overview-copy-padding: 0;
+    }
+
+    .review-archive-intro__inner {
+        width: 100%;
+        padding: 18px 16px 18px;
+        border-radius: 22px;
+    }
+
+    .review-archive-intro__title {
+        font-size: clamp(1.34rem, 6vw, 1.72rem);
+    }
+
+    .review-archive-intro__copy {
+        max-width: none;
+        font-size: var(--review-lead-mobile-size);
+        line-height: var(--review-lead-mobile-line-height);
+    }
+
+    .review-archive-toggle {
+        width: 100%;
+    }
+    .review-archive-toggle.review-archive-toggle--floating[aria-expanded="true"] {
+        left: 12px;
+        right: 12px;
+        width: auto;
+        max-width: 360px;
+        margin-inline: auto;
+        bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-title {
+        font-size: clamp(1.42rem, 5.8vw, 1.72rem);
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-description {
+        max-width: 100%;
+    }
+
+    .review-card-toggle-wrap {
+        width: 100%;
+    }
+
+    .review-card-toggle {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .review-archive-toggle {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .review-overview-media {
+        max-width: 100%;
+    }
+
+    .review-overview-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: auto;
+        max-height: none;
+        object-fit: contain;
+        object-position: center center;
+        border-radius: 22px;
+    }
+
+    .masterclass-flex {
+        --masterclass-image-width: 100%;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .masterclass-flex .masterclass-flex__image {
+        width: var(--masterclass-image-width);
+        margin: 0;
+    }
+
+    .charity-projects-section[id^="review-"] {
+        --review-section-padding: 18px 12px 10px;
+        --review-container-width: 100%;
+        --review-container-padding: 12px 16px 14px;
+        --review-container-radius: 18px;
+        --review-container-margin-bottom: 8px;
+        --review-flex-gap: 12px;
+        --review-title-margin-bottom: 8px;
+        --review-meta-margin-bottom: 10px;
+        --review-description-margin-bottom: 0;
+        --review-media-mobile-margin-top: 10px;
+        --review-title-size: clamp(1.48rem, 5.4vw, 1.82rem);
+        padding: var(--review-section-padding);
+    }
+
+    .charity-projects-section[id^="review-"] .charity-projects-container {
+        width: var(--review-container-width);
+        max-width: none;
+        padding: var(--review-container-padding);
+        border-radius: var(--review-container-radius);
+        margin-bottom: var(--review-container-margin-bottom);
+        box-sizing: border-box;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-row {
+        gap: var(--review-flex-gap);
+    }
+
+    .charity-projects-section[id^="review-"] .charity-title {
+        margin-bottom: var(--review-title-margin-bottom);
+        line-height: 1.1;
+        letter-spacing: -0.014em;
+        text-wrap: balance;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-meta {
+        margin-bottom: var(--review-meta-margin-bottom);
+        display: inline-flex;
+        width: fit-content;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0.62em 0.88em;
+        border: 1px solid var(--review-meta-border);
+        border-radius: 16px;
+        font-size: clamp(0.92rem, 3.25vw, 0.99rem);
+        line-height: 1.42;
+        letter-spacing: 0.01em;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.78);
+        text-wrap: pretty;
+        text-align: left !important;
+        text-justify: auto;
+        align-self: flex-start;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-description {
+        margin-bottom: var(--review-description-margin-bottom);
+        font-size: var(--review-copy-mobile-size);
+        line-height: var(--review-copy-mobile-line-height);
+        text-align: left;
+        text-justify: auto;
+        text-wrap: pretty;
+    }
+
+    .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions {
+        gap: 10px;
+        margin-top: 4px;
+        margin-bottom: 12px;
+        align-items: center;
+    }
+
+    .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button {
+        width: 50px;
+        height: 50px;
+        min-height: 50px;
+        aspect-ratio: 1 / 1;
+        border-radius: 999px;
+        padding: 0;
+        flex: 0 0 50px;
+    }
+
+    .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button svg {
+        width: 24px;
+        height: 24px;
+        flex: 0 0 24px;
+    }
+
+    .charity-projects-section[id^="review-"] .review-media-caption {
+        width: 100%;
+        font-size: 0.82rem;
+        line-height: 1.44;
+        padding: 0.52em 0.74em;
+        border-radius: 14px;
+        text-align: center;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
+        padding: 5px;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img,
+    .charity-projects-section[id^="review-"] .charity-flex-right img {
+        max-width: 100%;
+        border-radius: 20px;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
+        margin-top: var(--review-media-mobile-margin-top);
+    }
+}
+
+.review-featured .charity-projects-container,
+.review-archive .charity-projects-section[id^="review-"] .charity-projects-container,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container {
+    border: 1px solid var(--review-panel-border) !important;
+}
+
+.review-featured .charity-projects-container::after,
+.review-archive .charity-projects-section[id^="review-"] .charity-projects-container::after,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container::after {
+    top: 20px !important;
+    bottom: 20px !important;
+    left: 12px !important;
+    width: 2px !important;
+    height: auto !important;
+    inset: auto !important;
+    border-radius: 999px !important;
+    background: var(--review-accent-line) !important;
+    opacity: 0.46 !important;
+}
+
+.charity-projects-section[id^="review-"] .review-media-caption,
+.review-featured .masterclass-flex__credit,
+:root[data-theme="dark"] .charity-projects-section[id^="review-"] .review-media-caption,
+:root[data-theme="dark"] .review-featured .masterclass-flex__credit {
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+@media (max-width: 900px) {
+    .review-featured .charity-projects-container::after,
+    .review-archive .charity-projects-section[id^="review-"] .charity-projects-container::after,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-projects-container::after {
+        top: 16px !important;
+        bottom: 16px !important;
+        left: 8px !important;
+        width: 3px !important;
+    }
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025.review-archive-card--inline-media .review-archive-inline-media--gallery,
+.review-archive #review-johann-strauss-marktbreit-2025.review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025.review-archive-card--inline-media .review-archive-inline-media--gallery > img,
+.review-archive #review-johann-strauss-marktbreit-2025.review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > img {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    margin: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025.review-archive-card--inline-media .review-archive-inline-media--gallery > img:first-of-type,
+.review-archive #review-johann-strauss-marktbreit-2025.review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > img:first-of-type {
+    order: 1 !important;
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025.review-archive-card--inline-media .review-archive-inline-media--gallery > img:last-of-type,
+.review-archive #review-johann-strauss-marktbreit-2025.review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > img:last-of-type {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    border-radius: var(--review-image-radius) !important;
+    clip-path: inset(0 round var(--review-image-radius)) !important;
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025.review-archive-card--inline-media .review-archive-inline-media--gallery > .review-media-caption,
+.review-archive #review-johann-strauss-marktbreit-2025.review-card--expanded.review-archive-card--inline-media .review-archive-inline-media--gallery > .review-media-caption {
+    order: 3 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025 .charity-flex-row > .gruppenbild-container {
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    gap: 12px !important;
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025 .charity-flex-row > .gruppenbild-container > img:first-of-type {
+    order: 1;
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025 .charity-flex-row > .gruppenbild-container > img:last-of-type {
+    order: 2;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    height: auto !important;
+    object-fit: contain !important;
+    border-radius: var(--review-image-radius) !important;
+    clip-path: inset(0 round var(--review-image-radius)) !important;
+}
+
+.review-archive #review-johann-strauss-marktbreit-2025 .charity-flex-row > .gruppenbild-container > .review-media-caption {
+    order: 3;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+.review-featured .charity-flex-row > .gruppenbild-container,
+.review-featured .charity-flex-right:has(> img:only-of-type),
+.review-featured.review-featured--tablet-article.charity-projects-section[id^="review-"] .review-inline-media {
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+:root[data-theme="dark"] .review-featured {
+    --review-panel-border: rgba(229, 240, 238, 0.22);
+}
+
+/* Align Rueckblick typography with the Partner page rhythm. */
+.review-overview-kicker,
+.news-feed-kicker,
+.review-archive-intro__eyebrow,
+.charity-projects-section[id^="review-"] .charity-meta {
+    font-family: var(--font-ui-modern);
+    font-size: var(--premium-label-size);
+    font-weight: var(--premium-label-weight);
+    line-height: var(--premium-label-line-height);
+    letter-spacing: var(--premium-label-letter-spacing);
+    text-transform: uppercase;
+}
+
+.review-overview-title,
+.news-feed-title {
+    font-family: var(--font-ui-modern);
+    font-size: clamp(1.92rem, 3.1vw, 2.56rem);
+    font-weight: 600;
+    line-height: var(--premium-title-line-height);
+    letter-spacing: var(--premium-title-letter-spacing);
+}
+
+.review-featured .charity-title,
+.review-archive .charity-projects-section[id^="review-"] .charity-title {
+    font-family: var(--font-ui-modern);
+    font-size: clamp(1.22rem, 1.08rem + 0.52vw, 1.5rem);
+    font-weight: 650;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+}
+
+.review-overview-intro,
+.news-feed-intro,
+.review-archive-intro__copy {
+    font-family: var(--font-ui-modern);
+    font-size: var(--premium-body-size);
+    font-weight: 500;
+    line-height: var(--premium-body-line-height);
+    letter-spacing: var(--premium-body-letter-spacing);
+}
+
+.review-overview-highlight-title,
+.news-feed-card-title,
+.review-archive-intro__title {
+    font-family: var(--font-ui-modern);
+    font-size: clamp(1.08rem, 1rem + 0.45vw, 1.3rem);
+    font-weight: 650;
+    line-height: 1.24;
+    letter-spacing: -0.02em;
+}
+
+.review-overview-highlight-copy,
+.news-feed-card-copy,
+.review-featured .charity-description,
+.review-archive .charity-projects-section[id^="review-"] .charity-description {
+    font-family: var(--font-ui-modern);
+    font-size: var(--premium-body-size);
+    font-weight: 500;
+    line-height: var(--premium-body-line-height);
+    letter-spacing: var(--premium-body-letter-spacing);
+}
+
+@media (min-width: 1180px) {
+    .review-overview-title,
+    .news-feed-title {
+        font-size: clamp(1.92rem, 3.1vw, 2.56rem);
+        line-height: var(--premium-title-line-height);
+        letter-spacing: var(--premium-title-letter-spacing);
+    }
+
+    .review-featured .charity-title,
+    .review-archive .charity-projects-section[id^="review-"] .charity-title {
+        font-size: clamp(1.22rem, 1.08rem + 0.52vw, 1.5rem);
+        line-height: 1.18;
+        letter-spacing: -0.02em;
+    }
+
+    .review-overview-intro,
+    .news-feed-intro,
+    .review-archive-intro__copy {
+        font-size: var(--premium-body-size);
+        line-height: var(--premium-body-line-height);
+    }
+}
+
+@media (max-width: 1200px) {
+    .review-overview-kicker,
+    .news-feed-kicker,
+    .review-archive-intro__eyebrow,
+    .charity-projects-section[id^="review-"] .charity-meta {
+        font-size: var(--premium-label-tablet-size);
+        line-height: var(--premium-label-tablet-line-height);
+        letter-spacing: var(--premium-label-tablet-letter-spacing);
+    }
+}
+
+@media (max-width: 700px) {
+    .review-overview-kicker,
+    .news-feed-kicker,
+    .review-archive-intro__eyebrow,
+    .charity-projects-section[id^="review-"] .charity-meta {
+        font-size: var(--premium-label-mobile-size);
+        line-height: var(--premium-label-mobile-line-height);
+        letter-spacing: var(--premium-label-mobile-letter-spacing);
+    }
+
+    .review-overview-title,
+    .news-feed-title {
+        font-size: var(--premium-title-mobile-size);
+        line-height: var(--premium-title-line-height);
+        letter-spacing: var(--premium-title-letter-spacing);
+    }
+
+    .review-featured .charity-title,
+    .review-archive .charity-projects-section[id^="review-"] .charity-title {
+        font-size: clamp(1.14rem, 5vw, 1.34rem);
+        line-height: 1.18;
+        letter-spacing: -0.02em;
+    }
+
+    .review-overview-intro,
+    .news-feed-intro,
+    .review-archive-intro__copy {
+        font-size: var(--premium-body-mobile-size);
+        line-height: var(--premium-body-mobile-line-height);
+    }
+
+    .review-overview-highlight-title,
+    .news-feed-card-title,
+    .review-archive-intro__title {
+        font-size: clamp(1rem, 4.6vw, 1.14rem);
+        line-height: 1.22;
+    }
+
+    .review-overview-highlight-copy,
+    .news-feed-card-copy,
+    .review-featured .charity-description,
+    .review-archive .charity-projects-section[id^="review-"] .charity-description {
+        font-size: var(--premium-body-mobile-size);
+        line-height: var(--premium-body-mobile-line-height);
+    }
+}
+
+@media (max-width: 700px) {
+    .review-overview-section {
+        --review-overview-shell-width: 100%;
+        --review-overview-shell-padding: 0 clamp(12px, 4vw, 16px);
+        --review-overview-shell-gap: 18px;
+        --review-overview-copy-padding: 18px 16px 15px;
+        --review-overview-highlights-gap: 12px;
+        --review-overview-highlights-margin-top: 16px;
+    }
+
+    .review-overview-kicker {
+        font-size: 0.72rem;
+        line-height: 1.26;
+        letter-spacing: 0.1em;
+    }
+
+    .review-overview-title {
+        margin: 8px 0 10px;
+        font-size: clamp(1.26rem, 5.6vw, 1.5rem);
+        line-height: 1.1;
+        letter-spacing: -0.024em;
+    }
+
+    .review-overview-intro {
+        font-size: 0.95rem;
+        line-height: 1.56;
+    }
+
+    .review-overview-highlight {
+        padding: 14px 13px 13px 16px;
+        border-radius: 16px;
+    }
+
+    .review-overview-highlight::before {
+        top: 16px;
+        bottom: 16px;
+        left: 10px;
+    }
+
+    .review-overview-highlight-title {
+        font-size: clamp(0.98rem, 4.7vw, 1.12rem);
+        line-height: 1.18;
+    }
+
+    .review-overview-highlight-copy {
+        font-size: 0.94rem;
+        line-height: 1.54;
+    }
+
+    .review-overview-media {
+        margin-top: 2px;
+    }
+}
+
+@media (max-width: 390px) {
+    .review-overview-section {
+        --review-overview-shell-width: 100%;
+        --review-overview-shell-padding: 0 12px;
+        --review-overview-shell-gap: 16px;
+        --review-overview-copy-padding: 16px 14px 14px;
+    }
+
+    .review-overview-title {
+        font-size: clamp(1.18rem, 5.1vw, 1.38rem);
+    }
+
+    .review-overview-intro,
+    .review-overview-highlight-copy {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .review-overview-highlight-title {
+        font-size: clamp(0.94rem, 4.4vw, 1.04rem);
+    }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+    .news-feed-section {
+        --news-feed-grid-gap: 20px;
+    }
+
+    .news-feed-shell {
+        width: min(1120px, calc(100% - 48px));
+        padding: 0 24px;
+        box-sizing: border-box;
+    }
+
+    .news-feed-card-media {
+        min-height: clamp(244px, 31vw, 300px);
+    }
+
+    .news-feed-card-media--portrait {
+        min-height: clamp(274px, 35vw, 330px);
+        padding-top: 10px;
+    }
+
+    .news-feed-card-media--portrait .news-feed-card-image--contain {
+        max-width: min(100%, 210px);
+        max-height: clamp(274px, 35vw, 330px);
+    }
+
+    .review-overview-media {
+        max-width: 520px;
+    }
+
+    .charity-projects-section[id^="review-"] {
+        --review-container-width: min(calc(100% - 48px), 780px);
+        --review-container-padding: 24px 26px 22px;
+        --review-flex-gap: 20px;
+        --review-media-mobile-margin-top: 8px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-block {
+        --review-media-narrow-width: 100%;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        align-self: stretch;
+        margin-inline: 0;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container.review-media-block--top-28,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container.review-media-block--top-88,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container.review-media-block--top-128 {
+        margin-top: clamp(6px, 1.6vw, 12px);
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-image-card--narrow,
+    .review-archive .charity-projects-section[id^="review-"] .review-media-caption--narrow {
+        max-width: 100%;
+    }
+
+    .review-featured .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-featured .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .charity-projects-section[id^="review-"] .review-media-image-card {
+        width: 100%;
+        max-width: 100%;
+        max-height: min(52vh, 430px);
+        object-fit: contain;
+        object-position: center top;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-block .review-media-image-card,
+    .review-archive .charity-projects-section[id^="review-"] .review-media-block img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-block .review-media-image-card,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-block img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right img:not(.gruppenbild-img-nikolaus) {
+        max-height: none;
+        height: auto;
+    }
+
+    #review-benefiz-trommelworkshop-2026 .review-benefit-workshop-media {
+        flex: 1 1 100%;
+        width: min(100%, 560px);
+        max-width: min(100%, 560px);
+        min-width: 0;
+        margin: 2px auto 0;
+        align-self: center;
+        gap: 18px;
+    }
+
+    #review-benefiz-trommelworkshop-2026 .review-donation-card {
+        width: 100%;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-left,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-left {
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+        padding-right: 0;
+        box-sizing: border-box;
+    }
+
+    .charity-projects-section[id^="review-"] .review-media-block {
+        --review-media-narrow-width: 100%;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container.review-media-block,
+    .charity-projects-section[id^="review-"] .charity-flex-right.review-media-block,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right {
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: 100%;
+        align-self: stretch;
+    }
+
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container.review-media-block--top-28,
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container.review-media-block--top-88,
+    .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container.review-media-block--top-128,
+    .charity-projects-section[id^="review-"] .charity-flex-right.review-media-block--top-28,
+    .charity-projects-section[id^="review-"] .charity-flex-right.review-media-block--top-88,
+    .charity-projects-section[id^="review-"] .charity-flex-right.review-media-block--top-128 {
+        margin-top: 10px;
+    }
+
+    .charity-projects-section[id^="review-"] .review-media-image-card--narrow,
+    .charity-projects-section[id^="review-"] .review-media-caption--narrow {
+        max-width: 100%;
+    }
+
+    .charity-projects-section[id^="review-"] .review-media-block .review-media-image-card,
+    .charity-projects-section[id^="review-"] .review-media-block img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .review-media-image-card,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-image-card,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right img:not(.gruppenbild-img-nikolaus) {
+        width: 100%;
+        max-width: 100%;
+        max-height: none;
+        height: auto;
+        object-fit: contain;
+        object-position: center top;
+        display: block;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1200px) {
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 18px !important;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-left,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right,
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-left,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container {
+        flex: 1 1 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding-right: 0 !important;
+        box-sizing: border-box !important;
+        align-self: stretch !important;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-block,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-block {
+        --review-media-narrow-width: 100%;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        margin: 10px 0 0 !important;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-image-card,
+    .review-archive .charity-projects-section[id^="review-"] .review-media-image-card--narrow,
+    .review-archive .charity-projects-section[id^="review-"] .review-media-block img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"] .charity-flex-right img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-image-card,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-image-card--narrow,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-block img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .charity-flex-right img:not(.gruppenbild-img-nikolaus) {
+        display: block !important;
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        height: auto !important;
+        max-height: none !important;
+        margin: 0 !important;
+        object-fit: contain !important;
+        object-position: center top !important;
+    }
+
+    .review-archive .charity-projects-section[id^="review-"] .review-media-caption,
+    .review-archive .charity-projects-section[id^="review-"] .review-media-caption--narrow,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-caption,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .review-media-caption--narrow {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 10px 0 0 !important;
+        text-align: center !important;
+    }
+}

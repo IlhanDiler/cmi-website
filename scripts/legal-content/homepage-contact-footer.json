@@ -1,0 +1,492 @@
+{
+  "targets": {
+    "homepage-contact-lead-copy": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "contact-info-kicker",
+          "text": {
+            "de": "Kontakt",
+            "en": "Contact",
+            "fr": "Contact",
+            "ln": "Kontak",
+            "it": "Contatto",
+            "tr": "İletişim",
+            "uk": "Контакт"
+          }
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "className": "contact-info-title",
+          "text": {
+            "de": "Kontakt",
+            "en": "Contact",
+            "fr": "Contact",
+            "ln": "Kontak",
+            "it": "Contatto",
+            "tr": "İletişim",
+            "uk": "Контакт"
+          }
+        },
+        {
+          "type": "paragraph",
+          "className": "contact-info-intro",
+          "text": {
+            "de": "Hast du Fragen oder möchtest uns besuchen? Wir freuen uns auf deine Nachricht.",
+            "en": "Do you have questions or would you like to visit us? We would love to hear from you.",
+            "fr": "Vous avez des questions ou vous souhaitez nous rendre visite ? Nous serons heureux de recevoir votre message.",
+            "ln": "Ozali na mituna to olingi koya kotala biso? Tokosepela kozwa nsango na yo.",
+            "it": "Hai domande o ti piacerebbe venirci a trovare? Saremo felici di ricevere un tuo messaggio.",
+            "tr": "Soruların mı var ya da bizi ziyaret etmek mi istiyorsun? Mesajını bekliyoruz.",
+            "uk": "Маєш запитання або хочеш завітати до нас? Ми будемо раді твоєму повідомленню."
+          }
+        }
+      ]
+    },
+    "homepage-contact-lead-actions": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "contact-info-actions",
+          "allowHtml": true,
+          "text": {
+            "de": [
+              "<a class='contact-info-primary-link' href='mailto:astrid.eitschberger@cmi-ochsenfurt.de'>E-Mail schreiben</a>",
+              "<a class='contact-info-secondary-link' href='#events'>Kommende Konzerte</a>"
+            ],
+            "en": [
+              "<a class='contact-info-primary-link' href='mailto:astrid.eitschberger@cmi-ochsenfurt.de'>Send an email</a>",
+              "<a class='contact-info-secondary-link' href='#events'>Upcoming concerts</a>"
+            ],
+            "fr": [
+              "<a class='contact-info-primary-link' href='mailto:astrid.eitschberger@cmi-ochsenfurt.de'>Ecrire un e-mail</a>",
+              "<a class='contact-info-secondary-link' href='#events'>Prochains concerts</a>"
+            ],
+            "ln": [
+              "<a class='contact-info-primary-link' href='mailto:astrid.eitschberger@cmi-ochsenfurt.de'>Tindela biso e-mail</a>",
+              "<a class='contact-info-secondary-link' href='#events'>Ba konser oyo ezali koya</a>"
+            ],
+            "it": [
+              "<a class='contact-info-primary-link' href='mailto:astrid.eitschberger@cmi-ochsenfurt.de'>Scrivi un'e-mail</a>",
+              "<a class='contact-info-secondary-link' href='#events'>Prossimi concerti</a>"
+            ],
+            "tr": [
+              "<a class='contact-info-primary-link' href='mailto:astrid.eitschberger@cmi-ochsenfurt.de'>E-posta yaz</a>",
+              "<a class='contact-info-secondary-link' href='#events'>Önümüzdeki konserler</a>"
+            ],
+            "uk": [
+              "<a class='contact-info-primary-link' href='mailto:astrid.eitschberger@cmi-ochsenfurt.de'>Написати листа</a>",
+              "<a class='contact-info-secondary-link' href='#events'>Найближчі концерти</a>"
+            ]
+          }
+        }
+      ]
+    },
+    "homepage-contact-lead-card": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "contact-info-lead-card-kicker",
+          "text": {
+            "de": "Info & Anmeldung",
+            "en": "Info & registration",
+            "fr": "Infos et inscription",
+            "ln": "Sango mpe bokomisi nkombo",
+            "it": "Informazioni e iscrizioni",
+            "tr": "Bilgi ve kayıt",
+            "uk": "Інформація та реєстрація"
+          }
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "contact-info-lead-card-title",
+          "text": {
+            "de": "Direkter Kontakt",
+            "en": "Direct contact",
+            "fr": "Contact direct",
+            "ln": "Kontak ya mbala moko",
+            "it": "Contatto diretto",
+            "tr": "Doğrudan iletişim",
+            "uk": "Прямий контакт"
+          }
+        },
+        {
+          "type": "paragraph",
+          "className": "contact-info-lead-card-copy",
+          "text": {
+            "de": "Astrid Eitschberger beantwortet Fragen zu Proben, Mitspielen und Konzerten.",
+            "en": "Astrid Eitschberger is happy to answer questions about rehearsals, joining, and concerts.",
+            "fr": "Astrid Eitschberger repond aux questions sur les repetitions, la participation et les concerts.",
+            "ln": "Astrid Eitschberger ayanolaka mituna na ntina ya ba repetition, kosangana mpe ba konser.",
+            "it": "Astrid Eitschberger risponde volentieri alle domande su prove, partecipazione e concerti.",
+            "tr": "Astrid Eitschberger provalar, katılım ve konserlerle ilgili soruları yanıtlar.",
+            "uk": "Астрід Айчберґер відповідає на запитання про репетиції, участь та концерти."
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "ul",
+          "className": "contact-info-lead-points",
+          "allowHtml": true,
+          "text": {
+            "de": [
+              "<li>Probe besuchen</li>",
+              "<li>Fragen zum Ensemble</li>",
+              "<li>Kontakt per E-Mail</li>"
+            ],
+            "en": [
+              "<li>Visit a rehearsal</li>",
+              "<li>Questions about the ensemble</li>",
+              "<li>Contact by email</li>"
+            ],
+            "fr": [
+              "<li>Assister a une repetition</li>",
+              "<li>Questions sur l'ensemble</li>",
+              "<li>Contact par e-mail</li>"
+            ],
+            "ln": [
+              "<li>Koya kotala repetition</li>",
+              "<li>Mituna na ntina ya lisanga</li>",
+              "<li>Kontak na e-mail</li>"
+            ],
+            "it": [
+              "<li>Partecipare a una prova</li>",
+              "<li>Domande sull'ensemble</li>",
+              "<li>Contatto via e-mail</li>"
+            ],
+            "tr": [
+              "<li>Bir provayı ziyaret et</li>",
+              "<li>Topluluk hakkında sorular</li>",
+              "<li>E-posta ile iletişim</li>"
+            ],
+            "uk": [
+              "<li>Відвідати репетицію</li>",
+              "<li>Запитання про ансамбль</li>",
+              "<li>Контакт електронною поштою</li>"
+            ]
+          }
+        }
+      ]
+    },
+    "homepage-contact-directory-title": {
+      "file": "index.html",
+      "indentSpaces": 8,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "contact-info-subtitle",
+          "text": {
+            "de": "Probezeiten, Ort und E-Mail",
+            "en": "Rehearsal times, location, and email",
+            "fr": "Horaires, lieu et e-mail",
+            "ln": "Ntango ya repetition, esika mpe e-mail",
+            "it": "Orari delle prove, sede e contatti",
+            "tr": "Prova saatleri, yer ve e-posta",
+            "uk": "Час репетицій, місце та електронна пошта"
+          }
+        }
+      ]
+    },
+    "homepage-contact-card-time": {
+      "file": "index.html",
+      "indentSpaces": 20,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 4,
+          "className": "contact-info-card-title",
+          "text": {
+            "de": "Probezeiten",
+            "en": "Rehearsal Times",
+            "fr": "Horaires des repetitions",
+            "ln": "Ntango ya repetition",
+            "it": "Orari delle prove",
+            "tr": "Prova saatleri",
+            "uk": "Час репетицій"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "contact-info-card-text",
+          "allowHtml": true,
+          "text": {
+            "de": "Jeden Samstag<br>Anfänger: 10:00 - 11:00 Uhr<br>Fortgeschrittene: 11:00 - 12:30 Uhr",
+            "en": "Every Saturday<br>Beginners: 10:00 am - 11:00 am<br>Advanced: 11:00 am - 12:30 pm",
+            "fr": "Chaque samedi<br>Debutants : 10:00 - 11:00<br>Avances : 11:00 - 12:30",
+            "ln": "Mokolo nyonso ya samedi<br>Bato ya ebandeli: 10:00 - 11:00<br>Bato oyo bakoli: 11:00 - 12:30",
+            "it": "Ogni sabato<br>Principianti: 10:00 - 11:00<br>Avanzati: 11:00 - 12:30",
+            "tr": "Her cumartesi<br>Başlangıç: 10:00 - 11:00<br>İleri seviye: 11:00 - 12:30",
+            "uk": "Щосуботи<br>Початківці: 10:00 - 11:00<br>Досвідчені: 11:00 - 12:30"
+          }
+        }
+      ]
+    },
+    "homepage-contact-card-location": {
+      "file": "index.html",
+      "indentSpaces": 20,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 4,
+          "className": "contact-info-card-title",
+          "text": {
+            "de": "Proberaum",
+            "en": "Rehearsal Room",
+            "fr": "Salle de repetition",
+            "ln": "Esika ya repetition",
+            "it": "Sede delle prove",
+            "tr": "Prova salonu",
+            "uk": "Репетиційна зала"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "contact-info-card-text",
+          "allowHtml": true,
+          "text": {
+            "de": "Kirchplatz 2<br>Rote Schule (VHS Gebäude) – Raum 4<br>97199 Ochsenfurt",
+            "en": "Kirchplatz 2<br>Rote Schule (VHS building) – Room 4<br>97199 Ochsenfurt",
+            "fr": "Kirchplatz 2<br>Rote Schule (batiment VHS) – Salle 4<br>97199 Ochsenfurt",
+            "ln": "Kirchplatz 2<br>Rote Schule (ndako ya VHS) – eteni 4<br>97199 Ochsenfurt",
+            "it": "Kirchplatz 2<br>Rote Schule (edificio VHS) – Stanza 4<br>97199 Ochsenfurt",
+            "tr": "Kirchplatz 2<br>Rote Schule (VHS binası) – Oda 4<br>97199 Ochsenfurt",
+            "uk": "Кірхплац 2<br>Червона школа (будівля фольксгохшуле) – кімната 4<br>97199 Оксенфурт"
+          }
+        }
+      ]
+    },
+    "homepage-contact-card-mail-title": {
+      "file": "index.html",
+      "indentSpaces": 20,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 4,
+          "className": "contact-info-card-title",
+          "text": {
+            "de": "E-Mail",
+            "en": "Email",
+            "fr": "E-mail",
+            "ln": "E-mail",
+            "it": "E-mail",
+            "tr": "E-posta",
+            "uk": "Електронна пошта"
+          }
+        }
+      ]
+    },
+    "homepage-footer-brand": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "site-footer__title",
+          "text": {
+            "de": "Collegium Musicum Iuvenale Ochsenfurt",
+            "en": "Collegium Musicum Iuvenale Ochsenfurt",
+            "fr": "Collegium Musicum Iuvenale Ochsenfurt",
+            "ln": "Collegium Musicum Iuvenale Ochsenfurt",
+            "it": "Collegium Musicum Iuvenale Ochsenfurt",
+            "tr": "Collegium Musicum Iuvenale Ochsenfurt",
+            "uk": "Колегіум Музікум Ювенале Оксенфурт"
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "site-footer__subtitle",
+          "text": {
+            "de": "Musik verbindet Menschen seit 1981",
+            "en": "Connecting people through music since 1981",
+            "fr": "La musique relie les personnes depuis 1981",
+            "ln": "Miziki ezali kosangisa bato banda 1981",
+            "it": "La musica unisce le persone dal 1981",
+            "tr": "Müzik 1981'den beri insanları bir araya getiriyor",
+            "uk": "Музика єднає людей з 1981 року"
+          }
+        }
+      ]
+    },
+    "homepage-footer-contact-card": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "site-footer__contact-kicker",
+          "text": {
+            "de": "Nächster Schritt",
+            "en": "Next Step",
+            "fr": "Prochaine etape",
+            "ln": "Etape oyo elandi",
+            "it": "Prossimo passo",
+            "tr": "Sonraki adım",
+            "uk": "Наступний крок"
+          }
+        },
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "site-footer__contact-title",
+          "text": {
+            "de": "Mitspielen, anfragen oder Benefizideen teilen",
+            "en": "Join us, ask a question, or share a benefit idea",
+            "fr": "Jouer avec nous, poser une question ou partager une idee solidaire",
+            "ln": "Sangana na biso, tuna mituna to kabola likanisi ya lisungi",
+            "it": "Partecipa, chiedi o condividi un'idea benefica",
+            "tr": "Katıl, soru sor ya da bir yardım fikri paylaş",
+            "uk": "Долучитися, поставити запитання або поділитися благодійною ідеєю"
+          }
+        },
+        {
+          "type": "paragraph",
+          "className": "site-footer__contact-copy",
+          "text": {
+            "de": "Wir freuen uns über neue Musikerinnen und Musiker, Kooperationen und Projekte, bei denen Musik Menschen unterstützt.",
+            "en": "We welcome new musicians, collaborations, and projects where music supports people.",
+            "fr": "Nous nous rejouissons de nouvelles musiciennes et de nouveaux musiciens, de cooperations et de projets dans lesquels la musique soutient des personnes.",
+            "ln": "Tosepelaka kozwa babeti ya sika, boyokani ya misala mpe misala oyo miziki esungaka bato.",
+            "it": "Accogliamo nuovi musicisti, collaborazioni e progetti in cui la musica sostiene le persone.",
+            "tr": "Yeni müzisyenleri, iş birliklerini ve müziğin insanları desteklediği projeleri memnuniyetle karşılıyoruz.",
+            "uk": "Ми раді новим музикантам, співпраці та проєктам, у яких музика підтримує людей."
+          }
+        }
+      ]
+    },
+    "homepage-footer-nav-title": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "site-footer__nav-title",
+          "text": {
+            "de": "Schnellzugang",
+            "en": "Quick Access",
+            "fr": "Acces rapide",
+            "ln": "Bokoti ya mbangu",
+            "it": "Accesso rapido",
+            "tr": "Hızlı erişim",
+            "uk": "Швидкий доступ"
+          }
+        }
+      ]
+    },
+    "homepage-footer-nav-links": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "site-footer__links",
+          "allowHtml": true,
+          "text": {
+            "de": [
+              "<a href='#events' class='site-footer__link'>Konzerte</a>",
+              "<a href='#review' class='site-footer__link'>Rückblick</a>",
+              "<a href='#timeline-section' class='site-footer__link'>Chronik</a>",
+              "<a href='impressum.html' class='site-footer__link'>Impressum</a>",
+              "<a href='datenschutz.html' class='site-footer__link'>Datenschutz</a>"
+            ],
+            "en": [
+              "<a href='#events' class='site-footer__link'>Concerts</a>",
+              "<a href='#review' class='site-footer__link'>Review</a>",
+              "<a href='#timeline-section' class='site-footer__link'>History</a>",
+              "<a href='impressum.html' class='site-footer__link'>Legal Notice</a>",
+              "<a href='datenschutz.html' class='site-footer__link'>Privacy Policy</a>"
+            ],
+            "fr": [
+              "<a href='#events' class='site-footer__link'>Concerts</a>",
+              "<a href='#review' class='site-footer__link'>Regards</a>",
+              "<a href='#timeline-section' class='site-footer__link'>Chronique</a>",
+              "<a href='impressum.html' class='site-footer__link'>Mentions legales</a>",
+              "<a href='datenschutz.html' class='site-footer__link'>Protection des donnees</a>"
+            ],
+            "ln": [
+              "<a href='#events' class='site-footer__link'>Ba konser</a>",
+              "<a href='#review' class='site-footer__link'>Makambo eleki</a>",
+              "<a href='#timeline-section' class='site-footer__link'>Lisolo ya bambula</a>",
+              "<a href='impressum.html' class='site-footer__link'>Impressum</a>",
+              "<a href='datenschutz.html' class='site-footer__link'>Bobateli ya makambo ya moto</a>"
+            ],
+            "it": [
+              "<a href='#events' class='site-footer__link'>Concerti</a>",
+              "<a href='#review' class='site-footer__link'>Retrospettiva</a>",
+              "<a href='#timeline-section' class='site-footer__link'>Storia</a>",
+              "<a href='impressum.html' class='site-footer__link'>Note legali</a>",
+              "<a href='datenschutz.html' class='site-footer__link'>Informativa sulla privacy</a>"
+            ],
+            "tr": [
+              "<a href='#events' class='site-footer__link'>Konserler</a>",
+              "<a href='#review' class='site-footer__link'>Geriye bakış</a>",
+              "<a href='#timeline-section' class='site-footer__link'>Kronoloji</a>",
+              "<a href='impressum.html' class='site-footer__link'>Yasal bildirim</a>",
+              "<a href='datenschutz.html' class='site-footer__link'>Gizlilik politikası</a>"
+            ],
+            "uk": [
+              "<a href='#events' class='site-footer__link'>Концерти</a>",
+              "<a href='#review' class='site-footer__link'>Огляд</a>",
+              "<a href='#timeline-section' class='site-footer__link'>Хроніка</a>",
+              "<a href='impressum.html' class='site-footer__link'>Правова інформація</a>",
+              "<a href='datenschutz.html' class='site-footer__link'>Політика конфіденційності</a>"
+            ]
+          }
+        }
+      ]
+    },
+    "homepage-footer-meta": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "site-footer__meta-line",
+          "allowHtml": true,
+          "text": {
+            "de": "&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. Alle Rechte vorbehalten.",
+            "en": "&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. All rights reserved.",
+            "fr": "&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. Tous droits reserves.",
+            "ln": "&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. Makoki nyonso ebatelami.",
+            "it": "&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. Tutti i diritti riservati.",
+            "tr": "&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. Tüm hakları saklıdır.",
+            "uk": "&copy; 1981–2026 Колегіум Музікум Ювенале Оксенфурт. Усі права захищено."
+          }
+        },
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "site-footer__meta-line",
+          "text": {
+            "de": "Webdesign: Ilhan Diler | Designidee: Richard Ullmann",
+            "en": "Webdesign: Ilhan Diler | Design idea: Richard Ullmann",
+            "fr": "Webdesign : Ilhan Diler | Idee de design : Richard Ullmann",
+            "ln": "Webdesign: Ilhan Diler | Likanisi ya design: Richard Ullmann",
+            "it": "Webdesign: Ilhan Diler | Idea di design: Richard Ullmann",
+            "tr": "Web tasarımı: Ilhan Diler | Tasarım fikri: Richard Ullmann",
+            "uk": "Вебдизайн: Ільхан Ділер | Дизайн-ідея: Ріхард Ульманн"
+          }
+        }
+      ]
+    }
+  }
+}

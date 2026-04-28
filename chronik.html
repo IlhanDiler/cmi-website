@@ -3,40 +3,601 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chronik – CMI</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Chronik | CMI Ochsenfurt</title>
+  <link rel="icon" href="files/logo_cmi1 - schwarz.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="files/logo_cmi1 - weiß.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" href="files/logo_cmi1 - schwarz.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+  <link rel="apple-touch-icon" href="files/logo_cmi1 - weiß.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="files/logo_cmi1 - schwarz.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+  <link rel="shortcut icon" href="files/logo_cmi1 - weiß.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="files/logo_cmi1 - weiß.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=20260428-footer-social-1">
+  <script>
+    (function() {
+      try {
+        var storedTheme = localStorage.getItem('siteTheme');
+        if (storedTheme === 'light' || storedTheme === 'dark') {
+          document.documentElement.dataset.theme = storedTheme;
+          document.documentElement.style.colorScheme = storedTheme;
+        }
+      } catch (e) {}
+
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+    })();
+  </script>
 </head>
-<body>
-  <section class="timeline-section">
-    <h2 class="section-title">Unsere Chronik</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-date">1981</div>
-        <div class="timeline-content">
-          <h4>Gründung</h4>
-          <p>Im Jahr 1981 wurde unsere Organisation auf Initiative von Astrid Eitschberger und einer Gruppe musikbegeisterter Jugendlicher gegründet.</p>
+<body class="subpage-body subpage-body--timeline">
+  <a href="#main-content" class="skip-link">
+    <span data-lang="de">Zum Inhalt springen</span>
+    <span data-lang="en" hidden aria-hidden="true">Skip to main content</span>
+    <span data-lang="fr" hidden aria-hidden="true">Aller au contenu principal</span>
+    <span data-lang="ln" hidden aria-hidden="true">Kende na makambo ya ntina</span>
+    <span data-lang="it" hidden aria-hidden="true">Vai al contenuto principale</span>
+    <span data-lang="tr" hidden aria-hidden="true">Ana içeriğe geç</span>
+    <span data-lang="uk" hidden aria-hidden="true">Перейти до основного вмісту</span>
+  </a>
+  <header class="subpage-topbar">
+    <div class="subpage-topbar__inner">
+      <a class="subpage-topbar__brand" href="index.html">
+        <img src="files/logo_cmi1 - schwarz.svg" alt="CMI Logo">
+        <span class="subpage-topbar__brand-text">
+          <span class="subpage-topbar__brand-title">CMI Ochsenfurt</span>
+          <span class="subpage-topbar__brand-subtitle" data-lang="de">Musik baut Brücken</span>
+          <span class="subpage-topbar__brand-subtitle" data-lang="en" hidden aria-hidden="true">Music builds bridges</span>
+          <span class="subpage-topbar__brand-subtitle" data-lang="fr" hidden aria-hidden="true">La musique construit des ponts</span>
+          <span class="subpage-topbar__brand-subtitle" data-lang="ln" hidden aria-hidden="true">Miziki etongaka baponti</span>
+          <span class="subpage-topbar__brand-subtitle" data-lang="it" hidden aria-hidden="true">La musica costruisce ponti</span>
+          <span class="subpage-topbar__brand-subtitle" data-lang="tr" hidden aria-hidden="true">Müzik köprüler kurar</span>
+          <span class="subpage-topbar__brand-subtitle" data-lang="uk" hidden aria-hidden="true">Музика будує мости</span>
+        </span>
+      </a>
+      <div class="subpage-topbar__actions">
+        <nav class="subpage-topbar__links" aria-label="Seitennavigation">
+          <a class="subpage-topbar__link" href="index.html" data-lang="de">Startseite</a>
+          <a class="subpage-topbar__link" href="index.html" data-lang="en" hidden aria-hidden="true">Home</a>
+          <a class="subpage-topbar__link" href="index.html" data-lang="fr" hidden aria-hidden="true">Accueil</a>
+          <a class="subpage-topbar__link" href="index.html" data-lang="ln" hidden aria-hidden="true">Lokasa ya liboso</a>
+          <a class="subpage-topbar__link" href="index.html" data-lang="it" hidden aria-hidden="true">Home</a>
+          <a class="subpage-topbar__link" href="index.html" data-lang="tr" hidden aria-hidden="true">Ana sayfa</a>
+          <a class="subpage-topbar__link" href="index.html" data-lang="uk" hidden aria-hidden="true">Головна</a>
+          <a class="subpage-topbar__link" href="chronik.html" data-lang="de" data-nav-current="page" aria-current="page">Chronik</a>
+          <a class="subpage-topbar__link" href="chronik.html" data-lang="en" hidden aria-hidden="true" data-nav-current="page">Timeline</a>
+          <a class="subpage-topbar__link" href="chronik.html" data-lang="fr" hidden aria-hidden="true" data-nav-current="page">Chronique</a>
+          <a class="subpage-topbar__link" href="chronik.html" data-lang="ln" hidden aria-hidden="true" data-nav-current="page">Lisolo ya bambula</a>
+          <a class="subpage-topbar__link" href="chronik.html" data-lang="it" hidden aria-hidden="true" data-nav-current="page">Cronologia</a>
+          <a class="subpage-topbar__link" href="chronik.html" data-lang="tr" hidden aria-hidden="true" data-nav-current="page">Kronoloji</a>
+          <a class="subpage-topbar__link" href="chronik.html" data-lang="uk" hidden aria-hidden="true" data-nav-current="page">Хроніка</a>
+          <a class="subpage-topbar__link" href="index.html#contact" data-lang="de">Kontakt</a>
+          <a class="subpage-topbar__link" href="index.html#contact" data-lang="en" hidden aria-hidden="true">Contact</a>
+          <a class="subpage-topbar__link" href="index.html#contact" data-lang="fr" hidden aria-hidden="true">Contact</a>
+          <a class="subpage-topbar__link" href="index.html#contact" data-lang="ln" hidden aria-hidden="true">Kontak</a>
+          <a class="subpage-topbar__link" href="index.html#contact" data-lang="it" hidden aria-hidden="true">Contatto</a>
+          <a class="subpage-topbar__link" href="index.html#contact" data-lang="tr" hidden aria-hidden="true">İletişim</a>
+          <a class="subpage-topbar__link" href="index.html#contact" data-lang="uk" hidden aria-hidden="true">Контакт</a>
+        </nav>
+        <div id="langSwitcher" class="language-switch subpage-language-switch" role="group" aria-label="Sprachauswahl">
+          <button type="button" onclick="setLang('de')" id="langDe" class="lang-switch-button" aria-label="Deutsch">
+            <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="21" height="14" fill="#000000"/>
+              <rect y="4.66667" width="21" height="4.66667" fill="#DD0000"/>
+              <rect y="9.33333" width="21" height="4.66667" fill="#FFCE00"/>
+            </svg>
+          </button>
+          <button type="button" onclick="setLang('en')" id="langEn" class="lang-switch-button" aria-label="English">
+            <svg width="21" height="14" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="1200" height="600" fill="#00247d"/>
+              <path d="M0,0L1200,600M1200,0L0,600" stroke="#fff" stroke-width="120"/>
+              <path d="M0,0L1200,600M1200,0L0,600" stroke="#cf142b" stroke-width="60"/>
+              <path d="M600,0L600,600M0,300L1200,300" stroke="#fff" stroke-width="120"/>
+              <path d="M600,0L600,600M0,300L1200,300" stroke="#cf142b" stroke-width="60"/>
+              <path d="M120,600L0,0L120,0L240,600" fill="#fff"/>
+              <path d="M120,600L0,0L120,0L240,600" stroke="#cf142b" stroke-width="30"/>
+              <path d="M1080,0L1200,600L1080,600L960,0" fill="#fff"/>
+              <path d="M1080,0L1200,600L1080,600L960,0" stroke="#cf142b" stroke-width="30"/>
+            </svg>
+          </button>
+          <button type="button" onclick="setLang('fr')" id="langFr" class="lang-switch-button" aria-label="Francais">
+            <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="7" height="14" x="0" y="0" fill="#0055A4"/>
+              <rect width="7" height="14" x="7" y="0" fill="#FFFFFF"/>
+              <rect width="7" height="14" x="14" y="0" fill="#EF4135"/>
+            </svg>
+          </button>
+          <button type="button" onclick="setLang('ln')" id="langLn" class="lang-switch-button" aria-label="Lingala">
+            <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="21" height="14" fill="#00A3E0"/>
+              <path d="M-2 15L5 15L23 -1L16 -1Z" fill="#F7D618"/>
+              <path d="M-1 15L4.2 15L22 -1L16.8 -1Z" fill="#CE1021"/>
+              <path d="M4 1.2L4.58 2.88H6.36L4.92 3.96L5.48 5.64L4 4.62L2.52 5.64L3.08 3.96L1.64 2.88H3.42L4 1.2Z" fill="#F7D618"/>
+            </svg>
+          </button>
+          <button type="button" onclick="setLang('it')" id="langIt" class="lang-switch-button" aria-label="Italiano">
+            <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="7" height="14" x="0" y="0" fill="#008C45"/>
+              <rect width="7" height="14" x="7" y="0" fill="#F4F5F0"/>
+              <rect width="7" height="14" x="14" y="0" fill="#CD212A"/>
+            </svg>
+          </button>
+          <button type="button" onclick="setLang('tr')" id="langTr" class="lang-switch-button" aria-label="Türkçe">
+            <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="21" height="14" fill="#E30A17"/>
+              <circle cx="8" cy="7" r="3.2" fill="#FFFFFF"/>
+              <circle cx="8.8" cy="7" r="2.6" fill="#E30A17"/>
+              <path d="M13.5 4.3L14.08 6.02L15.88 6.04L14.45 7.12L14.99 8.86L13.5 7.82L12.01 8.86L12.55 7.12L11.12 6.04L12.92 6.02L13.5 4.3Z" fill="#FFFFFF"/>
+            </svg>
+          </button>
+          <button type="button" onclick="setLang('uk')" id="langUk" class="lang-switch-button" aria-label="Українська">
+            <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="21" height="7" fill="#0057B7"/>
+              <rect y="7" width="21" height="7" fill="#FFD700"/>
+            </svg>
+          </button>
         </div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-date">1985</div>
-        <div class="timeline-content">
-          <h4>Erste Konzerte</h4>
-          <p>Seit 1985 treten wir unter unserem heutigen Namen bei öffentlichen und privaten Festen sowie Konzerten auf.</p>
+    </div>
+  </header>
+  <main id="main-content" class="subpage-main">
+    <section class="subpage-hero">
+      <div class="subpage-hero__eyebrow" data-lang="de">Seit 1981</div>
+      <div class="subpage-hero__eyebrow" data-lang="en" hidden aria-hidden="true">Since 1981</div>
+      <div class="subpage-hero__eyebrow" data-lang="fr" hidden aria-hidden="true">Depuis 1981</div>
+      <div class="subpage-hero__eyebrow" data-lang="ln" hidden aria-hidden="true">Banda 1981</div>
+      <div class="subpage-hero__eyebrow" data-lang="it" hidden aria-hidden="true">Dal 1981</div>
+      <div class="subpage-hero__eyebrow" data-lang="tr" hidden aria-hidden="true">1981'den beri</div>
+      <div class="subpage-hero__eyebrow" data-lang="uk" hidden aria-hidden="true">З 1981 року</div>
+      <!-- LEGAL-I18N:chronik-hero-copy:start -->
+      <h1 class="subpage-hero__title" data-lang="de">Die Chronik des CMI</h1>
+      <h1 class="subpage-hero__title" data-lang="en" hidden aria-hidden="true">The CMI Timeline</h1>
+      <h1 class="subpage-hero__title" data-lang="fr" hidden aria-hidden="true">La chronique du CMI</h1>
+      <h1 class="subpage-hero__title" data-lang="ln" hidden aria-hidden="true">Lisolo ya bambula ya CMI</h1>
+      <h1 class="subpage-hero__title" data-lang="it" hidden aria-hidden="true">La storia del CMI</h1>
+      <h1 class="subpage-hero__title" data-lang="tr" hidden aria-hidden="true">CMI kronolojisi</h1>
+      <h1 class="subpage-hero__title" data-lang="uk" hidden aria-hidden="true">Хроніка КМІ</h1>
+      <p class="subpage-hero__intro" data-lang="de">Von der Initiative junger Musikerinnen und Musiker bis zu Benefizkonzerten und internationalen Projekten: Diese Stationen zeigen, wie aus gemeinsamer Musik über Jahrzehnte Verantwortung, Austausch und Wirkung entstanden sind.</p>
+      <p class="subpage-hero__intro" data-lang="en" hidden aria-hidden="true">From a youth-led initiative to benefit concerts and international projects, these milestones show how making music together grew into responsibility, exchange, and social impact over the decades.</p>
+      <p class="subpage-hero__intro" data-lang="fr" hidden aria-hidden="true">De l'initiative de jeunes musiciennes et musiciens aux concerts de bienfaisance et aux projets internationaux, ces etapes montrent comment la musique partagee est devenue, au fil des decennies, un lieu de responsabilite, d'echange et d'impact concret.</p>
+      <p class="subpage-hero__intro" data-lang="ln" hidden aria-hidden="true">Uta na likanisi ya bilenge babeti miziki kino na ba konser ya lisungi mpe misala ya mokili mobimba, biteni oyo elakisi ndenge kosala miziki elongo ekomaki mokumba, bokutani mpe lisungi ya solo na kati ya bambula mingi.</p>
+      <p class="subpage-hero__intro" data-lang="it" hidden aria-hidden="true">Dall'iniziativa di un gruppo di giovani musicisti ai concerti di beneficenza e ai progetti internazionali: queste tappe mostrano come, nel corso dei decenni, il fare musica insieme si sia trasformato in responsabilità condivisa, scambio e aiuto concreto.</p>
+      <p class="subpage-hero__intro" data-lang="tr" hidden aria-hidden="true">Genç müzisyenlerin girişiminden yardım konserlerine ve uluslararası projelere uzanan bu dönüm noktaları, birlikte müzik yapmanın on yıllar içinde nasıl sorumluluğa, uluslararası işbirliğine ve toplumsal etkiye dönüştüğünü gösteriyor.</p>
+      <p class="subpage-hero__intro" data-lang="uk" hidden aria-hidden="true">Від ініціативи молодих музикантів до благодійних концертів і міжнародних проєктів: ці етапи показують, як спільне музикування протягом десятиліть перетворювалося на відповідальність, обмін і реальний вплив.</p>
+      <!-- LEGAL-I18N:chronik-hero-copy:end -->
+    </section>
+
+    <section class="history-overview">
+      <article class="history-overview-card">
+        <!-- LEGAL-I18N:chronik-overview-roots:start -->
+        <h2 class="history-overview-title" data-lang="de">Verwurzelung</h2>
+        <h2 class="history-overview-title" data-lang="en" hidden aria-hidden="true">Roots</h2>
+        <h2 class="history-overview-title" data-lang="fr" hidden aria-hidden="true">Ancrage</h2>
+        <h2 class="history-overview-title" data-lang="ln" hidden aria-hidden="true">Misisa</h2>
+        <h2 class="history-overview-title" data-lang="it" hidden aria-hidden="true">Radici</h2>
+        <h2 class="history-overview-title" data-lang="tr" hidden aria-hidden="true">Kökler</h2>
+        <h2 class="history-overview-title" data-lang="uk" hidden aria-hidden="true">Коріння</h2>
+        <p class="history-overview-copy" data-lang="de">Das Ensemble wuchs in Ochsenfurt aus echter Eigeninitiative und ist bis heute ein musikalischer Treffpunkt über Generationen hinweg.</p>
+        <p class="history-overview-copy" data-lang="en" hidden aria-hidden="true">The ensemble grew in Ochsenfurt from a genuine grassroots initiative and remains a musical meeting place across generations.</p>
+        <p class="history-overview-copy" data-lang="fr" hidden aria-hidden="true">L'ensemble est ne a Ochsenfurt d'une veritable initiative personnelle et reste aujourd'hui encore un lieu de rencontre musical entre les generations.</p>
+        <p class="history-overview-copy" data-lang="ln" hidden aria-hidden="true">Lisanga yango ekolaki na Ochsenfurt uta na ebandeli ya solo ya bato bango moko mpe kino lelo ezali esika ya bokutani ya miziki mpo na bileko ndenge na ndenge.</p>
+        <p class="history-overview-copy" data-lang="it" hidden aria-hidden="true">L'ensemble è nato a Ochsenfurt da un'iniziativa condivisa e, ancora oggi, resta un punto d'incontro musicale tra generazioni.</p>
+        <p class="history-overview-copy" data-lang="tr" hidden aria-hidden="true">Topluluk Ochsenfurt'ta samimi bir öz girişimle doğdu ve bugün de kuşakları buluş&shy;turan müzi&shy;kal bir buluş&shy;ma noktası olmayı sürdürüyor.</p>
+        <p class="history-overview-copy" data-lang="uk" hidden aria-hidden="true">Ансамбль виріс в Оксенфурті із щирої ініціативи самих учасників і до сьогодні лишається музичним місцем зустрічі поколінь.</p>
+        <!-- LEGAL-I18N:chronik-overview-roots:end -->
+      </article>
+      <article class="history-overview-card">
+        <!-- LEGAL-I18N:chronik-overview-exchange:start -->
+        <h2 class="history-overview-title" data-lang="de">Austausch</h2>
+        <h2 class="history-overview-title" data-lang="en" hidden aria-hidden="true">Exchange</h2>
+        <h2 class="history-overview-title" data-lang="fr" hidden aria-hidden="true">Echange</h2>
+        <h2 class="history-overview-title" data-lang="ln" hidden aria-hidden="true">Bokutani</h2>
+        <h2 class="history-overview-title" data-lang="it" hidden aria-hidden="true">Scambio</h2>
+        <h2 class="history-overview-title" data-lang="tr" hidden aria-hidden="true">Değişim</h2>
+        <h2 class="history-overview-title" data-lang="uk" hidden aria-hidden="true">Обмін</h2>
+        <p class="history-overview-copy" data-lang="de">Internationale Begegnungen, Konzertreisen und gemeinsame Projekte haben das CMI früh über regionale Grenzen hinaus geprägt.</p>
+        <p class="history-overview-copy" data-lang="en" hidden aria-hidden="true">International encounters, concert tours, and shared projects helped shape CMI well beyond the region from an early stage.</p>
+        <p class="history-overview-copy" data-lang="fr" hidden aria-hidden="true">Les rencontres internationales, les tournees et les projets communs ont tres vite marque le CMI bien au-dela des frontieres regionales.</p>
+        <p class="history-overview-copy" data-lang="ln" hidden aria-hidden="true">Bokutani ya mokili mobimba, ba mobembo ya konser mpe misala ya elongo esalaki ete CMI eyebana kala koleka ndelo ya etuka.</p>
+        <p class="history-overview-copy" data-lang="it" hidden aria-hidden="true">Incontri internazionali, tournée e progetti condivisi hanno portato il CMI ben oltre i confini della regione fin dai primi anni.</p>
+        <p class="history-overview-copy" data-lang="tr" hidden aria-hidden="true">Ulus&shy;lararası buluş&shy;malar, konser turne&shy;leri ve ortak proje&shy;ler CMI'yi daha ilk yıllardan itibaren böl&shy;gesel sınır&shy;ların ötesine taşıdı.</p>
+        <p class="history-overview-copy" data-lang="uk" hidden aria-hidden="true">Міжнародні зустрічі, концертні подорожі та спільні проєкти рано сформували КМІ далеко за межами регіону.</p>
+        <!-- LEGAL-I18N:chronik-overview-exchange:end -->
+      </article>
+      <article class="history-overview-card">
+        <!-- LEGAL-I18N:chronik-overview-impact:start -->
+        <h2 class="history-overview-title" data-lang="de">Wirkung</h2>
+        <h2 class="history-overview-title" data-lang="en" hidden aria-hidden="true">Impact</h2>
+        <h2 class="history-overview-title" data-lang="fr" hidden aria-hidden="true">Impact</h2>
+        <h2 class="history-overview-title" data-lang="ln" hidden aria-hidden="true">Litomba</h2>
+        <h2 class="history-overview-title" data-lang="it" hidden aria-hidden="true">Impatto</h2>
+        <h2 class="history-overview-title" data-lang="tr" hidden aria-hidden="true">Etki</h2>
+        <h2 class="history-overview-title" data-lang="uk" hidden aria-hidden="true">Вплив</h2>
+        <p class="history-overview-copy" data-lang="de">Aus dem gemeinsamen Musizieren wurde konkrete Hilfe: Benefizkonzerte und soziale Projekte sind heute fester Teil der Identität.</p>
+        <p class="history-overview-copy" data-lang="en" hidden aria-hidden="true">Shared music-making turned into concrete help: benefit concerts and social projects are now a core part of the ensemble's identity.</p>
+        <p class="history-overview-copy" data-lang="fr" hidden aria-hidden="true">La musique partagee s'est transformee en aide concrete : les concerts benefices et les projets solidaires font aujourd'hui partie integrante de notre identite.</p>
+        <p class="history-overview-copy" data-lang="ln" hidden aria-hidden="true">Kosala miziki elongo ebongwanaki lisungi ya solo: ba konser ya lisungi mpe misala ya bato ezali sikoyo eteni ya motema ya bomoto ya CMI.</p>
+        <p class="history-overview-copy" data-lang="it" hidden aria-hidden="true">Dal fare musica insieme è nato anche un aiuto concreto: concerti di beneficenza e progetti sociali fanno ormai parte dell'identità dell'ensemble.</p>
+        <p class="history-overview-copy" data-lang="tr" hidden aria-hidden="true">Birlikte müzik yapmak somut desteğe dönüştü: yardım konser&shy;leri ve sosyal proje&shy;ler bugün toplu&shy;luğun kimliğinin ayrıl&shy;maz bir parçası.</p>
+        <p class="history-overview-copy" data-lang="uk" hidden aria-hidden="true">Із спільного музикування виросла конкретна допомога: благодійні концерти та соціальні проєкти сьогодні є невід'ємною частиною нашої ідентичності.</p>
+        <!-- LEGAL-I18N:chronik-overview-impact:end -->
+      </article>
+    </section>
+
+    <section class="timeline-section timeline-section--subpage">
+      <div class="timeline-container">
+        <div class="timeline-header">
+          <div class="timeline-eyebrow" data-lang="de">Meilensteine</div>
+          <div class="timeline-eyebrow" data-lang="en" hidden aria-hidden="true">Milestones</div>
+          <div class="timeline-eyebrow" data-lang="fr" hidden aria-hidden="true">Etapes marquantes</div>
+          <div class="timeline-eyebrow" data-lang="ln" hidden aria-hidden="true">Biteni ya ntina</div>
+          <div class="timeline-eyebrow" data-lang="it" hidden aria-hidden="true">Tappe chiave</div>
+          <div class="timeline-eyebrow" data-lang="tr" hidden aria-hidden="true">Dönüm noktaları</div>
+          <div class="timeline-eyebrow" data-lang="uk" hidden aria-hidden="true">Віхи</div>
+          <!-- LEGAL-I18N:chronik-timeline-header:start -->
+          <h2 class="timeline-title" data-lang="de">Musik, Begegnung und Verantwortung</h2>
+          <h2 class="timeline-title" data-lang="en" hidden aria-hidden="true">Music, encounter, and responsibility</h2>
+          <h2 class="timeline-title" data-lang="fr" hidden aria-hidden="true">Musique, rencontre et responsabilite</h2>
+          <h2 class="timeline-title" data-lang="ln" hidden aria-hidden="true">Miziki, bokutani mpe mokumba</h2>
+          <h2 class="timeline-title" data-lang="it" hidden aria-hidden="true">Musica, incontro e responsabilità</h2>
+          <h2 class="timeline-title" data-lang="tr" hidden aria-hidden="true">Müzik, buluşma ve sorumluluk</h2>
+          <h2 class="timeline-title" data-lang="uk" hidden aria-hidden="true">Музика, зустріч і відповідальність</h2>
+          <p class="timeline-intro" data-lang="de">Die Geschichte des CMI ist keine lose Sammlung einzelner Konzerte. Sie erzählt von einem Ensemble, das seine musikalische Entwicklung immer mit Gemeinschaft, Bildung und sozialem Engagement verbunden hat.</p>
+          <p class="timeline-intro" data-lang="en" hidden aria-hidden="true">CMI's history is not a loose collection of individual concerts. It tells the story of an ensemble that has always connected musical growth with community, education, and social commitment.</p>
+          <p class="timeline-intro" data-lang="fr" hidden aria-hidden="true">L'histoire du CMI n'est pas une simple succession de concerts. Elle raconte un ensemble qui a toujours lie son evolution musicale a la vie collective, a la transmission et a l'engagement solidaire.</p>
+          <p class="timeline-intro" data-lang="ln" hidden aria-hidden="true">Lisolo ya CMI ezali kaka te molongo ya ba konser ya kokabwana. Elobeli lisanga moko oyo ekangisaka ntango nyonso bokoli ya miziki na lisanga, boyekoli mpe lisungi ya bato.</p>
+          <p class="timeline-intro" data-lang="it" hidden aria-hidden="true">La storia del CMI non è soltanto una successione di concerti. Racconta il percorso di un ensemble che ha sempre intrecciato crescita musicale, vita comunitaria, formazione e impegno sociale.</p>
+          <p class="timeline-intro" data-lang="tr" hidden aria-hidden="true">CMI'nin öyküsü birbirinden kopuk konser&shy;lerin toplamı değildir. Tam tersine, müzi&shy;kal gelişi&shy;mini her zaman toplu&shy;luk, eğitim ve sosyal sorum&shy;lulukla birleştiren bir toplu&shy;luğun hikâyesini anlatır.</p>
+          <p class="timeline-intro" data-lang="uk" hidden aria-hidden="true">Історія КМІ не зводиться до низки окремих концертів. Це історія ансамблю, який завжди поєднував музичний розвиток із життям спільноти, освітою та соціальною відповідальністю.</p>
+          <!-- LEGAL-I18N:chronik-timeline-header:end -->
+          <div class="timeline-summary">
+            <article class="timeline-summary-card">
+              <!-- LEGAL-I18N:chronik-summary-1981:start -->
+                <h3 class="timeline-summary-value" data-lang="de">Kleiner Anfang</h3>
+                <h3 class="timeline-summary-value" data-lang="en" hidden aria-hidden="true">Modest beginnings</h3>
+                <h3 class="timeline-summary-value" data-lang="fr" hidden aria-hidden="true">Des debuts modestes</h3>
+                <h3 class="timeline-summary-value" data-lang="ln" hidden aria-hidden="true">Ebandeli moke</h3>
+                <h3 class="timeline-summary-value" data-lang="it" hidden aria-hidden="true">Origini modeste</h3>
+                <h3 class="timeline-summary-value" data-lang="tr" hidden aria-hidden="true">Küçük başlangıç</h3>
+                <h3 class="timeline-summary-value" data-lang="uk" hidden aria-hidden="true">Невеликий початок</h3>
+                <p class="timeline-summary-copy" data-lang="de">Aus einer privaten Initiative junger Musikbegeisterter um Astrid Eitschberger ist in Ochsenfurt Schritt für Schritt eine offene musikalische Gemeinschaft gewachsen.</p>
+                <p class="timeline-summary-copy" data-lang="en" hidden aria-hidden="true">From a private initiative of young music enthusiasts around Astrid Eitschberger, an open musical community gradually grew in Ochsenfurt.</p>
+                <p class="timeline-summary-copy" data-lang="fr" hidden aria-hidden="true">Partie d'une initiative privee de jeunes passionnes reunis autour d'Astrid Eitschberger, une communaute musicale ouverte s'est developpee pas a pas a Ochsenfurt.</p>
+                <p class="timeline-summary-copy" data-lang="ln" hidden aria-hidden="true">Uta na ebandeli ya moto na moto ya bilenge balingaka miziki pene ya Astrid Eitschberger, lisanga ya miziki ya polele ekolaki malembe malembe na Ochsenfurt.</p>
+                <p class="timeline-summary-copy" data-lang="it" hidden aria-hidden="true">Da un'iniziativa privata di giovani appassionati di musica riuniti intorno ad Astrid Eitschberger è nata passo dopo passo a Ochsenfurt una comunità musicale aperta.</p>
+                <p class="timeline-summary-copy" data-lang="tr" hidden aria-hidden="true">Astrid Eitschberger çevresinde bir araya gelen müzik tutkunu gençlerin özel girişiminden, Ochsenfurt'ta adım adım açık bir müzik topluluğu büyüdü.</p>
+                <p class="timeline-summary-copy" data-lang="uk" hidden aria-hidden="true">З приватної ініціативи молодих шанувальників музики, об'єднаних навколо Астрід Айчберґер, в Оксенфурті крок за кроком виросла відкрита музична спільнота.</p>
+              <!-- LEGAL-I18N:chronik-summary-1981:end -->
+            </article>
+            <article class="timeline-summary-card">
+              <!-- LEGAL-I18N:chronik-summary-europe:start -->
+                <h3 class="timeline-summary-value" data-lang="de">Europagedanke</h3>
+                <h3 class="timeline-summary-value" data-lang="en" hidden aria-hidden="true">European spirit</h3>
+                <h3 class="timeline-summary-value" data-lang="fr" hidden aria-hidden="true">Ouverture europeenne</h3>
+                <h3 class="timeline-summary-value" data-lang="ln" hidden aria-hidden="true">Likanisi ya Europe</h3>
+                <h3 class="timeline-summary-value" data-lang="it" hidden aria-hidden="true">Spirito europeo</h3>
+                <h3 class="timeline-summary-value" data-lang="tr" hidden aria-hidden="true">Avrupa fikri</h3>
+                <h3 class="timeline-summary-value" data-lang="uk" hidden aria-hidden="true">Європейська ідея</h3>
+                <p class="timeline-summary-copy" data-lang="de">Aus Konzertreisen, Partnerschaften und Besuchen sind über die Jahre Freundschaften und verlässliche Verbindungen entstanden.</p>
+                <p class="timeline-summary-copy" data-lang="en" hidden aria-hidden="true">Concert tours, partnerships, and visits developed over the years into friendships and reliable connections.</p>
+                <p class="timeline-summary-copy" data-lang="fr" hidden aria-hidden="true">Au fil des annees, les tournees, partenariats et visites ont donne naissance a des amities et a des liens de confiance durables.</p>
+                <p class="timeline-summary-copy" data-lang="ln" hidden aria-hidden="true">Na nzela ya ba mobembo ya konser, boyokani mpe botali ya baninga, boninga mpe boyokani ya makasi ebimaki malembe malembe na kati ya bambula.</p>
+                <p class="timeline-summary-copy" data-lang="it" hidden aria-hidden="true">Da viaggi di concerto, collaborazioni e visite sono nati nel tempo rapporti di amicizia e legami solidi.</p>
+                <p class="timeline-summary-copy" data-lang="tr" hidden aria-hidden="true">Konser yolculukları, ortaklıklar ve ziyaretler yıllar içinde dostluklara ve güvenilir bağlara dönüştü.</p>
+                <p class="timeline-summary-copy" data-lang="uk" hidden aria-hidden="true">Із концертних поїздок, партнерств і візитів з роками постали дружба та надійні зв'язки.</p>
+              <!-- LEGAL-I18N:chronik-summary-europe:end -->
+            </article>
+            <article class="timeline-summary-card">
+              <!-- LEGAL-I18N:chronik-summary-benefit:start -->
+              <h3 class="timeline-summary-value" data-lang="de">Benefizveranstaltungen</h3>
+              <h3 class="timeline-summary-value" data-lang="en" hidden aria-hidden="true">Benefit events</h3>
+                <h3 class="timeline-summary-value" data-lang="fr" hidden aria-hidden="true">Evenements solidaires</h3>
+                <h3 class="timeline-summary-value" data-lang="ln" hidden aria-hidden="true">Misala ya lisungi</h3>
+                <h3 class="timeline-summary-value" data-lang="it" hidden aria-hidden="true">Iniziative di beneficenza</h3>
+              <h3 class="timeline-summary-value" data-lang="tr" hidden aria-hidden="true">Yardım etkinlikleri</h3>
+                <h3 class="timeline-summary-value" data-lang="uk" hidden aria-hidden="true">Благодійні заходи</h3>
+                <p class="timeline-summary-copy" data-lang="de">Mit Benefizkonzerten und gemeinsamen Aktionen unterstützt das Collegium Musicum Iuvenale seit vielen Jahren soziale und kulturelle Anliegen.</p>
+                <p class="timeline-summary-copy" data-lang="en" hidden aria-hidden="true">Through benefit concerts and joint initiatives, Collegium Musicum Iuvenale has supported social and cultural causes for many years.</p>
+                <p class="timeline-summary-copy" data-lang="fr" hidden aria-hidden="true">Par des concerts solidaires et des actions communes, le Collegium Musicum Iuvenale soutient depuis de nombreuses annees des projets sociaux et culturels.</p>
+                <p class="timeline-summary-copy" data-lang="ln" hidden aria-hidden="true">Na ba konser ya lisungi mpe misala ya elongo, Collegium Musicum Iuvenale ezali kosunga makambo ya bato mpe ya mimeseno banda bambula mingi.</p>
+                <p class="timeline-summary-copy" data-lang="it" hidden aria-hidden="true">Attraverso concerti di beneficenza e iniziative comuni, il Collegium Musicum Iuvenale sostiene da molti anni progetti sociali e culturali.</p>
+                <p class="timeline-summary-copy" data-lang="tr" hidden aria-hidden="true">Collegium Musicum Iuvenale uzun yıllardır yardım konserleri ve ortak etkinliklerle sosyal ve kültürel amaçları destekliyor.</p>
+                <p class="timeline-summary-copy" data-lang="uk" hidden aria-hidden="true">Завдяки благодійним концертам і спільним ініціативам «Колегіум Музікум Ювенале» вже багато років підтримує соціальні та культурні справи.</p>
+              <!-- LEGAL-I18N:chronik-summary-benefit:end -->
+            </article>
+          </div>
+        </div>
+
+        <div class="timeline-list timeline-has-bar" role="list">
+          <div class="timeline-bar" aria-hidden="true"></div>
+
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-year"><span class="timeline-dot" aria-hidden="true"></span>1981</div>
+            <div class="timeline-content">
+              <!-- LEGAL-I18N:chronik-timeline-foundation:start -->
+              <h3 class="timeline-item-title" data-lang="de">Gründung</h3>
+              <h3 class="timeline-item-title" data-lang="en" hidden aria-hidden="true">Foundation</h3>
+              <h3 class="timeline-item-title" data-lang="fr" hidden aria-hidden="true">Fondation</h3>
+              <h3 class="timeline-item-title" data-lang="ln" hidden aria-hidden="true">Ebandeli</h3>
+              <h3 class="timeline-item-title" data-lang="it" hidden aria-hidden="true">Fondazione</h3>
+              <h3 class="timeline-item-title" data-lang="tr" hidden aria-hidden="true">Kuruluş</h3>
+              <h3 class="timeline-item-title" data-lang="uk" hidden aria-hidden="true">Заснування</h3>
+              <div class="timeline-item-text" data-lang="de">Auf Initiative von Astrid Eitschberger und einer Gruppe musikbegeisterter Jugendlicher entsteht in Ochsenfurt ein Ensemble, das gemeinsames Musizieren als kulturellen und sozialen Raum versteht.</div>
+              <div class="timeline-item-text" data-lang="en" hidden aria-hidden="true">On the initiative of Astrid Eitschberger and a group of music-loving young people, an ensemble is founded in Ochsenfurt that understands making music together as a cultural and social space.</div>
+              <div class="timeline-item-text" data-lang="fr" hidden aria-hidden="true">A l'initiative d'Astrid Eitschberger et d'un groupe de jeunes passionnes de musique, un ensemble voit le jour a Ochsenfurt et fait de la pratique musicale commune un espace culturel et social.</div>
+              <div class="timeline-item-text" data-lang="ln" hidden aria-hidden="true">Na likanisi ya Astrid Eitschberger mpe etuluku ya bilenge balingaki miziki, lisanga ya babeti miziki ebandi na Ochsenfurt oyo emonaka kosala miziki elongo lokola esika ya mimeseno mpe ya lisanga.</div>
+              <div class="timeline-item-text" data-lang="it" hidden aria-hidden="true">Su iniziativa di Astrid Eitschberger e di un gruppo di giovani appassionati di musica, a Ochsenfurt nasce un ensemble che concepisce la musica d'insieme come uno spazio culturale e sociale.</div>
+              <div class="timeline-item-text" data-lang="tr" hidden aria-hidden="true">Astrid Eitschberger ve müziğe tutkuyla bağlı genç&shy;lerden oluşan bir grubun girişi&shy;miyle Ochsenfurt'ta, birlikte müzik yapmayı kültürel ve sosyal bir alan olarak gören bir toplu&shy;luk kurulur.</div>
+              <div class="timeline-item-text" data-lang="uk" hidden aria-hidden="true">З ініціативи Астрід Айчберґер та групи молодих людей, закоханих у музику, в Оксенфурті виникає ансамбль, який розуміє спільне музикування як культурний і соціальний простір.</div>
+              <!-- LEGAL-I18N:chronik-timeline-foundation:end -->
+            </div>
+          </div>
+
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-year"><span class="timeline-dot" aria-hidden="true"></span>1985</div>
+            <div class="timeline-content">
+              <!-- LEGAL-I18N:chronik-timeline-current-name:start -->
+              <h3 class="timeline-item-title" data-lang="de">Erste Konzerte unter dem heutigen Namen</h3>
+              <h3 class="timeline-item-title" data-lang="en" hidden aria-hidden="true">First concerts under the current name</h3>
+              <h3 class="timeline-item-title" data-lang="fr" hidden aria-hidden="true">Premiers concerts sous le nom actuel</h3>
+              <h3 class="timeline-item-title" data-lang="ln" hidden aria-hidden="true">Ba konser ya liboso na nkombo ya lelo</h3>
+              <h3 class="timeline-item-title" data-lang="it" hidden aria-hidden="true">Primi concerti con il nome attuale</h3>
+              <h3 class="timeline-item-title" data-lang="tr" hidden aria-hidden="true">Bugünkü adla ilk konserler</h3>
+              <h3 class="timeline-item-title" data-lang="uk" hidden aria-hidden="true">Перші концерти під теперішньою назвою</h3>
+              <div class="timeline-item-text" data-lang="de">Seit 1985 tritt das Collegium Musicum Iuvenale bei öffentlichen und privaten Veranstaltungen auf und wird zu einem festen Bestandteil des musikalischen Lebens in der Region.</div>
+              <div class="timeline-item-text" data-lang="en" hidden aria-hidden="true">Since 1985, Collegium Musicum Iuvenale has performed at public and private events and has become a steady part of musical life in the region.</div>
+              <div class="timeline-item-text" data-lang="fr" hidden aria-hidden="true">Depuis 1985, le Collegium Musicum Iuvenale se produit lors de manifestations publiques et privees et devient une composante durable de la vie musicale de la region.</div>
+              <div class="timeline-item-text" data-lang="ln" hidden aria-hidden="true">Banda 1985, Collegium Musicum Iuvenale ezali komonana na makambo ya bato nyonso mpe ya moto na moto, mpe ekomi eteni ya seko ya bomoi ya miziki na etuka.</div>
+              <div class="timeline-item-text" data-lang="it" hidden aria-hidden="true">Dal 1985 il Collegium Musicum Iuvenale si esibisce in occasioni pubbliche e private, diventando una presenza stabile nella vita musicale della regione.</div>
+              <div class="timeline-item-text" data-lang="tr" hidden aria-hidden="true">Collegium Musicum Iuvenale 1985'ten beri kamusal ve özel etkin&shy;liklerde sahne alıyor ve bölge&shy;deki müzik yaşa&shy;mının kalıcı bir parçası hâline geliyor.</div>
+              <div class="timeline-item-text" data-lang="uk" hidden aria-hidden="true">З 1985 року «Колегіум Музікум Ювенале» виступає на публічних і приватних заходах та є сталою частиною музичного життя регіону.</div>
+              <!-- LEGAL-I18N:chronik-timeline-current-name:end -->
+            </div>
+          </div>
+
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-year"><span class="timeline-dot" aria-hidden="true"></span>1992</div>
+            <div class="timeline-content">
+              <!-- LEGAL-I18N:chronik-timeline-european-music-meeting:start -->
+              <h3 class="timeline-item-title" data-lang="de">European Music Meeting</h3>
+              <h3 class="timeline-item-title" data-lang="en" hidden aria-hidden="true">European Music Meeting</h3>
+              <h3 class="timeline-item-title" data-lang="fr" hidden aria-hidden="true">European Music Meeting</h3>
+              <h3 class="timeline-item-title" data-lang="ln" hidden aria-hidden="true">European Music Meeting</h3>
+              <h3 class="timeline-item-title" data-lang="it" hidden aria-hidden="true">European Music Meeting</h3>
+              <h3 class="timeline-item-title" data-lang="tr" hidden aria-hidden="true">European Music Meeting</h3>
+              <h3 class="timeline-item-title" data-lang="uk" hidden aria-hidden="true">Європейська музична зустріч</h3>
+              <div class="timeline-item-text" data-lang="de">Als Mitinitiator des Projekts in Padua, Pianiga und Ochsenfurt organisiert das CMI gemeinsame Konzerte mit Orchestern und Chören aus Italien, Frankreich und England und stärkt so den internationalen Austausch.</div>
+              <div class="timeline-item-text" data-lang="en" hidden aria-hidden="true">As co-initiator of the project in Padua, Pianiga, and Ochsenfurt, CMI organizes joint concerts with orchestras and choirs from Italy, France, and England, strengthening international exchange.</div>
+              <div class="timeline-item-text" data-lang="fr" hidden aria-hidden="true">Comme co-initiateur du projet a Padoue, Pianiga et Ochsenfurt, le CMI organise des concerts communs avec des orchestres et des choeurs venus d'Italie, de France et d'Angleterre et renforce ainsi l'echange international.</div>
+              <div class="timeline-item-text" data-lang="ln" hidden aria-hidden="true">Lokola moko ya babandisi ya mwango na Padoue, Pianiga mpe Ochsenfurt, CMI ebongisaka ba konser ya elongo na ba orchestre mpe ba chorale ya Italie, France mpe Angleterre, mpe yango elendisaka bokutani ya mokili mobimba.</div>
+              <div class="timeline-item-text" data-lang="it" hidden aria-hidden="true">Tra Padova, Pianiga e Ochsenfurt, il CMI è tra i promotori del progetto e organizza concerti insieme a orchestre e cori provenienti da Italia, Francia e Inghilterra, rafforzando così lo scambio internazionale.</div>
+              <div class="timeline-item-text" data-lang="tr" hidden aria-hidden="true">Padova, Pianiga ve Ochsenfurt'taki projenin ortak başlatıcılarından biri olan CMI, İtalya, Fransa ve İngiltere'den orkestralar ve korolarla ortak konserler düzenleyerek uluslararası işbirliğini güçlendirir.</div>
+              <div class="timeline-item-text" data-lang="uk" hidden aria-hidden="true">Як співініціатор проєкту в Падуї, П'янізі та Оксенфурті, КМІ організовує спільні концерти з оркестрами й хорами з Італії, Франції та Англії, зміцнюючи міжнародний обмін.</div>
+              <!-- LEGAL-I18N:chronik-timeline-european-music-meeting:end -->
+            </div>
+          </div>
+
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-year"><span class="timeline-dot" aria-hidden="true"></span>1992</div>
+            <div class="timeline-content">
+              <!-- LEGAL-I18N:chronik-timeline-beginner-group:start -->
+              <h3 class="timeline-item-title" data-lang="de">Gründung einer Anfängergruppe</h3>
+              <h3 class="timeline-item-title" data-lang="en" hidden aria-hidden="true">Beginner group founded</h3>
+              <h3 class="timeline-item-title" data-lang="fr" hidden aria-hidden="true">Creation d'un groupe debutant</h3>
+              <h3 class="timeline-item-title" data-lang="ln" hidden aria-hidden="true">Ebandeli ya etuluku ya ebandeli</h3>
+              <h3 class="timeline-item-title" data-lang="it" hidden aria-hidden="true">Nasce il gruppo principianti</h3>
+              <h3 class="timeline-item-title" data-lang="tr" hidden aria-hidden="true">Başlangıç grubunun kurulması</h3>
+              <h3 class="timeline-item-title" data-lang="uk" hidden aria-hidden="true">Створення групи початківців</h3>
+              <div class="timeline-item-text" data-lang="de">Im selben Jahr entsteht eine Anfängergruppe, die jüngeren Mitspielenden den Einstieg in das Orchesterspiel ermöglicht und musikalische Bildung dauerhaft verankert.</div>
+              <div class="timeline-item-text" data-lang="en" hidden aria-hidden="true">In the same year, a beginner group is founded to give younger players an entry into ensemble playing and to anchor musical education for the long term.</div>
+              <div class="timeline-item-text" data-lang="fr" hidden aria-hidden="true">La meme annee, un groupe debutant est cree afin d'offrir aux plus jeunes un acces au jeu d'ensemble et d'ancrer durablement la formation musicale.</div>
+              <div class="timeline-item-text" data-lang="ln" hidden aria-hidden="true">Na mbula yango moko, etuluku ya ebandeli ebandi mpo na kopesa babeti ya bilenge nzela ya kokota na miziki ya lisanga mpe kokangisa boyekoli ya miziki mpo na ntango molai.</div>
+              <div class="timeline-item-text" data-lang="it" hidden aria-hidden="true">Nello stesso anno nasce un gruppo per principianti che permette ai più giovani di avvicinarsi alla musica d'insieme e rafforza nel tempo la formazione musicale.</div>
+              <div class="timeline-item-text" data-lang="tr" hidden aria-hidden="true">Aynı yıl, genç müzis&shy;yenlere orkestrada çalmaya ilk adımı atma imkânı sunan ve müzik eğiti&shy;mini kalıcı biçimde yer&shy;leştiren bir başlan&shy;gıç grubu kurulur.</div>
+              <div class="timeline-item-text" data-lang="uk" hidden aria-hidden="true">Того ж року виникає група початківців, яка відкриває молодшим учасникам шлях до оркестрової гри й надовго закріплює музичну освіту в житті ансамблю.</div>
+              <!-- LEGAL-I18N:chronik-timeline-beginner-group:end -->
+            </div>
+          </div>
+
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-year"><span class="timeline-dot" aria-hidden="true"></span>2010</div>
+            <div class="timeline-content">
+              <!-- LEGAL-I18N:chronik-timeline-kinshasa-benefit:start -->
+              <h3 class="timeline-item-title" data-lang="de">Erstes Benefizkonzert für Kinshasa</h3>
+              <h3 class="timeline-item-title" data-lang="en" hidden aria-hidden="true">First benefit concert for Kinshasa</h3>
+              <h3 class="timeline-item-title" data-lang="fr" hidden aria-hidden="true">Premier concert de bienfaisance pour Kinshasa</h3>
+              <h3 class="timeline-item-title" data-lang="ln" hidden aria-hidden="true">Konser ya liboso ya lisungi mpo na Kinshasa</h3>
+              <h3 class="timeline-item-title" data-lang="it" hidden aria-hidden="true">Primo concerto di beneficenza a favore di Kinshasa</h3>
+              <h3 class="timeline-item-title" data-lang="tr" hidden aria-hidden="true">Kinşasa için ilk yardım konseri</h3>
+              <h3 class="timeline-item-title" data-lang="uk" hidden aria-hidden="true">Перший благодійний концерт для Кіншаси</h3>
+              <div class="timeline-item-text" data-lang="de">Mit dem Konzert "Tor für Afrika" beginnt ein dauerhaftes Engagement zugunsten der Schule Vabatu Ngoma in Kinshasa. Musik wird damit ausdrücklich auch zum Mittel konkreter Hilfe.</div>
+              <div class="timeline-item-text" data-lang="en" hidden aria-hidden="true">With the concert "Gate for Africa," a long-term commitment begins in support of the Vabatu Ngoma school in Kinshasa. Music explicitly becomes a means of concrete help.</div>
+              <div class="timeline-item-text" data-lang="fr" hidden aria-hidden="true">Avec le concert "Porte pour l'Afrique", commence un engagement durable en faveur de l'ecole Vabatu Ngoma a Kinshasa. La musique devient ainsi aussi un moyen d'aide concrete.</div>
+              <div class="timeline-item-text" data-lang="ln" hidden aria-hidden="true">Na konser "Tor für Afrika", boyokani ya ntango molai mpo na kelasi ya Vabatu Ngoma na Kinshasa ebandi. Uta wana, miziki ekomi polele nzela ya kopesa lisungi ya solo.</div>
+              <div class="timeline-item-text" data-lang="it" hidden aria-hidden="true">Con il concerto "Porta per l'Africa" prende avvio un impegno destinato a durare a sostegno della scuola Vabatu Ngoma di Kinshasa. La musica diventa così anche uno strumento di aiuto concreto.</div>
+              <div class="timeline-item-text" data-lang="tr" hidden aria-hidden="true">"Afrika için Kapı" konseriyle Kinşasa'daki Vabatu Ngoma okuluna yönelik uzun soluklu bir destek başlar. Böylece müzik, somut desteğin de açık bir aracı hâline gelir.</div>
+              <div class="timeline-item-text" data-lang="uk" hidden aria-hidden="true">Із концертом «Брама для Африки» починається тривала підтримка школи «Вабату Нгома» в Кіншасі. Відтоді музика стає ще й безпосереднім інструментом конкретної допомоги.</div>
+              <!-- LEGAL-I18N:chronik-timeline-kinshasa-benefit:end -->
+            </div>
+          </div>
+
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-year"><span class="timeline-dot" aria-hidden="true"></span>2011</div>
+            <div class="timeline-content">
+              <!-- LEGAL-I18N:chronik-timeline-anniversary-30:start -->
+              <h3 class="timeline-item-title" data-lang="de">30-jähriges Jubiläum</h3>
+              <h3 class="timeline-item-title" data-lang="en" hidden aria-hidden="true">30th anniversary</h3>
+              <h3 class="timeline-item-title" data-lang="fr" hidden aria-hidden="true">30e anniversaire</h3>
+              <h3 class="timeline-item-title" data-lang="ln" hidden aria-hidden="true">Jubile ya mbula 30</h3>
+              <h3 class="timeline-item-title" data-lang="it" hidden aria-hidden="true">30° anniversario</h3>
+              <h3 class="timeline-item-title" data-lang="tr" hidden aria-hidden="true">30. yıl dönümü</h3>
+              <h3 class="timeline-item-title" data-lang="uk" hidden aria-hidden="true">30-річний ювілей</h3>
+              <div class="timeline-item-text" data-lang="de">Das dreißigjährige Bestehen feiert das Orchester mit einem besonderen Konzert im Kaisersaal der Würzburger Residenz und unterstreicht damit seinen künstlerischen Anspruch.</div>
+              <div class="timeline-item-text" data-lang="en" hidden aria-hidden="true">The orchestra celebrates its 30th anniversary with a special concert in the Kaisersaal of the Würzburg Residence, underlining its artistic ambition.</div>
+              <div class="timeline-item-text" data-lang="fr" hidden aria-hidden="true">L'orchestre fete son trentieme anniversaire par un concert exceptionnel dans la salle imperiale de la Residence de Wurzbourg et souligne ainsi son exigence artistique.</div>
+              <div class="timeline-item-text" data-lang="ln" hidden aria-hidden="true">CMI esepelisaki jubile na yango ya mbula tuku misato na konser moko ya ndenge na yango na Kaisersaal ya Residenz na Wurzburg, mpe emonisi ndenge etyaka motuya na mosala ya mayele.</div>
+              <div class="timeline-item-text" data-lang="it" hidden aria-hidden="true">L'orchestra celebra il suo 30° anniversario con un concerto straordinario nella Sala Imperiale della Residenza di Würzburg, confermando così il proprio profilo artistico.</div>
+              <div class="timeline-item-text" data-lang="tr" hidden aria-hidden="true">Orkestra 30. yılını Würzburg Rezi&shy;dansı'nın Kaisersaal salonunda verdiği özel bir konserle kutlar ve böylece sanat&shy;sal iddiasını da vurgu&shy;lar.</div>
+              <div class="timeline-item-text" data-lang="uk" hidden aria-hidden="true">Свій тридцятирічний ювілей оркестр відзначає особливим концертом у Кайзерзалі Вюрцбурзької резиденції, підкреслюючи цим свої високі мистецькі амбіції.</div>
+              <!-- LEGAL-I18N:chronik-timeline-anniversary-30:end -->
+            </div>
+          </div>
+
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-year"><span class="timeline-dot" aria-hidden="true"></span>2021</div>
+            <div class="timeline-content">
+              <!-- LEGAL-I18N:chronik-timeline-lockdown-40:start -->
+              <h3 class="timeline-item-title" data-lang="de">40 Jahre CMI im Ausnahmezustand</h3>
+              <h3 class="timeline-item-title" data-lang="en" hidden aria-hidden="true">40 years of CMI under extraordinary circumstances</h3>
+              <h3 class="timeline-item-title" data-lang="fr" hidden aria-hidden="true">40 ans du CMI dans des circonstances exceptionnelles</h3>
+              <h3 class="timeline-item-title" data-lang="ln" hidden aria-hidden="true">Mbula 40 ya CMI na tango ya mpasi</h3>
+              <h3 class="timeline-item-title" data-lang="it" hidden aria-hidden="true">40 anni di CMI in un momento eccezionale</h3>
+              <h3 class="timeline-item-title" data-lang="tr" hidden aria-hidden="true">Olağanüstü koşullarda CMI'nin 40 yılı</h3>
+              <h3 class="timeline-item-title" data-lang="uk" hidden aria-hidden="true">40 років КМІ в надзвичайних умовах</h3>
+              <div class="timeline-item-text" data-lang="de">Während des Lockdowns entsteht anstelle eines Live-Konzerts ein aufwendig produziertes Klang- und Videoprojekt. So zeigt das CMI, dass Gemeinschaft und Kreativität auch unter schwierigen Bedingungen tragfähig bleiben.</div>
+              <div class="timeline-item-text" data-lang="en" hidden aria-hidden="true">During lockdown, an elaborately produced sound and video project is created instead of a live concert. CMI thus shows that community and creativity remain resilient even under difficult conditions.</div>
+              <div class="timeline-item-text" data-lang="fr" hidden aria-hidden="true">Pendant le confinement, un projet sonore et video elabore voit le jour a la place d'un concert en direct. Le CMI montre ainsi que l'esprit de communaute et la creativite tiennent bon meme dans des conditions difficiles.</div>
+              <div class="timeline-item-text" data-lang="ln" hidden aria-hidden="true">Na tango ya lockdown, na esika ya konser ya bomoi, mosala moko ya son mpe video esalemaki na bokebi mingi. CMI elakisaki bongo ete lisanga mpe bokeli ekoki kotikala makasi ata na makambo ya mpasi.</div>
+              <div class="timeline-item-text" data-lang="it" hidden aria-hidden="true">Durante il lockdown, al posto di un concerto dal vivo prende forma un articolato progetto audio-video. Il CMI dimostra così che spirito di comunità e creatività restano vivi anche nelle situazioni difficili.</div>
+              <div class="timeline-item-text" data-lang="tr" hidden aria-hidden="true">Kapanma döneminde canlı konserin yerini özenle hazırlan&shy;mış bir ses ve video projesi alır. Böylece CMI, toplu&shy;luk duygu&shy;sunun ve yaratı&shy;cılığın zor koşul&shy;larda da ayakta kalabil&shy;diğini gösterir.</div>
+              <div class="timeline-item-text" data-lang="uk" hidden aria-hidden="true">Під час локдауну замість живого концерту виникає ретельно підготовлений аудіо- та відеопроєкт. Так КМІ показує, що спільність і творчість залишаються життєздатними навіть у складних обставинах.</div>
+              <!-- LEGAL-I18N:chronik-timeline-lockdown-40:end -->
+            </div>
+          </div>
         </div>
       </div>
-   <div class="timeline-item">
-  <div class="timeline-date">1992</div>
-  <div class="timeline-content">
-    <h4>Erstes Projekt</h4>
-    <p>Wir waren Mitinitiatoren des Projekts „EUROPEAN MUSIC MEETING“ in Padua, Pianiga und Ochsenfurt. Wir organisierten und führten zahlreiche gemeinsame Konzerte mit Orchestern und Chören aus Italien, Frankreich und England durch. Zudem förderten wir den internationalen Austausch durch Konzertreisen ins europäische Ausland und die Beherbergung ausländischer Musikgruppen in Ochsenfurt.</p>
-    <br/>
-    <hr>
-    <br/>
-    <h4>Gründung einer Anfängergruppe</h4>
-    <p>Im selben Jahr gründeten wir eine Anfängergruppe, die jüngeren Mitspielern die Möglichkeit bietet, erste Erfahrungen im Zusammenspiel zu sammeln.</p>
-  </div>
-</div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <img src="files/logo_cmi1 - weiß.svg" alt="CMI Logo" class="site-footer__logo">
+          <div class="site-footer__title" data-lang="de">Collegium Musicum Iuvenale Ochsenfurt</div>
+          <div class="site-footer__title" data-lang="en" hidden aria-hidden="true">Collegium Musicum Iuvenale Ochsenfurt</div>
+          <div class="site-footer__title" data-lang="fr" hidden aria-hidden="true">Collegium Musicum Iuvenale Ochsenfurt</div>
+          <div class="site-footer__title" data-lang="ln" hidden aria-hidden="true">Collegium Musicum Iuvenale Ochsenfurt</div>
+          <div class="site-footer__title" data-lang="it" hidden aria-hidden="true">Collegium Musicum Iuvenale Ochsenfurt</div>
+          <div class="site-footer__title" data-lang="tr" hidden aria-hidden="true">Collegium Musicum Iuvenale Ochsenfurt</div>
+          <div class="site-footer__title" data-lang="uk" hidden aria-hidden="true">Колегіум Музікум Ювенале Оксенфурт</div>
+          <div class="site-footer__subtitle" data-lang="de">Musik verbindet Menschen seit 1981</div>
+          <div class="site-footer__subtitle" data-lang="en" hidden aria-hidden="true">Connecting people through music since 1981</div>
+          <div class="site-footer__subtitle" data-lang="fr" hidden aria-hidden="true">La musique relie les personnes depuis 1981</div>
+          <div class="site-footer__subtitle" data-lang="ln" hidden aria-hidden="true">Miziki ezali kosangisa bato banda 1981</div>
+          <div class="site-footer__subtitle" data-lang="it" hidden aria-hidden="true">La musica unisce le persone dal 1981</div>
+          <div class="site-footer__subtitle" data-lang="tr" hidden aria-hidden="true">Müzik 1981'den beri insanları birleştiriyor</div>
+          <div class="site-footer__subtitle" data-lang="uk" hidden aria-hidden="true">Музика єднає людей з 1981 року</div>
+          <div class="site-footer__social-links">
+            <a href="https://www.facebook.com/profile.php?id=61572326774098" class="site-footer__link site-footer__social-link" target="_blank" rel="noopener noreferrer" translate="no">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="site-footer__social-icon site-footer__social-icon--facebook"><path d="M14.5 8.5V6.3c0-.82.57-1.3 1.44-1.3H17.5V2h-2.73C12.23 2 11 3.52 11 6.05V8.5H8.75V12H11v10h4V12h2.19l.41-3.5H15V8.5z"></path></svg>
+              <span>Facebook</span>
+            </a>
+            <a href="https://www.instagram.com/cmi_ochsenfurt/" class="site-footer__link site-footer__social-link" target="_blank" rel="noopener noreferrer" translate="no">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="site-footer__social-icon site-footer__social-icon--instagram"><rect x="3.75" y="3.75" width="16.5" height="16.5" rx="4.5"></rect><circle cx="12" cy="12" r="3.7"></circle><circle cx="17.35" cy="6.65" r="1.1"></circle></svg>
+              <span>Instagram</span>
+            </a>
+          </div>
+        </div>
+        <div class="site-footer__contact-card">
+          <div class="site-footer__contact-kicker" data-lang="de">Direkter Kontakt</div>
+          <div class="site-footer__contact-kicker" data-lang="en" hidden aria-hidden="true">Direct Contact</div>
+          <div class="site-footer__contact-kicker" data-lang="fr" hidden aria-hidden="true">Contact direct</div>
+          <div class="site-footer__contact-kicker" data-lang="ln" hidden aria-hidden="true">Kontak ya mbala moko</div>
+          <div class="site-footer__contact-kicker" data-lang="it" hidden aria-hidden="true">Contatto diretto</div>
+          <div class="site-footer__contact-kicker" data-lang="tr" hidden aria-hidden="true">Doğrudan iletişim</div>
+          <div class="site-footer__contact-kicker" data-lang="uk" hidden aria-hidden="true">Прямий контакт</div>
+          <h3 class="site-footer__contact-title" data-lang="de">Geschichte, Auftritte oder Projekte</h3>
+          <h3 class="site-footer__contact-title" data-lang="en" hidden aria-hidden="true">History, performances, or projects</h3>
+          <h3 class="site-footer__contact-title" data-lang="fr" hidden aria-hidden="true">Histoire, concerts ou projets</h3>
+          <h3 class="site-footer__contact-title" data-lang="ln" hidden aria-hidden="true">Lisolo ya bambula, ba konser to misala</h3>
+          <h3 class="site-footer__contact-title" data-lang="it" hidden aria-hidden="true">Storia, concerti o progetti</h3>
+          <h3 class="site-footer__contact-title" data-lang="tr" hidden aria-hidden="true">Tarihçe, konserler veya projeler</h3>
+          <h3 class="site-footer__contact-title" data-lang="uk" hidden aria-hidden="true">Історія, виступи або проєкти</h3>
+          <p class="site-footer__contact-copy" data-lang="de">Wenn Sie mehr über die Entwicklung des Ensembles oder über Kooperationen erfahren möchten, erreichen Sie uns direkt per E-Mail.</p>
+          <p class="site-footer__contact-copy" data-lang="en" hidden aria-hidden="true">If you would like to learn more about the ensemble's development or collaborations, you can reach us directly by email.</p>
+          <p class="site-footer__contact-copy" data-lang="fr" hidden aria-hidden="true">Si vous souhaitez en savoir plus sur le developpement de l'ensemble ou sur des cooperations, vous pouvez nous joindre directement par e-mail.</p>
+          <p class="site-footer__contact-copy" data-lang="ln" hidden aria-hidden="true">Soki olingi koyeba mingi na ntina ya bokoli ya lisanga to misala ya elongo, okoki kotindela biso email mbala moko.</p>
+          <p class="site-footer__contact-copy" data-lang="it" hidden aria-hidden="true">Se desideri saperne di più sulla crescita dell'ensemble o su possibili collaborazioni, puoi contattarci direttamente via e-mail.</p>
+          <p class="site-footer__contact-copy" data-lang="tr" hidden aria-hidden="true">Topluluğun gelişimi veya iş birlikleri hakkında daha fazla bilgi almak isterseniz bize doğrudan e-posta yoluyla ulaşabilirsiniz.</p>
+          <p class="site-footer__contact-copy" data-lang="uk" hidden aria-hidden="true">Якщо ви хочете дізнатися більше про розвиток ансамблю або про співпрацю, напишіть нам напряму електронною поштою.</p>
+          <a href="mailto:astrid.eitschberger@cmi-ochsenfurt.de" class="site-footer__contact-link">astrid.eitschberger@cmi-ochsenfurt.de</a>
+        </div>
+        <div class="site-footer__nav" role="navigation">
+          <h3 class="site-footer__nav-title" data-lang="de">Schnellzugang</h3>
+          <h3 class="site-footer__nav-title" data-lang="en" hidden aria-hidden="true">Quick Access</h3>
+          <h3 class="site-footer__nav-title" data-lang="fr" hidden aria-hidden="true">Acces rapide</h3>
+          <h3 class="site-footer__nav-title" data-lang="ln" hidden aria-hidden="true">Bokoti ya mbangu</h3>
+          <h3 class="site-footer__nav-title" data-lang="it" hidden aria-hidden="true">Accesso rapido</h3>
+          <h3 class="site-footer__nav-title" data-lang="tr" hidden aria-hidden="true">Hızlı erişim</h3>
+          <h3 class="site-footer__nav-title" data-lang="uk" hidden aria-hidden="true">Швидкий доступ</h3>
+          <div class="site-footer__links">
+            <a href="index.html#timeline-section" class="site-footer__link" data-lang="de">Startseiten-Chronik</a>
+            <a href="index.html#timeline-section" class="site-footer__link" data-lang="en" hidden aria-hidden="true">Homepage timeline</a>
+            <a href="index.html#timeline-section" class="site-footer__link" data-lang="fr" hidden aria-hidden="true">Chronique de l'accueil</a>
+            <a href="index.html#timeline-section" class="site-footer__link" data-lang="ln" hidden aria-hidden="true">Lisolo ya bambula na lokasa ya liboso</a>
+            <a href="index.html#timeline-section" class="site-footer__link" data-lang="it" hidden aria-hidden="true">Cronologia della homepage</a>
+            <a href="index.html#timeline-section" class="site-footer__link" data-lang="tr" hidden aria-hidden="true">Ana sayfa kronolojisi</a>
+            <a href="index.html#timeline-section" class="site-footer__link" data-lang="uk" hidden aria-hidden="true">Хроніка на головній сторінці</a>
+            <a href="index.html#review" class="site-footer__link" data-lang="de">Rückblick</a>
+            <a href="index.html#review" class="site-footer__link" data-lang="en" hidden aria-hidden="true">Review</a>
+            <a href="index.html#review" class="site-footer__link" data-lang="fr" hidden aria-hidden="true">Regards</a>
+            <a href="index.html#review" class="site-footer__link" data-lang="ln" hidden aria-hidden="true">Makambo eleki</a>
+            <a href="index.html#review" class="site-footer__link" data-lang="it" hidden aria-hidden="true">Retrospettiva</a>
+            <a href="index.html#review" class="site-footer__link" data-lang="tr" hidden aria-hidden="true">Geriye bakış</a>
+            <a href="index.html#review" class="site-footer__link" data-lang="uk" hidden aria-hidden="true">Огляд</a>
+            <a href="impressum.html" class="site-footer__link" data-lang="de">Impressum</a>
+            <a href="impressum.html" class="site-footer__link" data-lang="en" hidden aria-hidden="true">Legal Notice</a>
+            <a href="impressum.html" class="site-footer__link" data-lang="fr" hidden aria-hidden="true">Mentions legales</a>
+            <a href="impressum.html" class="site-footer__link" data-lang="ln" hidden aria-hidden="true">Impressum</a>
+            <a href="impressum.html" class="site-footer__link" data-lang="it" hidden aria-hidden="true">Note legali</a>
+            <a href="impressum.html" class="site-footer__link" data-lang="tr" hidden aria-hidden="true">Yasal bildirim</a>
+            <a href="impressum.html" class="site-footer__link" data-lang="uk" hidden aria-hidden="true">Правова інформація</a>
+            <a href="datenschutz.html" class="site-footer__link" data-lang="de">Datenschutz</a>
+            <a href="datenschutz.html" class="site-footer__link" data-lang="en" hidden aria-hidden="true">Privacy Policy</a>
+            <a href="datenschutz.html" class="site-footer__link" data-lang="fr" hidden aria-hidden="true">Politique de confidentialite</a>
+            <a href="datenschutz.html" class="site-footer__link" data-lang="ln" hidden aria-hidden="true">Bobateli ya makambo ya moto</a>
+            <a href="datenschutz.html" class="site-footer__link" data-lang="it" hidden aria-hidden="true">Informativa sulla privacy</a>
+            <a href="datenschutz.html" class="site-footer__link" data-lang="tr" hidden aria-hidden="true">Gizlilik politikası</a>
+            <a href="datenschutz.html" class="site-footer__link" data-lang="uk" hidden aria-hidden="true">Політика конфіденційності</a>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer__meta">
+        <div class="site-footer__meta-line" data-lang="de">&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. Alle Rechte vorbehalten.</div>
+        <div class="site-footer__meta-line" data-lang="en" hidden aria-hidden="true">&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. All rights reserved.</div>
+        <div class="site-footer__meta-line" data-lang="fr" hidden aria-hidden="true">&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. Tous droits reserves.</div>
+        <div class="site-footer__meta-line" data-lang="ln" hidden aria-hidden="true">&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. Makoki nyonso ebatelami.</div>
+        <div class="site-footer__meta-line" data-lang="it" hidden aria-hidden="true">&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. Tutti i diritti riservati.</div>
+        <div class="site-footer__meta-line" data-lang="tr" hidden aria-hidden="true">&copy; 1981–2026 Collegium Musicum Iuvenale Ochsenfurt. Tüm hakları saklıdır.</div>
+        <div class="site-footer__meta-line" data-lang="uk" hidden aria-hidden="true">&copy; 1981–2026 Колегіум Музікум Ювенале Оксенфурт. Усі права захищено.</div>
+        <div class="site-footer__meta-line" data-lang="de">Webdesign: Ilhan Diler | Designidee: Richard Ullmann</div>
+        <div class="site-footer__meta-line" data-lang="en" hidden aria-hidden="true">Webdesign: Ilhan Diler | Design idea: Richard Ullmann</div>
+        <div class="site-footer__meta-line" data-lang="fr" hidden aria-hidden="true">Webdesign: Ilhan Diler | Idee du design: Richard Ullmann</div>
+        <div class="site-footer__meta-line" data-lang="ln" hidden aria-hidden="true">Webdesign: Ilhan Diler | Likanisi ya design: Richard Ullmann</div>
+        <div class="site-footer__meta-line" data-lang="it" hidden aria-hidden="true">Webdesign: Ilhan Diler | Idea di design: Richard Ullmann</div>
+        <div class="site-footer__meta-line" data-lang="tr" hidden aria-hidden="true">Web tasarımı: Ilhan Diler | Tasarım fikri: Richard Ullmann</div>
+        <div class="site-footer__meta-line" data-lang="uk" hidden aria-hidden="true">Вебдизайн: Ільхан Ділер | Дизайн-ідея: Ріхард Ульманн</div>
+      </div>
+    </div>
+  </footer>
+  <script src="scripts/core-runtime.js?v=20260412-theme-toggle-1"></script>
+  <script src="scripts/event-lightbox.js?v=20260407-js-split-8"></script>
+  <script src="scripts/cookie-consent-content.js?v=20260409-cookie-consent-split-1"></script>
+  <script src="scripts/cookie-consent.js?v=20260417-cookie-consent-session-loader-1"></script>
+  <script src="scripts/site-language-variants.js?v=20260409-site-language-split-1"></script>
+  <script src="scripts/site-language-accessibility.js?v=20260410-site-language-export-lang-1"></script>
+  <script src="scripts/site-language.js?v=20260409-site-language-split-1"></script>
+  <script src="scripts/navigation-mobile.js?v=20260409-js-split-11"></script>
+  <script src="scripts/navigation-wayfinding.js?v=20260409-js-split-10"></script>
+  <script src="scripts/navigation-shell.js?v=20260409-js-split-11"></script>
+  <script src="scripts/navigation-runtime.js?v=20260409-js-split-11"></script>
+  <script src="scripts/hero-layout.js?v=20260409-js-split-12"></script>
+  <script src="scripts/hero-gallery.js?v=20260411-mobile-contain-1"></script>
+  <script src="scripts/hero-gallery-ui.js?v=20260409-js-split-12"></script>
+  <script src="scripts/site-effects.js?v=20260407-js-split-8"></script>
+  <script src="scripts/review-navigation.js?v=20260409-review-split-1"></script>
+  <script src="scripts/review-archive.js?v=20260409-review-split-1"></script>
+  <script src="scripts/review-interactions.js?v=20260409-review-split-1"></script>
+</body>
+</html>
 
 
 
-    

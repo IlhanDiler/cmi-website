@@ -1,0 +1,207 @@
+{
+  "targets": {
+    "homepage-bridge-kicker": {
+      "file": "index.html",
+      "indentSpaces": 20,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "image-caption-kicker",
+          "text": {
+            "de": "Seit 45 Jahren",
+            "en": "For 45 years",
+            "fr": "Depuis 45 ans",
+            "ln": "Banda mbula 45",
+            "it": "Da 45 anni",
+            "tr": "45 yıldır",
+            "uk": "Уже 45 років"
+          }
+        }
+      ]
+    },
+    "homepage-bridge-title": {
+      "file": "index.html",
+      "indentSpaces": 20,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "className": "image-caption-title",
+          "text": {
+            "de": "Musik baut Brücken",
+            "en": "Music builds bridges",
+            "fr": "La musique cree des ponts",
+            "ln": "Miziki etongaka baponti",
+            "it": "La musica costruisce ponti",
+            "tr": "Müzik köprüler kurar",
+            "uk": "Музика будує мости"
+          }
+        }
+      ]
+    },
+    "homepage-bridge-copy": {
+      "file": "index.html",
+      "indentSpaces": 20,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "image-caption-copy-group",
+          "allowHtml": true,
+          "text": {
+            "de": [
+              "<p class='image-caption-copy image-caption-copy--lead'>Das Collegium Musicum Iuvenale Ochsenfurt bringt seit 45 Jahren Menschen durch die Kraft der Musik zusammen.</p>",
+              "<p class='image-caption-copy'>Wir sind eine Gemeinschaft von Musikbegeisterten, die ihre Freude am gemeinsamen Musizieren an das Publikum weitervermitteln, gleichzeitig durch Benefizprojekte sozial engagiert sind und durch internationale Freundschaften kulturelle Kontakte pflegen.</p>"
+            ],
+            "en": [
+              "<p class='image-caption-copy image-caption-copy--lead'>For 45 years, Collegium Musicum Iuvenale Ochsenfurt has brought people together through the power of music.</p>",
+              "<p class='image-caption-copy'>We are a community of music lovers who share the joy of making music together, support social causes through benefit projects, and nurture international friendships.</p>"
+            ],
+            "fr": [
+              "<p class='image-caption-copy image-caption-copy--lead'>Depuis 45 ans, le Collegium Musicum Iuvenale Ochsenfurt rassemble des personnes grace a la force de la musique.</p>",
+              "<p class='image-caption-copy'>Nous sommes une communaute de passionnes qui partage la joie de faire de la musique ensemble, soutient des projets solidaires par des concerts de bienfaisance et fait vivre des amities internationales.</p>"
+            ],
+            "ln": [
+              "<p class='image-caption-copy image-caption-copy--lead'>Banda mbula 45, Collegium Musicum Iuvenale Ochsenfurt ezali kosangisa bato na nguya ya miziki.</p>",
+              "<p class='image-caption-copy'>Tozali lisanga ya bato balingaka miziki oyo bakabolaka esengo ya kosala miziki elongo, basungaka misala ya lisungi na nzela ya ba konser, mpe babatelaka boninga ya mokili mobimba.</p>"
+            ],
+            "it": [
+              "<p class='image-caption-copy image-caption-copy--lead'>Da 45 anni il Collegium Musicum Iuvenale Ochsenfurt unisce le persone grazie alla forza della musica.</p>",
+              "<p class='image-caption-copy'>Siamo una comunità di appassionati che condivide la gioia di fare musica insieme, porta avanti iniziative benefiche a sostegno di progetti sociali e coltiva amicizie internazionali.</p>"
+            ],
+            "tr": [
+              "<p class='image-caption-copy image-caption-copy--lead'>Collegium Musicum Iuvenale Ochsenfurt, 45 yıldır insanları müziğin gücüyle bir araya getiriyor.</p>",
+              "<p class='image-caption-copy'>Biz, birlikte müzik yapmanın sevincini paylaşan, yardım projeleriyle toplumsal sorumluluk taşıyan ve uluslararası dostluklarla kültürel bağları güçlendiren bir müzik topluluğuyuz.</p>"
+            ],
+            "uk": [
+              "<p class='image-caption-copy image-caption-copy--lead'>«Колегіум Музікум Ювенале Оксенфурт» уже 45 років об'єднує людей силою музики.</p>",
+              "<p class='image-caption-copy'>Ми є спільнотою людей, закоханих у музику, які діляться радістю спільного музикування, підтримують соціальні проєкти через благодійні ініціативи та плекають міжнародні дружні зв'язки.</p>"
+            ]
+          }
+        }
+      ]
+    },
+    "homepage-bridge-video-kicker": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "image-caption-video-kicker",
+          "text": {
+            "de": "Jubiläumsfilm",
+            "en": "Anniversary film",
+            "fr": "Film anniversaire",
+            "ln": "Film ya jubile",
+            "it": "Film dell'anniversario",
+            "tr": "Yıl dönümü filmi",
+            "uk": "Ювілейний фільм"
+          }
+        }
+      ]
+    },
+    "homepage-bridge-video-title": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "image-caption-video-title",
+          "langAttribute": true,
+          "text": {
+            "de": "Der Jubiläumsfilm gibt einen Einblick in Musik, Begegnungen und Benefiz beim Collegium Musicum Iuvenale.",
+            "en": "The anniversary film offers a glimpse into the music, encounters, and benefit work of Collegium Musicum Iuvenale.",
+            "fr": "Le film anniversaire offre un apercu de la musique, des rencontres et de l'engagement solidaire du Collegium Musicum Iuvenale.",
+            "ln": "Film ya jubile elakisi biso miziki, bokutani mpe misala ya lisungi ya Collegium Musicum Iuvenale.",
+            "it": "Il film dell'anniversario racconta la musica, gli incontri e l'impegno solidale del Collegium Musicum Iuvenale.",
+            "tr": "Yıl dönümü filmi, Collegium Musicum Iuvenale'de müziğin, buluşmaların ve yardım çalışmalarının nasıl iç içe geçtiğini gösteriyor.",
+            "uk": "Ювілейний фільм дає змогу зазирнути у музику, зустрічі та благодійну діяльність «Колегіум Музікум Ювенале»."
+          }
+        }
+      ]
+    },
+    "homepage-bridge-card-footer": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "image-caption-card-footer",
+          "text": {
+            "de": "Gemeinschaft verbindet – Collegium Musicum Iuvenale Ochsenfurt",
+            "en": "Community creates connections – Collegium Musicum Iuvenale Ochsenfurt",
+            "fr": "La communaute rassemble - Collegium Musicum Iuvenale Ochsenfurt",
+            "ln": "Lisanga ekangisaka bato - Collegium Musicum Iuvenale Ochsenfurt",
+            "it": "La comunità unisce le persone – il Collegium Musicum Iuvenale Ochsenfurt",
+            "tr": "Topluluk insanları bir araya getirir – Collegium Musicum Iuvenale Ochsenfurt",
+            "uk": "Спільнота єднає людей - «Колегіум Музікум Ювенале Оксенфурт»"
+          }
+        }
+      ]
+    },
+    "homepage-about-founder-title": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "className": "about-me-modern-title",
+          "text": {
+            "de": "Dr. Astrid Eitschberger",
+            "en": "Dr. Astrid Eitschberger",
+            "fr": "Dr Astrid Eitschberger",
+            "ln": "Dr. Astrid Eitschberger",
+            "it": "Dr. Astrid Eitschberger",
+            "tr": "Dr. Astrid Eitschberger",
+            "uk": "Докторка Астрід Айчберґер"
+          }
+        }
+      ]
+    },
+    "homepage-about-founder-subtitle": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "about-me-modern-subtitle",
+          "text": {
+            "de": "Gründerin Collegium Musicum Iuvenale",
+            "en": "Founder of Collegium Musicum Iuvenale",
+            "fr": "Fondatrice du Collegium Musicum Iuvenale",
+            "ln": "Mobandisi ya Collegium Musicum Iuvenale",
+            "it": "Fondatrice del Collegium Musicum Iuvenale",
+            "tr": "Collegium Musicum Iuvenale'in kurucusu",
+            "uk": "Засновниця КМІ"
+          }
+        }
+      ]
+    },
+    "homepage-about-founder-bio": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "about-me-bio-text",
+          "text": {
+            "de": "Astrid Eitschberger lernte Klavier, Violoncello und später verschiedene Blasinstrumente. Sie verbrachte sieben Jahre ihrer Kindheit in Athen. 1981 gründete sie das Collegium Musicum Iuvenale Ochsenfurt. 2018 schloss sie die Ausbildung an der Nordbayerischen Bläserakademie als „Dirigentin von Blasorchestern im Laienmusizieren“ mit der staatlichen Anerkennung ab. Während ihrer Studienzeit in Padua schloss Astrid musikalische Freundschaften, die bis heute andauern. Seit 1999 unterrichtet die promovierte Germanistin am Matthias-Grünewald-Gymnasium Würzburg Latein und Deutsch. Sie sieht es als ihre Aufgabe, Menschen über Sprachgrenzen und unterschiedliche Traditionen hinweg einander begegnen zu lassen und verschiedene Stil- und Kunstrichtungen zu verbinden. Das zentrale Motiv für ihre musikalische Arbeit, die über all die Jahre hinweg rein ehrenamtlich erfolgt, liegt darin, anderen durch die Musik Freude zu bereiten und mit Benefizkonzerten die schwächeren Mitglieder unserer Gesellschaft zu unterstützen. 1998 erhielt sie dafür den Kulturpreis der Stadt Ochsenfurt, 2017 bekam sie von der Landtagspräsidentin die Bayerische Verfassungsmedaille in Silber verliehen, und 2024 folgte der Kulturpreis des Landkreises Würzburg.",
+            "en": "Astrid Eitschberger learned piano, cello, and later various wind instruments. She spent seven years of her childhood in Athens. In 1981, she founded Collegium Musicum Iuvenale Ochsenfurt. In 2018, she completed her training at the Nordbayerische Bläserakademie as a \"conductor of wind orchestras in amateur music\" with state recognition. During her studies in Padua, Astrid formed musical friendships that continue to this day. Since 1999, the PhD Germanist has been teaching Latin and German at the Matthias-Grünewald-Gymnasium in Würzburg. She sees it as her mission to bring people together across language barriers and different traditions and to connect various styles and art forms. The central motivation for her musical work, which has always been purely voluntary over the years, is to bring joy to others through music and to support the weaker members of our society with benefit concerts. In 1998, she received the Culture Prize of the City of Ochsenfurt, in 2017 the Bavarian Constitution Medal in Silver from the President of the State Parliament, and in 2024 the Culture Prize of the Würzburg district.",
+            "fr": "Astrid Eitschberger a appris le piano, le violoncelle puis differents instruments a vent. Elle a passe sept annees de son enfance a Athenes. En 1981, elle a fonde le Collegium Musicum Iuvenale Ochsenfurt. En 2018, elle a acheve sa formation a la Nordbayerische Blaserakademie comme « cheffe d'orchestres a vent dans la pratique amateur » avec reconnaissance officielle. Pendant ses etudes a Padoue, Astrid a noue des amities musicales qui durent encore aujourd'hui. Depuis 1999, la docteure en germanistique enseigne le latin et l'allemand au lycee Matthias-Grunewald de Wurzburg. Elle voit comme sa mission de permettre aux personnes de se rencontrer au-dela des barrieres linguistiques et des traditions differentes, et de relier divers styles et formes d'art. La motivation centrale de son travail musical, mene benevolement depuis toutes ces annees, est d'apporter de la joie aux autres par la musique et de soutenir les membres les plus fragiles de notre societe par des concerts benefices. Pour cela, elle a recu en 1998 le prix culturel de la ville d'Ochsenfurt, en 2017 la medaille constitutionnelle bavaroise en argent remise par la presidente du Landtag, puis en 2024 le prix culturel du district de Wurzburg.",
+            "ln": "Astrid Eitschberger ayekolaki piano, cello mpe na sima bibetelo ndenge na ndenge ya mopepe. Alekisaki mbula sambo ya bomwana na ye na Athenes. Na 1981, abandisaki Collegium Musicum Iuvenale Ochsenfurt. Na 2018, asilisaki mateya na Nordbayerische Blaserakademie lokola mokambi ya bituluku ya cuivre mpe mopepe na miziki ya bato, na bondimami ya Leta. Na tango ya boyekoli na ye na Padoue, Astrid asalaki boninga ya miziki oyo ezali kino lelo. Banda 1999, ateyaka Latin mpe Allemand na Matthias-Grunewald-Gymnasium na Wurzburg. Azwaka yango lokola mokumba na ye kosangisa bato koleka bandelo ya minoko mpe mimeseno ndenge na ndenge, mpe kokangisa lolenge ndenge na ndenge ya mayele mpe ya misala ya kitoko. Makanisi ya motema ya mosala na ye ya miziki, oyo esalemi kaka na bolingi banda bambula nyonso wana, ezali ya kopesa bato esengo na nzela ya miziki mpe kosunga bato oyo bazali na bolembu na lisanga na biso na nzela ya ba konser ya lisungi. Mpo na yango azwaki prix culturel ya engumba Ochsenfurt na 1998, medaille constitutionnelle ya Baviere na argent na 2017 uta na presidente ya Landtag, mpe na 2024 prix culturel ya district ya Wurzburg.",
+            "it": "Astrid Eitschberger ha studiato pianoforte, violoncello e, in seguito, diversi strumenti a fiato. Ha trascorso sette anni della sua infanzia ad Atene. Nel 1981 ha fondato il Collegium Musicum Iuvenale Ochsenfurt. Nel 2018 ha concluso la formazione presso la Nordbayerische Bläserakademie con il riconoscimento statale come direttrice di orchestre di fiati in ambito amatoriale. Durante gli anni di studio a Padova ha stretto amicizie musicali che durano ancora oggi. Dal 1999 insegna latino e tedesco al Matthias-Grünewald-Gymnasium di Würzburg. Considera una sua missione mettere in relazione le persone al di là delle barriere linguistiche e delle diverse tradizioni, facendo dialogare stili musicali e forme artistiche differenti. Il cuore del suo impegno musicale, portato avanti da sempre su base interamente volontaria, è donare gioia attraverso la musica e sostenere con concerti di beneficenza le persone più fragili della nostra società. Per questo lavoro ha ricevuto nel 1998 il Premio Cultura della città di Ochsenfurt, nel 2017 la Medaglia costituzionale bavarese d'argento conferita dalla Presidente del Landtag e nel 2024 il Premio Cultura del distretto di Würzburg.",
+            "tr": "Astrid Eitschberger piyano, viyolonsel ve daha sonra çeşitli nefesli çalgılar çalmayı öğrendi. Çocukluğunun yedi yılını Atina'da geçirdi. 1981 yılında Collegium Musicum Iuvenale Ochsenfurt'u kurdu. 2018'de Nordbayerische Bläserakademie'deki eğitimini, \"amatör müzikte nefesli orkestra şefliği\" alanında resmî onayla tamamladı. Padova'daki öğrenim yıllarında Astrid, bugün de süren müzikal dostluklar kurdu. Alman dili ve edebiyatı alanında doktorasını tamamlayan Astrid, 1999'dan beri Würzburg'daki Matthias-Grünewald-Gymnasium'da Latince ve Almanca dersleri veriyor. İnsanları dil sınırlarının ve farklı geleneklerin ötesinde bir araya getirmeyi, farklı üslupları ve sanat anlayışlarını buluşturmayı kendi görevi olarak görüyor. Yıllardır tamamen gönüllü olarak sürdürdüğü müzik çalışmalarının temelinde, müzik aracılığıyla başkalarına mutluluk yaşatmak ve yardım konserleriyle toplumumuzun daha fazla desteğe ihtiyaç duyan üyelerini desteklemek yatıyor. Bu çalışmaları nedeniyle 1998'de Ochsenfurt Kültür Ödülü'nü, 2017'de eyalet meclisi başkanından Gümüş Bavyera Anayasa Madalyası'nı, 2024'te ise Würzburg ilçesinin kültür ödülünü aldı.",
+            "uk": "Астрід Айчберґер навчалася грі на фортепіано, віолончелі, а пізніше й на різних духових інструментах. Сім років свого дитинства вона провела в Афінах. У 1981 році вона заснувала «Колегіум Музікум Ювенале Оксенфурт». У 2018 році вона завершила навчання в Північнобаварській академії духових інструментів за фахом «диригентка духових оркестрів у аматорському музикуванні» з державним визнанням. Під час навчання в Падуї Астрід зав'язала музичні дружби, які тривають і сьогодні. З 1999 року докторка германістики викладає латину й німецьку мову в гімназії Маттіаса-Ґрюневальда у Вюрцбурзі. Вона вбачає своє покликання в тому, щоб допомагати людям зустрічатися попри мовні межі й різні традиції та поєднувати різні стилі й напрямки мистецтва. Головний мотив її музичної діяльності, яка всі ці роки здійснюється виключно на волонтерських засадах, полягає в тому, щоб дарувати іншим радість через музику та підтримувати благодійними концертами найслабших членів нашого суспільства. У 1998 році вона отримала культурну премію міста Оксенфурт, у 2017 році - срібну Баварську конституційну медаль від президентки ландтагу, а у 2024 році - культурну премію округу Вюрцбург."
+          }
+        }
+      ]
+    }
+  }
+}
