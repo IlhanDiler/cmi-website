@@ -16,6 +16,77 @@ ICON_LIGHT = '/files/logo_cmi1%20-%20schwarz.svg'
 ICON_DARK = '/files/logo_cmi1%20-%20wei%C3%9F.svg'
 ICON_DEFAULT = '/files/logo_cmi1%20-%20schwarz.svg'
 SHARE_STYLESHEET = 'share-preview.css'
+SHARE_SCRIPT = 'share-preview.js'
+DEFAULT_REDIRECT_DELAY_SECONDS = 8
+
+COPY_LINK_UI = {
+    'de': {
+        'button': 'Link kopieren',
+        'copied': 'Link kopiert',
+        'failed': 'Kopieren fehlgeschlagen. Bitte Link manuell kopieren.',
+    },
+    'en': {
+        'button': 'Copy link',
+        'copied': 'Link copied',
+        'failed': 'Copying failed. Please copy the link manually.',
+    },
+    'fr': {
+        'button': 'Copier le lien',
+        'copied': 'Lien copie',
+        'failed': 'La copie a echoue. Merci de copier le lien manuellement.',
+    },
+    'ln': {
+        'button': 'Copier lien',
+        'copied': 'Lien ecopyami',
+        'failed': 'Copier elongi te. Svp copier lien na maboko.',
+    },
+    'it': {
+        'button': 'Copia link',
+        'copied': 'Link copiato',
+        'failed': 'Copia non riuscita. Copia il link manualmente.',
+    },
+    'tr': {
+        'button': 'Baglantiyi kopyala',
+        'copied': 'Baglanti kopyalandi',
+        'failed': 'Kopyalama basarisiz. Lutfen baglantiyi elle kopyalayin.',
+    },
+    'uk': {
+        'button': 'Скопіювати посилання',
+        'copied': 'Посилання скопійовано',
+        'failed': 'Не вдалося скопіювати. Скопіюйте посилання вручну.',
+    },
+}
+
+REDIRECT_UI = {
+    'de': {
+        'countdown': 'Automatische Weiterleitung in {seconds} Sekunden. Tippen oder Link kopieren hält diese Seite offen.',
+        'paused': 'Weiterleitung pausiert. Mit dem Hauptbutton kommst du direkt zum Abschnitt.',
+    },
+    'en': {
+        'countdown': 'Automatic redirect in {seconds} seconds. Tap or copy the link to keep this page open.',
+        'paused': 'Redirect paused. Use the main button to jump to the section directly.',
+    },
+    'fr': {
+        'countdown': 'Redirection automatique dans {seconds} secondes. Touchez la page ou copiez le lien pour rester ici.',
+        'paused': 'Redirection en pause. Utilisez le bouton principal pour ouvrir la section directement.',
+    },
+    'ln': {
+        'countdown': 'Kokende na yango moko na kati ya ba seconde {seconds}. Simba lokasa to copier lien mpo otikala awa.',
+        'paused': 'Kokende etelemisi. Salela bouton ya monene mpo okende mbala moko na eteni yango.',
+    },
+    'it': {
+        'countdown': 'Reindirizzamento automatico tra {seconds} secondi. Tocca la pagina o copia il link per restare qui.',
+        'paused': 'Reindirizzamento in pausa. Usa il pulsante principale per aprire subito la sezione.',
+    },
+    'tr': {
+        'countdown': '{seconds} saniye içinde otomatik yönlendirme. Sayfaya dokunmak veya bağlantıyı kopyalamak bu görünümü açık tutar.',
+        'paused': 'Yönlendirme duraklatıldı. Bölüme doğrudan gitmek için ana düğmeyi kullanın.',
+    },
+    'uk': {
+        'countdown': 'Автоматичний перехід через {seconds} секунд. Торкніться сторінки або скопіюйте посилання, щоб залишитися тут.',
+        'paused': 'Перехід призупинено. Скористайтеся основною кнопкою, щоб одразу відкрити потрібний розділ.',
+    },
+}
 
 
 def parse_args() -> argparse.Namespace:
@@ -168,6 +239,24 @@ def escape_attr(value: str) -> str:
     return escape(value, quote=False).replace('"', '&quot;')
 
 
+def get_copy_link_ui(page: dict) -> dict:
+    language = str(page.get('lang', 'de')).split('-', 1)[0].lower()
+    return COPY_LINK_UI.get(language, COPY_LINK_UI['de'])
+
+
+def get_redirect_ui(page: dict) -> dict:
+    language = str(page.get('lang', 'de')).split('-', 1)[0].lower()
+    return REDIRECT_UI.get(language, REDIRECT_UI['de'])
+
+
+def render_copy_button(page: dict, indent: str) -> list[str]:
+    copy_ui = get_copy_link_ui(page)
+    return [
+        f'{indent}<button class="share-card__button share-card__button--secondary share-card__copy-button" type="button" data-share-copy-url="{escape_attr(page["canonical_url"])}" data-copy-default-label="{escape_attr(copy_ui["button"])}" data-copy-success-label="{escape_attr(copy_ui["copied"])}" data-copy-failed-message="{escape_attr(copy_ui["failed"])}" aria-label="{escape_attr(copy_ui["button"])}" title="{escape_attr(copy_ui["button"])}">{escape_text(copy_ui["button"])}\u003c/button>',
+        f'{indent}<p class="share-card__status" aria-live="polite" data-share-copy-status></p>',
+    ]
+
+
 def render_head(page: dict) -> list[str]:
     return [
         '<head>',
@@ -195,19 +284,25 @@ def render_head(page: dict) -> list[str]:
 
 
 def render_standard_page(page: dict) -> str:
+    redirect_ui = get_redirect_ui(page)
     lines = [
         '<!DOCTYPE html>',
         AUTO_GENERATED_COMMENT,
         f'<html lang="{escape_attr(page["lang"])}">',
         *render_head(page),
-        f'    <meta http-equiv="refresh" content="2;url={escape_attr(page["redirect_url"])}">',
         f'    <link rel="icon" href="{ICON_LIGHT}" type="image/svg+xml" media="(prefers-color-scheme: light)">',
         f'    <link rel="icon" href="{ICON_DARK}" type="image/svg+xml" media="(prefers-color-scheme: dark)">',
         f'    <link rel="icon" href="{ICON_DEFAULT}" type="image/svg+xml">',
         f'    <link rel="stylesheet" href="{SHARE_STYLESHEET}">',
+        f'    <script src="{SHARE_SCRIPT}" defer></script>',
         '</head>',
         '<body>',
-        '    <main class="share-card">',
+        (
+            f'    <main class="share-card" data-share-redirect-url="{escape_attr(page["redirect_url"])}" '
+            f'data-share-redirect-delay="{DEFAULT_REDIRECT_DELAY_SECONDS}" '
+            f'data-share-redirect-template="{escape_attr(redirect_ui["countdown"])}" '
+            f'data-share-redirect-paused="{escape_attr(redirect_ui["paused"])}">'
+        ),
         f'        <img class="share-card__hero" src="{escape_attr(page["hero_src"])}" alt="{escape_attr(page["hero_alt"])}">',
         '        <div class="share-card__body">',
         '            <div class="share-card__brand">',
@@ -219,7 +314,8 @@ def render_standard_page(page: dict) -> str:
         f'            <p class="share-card__text">{page["text_html"]}</p>',
         '            <div class="share-card__actions">',
         f'                <a class="share-card__button" href="{escape_attr(page["button_href"])}">{escape_text(page["button_label"])}</a>',
-        f'                <p class="share-card__hint">{escape_text(page["hint"])}</p>',
+        *render_copy_button(page, '                '),
+        f'                <p class="share-card__hint" data-share-redirect-hint>{escape_text(redirect_ui["countdown"].replace("{seconds}", str(DEFAULT_REDIRECT_DELAY_SECONDS)))}</p>',
         '            </div>',
         '        </div>',
         '    </main>',
@@ -251,6 +347,7 @@ def render_poster_page(page: dict) -> str:
         f'    <link rel="icon" href="{ICON_DARK}" type="image/svg+xml" media="(prefers-color-scheme: dark)">',
         f'    <link rel="icon" href="{ICON_DEFAULT}" type="image/svg+xml">',
         f'    <link rel="stylesheet" href="{SHARE_STYLESHEET}">',
+        f'    <script src="{SHARE_SCRIPT}" defer></script>',
         '</head>',
         '<body>',
         '    <main class="share-card share-card--poster">',
@@ -291,6 +388,9 @@ def render_poster_page(page: dict) -> str:
             '',
             '            <section class="share-card__poster-footer">',
             f'                <p class="share-card__poster-note">{escape_text(page["footer_note"])}</p>',
+            '                <div class="share-card__actions share-card__actions--poster">',
+            *render_copy_button(page, '                    '),
+            '                </div>',
             '            </section>',
             '        </div>',
             '    </main>',
