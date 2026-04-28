@@ -10,6 +10,22 @@ function isSupportedSiteLanguage(lang) {
     return supportedSiteLanguages.has(lang);
 }
 
+function normalizeSiteLanguage(lang) {
+    return (lang || '').toLowerCase().split(/[_-]/)[0];
+}
+
+function getSiteLanguageFromUrl() {
+    try {
+        const requestedLanguage = normalizeSiteLanguage(new URL(window.location.href).searchParams.get('lang'));
+
+        if (isSupportedSiteLanguage(requestedLanguage)) {
+            return requestedLanguage;
+        }
+    } catch (e) {}
+
+    return '';
+}
+
 function isSupportedSiteTheme(theme) {
     return supportedSiteThemes.has(theme);
 }
@@ -144,6 +160,11 @@ function enforceTopOnLoad() {
 }
 
 function getCurrentSiteLanguage() {
+    const urlLanguage = getSiteLanguageFromUrl();
+    if (isSupportedSiteLanguage(urlLanguage)) {
+        return urlLanguage;
+    }
+
     try {
         const storedLanguage = localStorage.getItem('siteLang');
         if (isSupportedSiteLanguage(storedLanguage)) {

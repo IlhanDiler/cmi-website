@@ -1,3 +1,24 @@
+function syncSiteLanguageUrl(lang) {
+    if (!isSupportedSiteLanguage(lang)) {
+        return;
+    }
+
+    try {
+        const currentUrl = new URL(window.location.href);
+
+        if (!currentUrl.searchParams.has('lang')) {
+            return;
+        }
+
+        currentUrl.searchParams.set('lang', lang);
+        window.history.replaceState(
+            window.history.state,
+            '',
+            `${currentUrl.pathname}${currentUrl.search}${currentUrl.hash}`
+        );
+    } catch (e) {}
+}
+
 function applySiteLanguage(lang) {
     if (!isSupportedSiteLanguage(lang)) {
         return;
@@ -22,6 +43,7 @@ function applySiteLanguage(lang) {
     syncNavigationAccessibility(lang);
 
     document.documentElement.setAttribute('lang', lang);
+    syncSiteLanguageUrl(lang);
 
     try {
         localStorage.setItem('siteLang', lang);

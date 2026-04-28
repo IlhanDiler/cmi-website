@@ -165,6 +165,15 @@ function setReviewCopyStatus(actionGroup, labelMap, state) {
 
 function buildReviewCopyLinkUrl(sectionId) {
     const url = new URL(window.location.pathname + window.location.search, window.location.origin);
+
+    if (typeof getCurrentSiteLanguage === 'function') {
+        const language = getCurrentSiteLanguage();
+
+        if (typeof isSupportedSiteLanguage !== 'function' || isSupportedSiteLanguage(language)) {
+            url.searchParams.set('lang', language);
+        }
+    }
+
     url.hash = sectionId;
     return url.toString();
 }
@@ -288,9 +297,16 @@ function createReviewCopyLinkButton(sectionOrActionGroup) {
 
 function syncAllReviewCopyLinkButtons() {
     document.querySelectorAll('.event-copy-link-button, .review-copy-link-button').forEach(function(button) {
+        const actionGroup = button.closest('.event-social-actions');
+        const fallbackSection = actionGroup?.closest(reviewSectionSelector) || null;
+        const nextCopyUrl = actionGroup ? getReviewCopyUrl(actionGroup, fallbackSection) : '';
         const labelMap = button.dataset.copyState === 'success'
             ? reviewCopySuccessUiLabels
             : reviewCopyDefaultUiLabels;
+
+        if (nextCopyUrl) {
+            button.dataset.copyUrl = nextCopyUrl;
+        }
 
         setReviewCopyButtonLabel(button, labelMap);
 
