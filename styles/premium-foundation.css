@@ -1,0 +1,1230 @@
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../files/fonts/plus-jakarta-sans-cyrillic-ext.woff2') format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../files/fonts/plus-jakarta-sans-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../files/fonts/plus-jakarta-sans-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../files/fonts/plus-jakarta-sans-cyrillic-ext.woff2') format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../files/fonts/plus-jakarta-sans-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../files/fonts/plus-jakarta-sans-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../files/fonts/plus-jakarta-sans-cyrillic-ext.woff2') format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../files/fonts/plus-jakarta-sans-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../files/fonts/plus-jakarta-sans-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../files/fonts/plus-jakarta-sans-cyrillic-ext.woff2') format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../files/fonts/plus-jakarta-sans-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../files/fonts/plus-jakarta-sans-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('../files/fonts/plus-jakarta-sans-cyrillic-ext.woff2') format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('../files/fonts/plus-jakarta-sans-latin-ext.woff2') format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('../files/fonts/plus-jakarta-sans-latin.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+    --premium-label-desktop-size: 0.72rem;
+    --premium-label-desktop-line-height: 1.3;
+    --premium-label-desktop-letter-spacing: 0.16em;
+    --premium-label-size: 0.78rem;
+    --premium-label-line-height: 1.3;
+    --premium-label-letter-spacing: 0.09em;
+    --premium-label-weight: 620;
+    --premium-label-mobile-size: 0.84rem;
+    --premium-label-mobile-line-height: 1.34;
+    --premium-label-mobile-letter-spacing: 0.12em;
+    --premium-label-tablet-size: 0.84rem;
+    --premium-label-tablet-line-height: 1.34;
+    --premium-label-tablet-letter-spacing: 0.12em;
+    --premium-title-size: clamp(1.96rem, 2.45vw, 2.58rem);
+    --premium-title-mobile-size: clamp(1.78rem, 6.9vw, 2.1rem);
+    --premium-title-line-height: 1.04;
+    --premium-title-letter-spacing: -0.038em;
+    --premium-title-margin-bottom: 0.56em;
+    --premium-card-title-size: clamp(1.28rem, 1.9vw, 1.56rem);
+    --premium-card-title-mobile-size: clamp(1.24rem, 5.4vw, 1.34rem);
+    --premium-card-title-tablet-size: clamp(1.14rem, 4.8vw, 1.3rem);
+    --premium-card-title-line-height: 1.14;
+    --premium-card-title-letter-spacing: -0.02em;
+    --premium-lead-size: 1.03rem;
+    --premium-lead-mobile-size: 1.04rem;
+    --premium-lead-tablet-size: 1.02rem;
+    --premium-lead-line-height: 1.62;
+    --premium-lead-mobile-line-height: 1.58;
+    --premium-lead-tablet-line-height: 1.66;
+    --premium-lead-letter-spacing: -0.006em;
+    --premium-body-size: 1.04rem;
+    --premium-body-mobile-size: 1.02rem;
+    --premium-body-tablet-size: 1.03rem;
+    --premium-body-line-height: 1.66;
+    --premium-body-mobile-line-height: 1.62;
+    --premium-body-tablet-line-height: 1.66;
+    --premium-body-letter-spacing: 0;
+    --premium-body-weight: 500;
+    --premium-title-tablet-size: clamp(1.58rem, 5.8vw, 1.94rem);
+    --premium-title-tablet-line-height: 1.08;
+    --premium-title-tablet-letter-spacing: -0.03em;
+    --premium-hero-title-tablet-size: clamp(1.76rem, 6.8vw, 2.08rem);
+    --premium-review-title-tablet-size: clamp(1.42rem, 5.5vw, 1.64rem);
+    --premium-section-title-tablet-size: clamp(1.4rem, 5.4vw, 1.72rem);
+    --premium-caption-tablet-size: 0.9rem;
+    --premium-caption-tablet-line-height: 1.46;
+    --theme-bg-canvas: #f7f9f8;
+    --theme-bg-muted: #f8faf9;
+    --theme-bg-soft: #f3f6f4;
+    --theme-surface-base: #ffffff;
+    --theme-surface-soft: #f5f7f6;
+    --theme-surface-panel: #ffffff;
+    --theme-surface-panel-strong: #f7f9f8;
+    --theme-border-soft: rgba(18, 62, 70, 0.1);
+    --theme-border-strong: rgba(18, 62, 70, 0.14);
+    --theme-text-primary: #123e46;
+    --theme-text-muted: #58706e;
+    --theme-dark-brand-deep: #0c4d52;
+    --theme-dark-brand-deep-rgb: 12, 77, 82;
+    --theme-dark-brand-muted: #0d5a60;
+    --theme-dark-brand-muted-rgb: 13, 90, 96;
+    --theme-dark-brand-surface: #0f676c;
+    --theme-dark-brand-surface-rgb: 15, 103, 108;
+    --theme-dark-brand-soft: #138087;
+    --theme-dark-brand-soft-rgb: 19, 128, 135;
+    --theme-dark-brand-accent: #17aaa0;
+    --theme-dark-brand-accent-rgb: 23, 170, 160;
+    --premium-surface-soft: var(--theme-surface-soft);
+    --font-ui-modern: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
+    --font-ui: var(--font-ui-modern);
+    --font-display: var(--font-ui-modern);
+    --type-kicker-font-size: var(--premium-label-size);
+    --type-kicker-line-height: var(--premium-label-line-height);
+    --type-kicker-letter-spacing: var(--premium-label-letter-spacing);
+    --type-title-font-size: var(--premium-title-size);
+    --type-title-mobile-font-size: var(--premium-title-mobile-size);
+    --type-title-line-height: var(--premium-title-line-height);
+    --type-title-letter-spacing: var(--premium-title-letter-spacing);
+    --type-title-margin-bottom: var(--premium-title-margin-bottom);
+    --type-title-display-line-height: var(--premium-title-line-height);
+    --type-title-display-letter-spacing: var(--premium-title-letter-spacing);
+    --type-title-display-mobile-font-size: var(--premium-title-mobile-size);
+    --type-card-title-font-size: var(--premium-card-title-size);
+    --type-card-title-mobile-font-size: var(--premium-card-title-mobile-size);
+    --type-card-title-line-height: var(--premium-card-title-line-height);
+    --type-card-title-letter-spacing: var(--premium-card-title-letter-spacing);
+    --type-lead-font-size: var(--premium-lead-size);
+    --type-lead-line-height: var(--premium-lead-line-height);
+    --type-lead-letter-spacing: var(--premium-lead-letter-spacing);
+    --type-lead-mobile-font-size: var(--premium-lead-mobile-size);
+    --type-lead-mobile-line-height: var(--premium-lead-mobile-line-height);
+    --type-body-font-size: var(--premium-body-size);
+    --type-body-mobile-font-size: var(--premium-body-mobile-size);
+    --type-body-line-height: var(--premium-body-line-height);
+    --type-body-mobile-line-height: var(--premium-body-mobile-line-height);
+    --type-body-letter-spacing: var(--premium-body-letter-spacing);
+    --font-weight-body: 500;
+    --font-weight-label: 560;
+    --font-weight-heading: 560;
+    --section-tone-a: var(--theme-bg-muted);
+    --section-tone-b: var(--theme-bg-soft);
+    --color-primary: #0f676c;
+    --color-primary-rgb: 15, 103, 108;
+    --color-secondary: #17aaa0;
+    --color-secondary-rgb: 23, 170, 160;
+    --color-white: #fff;
+    --color-text: var(--theme-text-primary);
+    --color-accent: var(--color-secondary);
+    --color-accent-dark: var(--color-primary);
+    --color-accent-deep: #0b4b50;
+    --color-bg-soft: var(--theme-bg-soft);
+    --surface-card: var(--theme-surface-base);
+    --surface-card-soft: var(--theme-surface-soft);
+    --border-soft: var(--theme-border-soft);
+    --border-soft-strong: var(--theme-border-strong);
+    --radius-card: 24px;
+    --radius-card-large: 32px;
+    --radius-card-inner: 18px;
+    --glass-dark-bg: rgba(var(--theme-dark-brand-deep-rgb), 0.72);
+    --glass-dark-bg-strong: rgba(var(--theme-dark-brand-deep-rgb), 0.88);
+    --glass-dark-border: rgba(235, 246, 243, 0.18);
+    --glass-dark-shadow: none;
+    --shadow-soft: none;
+    --shadow-soft-strong: none;
+    --shadow-surface: none;
+    --shadow-surface-strong: none;
+    --surface-panel-bg: var(--theme-surface-panel);
+    --surface-panel-bg-strong: var(--theme-surface-panel-strong);
+    --surface-panel-border: rgba(18, 62, 70, 0.12);
+    --surface-panel-border-soft: rgba(18, 62, 70, 0.08);
+    --surface-panel-radius: 26px;
+    --surface-panel-radius-large: 30px;
+    --surface-panel-radius-mobile: 22px;
+    --shadow-panel: none;
+    --button-pill-shadow: none;
+    --button-pill-shadow-strong: none;
+    --button-pill-transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    --focus-ring-soft: 0 0 0 3px rgba(23, 170, 160, 0.18);
+    --page-shell-bg: var(--theme-bg-canvas);
+    --layout-shell-max-width: 1120px;
+    --layout-shell-width: min(92vw, var(--layout-shell-max-width));
+    --layout-shell-width-relaxed: min(94vw, var(--layout-shell-max-width));
+    --layout-shell-max-width-wide: 1360px;
+    --layout-shell-width-wide: min(var(--layout-shell-max-width-wide), calc(100% - (var(--desktop-content-side-gap, 24px) * 2)));
+    --layout-shell-max-width-feature: 1240px;
+    --layout-shell-width-feature: min(var(--layout-shell-max-width-feature), calc(100% - (var(--desktop-content-side-gap, 24px) * 2)));
+    --layout-section-gap-desktop: clamp(66px, 6vw, 86px);
+    --layout-section-gap-tablet: clamp(54px, 7vw, 72px);
+    --layout-section-gap-mobile: clamp(42px, 9vw, 58px);
+    color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+    --theme-dark-brand-deep: #09393f;
+    --theme-dark-brand-deep-rgb: 9, 57, 63;
+    --theme-dark-brand-muted: #0e4a51;
+    --theme-dark-brand-muted-rgb: 14, 74, 81;
+    --theme-dark-brand-surface: #125b62;
+    --theme-dark-brand-surface-rgb: 18, 91, 98;
+    --theme-dark-brand-soft: #1a7078;
+    --theme-dark-brand-soft-rgb: 26, 112, 120;
+    --theme-dark-brand-accent: #72afa0;
+    --theme-dark-brand-accent-rgb: 114, 175, 160;
+    --theme-bg-canvas: var(--theme-dark-brand-deep);
+    --theme-bg-muted: var(--theme-dark-brand-muted);
+    --theme-bg-soft: var(--theme-dark-brand-surface);
+    --theme-surface-base: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+    --theme-surface-soft: rgba(var(--theme-dark-brand-surface-rgb), 0.9);
+    --theme-surface-panel: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+    --theme-surface-panel-strong: rgba(var(--theme-dark-brand-surface-rgb), 0.92);
+    --theme-border-soft: rgba(229, 240, 238, 0.14);
+    --theme-border-strong: rgba(var(--color-secondary-rgb), 0.24);
+    --theme-text-primary: #f4fbf6;
+    --theme-text-muted: #d7ebe8;
+    --color-primary: var(--theme-dark-brand-surface);
+    --color-primary-rgb: var(--theme-dark-brand-surface-rgb);
+    --color-secondary: var(--theme-dark-brand-accent);
+    --color-secondary-rgb: var(--theme-dark-brand-accent-rgb);
+    --color-accent: var(--color-secondary);
+    --color-accent-dark: var(--color-primary);
+    --color-accent-deep: #125b62;
+    --color-bg-soft: var(--theme-dark-brand-muted);
+    --surface-panel-border: rgba(229, 240, 238, 0.16);
+    --surface-panel-border-soft: rgba(229, 240, 238, 0.1);
+    --shadow-soft: none;
+    --shadow-soft-strong: none;
+    --shadow-surface: none;
+    --shadow-surface-strong: none;
+    --shadow-panel: none;
+    --button-pill-shadow: none;
+    --button-pill-shadow-strong: none;
+    --focus-ring-soft: 0 0 0 3px rgba(var(--color-secondary-rgb), 0.3);
+    color-scheme: dark;
+}
+
+html {
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-kerning: normal;
+    font-family: var(--font-ui-modern);
+    color: var(--color-text);
+}
+
+html,
+body {
+    --page-shell-width: 100vw;
+    --page-shell-min-height: 100%;
+    margin: 0;
+    padding: 0;
+    width: var(--page-shell-width);
+    min-height: var(--page-shell-min-height);
+    background: var(--page-shell-bg);
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+p,
+li {
+    --global-copy-padding-inline-tablet: 2vw;
+    --global-copy-padding-inline-mobile: 1vw;
+    text-align: justify;
+    text-justify: inter-word;
+    word-break: break-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+}
+
+html body .image-caption-copy,
+html body .about-me-bio-text,
+html body .timeline-intro,
+html body .timeline-item-text,
+html body .review-overview-intro,
+html body .review-overview-highlight-copy,
+html body .review-archive-intro__copy,
+html body .review-featured .charity-description,
+html body .review-archive .charity-projects-section[id^="review-"] .charity-description,
+html body .charity-list-item-certificate-copy,
+html body .musikalisches-repertoire-intro,
+html body .musikalisches-repertoire-card--repertoire .repertoire-story-card-copy,
+html body .music-family-section .music-family-desc,
+html body .music-family-section .music-family-highlight-copy,
+html body .music-family-section .music-family-benefits li,
+html body .music-family-group-lead,
+html body .music-family-group-details li,
+html body .contact-info-intro,
+html body .contact-info-card-link,
+html body .event-description,
+html body .event-note {
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    overflow-wrap: break-word !important;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.skip-link {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 10000;
+    display: inline-flex;
+    align-items: center;
+    min-height: 46px;
+    padding: 11px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.98);
+    color: var(--color-primary);
+    box-shadow: var(--shadow-surface-strong);
+    font-family: var(--font-ui-modern);
+    font-size: 0.95rem;
+    font-weight: 760;
+    line-height: 1.2;
+    text-decoration: none;
+    transform: translateY(-160%);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skip-link:focus-visible {
+    transform: translateY(0);
+    --interaction-box-shadow: var(--shadow-surface-strong), var(--focus-ring-soft);
+    box-shadow: var(--shadow-surface-strong), var(--focus-ring-soft);
+    outline: none;
+}
+
+.external-link {
+    color: var(--color-accent);
+    font-weight: 700;
+    background: var(--color-white);
+    border-radius: 8px;
+    padding: 4px 12px;
+    box-shadow: var(--shadow-soft);
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, text-decoration-color 0.2s ease;
+    text-decoration: none;
+    position: relative;
+}
+
+.external-link:hover,
+.external-link:focus-visible {
+    color: var(--color-accent-deep);
+    transform: translateY(-1px);
+    --interaction-box-shadow: var(--shadow-soft-strong), var(--focus-ring-soft);
+    box-shadow: var(--shadow-soft-strong), var(--focus-ring-soft);
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    outline: none;
+}
+
+html body #cookiescript_injected_wrapper #cookiescript_accept,
+html body #cookiescript_injected_wrapper #cookiescript_accept:focus,
+html body #cookiescript_injected_wrapper #cookiescript_accept:hover {
+    background: var(--color-primary) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(18, 62, 70, 0.2) !important;
+}
+
+html body #cookiescript_injected_wrapper,
+html body #cookiescript_injected,
+html body #cookiescript_fsd_wrapper,
+html body #cookiescript_injected_fsd {
+    max-width: min(396px, calc(100vw - 36px)) !important;
+}
+
+html body #cookiescript_injected,
+html body #cookiescript_fsd_wrapper,
+html body #cookiescript_injected_fsd {
+    max-height: calc(100vh - 40px) !important;
+    padding: 20px 20px 18px !important;
+    border-radius: 18px !important;
+}
+
+html body #cookiescript_header,
+html body .cookiescript_fsd_title {
+    font-size: clamp(1.42rem, 1rem + 0.82vw, 1.82rem) !important;
+    line-height: 1.08 !important;
+}
+
+html body #cookiescript_description,
+html body .cookiescript_fsd_description,
+html body .cookiescript_category_description,
+html body .cookiescript_checkbox_text {
+    font-size: 0.9rem !important;
+    line-height: 1.46 !important;
+}
+
+@media (max-width: 1440px), (max-height: 900px) {
+    html body #cookiescript_injected_wrapper,
+    html body #cookiescript_injected,
+    html body #cookiescript_fsd_wrapper,
+    html body #cookiescript_injected_fsd {
+        max-width: min(360px, calc(100vw - 24px)) !important;
+    }
+
+    html body #cookiescript_injected,
+    html body #cookiescript_fsd_wrapper,
+    html body #cookiescript_injected_fsd {
+        max-height: calc(100vh - 24px) !important;
+    }
+}
+
+@media (min-width: 701px) and (max-height: 860px) {
+    html body #cookiescript_injected_wrapper,
+    html body #cookiescript_injected,
+    html body #cookiescript_fsd_wrapper,
+    html body #cookiescript_injected_fsd {
+        max-width: min(340px, calc(100vw - 24px)) !important;
+    }
+
+    html body #cookiescript_injected,
+    html body #cookiescript_fsd_wrapper,
+    html body #cookiescript_injected_fsd {
+        max-height: calc(100vh - 20px) !important;
+        padding: 16px 16px 14px !important;
+        overflow-y: auto !important;
+        border-radius: 16px !important;
+    }
+
+    html body #cookiescript_header,
+    html body .cookiescript_fsd_title {
+        margin-bottom: 12px !important;
+        font-size: 1.28rem !important;
+        line-height: 1.16 !important;
+    }
+
+    html body #cookiescript_description,
+    html body .cookiescript_fsd_description {
+        margin-bottom: 12px !important;
+        font-size: 0.84rem !important;
+        line-height: 1.42 !important;
+    }
+
+    html body .cookiescript_checkbox_text,
+    html body .cookiescript_category_description,
+    html body .cookiescript_fsd__category_name,
+    html body .cookiescript_fsd__category_description {
+        font-size: 0.8rem !important;
+        line-height: 1.38 !important;
+    }
+
+    html body #cookiescript_injected_wrapper label,
+    html body #cookiescript_injected_wrapper .cookiescript_categories label,
+    html body [data-fsd-category] {
+        margin-bottom: 10px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    html body #cookiescript_save,
+    html body #cookiescript_accept,
+    html body #cookiescript_reject,
+    html body .cookiescript_fsd_button {
+        min-height: 38px !important;
+        padding: 8px 12px !important;
+        font-size: 0.8rem !important;
+    }
+
+    html body #cookiescript_close {
+        top: 12px !important;
+        right: 12px !important;
+    }
+}
+
+@media (max-width: 700px) {
+    html body #cookiescript_injected_wrapper,
+    html body #cookiescript_injected,
+    html body #cookiescript_fsd_wrapper,
+    html body #cookiescript_injected_fsd {
+        max-width: calc(100vw - 16px) !important;
+    }
+
+    html body #cookiescript_injected,
+    html body #cookiescript_fsd_wrapper,
+    html body #cookiescript_injected_fsd {
+        max-height: calc(100dvh - 16px) !important;
+        padding: 12px 10px 10px !important;
+        border-radius: 12px !important;
+        overflow-y: auto !important;
+    }
+
+    html body #cookiescript_header,
+    html body .cookiescript_fsd_title {
+        margin-bottom: 8px !important;
+        font-size: clamp(1.02rem, 4.8vw, 1.18rem) !important;
+        line-height: 1.08 !important;
+    }
+
+    html body #cookiescript_description,
+    html body .cookiescript_fsd_description {
+        margin-bottom: 10px !important;
+        font-size: 0.78rem !important;
+        line-height: 1.34 !important;
+    }
+
+    html body .cookiescript_checkbox_text,
+    html body .cookiescript_category_description,
+    html body .cookiescript_fsd__category_name,
+    html body .cookiescript_fsd__category_description {
+        font-size: 0.72rem !important;
+        line-height: 1.3 !important;
+    }
+
+    html body #cookiescript_injected_wrapper label,
+    html body #cookiescript_injected_wrapper .cookiescript_categories label,
+    html body [data-fsd-category] {
+        margin-bottom: 8px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    html body #cookiescript_save,
+    html body #cookiescript_accept,
+    html body #cookiescript_reject,
+    html body .cookiescript_fsd_button {
+        min-height: 34px !important;
+        padding: 7px 10px !important;
+        font-size: 0.72rem !important;
+    }
+
+    html body #cookiescript_close {
+        top: 8px !important;
+        right: 8px !important;
+    }
+}
+
+@media (max-width: 420px) {
+    html body #cookiescript_injected_wrapper,
+    html body #cookiescript_injected,
+    html body #cookiescript_fsd_wrapper,
+    html body #cookiescript_injected_fsd {
+        max-width: calc(100vw - 12px) !important;
+    }
+
+    html body #cookiescript_injected,
+    html body #cookiescript_fsd_wrapper,
+    html body #cookiescript_injected_fsd {
+        max-height: calc(100dvh - 12px) !important;
+        padding: 10px 8px 8px !important;
+        border-radius: 10px !important;
+    }
+
+    html body #cookiescript_header,
+    html body .cookiescript_fsd_title {
+        font-size: 0.98rem !important;
+    }
+
+    html body #cookiescript_description,
+    html body .cookiescript_fsd_description,
+    html body .cookiescript_checkbox_text,
+    html body .cookiescript_category_description,
+    html body .cookiescript_fsd__category_name,
+    html body .cookiescript_fsd__category_description {
+        font-size: 0.7rem !important;
+    }
+
+    html body #cookiescript_save,
+    html body #cookiescript_accept,
+    html body #cookiescript_reject,
+    html body .cookiescript_fsd_button {
+        min-height: 32px !important;
+        padding: 6px 8px !important;
+        font-size: 0.68rem !important;
+    }
+}
+
+html body #cookiescript_injected,
+html body #cookiescript_fsd_wrapper,
+html body #cookiescript_injected_fsd {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+    font-family: var(--font-ui-modern) !important;
+}
+
+html body #cookiescript_injected {
+    width: min(384px, calc(100vw - 48px)) !important;
+    padding: 18px 18px 14px !important;
+    border-radius: 22px !important;
+    border: 1px solid rgba(235, 246, 243, 0.12) !important;
+    background: rgba(14, 29, 34, 0.95) !important;
+}
+
+html body #cookiescript_checkboxs {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px 12px !important;
+    margin: 0 0 14px !important;
+}
+
+html body .cookiescript_checkbox {
+    display: grid !important;
+    grid-template-columns: 24px minmax(0, 1fr) !important;
+    column-gap: 10px !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    align-items: center !important;
+}
+
+html body .cookiescript_checkbox_label {
+    min-width: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    align-self: center !important;
+}
+
+html body #cookiescript_injected .mdc-checkbox,
+html body #cookiescript_injected_fsd .mdc-checkbox {
+    flex: 0 0 24px !important;
+    width: 24px !important;
+    height: 24px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+html body #cookiescript_injected .mdc-checkbox .mdc-checkbox__background,
+html body #cookiescript_injected_fsd .mdc-checkbox .mdc-checkbox__background {
+    top: 0 !important;
+    left: 0 !important;
+    width: 24px !important;
+    height: 24px !important;
+}
+
+html body #cookiescript_injected .mdc-checkbox .mdc-checkbox__native-control,
+html body #cookiescript_injected_fsd .mdc-checkbox .mdc-checkbox__native-control {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+html body #cookiescript_buttons {
+    display: grid !important;
+    gap: 8px !important;
+    align-items: stretch !important;
+    margin: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+html body #cookiescript_injected_wrapper #cookiescript_buttons,
+html body #cookiescript_injected #cookiescript_buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+html body #cookiescript_injected_wrapper #cookiescript_save,
+html body #cookiescript_injected #cookiescript_save {
+    grid-column: 1 / -1 !important;
+}
+
+html body #cookiescript_injected_fsd #cookiescript_buttons {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    padding: 12px 24px 18px !important;
+}
+
+html body #cookiescript_save,
+html body #cookiescript_accept,
+html body #cookiescript_reject,
+html body .cookiescript_fsd_button {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 38px !important;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    justify-self: stretch !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+    text-align: center !important;
+    line-height: 1.3 !important;
+}
+
+html body #cookiescript_header,
+html body .cookiescript_fsd_title,
+html body #cookiescript_description,
+html body .cookiescript_fsd_description,
+html body .cookiescript_checkbox_text,
+html body .cookiescript_category_description,
+html body .cookiescript_fsd__category_name,
+html body .cookiescript_fsd__category_description,
+html body #cookiescript_manage,
+html body #cookiescript_link,
+html body .cookiescript-extra-links a,
+html body .cookiescript_fsd_tabs > div {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+}
+
+html body #cookiescript_header,
+html body .cookiescript_fsd_title {
+    font-weight: 560 !important;
+    letter-spacing: -0.02em !important;
+    text-transform: none !important;
+}
+
+html body #cookiescript_description,
+html body .cookiescript_fsd_description,
+html body .cookiescript_category_description {
+    font-weight: 460 !important;
+}
+
+html body .cookiescript_checkbox_text,
+html body .cookiescript_fsd__category_name,
+html body .cookiescript_fsd_tabs > div,
+html body #cookiescript_manage,
+html body #cookiescript_link,
+html body .cookiescript-extra-links a {
+    font-weight: 540 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+}
+
+html body #cookiescript_description,
+html body .cookiescript_fsd_description,
+html body .cookiescript_checkbox_text,
+html body .cookiescript_category_description,
+html body .cookiescript_fsd__category_name,
+html body .cookiescript_fsd__category_description,
+html body #cookiescript_manage,
+html body #cookiescript_link,
+html body .cookiescript-extra-links a {
+    font-size: 0.84rem !important;
+}
+
+html body #cookiescript_header {
+    font-size: clamp(1.16rem, 0.98rem + 0.42vw, 1.48rem) !important;
+    line-height: 1.06 !important;
+    margin: 0 24px 12px 0 !important;
+}
+
+html body #cookiescript_description {
+    margin: 0 0 12px !important;
+    line-height: 1.45 !important;
+}
+
+html body #cookiescript_save,
+html body #cookiescript_accept,
+html body #cookiescript_reject {
+    font-size: 0.8rem !important;
+    font-weight: 560 !important;
+    letter-spacing: 0.01em !important;
+    text-transform: none !important;
+}
+
+html body #cookiescript_manage_wrap {
+    margin-top: 2px !important;
+}
+
+html body #cookiescript_fsd_wrapper {
+    width: min(760px, calc(100vw - 56px)) !important;
+    max-width: min(760px, calc(100vw - 56px)) !important;
+    max-height: calc(100dvh - 56px) !important;
+    min-height: auto !important;
+    margin: 28px auto !important;
+    top: 0 !important;
+    border-radius: 20px !important;
+}
+
+html body #cookiescript_injected_fsd {
+    padding: 16px !important;
+}
+
+html body .cookiescript_fsd_main_info {
+    padding: 18px 22px 14px !important;
+}
+
+html body .cookiescript_fsd_tabs {
+    flex-wrap: wrap !important;
+}
+
+html body .cookiescript_fsd_tabs > div {
+    min-width: 0 !important;
+    padding: 10px 12px !important;
+}
+
+html body .cookiescript_fsd_tabs_content {
+    padding: 4px 22px 12px !important;
+}
+
+html body .cookiescript_fsd_category_main {
+    gap: 12px !important;
+    align-items: flex-start !important;
+}
+
+html body .cookiescript_fsd_category_info {
+    min-width: 0 !important;
+}
+
+html body .cookiescript_fsd_category_control {
+    flex: 0 0 auto !important;
+}
+
+html body .cookiescript_fsd_cookies_control {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+}
+
+@media (max-width: 1024px) {
+    html body #cookiescript_injected {
+        width: min(380px, calc(100vw - 24px)) !important;
+    }
+
+    html body #cookiescript_fsd_wrapper {
+        width: min(calc(100vw - 24px), 700px) !important;
+        max-width: min(calc(100vw - 24px), 700px) !important;
+        max-height: calc(100dvh - 24px) !important;
+        min-height: auto !important;
+        margin: 12px auto !important;
+        border-radius: 18px !important;
+    }
+
+    html body #cookiescript_injected_fsd {
+        padding: 12px !important;
+    }
+
+    html body .cookiescript_fsd_main_info {
+        padding: 16px 18px 14px !important;
+    }
+
+    html body .cookiescript_fsd_tabs_content {
+        padding: 2px 18px 10px !important;
+    }
+
+    html body #cookiescript_injected_fsd #cookiescript_buttons {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        padding: 10px 18px 14px !important;
+    }
+
+    html body #cookiescript_injected_fsd #cookiescript_save {
+        grid-column: 1 / -1 !important;
+    }
+}
+
+@media (max-width: 700px) {
+    html body #cookiescript_injected {
+        left: 50% !important;
+        right: auto !important;
+        bottom: 8px !important;
+        transform: translateX(-50%) !important;
+        width: min(392px, calc(100vw - 16px)) !important;
+        max-width: calc(100vw - 16px) !important;
+        max-height: calc(100dvh - 16px) !important;
+        padding: 16px 16px 14px !important;
+        border-radius: 18px !important;
+    }
+
+    html body #cookiescript_checkboxs {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px 12px !important;
+    }
+
+    html body #cookiescript_fsd_wrapper {
+        width: calc(100vw - 12px) !important;
+        max-width: calc(100vw - 12px) !important;
+        max-height: calc(100dvh - 12px) !important;
+        margin: 6px auto !important;
+        border-radius: 14px !important;
+    }
+
+    html body #cookiescript_injected_fsd {
+        padding: 6px !important;
+    }
+
+    html body .cookiescript_fsd_main_info {
+        padding: 16px 16px 14px !important;
+        max-height: none !important;
+    }
+
+    html body .cookiescript_fsd_tabs > div {
+        width: 100% !important;
+        font-size: 0.8rem !important;
+        line-height: 1.3 !important;
+        padding: 8px 10px !important;
+    }
+
+    html body .cookiescript_fsd_tabs_content {
+        padding: 2px 16px 12px !important;
+    }
+
+    html body .cookiescript_fsd_category {
+        padding-top: 14px !important;
+        padding-bottom: 12px !important;
+    }
+
+    html body .cookiescript_fsd_category_main {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+    }
+
+    html body .cookiescript_fsd_category_control {
+        justify-content: flex-start !important;
+    }
+
+    html body #cookiescript_injected_fsd #cookiescript_buttons {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        padding: 10px 16px 14px !important;
+    }
+
+    html body #cookiescript_injected_wrapper #cookiescript_buttons,
+    html body #cookiescript_injected #cookiescript_buttons,
+    html body #cookiescript_injected_fsd #cookiescript_buttons {
+        gap: 8px !important;
+    }
+
+    html body #cookiescript_injected_wrapper #cookiescript_save,
+    html body #cookiescript_injected #cookiescript_save,
+    html body #cookiescript_injected_fsd #cookiescript_save {
+        grid-column: 1 / -1 !important;
+    }
+
+    html body #cookiescript_save,
+    html body #cookiescript_accept,
+    html body #cookiescript_reject,
+    html body .cookiescript_fsd_button {
+        min-height: 40px !important;
+        padding: 9px 12px !important;
+        font-size: 0.78rem !important;
+    }
+
+    html body #cookiescript_header {
+        margin: 0 20px 10px 0 !important;
+        font-size: 1.12rem !important;
+    }
+
+    html body #cookiescript_description,
+    html body .cookiescript_checkbox_text,
+    html body #cookiescript_manage,
+    html body #cookiescript_link {
+        font-size: 0.82rem !important;
+    }
+}
+
+@media (max-width: 520px) {
+    html body #cookiescript_checkboxs,
+    html body #cookiescript_injected_wrapper #cookiescript_buttons,
+    html body #cookiescript_injected #cookiescript_buttons,
+    html body #cookiescript_injected_fsd #cookiescript_buttons {
+        grid-template-columns: 1fr !important;
+    }
+
+    html body #cookiescript_checkboxs,
+    html body #cookiescript_injected_wrapper #cookiescript_buttons,
+    html body #cookiescript_injected #cookiescript_buttons,
+    html body #cookiescript_injected_fsd #cookiescript_buttons {
+        gap: 10px !important;
+    }
+}
+
+html body *,
+html body *::before,
+html body *::after {
+    --interaction-transform: initial;
+    --interaction-box-shadow: none;
+    box-shadow: var(--interaction-box-shadow, none) !important;
+    text-shadow: none !important;
+    transition: none !important;
+    animation: none !important;
+}
+
+html body *:hover,
+html body *:focus-visible,
+html body *:active,
+html body *:hover::before,
+html body *:hover::after,
+html body *:focus-visible::before,
+html body *:focus-visible::after,
+html body *:active::before,
+html body *:active::after {
+    transform: var(--interaction-transform, none) !important;
+}
+
+@media (min-width: 1180px) {
+    html body #main-content {
+        --desktop-content-side-gap: clamp(24px, 2.1vw, 30px);
+    }
+}
+
+@media (min-width: 1180px) and (max-width: 1536px) {
+    :root {
+        --premium-label-desktop-size: 0.7rem;
+        --premium-label-desktop-letter-spacing: 0.15em;
+        --premium-title-size: clamp(1.82rem, 2.12vw, 2.32rem);
+        --premium-card-title-size: clamp(1.22rem, 1.42vw, 1.44rem);
+        --premium-lead-size: 1rem;
+        --premium-body-size: 1rem;
+        --layout-shell-max-width: 1060px;
+        --layout-shell-max-width-wide: 1240px;
+        --layout-shell-max-width-feature: 1160px;
+        --layout-section-gap-desktop: clamp(58px, 5vw, 74px);
+    }
+
+    html body #main-content {
+        --desktop-content-side-gap: clamp(20px, 1.8vw, 26px);
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1024px) {
+    html body .about-me-modern-title,
+    html body .musikalisches-repertoire-title,
+    html body .review-overview-title,
+    html body .music-family-title {
+        font-family: var(--font-ui-modern) !important;
+        font-size: var(--premium-title-tablet-size) !important;
+        font-weight: 580 !important;
+        line-height: var(--premium-title-tablet-line-height) !important;
+        letter-spacing: var(--premium-title-tablet-letter-spacing) !important;
+        text-wrap: balance;
+    }
+
+    html body .image-caption-title {
+        font-family: var(--font-ui-modern) !important;
+        font-size: var(--premium-hero-title-tablet-size) !important;
+        font-weight: 590 !important;
+        line-height: 1.04 !important;
+        letter-spacing: -0.038em !important;
+        text-wrap: balance;
+    }
+
+    html body .review-archive-intro__title {
+        font-family: var(--font-ui-modern) !important;
+        font-size: var(--premium-review-title-tablet-size) !important;
+        font-weight: 565 !important;
+        line-height: 1.1 !important;
+        letter-spacing: -0.024em !important;
+        text-wrap: balance;
+    }
+
+    html body .music-family-highlight-title,
+    html body .music-family-group-title,
+    html body .music-family-contact-title,
+    html body .repertoire-story-card-title,
+    html body .review-overview-highlight-title,
+    html body .engagement-focus-title {
+        font-family: var(--font-ui-modern) !important;
+        font-size: var(--premium-card-title-tablet-size) !important;
+        font-weight: 600 !important;
+        line-height: 1.2 !important;
+        letter-spacing: -0.02em !important;
+    }
+
+    html body .charity-projects-section[id^="review-"] .charity-title {
+        font-family: var(--font-ui-modern) !important;
+        font-size: var(--premium-section-title-tablet-size) !important;
+        font-weight: 580 !important;
+        line-height: 1.08 !important;
+        letter-spacing: -0.026em !important;
+        text-wrap: balance;
+    }
+
+    html body .about-me-modern-subtitle,
+    html body .image-caption-kicker,
+    html body .image-caption-video-kicker,
+    html body .review-overview-kicker,
+    html body .review-archive-intro__eyebrow,
+    html body .charity-projects-section[id^="review-"] .charity-meta {
+        font-family: var(--font-ui-modern) !important;
+        font-size: var(--premium-label-tablet-size) !important;
+        font-weight: var(--premium-label-weight) !important;
+        line-height: var(--premium-label-tablet-line-height) !important;
+        letter-spacing: var(--premium-label-tablet-letter-spacing) !important;
+        text-transform: uppercase;
+    }
+
+    html body .image-caption-card-footer,
+    html body .charity-projects-section[id^="review-"] .review-media-caption,
+    html body .fadein-text {
+        font-family: var(--font-ui-modern) !important;
+        font-size: var(--premium-caption-tablet-size) !important;
+        font-weight: 500 !important;
+        line-height: var(--premium-caption-tablet-line-height) !important;
+        letter-spacing: 0.004em !important;
+    }
+
+    html body .music-family-desc,
+    html body .image-caption-copy,
+    html body .musikalisches-repertoire-intro,
+    html body .review-overview-intro,
+    html body .about-me-bio-text {
+        font-family: var(--font-ui-modern) !important;
+        font-size: var(--premium-lead-tablet-size) !important;
+        line-height: var(--premium-lead-tablet-line-height) !important;
+        letter-spacing: -0.006em !important;
+    }
+
+    html body .review-archive-intro__copy {
+        max-width: 31ch !important;
+        font-family: var(--font-ui-modern) !important;
+        font-size: var(--premium-lead-tablet-size) !important;
+        font-weight: 500 !important;
+        line-height: var(--premium-lead-tablet-line-height) !important;
+        letter-spacing: -0.008em !important;
+        color: #315159 !important;
+    }
+
+    html[data-theme="dark"] body .review-archive-intro__copy {
+        color: #eef7f5 !important;
+        font-weight: 560 !important;
+    }
+
+    html body .music-family-highlight-copy,
+    html body .review-overview-highlight-copy,
+    html body .charity-projects-section[id^="review-"] .charity-description,
+    html body .ensemble-chip {
+        font-family: var(--font-ui-modern) !important;
+        font-size: var(--premium-body-tablet-size) !important;
+        line-height: var(--premium-body-tablet-line-height) !important;
+        letter-spacing: 0 !important;
+    }
+
+    html body .ensemble-chip {
+        min-height: 36px !important;
+        padding: 6px 10px !important;
+        font-size: 0.92rem !important;
+        line-height: 1.24 !important;
+    }
+}

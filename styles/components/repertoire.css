@@ -1,0 +1,1393 @@
+/* Repertoire section */
+
+.musikalisches-repertoire-section {
+    --repertoire-shell-width: var(--layout-shell-width);
+    --repertoire-bg: var(--section-tone-a);
+    --repertoire-surface: #ffffff;
+    --repertoire-title-color: #123e46;
+    --repertoire-accent: var(--color-secondary);
+    --repertoire-copy-color: #24434a;
+    --repertoire-copy-soft: #48636d;
+    --repertoire-bullet-color: var(--color-secondary);
+    --repertoire-bullet-shadow: none;
+    --repertoire-chip-bg: #ffffff;
+    --repertoire-chip-border: rgba(18, 62, 70, 0.12);
+    --repertoire-chip-color: var(--color-primary);
+    --repertoire-section-min-height: auto;
+    --repertoire-section-padding: var(--layout-section-gap-desktop) 0 calc(var(--layout-section-gap-desktop) + 2px);
+    font-family: var(--font-ui-modern);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--repertoire-bg);
+    border-top: 1px solid rgba(23, 54, 60, 0.16);
+    min-height: var(--repertoire-section-min-height);
+    padding: var(--repertoire-section-padding);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    overflow-x: clip;
+}
+
+.musikalisches-repertoire-cards-wrapper {
+    --repertoire-cards-gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--repertoire-cards-gap);
+    align-items: start;
+    width: var(--repertoire-shell-width);
+    max-width: none;
+    margin: 0 auto;
+    padding: 0;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.musikalisches-repertoire-card {
+    --repertoire-card-radius: var(--radius-card);
+    --repertoire-card-width: 100%;
+    --repertoire-card-padding: 34px 34px 32px;
+    --repertoire-card-font-size: clamp(1rem, 2vw, 1.13rem);
+    background: var(--repertoire-surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--repertoire-card-radius);
+    max-width: none;
+    width: var(--repertoire-card-width);
+    margin: 0 auto;
+    padding: var(--repertoire-card-padding);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+    font-size: var(--repertoire-card-font-size);
+    line-height: 1.7;
+    align-self: start;
+    min-width: 0;
+    box-shadow: none;
+}
+
+.musikalisches-repertoire-card--repertoire {
+    background: #ffffff;
+    border-color: rgba(18, 62, 70, 0.12);
+    --repertoire-title-color: var(--color-primary);
+    --repertoire-copy-color: #25484f;
+    --repertoire-copy-soft: #355c64;
+    --repertoire-accent: var(--color-secondary);
+    --repertoire-feature-surface: #ffffff;
+    --repertoire-detail-surface: #ffffff;
+    --repertoire-detail-border: rgba(18, 62, 70, 0.12);
+    --repertoire-detail-shadow: none;
+}
+
+.musikalisches-repertoire-card--engagement {
+    background: #ffffff;
+    border-color: rgba(18, 62, 70, 0.12);
+    --repertoire-title-color: #14353b;
+    --repertoire-copy-color: #1e4349;
+    --repertoire-copy-soft: #3d5e65;
+    --repertoire-bullet-color: #197f78;
+    --repertoire-bullet-shadow: none;
+    --engagement-support-image-width: clamp(280px, 32vw, 360px);
+    --engagement-support-image-max-height: clamp(220px, 24vw, 300px);
+    display: grid;
+    grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+    column-gap: 24px;
+    row-gap: 18px;
+    align-items: start;
+}
+
+.musikalisches-repertoire-card--repertoire::before,
+.musikalisches-repertoire-card--engagement::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: var(--color-secondary);
+    border-radius: 999px;
+    margin-bottom: 24px;
+}
+
+.musikalisches-repertoire-card--engagement::before {
+    background: var(--color-primary);
+    grid-column: 1 / -1;
+    margin-bottom: 8px;
+}
+
+.musikalisches-repertoire-card-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.musikalisches-repertoire-title {
+    --repertoire-title-font-size: var(--premium-title-size);
+    --repertoire-title-margin-bottom: 12px;
+    --repertoire-title-line-height: var(--premium-title-line-height);
+    --repertoire-title-letter-spacing: var(--premium-title-letter-spacing);
+    color: var(--repertoire-title-color);
+    font-size: var(--repertoire-title-font-size);
+    margin-bottom: var(--repertoire-title-margin-bottom);
+    font-family: var(--font-ui-modern);
+    font-weight: 580;
+    line-height: var(--repertoire-title-line-height);
+    letter-spacing: var(--repertoire-title-letter-spacing);
+    text-wrap: balance;
+}
+
+.musikalisches-repertoire-divider {
+    --repertoire-divider-width: 56px;
+    --repertoire-divider-height: 2px;
+    --repertoire-divider-radius: 999px;
+    --repertoire-divider-margin-bottom: 20px;
+    width: var(--repertoire-divider-width);
+    height: var(--repertoire-divider-height);
+    background: var(--repertoire-accent);
+    border-radius: var(--repertoire-divider-radius);
+    margin-bottom: var(--repertoire-divider-margin-bottom);
+}
+
+.musikalisches-repertoire-intro {
+    margin: 0 0 24px;
+    max-width: 60ch;
+    color: var(--repertoire-copy-color);
+    font-family: var(--font-ui-modern);
+    font-size: var(--premium-lead-size);
+    line-height: 1.64;
+    font-weight: 560;
+    letter-spacing: var(--premium-lead-letter-spacing);
+    text-align: left;
+    text-justify: auto;
+    text-wrap: pretty;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    word-break: normal;
+    overflow-wrap: break-word;
+}
+
+.musikalisches-repertoire-card--repertoire .musikalisches-repertoire-intro {
+    max-width: none;
+    width: 100%;
+    color: var(--repertoire-copy-color);
+}
+
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-intro {
+    max-width: none;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.musikalisches-repertoire-card--repertoire .repertoire-story-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    grid-template-areas:
+        "hero format"
+        "collaboration youth"
+        "ensembles ensembles";
+    gap: 18px;
+    width: 100%;
+    align-items: stretch;
+}
+
+.musikalisches-repertoire-card--repertoire .repertoire-story-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+    min-height: 0;
+    padding: 28px 22px 20px;
+    border-radius: 24px;
+    border: 1px solid var(--repertoire-detail-border);
+    background: var(--repertoire-detail-surface);
+    box-shadow: var(--repertoire-detail-shadow);
+}
+
+.musikalisches-repertoire-card--repertoire .repertoire-story-card::before {
+    content: "";
+    position: absolute;
+    left: 22px;
+    top: 18px;
+    width: 46px;
+    height: 3px;
+    border-radius: 999px;
+    background: var(--color-secondary);
+}
+
+.musikalisches-repertoire-card--repertoire .repertoire-story-card--hero {
+    grid-area: hero;
+    padding-top: 24px;
+    border-color: rgba(18, 62, 70, 0.14);
+    background: #ffffff;
+}
+
+.musikalisches-repertoire-card--repertoire .repertoire-story-card--format {
+    grid-area: format;
+    background: #ffffff;
+}
+
+.musikalisches-repertoire-card--repertoire .repertoire-story-card--collaboration {
+    grid-area: collaboration;
+    background: #ffffff;
+}
+
+.musikalisches-repertoire-card--repertoire .repertoire-story-card--ensembles {
+    grid-area: ensembles;
+    border-color: rgba(18, 62, 70, 0.14);
+    background: #ffffff;
+}
+
+.musikalisches-repertoire-card--repertoire .repertoire-story-card--youth {
+    grid-area: youth;
+    background: #ffffff;
+}
+
+.musikalisches-repertoire-card--repertoire .repertoire-story-card-title {
+    margin: 0;
+    color: var(--repertoire-title-color);
+    font-family: var(--font-ui-modern);
+    font-size: var(--premium-card-title-size);
+    font-weight: 600;
+    line-height: var(--premium-card-title-line-height);
+    letter-spacing: var(--premium-card-title-letter-spacing);
+    text-wrap: balance;
+}
+
+.musikalisches-repertoire-card--repertoire .repertoire-story-card-copy {
+    margin: 0;
+    color: var(--repertoire-copy-color);
+    font-size: var(--premium-body-size);
+    line-height: 1.64;
+    font-weight: 500;
+    max-width: 36ch;
+    text-align: left;
+    text-justify: auto;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    overflow-wrap: break-word;
+    word-spacing: normal;
+    text-wrap: pretty;
+}
+
+.musikalisches-repertoire-card--repertoire .repertoire-story-card--hero::before {
+    background: var(--color-primary);
+}
+
+.musikalisches-repertoire-card--repertoire .repertoire-story-card--ensembles .repertoire-story-card-copy {
+    max-width: 58ch;
+    margin-bottom: 16px;
+}
+
+.repertoire-highlight-grid,
+.engagement-focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    margin: 0 0 18px;
+}
+
+.repertoire-highlight-card,
+.engagement-focus-card {
+    padding: 16px 16px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(18, 62, 70, 0.12);
+    background: #ffffff;
+}
+
+.repertoire-highlight-card {
+    border-color: rgba(18, 62, 70, 0.12);
+    background: var(--repertoire-feature-surface);
+    box-shadow: none;
+}
+
+.engagement-focus-card {
+    background: #ffffff;
+    border-color: rgba(18, 62, 70, 0.12);
+    box-shadow: none;
+}
+
+.repertoire-highlight-title,
+.engagement-focus-title {
+    margin: 0;
+    color: var(--repertoire-title-color);
+    font-family: var(--font-ui-modern);
+    font-size: var(--premium-card-title-size);
+    font-weight: 600;
+    line-height: var(--premium-card-title-line-height);
+    letter-spacing: var(--premium-card-title-letter-spacing);
+    text-wrap: balance;
+}
+
+.repertoire-highlight-copy,
+.engagement-focus-copy {
+    margin: 8px 0 0;
+    color: var(--repertoire-copy-color);
+    font-size: var(--premium-body-size);
+    line-height: 1.64;
+    font-weight: 500;
+    letter-spacing: var(--premium-body-letter-spacing);
+    text-align: left;
+    text-justify: auto;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    overflow-wrap: break-word;
+    word-spacing: normal;
+    text-wrap: auto;
+}
+
+.musikalisches-repertoire-list {
+    --repertoire-list-margin: 0;
+    --repertoire-list-font-size: var(--premium-body-size);
+    --repertoire-list-max-width: 100%;
+    margin: var(--repertoire-list-margin);
+    padding-left: 0;
+    color: var(--repertoire-copy-color);
+    font-size: var(--repertoire-list-font-size);
+    line-height: var(--premium-body-line-height);
+    font-weight: var(--font-weight-body);
+    letter-spacing: var(--premium-body-letter-spacing);
+    list-style: none;
+    max-width: var(--repertoire-list-max-width);
+    display: grid;
+    gap: 12px;
+    min-width: 0;
+}
+
+.musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list {
+    --repertoire-list-max-width: 100%;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 14px;
+    width: 100%;
+}
+
+.musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list > li {
+    grid-column: span 3;
+}
+
+.musikalisches-repertoire-list li {
+    position: relative;
+    list-style: none;
+    padding-left: 30px;
+    margin: 0;
+    font-size: inherit;
+    line-height: var(--premium-body-line-height);
+    letter-spacing: var(--premium-body-letter-spacing);
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    text-align: left;
+    text-justify: auto;
+    text-wrap: pretty;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+}
+
+.musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list li {
+    min-height: 100%;
+    padding: 24px 20px 18px;
+    border-radius: 22px;
+    border: 1px solid var(--repertoire-detail-border);
+    background: var(--repertoire-detail-surface);
+    box-shadow: var(--repertoire-detail-shadow);
+}
+
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-support li,
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-project li {
+    min-height: 100%;
+    padding: 16px 18px 16px 22px;
+    border-radius: 20px;
+    border: 1px solid rgba(18, 62, 70, 0.12);
+    background: #ffffff;
+}
+
+.musikalisches-repertoire-list li > span {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--repertoire-title-color);
+    font-weight: 620;
+    line-height: 1.28;
+}
+
+.musikalisches-repertoire-list li:last-child {
+    margin-bottom: 0;
+}
+
+.musikalisches-repertoire-list li.charity-list-item {
+    display: block;
+    align-items: flex-start;
+    min-width: 0;
+}
+
+.musikalisches-repertoire-list li.ensemble-inline-list {
+    padding-left: 48px;
+    grid-column: 1 / -1;
+}
+
+.musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list li.ensemble-inline-list {
+    padding-left: 22px;
+}
+
+.ensemble-inline-list {
+    --ensemble-inline-list-gap: 0.5em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ensemble-inline-list-gap);
+    align-items: baseline;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.ensemble-inline-list span {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.musikalisches-repertoire-list li.ensemble-inline-list,
+.musikalisches-repertoire-list li.ensemble-inline-list span,
+.musikalisches-repertoire-list .ensemble-inline-list__label,
+.musikalisches-repertoire-list .ensemble-chip-list,
+.musikalisches-repertoire-list .ensemble-chip {
+    max-width: 100%;
+    min-width: 0;
+}
+
+.musikalisches-repertoire-list li.ensemble-inline-list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+}
+
+.ensemble-inline-list__label {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--repertoire-title-color);
+    font-weight: 560;
+}
+
+.musikalisches-repertoire-list .ensemble-inline-list__label {
+    white-space: normal;
+}
+
+.ensemble-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ensemble-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    justify-content: center;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: var(--repertoire-chip-bg);
+    border: 1px solid var(--repertoire-chip-border);
+    color: var(--repertoire-chip-color);
+    font-family: var(--font-ui-modern);
+    font-size: 0.98rem;
+    line-height: 1.3;
+    font-weight: 560;
+    max-width: 100%;
+    margin: 0;
+    list-style: none;
+}
+
+.musikalisches-repertoire-card--repertoire .ensemble-chip {
+    background: var(--repertoire-chip-bg);
+    border-color: var(--repertoire-chip-border);
+    box-shadow: none;
+}
+
+.musikalisches-repertoire-list li.charity-list-item > span {
+    display: block;
+    max-width: 100%;
+}
+
+.musikalisches-repertoire-list li.charity-list-item .kinshasa-card-img {
+    display: block;
+    margin-top: 16px;
+}
+
+.musikalisches-repertoire-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.74em;
+    --interaction-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: var(--repertoire-bullet-color);
+    box-shadow: var(--repertoire-bullet-shadow);
+}
+
+.musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list li::before {
+    left: 22px;
+    top: 16px;
+    width: 44px;
+    height: 3px;
+    transform: none;
+    border-radius: 999px;
+    background: var(--color-secondary);
+    box-shadow: none;
+}
+
+.musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list li > span {
+    margin-bottom: 8px;
+}
+
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-list {
+    margin-top: 6px;
+}
+
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-card-header {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-grid {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-areas: none;
+    grid-template-rows: auto;
+    align-items: stretch;
+    gap: 10px;
+    margin-bottom: 0;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    min-height: 100%;
+    gap: 6px;
+    padding: 15px 16px 14px;
+    background: #ffffff;
+    border: 1px solid rgba(18, 62, 70, 0.12);
+    box-shadow: none;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card--primary {
+    grid-area: auto;
+    grid-row: auto;
+    padding: 15px 16px 14px;
+    background: #ffffff;
+    border-color: rgba(18, 62, 70, 0.12);
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card--secondary {
+    justify-content: flex-start;
+    gap: 6px;
+    padding: 15px 16px 14px;
+    background: #ffffff;
+    border-color: rgba(18, 62, 70, 0.12);
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card--secondary-top {
+    grid-area: auto;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card--secondary-bottom {
+    grid-area: auto;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card--primary .engagement-focus-title {
+    font-size: var(--premium-card-title-size);
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card--primary .engagement-focus-copy {
+    margin-top: 8px;
+    font-size: var(--premium-body-size);
+    line-height: 1.64;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-copy {
+    margin-top: 8px;
+    line-height: 1.64;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card--secondary .engagement-focus-title {
+    max-width: none;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-focus-card--secondary .engagement-focus-copy {
+    margin-top: 8px;
+    max-width: 30ch;
+    font-size: var(--premium-body-size);
+    line-height: 1.64;
+}
+
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-list li::before {
+    left: 12px;
+    width: 3px;
+    height: 28px;
+    top: 17px;
+    transform: none;
+    border-radius: 999px;
+    background: var(--color-primary);
+    box-shadow: none;
+}
+
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-list li > span {
+    margin-bottom: 4px;
+    font-size: 0.99em;
+    line-height: 1.28;
+}
+
+.musikalisches-repertoire-card--engagement .charity-certificate-card {
+    grid-column: 1;
+    position: relative;
+    align-self: start;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 0;
+    margin: 0;
+    padding: 14px 16px 16px 24px;
+    border-radius: 20px;
+    border: 1px solid rgba(18, 62, 70, 0.12);
+    background: transparent;
+    box-shadow: none;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) fit-content(var(--engagement-support-image-width));
+    column-gap: 18px;
+    row-gap: 8px;
+    align-items: start;
+    overflow: hidden;
+}
+
+.musikalisches-repertoire-card--engagement .charity-certificate-card::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    top: 17px;
+    width: 3px;
+    height: 28px;
+    border-radius: 999px;
+    background: var(--color-primary);
+}
+
+.musikalisches-repertoire-card--engagement .charity-certificate-card-title {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    color: var(--repertoire-title-color);
+    font-size: var(--premium-card-title-size);
+    line-height: var(--premium-card-title-line-height);
+    font-weight: 600;
+    letter-spacing: var(--premium-card-title-letter-spacing);
+    font-family: var(--font-ui-modern);
+    text-wrap: balance;
+}
+
+.musikalisches-repertoire-card--engagement .charity-certificate-img {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: block;
+    width: auto;
+    max-width: min(100%, var(--engagement-support-image-width));
+    max-height: var(--engagement-support-image-max-height);
+    margin: 0;
+    height: auto;
+    align-self: start;
+    justify-self: end;
+    border-radius: 20px;
+    border: 1px solid rgba(18, 62, 70, 0.18);
+    box-shadow: none;
+    background: transparent;
+    object-fit: contain;
+    object-position: center center;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-support-column,
+.musikalisches-repertoire-card--engagement .engagement-project-column {
+    display: grid;
+    align-self: start;
+    min-width: 0;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-support-column {
+    grid-column: 1;
+    gap: 12px;
+    grid-auto-flow: row;
+    grid-auto-rows: max-content;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-project-column {
+    grid-column: 2;
+}
+
+.musikalisches-repertoire-card--engagement .engagement-support-column > .musikalisches-repertoire-list,
+.musikalisches-repertoire-card--engagement .engagement-project-column > .musikalisches-repertoire-list {
+    margin-top: 0;
+    max-width: none;
+    min-width: 0;
+    height: auto;
+    gap: 12px;
+    padding-top: 0;
+    grid-auto-rows: max-content;
+    align-content: start;
+}
+
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-support li,
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-project li {
+    padding: 14px 15px 14px 20px;
+    line-height: 1.48;
+    border-color: rgba(18, 62, 70, 0.12);
+    background: #ffffff;
+    box-shadow: none;
+}
+
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-support li {
+    padding-left: 16px;
+    min-height: 0;
+    line-height: 1.56;
+}
+
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-support li::before {
+    left: 8px;
+}
+
+.musikalisches-repertoire-card--engagement .charity-list-item-certificate-copy {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
+    max-width: 32ch;
+    color: var(--repertoire-copy-color);
+    font-size: var(--premium-body-size);
+    line-height: 1.64;
+    font-weight: 500;
+    font-family: var(--font-ui-modern);
+    text-align: left;
+    text-justify: auto;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    overflow-wrap: break-word;
+    word-spacing: normal;
+    text-wrap: pretty;
+}
+
+.musikalisches-repertoire-card--engagement .charity-list-item--project {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, var(--engagement-support-image-width));
+    column-gap: 18px;
+    row-gap: 8px;
+    align-items: start;
+    overflow: hidden;
+}
+
+.musikalisches-repertoire-card--engagement .charity-list-item--project > span {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 0;
+}
+
+.musikalisches-repertoire-card--engagement .charity-list-item--project .kinshasa-card-img {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+    margin: 0;
+    align-self: start;
+    justify-self: stretch;
+    border-radius: 18px;
+    border: 1px solid rgba(18, 62, 70, 0.12);
+    box-shadow: none;
+    background: #ffffff;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+}
+
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-support li,
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-project li,
+.musikalisches-repertoire-card--engagement .charity-list-item-certificate-copy {
+    text-align: left;
+    text-justify: auto;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    overflow-wrap: break-word;
+    word-spacing: normal;
+    text-wrap: pretty;
+}
+
+.musikalisches-repertoire-card--engagement [data-lang="uk"].engagement-focus-title,
+.musikalisches-repertoire-card--engagement [data-lang="uk"].engagement-focus-copy,
+.musikalisches-repertoire-card--engagement [data-lang="uk"].charity-certificate-card-title,
+.musikalisches-repertoire-card--engagement [data-lang="uk"].charity-list-item-certificate-copy,
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-support[data-lang="uk"] li,
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-support[data-lang="uk"] li > span,
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-project[data-lang="uk"] li,
+.musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-project[data-lang="uk"] li > span {
+    font-family: var(--font-ui-modern);
+    letter-spacing: 0;
+}
+
+@media (min-width: 1180px) {
+    .musikalisches-repertoire-section {
+        --repertoire-shell-width: var(--layout-shell-width-wide);
+    }
+
+    .musikalisches-repertoire-cards-wrapper {
+        --repertoire-cards-gap: clamp(32px, 2.5vw, 42px);
+    }
+
+    .musikalisches-repertoire-card {
+        --repertoire-card-padding: 36px 38px 34px;
+    }
+
+    .musikalisches-repertoire-title {
+        --repertoire-title-font-size: clamp(2.12rem, 2.85vw, 3.02rem);
+        --repertoire-title-margin-bottom: 16px;
+        --repertoire-title-line-height: 1.01;
+        --repertoire-title-letter-spacing: -0.046em;
+    }
+
+    .musikalisches-repertoire-intro {
+        max-width: 60ch;
+        font-size: 1.02rem;
+        line-height: 1.66;
+    }
+
+    .musikalisches-repertoire-card--repertoire .repertoire-story-grid {
+        gap: 22px;
+        grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+    }
+
+    .musikalisches-repertoire-card--engagement {
+        grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
+        column-gap: clamp(28px, 2.4vw, 36px);
+        row-gap: 22px;
+    }
+
+    .musikalisches-repertoire-card--engagement .engagement-focus-grid {
+        gap: 14px;
+    }
+
+    .musikalisches-repertoire-card--engagement .charity-list-item--project {
+        grid-template-columns: minmax(0, 1fr) minmax(250px, var(--engagement-support-image-width));
+        gap: 22px;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1024px) {
+    .musikalisches-repertoire-card--engagement {
+        --engagement-support-image-width: clamp(220px, 30vw, 300px);
+    }
+
+    .musikalisches-repertoire-card--engagement .engagement-focus-card {
+        padding: 18px 18px 16px;
+        border-radius: 18px;
+        border-color: rgba(18, 62, 70, 0.12);
+        background: rgba(255, 255, 255, 0.98);
+    }
+
+    .musikalisches-repertoire-card--engagement .charity-certificate-card {
+        padding: 14px 14px 14px 24px;
+        border-radius: 18px;
+        border: 1px solid rgba(18, 62, 70, 0.12);
+        background: transparent;
+    }
+
+    .musikalisches-repertoire-card--engagement .engagement-focus-title,
+    .musikalisches-repertoire-card--engagement .charity-certificate-card-title {
+        color: var(--repertoire-title-color);
+        font-family: var(--font-ui-modern);
+        font-size: var(--premium-card-title-tablet-size);
+        font-weight: 600;
+        line-height: var(--premium-card-title-line-height);
+        letter-spacing: var(--premium-card-title-letter-spacing);
+    }
+
+    .musikalisches-repertoire-card--engagement .engagement-focus-copy,
+    .musikalisches-repertoire-card--engagement .charity-list-item-certificate-copy,
+    .musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-support li,
+    .musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-project li {
+        color: var(--repertoire-copy-color);
+        font-family: var(--font-ui-modern);
+        font-size: var(--premium-body-tablet-size);
+        line-height: 1.66;
+        letter-spacing: 0;
+        text-align: left;
+        text-justify: auto;
+        overflow-wrap: break-word;
+    }
+
+    .repertoire-story-card-copy,
+    .repertoire-highlight-copy,
+    .engagement-focus-copy,
+    .ensemble-chip {
+        font-family: var(--font-ui-modern);
+        font-size: var(--premium-body-tablet-size);
+        line-height: 1.62;
+        letter-spacing: 0;
+    }
+}
+
+@media (max-width: 1180px) {
+    .musikalisches-repertoire-cards-wrapper {
+        --repertoire-cards-gap: 24px;
+        align-items: center;
+        max-width: 960px;
+        padding: 0 22px;
+    }
+
+    .musikalisches-repertoire-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .musikalisches-repertoire-card--repertoire .repertoire-story-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "hero"
+            "format"
+            "collaboration"
+            "ensembles"
+            "youth";
+    }
+
+    .musikalisches-repertoire-card--repertoire .repertoire-story-card {
+        min-height: 0;
+    }
+
+    .musikalisches-repertoire-card--repertoire .repertoire-story-card--ensembles .repertoire-story-card-copy {
+        max-width: none;
+    }
+}
+
+@media (max-width: 980px) {
+    .musikalisches-repertoire-card--engagement {
+        grid-template-columns: 1fr;
+        row-gap: 22px;
+    }
+
+    .musikalisches-repertoire-card--engagement .engagement-focus-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: none;
+        grid-template-rows: auto;
+    }
+
+    .musikalisches-repertoire-card--engagement .engagement-focus-card--primary {
+        grid-row: auto;
+        padding: 16px 16px 14px;
+    }
+
+    .musikalisches-repertoire-card--engagement .engagement-focus-card--secondary {
+        gap: 6px;
+        padding: 16px 16px 14px;
+    }
+
+    .musikalisches-repertoire-card--engagement .engagement-focus-card--secondary .engagement-focus-title,
+    .musikalisches-repertoire-card--engagement .engagement-focus-card--secondary .engagement-focus-copy {
+        max-width: none;
+    }
+
+    .musikalisches-repertoire-card--engagement .engagement-support-column,
+    .musikalisches-repertoire-card--engagement .engagement-project-column {
+        grid-column: 1;
+    }
+
+    .repertoire-highlight-grid,
+    .engagement-focus-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .musikalisches-repertoire-cards-wrapper {
+        grid-template-columns: 1fr;
+        --repertoire-cards-gap: 24px;
+        align-items: center;
+        padding: 0 12px;
+    }
+
+    .musikalisches-repertoire-card {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .musikalisches-repertoire-card--engagement .charity-list-item--project {
+        grid-template-columns: minmax(0, 1fr) minmax(240px, var(--engagement-support-image-width));
+        column-gap: 16px;
+        row-gap: 8px;
+        align-items: start;
+    }
+
+    .musikalisches-repertoire-card--engagement .charity-list-item--project .kinshasa-card-img {
+        width: 100%;
+        max-width: 100%;
+        justify-self: stretch;
+    }
+
+    .musikalisches-repertoire-card--engagement .charity-certificate-card {
+        grid-column: 1;
+        align-self: start;
+        min-height: 0;
+    }
+
+    .musikalisches-repertoire-card--engagement .engagement-support-column,
+    .musikalisches-repertoire-card--engagement .engagement-project-column {
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 700px) {
+    .musikalisches-repertoire-section {
+        --repertoire-section-min-height: auto;
+        --repertoire-section-padding: var(--layout-section-gap-mobile) 0 calc(var(--layout-section-gap-mobile) - 4px);
+        align-items: flex-start;
+        overflow-y: visible;
+    }
+
+    .musikalisches-repertoire-card {
+        --repertoire-card-padding: 18px 14px 16px;
+        --repertoire-card-radius: 20px;
+        --repertoire-card-font-size: 1.08rem;
+        align-items: stretch;
+        border-color: rgba(18, 62, 70, 0.12);
+        box-shadow: none;
+    }
+
+    .musikalisches-repertoire-cards-wrapper {
+        padding: 0 12px;
+    }
+
+    .musikalisches-repertoire-card--engagement,
+    .musikalisches-repertoire-card--engagement .engagement-support-column,
+    .musikalisches-repertoire-card--engagement .engagement-project-column,
+    .musikalisches-repertoire-card--engagement .charity-certificate-card,
+    .musikalisches-repertoire-card--engagement .musikalisches-repertoire-list,
+    .musikalisches-repertoire-card--engagement .musikalisches-repertoire-list li,
+    .musikalisches-repertoire-card--engagement .charity-list-item--project {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .musikalisches-repertoire-title {
+        --repertoire-title-font-size: clamp(1.38rem, 6vw, 1.64rem);
+        --repertoire-title-margin-bottom: 8px;
+        --repertoire-title-line-height: 1.14;
+        --repertoire-title-letter-spacing: -0.022em;
+    }
+
+    .musikalisches-repertoire-divider {
+        --repertoire-divider-width: 32px;
+        --repertoire-divider-height: 3px;
+        white-space: normal;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        hyphens: auto;
+    }
+
+    .musikalisches-repertoire-list {
+        --repertoire-list-font-size: clamp(1.02rem, 3.45vw, 1.08rem);
+        --repertoire-list-max-width: 100%;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .musikalisches-repertoire-list li {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 20px;
+        line-height: 1.5;
+    }
+
+    .musikalisches-repertoire-card--repertoire .repertoire-story-card {
+        gap: 8px;
+        padding: 20px 14px 16px;
+        border-radius: 18px;
+    }
+
+    .musikalisches-repertoire-card--repertoire .repertoire-story-grid {
+        gap: 12px;
+    }
+
+    .musikalisches-repertoire-card--repertoire .repertoire-story-card::before {
+        left: 14px;
+        top: 14px;
+        width: 34px;
+    }
+
+    .musikalisches-repertoire-card--repertoire .repertoire-story-card--ensembles .repertoire-story-card-copy {
+        margin-bottom: 12px;
+    }
+
+    .musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-support li,
+    .musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-project li {
+        padding: 14px 14px 14px 18px;
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    .musikalisches-repertoire-card--engagement .musikalisches-repertoire-list li::before {
+        left: 8px;
+        top: 14px;
+        width: 3px;
+        height: 22px;
+    }
+
+    .musikalisches-repertoire-intro {
+        margin-bottom: 12px;
+        font-size: 1rem;
+        line-height: 1.64;
+        text-align: left;
+        text-justify: auto;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        overflow-wrap: break-word;
+        text-wrap: pretty;
+    }
+
+    .repertoire-highlight-grid,
+    .engagement-focus-grid {
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .repertoire-highlight-card,
+    .engagement-focus-card {
+        padding: 14px 14px 13px;
+        border-radius: 16px;
+    }
+
+    .musikalisches-repertoire-card--repertoire .repertoire-story-card-title {
+        font-size: var(--premium-card-title-mobile-size);
+        line-height: var(--premium-card-title-line-height);
+    }
+
+    .musikalisches-repertoire-card--repertoire .repertoire-story-card-copy {
+        font-size: 1rem;
+        line-height: 1.62;
+        max-width: none;
+        width: 100%;
+        text-align: left;
+        text-justify: auto;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        overflow-wrap: break-word;
+        text-wrap: pretty;
+    }
+
+    .repertoire-highlight-copy,
+    .engagement-focus-copy {
+        font-size: 1rem;
+        line-height: 1.62;
+    }
+
+    .engagement-focus-title,
+    .musikalisches-repertoire-card--engagement .charity-certificate-card-title {
+        font-size: var(--premium-card-title-mobile-size);
+        line-height: var(--premium-card-title-line-height);
+    }
+
+    .musikalisches-repertoire-card--engagement .engagement-focus-copy {
+        text-align: left;
+        text-justify: auto;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        word-break: normal;
+        overflow-wrap: break-word;
+        text-wrap: pretty;
+    }
+
+    .ensemble-chip-list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        white-space: normal;
+    }
+
+    .ensemble-chip {
+        display: inline-flex;
+        min-height: 36px;
+        justify-content: flex-start;
+        max-width: 100%;
+        padding: 8px 14px;
+        font-size: 0.98rem;
+        line-height: 1.32;
+        white-space: normal;
+        text-align: left;
+    }
+
+    .musikalisches-repertoire-card--engagement .charity-certificate-img {
+        width: 100%;
+        max-width: none;
+        max-height: none;
+        margin-top: 4px;
+    }
+
+    .musikalisches-repertoire-card--engagement .charity-certificate-card {
+        grid-column: 1;
+        align-self: start;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        padding: 12px 12px 14px 22px;
+        border-radius: 16px;
+        border: 1px solid rgba(18, 62, 70, 0.12);
+        background: transparent;
+    }
+
+    .musikalisches-repertoire-card--engagement .charity-certificate-card::before {
+        left: 8px;
+        top: 14px;
+        height: 22px;
+    }
+
+    .musikalisches-repertoire-card--engagement {
+        row-gap: 14px;
+    }
+
+    .musikalisches-repertoire-card--engagement .musikalisches-repertoire-intro {
+        margin-bottom: 0;
+    }
+
+    .musikalisches-repertoire-card--engagement .musikalisches-repertoire-card-header {
+        margin-bottom: 0;
+    }
+
+    .musikalisches-repertoire-card--engagement .engagement-support-column > .musikalisches-repertoire-list,
+    .musikalisches-repertoire-card--engagement .engagement-project-column > .musikalisches-repertoire-list {
+        margin-top: 0;
+    }
+
+    .musikalisches-repertoire-card--engagement .charity-list-item {
+        font-size: 1rem;
+        line-height: 1.62;
+    }
+
+    .musikalisches-repertoire-card--engagement .charity-list-item-certificate-copy {
+        font-size: 1rem;
+        line-height: 1.62;
+        max-width: none;
+    }
+
+    .musikalisches-repertoire-card--engagement .charity-certificate-card {
+        border-radius: 16px;
+    }
+
+    .musikalisches-repertoire-card--engagement .charity-list-item--project {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 14px 14px 14px 16px;
+    }
+
+    .musikalisches-repertoire-card--engagement .charity-list-item--project .kinshasa-card-img {
+        grid-column: auto;
+        grid-row: auto;
+        width: 100%;
+        max-width: 100%;
+        max-height: none;
+        margin-left: 0;
+        justify-self: stretch;
+        border-radius: 16px;
+    }
+}
+
+:root[data-theme="dark"] .musikalisches-repertoire-section {
+    --repertoire-bg: var(--theme-bg-canvas);
+    --repertoire-surface: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+    --repertoire-title-color: #f7fbfa;
+    --repertoire-copy-color: #d7ebe8;
+    --repertoire-copy-soft: #d7ebe8;
+    --repertoire-detail-border: rgba(229, 240, 238, 0.14);
+    --repertoire-feature-surface: rgba(var(--theme-dark-brand-deep-rgb), 0.82);
+    --repertoire-detail-surface: rgba(var(--theme-dark-brand-deep-rgb), 0.82);
+    --repertoire-chip-bg: rgba(var(--theme-dark-brand-deep-rgb), 0.96);
+    --repertoire-chip-border: rgba(var(--color-secondary-rgb), 0.3);
+    --repertoire-chip-color: #f7fbfa;
+    border-top-color: rgba(var(--color-secondary-rgb), 0.16);
+}
+
+:root[data-theme="dark"] .musikalisches-repertoire-card--repertoire,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement {
+    --repertoire-title-color: #f7fbfa;
+    --repertoire-copy-color: #deefec;
+    --repertoire-copy-soft: #deefec;
+}
+
+:root[data-theme="dark"] .musikalisches-repertoire-card,
+:root[data-theme="dark"] .musikalisches-repertoire-card--repertoire,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement,
+:root[data-theme="dark"] .musikalisches-repertoire-card--repertoire .repertoire-story-card,
+:root[data-theme="dark"] .repertoire-highlight-card,
+:root[data-theme="dark"] .engagement-focus-card,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .engagement-focus-card--primary,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .engagement-focus-card--secondary,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .charity-certificate-img,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .charity-list-item--project .kinshasa-card-img {
+    background: rgba(var(--theme-dark-brand-muted-rgb), 0.96);
+    border-color: rgba(229, 240, 238, 0.18);
+}
+
+:root[data-theme="dark"] .ensemble-chip {
+    background: var(--repertoire-chip-bg);
+    border-color: var(--repertoire-chip-border);
+}
+
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .charity-certificate-card {
+    background: transparent;
+    border: 1px solid rgba(229, 240, 238, 0.18);
+}
+
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .charity-certificate-img {
+    background: transparent;
+    border-color: rgba(229, 240, 238, 0.22);
+}
+
+:root[data-theme="dark"] .musikalisches-repertoire-card--repertoire .musikalisches-repertoire-list li,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-support li,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .musikalisches-repertoire-list-project li {
+    color: #deefec;
+    background: rgba(var(--theme-dark-brand-deep-rgb), 0.84);
+    border-color: rgba(229, 240, 238, 0.18);
+}
+
+:root[data-theme="dark"] .musikalisches-repertoire-intro,
+:root[data-theme="dark"] .repertoire-story-card-copy,
+:root[data-theme="dark"] .repertoire-highlight-copy,
+:root[data-theme="dark"] .engagement-focus-copy,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .charity-list-item-certificate-copy {
+    color: #deefec;
+}
+
+:root[data-theme="dark"] .musikalisches-repertoire-title,
+:root[data-theme="dark"] .repertoire-story-card-title,
+:root[data-theme="dark"] .repertoire-highlight-title,
+:root[data-theme="dark"] .musikalisches-repertoire-list li > span,
+:root[data-theme="dark"] .engagement-focus-title,
+:root[data-theme="dark"] .musikalisches-repertoire-card--engagement .charity-certificate-card-title,
+:root[data-theme="dark"] .ensemble-chip {
+    color: #f7fbfa;
+}

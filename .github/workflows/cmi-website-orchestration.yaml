@@ -4,20 +4,33 @@
 # version: 2022-07-21
 
 name: "Deploy Now: Orchestration"
-run-name: "Deploy Now: Build cmi-website · ${{ github.event.head_commit.message || format('Triggered by {0}', github.triggering_actor) }}"
+run-name: "Deploy Now: Build cmi-website · ${{ github.event.head_commit.message || format('Triggered by {0}', github.actor) }}"
 
 on:
-  - push
-  - workflow_dispatch
+  push:
+  workflow_dispatch:
 
 jobs:
+  quality-gate:
+    name: quality gate
+    uses: ./.github/workflows/site-quality-gate.yaml
+    secrets: inherit
+
   retrieve-project:
     name: check readiness
+    needs: quality-gate
+    if: ${{ needs.quality-gate.result == 'success' }}
     runs-on: ubuntu-latest
     outputs:
       deployment-enabled: ${{ fromJson(steps.project.outputs.info).deployment-enabled }}
       branch-id: ${{ fromJson(steps.project.outputs.info).branch-id }}
+      source-sha: ${{ steps.source.outputs.sha }}
     steps:
+      - name: Resolve source revision
+        id: source
+        shell: bash
+        run: echo "sha=${{ github.sha }}" >> "$GITHUB_OUTPUT"
+
       - name: Fetch project data
         uses: ionos-deploy-now/project-action@v1
         id: project
@@ -31,11 +44,12 @@ jobs:
   build:
     name: build
     needs: retrieve-project
-    if: ${{ needs.retrieve-project.outputs.deployment-enabled == 'true' }}
+    if: ${{ needs.retrieve-project.result == 'success' && needs.retrieve-project.outputs.deployment-enabled == 'true' }}
     uses: ./.github/workflows/cmi-website-build.yaml
     with:
       site-url: https://IONOS_DEPLOY_NOW_SITE_URL
       branch-id: ${{ needs.retrieve-project.outputs.branch-id }}
+      source-sha: ${{ needs.retrieve-project.outputs.source-sha }}
     secrets: inherit
 
   deploy:

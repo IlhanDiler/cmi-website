@@ -1,0 +1,738 @@
+.music-family-section {
+    --music-family-shell-width: var(--layout-shell-width);
+    --music-family-heading: #0c3038;
+    --music-family-accent: var(--color-secondary);
+    --music-family-copy: #1b3941;
+    --music-family-copy-soft: #274850;
+    --music-family-card-border: rgba(18, 62, 70, 0.14);
+    --music-family-card-shadow: none;
+    --music-family-card-highlight: #ffffff;
+    --music-family-group-title-size-premium: var(--premium-card-title-size);
+    --music-family-group-title-size-mobile-premium: var(--premium-card-title-mobile-size);
+    --music-family-group-title-line-height-premium: var(--premium-card-title-line-height);
+    --music-family-group-title-letter-spacing-premium: var(--premium-card-title-letter-spacing);
+    --music-family-group-lead-size-premium: var(--premium-body-size);
+    --music-family-group-lead-size-mobile-premium: var(--premium-body-mobile-size);
+    --music-family-group-lead-line-height-premium: 1.64;
+    --music-family-group-label-size-premium: var(--premium-label-size);
+    --music-family-group-label-line-height-premium: var(--premium-label-line-height);
+    --music-family-group-label-letter-spacing-premium: var(--premium-label-letter-spacing);
+    --music-family-group-label-weight-premium: var(--premium-label-weight);
+    --music-family-group-body-size-premium: var(--premium-body-size);
+    --music-family-group-body-size-mobile-premium: var(--premium-body-mobile-size);
+    --music-family-group-body-line-height-premium: var(--premium-body-line-height);
+    --music-family-group-body-line-height-mobile-premium: var(--premium-body-mobile-line-height);
+    --music-family-group-body-weight-premium: var(--premium-body-weight);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    font-family: var(--font-ui-modern);
+    background: var(--section-tone-b);
+    padding: var(--layout-section-gap-desktop) 0 calc(var(--layout-section-gap-desktop) - 6px);
+    border-bottom: 1px solid rgba(17, 52, 58, 0.1);
+}
+
+.music-family-section .music-family-container {
+    width: var(--music-family-shell-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.music-family-section .music-family-title {
+    max-width: 11ch;
+    margin: 0 0 16px !important;
+    color: var(--music-family-heading);
+    font-family: var(--font-ui-modern) !important;
+    font-size: var(--premium-title-size) !important;
+    font-weight: 580 !important;
+    line-height: var(--premium-title-line-height) !important;
+    letter-spacing: var(--premium-title-letter-spacing) !important;
+    text-align: left !important;
+    text-wrap: balance;
+}
+
+.music-family-section .music-family-title-accent {
+    color: var(--music-family-accent);
+}
+
+.music-family-section .music-family-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 56ch;
+    margin: 0 0 28px;
+    gap: 14px;
+}
+
+.music-family-section .music-family-highlights,
+.music-family-section .music-family-benefits,
+.music-family-section .music-family-groups,
+.music-family-section .music-family-group-facts,
+.music-family-section .music-family-group-details {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.music-family-section .music-family-desc {
+    margin: 0;
+    color: var(--music-family-copy-soft);
+    font-family: var(--font-ui-modern) !important;
+    font-size: var(--premium-lead-size) !important;
+    font-weight: 560 !important;
+    line-height: var(--premium-lead-line-height) !important;
+    letter-spacing: var(--premium-lead-letter-spacing) !important;
+    text-align: left !important;
+    text-wrap: pretty;
+}
+
+.music-family-section .music-family-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 18px !important;
+    margin-bottom: 28px !important;
+}
+
+.music-family-section .music-family-highlight-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 0;
+    padding: 22px 22px 18px !important;
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid var(--music-family-card-border);
+    border-radius: 22px !important;
+    box-shadow: var(--music-family-card-shadow);
+}
+
+.music-family-section .music-family-highlight-title,
+.music-family-section .music-family-contact-title,
+.music-family-group-title {
+    color: var(--music-family-heading);
+    font-family: var(--font-ui-modern) !important;
+}
+
+.music-family-section .music-family-highlight-title,
+.music-family-section .music-family-contact-title {
+    margin: 0 0 10px !important;
+    font-size: var(--premium-card-title-size) !important;
+    font-weight: 600 !important;
+    line-height: var(--premium-card-title-line-height) !important;
+    letter-spacing: var(--premium-card-title-letter-spacing) !important;
+    text-wrap: balance;
+}
+
+.music-family-section .music-family-highlight-copy {
+    margin: 0;
+    color: var(--music-family-copy);
+    font-family: var(--font-ui-modern) !important;
+    font-size: var(--premium-body-size) !important;
+    font-weight: 500 !important;
+    line-height: 1.64 !important;
+    letter-spacing: var(--premium-body-letter-spacing) !important;
+    text-align: left;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: normal;
+    text-wrap: pretty;
+}
+
+.music-family-section .music-family-desc,
+.music-family-section .music-family-highlight-copy,
+.music-family-section .music-family-benefits li,
+.music-family-group-lead,
+.music-family-group-details li {
+    text-align: left !important;
+    text-justify: auto !important;
+}
+
+.music-family-section .music-family-benefits-row {
+    --music-family-benefits-gap: 24px;
+    --music-family-benefits-margin-bottom: 38px;
+    --music-family-benefits-padding: 24px 28px 22px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.18fr) minmax(140px, 180px);
+    align-items: center;
+    gap: var(--music-family-benefits-gap);
+    margin-bottom: var(--music-family-benefits-margin-bottom);
+    padding: var(--music-family-benefits-padding);
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid var(--music-family-card-border);
+    border-radius: 28px !important;
+    box-shadow: var(--music-family-card-shadow);
+}
+
+.music-family-section .music-family-benefits {
+    display: grid;
+    gap: 12px;
+    max-width: 44rem;
+}
+
+.music-family-section .music-family-benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--music-family-copy);
+    font-family: var(--font-ui-modern);
+    font-size: var(--premium-body-size);
+    font-weight: 500;
+    line-height: 1.64;
+    letter-spacing: var(--premium-body-letter-spacing);
+}
+
+.music-family-section .music-family-benefits li > span:last-child {
+    text-align: left;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: normal;
+    text-wrap: pretty;
+}
+
+.music-family-section .music-family-benefit-check {
+    flex: 0 0 1.22rem;
+    width: 1.22rem;
+    height: 1.22rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.14rem;
+    border-radius: 999px;
+    background: var(--music-family-accent);
+    color: #ffffff;
+    font-size: 0.74rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.music-family-section .music-family-logo-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    max-width: 180px;
+    box-sizing: border-box;
+    padding: 18px 20px;
+    background: rgba(250, 253, 252, 0.98);
+    border: 1px solid rgba(18, 62, 70, 0.1);
+    border-radius: 22px;
+}
+
+.music-family-section .music-family-logo-mobile img {
+    display: block;
+    width: 100%;
+    max-width: 148px;
+    height: auto;
+}
+
+.music-family-section .music-family-groups {
+    --music-family-groups-gap: 24px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: var(--music-family-groups-gap) !important;
+}
+
+.music-family-group {
+    --music-family-group-padding: 28px 24px 22px;
+    --music-family-group-radius: 28px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: var(--music-family-group-padding);
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid var(--music-family-card-border);
+    border-top: 4px solid var(--music-family-accent);
+    border-radius: var(--music-family-group-radius);
+    box-shadow: var(--music-family-card-shadow);
+}
+
+.music-family-group-title {
+    margin: 0 0 12px !important;
+    font-size: var(--music-family-group-title-size-premium) !important;
+    font-weight: 600 !important;
+    line-height: var(--music-family-group-title-line-height-premium) !important;
+    letter-spacing: var(--music-family-group-title-letter-spacing-premium) !important;
+}
+
+.music-family-group-lead {
+    margin: 0 0 14px;
+    color: var(--music-family-copy);
+    font-family: var(--font-ui-modern);
+    font-size: var(--music-family-group-lead-size-premium);
+    font-weight: 500;
+    line-height: var(--music-family-group-lead-line-height-premium);
+    letter-spacing: 0;
+    text-wrap: pretty;
+}
+
+.music-family-group:first-child .music-family-group-lead[data-lang="de"] {
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    text-wrap: auto;
+}
+
+.music-family-section .music-family-group-facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.music-family-section .music-family-group-fact {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    padding: 12px 13px 11px;
+    background: rgba(238, 245, 243, 0.92);
+    border: 1px solid rgba(18, 62, 70, 0.1);
+    border-radius: 16px;
+}
+
+.music-family-group-fact-label,
+.music-family-group-details li b {
+    font-family: var(--font-ui-modern);
+    font-size: var(--music-family-group-label-size-premium);
+    font-weight: var(--music-family-group-label-weight-premium);
+    line-height: var(--music-family-group-label-line-height-premium);
+    letter-spacing: var(--music-family-group-label-letter-spacing-premium);
+}
+
+.music-family-group-fact-value,
+.music-family-group-details li {
+    font-family: var(--font-ui-modern);
+    font-size: var(--music-family-group-body-size-premium);
+    font-weight: var(--music-family-group-body-weight-premium);
+    line-height: var(--music-family-group-body-line-height-premium);
+}
+
+.music-family-group-fact-value {
+    display: block;
+    color: var(--music-family-heading);
+    letter-spacing: -0.008em;
+}
+
+.music-family-section .music-family-group-details {
+    display: grid;
+    gap: 10px;
+}
+
+.music-family-group-details li {
+    padding: 14px 14px 13px;
+    background: var(--premium-surface-soft);
+    border: 1px solid rgba(18, 62, 70, 0.08);
+    border-radius: 16px;
+    letter-spacing: -0.004em;
+}
+
+.music-family-group-details li b {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--music-family-accent);
+}
+
+.music-family-group-details .address-part {
+    display: block;
+}
+
+.music-family-section .music-family-contact {
+    margin-top: 20px;
+}
+
+.music-family-section .music-family-contact-title {
+    margin-bottom: 8px !important;
+}
+
+.music-family-section .music-family-contact-card {
+    width: min(100%, 560px);
+    box-sizing: border-box;
+    padding: 16px 18px;
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid var(--music-family-card-border);
+    border-radius: 18px;
+    box-shadow: var(--music-family-card-shadow);
+}
+
+.music-family-section .music-family-contact-name {
+    display: inline-block;
+    margin-bottom: 6px;
+    color: var(--music-family-heading);
+    font-family: var(--font-ui-modern) !important;
+    font-size: var(--premium-label-size) !important;
+    font-weight: var(--premium-label-weight) !important;
+    line-height: var(--premium-label-line-height) !important;
+    letter-spacing: var(--premium-label-letter-spacing) !important;
+    text-transform: uppercase;
+}
+
+.music-family-section .music-family-contact-link {
+    color: var(--music-family-heading);
+    font-family: var(--font-ui-modern) !important;
+    font-size: var(--premium-body-size) !important;
+    font-weight: 500 !important;
+    line-height: 1.64 !important;
+    letter-spacing: 0 !important;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+:root[data-theme="dark"] .music-family-section {
+    --music-family-heading: #f7fbfa;
+    --music-family-copy: #d7ebe8;
+    --music-family-copy-soft: #d7ebe8;
+    --music-family-card-border: rgba(229, 240, 238, 0.14);
+    --music-family-card-highlight: rgba(var(--theme-dark-brand-deep-rgb), 0.96);
+    background: var(--theme-bg-canvas);
+    border-bottom-color: rgba(var(--color-secondary-rgb), 0.14);
+}
+
+:root[data-theme="dark"] .music-family-section .music-family-highlight-card,
+:root[data-theme="dark"] .music-family-group,
+:root[data-theme="dark"] .music-family-section .music-family-contact-card {
+    background: rgba(var(--theme-dark-brand-muted-rgb), 0.94);
+}
+
+:root[data-theme="dark"] .music-family-section .music-family-benefits-row,
+:root[data-theme="dark"] .music-family-section .music-family-logo-mobile,
+:root[data-theme="dark"] .music-family-section .music-family-group-fact,
+:root[data-theme="dark"] .music-family-group-details li {
+    background: rgba(var(--theme-dark-brand-deep-rgb), 0.82);
+    border-color: rgba(229, 240, 238, 0.12);
+}
+
+:root[data-theme="dark"] .music-family-section .music-family-contact-link {
+    color: #f7fbfa;
+}
+
+@media (min-width: 1180px) {
+    .music-family-section {
+        --music-family-shell-width: var(--layout-shell-width-wide);
+    }
+
+    .music-family-section .music-family-container {
+        max-width: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .music-family-section .music-family-intro {
+        max-width: 60ch;
+        margin-bottom: 32px;
+    }
+
+    .music-family-section .music-family-title {
+        font-size: clamp(2.12rem, 2.85vw, 3.02rem) !important;
+        font-weight: 580 !important;
+        line-height: 1.01 !important;
+        letter-spacing: -0.046em !important;
+    }
+
+    .music-family-section .music-family-highlights {
+        gap: clamp(20px, 1.8vw, 28px) !important;
+        margin-bottom: 32px !important;
+    }
+
+    .music-family-section .music-family-highlight-card {
+        padding: 24px 24px 20px !important;
+    }
+
+    .music-family-section .music-family-benefits-row {
+        --music-family-benefits-gap: clamp(28px, 2.6vw, 36px);
+        --music-family-benefits-margin-bottom: 42px;
+        --music-family-benefits-padding: 28px 34px 26px;
+        grid-template-columns: minmax(0, 1.24fr) minmax(168px, 220px);
+    }
+
+    .music-family-section .music-family-groups {
+        --music-family-groups-gap: clamp(26px, 2vw, 34px);
+    }
+
+    .music-family-section .music-family-contact-card {
+        width: min(100%, 620px);
+    }
+
+    .music-family-section .music-family-highlight-title,
+    .music-family-section .music-family-contact-title,
+    .music-family-group-title {
+        font-family: var(--font-ui-modern) !important;
+        font-weight: 600 !important;
+        line-height: var(--premium-card-title-line-height) !important;
+        letter-spacing: var(--premium-card-title-letter-spacing) !important;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 1024px) {
+    .music-family-section {
+        padding: var(--layout-section-gap-tablet) 0 calc(var(--layout-section-gap-tablet) - 8px);
+    }
+
+    .music-family-section .music-family-container {
+        width: var(--layout-shell-width-relaxed);
+        padding: 0 16px;
+    }
+
+    .music-family-section .music-family-title {
+        max-width: 12ch;
+        font-size: var(--premium-title-size) !important;
+    }
+
+    .music-family-section .music-family-intro {
+        margin-bottom: 24px;
+    }
+
+    .music-family-section .music-family-highlights {
+        grid-template-columns: 1fr;
+        gap: 16px !important;
+        margin-bottom: 24px !important;
+    }
+
+    .music-family-section .music-family-highlight-card {
+        padding: 20px 20px 18px !important;
+        border-radius: 20px !important;
+    }
+
+    .music-family-section .music-family-benefits-row {
+        --music-family-benefits-gap: 20px;
+        --music-family-benefits-margin-bottom: 30px;
+        --music-family-benefits-padding: 24px 22px 22px;
+        grid-template-columns: 1fr;
+        border-radius: 24px !important;
+    }
+
+    .music-family-section .music-family-logo-mobile {
+        justify-self: start;
+    }
+
+    .music-family-section .music-family-groups {
+        grid-template-columns: 1fr;
+    }
+
+    .music-family-section .music-family-group-facts {
+        grid-template-columns: minmax(0, 1.48fr) minmax(0, 0.92fr) minmax(0, 0.8fr);
+    }
+
+    .music-family-section .music-family-group-fact:nth-child(1) .music-family-group-fact-value {
+        white-space: nowrap;
+    }
+}
+
+@media (min-width: 821px) and (max-width: 1024px) {
+    .music-family-section .music-family-title,
+    .music-family-section .music-family-intro {
+        max-width: none;
+    }
+
+    .music-family-section .music-family-benefits-row {
+        --music-family-benefits-gap: clamp(18px, 2.4vw, 26px);
+        grid-template-columns: minmax(0, 1fr) minmax(150px, 190px);
+        align-items: center;
+    }
+
+    .music-family-section .music-family-benefits {
+        max-width: none;
+    }
+
+    .music-family-section .music-family-logo-mobile {
+        justify-self: end;
+        align-self: center;
+        width: 100%;
+    }
+}
+
+@media (min-width: 821px) and (max-width: 1199px) {
+    .music-family-section .music-family-container {
+        width: var(--layout-shell-width-relaxed);
+        max-width: 100%;
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+}
+
+@media (min-width: 1025px) {
+    .music-family-section .music-family-group-facts {
+        grid-template-columns: minmax(0, 1.52fr) minmax(0, 0.9fr) minmax(0, 0.78fr);
+    }
+
+    .music-family-section .music-family-group-fact:nth-child(1) .music-family-group-fact-value {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 600px) {
+    .music-family-section {
+        padding: var(--layout-section-gap-mobile) 0 calc(var(--layout-section-gap-mobile) - 10px);
+    }
+
+    .music-family-section .music-family-container {
+        width: min(100%, calc(100% - 24px));
+        max-width: 100%;
+        padding: 0 12px;
+        box-sizing: border-box;
+    }
+
+    .music-family-section .music-family-title {
+        max-width: 100%;
+        margin-bottom: 12px !important;
+        font-size: clamp(1.32rem, 5.8vw, 1.56rem) !important;
+        line-height: 1.12 !important;
+        letter-spacing: -0.022em !important;
+    }
+
+    .music-family-section .music-family-intro {
+        max-width: none;
+        margin-bottom: 18px;
+    }
+
+    .music-family-section .music-family-desc {
+        font-size: 0.98rem !important;
+        line-height: 1.6 !important;
+    }
+
+    .music-family-section .music-family-highlights {
+        grid-template-columns: 1fr;
+        gap: 10px !important;
+        margin-bottom: 16px !important;
+    }
+
+    .music-family-section .music-family-highlight-card {
+        padding: 16px 16px 15px !important;
+        border-radius: 20px !important;
+    }
+
+    .music-family-section .music-family-highlight-title,
+    .music-family-section .music-family-contact-title {
+        font-size: clamp(1.04rem, 4.9vw, 1.18rem) !important;
+        line-height: 1.18 !important;
+    }
+
+    .music-family-section .music-family-highlight-copy {
+        font-size: 0.97rem !important;
+        line-height: 1.58 !important;
+        text-align: left !important;
+        text-justify: auto !important;
+        text-wrap: pretty;
+    }
+
+    .music-family-section .music-family-benefits-row {
+        --music-family-benefits-gap: 14px;
+        --music-family-benefits-margin-bottom: 18px;
+        --music-family-benefits-padding: 18px 14px 16px;
+        grid-template-columns: 1fr;
+        border-radius: 22px !important;
+    }
+
+    .music-family-section .music-family-benefits {
+        gap: 10px;
+    }
+
+    .music-family-section .music-family-benefits li {
+        font-size: 1rem;
+        line-height: 1.62;
+    }
+
+    .music-family-section .music-family-logo-mobile {
+        padding: 16px 18px;
+    }
+
+    .music-family-section .music-family-groups {
+        --music-family-groups-gap: 12px;
+        grid-template-columns: 1fr;
+    }
+
+    .music-family-group {
+        --music-family-group-padding: 14px 14px 12px;
+        --music-family-group-radius: 18px;
+    }
+
+    .music-family-group-title {
+        font-size: var(--music-family-group-title-size-mobile-premium) !important;
+    }
+
+    .music-family-group-lead {
+        margin-bottom: 12px;
+        font-size: var(--music-family-group-lead-size-mobile-premium);
+        line-height: 1.62;
+    }
+
+    .music-family-section .music-family-group-facts {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .music-family-section .music-family-group-fact {
+        padding: 10px 11px 9px;
+        border-radius: 14px;
+    }
+
+    .music-family-group-fact-label {
+        font-size: 0.78rem;
+    }
+
+    .music-family-group-details li {
+        padding: 10px 12px;
+        border-radius: 14px;
+        font-size: var(--music-family-group-body-size-mobile-premium);
+        line-height: var(--music-family-group-body-line-height-mobile-premium);
+    }
+
+    .music-family-group-details li b {
+        margin-bottom: 5px;
+        font-size: 0.78rem;
+    }
+
+    .music-family-section .music-family-contact-name {
+        font-size: 0.8rem !important;
+        letter-spacing: 0.1em !important;
+    }
+
+    .music-family-section .music-family-contact-card {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 16px;
+    }
+
+    .music-family-section .music-family-contact-link {
+        font-size: 1rem !important;
+        line-height: 1.62 !important;
+    }
+}
+
+@media (max-width: 390px) {
+    .music-family-section .music-family-container {
+        width: min(100%, calc(100% - 20px));
+        padding: 0 10px;
+    }
+
+    .music-family-section .music-family-title {
+        font-size: clamp(1.24rem, 5.5vw, 1.42rem) !important;
+    }
+
+    .music-family-section .music-family-highlight-card {
+        padding: 15px 14px 14px !important;
+    }
+
+    .music-family-section .music-family-desc,
+    .music-family-section .music-family-highlight-copy,
+    .music-family-section .music-family-benefits li,
+    .music-family-group-lead,
+    .music-family-group-details li,
+    .music-family-section .music-family-contact-link {
+        font-size: 0.95rem !important;
+        line-height: 1.56 !important;
+    }
+}

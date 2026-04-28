@@ -1,0 +1,381 @@
+{
+  "targets": {
+    "homepage-news-feed-intro": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "news-feed-kicker",
+          "text": {
+            "de": "Aktuelles",
+            "en": "Latest",
+            "fr": "Actualites",
+            "ln": "Sika",
+            "it": "Novita",
+            "tr": "Guncel",
+            "uk": "Актуальне"
+          }
+        },
+        {
+          "type": "heading",
+          "level": 2,
+          "className": "news-feed-title",
+          "text": {
+            "de": "Aktuelle Einblicke aus dem CMI",
+            "en": "Current Highlights from CMI",
+            "fr": "Temps forts actuels du CMI",
+            "ln": "Makambo ya sika ya CMI",
+            "it": "Momenti attuali del CMI",
+            "tr": "CMI'dan guncel one cikanlar",
+            "uk": "Актуальні акценти CMI"
+          }
+        },
+        {
+          "type": "paragraph",
+          "className": "news-feed-intro",
+          "text": {
+            "de": "Rückblicke, Begegnungen und Benefizprojekte aus dem Ensemble. Die kommenden Konzerttermine findest du direkt im Eventbereich.",
+            "en": "Highlights from rehearsals, encounters, and benefit projects. You can find upcoming concert dates directly in the events section.",
+            "fr": "Des regards recents sur les repetitions, les rencontres et les projets solidaires. Les prochains concerts sont reunis directement dans la section des evenements.",
+            "ln": "Makambo ya sika uta na ba repetision, bokutani mpe misala ya lisungi. Mikolo ya ba konser oyo ezali koya ezali mbala moko na eteni ya evenements.",
+            "it": "Uno sguardo recente su prove, incontri e progetti benefici. Le prossime date dei concerti si trovano direttamente nella sezione eventi.",
+            "tr": "Provalar, bulusmalar ve yardim projelerinden guncel kesitler. Yaklasan konser tarihlerini dogrudan etkinlikler bolumunde bulabilirsin.",
+            "uk": "Свіжі огляди репетицій, зустрічей і благодійних проєктів. Найближчі концертні дати зібрані безпосередньо в розділі подій."
+          }
+        }
+      ]
+    },
+    "homepage-news-feed-cards": {
+      "file": "index.html",
+      "indentSpaces": 4,
+      "blocks": [
+        {
+          "type": "newsFeedCards",
+          "className": "news-feed-grid",
+          "items": [
+            {
+              "href": "#review-masterclass-florian-meierott",
+              "image": {
+                "src": "bilder/Masterclass_Meierott_14032026.jpeg",
+                "mode": "contained",
+                "alt": ""
+              },
+              "badge": {
+                "de": "Workshop",
+                "en": "Workshop",
+                "fr": "Atelier",
+                "ln": "Atelie",
+                "it": "Workshop",
+                "tr": "Atolye",
+                "uk": "Воркшоп"
+              },
+              "date": {
+                "de": "14. März 2026",
+                "en": "March 14, 2026",
+                "fr": "14 mars 2026",
+                "ln": "14 mars 2026",
+                "it": "14 marzo 2026",
+                "tr": "14 Mart 2026",
+                "uk": "14 березня 2026"
+              },
+              "title": {
+                "de": "Workshop mit Florian Meierott",
+                "en": "Workshop with Florian Meierott",
+                "fr": "Atelier avec Florian Meierott",
+                "ln": "Atelie elongo na Florian Meierott",
+                "it": "Workshop con Florian Meierott",
+                "tr": "Florian Meierott ile atolye",
+                "uk": "Воркшоп із Флоріаном Майєроттом"
+              },
+              "copy": {
+                "de": "Die Streichergruppe arbeitete an Klang, Technik und Ausdruck für die Frühlingskonzerte.",
+                "en": "The string group worked on sound, technique, and expression for the spring concerts.",
+                "fr": "Le groupe des cordes a travaille le son, la technique et l'expression pour les concerts de printemps.",
+                "ln": "Etuluku ya bansinga esalaki na son, technique mpe ndenge ya komonisa mayoki mpo na ba konser ya printemps.",
+                "it": "Il gruppo degli archi ha lavorato su suono, tecnica ed espressivita per i concerti di primavera.",
+                "tr": "Yayli grubu bahar konserleri icin ses, teknik ve ifade uzerinde calisti.",
+                "uk": "Струнна група працювала над звучанням, технікою та виразністю для весняних концертів."
+              },
+              "cta": {
+                "de": "Mehr entdecken",
+                "en": "Discover more",
+                "fr": "En savoir plus",
+                "ln": "Yeba lisusu",
+                "it": "Scopri di piu",
+                "tr": "Daha fazlasi",
+                "uk": "Докладніше"
+              }
+            },
+            {
+              "href": "#review-benefiz-trommelworkshop-2026",
+              "image": {
+                "src": "bilder/Trommelworkshop.jpeg",
+                "mode": "plain",
+                "alt": ""
+              },
+              "badge": {
+                "de": "Benefiz",
+                "en": "Benefit",
+                "fr": "Benefice",
+                "ln": "Lisungi",
+                "it": "Beneficenza",
+                "tr": "Yardim",
+                "uk": "Благодійність"
+              },
+              "date": {
+                "de": "Februar & März 2026",
+                "en": "February & March 2026",
+                "fr": "fevrier et mars 2026",
+                "ln": "fevrier mpe mars 2026",
+                "it": "febbraio e marzo 2026",
+                "tr": "Subat ve Mart 2026",
+                "uk": "лютий і березень 2026"
+              },
+              "title": {
+                "de": "Trommelworkshop mit Gästen aus dem Kongo",
+                "en": "Drum workshop with guests from the Congo",
+                "fr": "Atelier de percussions avec des invites du Congo",
+                "ln": "Atelie ya ngoma elongo na bapaya ya Congo",
+                "it": "Workshop di percussioni con ospiti dal Congo",
+                "tr": "Kongo'dan konuklarla davul atolyesi",
+                "uk": "Барабанний воркшоп із гостями з Конго"
+              },
+              "copy": {
+                "de": "Rhythmus, Begegnung und konkrete Unterstützung kamen in zwei offenen Workshops zusammen.",
+                "en": "Rhythm, encounter, and direct support came together in two open workshops.",
+                "fr": "Le rythme, la rencontre et l'aide concrete se sont reunis dans deux ateliers ouverts.",
+                "ln": "Rythme, bokutani mpe lisungi ya solo esanganaki na ba atelie mibale ya polele.",
+                "it": "Ritmo, incontro e sostegno concreto si sono uniti in due workshop aperti.",
+                "tr": "Ritim, karsilasma ve somut destek iki acik atolye calismasinda bulustu.",
+                "uk": "Ритм, зустріч і конкретна підтримка поєдналися у двох відкритих воркшопах."
+              },
+              "cta": {
+                "de": "Mehr entdecken",
+                "en": "Discover more",
+                "fr": "En savoir plus",
+                "ln": "Yeba lisusu",
+                "it": "Scopri di piu",
+                "tr": "Daha fazlasi",
+                "uk": "Докладніше"
+              }
+            },
+            {
+              "href": "#review-nikolausfeier-2025",
+              "image": {
+                "src": "bilder/nikolaus.jpeg",
+                "mode": "contained-portrait",
+                "alt": ""
+              },
+              "badge": {
+                "de": "Gemeinschaft",
+                "en": "Community",
+                "fr": "Communaute",
+                "ln": "Lisanga",
+                "it": "Comunita",
+                "tr": "Topluluk",
+                "uk": "Спільнота"
+              },
+              "date": {
+                "de": "Dezember 2025",
+                "en": "December 2025",
+                "fr": "decembre 2025",
+                "ln": "decembre 2025",
+                "it": "dicembre 2025",
+                "tr": "Aralik 2025",
+                "uk": "грудень 2025"
+              },
+              "title": {
+                "de": "Nikolausfeier 2025",
+                "en": "St. Nicholas celebration 2025",
+                "fr": "Fete de la Saint-Nicolas 2025",
+                "ln": "Feti ya Nikolaus 2025",
+                "it": "Festa di San Nicola 2025",
+                "tr": "Nikolaus kutlamasi 2025",
+                "uk": "Свято Миколая 2025"
+              },
+              "copy": {
+                "de": "Ein gemeinsamer Adventsvormittag mit Musik, Spielen und Begegnungen für Groß und Klein.",
+                "en": "A shared Advent morning with music, games, and encounters for all generations.",
+                "fr": "Une matinee de l'Avent partagee avec musique, jeux et rencontres pour petits et grands.",
+                "ln": "Tongo ya Advent ya lisanga elongo na miziki, masano mpe bokutani mpo na bana mpe bakolo.",
+                "it": "Una mattinata d'Avvento condivisa con musica, giochi e incontri per grandi e piccoli.",
+                "tr": "Her yastan insan icin muzik, oyun ve bulusmalarla dolu ortak bir Advent sabahi.",
+                "uk": "Спільний передріздвяний ранок із музикою, іграми та зустрічами для різних поколінь."
+              },
+              "cta": {
+                "de": "Mehr entdecken",
+                "en": "Discover more",
+                "fr": "En savoir plus",
+                "ln": "Yeba lisusu",
+                "it": "Scopri di piu",
+                "tr": "Daha fazlasi",
+                "uk": "Докладніше"
+              }
+            },
+            {
+              "href": "#review-christmette-2025",
+              "image": {
+                "src": "bilder/christmette_2025.jpg",
+                "mode": "plain",
+                "alt": ""
+              },
+              "badge": {
+                "de": "Christmette",
+                "en": "Christmas Mass",
+                "fr": "Messe de Noel",
+                "ln": "Misa ya Noel",
+                "it": "Messa di Natale",
+                "tr": "Noel ayini",
+                "uk": "Різдвяна меса"
+              },
+              "date": {
+                "de": "24. Dezember 2025",
+                "en": "December 24, 2025",
+                "fr": "24 decembre 2025",
+                "ln": "24 decembre 2025",
+                "it": "24 dicembre 2025",
+                "tr": "24 Aralik 2025",
+                "uk": "24 грудня 2025"
+              },
+              "title": {
+                "de": "Christmette 2025",
+                "en": "Christmas Mass 2025",
+                "fr": "Messe de Noel 2025",
+                "ln": "Misa ya Noel 2025",
+                "it": "Messa di Natale 2025",
+                "tr": "Noel ayini 2025",
+                "uk": "Різдвяна меса 2025"
+              },
+              "copy": {
+                "de": "Celloensemble, Blockflöten und Gesang gestalteten die Christmette in St. Thekla gemeinsam.",
+                "en": "Cello ensemble, recorders, and voices shaped the Christmas Mass together in St. Thekla.",
+                "fr": "L'ensemble de violoncelles, les flutes a bec et les voix ont accompagne ensemble la messe de Noel a Saint-Thekla.",
+                "ln": "Etuluku ya cello, ba flutes mpe mingongo esalaki elongo misa ya Noel na St. Thekla.",
+                "it": "Ensemble di violoncelli, flauti dolci e voci hanno animato insieme la messa di Natale a St. Thekla.",
+                "tr": "Viyolonsel toplulugu, blok flutler ve sesler St. Thekla'daki Noel ayinini birlikte sekillendirdi.",
+                "uk": "Ансамбль віолончелей, блокфлейти та голоси разом сформували Різдвяну месу в Санкт-Теклі."
+              },
+              "cta": {
+                "de": "Mehr entdecken",
+                "en": "Discover more",
+                "fr": "En savoir plus",
+                "ln": "Yeba lisusu",
+                "it": "Scopri di piu",
+                "tr": "Daha fazlasi",
+                "uk": "Докладніше"
+              }
+            },
+            {
+              "href": "#review-weihnachtskonzert-zum-mitsingen-2025",
+              "image": {
+                "src": "bilder/Weihnachtskonzert Spitalkirche 13.12.2025.jpeg",
+                "mode": "plain",
+                "alt": ""
+              },
+              "badge": {
+                "de": "Rueckblick",
+                "en": "Review",
+                "fr": "Retour",
+                "ln": "Makambo eleki",
+                "it": "Retrospettiva",
+                "tr": "Geri bakis",
+                "uk": "Огляд"
+              },
+              "date": {
+                "de": "13. Dezember 2025",
+                "en": "December 13, 2025",
+                "fr": "13 decembre 2025",
+                "ln": "13 decembre 2025",
+                "it": "13 dicembre 2025",
+                "tr": "13 Aralik 2025",
+                "uk": "13 грудня 2025"
+              },
+              "title": {
+                "de": "Weihnachtskonzert zum Mitsingen",
+                "en": "Christmas sing-along concert",
+                "fr": "Concert de Noel participatif",
+                "ln": "Konser ya Noel ya koyemba elongo",
+                "it": "Concerto di Natale da cantare insieme",
+                "tr": "Birlikte soylenen Noel konseri",
+                "uk": "Різдвяний концерт для спільного співу"
+              },
+              "copy": {
+                "de": "Ein gemeinsamer Abend mit Chor, Ensemble und Publikum zwischen Advent, Licht und Solidarität.",
+                "en": "A shared evening with choir, ensemble, and audience shaped by Advent, light, and solidarity.",
+                "fr": "Une soiree commune avec choeur, ensemble et public entre Avent, lumiere et solidarite.",
+                "ln": "Butu ya lisanga elongo na choeur, ensemble mpe bato nyonso kati na Advent, pole mpe solidarite.",
+                "it": "Una serata condivisa con coro, ensemble e pubblico tra Avvento, luce e solidarieta.",
+                "tr": "Koro, ensemble ve seyircinin Advent, isik ve dayanisma etrafinda bulustugu ortak bir aksam.",
+                "uk": "Спільний вечір хору, ансамблю та публіки між Адвентом, світлом і солідарністю."
+              },
+              "cta": {
+                "de": "Mehr entdecken",
+                "en": "Discover more",
+                "fr": "En savoir plus",
+                "ln": "Yeba lisusu",
+                "it": "Scopri di piu",
+                "tr": "Daha fazlasi",
+                "uk": "Докладніше"
+              }
+            },
+            {
+              "href": "#review-christmette-2024",
+              "image": {
+                "src": "bilder/Christmette 2024.jpg",
+                "mode": "plain",
+                "alt": ""
+              },
+              "badge": {
+                "de": "Archiv",
+                "en": "Archive",
+                "fr": "Archives",
+                "ln": "Archive",
+                "it": "Archivio",
+                "tr": "Arsiv",
+                "uk": "Архів"
+              },
+              "date": {
+                "de": "24. Dezember 2024",
+                "en": "December 24, 2024",
+                "fr": "24 decembre 2024",
+                "ln": "24 decembre 2024",
+                "it": "24 dicembre 2024",
+                "tr": "24 Aralik 2024",
+                "uk": "24 грудня 2024"
+              },
+              "title": {
+                "de": "Christmette 2024",
+                "en": "Christmas Mass 2024",
+                "fr": "Messe de Noel 2024",
+                "ln": "Misa ya Noel 2024",
+                "it": "Messa di Natale 2024",
+                "tr": "Noel ayini 2024",
+                "uk": "Різдвяна меса 2024"
+              },
+              "copy": {
+                "de": "Die musikalische Mitgestaltung der Christmette 2024 wurde zum Auftakt für weitere gemeinsame Adventsprojekte.",
+                "en": "The musical shaping of the Christmas Mass 2024 became the starting point for further shared Advent projects.",
+                "fr": "L'accompagnement musical de la messe de Noel 2024 a ouvert la voie a d'autres projets communs de l'Avent.",
+                "ln": "Kosangana na miziki na misa ya Noel 2024 ekomaki ebandeli ya misala mosusu ya Advent ya lisanga.",
+                "it": "L'accompagnamento musicale della messa di Natale 2024 e diventato l'inizio di altri progetti condivisi di Avvento.",
+                "tr": "Noel ayini 2024'un muzikle desteklenmesi, sonraki ortak Advent projeleri icin bir baslangic oldu.",
+                "uk": "Музичне оформлення Різдвяної меси 2024 стало початком подальших спільних адвентових проєктів."
+              },
+              "cta": {
+                "de": "Mehr entdecken",
+                "en": "Discover more",
+                "fr": "En savoir plus",
+                "ln": "Yeba lisusu",
+                "it": "Scopri di piu",
+                "tr": "Daha fazlasi",
+                "uk": "Докладніше"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Export | Collegium Musicum Iuvenale Ochsenfurt</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Interne Arbeitsseite zum Vorbereiten von Instagram-Posts auf Basis der bestehenden Share-Seiten.">
+    <link rel="icon" href="/files/logo_cmi1%20-%20schwarz.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="/files/logo_cmi1%20-%20wei%C3%9F.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="/files/logo_cmi1%20-%20schwarz.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="instagram-export.css?v=20260411-story-image-1">
+</head>
+<body>
+    <main class="export-shell">
+        <section class="export-hero">
+            <p class="export-hero__eyebrow">Interne Social-Media-Werkbank</p>
+            <h1 class="export-hero__title">Instagram-Posts und Stories aus der Website vorbereiten</h1>
+            <p class="export-hero__text">Die Seite liest Titel, Kurztext, Bild und Share-Link direkt aus den vorhandenen Share-Seiten. So pflegt ihr die Inhalte nicht doppelt und habt trotzdem sofort nutzbare Captions sowie exportierbare Layouts fuer Feed und Story.</p>
+            <div class="export-hero__actions">
+                <button class="export-button export-button--primary" type="button" id="copy-all-json">Alle Daten als JSON kopieren</button>
+                <a class="export-button export-button--ghost" href="masterclass-florian-meierott.html">Beispiel-Share-Seite ansehen</a>
+            </div>
+        </section>
+
+        <section class="export-guide" aria-label="Empfohlener Workflow">
+            <div class="export-guide__card">
+                <h2>Empfohlener Ablauf</h2>
+                <ol>
+                    <li>Beitrag auswaehlen, in der Vorschau 4:5 fuer Feed oder 9:16 fuer Story aktivieren und dann als PNG exportieren.</li>
+                    <li>Caption kopieren und in Instagram oder Meta Business Suite einfuegen.</li>
+                    <li>Share-Link separat kopieren und spaeter in Bio, Story oder einen Link-Sammeldienst setzen.</li>
+                </ol>
+            </div>
+            <div class="export-guide__card export-guide__card--note">
+                <h2>Wichtig fuer Instagram</h2>
+                <p>Instagram macht Links in normalen Beitrags-Captions nicht klickbar. Fuer eine klickbare Story muss nach dem Upload in Instagram ein Link-Sticker auf www.cmi-ochsenfurt.de gesetzt werden. Der PNG-Export fuer Feed und Story funktioniert ueber die live Website oder lokal ueber einen Webserver, aber nicht direkt ueber file://.</p>
+            </div>
+        </section>
+
+        <section class="export-toolbar" aria-label="Filter und Status">
+            <label class="export-search">
+                <span>Suche</span>
+                <input id="post-search" type="search" placeholder="Titel, Ort oder Stichwort durchsuchen" aria-controls="post-grid" aria-describedby="export-status">
+            </label>
+            <p class="export-status" id="export-status" role="status" aria-live="polite" aria-atomic="true">Share-Seiten werden geladen...</p>
+        </section>
+
+        <section class="export-grid" id="post-grid"></section>
+    </main>
+
+    <template id="post-card-template">
+        <article class="post-card">
+            <div class="post-card__media">
+                <img class="post-card__image" alt="">
+            </div>
+            <div class="post-card__body">
+                <div class="post-card__header">
+                    <p class="post-card__meta"></p>
+                    <h2 class="post-card__title"></h2>
+                </div>
+                <div class="post-card__content">
+                    <div class="post-card__overview">
+                        <div class="post-card__section-head">
+                            <p class="post-card__section-eyebrow">Visuelle Vorschau</p>
+                            <p class="post-card__section-note">4:5 oder 9:16 direkt in der Vorschau waehlen. Die PNG-Datei entsteht erst beim Export, nicht aus dem HTML selbst.</p>
+                        </div>
+                        <div class="preview-stack" role="group" aria-label="Vorlagen fuer Feed oder Story auswaehlen">
+                            <div class="preview-option preview-option--feed" data-export-format="feed" role="button" tabindex="0" aria-pressed="true" aria-label="Feed-Vorlage 4 zu 5 aktivieren">
+                                <div class="insta-preview" aria-hidden="true">
+                                    <div class="insta-preview__image-wrap">
+                                        <img class="insta-preview__backdrop-image" alt="" aria-hidden="true">
+                                        <img class="insta-preview__image" alt="" aria-hidden="true">
+                                        <div class="insta-preview__footer">
+                                            <p class="insta-preview__site">www.cmi-ochsenfurt.de</p>
+                                        </div>
+                                        <div class="insta-preview__badge">Instagram 4:5</div>
+                                    </div>
+                                    <div class="insta-preview__body">
+                                        <p class="insta-preview__brand">Collegium Musicum Iuvenale Ochsenfurt</p>
+                                        <p class="insta-preview__meta"></p>
+                                        <h3 class="insta-preview__title"></h3>
+                                        <p class="insta-preview__text"></p>
+                                    </div>
+                                </div>
+                                <div class="preview-option__footer" aria-hidden="true">
+                                    <p class="preview-option__label">Feed-Vorlage 4:5</p>
+                                    <p class="preview-option__state">Aktiv fuer Export</p>
+                                </div>
+                            </div>
+
+                            <div class="preview-option preview-option--story" data-export-format="story" role="button" tabindex="0" aria-pressed="false" aria-label="Story-Vorlage 9 zu 16 aktivieren">
+                                <div class="story-preview" aria-hidden="true">
+                                    <img class="story-preview__backdrop-image" alt="" aria-hidden="true">
+                                    <div class="story-preview__image-shell">
+                                        <img class="story-preview__image" alt="" aria-hidden="true">
+                                    </div>
+                                </div>
+                                <div class="preview-option__footer" aria-hidden="true">
+                                    <p class="preview-option__label">Story-Vorlage 9:16</p>
+                                    <p class="preview-option__state">Zum Aktivieren</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="post-card__text"></p>
+                        <div class="post-card__hashtags"></div>
+                    </div>
+
+                    <div class="post-card__workflow">
+                        <div class="post-card__section-head post-card__section-head--workflow">
+                            <p class="post-card__section-eyebrow">Arbeitsbereich</p>
+                            <p class="post-card__section-note">Erst Vorlage waehlen und exportieren. Caption und Link bleiben darunter separat kopierbar.</p>
+                        </div>
+                        <div class="post-card__format-summary" aria-live="polite" aria-atomic="true">
+                            <p class="post-card__format-kicker">Aktive Vorlage</p>
+                            <p class="post-card__format-value">Feed 4:5</p>
+                            <p class="post-card__format-note">Die Vorschau zeigt nur das Layout. Die eigentliche Datei entsteht ueber den PNG-Export.</p>
+                        </div>
+                        <div class="post-card__actions post-card__actions--exports">
+                            <button class="export-button export-button--primary post-card__export-feed" type="button">4:5 PNG exportieren</button>
+                            <button class="export-button export-button--secondary post-card__export-story" type="button">9:16 PNG exportieren</button>
+                        </div>
+                        <div class="post-card__actions post-card__actions--utility">
+                            <button class="export-button export-button--secondary post-card__copy-caption" type="button">Caption kopieren</button>
+                        </div>
+                        <div class="post-card__caption-head">
+                            <p class="post-card__caption-label">Caption</p>
+                            <p class="post-card__caption-note">Direkt kopierbar fuer Instagram oder die Meta Business Suite. Der Link kommt separat.</p>
+                        </div>
+                        <textarea class="post-card__caption" rows="8" readonly></textarea>
+                        <div class="post-card__actions post-card__actions--secondary">
+                            <button class="export-button export-button--secondary post-card__copy-link" type="button">Link kopieren</button>
+                            <a class="export-button export-button--ghost post-card__open-image" target="_blank" rel="noopener noreferrer">Bild oeffnen</a>
+                            <a class="export-button export-button--ghost post-card__open-share" target="_blank" rel="noopener noreferrer">Share-Seite</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <script src="instagram-export.js?v=20260411-story-image-1"></script>
+</body>
+</html>

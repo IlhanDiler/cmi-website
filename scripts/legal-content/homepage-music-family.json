@@ -1,0 +1,581 @@
+{
+  "targets": {
+    "homepage-music-family-title": {
+      "file": "index.html",
+      "indentSpaces": 4,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 2,
+          "className": "music-family-title",
+          "allowHtml": true,
+          "text": {
+            "de": "Werde Teil unserer <span class=\"music-family-title-accent\">Musikfamilie</span>",
+            "en": "Become part of our <span class=\"music-family-title-accent\">music family</span>",
+            "fr": "Fais partie de notre <span class=\"music-family-title-accent\">famille musicale</span>",
+            "ln": "Koma eteni ya <span class=\"music-family-title-accent\">libota ya miziki</span>",
+            "it": "Entra a far parte della nostra <span class=\"music-family-title-accent\">famiglia musicale</span>",
+            "tr": "<span class=\"music-family-title-accent\">Müzik ailemize</span> katıl",
+            "uk": "Стань частиною нашої <span class=\"music-family-title-accent\">музичної родини</span>"
+          }
+        }
+      ]
+    },
+    "homepage-music-family-intro": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "className": "music-family-desc",
+          "text": {
+            "de": "Wer Freude daran hat, gemeinsam Musik zu machen, ist bei uns herzlich willkommen. Im CMI geht es um Offenheit, gegenseitige Unterstützung und die gemeinsame Liebe zur Musik.",
+            "en": "Anyone who enjoys making music together is warmly welcome here. At CMI, openness, mutual support, and a shared love of music are at the heart of what we do.",
+            "fr": "Toutes les personnes qui aiment faire de la musique ensemble sont les bienvenues chez nous. Au CMI, l'ouverture, le soutien mutuel et l'amour partage de la musique sont essentiels.",
+            "ln": "Moto nyonso oyo asepelaka kosala miziki elongo azali boyei malamu kati na biso. Na CMI, polele, lisungi ya moko na moko mpe bolingo ya miziki ezali ya ntina mingi.",
+            "it": "Chi ama fare musica insieme è il benvenuto tra noi. Nel CMI contano l'apertura, il sostegno reciproco e l'amore condiviso per la musica.",
+            "tr": "Birlikte müzik yapmayı seven herkesi aramızda görmekten mutluluk duyarız. CMI'de açıklık, karşılıklı destek ve müziğe duyduğumuz ortak sevgi her şeyin merkezinde yer alır.",
+            "uk": "У нас щиро вітають кожного, хто любить музикувати разом. Для КМІ головними є відкритість, взаємна підтримка та спільна любов до музики."
+          }
+        }
+      ]
+    },
+    "homepage-music-family-highlights": {
+      "file": "index.html",
+      "indentSpaces": 8,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "music-family-highlights",
+          "allowHtml": true,
+          "text": {
+            "de": [
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Zeit füreinander</h3>",
+              "  <p class='music-family-highlight-copy'>Samstagvormittags treffen wir uns in Ochsenfurt zum Proben und für Zeit miteinander.</p>",
+              "</article>",
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Ehrenamtlich getragen</h3>",
+              "  <p class='music-family-highlight-copy'>Unser gemeinsames Musizieren lebt vom Ehrenamt und ist derzeit ohne Gebühren möglich.</p>",
+              "</article>",
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Offen für viele Wege</h3>",
+              "  <p class='music-family-highlight-copy'>Bei uns ist Platz für unterschiedliche Instrumente, Altersgruppen und musikalische Erfahrungen.</p>",
+              "</article>"
+            ],
+            "en": [
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Time together</h3>",
+              "  <p class='music-family-highlight-copy'>On Saturday mornings we meet in Ochsenfurt to rehearse and spend time together.</p>",
+              "</article>",
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Powered by volunteers</h3>",
+              "  <p class='music-family-highlight-copy'>Our music-making is powered by volunteers and currently has no participation fee.</p>",
+              "</article>",
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Open to many musical paths</h3>",
+              "  <p class='music-family-highlight-copy'>There is room here for different instruments, ages, and musical backgrounds.</p>",
+              "</article>"
+            ],
+            "fr": [
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Du temps les uns pour les autres</h3>",
+              "  <p class='music-family-highlight-copy'>Le samedi matin, nous nous retrouvons a Ochsenfurt pour repeter et passer du temps ensemble.</p>",
+              "</article>",
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Porte par le benevolat</h3>",
+              "  <p class='music-family-highlight-copy'>Notre pratique musicale commune vit du benevolat et ne demande actuellement aucun frais de participation.</p>",
+              "</article>",
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Ouvert a de nombreux parcours</h3>",
+              "  <p class='music-family-highlight-copy'>Il y a ici de la place pour differents instruments, ages et experiences musicales.</p>",
+              "</article>"
+            ],
+            "ln": [
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Ntango mpo na moko na moko</h3>",
+              "  <p class='music-family-highlight-copy'>Mokolo ya samedi na ntongo tokutanaka na Ochsenfurt mpo na repetition mpe mpo na kozala elongo.</p>",
+              "</article>",
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Esimbami na mosala ya bolingi</h3>",
+              "  <p class='music-family-highlight-copy'>Kosala miziki na biso etongami likolo ya mosala ya bolingi, mpe sikoyo esengaka mbongo ya kokota te.</p>",
+              "</article>",
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Esika mpo na bato ndenge na ndenge</h3>",
+              "  <p class='music-family-highlight-copy'>Awa ezali na esika mpo na bibetelo ndenge na ndenge, bileko nyonso mpe mayele ya miziki ndenge na ndenge.</p>",
+              "</article>"
+            ],
+            "it": [
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Tempo per stare insieme</h3>",
+              "  <p class='music-family-highlight-copy'>Il sabato mattina ci incontriamo a Ochsenfurt per fare le prove e stare insieme.</p>",
+              "</article>",
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Reso possibile dal volontariato</h3>",
+              "  <p class='music-family-highlight-copy'>La nostra attività musicale si regge sul volontariato e al momento non prevede quote di partecipazione.</p>",
+              "</article>",
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Aperti a percorsi diversi</h3>",
+              "  <p class='music-family-highlight-copy'>Nel CMI c'è spazio per strumenti, età ed esperienze musicali diverse.</p>",
+              "</article>"
+            ],
+            "tr": [
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Birlikte vakit</h3>",
+              "  <p class='music-family-highlight-copy'>Cumartesi sabahları Ochsenfurt'ta prova yapmak ve birlikte vakit geçirmek için buluşuyoruz.</p>",
+              "</article>",
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Gönüllü emekle sürüyor</h3>",
+              "  <p class='music-family-highlight-copy'>Birlikte müzik yapma yolculuğumuz gönüllü emekle sürüyor ve şu anda katılım ücreti alınmıyor.</p>",
+              "</article>",
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Farklı geçmişlere açık</h3>",
+              "  <p class='music-family-highlight-copy'>Burada farklı enstrümanlara, yaş gruplarına ve müzik deneyimlerine yer var.</p>",
+              "</article>"
+            ],
+            "uk": [
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Час одне для одного</h3>",
+              "  <p class='music-family-highlight-copy'>Щосуботи вранці ми зустрічаємося в Оксенфурті на репетицію і спільний час.</p>",
+              "</article>",
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Тримаємося на волонтерах</h3>",
+              "  <p class='music-family-highlight-copy'>Наше спільне музикування існує завдяки волонтерській праці і наразі не потребує внесків за участь.</p>",
+              "</article>",
+              "<article class='music-family-highlight-card'>",
+              "  <h3 class='music-family-highlight-title'>Відкриті до різних шляхів</h3>",
+              "  <p class='music-family-highlight-copy'>У нас є місце для різних інструментів, вікових груп і музичного досвіду.</p>",
+              "</article>"
+            ]
+          }
+        }
+      ]
+    },
+    "homepage-music-family-benefits": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "list",
+          "className": "music-family-benefits",
+          "allowHtml": true,
+          "items": {
+            "de": [
+              "<span class=\"music-family-benefit-check\">✓</span><span>Zwei Gruppen für unterschiedliche Erfahrungsstufen</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Proben mitten in Ochsenfurt</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Herzliche Atmosphäre und kompetente Leitung</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Auftritte und Benefizkonzerte aus gemeinsamer Initiative</span>"
+            ],
+            "en": [
+              "<span class=\"music-family-benefit-check\">✓</span><span>Two groups for different experience levels</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Rehearsals in the heart of Ochsenfurt</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>A warm atmosphere and experienced guidance</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Performances and benefit concerts shaped together</span>"
+            ],
+            "fr": [
+              "<span class=\"music-family-benefit-check\">✓</span><span>Deux groupes pour differents niveaux d'experience</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Repetitions au coeur d'Ochsenfurt</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Une atmosphere chaleureuse et un accompagnement competent</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Concerts et projets benefices construits ensemble</span>"
+            ],
+            "ln": [
+              "<span class=\"music-family-benefit-check\">✓</span><span>Bituluku mibale mpo na ba niveau ndenge na ndenge ya boyebi</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Ba repetition na katikati ya Ochsenfurt</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Molunge ya lisanga mpe bokambi ya malamu</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Ba performance mpe ba konser ya lisungi ebongisami elongo</span>"
+            ],
+            "it": [
+              "<span class=\"music-family-benefit-check\">✓</span><span>Due gruppi per diversi livelli di esperienza</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Prove nel cuore di Ochsenfurt</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Un'atmosfera calorosa e una guida esperta</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Concerti e iniziative benefiche preparati insieme</span>"
+            ],
+            "tr": [
+              "<span class=\"music-family-benefit-check\">✓</span><span>Farklı deneyim düzeylerine uygun iki grup</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Ochsenfurt'un tam merkezinde provalar</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Sıcak bir atmosfer ve deneyimli bir rehberlik</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Birlikte hazırlanan konserler ve yardım etkinlikleri</span>"
+            ],
+            "uk": [
+              "<span class=\"music-family-benefit-check\">✓</span><span>Дві групи для різного рівня досвіду</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Репетиції в самому серці Оксенфурта</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Тепла атмосфера і компетентне керівництво</span>",
+              "<span class=\"music-family-benefit-check\">✓</span><span>Виступи та благодійні концерти, створені спільною ініціативою</span>"
+            ]
+          }
+        }
+      ]
+    },
+    "homepage-music-family-beginner-intro": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "music-family-group-title",
+          "text": {
+            "de": "Anfängergruppe",
+            "en": "Beginner Group",
+            "fr": "Groupe debutant",
+            "ln": "Etuluku ya ebandeli",
+            "it": "Gruppo per principianti",
+            "tr": "Başlangıç grubu",
+            "uk": "Група початківців"
+          }
+        },
+        {
+          "type": "paragraph",
+          "className": "music-family-group-lead",
+          "text": {
+            "de": "Für Kinder ab 5 Jahren und alle, die erste Töne gemeinsam ausprobieren möchten.",
+            "en": "For children from age 5 and anyone who would like to try out their first notes together.",
+            "fr": "Pour les enfants a partir de 5 ans et toutes les personnes qui souhaitent essayer ensemble leurs premieres notes.",
+            "ln": "Mpo na bana kobanda mbula 5 mpe bato nyonso oyo balingi komeka ba note na bango ya liboso elongo.",
+            "it": "Per bambini dai 5 anni in su e per chi desidera muovere insieme i primi passi nella musica.",
+            "tr": "5 yaşından itibaren çocuklar ve ilk notalarını birlikte keşfetmek isteyen herkes için.",
+            "uk": "Для дітей від 5 років і всіх, хто хоче разом спробувати свої перші ноти."
+          }
+        }
+      ]
+    },
+    "homepage-music-family-beginner-facts": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "music-family-group-facts",
+          "allowHtml": true,
+          "text": {
+            "de": [
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Wann</span><span class='music-family-group-fact-value'>Samstag, 10.00-11.00 Uhr</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Alter</span><span class='music-family-group-fact-value'>ab 5 Jahren</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Kosten</span><span class='music-family-group-fact-value'>keine</span></article>"
+            ],
+            "en": [
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>When</span><span class='music-family-group-fact-value'>Saturday, 10:00-11:00 am</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Age</span><span class='music-family-group-fact-value'>from 5 years</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Cost</span><span class='music-family-group-fact-value'>none</span></article>"
+            ],
+            "fr": [
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Quand</span><span class='music-family-group-fact-value'>samedi, 10:00-11:00</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Age</span><span class='music-family-group-fact-value'>a partir de 5 ans</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Cout</span><span class='music-family-group-fact-value'>aucun</span></article>"
+            ],
+            "ln": [
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Ntango</span><span class='music-family-group-fact-value'>samedi, 10:00-11:00</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Mbula</span><span class='music-family-group-fact-value'>kobanda mbula 5</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Ntalo</span><span class='music-family-group-fact-value'>ezali te</span></article>"
+            ],
+            "it": [
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Quando</span><span class='music-family-group-fact-value'>sabato, 10:00-11:00</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Età</span><span class='music-family-group-fact-value'>dai 5 anni</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Costo</span><span class='music-family-group-fact-value'>gratuito</span></article>"
+            ],
+            "tr": [
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Ne zaman</span><span class='music-family-group-fact-value'>Cumartesi, 10.00-11.00</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Yaş</span><span class='music-family-group-fact-value'>5 yaş ve üzeri</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Ücret</span><span class='music-family-group-fact-value'>yok</span></article>"
+            ],
+            "uk": [
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Коли</span><span class='music-family-group-fact-value'>субота, 10:00-11:00</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Вік</span><span class='music-family-group-fact-value'>від 5 років</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Вартість</span><span class='music-family-group-fact-value'>немає</span></article>"
+            ]
+          }
+        }
+      ]
+    },
+    "homepage-music-family-beginner-details": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "list",
+          "className": "music-family-group-details",
+          "allowHtml": true,
+          "items": {
+            "de": [
+              [
+                "<b>Wo:</b><br>",
+                "<span class='address-part'>Rote Schule (VHS-Gebäude)</span><br>",
+                "<span class='address-part'>Kirchplatz 2</span><br>",
+                "<span class='address-part'>97199 Ochsenfurt</span><br>",
+                "<span class='address-part'>Raum 4</span>"
+              ],
+              "<b>Voraussetzung:</b> Instrument, Notenständer, Kenntnis von wenigstens zwei Tönen oder Freude am Singen"
+            ],
+            "en": [
+              [
+                "<b>Where:</b><br>",
+                "<span class='address-part'>Rote Schule (VHS building)</span><br>",
+                "<span class='address-part'>Kirchplatz 2</span><br>",
+                "<span class='address-part'>97199 Ochsenfurt</span><br>",
+                "<span class='address-part'>Room 4</span>"
+              ],
+              "<b>Requirement:</b> Instrument, music stand, knowledge of at least two notes or joy in singing"
+            ],
+            "fr": [
+              [
+                "<b>Ou :</b><br>",
+                "<span class='address-part'>Rote Schule (batiment VHS)</span><br>",
+                "<span class='address-part'>Kirchplatz 2</span><br>",
+                "<span class='address-part'>97199 Ochsenfurt</span><br>",
+                "<span class='address-part'>Salle 4</span>"
+              ],
+              "<b>Condition :</b> instrument, pupitre, connaissance d'au moins deux notes ou plaisir de chanter"
+            ],
+            "ln": [
+              [
+                "<b>Wapi:</b><br>",
+                "<span class='address-part'>Rote Schule (ndako ya VHS)</span><br>",
+                "<span class='address-part'>Kirchplatz 2</span><br>",
+                "<span class='address-part'>97199 Ochsenfurt</span><br>",
+                "<span class='address-part'>Salle 4</span>"
+              ],
+              "<b>Esengeli:</b> instrument, stand ya ba note, boyebi ya ata ba note mibale to bolingo ya koyemba"
+            ],
+            "it": [
+              [
+                "<b>Dove:</b><br>",
+                "<span class='address-part'>Rote Schule (edificio VHS)</span><br>",
+                "<span class='address-part'>Kirchplatz 2</span><br>",
+                "<span class='address-part'>97199 Ochsenfurt</span><br>",
+                "<span class='address-part'>Stanza 4</span>"
+              ],
+              "<b>Requisito:</b> Strumento, leggio, conoscenza di almeno due note oppure voglia di cantare"
+            ],
+            "tr": [
+              [
+                "<b>Yer:</b><br>",
+                "<span class='address-part'>Rote Schule (VHS binası)</span><br>",
+                "<span class='address-part'>Kirchplatz 2</span><br>",
+                "<span class='address-part'>97199 Ochsenfurt</span><br>",
+                "<span class='address-part'>Oda 4</span>"
+              ],
+              "<b>Gerekenler:</b> Enstrüman, nota sehpası, en az iki notayı bilmek ya da şarkı söylemekten keyif almak"
+            ],
+            "uk": [
+              [
+                "<b>Де:</b><br>",
+                "<span class='address-part'>Червона школа (будівля фольксгохшуле)</span><br>",
+                "<span class='address-part'>Кірхплац 2</span><br>",
+                "<span class='address-part'>97199 Оксенфурт</span><br>",
+                "<span class='address-part'>кімната 4</span>"
+              ],
+              "<b>Умова:</b> інструмент, пюпітр, знання щонайменше двох нот або бажання співати"
+            ]
+          }
+        }
+      ]
+    },
+    "homepage-music-family-experienced-intro": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "music-family-group-title",
+          "text": {
+            "de": "Jugendliche und Erwachsene mit Vorerfahrung",
+            "en": "Teenagers and adults with previous experience",
+            "fr": "Adolescents et adultes avec experience",
+            "ln": "Bilenge mpe mikolo na boyebi ya liboso",
+            "it": "Giovani e adulti con esperienza musicale",
+            "tr": "Müzik deneyimi olan gençler ve yetişkinler",
+            "uk": "Підлітки й дорослі з попереднім досвідом"
+          }
+        },
+        {
+          "type": "paragraph",
+          "className": "music-family-group-lead",
+          "text": {
+            "de": "Für Jugendliche und Erwachsene mit etwas Vorerfahrung sowie für Interessierte, die wieder einsteigen möchten.",
+            "en": "For teenagers and adults with some previous experience, as well as for anyone interested in returning to music.",
+            "fr": "Pour les adolescents et les adultes ayant deja un peu d'experience, ainsi que pour celles et ceux qui souhaitent reprendre.",
+            "ln": "Mpo na bilenge mpe mikolo oyo bazali na mwa boyebi ya liboso, mpe mpo na bato oyo balingi kozonga lisusu na miziki.",
+            "it": "Per giovani e adulti con un po' di esperienza musicale, ma anche per chi desidera tornare a suonare.",
+            "tr": "Bir miktar müzik deneyimi olan gençler ve yetişkinler ile müziğe yeniden dönmek isteyen herkes için.",
+            "uk": "Для підлітків і дорослих із певним музичним досвідом, а також для тих, хто хоче повернутися."
+          }
+        }
+      ]
+    },
+    "homepage-music-family-experienced-facts": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "div",
+          "className": "music-family-group-facts",
+          "allowHtml": true,
+          "text": {
+            "de": [
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Wann</span><span class='music-family-group-fact-value'>Samstag, 11.00-12.30 Uhr</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Alter</span><span class='music-family-group-fact-value'>ab 12 Jahren</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Kosten</span><span class='music-family-group-fact-value'>keine</span></article>"
+            ],
+            "en": [
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>When</span><span class='music-family-group-fact-value'>Saturday, 11:00 am-12:30 pm</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Age</span><span class='music-family-group-fact-value'>from 12 years</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Cost</span><span class='music-family-group-fact-value'>none</span></article>"
+            ],
+            "fr": [
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Quand</span><span class='music-family-group-fact-value'>samedi, 11:00-12:30</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Age</span><span class='music-family-group-fact-value'>a partir de 12 ans</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Cout</span><span class='music-family-group-fact-value'>aucun</span></article>"
+            ],
+            "ln": [
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Ntango</span><span class='music-family-group-fact-value'>samedi, 11:00-12:30</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Mbula</span><span class='music-family-group-fact-value'>kobanda mbula 12</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Ntalo</span><span class='music-family-group-fact-value'>ezali te</span></article>"
+            ],
+            "it": [
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Quando</span><span class='music-family-group-fact-value'>sabato, 11:00-12:30</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Età</span><span class='music-family-group-fact-value'>dai 12 anni</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Costo</span><span class='music-family-group-fact-value'>gratuito</span></article>"
+            ],
+            "tr": [
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Ne zaman</span><span class='music-family-group-fact-value'>Cumartesi, 11.00-12.30</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Yaş</span><span class='music-family-group-fact-value'>12 yaş ve üzeri</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Ücret</span><span class='music-family-group-fact-value'>yok</span></article>"
+            ],
+            "uk": [
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Коли</span><span class='music-family-group-fact-value'>субота, 11:00-12:30</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Вік</span><span class='music-family-group-fact-value'>від 12 років</span></article>",
+              "<article class='music-family-group-fact'><span class='music-family-group-fact-label'>Вартість</span><span class='music-family-group-fact-value'>немає</span></article>"
+            ]
+          }
+        }
+      ]
+    },
+    "homepage-music-family-experienced-details": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "list",
+          "className": "music-family-group-details",
+          "allowHtml": true,
+          "items": {
+            "de": [
+              [
+                "<b>Wo:</b><br>",
+                "<span class='address-part'>Rote Schule (VHS-Gebäude)</span><br>",
+                "<span class='address-part'>Kirchplatz 2</span><br>",
+                "<span class='address-part'>97199 Ochsenfurt</span><br>",
+                "<span class='address-part'>Raum 4</span>"
+              ],
+              "<b>Voraussetzung:</b> Instrument, Notenständer, ca. drei Jahre Erfahrung"
+            ],
+            "en": [
+              [
+                "<b>Where:</b><br>",
+                "<span class='address-part'>Rote Schule (VHS building)</span><br>",
+                "<span class='address-part'>Kirchplatz 2</span><br>",
+                "<span class='address-part'>97199 Ochsenfurt</span><br>",
+                "<span class='address-part'>Room 4</span>"
+              ],
+              "<b>Requirement:</b> Instrument, music stand, about three years of experience"
+            ],
+            "fr": [
+              [
+                "<b>Ou :</b><br>",
+                "<span class='address-part'>Rote Schule (batiment VHS)</span><br>",
+                "<span class='address-part'>Kirchplatz 2</span><br>",
+                "<span class='address-part'>97199 Ochsenfurt</span><br>",
+                "<span class='address-part'>Salle 4</span>"
+              ],
+              "<b>Condition :</b> instrument, pupitre, environ trois ans d'experience"
+            ],
+            "ln": [
+              [
+                "<b>Wapi:</b><br>",
+                "<span class='address-part'>Rote Schule (ndako ya VHS)</span><br>",
+                "<span class='address-part'>Kirchplatz 2</span><br>",
+                "<span class='address-part'>97199 Ochsenfurt</span><br>",
+                "<span class='address-part'>Salle 4</span>"
+              ],
+              "<b>Esengeli:</b> instrument, stand ya ba note, pene na mbula misato ya experience"
+            ],
+            "it": [
+              [
+                "<b>Dove:</b><br>",
+                "<span class='address-part'>Rote Schule (edificio VHS)</span><br>",
+                "<span class='address-part'>Kirchplatz 2</span><br>",
+                "<span class='address-part'>97199 Ochsenfurt</span><br>",
+                "<span class='address-part'>Stanza 4</span>"
+              ],
+              "<b>Requisito:</b> Strumento, leggio, circa tre anni di esperienza"
+            ],
+            "tr": [
+              [
+                "<b>Yer:</b><br>",
+                "<span class='address-part'>Rote Schule (VHS binası)</span><br>",
+                "<span class='address-part'>Kirchplatz 2</span><br>",
+                "<span class='address-part'>97199 Ochsenfurt</span><br>",
+                "<span class='address-part'>Oda 4</span>"
+              ],
+              "<b>Gerekenler:</b> Enstrüman, nota sehpası ve yaklaşık üç yıllık deneyim"
+            ],
+            "uk": [
+              [
+                "<b>Де:</b><br>",
+                "<span class='address-part'>Червона школа (будівля фольксгохшуле)</span><br>",
+                "<span class='address-part'>Кірхплац 2</span><br>",
+                "<span class='address-part'>97199 Оксенфурт</span><br>",
+                "<span class='address-part'>кімната 4</span>"
+              ],
+              "<b>Умова:</b> інструмент, пюпітр, приблизно три роки досвіду"
+            ]
+          }
+        }
+      ]
+    },
+    "homepage-music-family-contact-title": {
+      "file": "index.html",
+      "indentSpaces": 12,
+      "blocks": [
+        {
+          "type": "heading",
+          "level": 3,
+          "className": "music-family-contact-title",
+          "text": {
+            "de": "Info & Anmeldung:",
+            "en": "Info & Registration:",
+            "fr": "Infos et inscription :",
+            "ln": "Sango mpe bokomisi nkombo:",
+            "it": "Info e iscrizione:",
+            "tr": "Bilgi ve kayıt:",
+            "uk": "Інформація та реєстрація:"
+          }
+        }
+      ]
+    },
+    "homepage-music-family-contact-name": {
+      "file": "index.html",
+      "indentSpaces": 16,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "tagName": "span",
+          "className": "music-family-contact-name",
+          "text": {
+            "de": "Astrid Eitschberger",
+            "en": "Astrid Eitschberger",
+            "fr": "Astrid Eitschberger",
+            "ln": "Astrid Eitschberger",
+            "it": "Astrid Eitschberger",
+            "tr": "Astrid Eitschberger",
+            "uk": "Астрід Айчберґер"
+          }
+        }
+      ]
+    }
+  }
+}

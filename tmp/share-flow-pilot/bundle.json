@@ -1,0 +1,19 @@
+{
+  "source": "share/share-pages-data.json",
+  "generator": "share/generate-share-pages.py",
+  "bundleRoot": "tmp/share-flow-pilot",
+  "shareDir": "tmp/share-flow-pilot/share",
+  "filenames": [
+    "querbeet-roundup-2025.html",
+    "internationales-galakonzert-ochsenfurt-2026.html",
+    "benefiz-trommelworkshop-2026.html"
+  ],
+  "copiedArtifacts": [
+    "instagram-export.html",
+    "instagram-export.css",
+    "instagram-export.js",
+    "share-preview.css",
+    "cmi-website-qr.png",
+    "share-pages.json"
+  ]
+}

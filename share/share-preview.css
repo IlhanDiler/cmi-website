@@ -1,11 +1,20 @@
 :root {
-    --share-bg: linear-gradient(180deg, #f6fbff 0%, #eef7f5 100%);
-    --share-card-bg: rgba(255, 255, 255, 0.94);
-    --share-border: rgba(14, 83, 74, 0.12);
-    --share-text: #17312d;
-    --share-muted: #49635f;
-    --share-accent: #159b8c;
-    --share-shadow: 0 18px 50px rgba(18, 65, 58, 0.16);
+    --share-bg: linear-gradient(180deg, #f9fbfb 0%, #f3f6f6 100%);
+    --share-card-bg: rgba(255, 255, 255, 0.96);
+    --share-border: rgba(18, 62, 70, 0.12);
+    --share-text: #123e46;
+    --share-muted: #5d7270;
+    --share-accent: #0a756d;
+    --share-shadow: 0 18px 50px rgba(18, 65, 58, 0.12);
+    --share-surface-soft: #edf3f3;
+    --share-surface-muted: #f3f6f6;
+    --share-surface-strong: #fafcfc;
+    --share-accent-soft: rgba(10, 117, 109, 0.08);
+    --share-accent-soft-strong: rgba(10, 117, 109, 0.14);
+    --poster-trim-width-mm: 850mm;
+    --poster-trim-height-mm: 2000mm;
+    --poster-bleed-mm: 3mm;
+    --poster-safe-mm: 18mm;
 }
 
 * {
@@ -32,6 +41,7 @@ body {
     width: min(760px, 100%);
     background: var(--share-card-bg);
     border: 1px solid var(--share-border);
+    border-top-color: transparent;
     border-radius: 24px;
     box-shadow: var(--share-shadow);
     overflow: hidden;
@@ -42,7 +52,7 @@ body {
     aspect-ratio: 1200 / 630;
     object-fit: cover;
     display: block;
-    background: #dfeceb;
+    background: var(--share-surface-soft);
 }
 
 .share-card__body {
@@ -62,28 +72,32 @@ body {
     border-radius: 12px;
     background: #fff;
     padding: 6px;
-    border: 1px solid rgba(21, 155, 140, 0.14);
+    border: 1px solid var(--share-accent-soft-strong);
 }
 
 .share-card__eyebrow {
     margin: 0;
     color: var(--share-muted);
-    font-size: 0.92rem;
-    letter-spacing: 0.04em;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
 }
 
 .share-card__title {
     margin: 0 0 10px;
-    font-size: clamp(1.8rem, 4vw, 2.7rem);
-    line-height: 1.08;
+    font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.32rem);
+    font-weight: 560;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
 }
 
 .share-card__meta {
     margin: 0 0 12px;
     color: var(--share-accent);
-    font-weight: 700;
-    font-size: 0.98rem;
+    font-weight: 560;
+    font-size: 0.96rem;
 }
 
 .share-card__text {
@@ -104,10 +118,10 @@ body {
     background: none;
     border-radius: 0;
     box-shadow: none;
-    color: #116f65;
+    color: var(--share-accent);
     font-weight: 600;
     text-decoration: underline;
-    text-decoration-color: rgba(21, 155, 140, 0.65);
+    text-decoration-color: rgba(10, 117, 109, 0.48);
     text-decoration-thickness: 0.08em;
     text-underline-offset: 0.12em;
     white-space: normal;
@@ -115,7 +129,7 @@ body {
 
 .share-card__text .external-link:hover,
 .share-card__text .external-link:focus {
-    color: #0c5e55;
+    color: var(--share-text);
     background: none;
     box-shadow: none;
     text-decoration: underline;
@@ -135,17 +149,498 @@ body {
     justify-content: center;
     min-height: 46px;
     padding: 0 18px;
+    border: 1px solid transparent;
     border-radius: 999px;
+    cursor: pointer;
     background: var(--share-accent);
     color: #fff;
+    font: inherit;
     text-decoration: none;
     font-weight: 700;
 }
 
+.share-card__button:hover,
+.share-card__button:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 20px rgba(18, 65, 58, 0.12);
+}
+
 .share-card__hint {
     margin: 0;
+    flex-basis: 100%;
     color: var(--share-muted);
     font-size: 0.94rem;
+}
+
+.share-card__status {
+    margin: 0;
+    min-height: 1.2em;
+    flex-basis: 100%;
+    color: var(--share-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.share-card__status[data-state="success"] {
+    color: var(--share-accent);
+}
+
+.share-card__status[data-state="error"] {
+    color: #9a3e33;
+}
+
+.share-card--roundup {
+    width: min(620px, 100%);
+    display: flex;
+    flex-direction: column;
+    border-top-color: var(--share-border);
+    background:
+        radial-gradient(circle at top, rgba(10, 117, 109, 0.08), transparent 26%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(244, 247, 247, 0.99) 100%);
+}
+
+.share-card__visual {
+    padding: 18px 18px 0;
+    background:
+    radial-gradient(circle at top left, rgba(10, 117, 109, 0.1), transparent 34%),
+    linear-gradient(180deg, var(--share-surface-soft) 0%, var(--share-surface-strong) 100%);
+}
+
+.share-card__visual--bottom {
+    padding: 0 18px 18px;
+    background:
+    radial-gradient(circle at bottom right, rgba(10, 117, 109, 0.09), transparent 34%),
+    linear-gradient(180deg, var(--share-surface-strong) 0%, var(--share-surface-muted) 100%);
+}
+
+.share-card__hero-frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    box-shadow: 0 22px 42px rgba(18, 65, 58, 0.16);
+    background: var(--share-surface-soft);
+}
+
+.share-card--roundup .share-card__hero {
+    width: 100%;
+    height: 238px;
+    aspect-ratio: auto;
+    object-fit: cover;
+}
+
+.share-card__hero--top {
+    object-position: center top;
+}
+
+.share-card__hero--bottom {
+    object-position: center bottom;
+}
+
+.share-card__badge {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    margin: 0;
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--share-accent);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow: 0 10px 24px rgba(18, 65, 58, 0.14);
+}
+
+.share-card--roundup .share-card__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 28px 28px 24px;
+    background:
+        radial-gradient(circle at top right, rgba(10, 117, 109, 0.08), transparent 34%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(246, 249, 249, 0.99) 100%);
+}
+
+.share-card__lead {
+    margin: 0 0 18px;
+    color: var(--share-text);
+    font-size: 1.08rem;
+    line-height: 1.55;
+    font-weight: 560;
+}
+
+.share-card__taglist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 20px;
+}
+
+.share-card__tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: var(--share-accent-soft);
+    border: 1px solid var(--share-accent-soft-strong);
+    color: var(--share-accent);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.share-card__facts {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 0 0 20px;
+}
+
+.share-card__fact {
+    padding: 15px 14px;
+    border-radius: 18px;
+    border: 1px solid rgba(18, 62, 70, 0.1);
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.share-card__fact strong {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--share-accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.share-card__fact span {
+    color: var(--share-text);
+    font-size: 0.94rem;
+    line-height: 1.45;
+    font-weight: 560;
+}
+
+.share-card__button--secondary {
+    background: var(--share-accent-soft);
+    border-color: var(--share-accent-soft-strong);
+    color: var(--share-accent);
+}
+
+.share-card--poster {
+    position: relative;
+    width: min(820px, calc(100vw - 24px));
+    aspect-ratio: 856 / 2006;
+    padding: clamp(8px, 0.65vw, 11px);
+    border: 0;
+    background:
+        radial-gradient(circle at top, rgba(10, 117, 109, 0.08), transparent 34%),
+        linear-gradient(180deg, #fcfdfd 0%, #f3f7f7 100%);
+}
+
+.share-card--poster::before {
+    content: "";
+    position: absolute;
+    inset: clamp(8px, 0.65vw, 11px);
+    border: 1px dashed rgba(18, 62, 70, 0.18);
+    border-radius: 18px;
+    pointer-events: none;
+}
+
+.share-card--poster .share-card__body {
+    position: relative;
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(245, 248, 248, 0.97) 100%);
+}
+
+.share-card--poster .share-card__body::after {
+    content: "";
+    position: absolute;
+    inset: clamp(20px, 1.8vw, 28px);
+    border: 1px dashed rgba(18, 62, 70, 0.12);
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+.share-card--poster .share-card__title {
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.share-card__title--poster {
+    display: grid;
+    gap: 2px;
+}
+
+.share-card__title-main {
+    display: block;
+    font-size: clamp(1.72rem, 2.4vw, 2.5rem);
+    font-weight: 620;
+    letter-spacing: -0.04em;
+}
+
+.share-card__title-year {
+    display: block;
+    color: var(--share-accent);
+    font-size: clamp(3.1rem, 5.2vw, 5.8rem);
+    font-weight: 760;
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+}
+
+.share-card--poster .share-card__meta {
+    font-size: clamp(0.88rem, 0.92vw, 1rem);
+    margin-bottom: 10px;
+}
+
+.share-card--poster .share-card__lead {
+    font-size: clamp(0.86rem, 0.9vw, 0.98rem);
+    line-height: 1.38;
+    margin-bottom: 4px;
+}
+
+.share-card__poster-head,
+.share-card__poster-footer {
+    padding: clamp(18px, 1.7vw, 26px);
+}
+
+.share-card--poster .share-card__brand {
+    margin-bottom: 10px;
+}
+
+.share-card__poster-head {
+    background:
+        radial-gradient(circle at top right, rgba(10, 117, 109, 0.08), transparent 34%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(246, 249, 249, 0.9) 100%);
+    border-bottom: 1px solid rgba(18, 62, 70, 0.08);
+}
+
+.share-card__poster-head-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 104px;
+    gap: 14px;
+    align-items: start;
+}
+
+.share-card__poster-head-copy {
+    min-width: 0;
+}
+
+.share-card__poster-kicker {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    margin: 0 0 10px;
+    padding: 0 15px;
+    border-radius: 999px;
+    background: var(--share-accent-soft);
+    color: var(--share-accent);
+    font-size: clamp(0.72rem, 0.76vw, 0.84rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.share-card--poster .share-card__meta {
+    max-width: 100%;
+}
+
+.share-card__poster-collage {
+    display: grid;
+    align-content: start;
+    gap: clamp(12px, 1vw, 16px);
+    padding: 0 clamp(18px, 1.7vw, 24px);
+}
+
+.share-card__poster-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(10px, 1vw, 14px);
+}
+
+.share-card__poster-grid--events {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-flow: dense;
+}
+
+.share-card__poster-panel--wide {
+    grid-column: 1 / -1;
+}
+
+.share-card__poster-panel {
+    margin: 0;
+    padding: clamp(10px, 0.8vw, 14px);
+    border: 1px solid rgba(18, 62, 70, 0.1);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.84);
+    box-shadow: 0 12px 26px rgba(18, 65, 58, 0.06);
+}
+
+.share-card__poster-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: clamp(180px, 15vw, 240px);
+    border-radius: 16px;
+    background:
+        linear-gradient(180deg, rgba(242, 246, 246, 0.96) 0%, rgba(252, 253, 253, 0.96) 100%);
+    overflow: hidden;
+}
+
+.share-card__poster-media--hero {
+    min-height: clamp(260px, 22vw, 360px);
+}
+
+.share-card__poster-grid--events .share-card__poster-media {
+    min-height: clamp(200px, 17vw, 280px);
+}
+
+.share-card__poster-grid--events .share-card__poster-media--hero {
+    min-height: clamp(260px, 22vw, 360px);
+}
+
+.share-card__poster-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.share-card__poster-caption {
+    margin: 8px 0 0;
+    color: var(--share-muted);
+    font-size: clamp(0.8rem, 0.82vw, 0.92rem);
+    line-height: 1.35;
+    font-weight: 560;
+}
+
+.share-card__poster-caption strong {
+    display: block;
+    margin-bottom: 2px;
+    color: var(--share-text);
+    font-size: clamp(0.92rem, 0.95vw, 1.06rem);
+}
+
+.share-card__poster-caption span {
+    display: block;
+}
+
+.share-card__poster-footer {
+    display: grid;
+    gap: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(18, 62, 70, 0.08);
+}
+
+.share-card--poster .share-card__facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-bottom: 18px;
+}
+
+.share-card__poster-note {
+    margin: 0;
+    color: #335450;
+    font-size: clamp(0.84rem, 0.84vw, 0.96rem);
+    line-height: 1.35;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.share-card__poster-link {
+    margin: 4px 0 0;
+    color: var(--share-accent);
+    font-size: clamp(0.96rem, 1vw, 1.08rem);
+    line-height: 1.1;
+    font-weight: 760;
+    letter-spacing: -0.02em;
+}
+
+.share-card__poster-copy {
+    margin: 6px 0 0;
+    max-width: 34ch;
+    color: var(--share-muted);
+    font-size: clamp(0.72rem, 0.74vw, 0.8rem);
+    line-height: 1.32;
+}
+
+.share-card__poster-qr {
+    margin: 0;
+    display: grid;
+    gap: 6px;
+    justify-items: center;
+}
+
+.share-card__poster-qr--hero {
+    align-self: start;
+    padding-top: 6px;
+}
+
+.share-card__poster-qr-image {
+    display: block;
+    width: 100%;
+    max-width: 104px;
+    height: auto;
+    padding: 7px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(18, 62, 70, 0.1);
+    box-shadow: 0 8px 18px rgba(18, 65, 58, 0.06);
+}
+
+.share-card__poster-qr-caption {
+    margin: 0;
+    color: var(--share-muted);
+    font-size: clamp(0.68rem, 0.72vw, 0.78rem);
+    line-height: 1.2;
+    font-weight: 600;
+    text-align: center;
+}
+
+@media print {
+    @page {
+        size: 856mm 2006mm;
+        margin: 0;
+    }
+
+    body {
+        display: block;
+        padding: 0;
+        background: #ffffff;
+    }
+
+    .share-card--poster {
+        width: calc(var(--poster-trim-width-mm) + (2 * var(--poster-bleed-mm)));
+        min-height: calc(var(--poster-trim-height-mm) + (2 * var(--poster-bleed-mm)));
+        aspect-ratio: auto;
+        padding: var(--poster-bleed-mm);
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .share-card--poster::before,
+    .share-card--poster .share-card__body::after {
+        display: none;
+    }
+
+    .share-card--poster .share-card__body {
+        min-height: var(--poster-trim-height-mm);
+        border-radius: 0;
+    }
+
+    .share-card__poster-head,
+    .share-card__poster-collage,
+    .share-card__poster-footer {
+        padding-left: calc(var(--poster-safe-mm) - var(--poster-bleed-mm));
+        padding-right: calc(var(--poster-safe-mm) - var(--poster-bleed-mm));
+    }
 }
 
 @media (max-width: 640px) {
@@ -155,5 +650,71 @@ body {
 
     .share-card__body {
         padding: 18px;
+    }
+
+    .share-card--roundup .share-card__body {
+        padding: 22px 18px 18px;
+    }
+
+    .share-card__visual {
+        padding: 14px 14px 0;
+    }
+
+    .share-card__visual--bottom {
+        padding: 0 14px 14px;
+    }
+
+    .share-card--roundup .share-card__hero {
+        height: 190px;
+    }
+
+    .share-card__badge {
+        left: 14px;
+        bottom: 14px;
+        font-size: 0.74rem;
+    }
+
+    .share-card__facts {
+        grid-template-columns: 1fr;
+    }
+
+    .share-card__poster-head,
+    .share-card__poster-footer {
+        padding: 22px 18px;
+    }
+
+    .share-card__poster-head-inner {
+        grid-template-columns: 1fr;
+        justify-items: start;
+    }
+
+    .share-card__title-year {
+        font-size: clamp(3rem, 13vw, 5rem);
+    }
+
+    .share-card--poster .share-card__meta {
+        max-width: 100%;
+    }
+
+    .share-card__poster-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .share-card__poster-collage {
+        padding: 0 14px;
+    }
+
+    .share-card__poster-media {
+        min-height: 200px;
+    }
+
+    .share-card__poster-media--hero {
+        min-height: 230px;
+    }
+}
+
+@media (max-width: 900px) {
+    .share-card--roundup {
+        width: min(620px, 100%);
     }
 }
