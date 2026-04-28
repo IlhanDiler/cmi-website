@@ -284,6 +284,23 @@ function getConfiguredLocalPreviewOrigin() {
     return localPreviewOriginDefault;
 }
 
+function getLocalizedSharePreviewPathname(pathname, language) {
+    if (!pathname) {
+        return pathname || '';
+    }
+
+    const basePathname = pathname.replace(/--[a-z]{2}(?=\.html$)/i, '');
+    if (!/\/share\/[^/?#]+\.html$/i.test(basePathname)) {
+        return pathname;
+    }
+
+    if (language && language !== 'de') {
+        return basePathname.replace(/\.html$/i, `--${language}.html`);
+    }
+
+    return basePathname;
+}
+
 function appendLanguageToShareUrl(rawUrl, language, baseUrl) {
     if (!rawUrl || !isSupportedSiteLanguage(language)) {
         return rawUrl || '';
@@ -291,6 +308,7 @@ function appendLanguageToShareUrl(rawUrl, language, baseUrl) {
 
     try {
         const localizedUrl = new URL(rawUrl, baseUrl || window.location.href);
+        localizedUrl.pathname = getLocalizedSharePreviewPathname(localizedUrl.pathname, language);
         localizedUrl.searchParams.set('lang', language);
         return localizedUrl.toString();
     } catch (_error) {

@@ -52,6 +52,23 @@ function persistShareLanguage(language) {
     } catch (_error) {}
 }
 
+function getLocalizedSharePreviewPathname(pathname, language) {
+    if (!pathname) {
+        return pathname || "";
+    }
+
+    const basePathname = pathname.replace(/--[a-z]{2}(?=\.html$)/i, "");
+    if (!/\/share\/[^/?#]+\.html$/i.test(basePathname)) {
+        return pathname;
+    }
+
+    if (language && language !== "de") {
+        return basePathname.replace(/\.html$/i, `--${language}.html`);
+    }
+
+    return basePathname;
+}
+
 function appendLanguageToUrl(rawUrl, language) {
     if (!rawUrl || !SUPPORTED_SHARE_LANGUAGES.has(language)) {
         return rawUrl || "";
@@ -59,6 +76,7 @@ function appendLanguageToUrl(rawUrl, language) {
 
     try {
         const localizedUrl = new URL(rawUrl, window.location.href);
+        localizedUrl.pathname = getLocalizedSharePreviewPathname(localizedUrl.pathname, language);
         localizedUrl.searchParams.set("lang", language);
         return localizedUrl.toString();
     } catch (_error) {
