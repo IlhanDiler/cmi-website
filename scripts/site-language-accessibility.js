@@ -284,6 +284,44 @@ function getConfiguredLocalPreviewOrigin() {
     return localPreviewOriginDefault;
 }
 
+function appendLanguageToShareUrl(rawUrl, language, baseUrl) {
+    if (!rawUrl || !isSupportedSiteLanguage(language)) {
+        return rawUrl || '';
+    }
+
+    try {
+        const localizedUrl = new URL(rawUrl, baseUrl || window.location.href);
+        localizedUrl.searchParams.set('lang', language);
+        return localizedUrl.toString();
+    } catch (_error) {
+        return rawUrl;
+    }
+}
+
+function syncWhatsAppShareButtonHref(button, language) {
+    if (!button || !button.classList.contains('event-social-button--whatsapp') || !button.hasAttribute('href')) {
+        return;
+    }
+
+    if (!button.dataset.shareHrefBase) {
+        button.dataset.shareHrefBase = button.getAttribute('href') || '';
+    }
+
+    try {
+        const whatsappUrl = new URL(button.dataset.shareHrefBase, window.location.href);
+        const shareUrl = whatsappUrl.searchParams.get('text');
+
+        if (!shareUrl) {
+            return;
+        }
+
+        whatsappUrl.searchParams.set('text', appendLanguageToShareUrl(shareUrl.trim(), language, productionSiteOrigin));
+        button.setAttribute('href', whatsappUrl.toString());
+    } catch (_error) {
+        return;
+    }
+}
+
 function syncInstagramExportButtonHref(button, language) {
     if (!button || !button.classList.contains('event-social-button--instagram') || !button.hasAttribute('href')) {
         return;
@@ -362,6 +400,10 @@ function syncEventShareButtonAccessibility() {
 
             button.setAttribute('aria-label', accessibilityLabel);
             button.setAttribute('title', accessibilityLabel);
+
+            if (button.classList.contains('event-social-button--whatsapp')) {
+                syncWhatsAppShareButtonHref(button, language);
+            }
 
             if (button.classList.contains('event-social-button--instagram')) {
                 syncInstagramExportButtonHref(button, language);
