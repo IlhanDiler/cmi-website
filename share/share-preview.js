@@ -1,5 +1,70 @@
 const COPY_FEEDBACK_DURATION_MS = 2200;
 const DEFAULT_REDIRECT_DELAY_MS = 8000;
+const SUPPORTED_SHARE_LANGUAGES = new Set(["de", "en", "fr", "ln", "it", "tr", "uk"]);
+
+function normalizeShareLanguage(value) {
+    return (value || "").toLowerCase().split(/[_-]/)[0];
+}
+
+function getShareLanguageFromUrl() {
+    try {
+        return normalizeShareLanguage(new URL(window.location.href).searchParams.get("lang"));
+    } catch (_error) {
+        return "";
+    }
+}
+
+function getPreferredShareLanguage() {
+    const requestedLanguage = getShareLanguageFromUrl();
+    if (SUPPORTED_SHARE_LANGUAGES.has(requestedLanguage)) {
+        return requestedLanguage;
+    }
+
+    try {
+        const storedLanguage = normalizeShareLanguage(window.localStorage.getItem("siteLang"));
+        if (SUPPORTED_SHARE_LANGUAGES.has(storedLanguage)) {
+            return storedLanguage;
+        }
+    } catch (_error) {}
+
+    const documentLanguage = normalizeShareLanguage(document.documentElement.getAttribute("lang"));
+    if (SUPPORTED_SHARE_LANGUAGES.has(documentLanguage)) {
+        return documentLanguage;
+    }
+
+    const browserLanguage = normalizeShareLanguage(navigator.language || "");
+    if (SUPPORTED_SHARE_LANGUAGES.has(browserLanguage)) {
+        return browserLanguage;
+    }
+
+    return "de";
+}
+
+function persistShareLanguage(language) {
+    if (!SUPPORTED_SHARE_LANGUAGES.has(language)) {
+        return;
+    }
+
+    document.documentElement.setAttribute("lang", language);
+
+    try {
+        window.localStorage.setItem("siteLang", language);
+    } catch (_error) {}
+}
+
+function appendLanguageToUrl(rawUrl, language) {
+    if (!rawUrl || !SUPPORTED_SHARE_LANGUAGES.has(language)) {
+        return rawUrl || "";
+    }
+
+    try {
+        const localizedUrl = new URL(rawUrl, window.location.href);
+        localizedUrl.searchParams.set("lang", language);
+        return localizedUrl.toString();
+    } catch (_error) {
+        return rawUrl;
+    }
+}
 
 function fallbackCopyText(value) {
     const textArea = document.createElement("textarea");
@@ -55,7 +120,8 @@ function formatRedirectHint(template, secondsRemaining) {
 }
 
 function bindRedirectBehavior(container) {
-    const redirectUrl = container.dataset.shareRedirectUrl;
+    const activeLanguage = getPreferredShareLanguage();
+    const redirectUrl = appendLanguageToUrl(container.dataset.shareRedirectUrl, activeLanguage);
     if (!redirectUrl) {
         return;
     }
@@ -115,7 +181,8 @@ function bindCopyButton(button) {
     const defaultLabel = button.dataset.copyDefaultLabel || button.textContent.trim() || "Copy link";
     const successLabel = button.dataset.copySuccessLabel || defaultLabel;
     const failureMessage = button.dataset.copyFailedMessage || "Copying failed. Please copy the link manually.";
-    const shareUrl = button.dataset.shareCopyUrl || window.location.href;
+    const activeLanguage = getPreferredShareLanguage();
+    const shareUrl = appendLanguageToUrl(button.dataset.shareCopyUrl || window.location.href, activeLanguage);
     const statusElement = button.parentElement?.querySelector("[data-share-copy-status]") || null;
 
     setButtonLabel(button, defaultLabel);
@@ -138,6 +205,8 @@ function bindCopyButton(button) {
         }, COPY_FEEDBACK_DURATION_MS);
     });
 }
+
+persistShareLanguage(getPreferredShareLanguage());
 
 document.querySelectorAll("[data-share-redirect-url]").forEach(bindRedirectBehavior);
 document.querySelectorAll("[data-share-copy-url]").forEach(bindCopyButton);
