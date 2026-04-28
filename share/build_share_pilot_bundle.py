@@ -22,6 +22,7 @@ EXPORT_TEMPLATE_PATH = SHARE_DIR / "instagram-export.html"
 EXPORT_SCRIPT_PATH = SHARE_DIR / "instagram-export.js"
 EXPORT_STYLES_PATH = SHARE_DIR / "instagram-export.css"
 PREVIEW_STYLES_PATH = SHARE_DIR / "share-preview.css"
+PREVIEW_SCRIPT_PATH = SHARE_DIR / "share-preview.js"
 QR_IMAGE_PATH = SHARE_DIR / "cmi-website-qr.png"
 
 
@@ -147,6 +148,7 @@ def main() -> None:
     copy_file(EXPORT_TEMPLATE_PATH, output_share_dir / "instagram-export.html")
     copy_file(EXPORT_STYLES_PATH, output_share_dir / "instagram-export.css")
     copy_file(PREVIEW_STYLES_PATH, output_share_dir / "share-preview.css")
+    copy_file(PREVIEW_SCRIPT_PATH, output_share_dir / "share-preview.js")
     copy_file(QR_IMAGE_PATH, output_share_dir / "cmi-website-qr.png")
 
     metadata_payload = {
@@ -160,6 +162,7 @@ def main() -> None:
             "instagram-export.css",
             "instagram-export.js",
             "share-preview.css",
+            "share-preview.js",
             "cmi-website-qr.png",
             "share-pages.json",
         ],

@@ -608,6 +608,71 @@
     color: #9a2f69;
 }
 
+.event-social-button--copy-link {
+    --event-social-copy-icon-offset: 14px;
+    background: rgba(20, 92, 102, 0.12);
+    color: #145c66;
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.event-social-button--copy-link[data-copy-state="success"] {
+    background: rgba(20, 122, 87, 0.14);
+    border-color: rgba(20, 122, 87, 0.28);
+    box-shadow: 0 10px 22px rgba(20, 122, 87, 0.14);
+    color: #147a57;
+}
+
+.event-social-button--copy-link:active {
+    transform: translateY(1px);
+}
+
+.event-social-button--copy-link .event-social-button__icon {
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.event-social-button--copy-link .event-social-button__icon--success {
+    position: absolute;
+    inset-inline-start: var(--event-social-copy-icon-offset);
+    top: 50%;
+    opacity: 0;
+    transform: translateY(-50%) scale(0.72);
+}
+
+.event-social-button--copy-link[data-copy-state="success"] .event-social-button__icon--copy {
+    opacity: 0;
+    transform: scale(0.72);
+}
+
+.event-social-button--copy-link[data-copy-state="success"] .event-social-button__icon--success {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+.event-social-button--copy-link .event-social-button__copy-label {
+    display: none;
+}
+
+.event-social-copy-status {
+    flex: 0 0 100%;
+    order: 99;
+    width: 100%;
+    margin: 0;
+    color: #145c66;
+    font-family: var(--font-ui-modern);
+    font-size: 0.84rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.event-social-copy-status[data-state="success"] {
+    color: #147a57;
+}
+
+.event-social-copy-status[data-state="error"] {
+    color: #9f3f36;
+}
+
 .event-social-button:hover,
 .event-social-button:focus-visible {
     outline: none;
@@ -619,6 +684,37 @@
 }
 
 @media (min-width: 1180px) {
+    .event-social-actions .event-social-button.event-social-button--copy-link {
+        width: auto;
+        min-width: 0;
+        max-width: none;
+        aspect-ratio: auto;
+        padding: 0 16px 0 14px;
+        gap: 9px;
+        flex: 0 0 auto;
+    }
+
+    .event-social-button--copy-link .event-social-button__copy-label {
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.92rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .event-social-button--copy-link .event-social-button__copy-label [data-lang] {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        clip-path: none;
+        border: 0;
+        white-space: nowrap;
+    }
+
     .event-lightbox-caption-kicker,
     .event-section-kicker,
     .event-location {

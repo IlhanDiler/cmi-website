@@ -1800,7 +1800,7 @@ html[lang="uk"] #langUk,
     }
 
     .navbar {
-        grid-template-columns: auto max-content minmax(0, 1fr);
+        grid-template-columns: auto auto minmax(0, 1fr) auto;
         --navbar-gap: 6px;
         --navbar-padding: 8px 12px;
         --navbar-scrolled-bg: rgba(9, 21, 28, 0.98);
@@ -1829,22 +1829,15 @@ html[lang="uk"] #langUk,
     }
 
     .navbar > .site-toolbar-controls {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        gap: 4px;
-        flex: 0 1 auto;
-        min-width: 0;
-        width: 100%;
-        max-width: 100%;
-        justify-self: stretch;
-        justify-content: stretch;
-        overflow: visible;
+        display: contents;
     }
 
     .navbar .theme-switch-button {
-        --theme-button-size: 34px;
-        order: 2;
-        flex: 0 0 auto;
+        --theme-button-size: 32px;
+        grid-column: 4;
+        grid-row: 1;
+        align-self: center;
+        flex: 0 0 var(--theme-button-size);
         margin-left: 0;
         justify-self: end;
     }
@@ -1856,9 +1849,10 @@ html[lang="uk"] #langUk,
 
     .nav-brand {
         min-width: 0;
-        max-width: 78px;
-        justify-self: center;
-        justify-content: center;
+        max-width: 72px;
+        grid-column: 2;
+        justify-self: start;
+        justify-content: flex-start;
         background: transparent;
         border-color: transparent;
         box-shadow: none;
@@ -1886,21 +1880,25 @@ html[lang="uk"] #langUk,
         display: none;
     }
 
-    #langSwitcher {
-        order: 1;
+    .navbar #langSwitcher {
+        grid-column: 3;
+        grid-row: 1;
+        align-self: center;
         flex: 0 1 auto;
         min-width: 0;
-        width: 100%;
-        max-width: 100%;
+        width: min(100%, calc(100vw - 156px));
+        max-width: calc(100vw - 156px);
         padding: 0;
         background: transparent;
         border-color: transparent;
         gap: 3px;
+        justify-self: end;
         justify-content: flex-start;
         overflow-x: auto;
         overflow-y: hidden;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        flex-wrap: nowrap;
     }
 
     #langSwitcher::-webkit-scrollbar {

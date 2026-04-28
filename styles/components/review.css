@@ -2108,10 +2108,17 @@
 }
 
 .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: fit-content;
+    max-width: 100%;
     gap: 10px;
     margin-top: 8px;
     margin-bottom: 14px;
 }
+
 .review-featured .charity-flex-row > .gruppenbild-container,
 .review-archive .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container {
     align-self: flex-start;
@@ -2119,6 +2126,35 @@
     background: var(--review-panel-surface);
     border-color: var(--review-panel-border);
     box-shadow: var(--review-panel-shadow-soft);
+}
+
+.review-featured .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link,
+.review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link {
+    --event-social-copy-icon-offset: 12px;
+    background: var(--review-secondary-wash-soft);
+    border-color: var(--review-panel-border-strong);
+    color: var(--review-title-color);
+}
+
+.review-featured .event-social-actions.review-social-actions .event-social-copy-status,
+.review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-copy-status,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions .event-social-copy-status {
+    text-align: left;
+}
+
+.review-featured .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link svg,
+.review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link svg,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+}
+
+.review-featured .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label,
+.review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label {
+    display: none;
 }
 
 
@@ -2132,6 +2168,52 @@
     min-width: 0;
     padding: 10px;
 }
+
+.review-featured .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link,
+.review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link,
+.review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link {
+    height: 42px;
+    min-height: 42px;
+}
+
+@media (min-width: 1180px) {
+    .review-featured .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link,
+    .review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link {
+        width: auto;
+        min-width: 0;
+        max-width: none;
+        padding: 0 14px 0 12px;
+        gap: 9px;
+        flex: 0 0 auto;
+    }
+
+    .review-featured .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label,
+    .review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label,
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label {
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.9rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .review-featured .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label [data-lang],
+    .review-archive .charity-projects-section[id^="review-"] .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label [data-lang],
+    .review-archive .charity-projects-section[id^="review-"].review-card--expanded .event-social-actions.review-social-actions .event-social-button.event-social-button--copy-link .event-social-button__copy-label [data-lang] {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        clip-path: none;
+        border: 0;
+        white-space: nowrap;
+    }
+}
+
 .review-featured .charity-flex-row > .gruppenbild-container img:not(.gruppenbild-img-nikolaus),
 .review-featured .charity-flex-right img:not(.gruppenbild-img-nikolaus),
 .charity-projects-section[id^="review-"] .review-media-image-card {

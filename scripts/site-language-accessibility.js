@@ -88,30 +88,44 @@ const navigationUiLabels = {
 const eventShareUiLabels = {
     de: {
         share: 'Teilen',
+        copyLink: 'Link kopieren',
+        copyLinkSuccess: 'Link kopiert',
         opensInNewWindow: 'öffnet in neuem Fenster'
     },
     en: {
         share: 'Share',
+        copyLink: 'Copy link',
+        copyLinkSuccess: 'Link copied',
         opensInNewWindow: 'opens in new window'
     },
     fr: {
         share: 'Partager',
+        copyLink: 'Copier le lien',
+        copyLinkSuccess: 'Lien copié',
         opensInNewWindow: 's’ouvre dans une nouvelle fenêtre'
     },
     ln: {
         share: 'Kabola',
+        copyLink: 'Copier lien',
+        copyLinkSuccess: 'Lien ecopyami',
         opensInNewWindow: 'efungwami na lininisa ya sika'
     },
     it: {
         share: 'Condividi',
+        copyLink: 'Copia link',
+        copyLinkSuccess: 'Link copiato',
         opensInNewWindow: 'si apre in una nuova finestra'
     },
     tr: {
         share: 'Paylas',
+        copyLink: 'Bağlantıyı kopyala',
+        copyLinkSuccess: 'Bağlantı kopyalandı',
         opensInNewWindow: 'yeni pencerede açılır'
     },
     uk: {
         share: 'Поділитися',
+        copyLink: 'Скопіювати посилання',
+        copyLinkSuccess: 'Посилання скопійовано',
         opensInNewWindow: 'відкривається в новому вікні'
     }
 };
@@ -331,13 +345,20 @@ function syncEventShareButtonAccessibility() {
         actionGroup.setAttribute('aria-label', groupLabel);
 
         actionGroup.querySelectorAll('.event-social-button').forEach(function(button) {
+            const isCopyLinkButton = button.classList.contains('event-social-button--copy-link');
             const platform = button.classList.contains('event-social-button--whatsapp')
                 ? 'WhatsApp'
                 : button.classList.contains('event-social-button--instagram')
                     ? 'Instagram'
-                    : labels.share;
+                    : isCopyLinkButton && button.dataset.copyState === 'success'
+                        ? labels.copyLinkSuccess
+                        : isCopyLinkButton
+                            ? labels.copyLink
+                            : labels.share;
             const baseLabel = title ? `${platform}: ${title}` : platform;
-            const accessibilityLabel = appendAccessibilityHint(baseLabel, labels.opensInNewWindow);
+            const accessibilityLabel = isCopyLinkButton
+                ? baseLabel
+                : appendAccessibilityHint(baseLabel, labels.opensInNewWindow);
 
             button.setAttribute('aria-label', accessibilityLabel);
             button.setAttribute('title', accessibilityLabel);
