@@ -1054,10 +1054,10 @@ async def run_release_smoke_for_target(playwright, requested_target):
             issues,
             screenshots,
             resolved_target,
-            "share/querbeet-roundup-2025.html",
+            "share/querbeet-roundup-2025--tr.html?lang=tr",
             "querbeet-roundup-share",
             ".share-card--poster",
-            "CMI Konser Yili",
+            "CMI Konzertjahr",
         )
         await check_instagram_export_page(browser, issues, screenshots, resolved_target)
     except Exception as error:  # noqa: BLE001
