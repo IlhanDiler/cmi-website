@@ -1,4 +1,46 @@
 const heroGallery = [
+    {
+        src: 'bilder/Galakonzert_probe2026.jpeg',
+        title: {
+            de: 'CMI 2026 nach der Hauptprobe für das Jubiläumskonzert',
+            en: 'CMI group photo in front of St. Thekla in Ochsenfurt 2026',
+            fr: 'Photo de groupe du CMI devant Saint-Thekla a Ochsenfurt en 2026',
+            ln: 'Foto ya lisanga ya CMI liboso ya St. Thekla na Ochsenfurt na 2026',
+            it: 'Foto di gruppo del CMI davanti a St. Thekla a Ochsenfurt nel 2026',
+            tr: '2026 yilinda Ochsenfurt St. Thekla onunde CMI grup fotosu',
+            uk: 'Групове фото КМІ перед Св. Теклею в Оксенфурті 2026'
+        },
+        shortTitle: {
+            de: 'CMI 2026 nach der Hauptprobe',
+            en: 'CMI group photo 2026',
+            fr: 'Photo de groupe CMI 2026',
+            ln: 'Foto ya lisanga CMI 2026',
+            it: 'Foto di gruppo CMI 2026',
+            tr: 'CMI grup fotosu 2026',
+            uk: 'Групове фото КМІ 2026'
+        }
+    },
+    {
+        src: 'bilder/Galakonzert_probe_2026_totale.jpeg',
+        title: {
+            de: 'CMI 2026 mit FAINO, Liederkranz und Querbeet und BGS',
+            en: 'Shared group photo of the 2026 gala concert guests',
+            fr: 'Photo de groupe commune des invites du concert de gala 2026',
+            ln: 'Foto ya lisanga ya bapaya ya konser ya gala 2026',
+            it: 'Foto di gruppo comune degli ospiti del concerto di gala 2026',
+            tr: '2026 gala konseri konuklarinin ortak grup fotosu',
+            uk: 'Спільне групове фото гостей гала-концерту 2026'
+        },
+        shortTitle: {
+            de: 'CMI 2026 mit FAINO, Liederkranz und Querbeet und BGS',
+            en: 'Gala concert group photo 2026',
+            fr: 'Photo de groupe gala 2026',
+            ln: 'Foto ya gala 2026',
+            it: 'Foto di gruppo gala 2026',
+            tr: 'Gala grup fotosu 2026',
+            uk: 'Групове фото гала 2026'
+        }
+    },
     { src: 'bilder/Weihnachtskonzert Spitalkirche.png', title: { de: '„Weihnachtskonzert zum Mitsingen 2025“ in der Spitalkirche Ochsenfurt', en: '"Christmas Sing-Along Concert 2025" at Spitalkirche Ochsenfurt', fr: '« Concert de Noel participatif 2025 » a la Spitalkirche d\'Ochsenfurt', ln: '« Konser ya Noel mpo na koyemba elongo 2025 » na Spitalkirche Ochsenfurt', it: '"Concerto di Natale da cantare insieme 2025" nella Spitalkirche di Ochsenfurt', tr: 'Ochsenfurt Spitalkirche\'de "Birlikte Söylenen Noel Konseri 2025"', uk: '« Різдвяний концерт для спільного співу 2025 » у Шпіталькірхе Оксенфурта' }, shortTitle: { de: 'Weihnachtskonzert 2025 in Ochsenfurt', en: 'Christmas Sing-Along 2025 in Ochsenfurt', fr: 'Concert de Noel 2025 a Ochsenfurt', ln: 'Konser ya Noel 2025 na Ochsenfurt', it: 'Concerto di Natale 2025 a Ochsenfurt', tr: 'Ochsenfurt\'ta Noel Konseri 2025', uk: 'Різдвяний концерт 2025 в Оксенфурті' } },
     { src: 'bilder/Gruppenbild2.jpg', title: { de: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Hotel Meintz Ochsenfurt', en: 'Benefit concert for "Doctors Without Borders" 2025 at Hotel Meintz Ochsenfurt', fr: 'Concert caritatif pour « Medecins Sans Frontieres » 2025 a l\'Hotel Meintz d\'Ochsenfurt', ln: 'Konser ya lisungi mpo na « Medecins Sans Frontieres » 2025 na Hotel Meintz Ochsenfurt', it: 'Concerto benefico per "Medici Senza Frontiere" 2025 all\'Hotel Meintz di Ochsenfurt', tr: 'Ochsenfurt\'taki Hotel Meintz\'te "Sınır Tanımayan Doktorlar" yararına 2025 yardım konseri', uk: 'Благодійний концерт для «Лікарів без кордонів» 2025 в готелі Meintz в Оксенфурті' }, shortTitle: { de: 'Benefizkonzert 2025 im Hotel Meintz', en: 'Benefit concert 2025 at Hotel Meintz', fr: 'Concert caritatif 2025 a l\'Hotel Meintz', ln: 'Konser ya lisungi 2025 na Hotel Meintz', it: 'Concerto benefico 2025 all\'Hotel Meintz', tr: 'Hotel Meintz\'te yardım konseri 2025', uk: 'Благодійний концерт 2025 в готелі Meintz' } },
     { src: 'bilder/gruppe_2007.jpeg', title: { de: 'CMI 2009', en: 'CMI 2009', fr: 'CMI 2009', ln: 'CMI 2009', it: 'CMI 2009', tr: 'CMI 2009', uk: 'CMI 2009' } },
@@ -18,6 +60,11 @@ const heroGalleryDesktopFocusImages = new Set([
     'bilder/peterbild.jpg',
     'bilder/klosterkirche.jpg',
     'bilder/concello.jfif'
+]);
+
+const heroGalleryContainImages = new Set([
+    'bilder/Galakonzert_probe2026.jpeg',
+    'bilder/Galakonzert_probe_2026_totale.jpeg'
 ]);
 
 let heroIndex = 0;
@@ -145,6 +192,10 @@ function getHeroGallerySlideStyle(entry) {
                 backgroundPosition: 'center 10%',
                 backgroundSize: 'cover'
             };
+    }
+
+    if (heroGalleryContainImages.has(entry.src)) {
+        return nonCroppingStyle;
     }
 
     if (shouldAvoidHeroGalleryCropping()) {
