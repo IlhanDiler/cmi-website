@@ -47,291 +47,223 @@
             document.documentElement.style.colorScheme = storedTheme;
           }
         } catch (e) {}
-
-        if ('scrollRestoration' in history) {
-          history.scrollRestoration = 'manual';
-        }
-      })();
-    </script>
-
-</head>
-<body>
+          if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+          }
+        })();
+      </script>
+  </head>
+  <body>
     <a href="#main-content" class="skip-link">
-    <!-- LEGAL-I18N:homepage-skip-link-label:start -->
-        <span data-lang="de">Zum Inhalt springen</span>
-        <span data-lang="en" hidden aria-hidden="true">Skip to main content</span>
-        <span data-lang="fr" hidden aria-hidden="true">Aller au contenu principal</span>
-        <span data-lang="ln" hidden aria-hidden="true">Kende na makambo ya ntina</span>
-        <span data-lang="it" hidden aria-hidden="true">Vai al contenuto principale</span>
-        <span data-lang="tr" hidden aria-hidden="true">Ana içeriğe geç</span>
-        <span data-lang="uk" hidden aria-hidden="true">Перейти до основного вмісту</span>
-        <!-- LEGAL-I18N:homepage-skip-link-label:end -->
+      <span data-lang="de">Zum Inhalt springen</span>
+      <span data-lang="en" hidden aria-hidden="true">Skip to main content</span>
+      <span data-lang="fr" hidden aria-hidden="true">Aller au contenu principal</span>
+      <span data-lang="ln" hidden aria-hidden="true">Kende na makambo ya ntina</span>
+      <span data-lang="it" hidden aria-hidden="true">Vai al contenuto principale</span>
+      <span data-lang="tr" hidden aria-hidden="true">Ana içeriğe geç</span>
+      <span data-lang="uk" hidden aria-hidden="true">Перейти до основного вмісту</span>
     </a>
-    <h1 class="visually-hidden">Collegium Musicum Iuvenale Ochsenfurt</h1>
-    <nav class="navbar" aria-label="Hauptnavigation">
-        <!-- Mobile menu button: ganz links -->
-        <button type="button" class="mobile-menu-btn" aria-label="Menü öffnen" aria-controls="mobile-menu" aria-expanded="false">
-            <img src="files/icon.menu.button.svg" alt="" aria-hidden="true" class="menu-icon">
+    <header class="navbar">
+      <div class="nav-brand">
+        <a href="#main-content" aria-label="Collegium Musicum Iuvenale Ochsenfurt">
+          <img src="files/logo_cmi1 - weiß.svg" alt="CMI Logo">
+        </a>
+        <span class="brand-text">
+          <span class="brand-main">CMI Ochsenfurt</span>
+          <span class="brand-sub" data-lang="de">Musik baut Brücken</span>
+          <span class="brand-sub" data-lang="en" hidden aria-hidden="true">Music builds bridges</span>
+          <span class="brand-sub" data-lang="fr" hidden aria-hidden="true">La musique construit des ponts</span>
+          <span class="brand-sub" data-lang="ln" hidden aria-hidden="true">Miziki etongaka baponti</span>
+          <span class="brand-sub" data-lang="it" hidden aria-hidden="true">La musica costruisce ponti</span>
+          <span class="brand-sub" data-lang="tr" hidden aria-hidden="true">Müzik köprüler kurar</span>
+          <span class="brand-sub" data-lang="uk" hidden aria-hidden="true">Музика будує мости</span>
+        </span>
+      </div>
+      <nav class="nav-menu" aria-label="Seitennavigation">
+        <a class="nav-link" href="#events" data-lang="de">Konzerte</a>
+        <a class="nav-link" href="#events" data-lang="en" hidden aria-hidden="true">Concerts</a>
+        <a class="nav-link" href="#events" data-lang="fr" hidden aria-hidden="true">Concerts</a>
+        <a class="nav-link" href="#events" data-lang="ln" hidden aria-hidden="true">Ba konser</a>
+        <a class="nav-link" href="#events" data-lang="it" hidden aria-hidden="true">Concerti</a>
+        <a class="nav-link" href="#events" data-lang="tr" hidden aria-hidden="true">Konserler</a>
+        <a class="nav-link" href="#events" data-lang="uk" hidden aria-hidden="true">Концерти</a>
+        <a class="nav-link" href="#review" data-lang="de">Rückblick</a>
+        <a class="nav-link" href="#review" data-lang="en" hidden aria-hidden="true">Review</a>
+        <a class="nav-link" href="#review" data-lang="fr" hidden aria-hidden="true">Regards</a>
+        <a class="nav-link" href="#review" data-lang="ln" hidden aria-hidden="true">Makambo eleki</a>
+        <a class="nav-link" href="#review" data-lang="it" hidden aria-hidden="true">Retrospettiva</a>
+        <a class="nav-link" href="#review" data-lang="tr" hidden aria-hidden="true">Geriye bakış</a>
+        <a class="nav-link" href="#review" data-lang="uk" hidden aria-hidden="true">Огляд</a>
+        <a class="nav-link" href="chronik.html" data-lang="de">Chronik</a>
+        <a class="nav-link" href="chronik.html" data-lang="en" hidden aria-hidden="true">History</a>
+        <a class="nav-link" href="chronik.html" data-lang="fr" hidden aria-hidden="true">Chronique</a>
+        <a class="nav-link" href="chronik.html" data-lang="ln" hidden aria-hidden="true">Lisolo ya bambula</a>
+        <a class="nav-link" href="chronik.html" data-lang="it" hidden aria-hidden="true">Storia</a>
+        <a class="nav-link" href="chronik.html" data-lang="tr" hidden aria-hidden="true">Kronoloji</a>
+        <a class="nav-link" href="chronik.html" data-lang="uk" hidden aria-hidden="true">Хроніка</a>
+        <a class="nav-link" href="partner.html" data-lang="de">Partner</a>
+        <a class="nav-link" href="partner.html" data-lang="en" hidden aria-hidden="true">Partners</a>
+        <a class="nav-link" href="partner.html" data-lang="fr" hidden aria-hidden="true">Partenaires</a>
+        <a class="nav-link" href="partner.html" data-lang="ln" hidden aria-hidden="true">Baninga</a>
+        <a class="nav-link" href="partner.html" data-lang="it" hidden aria-hidden="true">Partner</a>
+        <a class="nav-link" href="partner.html" data-lang="tr" hidden aria-hidden="true">Ortaklar</a>
+        <a class="nav-link" href="partner.html" data-lang="uk" hidden aria-hidden="true">Партнери</a>
+        <a class="nav-link" href="#contact" data-lang="de">Kontakt</a>
+        <a class="nav-link" href="#contact" data-lang="en" hidden aria-hidden="true">Contact</a>
+        <a class="nav-link" href="#contact" data-lang="fr" hidden aria-hidden="true">Contact</a>
+        <a class="nav-link" href="#contact" data-lang="ln" hidden aria-hidden="true">Kontak</a>
+        <a class="nav-link" href="#contact" data-lang="it" hidden aria-hidden="true">Contatto</a>
+        <a class="nav-link" href="#contact" data-lang="tr" hidden aria-hidden="true">İletişim</a>
+        <a class="nav-link" href="#contact" data-lang="uk" hidden aria-hidden="true">Контакт</a>
+      </nav>
+      <div class="site-toolbar-controls">
+        <button type="button" class="mobile-menu-btn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Menü öffnen">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <path d="M4 7H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M4 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
         </button>
-        <!-- Logo und Titel: mittig -->
-        <div class="nav-brand">
-                            <a href="index.html" title="Startseite Collegium Musicum Iuvenale Ochsenfurt">
-                                <img id="mainLogo" src="files/logo_cmi1 - weiß.svg" alt="Logo Collegium Musicum Iuvenale Ochsenfurt Hauptlogo" class="nav-logo">
-                            </a>
-            <span class="brand-text">
-                <span class="brand-main">Collegium Musicum</span>
-                <span class="brand-sub">Iuvenale Ochsenfurt</span>
-              <!-- LEGAL-I18N:homepage-brand-tagline:start -->
-                <span class="brand-tagline" data-lang="de">Musik baut Brücken</span>
-                <span class="brand-tagline" data-lang="en" hidden aria-hidden="true">Music builds bridges</span>
-                <span class="brand-tagline" data-lang="fr" hidden aria-hidden="true">La musique construit des ponts</span>
-                <span class="brand-tagline" data-lang="ln" hidden aria-hidden="true">Miziki etongaka baponti</span>
-                <span class="brand-tagline" data-lang="it" hidden aria-hidden="true">La musica costruisce ponti</span>
-                <span class="brand-tagline" data-lang="tr" hidden aria-hidden="true">Müzik köprüler kurar</span>
-                <span class="brand-tagline" data-lang="uk" hidden aria-hidden="true">Музика будує мости</span>
-                <!-- LEGAL-I18N:homepage-brand-tagline:end -->
-            </span>
+        <div id="langSwitcher" class="language-switch" role="group" aria-label="Sprachauswahl">
+          <button type="button" onclick="setLang('de')" id="langDe" class="lang-switch-button" aria-label="Deutsch">
+            <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="21" height="14" fill="#000000"/>
+              <rect y="4.66667" width="21" height="4.66667" fill="#DD0000"/>
+              <rect y="9.33333" width="21" height="4.66667" fill="#FFCE00"/>
+            </svg>
+          </button>
+          <button type="button" onclick="setLang('en')" id="langEn" class="lang-switch-button" aria-label="English">
+            <svg width="21" height="14" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="1200" height="600" fill="#00247d"/>
+              <path d="M0,0L1200,600M1200,0L0,600" stroke="#fff" stroke-width="120"/>
+              <path d="M0,0L1200,600M1200,0L0,600" stroke="#cf142b" stroke-width="60"/>
+              <path d="M600,0L600,600M0,300L1200,300" stroke="#fff" stroke-width="120"/>
+              <path d="M600,0L600,600M0,300L1200,300" stroke="#cf142b" stroke-width="60"/>
+            </svg>
+          </button>
+          <button type="button" onclick="setLang('fr')" id="langFr" class="lang-switch-button" aria-label="Francais">
+            <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="7" height="14" x="0" y="0" fill="#0055A4"/>
+              <rect width="7" height="14" x="7" y="0" fill="#FFFFFF"/>
+              <rect width="7" height="14" x="14" y="0" fill="#EF4135"/>
+            </svg>
+          </button>
+          <button type="button" onclick="setLang('ln')" id="langLn" class="lang-switch-button" aria-label="Lingala">
+            <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="21" height="14" fill="#00A3E0"/>
+              <path d="M-2 15L5 15L23 -1L16 -1Z" fill="#F7D618"/>
+              <path d="M-1 15L4.2 15L22 -1L16.8 -1Z" fill="#CE1021"/>
+              <path d="M4 1.2L4.58 2.88H6.36L4.92 3.96L5.48 5.64L4 4.62L2.52 5.64L3.08 3.96L1.64 2.88H3.42L4 1.2Z" fill="#F7D618"/>
+            </svg>
+          </button>
+          <button type="button" onclick="setLang('it')" id="langIt" class="lang-switch-button" aria-label="Italiano">
+            <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="7" height="14" x="0" y="0" fill="#008C45"/>
+              <rect width="7" height="14" x="7" y="0" fill="#F4F5F0"/>
+              <rect width="7" height="14" x="14" y="0" fill="#CD212A"/>
+            </svg>
+          </button>
+          <button type="button" onclick="setLang('tr')" id="langTr" class="lang-switch-button" aria-label="Türkçe">
+            <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="21" height="14" fill="#E30A17"/>
+              <circle cx="8" cy="7" r="3.2" fill="#FFFFFF"/>
+              <circle cx="8.8" cy="7" r="2.6" fill="#E30A17"/>
+              <path d="M13.5 4.3L14.08 6.02L15.88 6.04L14.45 7.12L14.99 8.86L13.5 7.82L12.01 8.86L12.55 7.12L11.12 6.04L12.92 6.02L13.5 4.3Z" fill="#FFFFFF"/>
+            </svg>
+          </button>
+          <button type="button" onclick="setLang('uk')" id="langUk" class="lang-switch-button" aria-label="Українська">
+            <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="21" height="7" fill="#0057B7"/>
+              <rect y="7" width="21" height="7" fill="#FFD700"/>
+            </svg>
+          </button>
         </div>
-        <!-- Desktop Navigation jetzt links -->
-        <div class="nav-menu">
-            <!-- LEGAL-I18N:homepage-desktop-nav-links:start -->
-            <a class="nav-link" href="#musik-baut-bruecken" data-lang="de">Über uns</a>
-            <a class="nav-link" href="#musik-baut-bruecken" data-lang="en" hidden aria-hidden="true">About us</a>
-            <a class="nav-link" href="#musik-baut-bruecken" data-lang="fr" hidden aria-hidden="true">A propos</a>
-            <a class="nav-link" href="#musik-baut-bruecken" data-lang="ln" hidden aria-hidden="true">Na ntina na biso</a>
-            <a class="nav-link" href="#musik-baut-bruecken" data-lang="it" hidden aria-hidden="true">Chi siamo</a>
-            <a class="nav-link" href="#musik-baut-bruecken" data-lang="tr" hidden aria-hidden="true">Hakkımızda</a>
-            <a class="nav-link" href="#musik-baut-bruecken" data-lang="uk" hidden aria-hidden="true">Про нас</a>
-            <a class="nav-link" href="#music-family-section" data-lang="de">MITMACHEN</a>
-            <a class="nav-link" href="#music-family-section" data-lang="en" hidden aria-hidden="true">JOIN US</a>
-            <a class="nav-link" href="#music-family-section" data-lang="fr" hidden aria-hidden="true">PARTICIPER</a>
-            <a class="nav-link" href="#music-family-section" data-lang="ln" hidden aria-hidden="true">Sangana na biso</a>
-            <a class="nav-link" href="#music-family-section" data-lang="it" hidden aria-hidden="true">PARTECIPA</a>
-            <a class="nav-link" href="#music-family-section" data-lang="tr" hidden aria-hidden="true">KATIL</a>
-            <a class="nav-link" href="#music-family-section" data-lang="uk" hidden aria-hidden="true">ДОЛУЧИТИСЯ</a>
-            <a class="nav-link" href="#events" data-lang="de">Termine</a>
-            <a class="nav-link" href="#events" data-lang="en" hidden aria-hidden="true">Events</a>
-            <a class="nav-link" href="#events" data-lang="fr" hidden aria-hidden="true">Agenda</a>
-            <a class="nav-link" href="#events" data-lang="ln" hidden aria-hidden="true">Makambo</a>
-            <a class="nav-link" href="#events" data-lang="it" hidden aria-hidden="true">Eventi</a>
-            <a class="nav-link" href="#events" data-lang="tr" hidden aria-hidden="true">Etkinlikler</a>
-            <a class="nav-link" href="#events" data-lang="uk" hidden aria-hidden="true">Події</a>
-            <a class="nav-link" href="chronik.html" data-lang="de">Chronik</a>
-            <a class="nav-link" href="chronik.html" data-lang="en" hidden aria-hidden="true">Timeline</a>
-            <a class="nav-link" href="chronik.html" data-lang="fr" hidden aria-hidden="true">Chronique</a>
-            <a class="nav-link" href="chronik.html" data-lang="ln" hidden aria-hidden="true">Lisolo ya bambula</a>
-            <a class="nav-link" href="chronik.html" data-lang="it" hidden aria-hidden="true">Cronologia</a>
-            <a class="nav-link" href="chronik.html" data-lang="tr" hidden aria-hidden="true">Kronoloji</a>
-            <a class="nav-link" href="chronik.html" data-lang="uk" hidden aria-hidden="true">Хроніка</a>
-            <a class="nav-link" href="#news-feed" data-lang="de">Aktuelles</a>
-            <a class="nav-link" href="#news-feed" data-lang="en" hidden aria-hidden="true">Latest</a>
-            <a class="nav-link" href="#news-feed" data-lang="fr" hidden aria-hidden="true">Actualites</a>
-            <a class="nav-link" href="#news-feed" data-lang="ln" hidden aria-hidden="true">Sika</a>
-            <a class="nav-link" href="#news-feed" data-lang="it" hidden aria-hidden="true">Novita</a>
-            <a class="nav-link" href="#news-feed" data-lang="tr" hidden aria-hidden="true">Güncel</a>
-            <a class="nav-link" href="#news-feed" data-lang="uk" hidden aria-hidden="true">Актуальне</a>
-            <a class="nav-link" href="#review" data-lang="de">Rückblick</a>
-            <a class="nav-link" href="#review" data-lang="en" hidden aria-hidden="true">Review</a>
-            <a class="nav-link" href="#review" data-lang="fr" hidden aria-hidden="true">Regards</a>
-            <a class="nav-link" href="#review" data-lang="ln" hidden aria-hidden="true">Makambo eleki</a>
-            <a class="nav-link" href="#review" data-lang="it" hidden aria-hidden="true">Retrospettiva</a>
-            <a class="nav-link" href="#review" data-lang="tr" hidden aria-hidden="true">Geriye bakış</a>
-            <a class="nav-link" href="#review" data-lang="uk" hidden aria-hidden="true">Огляд</a>
-            <a class="nav-link" href="#contact" data-lang="de">Kontakt</a>
-            <a class="nav-link" href="#contact" data-lang="en" hidden aria-hidden="true">Contact</a>
-            <a class="nav-link" href="#contact" data-lang="fr" hidden aria-hidden="true">Contact</a>
-            <a class="nav-link" href="#contact" data-lang="ln" hidden aria-hidden="true">Kontak</a>
-            <a class="nav-link" href="#contact" data-lang="it" hidden aria-hidden="true">Contatto</a>
-            <a class="nav-link" href="#contact" data-lang="tr" hidden aria-hidden="true">İletişim</a>
-            <a class="nav-link" href="#contact" data-lang="uk" hidden aria-hidden="true">Контакт</a>
-            <!-- LEGAL-I18N:homepage-desktop-nav-links:end -->
+      </div>
+      <div id="mobileMenu" class="mobile-menu" hidden aria-hidden="true">
+        <a class="mobile-nav-link" href="#events" data-lang="de">Konzerte</a>
+        <a class="mobile-nav-link" href="#events" data-lang="en" hidden aria-hidden="true">Concerts</a>
+        <a class="mobile-nav-link" href="#events" data-lang="fr" hidden aria-hidden="true">Concerts</a>
+        <a class="mobile-nav-link" href="#events" data-lang="ln" hidden aria-hidden="true">Ba konser</a>
+        <a class="mobile-nav-link" href="#events" data-lang="it" hidden aria-hidden="true">Concerti</a>
+        <a class="mobile-nav-link" href="#events" data-lang="tr" hidden aria-hidden="true">Konserler</a>
+        <a class="mobile-nav-link" href="#events" data-lang="uk" hidden aria-hidden="true">Концерти</a>
+        <a class="mobile-nav-link" href="#review" data-lang="de">Rückblick</a>
+        <a class="mobile-nav-link" href="#review" data-lang="en" hidden aria-hidden="true">Review</a>
+        <a class="mobile-nav-link" href="#review" data-lang="fr" hidden aria-hidden="true">Regards</a>
+        <a class="mobile-nav-link" href="#review" data-lang="ln" hidden aria-hidden="true">Makambo eleki</a>
+        <a class="mobile-nav-link" href="#review" data-lang="it" hidden aria-hidden="true">Retrospettiva</a>
+        <a class="mobile-nav-link" href="#review" data-lang="tr" hidden aria-hidden="true">Geriye bakış</a>
+        <a class="mobile-nav-link" href="#review" data-lang="uk" hidden aria-hidden="true">Огляд</a>
+        <a class="mobile-nav-link" href="chronik.html" data-lang="de">Chronik</a>
+        <a class="mobile-nav-link" href="chronik.html" data-lang="en" hidden aria-hidden="true">History</a>
+        <a class="mobile-nav-link" href="chronik.html" data-lang="fr" hidden aria-hidden="true">Chronique</a>
+        <a class="mobile-nav-link" href="chronik.html" data-lang="ln" hidden aria-hidden="true">Lisolo ya bambula</a>
+        <a class="mobile-nav-link" href="chronik.html" data-lang="it" hidden aria-hidden="true">Storia</a>
+        <a class="mobile-nav-link" href="chronik.html" data-lang="tr" hidden aria-hidden="true">Kronoloji</a>
+        <a class="mobile-nav-link" href="chronik.html" data-lang="uk" hidden aria-hidden="true">Хроніка</a>
+        <a class="mobile-nav-link" href="partner.html" data-lang="de">Partner</a>
+        <a class="mobile-nav-link" href="partner.html" data-lang="en" hidden aria-hidden="true">Partners</a>
+        <a class="mobile-nav-link" href="partner.html" data-lang="fr" hidden aria-hidden="true">Partenaires</a>
+        <a class="mobile-nav-link" href="partner.html" data-lang="ln" hidden aria-hidden="true">Baninga</a>
+        <a class="mobile-nav-link" href="partner.html" data-lang="it" hidden aria-hidden="true">Partner</a>
+        <a class="mobile-nav-link" href="partner.html" data-lang="tr" hidden aria-hidden="true">Ortaklar</a>
+        <a class="mobile-nav-link" href="partner.html" data-lang="uk" hidden aria-hidden="true">Партнери</a>
+        <a class="mobile-nav-link" href="#contact" data-lang="de">Kontakt</a>
+        <a class="mobile-nav-link" href="#contact" data-lang="en" hidden aria-hidden="true">Contact</a>
+        <a class="mobile-nav-link" href="#contact" data-lang="fr" hidden aria-hidden="true">Contact</a>
+        <a class="mobile-nav-link" href="#contact" data-lang="ln" hidden aria-hidden="true">Kontak</a>
+        <a class="mobile-nav-link" href="#contact" data-lang="it" hidden aria-hidden="true">Contatto</a>
+        <a class="mobile-nav-link" href="#contact" data-lang="tr" hidden aria-hidden="true">İletişim</a>
+        <a class="mobile-nav-link" href="#contact" data-lang="uk" hidden aria-hidden="true">Контакт</a>
+      </div>
+    </header>
+    <main id="main-content">
+      <section class="hero-bg" aria-label="Galerie mit Benefizkonzerten und Konzertimpressionen">
+        <div class="hero-bg-fade-container" aria-hidden="true">
+          <div class="hero-bg-fade hero-bg-fade-current"></div>
+          <div class="hero-bg-fade hero-bg-fade-next"></div>
         </div>
-        <!-- Sprachumschalter: jetzt ganz rechts -->
-        <div id="langSwitcher" class="language-switch" role="group" aria-label="Sprache wählen">
-            <button type="button" onclick="setLang('de')" id="langDe" class="lang-switch-button" aria-label="Deutsch">
-                <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                    <rect width="21" height="14" fill="#000000"/>
-                    <rect y="4.66667" width="21" height="4.66667" fill="#DD0000"/>
-                    <rect y="9.33333" width="21" height="4.66667" fill="#FFCE00"/>
-                </svg>
-            </button>
-            <button type="button" onclick="setLang('en')" id="langEn" class="lang-switch-button" aria-label="English">
-                <svg width="21" height="14" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                    <rect width="1200" height="600" fill="#00247d"/>
-                    <path d="M0,0L1200,600M1200,0L0,600" stroke="#fff" stroke-width="120"/>
-                    <path d="M0,0L1200,600M1200,0L0,600" stroke="#cf142b" stroke-width="60"/>
-                    <path d="M600,0L600,600M0,300L1200,300" stroke="#fff" stroke-width="120"/>
-                    <path d="M600,0L600,600M0,300L1200,300" stroke="#cf142b" stroke-width="60"/>
-                    <path d="M120,600L0,0L120,0L240,600" fill="#fff"/>
-                    <path d="M120,600L0,0L120,0L240,600" stroke="#cf142b" stroke-width="30"/>
-                    <path d="M1080,0L1200,600L1080,600L960,0" fill="#fff"/>
-                    <path d="M1080,0L1200,600L1080,600L960,0" stroke="#cf142b" stroke-width="30"/>
-                </svg>
-            </button>
-            <button type="button" onclick="setLang('fr')" id="langFr" class="lang-switch-button" aria-label="Francais">
-                <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                    <rect width="7" height="14" x="0" y="0" fill="#0055A4"/>
-                    <rect width="7" height="14" x="7" y="0" fill="#FFFFFF"/>
-                    <rect width="7" height="14" x="14" y="0" fill="#EF4135"/>
-                </svg>
-            </button>
-            <button type="button" onclick="setLang('ln')" id="langLn" class="lang-switch-button" aria-label="Lingala">
-                <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                    <rect width="21" height="14" fill="#00A3E0"/>
-                    <path d="M-2 15L5 15L23 -1L16 -1Z" fill="#F7D618"/>
-                    <path d="M-1 15L4.2 15L22 -1L16.8 -1Z" fill="#CE1021"/>
-                    <path d="M4 1.2L4.58 2.88H6.36L4.92 3.96L5.48 5.64L4 4.62L2.52 5.64L3.08 3.96L1.64 2.88H3.42L4 1.2Z" fill="#F7D618"/>
-                </svg>
-            </button>
-            <button type="button" onclick="setLang('it')" id="langIt" class="lang-switch-button" aria-label="Italiano">
-                <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                    <rect width="7" height="14" x="0" y="0" fill="#008C45"/>
-                    <rect width="7" height="14" x="7" y="0" fill="#F4F5F0"/>
-                    <rect width="7" height="14" x="14" y="0" fill="#CD212A"/>
-                </svg>
-            </button>
-            <button type="button" onclick="setLang('tr')" id="langTr" class="lang-switch-button" aria-label="Türkçe">
-                <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                    <rect width="21" height="14" fill="#E30A17"/>
-                    <circle cx="8" cy="7" r="3.2" fill="#FFFFFF"/>
-                    <circle cx="8.8" cy="7" r="2.6" fill="#E30A17"/>
-                    <path d="M13.5 4.3L14.08 6.02L15.88 6.04L14.45 7.12L14.99 8.86L13.5 7.82L12.01 8.86L12.55 7.12L11.12 6.04L12.92 6.02L13.5 4.3Z" fill="#FFFFFF"/>
-                </svg>
-            </button>
-            <button type="button" onclick="setLang('uk')" id="langUk" class="lang-switch-button" aria-label="Українська">
-                <svg width="21" height="14" viewBox="0 0 21 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                    <rect width="21" height="7" fill="#0057B7"/>
-                    <rect y="7" width="21" height="7" fill="#FFD700"/>
-                </svg>
-            </button>
-        </div>
-        <!-- Mobile Navigation -->
-        <div id="mobile-menu" class="mobile-menu" aria-label="Mobile Navigation" aria-hidden="true" hidden>
-          <!-- LEGAL-I18N:homepage-mobile-nav-links:start -->
-            <a class="mobile-nav-link" href="#musik-baut-bruecken" data-lang="de">Über uns</a>
-            <a class="mobile-nav-link" href="#musik-baut-bruecken" data-lang="en" hidden aria-hidden="true">About us</a>
-            <a class="mobile-nav-link" href="#musik-baut-bruecken" data-lang="fr" hidden aria-hidden="true">A propos</a>
-            <a class="mobile-nav-link" href="#musik-baut-bruecken" data-lang="ln" hidden aria-hidden="true">Na ntina na biso</a>
-            <a class="mobile-nav-link" href="#musik-baut-bruecken" data-lang="it" hidden aria-hidden="true">Chi siamo</a>
-            <a class="mobile-nav-link" href="#musik-baut-bruecken" data-lang="tr" hidden aria-hidden="true">Hakkımızda</a>
-            <a class="mobile-nav-link" href="#musik-baut-bruecken" data-lang="uk" hidden aria-hidden="true">Про нас</a>
-            <a class="mobile-nav-link" href="#music-family-section" data-lang="de">MITMACHEN</a>
-            <a class="mobile-nav-link" href="#music-family-section" data-lang="en" hidden aria-hidden="true">JOIN US</a>
-            <a class="mobile-nav-link" href="#music-family-section" data-lang="fr" hidden aria-hidden="true">PARTICIPER</a>
-            <a class="mobile-nav-link" href="#music-family-section" data-lang="ln" hidden aria-hidden="true">Sangana na biso</a>
-            <a class="mobile-nav-link" href="#music-family-section" data-lang="it" hidden aria-hidden="true">PARTECIPA</a>
-            <a class="mobile-nav-link" href="#music-family-section" data-lang="tr" hidden aria-hidden="true">KATIL</a>
-            <a class="mobile-nav-link" href="#music-family-section" data-lang="uk" hidden aria-hidden="true">ДОЛУЧИТИСЯ</a>
-            <a class="mobile-nav-link" href="#events" data-lang="de">Termine</a>
-            <a class="mobile-nav-link" href="#events" data-lang="en" hidden aria-hidden="true">Events</a>
-            <a class="mobile-nav-link" href="#events" data-lang="fr" hidden aria-hidden="true">Agenda</a>
-            <a class="mobile-nav-link" href="#events" data-lang="ln" hidden aria-hidden="true">Makambo</a>
-            <a class="mobile-nav-link" href="#events" data-lang="it" hidden aria-hidden="true">Eventi</a>
-            <a class="mobile-nav-link" href="#events" data-lang="tr" hidden aria-hidden="true">Etkinlikler</a>
-            <a class="mobile-nav-link" href="#events" data-lang="uk" hidden aria-hidden="true">Події</a>
-            <a class="mobile-nav-link" href="chronik.html" data-lang="de">Chronik</a>
-            <a class="mobile-nav-link" href="chronik.html" data-lang="en" hidden aria-hidden="true">Timeline</a>
-            <a class="mobile-nav-link" href="chronik.html" data-lang="fr" hidden aria-hidden="true">Chronique</a>
-            <a class="mobile-nav-link" href="chronik.html" data-lang="ln" hidden aria-hidden="true">Lisolo ya bambula</a>
-            <a class="mobile-nav-link" href="chronik.html" data-lang="it" hidden aria-hidden="true">Cronologia</a>
-            <a class="mobile-nav-link" href="chronik.html" data-lang="tr" hidden aria-hidden="true">Kronoloji</a>
-            <a class="mobile-nav-link" href="chronik.html" data-lang="uk" hidden aria-hidden="true">Хроніка</a>
-            <a class="mobile-nav-link" href="#news-feed" data-lang="de">Aktuelles</a>
-            <a class="mobile-nav-link" href="#news-feed" data-lang="en" hidden aria-hidden="true">Latest</a>
-            <a class="mobile-nav-link" href="#news-feed" data-lang="fr" hidden aria-hidden="true">Actualites</a>
-            <a class="mobile-nav-link" href="#news-feed" data-lang="ln" hidden aria-hidden="true">Sika</a>
-            <a class="mobile-nav-link" href="#news-feed" data-lang="it" hidden aria-hidden="true">Novita</a>
-            <a class="mobile-nav-link" href="#news-feed" data-lang="tr" hidden aria-hidden="true">Güncel</a>
-            <a class="mobile-nav-link" href="#news-feed" data-lang="uk" hidden aria-hidden="true">Актуальне</a>
-            <a class="mobile-nav-link" href="#review" data-lang="de">Rückblick</a>
-            <a class="mobile-nav-link" href="#review" data-lang="en" hidden aria-hidden="true">Review</a>
-            <a class="mobile-nav-link" href="#review" data-lang="fr" hidden aria-hidden="true">Regards</a>
-            <a class="mobile-nav-link" href="#review" data-lang="ln" hidden aria-hidden="true">Makambo eleki</a>
-            <a class="mobile-nav-link" href="#review" data-lang="it" hidden aria-hidden="true">Retrospettiva</a>
-            <a class="mobile-nav-link" href="#review" data-lang="tr" hidden aria-hidden="true">Geriye bakış</a>
-            <a class="mobile-nav-link" href="#review" data-lang="uk" hidden aria-hidden="true">Огляд</a>
-            <a class="mobile-nav-link" href="#contact" data-lang="de">Kontakt</a>
-            <a class="mobile-nav-link" href="#contact" data-lang="en" hidden aria-hidden="true">Contact</a>
-            <a class="mobile-nav-link" href="#contact" data-lang="fr" hidden aria-hidden="true">Contact</a>
-            <a class="mobile-nav-link" href="#contact" data-lang="ln" hidden aria-hidden="true">Kontak</a>
-            <a class="mobile-nav-link" href="#contact" data-lang="it" hidden aria-hidden="true">Contatto</a>
-            <a class="mobile-nav-link" href="#contact" data-lang="tr" hidden aria-hidden="true">İletişim</a>
-            <a class="mobile-nav-link" href="#contact" data-lang="uk" hidden aria-hidden="true">Контакт</a>
-            <!-- LEGAL-I18N:homepage-mobile-nav-links:end -->
-        </div>
-    </nav>
-            <main id="main-content">
-    <div class="hero-bg" role="region" aria-label="Benefizkonzerte und Eindrücke aus dem Collegium Musicum Iuvenale Ochsenfurt">
-        <div class="hero-bg-fade-container" id="heroGalleryViewport">
-      <div class="hero-bg-fade hero-bg-fade-current" data-initial-hero-src="bilder/Galakonzert_probe2026.jpeg" style="--hero-fade-image-size:var(--hero-fade-image-responsive-size,contain);--hero-fade-image-focus-position:var(--hero-fade-image-responsive-position,center center);" role="img" aria-label="CMI 2026 nach der Hauptprobe für das Jubiläumskonzert"></div>
-            <div class="hero-bg-fade hero-bg-fade-next" role="img" aria-hidden="true"></div>
-        </div>
-        <script>
-            (function() {
-                const initialHeroLayer = document.querySelector('.hero-bg-fade-current[data-initial-hero-src]');
-
-                if (!initialHeroLayer) {
-                    return;
-                }
-
-                const heroSrc = initialHeroLayer.getAttribute('data-initial-hero-src');
-
-                if (!heroSrc) {
-                    return;
-                }
-
-                try {
-                    initialHeroLayer.style.setProperty('--hero-fade-image-url', 'url("' + new URL(heroSrc, window.location.href).href + '")');
-                } catch (error) {
-                    initialHeroLayer.style.setProperty('--hero-fade-image-url', 'url("' + heroSrc.replace(/^\/+/, '') + '")');
-                }
-            })();
-        </script>
-        <div class="hero-gallery-ui" role="group" aria-label="Hero Gallery Controls">
-            <div class="hero-gallery-meta">
-                <div class="hero-gallery-counter" aria-live="off" aria-atomic="true">
-                    <span id="heroGalleryCurrent">01</span>
-                    <span class="hero-gallery-counter-separator">/</span>
-                  <span id="heroGalleryTotal">13</span>
-                </div>
-                <div class="hero-gallery-progress" aria-hidden="true">
-                    <span id="heroGalleryProgressBar" class="hero-gallery-progress-bar"></span>
-                </div>
+        <div class="hero-gallery-ui" role="group" aria-label="Steuerung der Galerie">
+          <div class="hero-gallery-meta">
+            <div class="hero-gallery-counter" aria-live="off" aria-atomic="true">
+              <span id="heroGalleryCurrent">01</span>
+              <span class="hero-gallery-counter-separator">/</span>
+              <span id="heroGalleryTotal">13</span>
             </div>
-            <div class="hero-gallery-controls">
-                <button class="hero-gallery-control hero-gallery-control--prev" type="button" aria-label="Vorheriges Bild" aria-controls="heroGalleryViewport">
-                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <path d="M14.5 5L8 12L14.5 19"></path>
-                    </svg>
-                </button>
-                <div class="hero-gallery-pagination" role="tablist" aria-label="Hero Gallery Pagination"></div>
-                <button class="hero-gallery-control hero-gallery-control--autoplay" type="button" aria-label="Galerie pausieren" aria-controls="heroGalleryViewport" aria-pressed="false">
-                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <g class="hero-gallery-autoplay-icon hero-gallery-autoplay-icon--pause">
-                            <path d="M9 6V18"></path>
-                            <path d="M15 6V18"></path>
-                        </g>
-                        <g class="hero-gallery-autoplay-icon hero-gallery-autoplay-icon--play">
-                            <path d="M10 7.5L17 12L10 16.5Z"></path>
-                        </g>
-                    </svg>
-                </button>
-                <button class="hero-gallery-control hero-gallery-control--next" type="button" aria-label="Nächstes Bild" aria-controls="heroGalleryViewport">
-                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <path d="M9.5 5L16 12L9.5 19"></path>
-                    </svg>
-                </button>
+            <div class="hero-gallery-progress" aria-hidden="true">
+              <span id="heroGalleryProgressBar" class="hero-gallery-progress-bar"></span>
             </div>
+          </div>
+          <div class="hero-gallery-controls">
+            <button type="button" class="hero-gallery-control hero-gallery-control--prev" aria-label="Vorheriges Bild" title="Vorheriges Bild">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M15 18L9 12L15 6"></path>
+              </svg>
+            </button>
+            <div class="hero-gallery-pagination" aria-label="Galerie-Navigation"></div>
+            <button type="button" class="hero-gallery-control hero-gallery-control--autoplay" aria-label="Galerie pausieren" title="Galerie pausieren" aria-pressed="false">
+              <svg class="hero-gallery-autoplay-icon--pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M10 6V18"></path>
+                <path d="M14 6V18"></path>
+              </svg>
+              <svg class="hero-gallery-autoplay-icon--play" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M9 7L17 12L9 17Z"></path>
+              </svg>
+            </button>
+            <button type="button" class="hero-gallery-control hero-gallery-control--next" aria-label="Nächstes Bild" title="Nächstes Bild">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M9 18L15 12L9 6"></path>
+              </svg>
+            </button>
+          </div>
         </div>
-    </div>
-    
-<!-- Material Design Section: Bild mit Unterschrift -->
-<section id="musik-baut-bruecken" class="image-caption-section" data-region-label-selector=".image-caption-title[data-lang], .image-caption-title">
-    <div class="image-caption-shell">
-        <div class="image-caption-copy-card">
+      </section>
+      <section class="image-caption-section" data-region-label-selector=".image-caption-title[data-lang], .image-caption-title">
+        <div class="image-caption-shell">
+          <div class="image-caption-copy-card">
             <div class="image-caption-hero">
-                <figure class="image-caption-photo-stage">
-                    <img class="image-caption-photo" src="bilder/musik_baut_bruecken.jpeg" alt="Musik baut Brücken Motiv mit Musikern im Boot" loading="lazy" decoding="async">
+              <figure class="image-caption-photo-stage">
+                      <img class="image-caption-photo" src="bilder/musik_baut_bruecken.jpeg" alt="Musik baut Brücken Motiv mit Musikern im Boot" loading="lazy" decoding="async">
                 </figure>
 
                 <div class="image-caption-copy-main">
@@ -1386,98 +1318,98 @@
     </div>
 
     <div class="event-list">
-        <div class="event-card" id="event-galakonzert-ochsenfurt-2026">
+        <div class="event-card" id="event-pfingstfest-frickenhausen-2026">
             <div class="event-badge">
-                <!-- LEGAL-I18N:homepage-event-ochsenfurt-badge:start -->
-                <div class="event-date" data-lang="de">01. Mai 2026</div>
-                <div class="event-date" data-lang="en" hidden aria-hidden="true">May 1, 2026</div>
-                <div class="event-date" data-lang="fr" hidden aria-hidden="true">1 mai 2026</div>
-                <div class="event-date" data-lang="ln" hidden aria-hidden="true">1 mai 2026</div>
-                <div class="event-date" data-lang="it" hidden aria-hidden="true">1 maggio 2026</div>
-                <div class="event-date" data-lang="tr" hidden aria-hidden="true">1 Mayıs 2026</div>
-                <div class="event-date" data-lang="uk" hidden aria-hidden="true">1 травня 2026</div>
-                <div class="event-time" data-lang="de">18:00 Uhr</div>
-                <div class="event-time" data-lang="en" hidden aria-hidden="true">6:00 pm</div>
-                <div class="event-time" data-lang="fr" hidden aria-hidden="true">18:00</div>
-                <div class="event-time" data-lang="ln" hidden aria-hidden="true">18:00</div>
-                <div class="event-time" data-lang="it" hidden aria-hidden="true">18:00</div>
-                <div class="event-time" data-lang="tr" hidden aria-hidden="true">18:00</div>
-                <div class="event-time" data-lang="uk" hidden aria-hidden="true">18:00</div>
-                <!-- LEGAL-I18N:homepage-event-ochsenfurt-badge:end -->
+                <!-- LEGAL-I18N:homepage-event-pfingstfest-badge:start -->
+                <div class="event-date" data-lang="de">24. Mai 2026</div>
+                <div class="event-date" data-lang="en" hidden aria-hidden="true">May 24, 2026</div>
+                <div class="event-date" data-lang="fr" hidden aria-hidden="true">24 mai 2026</div>
+                <div class="event-date" data-lang="ln" hidden aria-hidden="true">24 mai 2026</div>
+                <div class="event-date" data-lang="it" hidden aria-hidden="true">24 maggio 2026</div>
+                <div class="event-date" data-lang="tr" hidden aria-hidden="true">24 Mayıs 2026</div>
+                <div class="event-date" data-lang="uk" hidden aria-hidden="true">24 травня 2026</div>
+                <div class="event-time" data-lang="de">15:00 Uhr</div>
+                <div class="event-time" data-lang="en" hidden aria-hidden="true">3:00 pm</div>
+                <div class="event-time" data-lang="fr" hidden aria-hidden="true">15:00</div>
+                <div class="event-time" data-lang="ln" hidden aria-hidden="true">15:00</div>
+                <div class="event-time" data-lang="it" hidden aria-hidden="true">15:00</div>
+                <div class="event-time" data-lang="tr" hidden aria-hidden="true">15:00</div>
+                <div class="event-time" data-lang="uk" hidden aria-hidden="true">15:00</div>
+                <!-- LEGAL-I18N:homepage-event-pfingstfest-badge:end -->
             </div>
             <div class="event-content">
                 <div class="event-copy">
-                    <!-- LEGAL-I18N:homepage-event-ochsenfurt-copy:start -->
-                    <div class="event-headline" data-lang="de">Internationales Benefiz-Jubiläumskonzert zum 45-jährigen Bestehen des CMI</div>
-                    <div class="event-headline" data-lang="en" hidden aria-hidden="true">International Benefit Anniversary Concert for the 45th Anniversary of CMI</div>
-                    <div class="event-headline" data-lang="fr" hidden aria-hidden="true">Concert anniversaire benefice international pour les 45 ans du CMI</div>
-                    <div class="event-headline" data-lang="ln" hidden aria-hidden="true">Konser ya jubile ya mokili mobimba mpo na lisungi na mbotama ya mbula 45 ya CMI</div>
-                    <div class="event-headline" data-lang="it" hidden aria-hidden="true">Concerto internazionale benefico per il 45° anniversario del CMI</div>
-                    <div class="event-headline" data-lang="tr" hidden aria-hidden="true">CMI'nin 45. yılına özel uluslararası yardım konseri</div>
-                    <div class="event-headline" data-lang="uk" hidden aria-hidden="true">Міжнародний благодійний ювілейний концерт до 45-річчя КМІ</div>
-                    <div class="event-location" data-lang="de">St. Thekla, Ochsenfurt</div>
-                    <div class="event-location" data-lang="en" hidden aria-hidden="true">St. Thekla, Ochsenfurt</div>
-                    <div class="event-location" data-lang="fr" hidden aria-hidden="true">St. Thekla, Ochsenfurt</div>
-                    <div class="event-location" data-lang="ln" hidden aria-hidden="true">St. Thekla, Ochsenfurt</div>
-                    <div class="event-location" data-lang="it" hidden aria-hidden="true">St. Thekla, Ochsenfurt</div>
-                    <div class="event-location" data-lang="tr" hidden aria-hidden="true">St. Thekla, Ochsenfurt</div>
-                    <div class="event-location" data-lang="uk" hidden aria-hidden="true">Св. Текля, Оксенфурт</div>
-                    <div class="event-description" data-lang="de">Festliches Benefiz-Jubiläumskonzert zum 45-jährigen Bestehen des CMI mit internationalen Gästen aus Ochsenfurt, Padua, Giebelstadt und Würzburg.</div>
-                    <div class="event-description" data-lang="en" hidden aria-hidden="true">Festive benefit anniversary concert for the 45th anniversary of CMI with international guests from Ochsenfurt, Padua, Giebelstadt, and Würzburg.</div>
-                    <div class="event-description" data-lang="fr" hidden aria-hidden="true">Concert anniversaire benefice et festif pour les 45 ans du CMI avec des invites internationaux d'Ochsenfurt, de Padoue, de Giebelstadt et de Wurzburg.</div>
-                    <div class="event-description" data-lang="ln" hidden aria-hidden="true">Konser ya esengo mpe ya lisungi mpo na mbula 45 ya CMI elongo na bapaya ya mokili mobimba uta Ochsenfurt, Padoue, Giebelstadt mpe Wurzburg.</div>
-                    <div class="event-description" data-lang="it" hidden aria-hidden="true">Concerto benefico celebrativo per il 45° anniversario del CMI con ospiti internazionali provenienti da Ochsenfurt, Padova, Giebelstadt e Würzburg.</div>
-                    <div class="event-description" data-lang="tr" hidden aria-hidden="true">Ochsenfurt, Padova, Giebelstadt ve Würzburg'dan konukların katıldığı, CMI'nin 45. yılına adanmış bayram havasında bir yardım konseri.</div>
-                    <div class="event-description" data-lang="uk" hidden aria-hidden="true">Святковий благодійний ювілейний концерт до 45-річчя КМІ з міжнародними гостями з Оксенфурта, Падуї, Гібельштадта та Вюрцбурга.</div>
+                    <!-- LEGAL-I18N:homepage-event-pfingstfest-copy:start -->
+                    <div class="event-headline" data-lang="de">Musik am Main beim Pfingstfest</div>
+                    <div class="event-headline" data-lang="en" hidden aria-hidden="true">Music by the Main at the Whitsun Festival</div>
+                    <div class="event-headline" data-lang="fr" hidden aria-hidden="true">Musique au bord du Main pour la fete de Pentecote</div>
+                    <div class="event-headline" data-lang="ln" hidden aria-hidden="true">Miziki pene ya Main na feti ya Pentekote</div>
+                    <div class="event-headline" data-lang="it" hidden aria-hidden="true">Musica sul Meno alla festa di Pentecoste</div>
+                    <div class="event-headline" data-lang="tr" hidden aria-hidden="true">Pentekost festivalinde Main kiyisinda muzik</div>
+                    <div class="event-headline" data-lang="uk" hidden aria-hidden="true">Музика на Майні на святі П'ятидесятниці</div>
+                    <div class="event-location" data-lang="de">KNAUS Campingpark, Frickenhausen am Main</div>
+                    <div class="event-location" data-lang="en" hidden aria-hidden="true">KNAUS Camping Park, Frickenhausen am Main</div>
+                    <div class="event-location" data-lang="fr" hidden aria-hidden="true">Camping KNAUS, Frickenhausen am Main</div>
+                    <div class="event-location" data-lang="ln" hidden aria-hidden="true">Camping KNAUS, Frickenhausen am Main</div>
+                    <div class="event-location" data-lang="it" hidden aria-hidden="true">Camping KNAUS, Frickenhausen am Main</div>
+                    <div class="event-location" data-lang="tr" hidden aria-hidden="true">KNAUS Campingpark, Frickenhausen am Main</div>
+                    <div class="event-location" data-lang="uk" hidden aria-hidden="true">KNAUS Campingpark, Фріккенгаузен-на-Майні</div>
+                    <div class="event-description" data-lang="de">CMI gestaltet den Pfingstsonntag beim Pfingstfest in Frickenhausen mit. Um 15:00 Uhr erklingt beim Benefizkonzert "Musik am Main" ein gemeinsames Programm mit der Blaskapelle Giebelstadt-Sulzdorf.</div>
+                    <div class="event-description" data-lang="en" hidden aria-hidden="true">CMI takes part in the Whitsun Sunday festival in Frickenhausen. At 3:00 pm, the benefit concert "Music by the Main" features a shared program with Blaskapelle Giebelstadt-Sulzdorf.</div>
+                    <div class="event-description" data-lang="fr" hidden aria-hidden="true">Le CMI participe au dimanche de Pentecote a Frickenhausen. A 15 h, le concert benefice « Musique au bord du Main » propose un programme commun avec la Blaskapelle Giebelstadt-Sulzdorf.</div>
+                    <div class="event-description" data-lang="ln" hidden aria-hidden="true">CMI ekosangana na feti ya mokolo ya Pentekote na Frickenhausen. Na ngonga ya 15:00, konser ya benefiz "Miziki pene ya Main" ekolakisa programme ya elongo na Blaskapelle Giebelstadt-Sulzdorf.</div>
+                    <div class="event-description" data-lang="it" hidden aria-hidden="true">Il CMI partecipa alla domenica di Pentecoste a Frickenhausen. Alle 15:00 il concerto benefico "Musica sul Meno" propone un programma comune con la Blaskapelle Giebelstadt-Sulzdorf.</div>
+                    <div class="event-description" data-lang="tr" hidden aria-hidden="true">CMI, Frickenhausen'daki Pentekost pazari festivaline katiliyor. Saat 15:00'te "Main kiyisinda muzik" adli yardim konserinde Blaskapelle Giebelstadt-Sulzdorf ile ortak bir program sunuluyor.</div>
+                    <div class="event-description" data-lang="uk" hidden aria-hidden="true">КМІ бере участь у святі П'ятидесятниці у Фріккенгаузені. О 15:00 благодійний концерт «Музика на Майні» представить спільну програму з Blaskapelle Giebelstadt-Sulzdorf.</div>
                     <ul class="event-program" data-lang="de">
-                      <li>Collegium Musicum Iuvenale Ochsenfurt, Coro Teatro Verdi di Padova und Streicher der Filarmonica di Padova</li>
-                      <li>Blaskapelle Giebelstadt-Sulzdorf, Veeh-Harfengruppe Querbeet und FAINO</li>
-                      <li>Bénédicte Ndota und André Mabiala mit afrikanischer Percussion</li>
+                      <li>Pfingstfest-Wochenende vom 22.05.2026 bis 24.05.2026</li>
+                      <li>Benefizkonzert "Musik am Main" mit Collegium Musicum Iuvenale und der Blaskapelle Giebelstadt-Sulzdorf</li>
+                      <li>Familienprogramm mit Regionalmarkt, Frühschoppen sowie Kaffee und Kuchen</li>
                     </ul>
                     <ul class="event-program" data-lang="en" hidden aria-hidden="true">
-                      <li>Collegium Musicum Iuvenale Ochsenfurt, Coro Teatro Verdi di Padova, and string players of the Filarmonica di Padova</li>
-                      <li>Blaskapelle Giebelstadt-Sulzdorf, the Veeh harp group Querbeet, and FAINO</li>
-                      <li>Bénédicte Ndota and André Mabiala on African percussion</li>
+                      <li>Whitsun festival weekend from May 22 to May 24, 2026</li>
+                      <li>Benefit concert "Music by the Main" with Collegium Musicum Iuvenale and Blaskapelle Giebelstadt-Sulzdorf</li>
+                      <li>Family program with regional market, brunch gathering, coffee, and cake</li>
                     </ul>
                     <ul class="event-program" data-lang="fr" hidden aria-hidden="true">
-                      <li>Collegium Musicum Iuvenale Ochsenfurt, Coro Teatro Verdi di Padova et cordes de la Filarmonica di Padova</li>
-                      <li>Blaskapelle Giebelstadt-Sulzdorf, le groupe de harpe Veeh Querbeet et FAINO</li>
-                      <li>Benedicte Ndota et Andre Mabiala aux percussions africaines</li>
+                      <li>Week-end de fete de Pentecote du 22 au 24 mai 2026</li>
+                      <li>Concert benefice « Musique au bord du Main » avec le Collegium Musicum Iuvenale et la Blaskapelle Giebelstadt-Sulzdorf</li>
+                      <li>Programme familial avec marche regional, brunch festif, cafe et gateaux</li>
                     </ul>
                     <ul class="event-program" data-lang="ln" hidden aria-hidden="true">
-                      <li>Collegium Musicum Iuvenale Ochsenfurt, Coro Teatro Verdi di Padova mpe babeti ya bansinga ya Filarmonica di Padova</li>
-                      <li>Blaskapelle Giebelstadt-Sulzdorf, etuluku ya Veeh-Harfe Querbeet mpe FAINO</li>
-                      <li>Benedicte Ndota mpe Andre Mabiala na percussion ya Afrika</li>
+                      <li>Week-end ya feti ya Pentekote kobanda 22.05.2026 kino 24.05.2026</li>
+                      <li>Konser ya benefiz "Miziki pene ya Main" elongo na Collegium Musicum Iuvenale mpe Blaskapelle Giebelstadt-Sulzdorf</li>
+                      <li>Programme ya mabota na zando ya etuka, fruhschoppen, kafe mpe gato</li>
                     </ul>
                     <ul class="event-program" data-lang="it" hidden aria-hidden="true">
-                      <li>Collegium Musicum Iuvenale Ochsenfurt, Coro Teatro Verdi di Padova e archi della Filarmonica di Padova</li>
-                      <li>Blaskapelle Giebelstadt-Sulzdorf, gruppo di arpe Veeh Querbeet e FAINO</li>
-                      <li>Bénédicte Ndota e André Mabiala con percussioni africane</li>
+                      <li>Fine settimana di Pentecoste dal 22.05.2026 al 24.05.2026</li>
+                      <li>Concerto benefico "Musica sul Meno" con il Collegium Musicum Iuvenale e la Blaskapelle Giebelstadt-Sulzdorf</li>
+                      <li>Programma per famiglie con mercato regionale, Frühschoppen, caffe e dolci</li>
                     </ul>
                     <ul class="event-program" data-lang="tr" hidden aria-hidden="true">
-                      <li>Collegium Musicum Iuvenale Ochsenfurt, Coro Teatro Verdi di Padova ve Filarmonica di Padova'nın yaylıları</li>
-                      <li>Blaskapelle Giebelstadt-Sulzdorf, Veeh arp topluluğu Querbeet ve FAINO</li>
-                      <li>Bénédicte Ndota ve André Mabiala, Afrika perküsyonu eşliğinde</li>
+                      <li>22.05.2026 ile 24.05.2026 arasinda Pentekost festival hafta sonu</li>
+                      <li>Collegium Musicum Iuvenale ve Blaskapelle Giebelstadt-Sulzdorf ile "Main kiyisinda muzik" yardim konseri</li>
+                      <li>Bolgesel pazar, fruhschoppen, kahve ve pasta ile aile programi</li>
                     </ul>
                     <ul class="event-program" data-lang="uk" hidden aria-hidden="true">
-                      <li>Колегіум Музікум Ювенале Оксенфурт, Coro Teatro Verdi di Padova та струнні Filarmonica di Padova</li>
-                      <li>Бласкапеле Гібельштадт-Зульцдорф, Veeh-група Querbeet і ФАЙНО</li>
-                      <li>Бенедикт Ндота та Андре Мабіала з африканською перкусією</li>
+                      <li>Святкові вихідні П'ятидесятниці з 22.05.2026 до 24.05.2026</li>
+                      <li>Благодійний концерт «Музика на Майні» за участю Collegium Musicum Iuvenale та Blaskapelle Giebelstadt-Sulzdorf</li>
+                      <li>Сімейна програма з регіональним ярмарком, дружньою зустріччю, кавою та випічкою</li>
                     </ul>
-                    <div class="event-note" data-lang="de">Eintritt frei. Spenden zugunsten von <a href='https://www.mbonda-lokito.org/home.html' target='_blank' rel='noopener' class='external-link'>Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a> und der Würzburger Ukraine-Hilfe.<br>Mehr Infos zur Würzburger Ukraine-Hilfe: <a href='https://www.facebook.com/UA.HILFE.WU' target='_blank' rel='noopener' class='external-link'>Facebook</a> und <a href='https://www.instagram.com/ua.hilfe.wu' target='_blank' rel='noopener' class='external-link'>Instagram</a>.</div>
-                    <div class="event-note" data-lang="en" hidden aria-hidden="true">Admission free. Donations in support of <a href='https://www.mbonda-lokito.org/home.html' target='_blank' rel='noopener' class='external-link'>Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a> and Würzburg Ukraine Aid.<br>More about Würzburg Ukraine Aid: <a href='https://www.facebook.com/UA.HILFE.WU' target='_blank' rel='noopener' class='external-link'>Facebook</a> and <a href='https://www.instagram.com/ua.hilfe.wu' target='_blank' rel='noopener' class='external-link'>Instagram</a>.</div>
-                    <div class="event-note" data-lang="fr" hidden aria-hidden="true">Entree libre. Dons au profit de <a href='https://www.mbonda-lokito.org/home.html' target='_blank' rel='noopener' class='external-link'>Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a> et de l'aide ukrainienne de Wurzburg.<br>Plus d'informations sur l'aide ukrainienne de Wurzburg : <a href='https://www.facebook.com/UA.HILFE.WU' target='_blank' rel='noopener' class='external-link'>Facebook</a> et <a href='https://www.instagram.com/ua.hilfe.wu' target='_blank' rel='noopener' class='external-link'>Instagram</a>.</div>
-                    <div class="event-note" data-lang="ln" hidden aria-hidden="true">Kokota ofele. Ba don ezali mpo na <a href='https://www.mbonda-lokito.org/home.html' target='_blank' rel='noopener' class='external-link'>Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a> mpe lisungi ya Ukraine ya Wurzburg.<br>Makambo mosusu ya lisungi ya Ukraine ya Wurzburg: <a href='https://www.facebook.com/UA.HILFE.WU' target='_blank' rel='noopener' class='external-link'>Facebook</a> mpe <a href='https://www.instagram.com/ua.hilfe.wu' target='_blank' rel='noopener' class='external-link'>Instagram</a>.</div>
-                    <div class="event-note" data-lang="it" hidden aria-hidden="true">Ingresso libero. Offerte a favore di <a href='https://www.mbonda-lokito.org/home.html' target='_blank' rel='noopener' class='external-link'>Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a> e dell'Aiuto Ucraina di Würzburg.<br>Ulteriori informazioni sull'Aiuto Ucraina di Würzburg: <a href='https://www.facebook.com/UA.HILFE.WU' target='_blank' rel='noopener' class='external-link'>Facebook</a> e <a href='https://www.instagram.com/ua.hilfe.wu' target='_blank' rel='noopener' class='external-link'>Instagram</a>.</div>
-                    <div class="event-note" data-lang="tr" hidden aria-hidden="true">Giriş ücretsizdir. Bağışlar <a href='https://www.mbonda-lokito.org/home.html' target='_blank' rel='noopener' class='external-link'>Mbonda Lokito Kongo/Kinshasa Kinderhilfe e.V.</a> ile Würzburg Ukrayna Yardımı yararına toplanacaktır.<br>Würzburg Ukrayna Yardımı hakkında daha fazla bilgi: <a href='https://www.facebook.com/UA.HILFE.WU' target='_blank' rel='noopener' class='external-link'>Facebook</a> ve <a href='https://www.instagram.com/ua.hilfe.wu' target='_blank' rel='noopener' class='external-link'>Instagram</a>.</div>
-                    <div class="event-note" data-lang="uk" hidden aria-hidden="true">Вхід вільний. Пожертви на користь <a href='https://www.mbonda-lokito.org/home.html' target='_blank' rel='noopener' class='external-link'>«Мбонда Локіто Конго / Кіншаса Кіндерхільфе»</a> та «Вюрцбурзької допомоги Україні».<br>Більше про «Вюрцбурзьку допомогу Україні»: <a href='https://www.facebook.com/UA.HILFE.WU' target='_blank' rel='noopener' class='external-link'>Facebook</a> та <a href='https://www.instagram.com/ua.hilfe.wu' target='_blank' rel='noopener' class='external-link'>Instagram</a>.</div>
-                    <!-- LEGAL-I18N:homepage-event-ochsenfurt-copy:end -->
+                    <div class="event-note" data-lang="de">Eintritt frei. Weitere Infos zum gesamten Pfingstfest gibt es auf <a href='https://www.knauscamp.de/frickenhausen' target='_blank' rel='noopener' class='external-link'>knauscamp.de</a>.</div>
+                    <div class="event-note" data-lang="en" hidden aria-hidden="true">Admission free. More information about the full festival is available at <a href='https://www.knauscamp.de/frickenhausen' target='_blank' rel='noopener' class='external-link'>knauscamp.de</a>.</div>
+                    <div class="event-note" data-lang="fr" hidden aria-hidden="true">Entree libre. Plus d'informations sur l'ensemble de la fete sont disponibles sur <a href='https://www.knauscamp.de/frickenhausen' target='_blank' rel='noopener' class='external-link'>knauscamp.de</a>.</div>
+                    <div class="event-note" data-lang="ln" hidden aria-hidden="true">Kokota ofele. Makambo mosusu ya feti mobimba ezali na <a href='https://www.knauscamp.de/frickenhausen' target='_blank' rel='noopener' class='external-link'>knauscamp.de</a>.</div>
+                    <div class="event-note" data-lang="it" hidden aria-hidden="true">Ingresso libero. Ulteriori informazioni sull'intera festa sono disponibili su <a href='https://www.knauscamp.de/frickenhausen' target='_blank' rel='noopener' class='external-link'>knauscamp.de</a>.</div>
+                    <div class="event-note" data-lang="tr" hidden aria-hidden="true">Giriş ücretsizdir. Festivalin tam programi icin <a href='https://www.knauscamp.de/frickenhausen' target='_blank' rel='noopener' class='external-link'>knauscamp.de</a> adresine bakabilirsiniz.</div>
+                    <div class="event-note" data-lang="uk" hidden aria-hidden="true">Вхід вільний. Більше інформації про все свято можна знайти на <a href='https://www.knauscamp.de/frickenhausen' target='_blank' rel='noopener' class='external-link'>knauscamp.de</a>.</div>
+                    <!-- LEGAL-I18N:homepage-event-pfingstfest-copy:end -->
                 </div>
 
                 <div class="event-poster-stage">
-                    <img src="bilder/cmi-benefiz-jubilaeumskonzert-45-jahre-ochsenfurt-2026-05-01-preview.jpg" data-lightbox-src="bilder/cmi-benefiz-jubilaeumskonzert-45-jahre-ochsenfurt-2026-05-01.jpg" alt="Plakat Internationales Benefiz-Jubiläumskonzert zum 45-jährigen Bestehen des CMI am 01.05.2026" class="event-christmas-img event-preview-thumb event-lightbox-trigger event-poster-image" loading="lazy" decoding="async" width="900" height="1040" />
+                    <img src="bilder/Pfingstfest.jpeg" data-lightbox-src="bilder/Pfingstfest.jpeg" alt="Plakat zum Pfingstfest im KNAUS Campingpark Frickenhausen mit dem Benefizkonzert Musik am Main am 24.05.2026" class="event-christmas-img event-preview-thumb event-lightbox-trigger event-poster-image" loading="lazy" decoding="async" width="894" height="1323" />
                     <div class="event-poster-hint">
-                        <!-- LEGAL-I18N:homepage-event-ochsenfurt-poster-hint:start -->
+                        <!-- LEGAL-I18N:homepage-event-pfingstfest-poster-hint:start -->
                         <span class="event-poster-hint-text" data-lang="de">Zur Großansicht anklicken oder antippen</span>
                         <span class="event-poster-hint-text" data-lang="en" hidden aria-hidden="true">Tap or click to enlarge</span>
                         <span class="event-poster-hint-text" data-lang="fr" hidden aria-hidden="true">Touchez ou cliquez pour agrandir</span>
@@ -1485,188 +1417,37 @@
                         <span class="event-poster-hint-text" data-lang="it" hidden aria-hidden="true">Tocca o fai clic per ingrandire</span>
                         <span class="event-poster-hint-text" data-lang="tr" hidden aria-hidden="true">Büyütmek için tıkla ya da dokun</span>
                         <span class="event-poster-hint-text" data-lang="uk" hidden aria-hidden="true">Натисніть або торкніться для збільшення</span>
-                        <!-- LEGAL-I18N:homepage-event-ochsenfurt-poster-hint:end -->
+                        <!-- LEGAL-I18N:homepage-event-pfingstfest-poster-hint:end -->
                     </div>
-                    <!-- LEGAL-I18N:homepage-event-ochsenfurt-poster-actions:start -->
-                    <div class="event-poster-actions" data-lang="de"><a href='bilder/cmi-benefiz-jubilaeumskonzert-45-jahre-ochsenfurt-2026-05-01.pdf' download='CMI-Benefiz-Jubilaeumskonzert-45-Jahre-Ochsenfurt-2026-05-01.pdf' class='event-poster-download'>Jubiläumskonzert-Plakat herunterladen (PDF)</a></div>
-                    <div class="event-poster-actions" data-lang="en" hidden aria-hidden="true"><a href='bilder/cmi-benefiz-jubilaeumskonzert-45-jahre-ochsenfurt-2026-05-01.pdf' download='CMI-Benefit-Anniversary-Concert-Ochsenfurt-2026-05-01.pdf' class='event-poster-download'>Download anniversary concert poster (PDF)</a></div>
-                    <div class="event-poster-actions" data-lang="fr" hidden aria-hidden="true"><a href='bilder/cmi-benefiz-jubilaeumskonzert-45-jahre-ochsenfurt-2026-05-01.pdf' download='CMI-Concert-Anniversaire-Benefice-Ochsenfurt-2026-05-01.pdf' class='event-poster-download'>Telecharger l'affiche du concert anniversaire (PDF)</a></div>
-                    <div class="event-poster-actions" data-lang="ln" hidden aria-hidden="true"><a href='bilder/cmi-benefiz-jubilaeumskonzert-45-jahre-ochsenfurt-2026-05-01.pdf' download='CMI-Konser-ya-Jubile-ya-Lisungi-Ochsenfurt-2026-05-01.pdf' class='event-poster-download'>Kokitisa affiche ya konser ya jubile (PDF)</a></div>
-                    <div class="event-poster-actions" data-lang="it" hidden aria-hidden="true"><a href='bilder/cmi-benefiz-jubilaeumskonzert-45-jahre-ochsenfurt-2026-05-01.pdf' download='CMI-Concerto-Benefico-Anniversario-Ochsenfurt-2026-05-01.pdf' class='event-poster-download'>Scarica il poster del concerto anniversario (PDF)</a></div>
-                    <div class="event-poster-actions" data-lang="tr" hidden aria-hidden="true"><a href='bilder/cmi-benefiz-jubilaeumskonzert-45-jahre-ochsenfurt-2026-05-01.pdf' download='CMI-45-Yil-Yardim-Yildonumu-Konseri-Ochsenfurt-2026-05-01.pdf' class='event-poster-download'>Yıl dönümü konserinin afişini indir (PDF)</a></div>
-                    <div class="event-poster-actions" data-lang="uk" hidden aria-hidden="true"><a href='bilder/cmi-benefiz-jubilaeumskonzert-45-jahre-ochsenfurt-2026-05-01.pdf' download='CMI-Benefit-Jubilee-Concert-Ochsenfurt-2026-05-01.pdf' class='event-poster-download'>Завантажити афішу ювілейного концерту у PDF</a></div>
-                    <!-- LEGAL-I18N:homepage-event-ochsenfurt-poster-actions:end -->
-                    <div class="event-social-actions" aria-label="Social Media Aktionen">
-                        <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Finternationales-galakonzert-ochsenfurt-2026.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path>
-                                <path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path>
-                            </svg>
-                            <span data-lang="de">WhatsApp</span>
-                            <span data-lang="en" hidden aria-hidden="true">WhatsApp</span>
-                            <span data-lang="fr" hidden aria-hidden="true">WhatsApp</span>
-                            <span data-lang="ln" hidden aria-hidden="true">WhatsApp</span>
-                            <span data-lang="it" hidden aria-hidden="true">WhatsApp</span>
-                            <span data-lang="tr" hidden aria-hidden="true">WhatsApp</span>
-                            <span data-lang="uk" hidden aria-hidden="true">WhatsApp</span>
+                      <div class="event-social-actions" aria-label="Social Media Aktionen">
+                        <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fpfingstfest-frickenhausen-2026.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                          <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path>
+                            <path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path>
+                          </svg>
+                          <span data-lang="de">WhatsApp</span>
+                          <span data-lang="en" hidden aria-hidden="true">WhatsApp</span>
+                          <span data-lang="fr" hidden aria-hidden="true">WhatsApp</span>
+                          <span data-lang="ln" hidden aria-hidden="true">WhatsApp</span>
+                          <span data-lang="it" hidden aria-hidden="true">WhatsApp</span>
+                          <span data-lang="tr" hidden aria-hidden="true">WhatsApp</span>
+                          <span data-lang="uk" hidden aria-hidden="true">WhatsApp</span>
                         </a>
-                        <a href="share/instagram-export.html?post=internationales-galakonzert-ochsenfurt-2026.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
-                                <circle cx="12" cy="12" r="3.8"></circle>
-                                <circle cx="17.2" cy="6.8" r="1"></circle>
-                            </svg>
-                            <span data-lang="de">Instagram</span>
-                            <span data-lang="en" hidden aria-hidden="true">Instagram</span>
-                            <span data-lang="fr" hidden aria-hidden="true">Instagram</span>
-                            <span data-lang="ln" hidden aria-hidden="true">Instagram</span>
-                            <span data-lang="it" hidden aria-hidden="true">Instagram</span>
-                            <span data-lang="tr" hidden aria-hidden="true">Instagram</span>
-                            <span data-lang="uk" hidden aria-hidden="true">Instagram</span>
+                        <a href="share/instagram-export.html?post=pfingstfest-frickenhausen-2026.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                          <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+                            <circle cx="12" cy="12" r="3.8"></circle>
+                            <circle cx="17.2" cy="6.8" r="1"></circle>
+                          </svg>
+                          <span data-lang="de">Instagram</span>
+                          <span data-lang="en" hidden aria-hidden="true">Instagram</span>
+                          <span data-lang="fr" hidden aria-hidden="true">Instagram</span>
+                          <span data-lang="ln" hidden aria-hidden="true">Instagram</span>
+                          <span data-lang="it" hidden aria-hidden="true">Instagram</span>
+                          <span data-lang="tr" hidden aria-hidden="true">Instagram</span>
+                          <span data-lang="uk" hidden aria-hidden="true">Instagram</span>
                         </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="event-card" id="event-galakonzert-giebelstadt-2026">
-            <div class="event-badge">
-                <!-- LEGAL-I18N:homepage-event-giebelstadt-badge:start -->
-                <div class="event-date" data-lang="de">02. Mai 2026</div>
-                <div class="event-date" data-lang="en" hidden aria-hidden="true">May 2, 2026</div>
-                <div class="event-date" data-lang="fr" hidden aria-hidden="true">2 mai 2026</div>
-                <div class="event-date" data-lang="ln" hidden aria-hidden="true">2 mai 2026</div>
-                <div class="event-date" data-lang="it" hidden aria-hidden="true">2 maggio 2026</div>
-                <div class="event-date" data-lang="tr" hidden aria-hidden="true">2 Mayıs 2026</div>
-                <div class="event-date" data-lang="uk" hidden aria-hidden="true">2 травня 2026</div>
-                <div class="event-time" data-lang="de">19:00 Uhr</div>
-                <div class="event-time" data-lang="en" hidden aria-hidden="true">7:00 pm</div>
-                <div class="event-time" data-lang="fr" hidden aria-hidden="true">19:00</div>
-                <div class="event-time" data-lang="ln" hidden aria-hidden="true">19:00</div>
-                <div class="event-time" data-lang="it" hidden aria-hidden="true">19:00</div>
-                <div class="event-time" data-lang="tr" hidden aria-hidden="true">19:00</div>
-                <div class="event-time" data-lang="uk" hidden aria-hidden="true">19:00</div>
-                <!-- LEGAL-I18N:homepage-event-giebelstadt-badge:end -->
-            </div>
-            <div class="event-content">
-                <div class="event-copy">
-                    <!-- LEGAL-I18N:homepage-event-giebelstadt-copy:start -->
-                    <div class="event-headline" data-lang="de">Internationales Galakonzert</div>
-                    <div class="event-headline" data-lang="en" hidden aria-hidden="true">International Gala Concert</div>
-                    <div class="event-headline" data-lang="fr" hidden aria-hidden="true">Concert de gala international</div>
-                    <div class="event-headline" data-lang="ln" hidden aria-hidden="true">Konser ya gala ya mokili mobimba</div>
-                    <div class="event-headline" data-lang="it" hidden aria-hidden="true">Concerto di gala internazionale</div>
-                    <div class="event-headline" data-lang="tr" hidden aria-hidden="true">Uluslararası gala konseri</div>
-                    <div class="event-headline" data-lang="uk" hidden aria-hidden="true">Міжнародний гала-концерт</div>
-                    <div class="event-location" data-lang="de">Mehrzweckhalle, Giebelstadt</div>
-                    <div class="event-location" data-lang="en" hidden aria-hidden="true">Mehrzweckhalle, Giebelstadt</div>
-                    <div class="event-location" data-lang="fr" hidden aria-hidden="true">Mehrzweckhalle, Giebelstadt</div>
-                    <div class="event-location" data-lang="ln" hidden aria-hidden="true">Mehrzweckhalle, Giebelstadt</div>
-                    <div class="event-location" data-lang="it" hidden aria-hidden="true">Mehrzweckhalle, Giebelstadt</div>
-                    <div class="event-location" data-lang="tr" hidden aria-hidden="true">Mehrzweckhalle, Giebelstadt</div>
-                    <div class="event-location" data-lang="uk" hidden aria-hidden="true">Багатофункціональна зала, Гібельштадт</div>
-                    <div class="event-description" data-lang="de">Internationales Galakonzert mit Ensembles aus Padua, Giebelstadt, Ochsenfurt und Würzburg.</div>
-                    <div class="event-description" data-lang="en" hidden aria-hidden="true">International gala concert with ensembles from Padua, Giebelstadt, Ochsenfurt, and Würzburg.</div>
-                    <div class="event-description" data-lang="fr" hidden aria-hidden="true">Concert de gala international avec des ensembles de Padoue, Giebelstadt, Ochsenfurt et Wurzburg.</div>
-                    <div class="event-description" data-lang="ln" hidden aria-hidden="true">Konser ya gala ya mokili mobimba elongo na bituluku ya miziki uta Padoue, Giebelstadt, Ochsenfurt mpe Wurzburg.</div>
-                    <div class="event-description" data-lang="it" hidden aria-hidden="true">Concerto di gala internazionale con ensemble provenienti da Padova, Giebelstadt, Ochsenfurt e Würzburg.</div>
-                    <div class="event-description" data-lang="tr" hidden aria-hidden="true">Padova, Giebelstadt, Ochsenfurt ve Würzburg'dan toplulukların katıldığı uluslararası bir gala konseri.</div>
-                    <div class="event-description" data-lang="uk" hidden aria-hidden="true">Міжнародний гала-концерт з ансамблями з Падуї, Гібельштадта, Оксенфурта та Вюрцбурга.</div>
-                    <ul class="event-program" data-lang="de">
-                      <li>Coro Teatro Verdi di Padova und Streicher der Filarmonica di Padova</li>
-                      <li>Blaskapelle Giebelstadt-Sulzdorf, Liederkranz 1863 Giebelstadt e.V. und CMI Ochsenfurt</li>
-                      <li>FAINO, das ukrainische Vokalensemble Würzburg</li>
-                    </ul>
-                    <ul class="event-program" data-lang="en" hidden aria-hidden="true">
-                      <li>Coro Teatro Verdi di Padova and string players of the Filarmonica di Padova</li>
-                      <li>Blaskapelle Giebelstadt-Sulzdorf, Liederkranz 1863 Giebelstadt e.V., and CMI Ochsenfurt</li>
-                      <li>FAINO, the Ukrainian vocal ensemble from Würzburg</li>
-                    </ul>
-                    <ul class="event-program" data-lang="fr" hidden aria-hidden="true">
-                      <li>Coro Teatro Verdi di Padova et cordes de la Filarmonica di Padova</li>
-                      <li>Blaskapelle Giebelstadt-Sulzdorf, Liederkranz 1863 Giebelstadt e.V. et CMI Ochsenfurt</li>
-                      <li>FAINO, l'ensemble vocal ukrainien de Wurzburg</li>
-                    </ul>
-                    <ul class="event-program" data-lang="ln" hidden aria-hidden="true">
-                      <li>Coro Teatro Verdi di Padova mpe babeti ya bansinga ya Filarmonica di Padova</li>
-                      <li>Blaskapelle Giebelstadt-Sulzdorf, Liederkranz 1863 Giebelstadt e.V. mpe CMI Ochsenfurt</li>
-                      <li>FAINO, ensemble vocal ya Ukraine uta Wurzburg</li>
-                    </ul>
-                    <ul class="event-program" data-lang="it" hidden aria-hidden="true">
-                      <li>Coro Teatro Verdi di Padova e archi della Filarmonica di Padova</li>
-                      <li>Blaskapelle Giebelstadt-Sulzdorf, Liederkranz 1863 Giebelstadt e.V. e CMI Ochsenfurt</li>
-                      <li>FAINO, ensemble vocale ucraino di Würzburg</li>
-                    </ul>
-                    <ul class="event-program" data-lang="tr" hidden aria-hidden="true">
-                      <li>Coro Teatro Verdi di Padova ve Filarmonica di Padova'nın yaylıları</li>
-                      <li>Blaskapelle Giebelstadt-Sulzdorf, Liederkranz 1863 Giebelstadt e.V. ve CMI Ochsenfurt</li>
-                      <li>Würzburg'dan Ukraynalı vokal topluluğu FAINO</li>
-                    </ul>
-                    <ul class="event-program" data-lang="uk" hidden aria-hidden="true">
-                      <li>Coro Teatro Verdi di Padova та струнні Filarmonica di Padova</li>
-                      <li>Бласкапеле Гібельштадт-Зульцдорф, Liederkranz 1863 Giebelstadt e.V. та КМІ Оксенфурт</li>
-                      <li>ФАЙНО, український вокальний ансамбль із Вюрцбурга</li>
-                    </ul>
-                    <div class="event-note" data-lang="de">Eintritt frei.</div>
-                    <div class="event-note" data-lang="en" hidden aria-hidden="true">Admission free.</div>
-                    <div class="event-note" data-lang="fr" hidden aria-hidden="true">Entree libre.</div>
-                    <div class="event-note" data-lang="ln" hidden aria-hidden="true">Kokota ofele.</div>
-                    <div class="event-note" data-lang="it" hidden aria-hidden="true">Ingresso libero.</div>
-                    <div class="event-note" data-lang="tr" hidden aria-hidden="true">Giriş ücretsizdir.</div>
-                    <div class="event-note" data-lang="uk" hidden aria-hidden="true">Вхід вільний.</div>
-                    <!-- LEGAL-I18N:homepage-event-giebelstadt-copy:end -->
-                </div>
-
-                <div class="event-poster-stage">
-                    <img src="bilder/cmi-internationales-galakonzert-giebelstadt-2026-05-02-preview.jpg" data-lightbox-src="bilder/cmi-internationales-galakonzert-giebelstadt-2026-05-02.jpg" alt="Plakat Internationales Galakonzert am 02.05.2026" class="event-christmas-img event-preview-thumb event-lightbox-trigger event-poster-image" loading="lazy" decoding="async" width="900" height="1040" />
-                    <div class="event-poster-hint">
-                        <!-- LEGAL-I18N:homepage-event-giebelstadt-poster-hint:start -->
-                        <span class="event-poster-hint-text" data-lang="de">Zur Großansicht anklicken oder antippen</span>
-                        <span class="event-poster-hint-text" data-lang="en" hidden aria-hidden="true">Tap or click to enlarge</span>
-                        <span class="event-poster-hint-text" data-lang="fr" hidden aria-hidden="true">Touchez ou cliquez pour agrandir</span>
-                        <span class="event-poster-hint-text" data-lang="ln" hidden aria-hidden="true">Finya to simba mpo na komona monene</span>
-                        <span class="event-poster-hint-text" data-lang="it" hidden aria-hidden="true">Tocca o fai clic per ingrandire</span>
-                        <span class="event-poster-hint-text" data-lang="tr" hidden aria-hidden="true">Büyütmek için tıkla ya da dokun</span>
-                        <span class="event-poster-hint-text" data-lang="uk" hidden aria-hidden="true">Натисніть або торкніться для збільшення</span>
-                        <!-- LEGAL-I18N:homepage-event-giebelstadt-poster-hint:end -->
-                    </div>
-                    <!-- LEGAL-I18N:homepage-event-giebelstadt-poster-actions:start -->
-                    <div class="event-poster-actions" data-lang="de"><a href='bilder/cmi-internationales-galakonzert-giebelstadt-2026-05-02.pdf' download='CMI-Internationales-Galakonzert-Giebelstadt-2026-05-02.pdf' class='event-poster-download'>Galakonzert-Plakat herunterladen (PDF)</a></div>
-                    <div class="event-poster-actions" data-lang="en" hidden aria-hidden="true"><a href='bilder/cmi-internationales-galakonzert-giebelstadt-2026-05-02.pdf' download='CMI-International-Gala-Concert-Giebelstadt-2026-05-02.pdf' class='event-poster-download'>Download gala concert poster (PDF)</a></div>
-                    <div class="event-poster-actions" data-lang="fr" hidden aria-hidden="true"><a href='bilder/cmi-internationales-galakonzert-giebelstadt-2026-05-02.pdf' download='CMI-Concert-de-Gala-International-Giebelstadt-2026-05-02.pdf' class='event-poster-download'>Telecharger l'affiche du concert de gala (PDF)</a></div>
-                    <div class="event-poster-actions" data-lang="ln" hidden aria-hidden="true"><a href='bilder/cmi-internationales-galakonzert-giebelstadt-2026-05-02.pdf' download='CMI-Konser-ya-Gala-Giebelstadt-2026-05-02.pdf' class='event-poster-download'>Kokitisa affiche ya konser ya gala (PDF)</a></div>
-                    <div class="event-poster-actions" data-lang="it" hidden aria-hidden="true"><a href='bilder/cmi-internationales-galakonzert-giebelstadt-2026-05-02.pdf' download='CMI-Concerto-di-Gala-Internazionale-Giebelstadt-2026-05-02.pdf' class='event-poster-download'>Scarica il poster del concerto di gala (PDF)</a></div>
-                    <div class="event-poster-actions" data-lang="tr" hidden aria-hidden="true"><a href='bilder/cmi-internationales-galakonzert-giebelstadt-2026-05-02.pdf' download='CMI-Uluslararasi-Gala-Konseri-Giebelstadt-2026-05-02.pdf' class='event-poster-download'>Gala konserinin afişini indir (PDF)</a></div>
-                    <div class="event-poster-actions" data-lang="uk" hidden aria-hidden="true"><a href='bilder/cmi-internationales-galakonzert-giebelstadt-2026-05-02.pdf' download='CMI-International-Gala-Concert-Giebelstadt-2026-05-02.pdf' class='event-poster-download'>Завантажити афішу гала-концерту у PDF</a></div>
-                    <!-- LEGAL-I18N:homepage-event-giebelstadt-poster-actions:end -->
-                    <div class="event-social-actions" aria-label="Social Media Aktionen">
-                        <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Finternationales-galakonzert-giebelstadt-2026.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path>
-                                <path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path>
-                            </svg>
-                            <span data-lang="de">WhatsApp</span>
-                            <span data-lang="en" hidden aria-hidden="true">WhatsApp</span>
-                            <span data-lang="fr" hidden aria-hidden="true">WhatsApp</span>
-                            <span data-lang="ln" hidden aria-hidden="true">WhatsApp</span>
-                            <span data-lang="it" hidden aria-hidden="true">WhatsApp</span>
-                            <span data-lang="tr" hidden aria-hidden="true">WhatsApp</span>
-                            <span data-lang="uk" hidden aria-hidden="true">WhatsApp</span>
-                        </a>
-                        <a href="share/instagram-export.html?post=internationales-galakonzert-giebelstadt-2026.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
-                                <circle cx="12" cy="12" r="3.8"></circle>
-                                <circle cx="17.2" cy="6.8" r="1"></circle>
-                            </svg>
-                            <span data-lang="de">Instagram</span>
-                            <span data-lang="en" hidden aria-hidden="true">Instagram</span>
-                            <span data-lang="fr" hidden aria-hidden="true">Instagram</span>
-                            <span data-lang="ln" hidden aria-hidden="true">Instagram</span>
-                            <span data-lang="it" hidden aria-hidden="true">Instagram</span>
-                            <span data-lang="tr" hidden aria-hidden="true">Instagram</span>
-                            <span data-lang="uk" hidden aria-hidden="true">Instagram</span>
-                        </a>
-                    </div>
+                      </div>
                 </div>
             </div>
         </div>
@@ -3806,7 +3587,7 @@ Da oltre dieci anni, a Ochsenfurt, la rassegna estiva "Musik an der Furt" accomp
 <script src="scripts/cookie-consent-content.js?v=20260409-cookie-consent-split-1"></script>
 <script src="scripts/cookie-consent.js?v=20260417-cookie-consent-session-loader-1"></script>
 <script src="scripts/site-language-variants.js?v=20260409-site-language-split-1"></script>
-<script src="scripts/site-language-accessibility.js?v=20260428-copy-link-everywhere-1"></script>
+<script src="scripts/site-language-accessibility.js?v=20260514-homepage-nav-i18n-1"></script>
 <script src="scripts/site-language.js?v=20260409-site-language-split-1"></script>
 <script src="scripts/navigation-mobile.js?v=20260409-js-split-11"></script>
 <script src="scripts/navigation-wayfinding.js?v=20260409-js-split-10"></script>

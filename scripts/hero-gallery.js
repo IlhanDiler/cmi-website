@@ -2,28 +2,28 @@ const heroGallery = [
     {
         src: 'bilder/Galakonzert_probe2026.jpeg',
         title: {
-            de: 'CMI 2026 nach der Hauptprobe für das Jubiläumskonzert',
-            en: 'CMI group photo in front of St. Thekla in Ochsenfurt 2026',
-            fr: 'Photo de groupe du CMI devant Saint-Thekla a Ochsenfurt en 2026',
-            ln: 'Foto ya lisanga ya CMI liboso ya St. Thekla na Ochsenfurt na 2026',
-            it: 'Foto di gruppo del CMI davanti a St. Thekla a Ochsenfurt nel 2026',
-            tr: '2026 yilinda Ochsenfurt St. Thekla onunde CMI grup fotosu',
-            uk: 'Групове фото КМІ перед Св. Теклею в Оксенфурті 2026'
+            de: 'CMI 2026 am 25.04.2026',
+            en: 'CMI 2026 on 25 April 2026',
+            fr: 'CMI 2026 le 25 avril 2026',
+            ln: 'CMI 2026 na 25 avril 2026',
+            it: 'CMI 2026 il 25 aprile 2026',
+            tr: 'CMI 2026, 25 Nisan 2026',
+            uk: 'КМІ 2026, 25 квітня 2026 року'
         },
         shortTitle: {
             de: 'CMI 2026 nach der Hauptprobe',
-            en: 'CMI group photo 2026',
-            fr: 'Photo de groupe CMI 2026',
-            ln: 'Foto ya lisanga CMI 2026',
-            it: 'Foto di gruppo CMI 2026',
-            tr: 'CMI grup fotosu 2026',
-            uk: 'Групове фото КМІ 2026'
+            en: 'CMI 2026 after the final rehearsal',
+            fr: 'CMI 2026 apres la repetition generale',
+            ln: 'CMI 2026 sima ya repetision ya suka',
+            it: 'CMI 2026 dopo la prova generale',
+            tr: 'CMI 2026 genel provadan sonra',
+            uk: 'КМІ 2026 після генеральної репетиції'
         }
     },
     {
         src: 'bilder/Galakonzert_probe_2026_totale.jpeg',
         title: {
-            de: 'CMI 2026 mit FAINO, Liederkranz und Querbeet und BGS',
+            de: 'CMI, BGS, FAINO, Querbeet und Liederkranz Giebelstadt am 25.04.2026',
             en: 'Shared group photo of the 2026 gala concert guests',
             fr: 'Photo de groupe commune des invites du concert de gala 2026',
             ln: 'Foto ya lisanga ya bapaya ya konser ya gala 2026',
@@ -32,7 +32,7 @@ const heroGallery = [
             uk: 'Спільне групове фото гостей гала-концерту 2026'
         },
         shortTitle: {
-            de: 'CMI 2026 mit FAINO, Liederkranz und Querbeet und BGS',
+            de: 'CMI, BGS, FAINO, Querbeet und Liederkranz Giebelstadt am 25.04.2026',
             en: 'Gala concert group photo 2026',
             fr: 'Photo de groupe gala 2026',
             ln: 'Foto ya gala 2026',
@@ -45,12 +45,12 @@ const heroGallery = [
     { src: 'bilder/Gruppenbild2.jpg', title: { de: 'Benefizkonzert für „Ärzte ohne Grenzen“ 2025 im Hotel Meintz Ochsenfurt', en: 'Benefit concert for "Doctors Without Borders" 2025 at Hotel Meintz Ochsenfurt', fr: 'Concert caritatif pour « Medecins Sans Frontieres » 2025 a l\'Hotel Meintz d\'Ochsenfurt', ln: 'Konser ya lisungi mpo na « Medecins Sans Frontieres » 2025 na Hotel Meintz Ochsenfurt', it: 'Concerto benefico per "Medici Senza Frontiere" 2025 all\'Hotel Meintz di Ochsenfurt', tr: 'Ochsenfurt\'taki Hotel Meintz\'te "Sınır Tanımayan Doktorlar" yararına 2025 yardım konseri', uk: 'Благодійний концерт для «Лікарів без кордонів» 2025 в готелі Meintz в Оксенфурті' }, shortTitle: { de: 'Benefizkonzert 2025 im Hotel Meintz', en: 'Benefit concert 2025 at Hotel Meintz', fr: 'Concert caritatif 2025 a l\'Hotel Meintz', ln: 'Konser ya lisungi 2025 na Hotel Meintz', it: 'Concerto benefico 2025 all\'Hotel Meintz', tr: 'Hotel Meintz\'te yardım konseri 2025', uk: 'Благодійний концерт 2025 в готелі Meintz' } },
     { src: 'bilder/gruppe_2007.jpeg', title: { de: 'CMI 2009', en: 'CMI 2009', fr: 'CMI 2009', ln: 'CMI 2009', it: 'CMI 2009', tr: 'CMI 2009', uk: 'CMI 2009' } },
     { src: 'bilder/peterbild.jpg', title: { de: 'Gedenkfeier - „80 Jahre Kriegsende, 80 Jahre Frieden“ in Ochsenfurt 2025', en: 'Commemorative event - "80 Years Since the End of War, 80 Years of Peace" in Ochsenfurt 2025', fr: 'Ceremonie commemorative - « 80 ans depuis la fin de la guerre, 80 ans de paix » a Ochsenfurt 2025', ln: 'Molulu ya ekaniseli - « Mibu 80 banda suka ya bitumba, mibu 80 ya kimia » na Ochsenfurt 2025', it: 'Cerimonia commemorativa - "80 anni dalla fine della guerra, 80 anni di pace" a Ochsenfurt 2025', tr: 'Anma töreni - "Savaşın Sona Erişinin 80. Yılı, Barışın 80. Yılı" Ochsenfurt 2025', uk: 'Пам’ятний захід «80 років від завершення війни, 80 років миру» в Оксенфурті 2025' }, shortTitle: { de: 'Gedenkfeier 80 Jahre Frieden 2025', en: '80 Years of Peace commemoration 2025', fr: 'Commemoration 80 ans de paix 2025', ln: 'Molulu ya mibu 80 ya kimia 2025', it: 'Commemorazione 80 anni di pace 2025', tr: '80 yıl barış anması 2025', uk: 'Пам’ятний захід 80 років миру 2025' } },
-    { src: 'bilder/concello.jfif', title: { de: 'ConCello 2025 in der Klosterkirche Ochsenfurt', en: 'ConCello 2025 at Klosterkirche Ochsenfurt', fr: 'ConCello 2025 a la Klosterkirche d\'Ochsenfurt', ln: 'ConCello 2025 na Klosterkirche Ochsenfurt', it: 'ConCello 2025 nella Klosterkirche di Ochsenfurt', tr: 'Ochsenfurt Klosterkirche\'de ConCello 2025', uk: 'ConCello 2025 у монастирській церкві Оксенфурта' }, shortTitle: { de: 'ConCello 2025 in Ochsenfurt', en: 'ConCello 2025 in Ochsenfurt', fr: 'ConCello 2025 a Ochsenfurt', ln: 'ConCello 2025 na Ochsenfurt', it: 'ConCello 2025 a Ochsenfurt', tr: 'Ochsenfurt\'ta ConCello 2025', uk: 'ConCello 2025 в Оксенфурті' } },
+    { src: 'bilder/concello.jfif', title: { de: 'ConCello 2025 in der Klosterkirche Ochsenfurt', en: 'ConCello 2025 at the monastery church in Ochsenfurt', fr: 'ConCello 2025 dans l\'eglise du monastere d\'Ochsenfurt', ln: 'ConCello 2025 na eglise ya monastere ya Ochsenfurt', it: 'ConCello 2025 nella chiesa del monastero di Ochsenfurt', tr: 'ConCello 2025 Ochsenfurt manastır kilisesinde', uk: 'ConCello 2025 у монастирській церкві Оксенфурта' }, shortTitle: { de: 'ConCello 2025 in Ochsenfurt', en: 'ConCello 2025 in Ochsenfurt', fr: 'ConCello 2025 a Ochsenfurt', ln: 'ConCello 2025 na Ochsenfurt', it: 'ConCello 2025 a Ochsenfurt', tr: 'Ochsenfurt\'ta ConCello 2025', uk: 'ConCello 2025 в Оксенфурті' } },
     { src: 'bilder/gruppemitflagge.jpg', title: { de: 'CMI und Veeh-Harfengruppe Querbeet 2025', en: 'CMI and the Veeh Harp Ensemble Querbeet 2025', fr: 'CMI et l\'ensemble de harpes Veeh Querbeet 2025', ln: 'CMI mpe etuluku ya Veeh-Harfe Querbeet 2025', it: 'CMI e il gruppo di arpe Veeh Querbeet 2025', tr: 'CMI ve Querbeet Veeh arp topluluğu 2025', uk: 'CMI та ансамбль Veeh-Harfe Querbeet 2025' }, shortTitle: { de: 'CMI und Querbeet 2025', en: 'CMI and Querbeet 2025', fr: 'CMI et Querbeet 2025', ln: 'CMI mpe Querbeet 2025', it: 'CMI e Querbeet 2025', tr: 'CMI ve Querbeet 2025', uk: 'CMI та Querbeet 2025' } },
-    { src: 'bilder/klosterkirche.jpg', title: { de: 'Klosterkirche 2024', en: 'Klosterkirche 2024', fr: 'Klosterkirche 2024', ln: 'Klosterkirche 2024', it: 'Klosterkirche 2024', tr: 'Klosterkirche 2024', uk: 'Клостеркірхе 2024' } },
+    { src: 'bilder/klosterkirche.jpg', title: { de: 'Klosterkirche 2024', en: 'Capuchin Monastery Church Ochsenfurt 2024', fr: 'Eglise du monastere des Capucins, Ochsenfurt 2024', ln: 'Eglise ya monastere ya Ochsenfurt 2024', it: 'Chiesa del monastero di Ochsenfurt 2024', tr: 'Ochsenfurt manastır kilisesi 2024', uk: 'Монастирська церква Оксенфурта 2024' } },
     { src: 'bilder/salboro_santa_maria_assunta_2024.jpg', title: { de: 'Salboro Santa Maria Assunta 2024', en: 'Salboro Santa Maria Assunta 2024', fr: 'Salboro Santa Maria Assunta 2024', ln: 'Salboro Santa Maria Assunta 2024', it: 'Salboro Santa Maria Assunta 2024', tr: 'Salboro Santa Maria Assunta 2024', uk: 'Salboro Santa Maria Assunta 2024' } },
     { src: 'bilder/Gruppenfoto_St._Thekla_2022.jpg', title: { de: 'CMI und BGS St. Thekla 2022', en: 'CMI and BGS St. Thekla 2022', fr: 'CMI et BGS St. Thekla 2022', ln: 'CMI mpe BGS St. Thekla 2022', it: 'CMI e BGS St. Thekla 2022', tr: 'CMI ve BGS St. Thekla 2022', uk: 'CMI та BGS St. Thekla 2022' } },
-    { src: 'bilder/Scheunenkonzert 17.07.jpg', title: { de: 'Scheunenkonzert am 17.07.', en: 'Barn concert on 17 July', fr: 'Concert dans la grange du 17 juillet', ln: 'Konser ya ndako ya bilanga na 17 juillet', it: 'Concerto nel fienile del 17 luglio', tr: '17 Temmuz ahır konseri', uk: 'Концерт у стодолі 17 липня' } },
+    { src: 'bilder/Scheunenkonzert 17.07.jpg', title: { de: 'Scheunenkonzert in Giebelstadt am 17.07.', en: 'Barn concert on 17 July', fr: 'Concert dans la grange du 17 juillet', ln: 'Konser ya ndako ya bilanga na 17 juillet', it: 'Concerto nel fienile del 17 luglio', tr: '17 Temmuz ahır konseri', uk: 'Концерт у стодолі 17 липня' } },
     { src: 'bilder/Gruppe17.09.11.png', title: { de: 'Jubiläumskonzert zum 30-jährigen Bestehen am 17.09.11', en: '30th anniversary concert on 17 September 2011', fr: 'Concert du 30e anniversaire le 17.09.11', ln: 'Konser ya jubile ya mibu 30 na 17.09.11', it: 'Concerto per il 30° anniversario il 17.09.11', tr: '17.09.2011 tarihinde 30. yıl dönümü konseri', uk: 'Ювілейний концерт до 30-річчя 17.09.11' }, shortTitle: { de: 'Jubiläumskonzert 30 Jahre CMI', en: '30th anniversary concert', fr: 'Concert du 30e anniversaire du CMI', ln: 'Konser ya mibu 30 ya CMI', it: 'Concerto per i 30 anni del CMI', tr: 'CMI 30. yıl konseri', uk: 'Ювілейний концерт 30 років CMI' } }
 ];
 
