@@ -201,6 +201,7 @@ function syncNavigationAccessibility(lang) {
     const mobileMenu = document.querySelector('.mobile-menu');
 
     setAriaLabelForElements('.navbar', labels.mainNavigation);
+    setAriaLabelForElements('.nav-menu', labels.subpageNavigation);
     setAriaLabelForElements('.subpage-topbar__links', labels.subpageNavigation);
     setAriaLabelForElements('.legal-overview__nav', labels.legalOverviewNavigation);
     setAriaLabelForElements('.language-switch, #langSwitcher', labels.languageSwitcher);

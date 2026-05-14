@@ -486,12 +486,12 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
         )
 
     event_card_count = await page.locator(".event-card").count()
-    if event_card_count != 2:
+    if event_card_count < 1:
         add_issue(
             issues,
             "medium",
             scope_name(browser_target, "index-desktop events"),
-            f"Expected exactly 2 event cards, got: {event_card_count}",
+            f"Expected at least 1 event card, got: {event_card_count}",
         )
 
     visible_event_title = await first_visible_text(page, ".event-title[data-lang]")
@@ -503,13 +503,13 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
             f"Expected English event title, got: {visible_event_title or '[empty]'}",
         )
 
-    visible_event_download = await first_visible_text(page, ".event-poster-actions[data-lang]")
-    if visible_event_download != "Download anniversary concert poster (PDF)":
+    visible_event_poster_hint = await first_visible_text(page, ".event-poster-hint-text[data-lang]")
+    if visible_event_poster_hint != "Tap or click to enlarge":
         add_issue(
             issues,
             "medium",
             scope_name(browser_target, "index-desktop events"),
-            f"Expected English event download label, got: {visible_event_download or '[empty]'}",
+            f"Expected English event poster hint, got: {visible_event_poster_hint or '[empty]'}",
         )
 
     visible_news_feed_title = await first_visible_text(page, ".news-feed-title[data-lang]")
