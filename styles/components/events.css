@@ -196,6 +196,30 @@
     gap: var(--event-list-gap);
 }
 
+.event-empty-state {
+    width: var(--event-shell-width);
+    margin: 0 auto;
+    padding: var(--event-shell-padding);
+    box-sizing: border-box;
+}
+
+.event-empty-state p {
+    max-width: 64ch;
+    margin: 0 auto;
+    padding: 18px 22px;
+    border: 1px solid rgba(18, 62, 70, 0.1);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.68);
+    color: #31545a;
+    font-family: var(--font-ui-modern);
+    font-size: 1rem;
+    font-weight: 560;
+    line-height: 1.58;
+    letter-spacing: -0.004em;
+    text-align: center;
+    text-wrap: pretty;
+}
+
 .event-card {
     --event-accent: var(--color-secondary);
     --event-accent-rgb: var(--color-secondary-rgb);
@@ -779,6 +803,10 @@
         --event-shell-width: var(--layout-shell-width-feature);
     }
 
+    .event-section--empty {
+        padding: clamp(44px, 4vw, 60px) 0;
+    }
+
     .event-section-intro,
     .event-list {
         width: var(--layout-shell-width-feature);
@@ -803,6 +831,11 @@
     .event-list {
         grid-template-columns: 1fr;
         gap: 28px;
+    }
+
+    .event-section--empty .event-section-intro {
+        margin-bottom: 20px;
+        padding: 28px 32px 24px;
     }
 }
 

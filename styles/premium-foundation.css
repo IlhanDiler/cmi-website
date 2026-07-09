@@ -1089,7 +1089,7 @@ html body *:active::after {
     }
 }
 
-@media (min-width: 1180px) and (max-width: 1536px) {
+@media (min-width: 1180px) and (max-width: 1699px) {
     :root {
         --premium-label-desktop-size: 0.7rem;
         --premium-label-desktop-letter-spacing: 0.15em;

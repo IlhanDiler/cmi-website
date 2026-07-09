@@ -476,6 +476,8 @@
     height: auto;
     max-width: min(100%, 184px);
     max-height: clamp(248px, 28vw, 318px);
+    border-radius: var(--review-image-radius);
+    clip-path: inset(0 round var(--review-image-radius));
     object-position: center top;
 }
 
