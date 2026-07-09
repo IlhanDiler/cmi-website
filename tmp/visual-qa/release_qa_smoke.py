@@ -487,12 +487,15 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
 
     event_card_count = await page.locator(".event-card").count()
     if event_card_count < 1:
-        add_issue(
-            issues,
-            "medium",
-            scope_name(browser_target, "index-desktop events"),
-            f"Expected at least 1 event card, got: {event_card_count}",
-        )
+        visible_event_empty_state = await first_visible_text(page, ".event-empty-state [data-lang]")
+        if visible_event_empty_state != "No upcoming concerts are currently published. New dates will appear here as soon as they are confirmed.":
+            add_issue(
+                issues,
+                "medium",
+                scope_name(browser_target, "index-desktop events"),
+                "Expected event empty state when no event cards are published, got: "
+                f"{visible_event_empty_state or '[empty]'}",
+            )
 
     visible_event_title = await first_visible_text(page, ".event-title[data-lang]")
     if visible_event_title != "Upcoming Events":
@@ -504,7 +507,7 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
         )
 
     visible_event_poster_hint = await first_visible_text(page, ".event-poster-hint-text[data-lang]")
-    if visible_event_poster_hint != "Tap or click to enlarge":
+    if event_card_count > 0 and visible_event_poster_hint != "Tap or click to enlarge":
         add_issue(
             issues,
             "medium",
@@ -663,29 +666,30 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
             "Hero gallery pagination did not render enough controls",
         )
 
-    trigger = page.locator(".event-lightbox-trigger").first
-    await trigger.scroll_into_view_if_needed()
-    await safe_click(page, trigger)
-    if await wait_visible(page, "#eventLightboxModal", scope_name(browser_target, "event-lightbox open"), issues, timeout=5000):
-        await page.keyboard.press("Escape")
-        try:
-            await page.locator("#eventLightboxModal").wait_for(state="hidden", timeout=5000)
-        except PlaywrightTimeoutError:
-            add_issue(
-                issues,
-                "high",
-                scope_name(browser_target, "event-lightbox"),
-                "Lightbox did not close on Escape",
-            )
+    if await page.locator(".event-lightbox-trigger").count() > 0:
+        trigger = page.locator(".event-lightbox-trigger").first
+        await trigger.scroll_into_view_if_needed()
+        await safe_click(page, trigger)
+        if await wait_visible(page, "#eventLightboxModal", scope_name(browser_target, "event-lightbox open"), issues, timeout=5000):
+            await page.keyboard.press("Escape")
+            try:
+                await page.locator("#eventLightboxModal").wait_for(state="hidden", timeout=5000)
+            except PlaywrightTimeoutError:
+                add_issue(
+                    issues,
+                    "high",
+                    scope_name(browser_target, "event-lightbox"),
+                    "Lightbox did not close on Escape",
+                )
 
-        active_class_name = await page.evaluate("() => document.activeElement ? document.activeElement.className : ''")
-        if "event-lightbox-trigger" not in active_class_name and "event-poster-image" not in active_class_name:
-            add_issue(
-                issues,
-                "medium",
-                scope_name(browser_target, "event-lightbox"),
-                f"Focus was not restored to a poster trigger after close: {active_class_name!r}",
-            )
+            active_class_name = await page.evaluate("() => document.activeElement ? document.activeElement.className : ''")
+            if "event-lightbox-trigger" not in active_class_name and "event-poster-image" not in active_class_name:
+                add_issue(
+                    issues,
+                    "medium",
+                    scope_name(browser_target, "event-lightbox"),
+                    f"Focus was not restored to a poster trigger after close: {active_class_name!r}",
+                )
 
     archive_toggle = page.locator(".review-archive-toggle")
     await archive_toggle.scroll_into_view_if_needed()
