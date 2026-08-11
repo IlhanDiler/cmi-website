@@ -42,3 +42,20 @@ scripts/export_startplan_pdf.py
 share/instagram-export.js
 share/instagram-startplan-freigabe-2026-04-17.html
 share/instagram-startplan-freigabe-mobil-2026-04-17.html
+
+# Lokale Artefakte und Hilfsdateien - nur lokal, nie veroeffentlichen
+System.__ComObject
+*.__ComObject
+docs/QA-Automation-Plan.md
+bilder/workshop_adults.jpeg
+bilder/workshop_kids.jpeg
+scripts/delete_last_pages.ps1
+scripts/delete_report.txt
+scripts/ferien_content.txt
+scripts/ferien_report.txt
+scripts/insert_tco_kalkulation.ps1
+scripts/insert_tco_termine.ps1
+scripts/inspect_report.txt
+scripts/inspect_spd_orig.ps1
+scripts/md_to_pdf.ps1
+scripts/update_ferien.ps1
