@@ -16,6 +16,24 @@ docs/CMI-*
 docs/[Ff]acebook-*
 docs/[Ii]nstagram-*
 
+# Persoenliche Bewerbungs- und Trainingsunterlagen - NIEMALS veroeffentlichen
+*.docx
+docs/*.pdf
+docs/14-Tage-*
+docs/3-wochen-*
+docs/Anschreiben_*
+docs/Arbeitszeugnis*
+docs/Bewerbung_*
+docs/Interview*
+docs/ISTQB*
+docs/Kosten_*
+docs/Kurzcheck_*
+docs/Lebenslauf_*
+docs/Leitfaden_*
+docs/Nachfrage_*
+docs/Spickzettel_*
+docs/Vorbereitung_*
+
 # Local social planning workfiles
 scripts/build_instagram_kurzfassung_pdf.py
 scripts/build_instagram_post_presentation.py

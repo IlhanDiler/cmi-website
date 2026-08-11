@@ -1,4 +1,21 @@
-# cmi-webseite
+# CMI Ochsenfurt – Vereinswebsite
+
+Mehrsprachige Website für einen gemeinnützigen Musikverein – konzipiert, entwickelt und betrieben in Eigenregie.
+
+**Live:** https://www.cmi-ochsenfurt.de
+
+## Tech-Stack & Highlights
+
+- **Frontend:** semantisches HTML5, modulares CSS (Design-Tokens + Komponenten), Vanilla JavaScript in ES-Modulen – bewusst ohne Framework-Abhängigkeit
+- **Mehrsprachigkeit (i18n):** Deutsch als Basis, teilbare Share-Seiten zusätzlich in EN, FR, IT, TR, UK und LN
+- **Barrierefreiheit:** Fokus-Management, Tastaturbedienung, NVDA-Screenreader-Pässe und dokumentierte Accessibility-Sweeps
+- **Build & Automatisierung:** Python-Generatoren erzeugen Share- und Rechtstexte aus JSON-Quellen
+- **CI/CD:** GitHub Actions mit Quality-Gate (Pflichtdatei- und Sync-Checks, browserbasierte Smoke-QA in Chromium/Firefox) und automatisiertem Deployment nach IONOS
+- **Qualitätssicherung:** Release-QA-Checklisten, manuelle QA-Pässe und Responsive-/UX-Findings
+
+*Autor: Ilhan Diler*
+
+---
 
 ## CSS-Architektur
 
