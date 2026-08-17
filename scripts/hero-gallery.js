@@ -1,5 +1,26 @@
 const heroGallery = [
     {
+        src: 'bilder/concello_2026_gruppe.jpeg',
+        title: {
+            de: 'ConCello - Ensemble-Kurswoche 2026 in Salboro',
+            en: 'ConCello ensemble course week 2026 in Salboro',
+            fr: 'Semaine de cours ConCello 2026 a Salboro',
+            ln: 'Lingombo ya ConCello 2026 na Salboro',
+            it: 'Settimana di corso ConCello 2026 a Salboro',
+            tr: 'Salboro ConCello 2026 kurs haftası',
+            uk: 'Тижневий курс ConCello 2026 у Сальборо'
+        },
+        shortTitle: {
+            de: 'ConCello 2026 in Salboro',
+            en: 'ConCello 2026 in Salboro',
+            fr: 'ConCello 2026 a Salboro',
+            ln: 'ConCello 2026 na Salboro',
+            it: 'ConCello 2026 a Salboro',
+            tr: 'Salboro ConCello 2026',
+            uk: 'ConCello 2026 у Сальборо'
+        }
+    },
+    {
         src: 'bilder/Galakonzert_probe2026.jpeg',
         title: {
             de: 'CMI 2026 am 25.04.2026',
@@ -63,6 +84,7 @@ const heroGalleryDesktopFocusImages = new Set([
 ]);
 
 const heroGalleryContainImages = new Set([
+    'bilder/concello_2026_gruppe.jpeg',
     'bilder/Galakonzert_probe2026.jpeg',
     'bilder/Galakonzert_probe_2026_totale.jpeg'
 ]);
