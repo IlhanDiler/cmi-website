@@ -1281,7 +1281,20 @@
         </div>
     </div>
 </section>
-<section class="event-section event-section--empty" id="events" data-region-label-selector=".event-title[data-lang], .event-title">
+<section class="event-section" id="events" data-region-label-selector=".event-title[data-lang], .event-title">
+  <div id="eventLightboxModal" class="event-lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="eventLightboxCaptionTitle" aria-describedby="eventLightboxCaptionMeta" aria-hidden="true" style="display:none;">
+    <div class="event-lightbox-dialog">
+      <button id="eventLightboxClose" type="button" class="event-lightbox-close" aria-label="Vollansicht schließen">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </button>
+      <img id="eventLightboxImg" class="event-lightbox-image" src="" alt="">
+      <div class="event-lightbox-caption">
+        <span id="eventLightboxCaptionKicker" class="event-lightbox-caption-kicker"></span>
+        <strong id="eventLightboxCaptionTitle" class="event-lightbox-caption-title"></strong>
+        <span id="eventLightboxCaptionMeta" class="event-lightbox-caption-meta"></span>
+      </div>
+    </div>
+  </div>
   <div class="event-section-intro">
     <!-- LEGAL-I18N:homepage-events-intro:start -->
     <div class="event-section-kicker" data-lang="de">Nächste Termine</div>
@@ -1298,19 +1311,103 @@
     <h2 class="event-title" data-lang="it" hidden aria-hidden="true">Prossimi eventi</h2>
     <h2 class="event-title" data-lang="tr" hidden aria-hidden="true">Önümüzdeki etkinlikler</h2>
     <h2 class="event-title" data-lang="uk" hidden aria-hidden="true">Найближчі події</h2>
+    <p class="event-section-copy" data-lang="de">Unsere nächsten Termine laden zum Zuhören, Begegnen und Mittragen ein.</p>
+    <p class="event-section-copy" data-lang="en" hidden aria-hidden="true">Our upcoming events invite people to listen, meet, and take part.</p>
+    <p class="event-section-copy" data-lang="fr" hidden aria-hidden="true">Nos prochains rendez-vous invitent a ecouter, a se rencontrer et a participer.</p>
+    <p class="event-section-copy" data-lang="ln" hidden aria-hidden="true">Mikolo na biso oyo ezali koya ebengisaka bato bayoka, bakutana mpe bapesa loboko.</p>
+    <p class="event-section-copy" data-lang="it" hidden aria-hidden="true">I prossimi appuntamenti invitano ad ascoltare, incontrarsi e partecipare.</p>
+    <p class="event-section-copy" data-lang="tr" hidden aria-hidden="true">Önümüzdeki etkinliklerimiz dinlemeye, buluşmaya ve katılmaya davet ediyor.</p>
+    <p class="event-section-copy" data-lang="uk" hidden aria-hidden="true">Наші найближчі події запрошують слухати, зустрічатися та долучатися.</p>
     <!-- LEGAL-I18N:homepage-events-intro:end -->
   </div>
 
   <div class="event-list">
-  </div>
-  <div class="event-empty-state">
-    <p data-lang="de">Aktuell sind keine kommenden Konzerte veröffentlicht. Neue Termine ergänzen wir hier, sobald sie feststehen.</p>
-    <p data-lang="en" hidden aria-hidden="true">No upcoming concerts are currently published. New dates will appear here as soon as they are confirmed.</p>
-    <p data-lang="fr" hidden aria-hidden="true">Aucun concert a venir n'est actuellement publie. Les nouvelles dates seront ajoutees ici des qu'elles seront confirmees.</p>
-    <p data-lang="ln" hidden aria-hidden="true">Sikoyo ba konser oyo ezali koya ebimisami nanu te. Mikolo ya sika ekobakisama awa soki endimami.</p>
-    <p data-lang="it" hidden aria-hidden="true">Al momento non sono pubblicati concerti in programma. Le nuove date saranno aggiunte qui non appena confermate.</p>
-    <p data-lang="tr" hidden aria-hidden="true">Şu anda yayında olan yaklaşan konser yok. Yeni tarihler kesinleştiğinde burada paylaşılacaktır.</p>
-    <p data-lang="uk" hidden aria-hidden="true">Наразі майбутні концерти не опубліковані. Нові дати з'являться тут, щойно їх буде підтверджено.</p>
+    <article class="event-card" id="event-strauss-konzerte-2026">
+      <div class="event-badge">
+        <div class="event-date" data-lang="de">5. und 6. September 2026</div>
+        <div class="event-date" data-lang="en" hidden aria-hidden="true">September 5 and 6, 2026</div>
+        <div class="event-date" data-lang="fr" hidden aria-hidden="true">5 et 6 septembre 2026</div>
+        <div class="event-date" data-lang="ln" hidden aria-hidden="true">5 mpe 6 septembre 2026</div>
+        <div class="event-date" data-lang="it" hidden aria-hidden="true">5 e 6 settembre 2026</div>
+        <div class="event-date" data-lang="tr" hidden aria-hidden="true">5 ve 6 Eylül 2026</div>
+        <div class="event-date" data-lang="uk" hidden aria-hidden="true">5 та 6 вересня 2026</div>
+        <div class="event-time" data-lang="de">Sa. 18:00 Uhr / So. 16:00 Uhr</div>
+        <div class="event-time" data-lang="en" hidden aria-hidden="true">Sat. 6:00 pm / Sun. 4:00 pm</div>
+        <div class="event-time" data-lang="fr" hidden aria-hidden="true">sam. 18:00 / dim. 16:00</div>
+        <div class="event-time" data-lang="ln" hidden aria-hidden="true">samedi 18:00 / dimanche 16:00</div>
+        <div class="event-time" data-lang="it" hidden aria-hidden="true">sab. 18:00 / dom. 16:00</div>
+        <div class="event-time" data-lang="tr" hidden aria-hidden="true">Cmt. 18:00 / Paz. 16:00</div>
+        <div class="event-time" data-lang="uk" hidden aria-hidden="true">сб. 18:00 / нд. 16:00</div>
+      </div>
+      <div class="event-content">
+        <div class="event-copy">
+          <h3 class="event-headline" data-lang="de">Konzert mit Melodien von Johann Strauß</h3>
+          <h3 class="event-headline" data-lang="en" hidden aria-hidden="true">Concert with melodies by Johann Strauss</h3>
+          <h3 class="event-headline" data-lang="fr" hidden aria-hidden="true">Concert avec des melodies de Johann Strauss</h3>
+          <h3 class="event-headline" data-lang="ln" hidden aria-hidden="true">Konser na ba melodi ya Johann Strauss</h3>
+          <h3 class="event-headline" data-lang="it" hidden aria-hidden="true">Concerto con melodie di Johann Strauss</h3>
+          <h3 class="event-headline" data-lang="tr" hidden aria-hidden="true">Johann Strauss melodileriyle konser</h3>
+          <h3 class="event-headline" data-lang="uk" hidden aria-hidden="true">Концерт з мелодіями Йоганна Штрауса</h3>
+          <div class="event-venue-list" data-lang="de">
+            <div class="event-venue"><span class="event-venue__date">Sa., 05.09.</span><span><strong class="event-venue__name">K.St.V. Walhalla</strong><span class="event-venue__address">Würzburg · Mergentheimer Str. 32</span></span></div>
+            <div class="event-venue"><span class="event-venue__date">So., 06.09.</span><span><strong class="event-venue__name">Alte Turnhalle</strong><span class="event-venue__address">Lohr · Gärtnerstr. 2</span></span></div>
+          </div>
+          <div class="event-venue-list" data-lang="en" hidden aria-hidden="true">
+            <div class="event-venue"><span class="event-venue__date">Sat., Sep. 5</span><span><strong class="event-venue__name">K.St.V. Walhalla</strong><span class="event-venue__address">Würzburg · Mergentheimer Str. 32</span></span></div>
+            <div class="event-venue"><span class="event-venue__date">Sun., Sep. 6</span><span><strong class="event-venue__name">Alte Turnhalle</strong><span class="event-venue__address">Lohr · Gärtnerstr. 2</span></span></div>
+          </div>
+          <div class="event-venue-list" data-lang="fr" hidden aria-hidden="true">
+            <div class="event-venue"><span class="event-venue__date">Sam. 5 sept.</span><span><strong class="event-venue__name">K.St.V. Walhalla</strong><span class="event-venue__address">Würzburg · Mergentheimer Str. 32</span></span></div>
+            <div class="event-venue"><span class="event-venue__date">Dim. 6 sept.</span><span><strong class="event-venue__name">Alte Turnhalle</strong><span class="event-venue__address">Lohr · Gärtnerstr. 2</span></span></div>
+          </div>
+          <div class="event-venue-list" data-lang="ln" hidden aria-hidden="true">
+            <div class="event-venue"><span class="event-venue__date">Samedi 5 sept.</span><span><strong class="event-venue__name">K.St.V. Walhalla</strong><span class="event-venue__address">Würzburg · Mergentheimer Str. 32</span></span></div>
+            <div class="event-venue"><span class="event-venue__date">Dimanche 6 sept.</span><span><strong class="event-venue__name">Alte Turnhalle</strong><span class="event-venue__address">Lohr · Gärtnerstr. 2</span></span></div>
+          </div>
+          <div class="event-venue-list" data-lang="it" hidden aria-hidden="true">
+            <div class="event-venue"><span class="event-venue__date">Sab. 5 set.</span><span><strong class="event-venue__name">K.St.V. Walhalla</strong><span class="event-venue__address">Würzburg · Mergentheimer Str. 32</span></span></div>
+            <div class="event-venue"><span class="event-venue__date">Dom. 6 set.</span><span><strong class="event-venue__name">Alte Turnhalle</strong><span class="event-venue__address">Lohr · Gärtnerstr. 2</span></span></div>
+          </div>
+          <div class="event-venue-list" data-lang="tr" hidden aria-hidden="true">
+            <div class="event-venue"><span class="event-venue__date">Cmt. 5 Eyl.</span><span><strong class="event-venue__name">K.St.V. Walhalla</strong><span class="event-venue__address">Würzburg · Mergentheimer Str. 32</span></span></div>
+            <div class="event-venue"><span class="event-venue__date">Paz. 6 Eyl.</span><span><strong class="event-venue__name">Alte Turnhalle</strong><span class="event-venue__address">Lohr · Gärtnerstr. 2</span></span></div>
+          </div>
+          <div class="event-venue-list" data-lang="uk" hidden aria-hidden="true">
+            <div class="event-venue"><span class="event-venue__date">Сб, 5 вер.</span><span><strong class="event-venue__name">K.St.V. Walhalla</strong><span class="event-venue__address">Вюрцбург · Mergentheimer Str. 32</span></span></div>
+            <div class="event-venue"><span class="event-venue__date">Нд, 6 вер.</span><span><strong class="event-venue__name">Alte Turnhalle</strong><span class="event-venue__address">Лор · Gärtnerstr. 2</span></span></div>
+          </div>
+          <p class="event-description" data-lang="de">Die Veeh-Harfengruppe Querbeet musiziert unter der Leitung von Sigrid Schäfer gemeinsam mit Solistinnen und Solisten des Collegium Musicum Iuvenale Ochsenfurt. Als Gäste aus Italien wirken Chiara Passudetti, Silvano Ruffo, Mirko Ballico und Andrea Vinco mit.</p>
+          <p class="event-description" data-lang="en" hidden aria-hidden="true">The Veeh harp group Querbeet, directed by Sigrid Schäfer, performs with soloists from Collegium Musicum Iuvenale Ochsenfurt and guests from Italy: Chiara Passudetti, Silvano Ruffo, Mirko Ballico, and Andrea Vinco.</p>
+          <p class="event-description" data-lang="fr" hidden aria-hidden="true">Le groupe de harpes Veeh Querbeet, dirige par Sigrid Schäfer, joue avec des solistes du Collegium Musicum Iuvenale Ochsenfurt et des invites d'Italie: Chiara Passudetti, Silvano Ruffo, Mirko Ballico et Andrea Vinco.</p>
+          <p class="event-description" data-lang="ln" hidden aria-hidden="true">Etuluku ya Veeh-Harfe Querbeet, na bokambi ya Sigrid Schäfer, ekobeta elongo na ba soliste ya Collegium Musicum Iuvenale Ochsenfurt mpe bapaya ya Italie: Chiara Passudetti, Silvano Ruffo, Mirko Ballico mpe Andrea Vinco.</p>
+          <p class="event-description" data-lang="it" hidden aria-hidden="true">Il gruppo di arpe Veeh Querbeet, diretto da Sigrid Schäfer, suona con solisti del Collegium Musicum Iuvenale Ochsenfurt e ospiti dall'Italia: Chiara Passudetti, Silvano Ruffo, Mirko Ballico e Andrea Vinco.</p>
+          <p class="event-description" data-lang="tr" hidden aria-hidden="true">Sigrid Schäfer yönetimindeki Veeh arp topluluğu Querbeet, Collegium Musicum Iuvenale Ochsenfurt solistleri ve İtalya'dan Chiara Passudetti, Silvano Ruffo, Mirko Ballico ve Andrea Vinco ile sahne alacak.</p>
+          <p class="event-description" data-lang="uk" hidden aria-hidden="true">Група арф Veeh Querbeet під керівництвом Зігрід Шефер виступить із солістами Collegium Musicum Iuvenale Ochsenfurt та гостями з Італії: К'ярою Пассудетті, Сільвано Руффо, Мірко Балліко й Андреа Вінко.</p>
+          <p class="event-note" data-lang="de">Eintritt frei. Die Spenden am 5. September gehen an den Herzenswunsch-Krankenwagen der Malteser, die Spenden am 6. September an die Lebenshilfe Mainspessart e.V.</p>
+          <p class="event-note" data-lang="en" hidden aria-hidden="true">Admission free. Donations on September 5 support the Malteser wish ambulance; donations on September 6 support Lebenshilfe Mainspessart e.V.</p>
+          <p class="event-note" data-lang="fr" hidden aria-hidden="true">Entree libre. Les dons du 5 septembre soutiennent l'ambulance des voeux Malteser; ceux du 6 septembre soutiennent Lebenshilfe Mainspessart e.V.</p>
+          <p class="event-note" data-lang="ln" hidden aria-hidden="true">Kokota ofele. Makabo ya 5 septembre ekosunga ambulance ya Malteser; makabo ya 6 septembre ekosunga Lebenshilfe Mainspessart e.V.</p>
+          <p class="event-note" data-lang="it" hidden aria-hidden="true">Ingresso libero. Le donazioni del 5 settembre sostengono l'ambulanza dei desideri dei Malteser; quelle del 6 settembre sostengono Lebenshilfe Mainspessart e.V.</p>
+          <p class="event-note" data-lang="tr" hidden aria-hidden="true">Giriş ücretsizdir. 5 Eylül bağışları Malteser dilek ambulansına, 6 Eylül bağışları Lebenshilfe Mainspessart e.V.'ye gidecektir.</p>
+          <p class="event-note" data-lang="uk" hidden aria-hidden="true">Вхід вільний. Пожертви 5 вересня буде передано службі Malteser, а пожертви 6 вересня - Lebenshilfe Mainspessart e.V.</p>
+        </div>
+        <figure class="event-poster-stage">
+          <img src="bilder/strauss2026konzert.jpg" data-lightbox-src="bilder/strauss2026konzert.jpg" alt="Plakat zu den Johann-Strauß-Konzerten am 5. September 2026 in Würzburg und am 6. September 2026 in Lohr" class="event-lightbox-trigger event-poster-image" loading="lazy" decoding="async" width="724" height="1024">
+          <figcaption class="event-poster-hint">
+            <span class="event-poster-hint-text" data-lang="de">Zur Großansicht anklicken oder antippen</span>
+            <span class="event-poster-hint-text" data-lang="en" hidden aria-hidden="true">Tap or click to enlarge</span>
+            <span class="event-poster-hint-text" data-lang="fr" hidden aria-hidden="true">Touchez ou cliquez pour agrandir</span>
+            <span class="event-poster-hint-text" data-lang="ln" hidden aria-hidden="true">Finya to simba mpo na komona monene</span>
+            <span class="event-poster-hint-text" data-lang="it" hidden aria-hidden="true">Tocca o fai clic per ingrandire</span>
+            <span class="event-poster-hint-text" data-lang="tr" hidden aria-hidden="true">Büyütmek için tıkla ya da dokun</span>
+            <span class="event-poster-hint-text" data-lang="uk" hidden aria-hidden="true">Натисніть або торкніться для збільшення</span>
+          </figcaption>
+          <div class="event-social-actions" data-copy-url="https://home-5021213257.app-ionos.space/#event-strauss-konzerte-2026" aria-label="Plakataktionen">
+            <a href="https://wa.me/?text=Konzert%20mit%20Melodien%20von%20Johann%20Strau%C3%9F%0A5.%20September%202026%20in%20W%C3%BCrzburg%20%C2%B7%206.%20September%202026%20in%20Lohr%0APlakat%20und%20Informationen%3A%20https%3A%2F%2Fhome-5021213257.app-ionos.space%2Fbilder%2Fstrauss2026konzert.jpg" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Auf WhatsApp teilen" title="Auf WhatsApp teilen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+          </div>
+        </figure>
+      </div>
+    </article>
   </div>
 </section>
 <section class="timeline-section timeline-section--teaser timeline-section--compact-link" id="timeline-section" data-region-label-selector=".timeline-title[data-lang], .timeline-title">
@@ -1433,6 +1530,63 @@
     </div>
     <!-- LEGAL-I18N:homepage-news-feed-cards:start -->
     <div class="news-feed-grid">
+      <article class="news-feed-card">
+        <a class="news-feed-card-link" href="#review-concello-ensemble-kurswoche-2026">
+          <div class="news-feed-card-media news-feed-card-media--full-image" style="--news-feed-full-image-ratio: 1920 / 1080;">
+            <img class="news-feed-card-image news-feed-card-image--backdrop" src="bilder/concello_2026_gruppe.jpeg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img class="news-feed-card-image news-feed-card-image--contain" src="bilder/concello_2026_gruppe.jpeg" alt="" loading="lazy" decoding="async">
+          </div>
+          <div class="news-feed-card-body">
+            <div class="news-feed-card-meta">
+              <span class="news-feed-card-badge">
+                <span data-lang="de">Kurswoche</span>
+                <span data-lang="en" hidden aria-hidden="true">Course Week</span>
+                <span data-lang="fr" hidden aria-hidden="true">Semaine de cours</span>
+                <span data-lang="ln" hidden aria-hidden="true">Lingombo ya kursisi</span>
+                <span data-lang="it" hidden aria-hidden="true">Settimana di corso</span>
+                <span data-lang="tr" hidden aria-hidden="true">Kurs Haftası</span>
+                <span data-lang="uk" hidden aria-hidden="true">Тижневий курс</span>
+              </span>
+              <span class="news-feed-card-date">
+                <span data-lang="de">2.-9. August 2026</span>
+                <span data-lang="en" hidden aria-hidden="true">August 2-9, 2026</span>
+                <span data-lang="fr" hidden aria-hidden="true">2-9 août 2026</span>
+                <span data-lang="ln" hidden aria-hidden="true">2-9 août 2026</span>
+                <span data-lang="it" hidden aria-hidden="true">2-9 agosto 2026</span>
+                <span data-lang="tr" hidden aria-hidden="true">2-9 Ağustos 2026</span>
+                <span data-lang="uk" hidden aria-hidden="true">2-9 серпня 2026</span>
+              </span>
+            </div>
+            <h3 class="news-feed-card-title">
+              <span data-lang="de">ConCello - Ensemble-Kurswoche 2026</span>
+              <span data-lang="en" hidden aria-hidden="true">ConCello - String Ensemble Course Week 2026</span>
+              <span data-lang="fr" hidden aria-hidden="true">ConCello - Semaine d'ensemble à cordes 2026</span>
+              <span data-lang="ln" hidden aria-hidden="true">ConCello - Lingombo ya bensinga 2026</span>
+              <span data-lang="it" hidden aria-hidden="true">ConCello - Settimana d'insieme d'archi 2026</span>
+              <span data-lang="tr" hidden aria-hidden="true">ConCello - Yaylı Ensemble Kurs Haftası 2026</span>
+              <span data-lang="uk" hidden aria-hidden="true">ConCello - Тижневий курс струнного ансамблю 2026</span>
+            </h3>
+            <p class="news-feed-card-copy">
+              <span data-lang="de">Ensemble-Training unter Maestro Andrea Marcolini und Riccardo Paltanin aus Padua. Deutsche und italienische Teilnehmer erarbeiteten anspruchsvolle Literatur von Renaissance bis Filmmusik intensiv. Trotz 40 Grad entstand ein ausdrucksstarkes Konzert mit dem Kirchenchor von Santa Maria Assunta.</span>
+              <span data-lang="en" hidden aria-hidden="true">String ensemble training with Maestro Andrea Marcolini and Riccardo Paltanin from Padua. German and Italian participants worked intensively on demanding literature from the Renaissance to film music. Despite extreme heat, an expressive concert was realized with the choir of Santa Maria Assunta.</span>
+              <span data-lang="fr" hidden aria-hidden="true">Formation d'ensemble à cordes avec le Maestro Andrea Marcolini et Riccardo Paltanin de Padoue. Des participants allemands et italiens ont travaille intensivement la musique de la Renaissance a la musique de film. Malgre la chaleur extreme, un concert expresif a ete realise avec le choeur de Santa Maria Assunta.</span>
+              <span data-lang="ln" hidden aria-hidden="true">Lingombo ya ensemble ya bensinga elongo na Maestro Andrea Marcolini mpe Riccardo Paltanin ya Padua. Bato oyo ewuti Allemagne mpe Italie basalaki na elingaki mingi musika ya Renaissance kino musika ya filime. Nanso na chaleur ya monkol, konser ya bolaisi bakomelaki elongo na koro ya Santa Maria Assunta.</span>
+              <span data-lang="it" hidden aria-hidden="true">Allenamento d'insieme d'archi con il Maestro Andrea Marcolini e Riccardo Paltanin da Padova. Partecipanti tedeschi e italiani hanno lavorato intensivamente su musica dal Rinascimento alla musica da film. Nonostante il caldo estremo, un concerto espressivo e stato realizzato con il coro di Santa Maria Assunta.</span>
+              <span data-lang="tr" hidden aria-hidden="true">Maestro Andrea Marcolini ve Padua'dan Riccardo Paltanin ile yaylı ensemble antrenmanı. Alman ve İtalyan katılımcılar Rönesans'tan film müziğine kadar zorlayıcı müzikler üzerinde yoğun bir şekilde çalıştılar. Aşırı sıcağa rağmen, Santa Maria Assunta korosuyla etkileyici bir konser gerçekleştirildi.</span>
+              <span data-lang="uk" hidden aria-hidden="true">Навчання струнного ансамблю з маестро Андреа Марколіні та Річардо Палтаніном з Падуї. Німецькі та італійські учасники інтенсивно працювали з музикою від Ренесансу до кіномузики. Попри екстремальну спеку було реалізовано виразний концерт із хором Санта-Марія-Ассунта.</span>
+            </p>
+            <span class="news-feed-card-cta">
+              <span data-lang="de">Mehr entdecken</span>
+              <span data-lang="en" hidden aria-hidden="true">Discover more</span>
+              <span data-lang="fr" hidden aria-hidden="true">En savoir plus</span>
+              <span data-lang="ln" hidden aria-hidden="true">Yeba lisusu</span>
+              <span data-lang="it" hidden aria-hidden="true">Scopri di piu</span>
+              <span data-lang="tr" hidden aria-hidden="true">Daha fazlası</span>
+              <span data-lang="uk" hidden aria-hidden="true">Докладніше</span>
+            </span>
+          </div>
+        </a>
+      </article>
       <article class="news-feed-card">
         <a class="news-feed-card-link" href="#review-masterclass-florian-meierott">
           <div class="news-feed-card-media news-feed-card-media--full-image" style="--news-feed-full-image-ratio: 1599 / 899;">
@@ -1859,6 +2013,63 @@
         </aside>
     </div>
 </section>
+    <section class="charity-projects-section review-featured" id="review-concello-ensemble-kurswoche-2026">
+      <div class="charity-projects-container">
+        <div class="charity-flex-row rueckblick-flex masterclass-flex">
+          <div class="charity-flex-left">
+            <h2 class="charity-title charity-title--compact" data-lang="de">ConCello - Ensemble-Kurswoche 2026</h2>
+            <h2 class="charity-title charity-title--compact" data-lang="en" hidden aria-hidden="true">ConCello - String Ensemble Course Week 2026</h2>
+            <h2 class="charity-title charity-title--compact" data-lang="fr" hidden aria-hidden="true">ConCello - Semaine d'ensemble à cordes 2026</h2>
+            <h2 class="charity-title charity-title--compact" data-lang="ln" hidden aria-hidden="true">ConCello - Lingombo ya bensinga 2026</h2>
+            <h2 class="charity-title charity-title--compact" data-lang="it" hidden aria-hidden="true">ConCello - Settimana d'insieme d'archi 2026</h2>
+            <h2 class="charity-title charity-title--compact" data-lang="tr" hidden aria-hidden="true">ConCello - Yaylı Ensemble Kurs Haftası 2026</h2>
+            <h2 class="charity-title charity-title--compact" data-lang="uk" hidden aria-hidden="true">ConCello - Тижневий курс струнного ансамблю 2026</h2>
+            <div class="charity-meta" data-lang="de">2.-9. August 2026 · Santa Maria Assunta in Salboro</div>
+            <div class="charity-meta" data-lang="en" hidden aria-hidden="true">August 2-9, 2026 · Santa Maria Assunta in Salboro</div>
+            <div class="charity-meta" data-lang="fr" hidden aria-hidden="true">2-9 août 2026 · Santa Maria Assunta à Salboro</div>
+            <div class="charity-meta" data-lang="ln" hidden aria-hidden="true">2-9 août 2026 · Santa Maria Assunta na Salboro</div>
+            <div class="charity-meta" data-lang="it" hidden aria-hidden="true">2-9 agosto 2026 · Santa Maria Assunta a Salboro</div>
+            <div class="charity-meta" data-lang="tr" hidden aria-hidden="true">2-9 Ağustos 2026 · Salboro'daki Santa Maria Assunta</div>
+            <div class="charity-meta" data-lang="uk" hidden aria-hidden="true">2-9 серпня 2026 · Санта-Марія-Ассунта в Сальборо</div>
+            <div class="event-social-actions review-social-actions" aria-label="Social Media Aktionen">
+              <a href="https://wa.me/?text=https%3A%2F%2Fwww.cmi-ochsenfurt.de%2Fshare%2Fconcello-kurswoche-2026.html" class="event-social-button event-social-button--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 19.5l1.2-3.2A7.5 7.5 0 1 1 12 19.5a7.46 7.46 0 0 1-3.42-.82L6 19.5Z"></path><path d="M9.55 8.85c.16-.37.32-.38.47-.39h.4c.14 0 .37.05.56.47.19.42.64 1.54.69 1.66.05.12.09.27.02.43-.07.16-.11.26-.21.4-.11.14-.23.31-.33.42-.11.13-.23.27-.1.53.13.26.59.98 1.26 1.59.86.77 1.58 1.01 1.81 1.12.23.11.36.09.49-.05.13-.14.56-.65.71-.87.15-.22.3-.18.51-.11.21.07 1.32.62 1.55.73.23.11.38.17.43.26.05.09.05.53-.12 1.04-.17.51-.97.97-1.35 1.01-.35.04-.79.06-1.28-.1-.3-.1-.67-.22-1.16-.43-2.04-.88-3.37-2.97-3.47-3.11-.1-.14-.83-1.11-.83-2.11 0-1 .52-1.5.7-1.71Z"></path></svg></a>
+              <a href="share/instagram-export.html?post=concello-kurswoche-2026.html" class="event-social-button event-social-button--instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+            </div>
+            <div class="charity-description charity-description--left" data-lang="de">
+              Zum dritten Mal veranstaltete das CMI in Zusammenarbeit mit Maestro Andrea Marcolini und Maestro Riccardo Paltanin aus Padua eine Ensemble-Kurswoche für Streicher. Anspruchsvolle Literatur von der Renaissance bis zur Filmmusik wurde in intensiven täglichen Proben unter der fachkundigen Anleitung der beiden Profimusiker erarbeitet.<br><br>
+              Trotz der teilweise 40 Grad waren alle deutschen und italienischen Teilnehmer mit großer Konzentration und Eifer bei der Sache. So entstand ein ausdrucksstarkes Konzert, bei dem auch der Kirchenchor von Santa Maria Assunta unter der Leitung von Francesca de Poli mitwirkte. Ein herzlicher Dank geht an die beiden Dozenten für ihre Geduld und die vielen technischen Ratschläge. Für 2027 ist wieder eine Kurswoche Anfang August in Ochsenfurt geplant.
+            </div>
+            <div class="charity-description charity-description--left" data-lang="en" hidden aria-hidden="true">
+              For the third time, CMI held a string ensemble course week together with Maestro Andrea Marcolini and Maestro Riccardo Paltanin from Padua. Demanding repertoire, from the Renaissance to film music, was developed in intensive daily rehearsals under the expert guidance of the two professional musicians.<br><br>
+              Despite temperatures reaching 40 degrees, the German and Italian participants worked with great focus and enthusiasm. The result was an expressive concert with the choir of Santa Maria Assunta, directed by Francesca de Poli. We warmly thank both instructors for their patience and many technical suggestions. Another course week is planned for early August 2027 in Ochsenfurt.
+            </div>
+            <div class="charity-description charity-description--left" data-lang="fr" hidden aria-hidden="true">
+              Pour la troisieme fois, le CMI a organise une semaine de cours pour ensemble a cordes avec le Maestro Andrea Marcolini et le Maestro Riccardo Paltanin de Padoue. Un repertoire exigeant, de la Renaissance a la musique de film, a ete travaille lors de repetitions quotidiennes intensives sous la conduite experte des deux musiciens professionnels.<br><br>
+              Malgre des temperatures atteignant par moments 40 degres, les participantes et participants allemands et italiens ont travaille avec beaucoup de concentration et d'enthousiasme. Un concert expressif a ainsi vu le jour, avec la participation du choeur de Santa Maria Assunta dirige par Francesca de Poli. Un grand merci aux deux enseignants pour leur patience et leurs nombreux conseils techniques. Une nouvelle semaine de cours est prevue debut aout 2027 a Ochsenfurt.
+            </div>
+            <div class="charity-description charity-description--left" data-lang="ln" hidden aria-hidden="true">
+              Mpo na mbala ya misato, CMI ebongisaki lingombo ya ensemble ya bansinga elongo na Maestro Andrea Marcolini mpe Maestro Riccardo Paltanin ya Padua. Basalaki na miziki ya makasi, kobanda na Renaissance kino na miziki ya bafilm, na ba repetition ya mokolo na mokolo na bokambi ya bato mibale oyo bazali basali ya miziki.<br><br>
+              Ata molunge ekomaki tango mosusu na degre 40, bato ya Allemagne mpe Italie basalelaki na bokebi mpe molende mingi. Yango ememaki na konser ya kitoko, elongo na koro ya Santa Maria Assunta oyo Francesca de Poli azalaki kokamba. Matondi mingi epai ya balakisi mibale mpo na motema molai mpe toli na bango ya technique. Lingombo mosusu ekosalema na ebandeli ya aout 2027 na Ochsenfurt.
+            </div>
+            <div class="charity-description charity-description--left" data-lang="it" hidden aria-hidden="true">
+              Per la terza volta il CMI ha organizzato, con i Maestri Andrea Marcolini e Riccardo Paltanin di Padova, una settimana di corso per ensemble d'archi. Brani impegnativi, dal Rinascimento alla musica da film, sono stati preparati in prove quotidiane intensive sotto la guida dei due musicisti professionisti.<br><br>
+              Nonostante temperature fino a 40 gradi, le partecipanti e i partecipanti tedeschi e italiani hanno lavorato con grande concentrazione ed entusiasmo. Ne e nato un concerto espressivo con la partecipazione del coro di Santa Maria Assunta, diretto da Francesca de Poli. Un sentito grazie ai due docenti per la pazienza e i preziosi consigli tecnici. Per l'inizio di agosto 2027 e prevista un'altra settimana di corso a Ochsenfurt.
+            </div>
+            <div class="charity-description charity-description--left" data-lang="tr" lang="tr" hidden aria-hidden="true">
+              CMI, Padua'dan Maestro Andrea Marcolini ve Maestro Riccardo Paltanin ile iş birliği içinde üçüncü kez yaylı çalgılar için bir ensemble kurs haftası düzenledi. Rönesans'tan film müziğine uzanan zorlu repertuvar, iki profesyonel müzisyenin uzman rehberliğinde yoğun günlük provalarda çalışıldı.<br><br>
+              Yer yer 40 dereceye ulaşan sıcaklığa rağmen Alman ve İtalyan katılımcılar büyük bir dikkat ve istekle çalıştılar. Böylece Francesca de Poli yönetimindeki Santa Maria Assunta kilise korosunun da katkı sunduğu etkileyici bir konser ortaya çıktı. Sabırları ve sayısız teknik önerileri için iki eğitmene içten teşekkür ederiz. Ağustos 2027'nin başında Ochsenfurt'ta yeniden bir kurs haftası planlanmaktadır.
+            </div>
+            <div class="charity-description charity-description--left" data-lang="uk" hidden aria-hidden="true">
+              Вже втретє CMI разом із маестро Андреа Марколіні та маестро Річардо Палтаніном із Падуї провів тижневий курс для струнного ансамблю. Складний репертуар від Ренесансу до кіномузики опрацьовували на інтенсивних щоденних репетиціях під фаховим керівництвом двох професійних музикантів.<br><br>
+              Попри спеку, що інколи сягала 40 градусів, німецькі та італійські учасники працювали з великою зосередженістю й завзяттям. У результаті відбувся виразний концерт за участі церковного хору Санта-Марія-Ассунта під керівництвом Франчески де Полі. Щиро дякуємо обом викладачам за терпіння та численні технічні поради. На початок серпня 2027 року в Оксенфурті вже заплановано наступний курс.
+            </div>
+          </div>
+          <div class="gruppenbild-container review-media-block review-media-block--top-28 masterclass-flex__media">
+            <img class="masterclass-flex__image" src="bilder/concello_2026_gruppe.jpeg" alt="ConCello - Ensemble-Kurswoche 2026" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </section>
 <section class="charity-projects-section review-featured review-featured--tablet-article" id="review-masterclass-florian-meierott">
     <div class="charity-projects-container">
         <div class="charity-flex-row rueckblick-flex masterclass-flex">
@@ -3447,17 +3658,17 @@ Da oltre dieci anni, a Ochsenfurt, la rassegna estiva "Musik an der Furt" accomp
 <script src="scripts/cookie-consent-content.js?v=20260409-cookie-consent-split-1"></script>
 <script src="scripts/cookie-consent.js?v=20260417-cookie-consent-session-loader-1"></script>
 <script src="scripts/site-language-variants.js?v=20260409-site-language-split-1"></script>
-<script src="scripts/site-language-accessibility.js?v=20260514-homepage-nav-i18n-1"></script>
+<script src="scripts/site-language-accessibility.js?v=20260817-whatsapp-message-1"></script>
 <script src="scripts/site-language.js?v=20260409-site-language-split-1"></script>
 <script src="scripts/navigation-mobile.js?v=20260409-js-split-11"></script>
 <script src="scripts/navigation-wayfinding.js?v=20260409-js-split-10"></script>
 <script src="scripts/navigation-shell.js?v=20260409-js-split-11"></script>
 <script src="scripts/navigation-runtime.js?v=20260409-js-split-11"></script>
 <script src="scripts/hero-layout.js?v=20260409-js-split-12"></script>
-<script src="scripts/hero-gallery.js?v=20260510-gallery-order-1"></script>
+<script src="scripts/hero-gallery.js?v=20260817-concello-group-1"></script>
 <script src="scripts/hero-gallery-ui.js?v=20260409-js-split-12"></script>
 <script src="scripts/site-effects.js?v=20260407-js-split-8"></script>
-<script src="scripts/review-navigation.js?v=20260428-copy-link-feedback-1"></script>
+<script src="scripts/review-navigation.js?v=20260817-poster-copy-link-1"></script>
 <script src="scripts/review-archive.js?v=20260409-review-split-1"></script>
 <script src="scripts/review-interactions.js?v=20260409-review-split-1"></script>
 </html>

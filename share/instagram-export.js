@@ -14,6 +14,7 @@ const FALLBACK_SHARE_PAGES = [
     "wir-musizieren-gemeinsam-2025.html",
     "querbeet-roundup-2025.html",
     "concello-kurswoche-2025.html",
+    "concello-kurswoche-2026.html",
     "symphonic-mob-kissinger-sommer-2025.html",
     "ausflug-nuernberg-2025.html",
     "musik-an-der-furt-2025.html",

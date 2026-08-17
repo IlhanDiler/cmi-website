@@ -825,6 +825,10 @@
     margin: 0 0 18px;
     color: var(--review-copy-color);
     font-family: var(--font-ui-modern);
+
+#review-concello-ensemble-kurswoche-2026 .charity-title {
+    max-width: none;
+}
     font-size: var(--premium-lead-size);
     font-weight: 500;
     line-height: var(--premium-lead-line-height);
@@ -1648,6 +1652,10 @@
 
     .charity-projects-section[id^="review-"] .charity-flex-row > .gruppenbild-container:not(.review-media-block) {
         margin-top: var(--review-media-desktop-offset);
+    }
+
+    #review-concello-ensemble-kurswoche-2026 .masterclass-flex .masterclass-flex__media {
+        margin-top: calc(var(--review-media-margin-top) + var(--review-media-desktop-offset, 0px) + 28px);
     }
 
     #review-masterclass-florian-meierott {

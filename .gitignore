@@ -27,9 +27,11 @@ docs/Bewerbung_*
 docs/Interview*
 docs/ISTQB*
 docs/Kosten_*
+docs/Koeder-*
 docs/Kurzcheck_*
 docs/Lebenslauf_*
 docs/Leitfaden_*
+docs/Lernplan_*
 docs/Nachfrage_*
 docs/Spickzettel_*
 docs/Vorbereitung_*
@@ -59,3 +61,4 @@ scripts/inspect_report.txt
 scripts/inspect_spd_orig.ps1
 scripts/md_to_pdf.ps1
 scripts/update_ferien.ps1
+process_image.py

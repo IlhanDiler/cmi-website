@@ -191,6 +191,12 @@ function getReviewCopyActionGroup(sectionOrActionGroup) {
 }
 
 function getReviewCopyUrl(actionGroup, sectionOrActionGroup) {
+    if (actionGroup.dataset.copyUrl) {
+        try {
+            return new URL(actionGroup.dataset.copyUrl, window.location.href).toString();
+        } catch (_parseError) {}
+    }
+
     const whatsappButton = actionGroup.querySelector('.event-social-button--whatsapp[href]');
 
     if (whatsappButton) {
@@ -579,14 +585,17 @@ function queueReviewHashTargetNavigation(target) {
         return;
     }
 
-    runAfterNextPaint(function() {
+    function scrollTargetIntoView() {
         focusElementWithoutScroll(target);
 
         window.scrollTo({
             top: getScrollTargetTop(target, 12),
             behavior: getPreferredScrollBehavior()
         });
-    });
+    }
+
+    runAfterNextPaint(scrollTargetIntoView);
+    window.setTimeout(scrollTargetIntoView, 350);
 }
 
 function initReviewNewsFeedNavigation() {

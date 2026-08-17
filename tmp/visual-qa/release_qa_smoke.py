@@ -528,7 +528,7 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
         page,
         ".news-feed-grid .news-feed-card:first-child .news-feed-card-title [data-lang]",
     )
-    if visible_news_feed_featured != "Workshop with Florian Meierott":
+    if visible_news_feed_featured != "ConCello - String Ensemble Course Week 2026":
         add_issue(
             issues,
             "medium",
@@ -537,12 +537,12 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
         )
 
     visible_news_feed_cards = await page.locator(".news-feed-grid .news-feed-card").count()
-    if visible_news_feed_cards != 6:
+    if visible_news_feed_cards != 7:
         add_issue(
             issues,
             "medium",
             scope_name(browser_target, "index-desktop news-feed"),
-            f"Expected 6 news feed cards, got: {visible_news_feed_cards}",
+            f"Expected 7 news feed cards, got: {visible_news_feed_cards}",
         )
 
     news_feed_link = page.locator(".news-feed-grid .news-feed-card:first-child .news-feed-card-link")
@@ -552,7 +552,7 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
 
     try:
         await page.wait_for_function(
-            "() => window.location.hash === '#review-masterclass-florian-meierott'",
+            "() => window.location.hash === '#review-concello-ensemble-kurswoche-2026'",
             timeout=5000,
         )
     except PlaywrightTimeoutError:
@@ -567,7 +567,7 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
         await page.wait_for_function(
             """
             () => {
-                const section = document.getElementById('review-masterclass-florian-meierott');
+                const section = document.getElementById('review-concello-ensemble-kurswoche-2026');
                 if (!section) {
                     return false;
                 }
@@ -588,7 +588,7 @@ async def check_index_desktop(browser, issues, screenshots, browser_target):
 
     visible_review_back_label = await first_visible_text(
         page,
-        "#review-masterclass-florian-meierott .review-return-link [data-lang]",
+        "#review-concello-ensemble-kurswoche-2026 .review-return-link [data-lang]",
     )
     if visible_review_back_label != "Back to latest":
         add_issue(
@@ -1125,7 +1125,16 @@ async def main():
         encoding="utf-8",
     )
 
-    print(json.dumps({"issueCount": len(issues), "resultPath": str(RESULT_PATH)}, ensure_ascii=False))
+    print(
+        json.dumps(
+            {
+                "issueCount": len(issues),
+                "issues": issues,
+                "resultPath": str(RESULT_PATH),
+            },
+            ensure_ascii=False,
+        )
+    )
 
     if issues and should_fail_on_issues():
         raise SystemExit(1)
