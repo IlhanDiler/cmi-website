@@ -317,6 +317,12 @@ function appendLanguageToShareUrl(rawUrl, language, baseUrl) {
     }
 }
 
+function appendLanguageToWhatsAppText(rawText, language, baseUrl) {
+    return rawText.replace(/https?:\/\/[^\s]+/g, function(shareUrl) {
+        return appendLanguageToShareUrl(shareUrl, language, baseUrl);
+    });
+}
+
 function syncWhatsAppShareButtonHref(button, language) {
     if (!button || !button.classList.contains('event-social-button--whatsapp') || !button.hasAttribute('href')) {
         return;
@@ -334,7 +340,7 @@ function syncWhatsAppShareButtonHref(button, language) {
             return;
         }
 
-        whatsappUrl.searchParams.set('text', appendLanguageToShareUrl(shareUrl.trim(), language, productionSiteOrigin));
+        whatsappUrl.searchParams.set('text', appendLanguageToWhatsAppText(shareUrl, language, productionSiteOrigin));
         button.setAttribute('href', whatsappUrl.toString());
     } catch (_error) {
         return;
