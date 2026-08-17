@@ -579,14 +579,17 @@ function queueReviewHashTargetNavigation(target) {
         return;
     }
 
-    runAfterNextPaint(function() {
+    function scrollTargetIntoView() {
         focusElementWithoutScroll(target);
 
         window.scrollTo({
             top: getScrollTargetTop(target, 12),
             behavior: getPreferredScrollBehavior()
         });
-    });
+    }
+
+    runAfterNextPaint(scrollTargetIntoView);
+    window.setTimeout(scrollTargetIntoView, 350);
 }
 
 function initReviewNewsFeedNavigation() {

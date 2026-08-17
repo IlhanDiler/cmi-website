@@ -1281,7 +1281,20 @@
         </div>
     </div>
 </section>
-<section class="event-section event-section--empty" id="events" data-region-label-selector=".event-title[data-lang], .event-title">
+<section class="event-section" id="events" data-region-label-selector=".event-title[data-lang], .event-title">
+  <div id="eventLightboxModal" class="event-lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="eventLightboxCaptionTitle" aria-describedby="eventLightboxCaptionMeta" aria-hidden="true" style="display:none;">
+    <div class="event-lightbox-dialog">
+      <button id="eventLightboxClose" type="button" class="event-lightbox-close" aria-label="Vollansicht schließen">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+      </button>
+      <img id="eventLightboxImg" class="event-lightbox-image" src="" alt="">
+      <div class="event-lightbox-caption">
+        <span id="eventLightboxCaptionKicker" class="event-lightbox-caption-kicker"></span>
+        <strong id="eventLightboxCaptionTitle" class="event-lightbox-caption-title"></strong>
+        <span id="eventLightboxCaptionMeta" class="event-lightbox-caption-meta"></span>
+      </div>
+    </div>
+  </div>
   <div class="event-section-intro">
     <!-- LEGAL-I18N:homepage-events-intro:start -->
     <div class="event-section-kicker" data-lang="de">Nächste Termine</div>
@@ -1298,19 +1311,100 @@
     <h2 class="event-title" data-lang="it" hidden aria-hidden="true">Prossimi eventi</h2>
     <h2 class="event-title" data-lang="tr" hidden aria-hidden="true">Önümüzdeki etkinlikler</h2>
     <h2 class="event-title" data-lang="uk" hidden aria-hidden="true">Найближчі події</h2>
+    <p class="event-section-copy" data-lang="de">Unsere nächsten Termine laden zum Zuhören, Begegnen und Mittragen ein.</p>
+    <p class="event-section-copy" data-lang="en" hidden aria-hidden="true">Our upcoming events invite people to listen, meet, and take part.</p>
+    <p class="event-section-copy" data-lang="fr" hidden aria-hidden="true">Nos prochains rendez-vous invitent a ecouter, a se rencontrer et a participer.</p>
+    <p class="event-section-copy" data-lang="ln" hidden aria-hidden="true">Mikolo na biso oyo ezali koya ebengisaka bato bayoka, bakutana mpe bapesa loboko.</p>
+    <p class="event-section-copy" data-lang="it" hidden aria-hidden="true">I prossimi appuntamenti invitano ad ascoltare, incontrarsi e partecipare.</p>
+    <p class="event-section-copy" data-lang="tr" hidden aria-hidden="true">Önümüzdeki etkinliklerimiz dinlemeye, buluşmaya ve katılmaya davet ediyor.</p>
+    <p class="event-section-copy" data-lang="uk" hidden aria-hidden="true">Наші найближчі події запрошують слухати, зустрічатися та долучатися.</p>
     <!-- LEGAL-I18N:homepage-events-intro:end -->
   </div>
 
   <div class="event-list">
-  </div>
-  <div class="event-empty-state">
-    <p data-lang="de">Aktuell sind keine kommenden Konzerte veröffentlicht. Neue Termine ergänzen wir hier, sobald sie feststehen.</p>
-    <p data-lang="en" hidden aria-hidden="true">No upcoming concerts are currently published. New dates will appear here as soon as they are confirmed.</p>
-    <p data-lang="fr" hidden aria-hidden="true">Aucun concert a venir n'est actuellement publie. Les nouvelles dates seront ajoutees ici des qu'elles seront confirmees.</p>
-    <p data-lang="ln" hidden aria-hidden="true">Sikoyo ba konser oyo ezali koya ebimisami nanu te. Mikolo ya sika ekobakisama awa soki endimami.</p>
-    <p data-lang="it" hidden aria-hidden="true">Al momento non sono pubblicati concerti in programma. Le nuove date saranno aggiunte qui non appena confermate.</p>
-    <p data-lang="tr" hidden aria-hidden="true">Şu anda yayında olan yaklaşan konser yok. Yeni tarihler kesinleştiğinde burada paylaşılacaktır.</p>
-    <p data-lang="uk" hidden aria-hidden="true">Наразі майбутні концерти не опубліковані. Нові дати з'являться тут, щойно їх буде підтверджено.</p>
+    <article class="event-card" id="event-strauss-konzerte-2026">
+      <div class="event-badge">
+        <div class="event-date" data-lang="de">5. und 6. September 2026</div>
+        <div class="event-date" data-lang="en" hidden aria-hidden="true">September 5 and 6, 2026</div>
+        <div class="event-date" data-lang="fr" hidden aria-hidden="true">5 et 6 septembre 2026</div>
+        <div class="event-date" data-lang="ln" hidden aria-hidden="true">5 mpe 6 septembre 2026</div>
+        <div class="event-date" data-lang="it" hidden aria-hidden="true">5 e 6 settembre 2026</div>
+        <div class="event-date" data-lang="tr" hidden aria-hidden="true">5 ve 6 Eylül 2026</div>
+        <div class="event-date" data-lang="uk" hidden aria-hidden="true">5 та 6 вересня 2026</div>
+        <div class="event-time" data-lang="de">Sa. 18:00 Uhr / So. 16:00 Uhr</div>
+        <div class="event-time" data-lang="en" hidden aria-hidden="true">Sat. 6:00 pm / Sun. 4:00 pm</div>
+        <div class="event-time" data-lang="fr" hidden aria-hidden="true">sam. 18:00 / dim. 16:00</div>
+        <div class="event-time" data-lang="ln" hidden aria-hidden="true">samedi 18:00 / dimanche 16:00</div>
+        <div class="event-time" data-lang="it" hidden aria-hidden="true">sab. 18:00 / dom. 16:00</div>
+        <div class="event-time" data-lang="tr" hidden aria-hidden="true">Cmt. 18:00 / Paz. 16:00</div>
+        <div class="event-time" data-lang="uk" hidden aria-hidden="true">сб. 18:00 / нд. 16:00</div>
+      </div>
+      <div class="event-content">
+        <div class="event-copy">
+          <h3 class="event-headline" data-lang="de">Konzert mit Melodien von Johann Strauß</h3>
+          <h3 class="event-headline" data-lang="en" hidden aria-hidden="true">Concert with melodies by Johann Strauss</h3>
+          <h3 class="event-headline" data-lang="fr" hidden aria-hidden="true">Concert avec des melodies de Johann Strauss</h3>
+          <h3 class="event-headline" data-lang="ln" hidden aria-hidden="true">Konser na ba melodi ya Johann Strauss</h3>
+          <h3 class="event-headline" data-lang="it" hidden aria-hidden="true">Concerto con melodie di Johann Strauss</h3>
+          <h3 class="event-headline" data-lang="tr" hidden aria-hidden="true">Johann Strauss melodileriyle konser</h3>
+          <h3 class="event-headline" data-lang="uk" hidden aria-hidden="true">Концерт з мелодіями Йоганна Штрауса</h3>
+          <div class="event-venue-list" data-lang="de">
+            <div class="event-venue"><span class="event-venue__date">Sa., 05.09.</span><span><strong class="event-venue__name">K.St.V. Walhalla</strong><span class="event-venue__address">Würzburg · Mergentheimer Str. 32</span></span></div>
+            <div class="event-venue"><span class="event-venue__date">So., 06.09.</span><span><strong class="event-venue__name">Alte Turnhalle</strong><span class="event-venue__address">Lohr · Gärtnerstr. 2</span></span></div>
+          </div>
+          <div class="event-venue-list" data-lang="en" hidden aria-hidden="true">
+            <div class="event-venue"><span class="event-venue__date">Sat., Sep. 5</span><span><strong class="event-venue__name">K.St.V. Walhalla</strong><span class="event-venue__address">Würzburg · Mergentheimer Str. 32</span></span></div>
+            <div class="event-venue"><span class="event-venue__date">Sun., Sep. 6</span><span><strong class="event-venue__name">Alte Turnhalle</strong><span class="event-venue__address">Lohr · Gärtnerstr. 2</span></span></div>
+          </div>
+          <div class="event-venue-list" data-lang="fr" hidden aria-hidden="true">
+            <div class="event-venue"><span class="event-venue__date">Sam. 5 sept.</span><span><strong class="event-venue__name">K.St.V. Walhalla</strong><span class="event-venue__address">Würzburg · Mergentheimer Str. 32</span></span></div>
+            <div class="event-venue"><span class="event-venue__date">Dim. 6 sept.</span><span><strong class="event-venue__name">Alte Turnhalle</strong><span class="event-venue__address">Lohr · Gärtnerstr. 2</span></span></div>
+          </div>
+          <div class="event-venue-list" data-lang="ln" hidden aria-hidden="true">
+            <div class="event-venue"><span class="event-venue__date">Samedi 5 sept.</span><span><strong class="event-venue__name">K.St.V. Walhalla</strong><span class="event-venue__address">Würzburg · Mergentheimer Str. 32</span></span></div>
+            <div class="event-venue"><span class="event-venue__date">Dimanche 6 sept.</span><span><strong class="event-venue__name">Alte Turnhalle</strong><span class="event-venue__address">Lohr · Gärtnerstr. 2</span></span></div>
+          </div>
+          <div class="event-venue-list" data-lang="it" hidden aria-hidden="true">
+            <div class="event-venue"><span class="event-venue__date">Sab. 5 set.</span><span><strong class="event-venue__name">K.St.V. Walhalla</strong><span class="event-venue__address">Würzburg · Mergentheimer Str. 32</span></span></div>
+            <div class="event-venue"><span class="event-venue__date">Dom. 6 set.</span><span><strong class="event-venue__name">Alte Turnhalle</strong><span class="event-venue__address">Lohr · Gärtnerstr. 2</span></span></div>
+          </div>
+          <div class="event-venue-list" data-lang="tr" hidden aria-hidden="true">
+            <div class="event-venue"><span class="event-venue__date">Cmt. 5 Eyl.</span><span><strong class="event-venue__name">K.St.V. Walhalla</strong><span class="event-venue__address">Würzburg · Mergentheimer Str. 32</span></span></div>
+            <div class="event-venue"><span class="event-venue__date">Paz. 6 Eyl.</span><span><strong class="event-venue__name">Alte Turnhalle</strong><span class="event-venue__address">Lohr · Gärtnerstr. 2</span></span></div>
+          </div>
+          <div class="event-venue-list" data-lang="uk" hidden aria-hidden="true">
+            <div class="event-venue"><span class="event-venue__date">Сб, 5 вер.</span><span><strong class="event-venue__name">K.St.V. Walhalla</strong><span class="event-venue__address">Вюрцбург · Mergentheimer Str. 32</span></span></div>
+            <div class="event-venue"><span class="event-venue__date">Нд, 6 вер.</span><span><strong class="event-venue__name">Alte Turnhalle</strong><span class="event-venue__address">Лор · Gärtnerstr. 2</span></span></div>
+          </div>
+          <p class="event-description" data-lang="de">Die Veeh-Harfengruppe Querbeet musiziert unter der Leitung von Sigrid Schäfer gemeinsam mit Solistinnen und Solisten des Collegium Musicum Iuvenale Ochsenfurt. Als Gäste aus Italien wirken Chiara Passudetti, Silvano Ruffo, Mirko Ballico und Andrea Vinco mit.</p>
+          <p class="event-description" data-lang="en" hidden aria-hidden="true">The Veeh harp group Querbeet, directed by Sigrid Schäfer, performs with soloists from Collegium Musicum Iuvenale Ochsenfurt and guests from Italy: Chiara Passudetti, Silvano Ruffo, Mirko Ballico, and Andrea Vinco.</p>
+          <p class="event-description" data-lang="fr" hidden aria-hidden="true">Le groupe de harpes Veeh Querbeet, dirige par Sigrid Schäfer, joue avec des solistes du Collegium Musicum Iuvenale Ochsenfurt et des invites d'Italie: Chiara Passudetti, Silvano Ruffo, Mirko Ballico et Andrea Vinco.</p>
+          <p class="event-description" data-lang="ln" hidden aria-hidden="true">Etuluku ya Veeh-Harfe Querbeet, na bokambi ya Sigrid Schäfer, ekobeta elongo na ba soliste ya Collegium Musicum Iuvenale Ochsenfurt mpe bapaya ya Italie: Chiara Passudetti, Silvano Ruffo, Mirko Ballico mpe Andrea Vinco.</p>
+          <p class="event-description" data-lang="it" hidden aria-hidden="true">Il gruppo di arpe Veeh Querbeet, diretto da Sigrid Schäfer, suona con solisti del Collegium Musicum Iuvenale Ochsenfurt e ospiti dall'Italia: Chiara Passudetti, Silvano Ruffo, Mirko Ballico e Andrea Vinco.</p>
+          <p class="event-description" data-lang="tr" hidden aria-hidden="true">Sigrid Schäfer yönetimindeki Veeh arp topluluğu Querbeet, Collegium Musicum Iuvenale Ochsenfurt solistleri ve İtalya'dan Chiara Passudetti, Silvano Ruffo, Mirko Ballico ve Andrea Vinco ile sahne alacak.</p>
+          <p class="event-description" data-lang="uk" hidden aria-hidden="true">Група арф Veeh Querbeet під керівництвом Зігрід Шефер виступить із солістами Collegium Musicum Iuvenale Ochsenfurt та гостями з Італії: К'ярою Пассудетті, Сільвано Руффо, Мірко Балліко й Андреа Вінко.</p>
+          <p class="event-note" data-lang="de">Eintritt frei. Die Spenden am 5. September gehen an den Herzenswunsch-Krankenwagen der Malteser, die Spenden am 6. September an die Lebenshilfe Mainspessart e.V.</p>
+          <p class="event-note" data-lang="en" hidden aria-hidden="true">Admission free. Donations on September 5 support the Malteser wish ambulance; donations on September 6 support Lebenshilfe Mainspessart e.V.</p>
+          <p class="event-note" data-lang="fr" hidden aria-hidden="true">Entree libre. Les dons du 5 septembre soutiennent l'ambulance des voeux Malteser; ceux du 6 septembre soutiennent Lebenshilfe Mainspessart e.V.</p>
+          <p class="event-note" data-lang="ln" hidden aria-hidden="true">Kokota ofele. Makabo ya 5 septembre ekosunga ambulance ya Malteser; makabo ya 6 septembre ekosunga Lebenshilfe Mainspessart e.V.</p>
+          <p class="event-note" data-lang="it" hidden aria-hidden="true">Ingresso libero. Le donazioni del 5 settembre sostengono l'ambulanza dei desideri dei Malteser; quelle del 6 settembre sostengono Lebenshilfe Mainspessart e.V.</p>
+          <p class="event-note" data-lang="tr" hidden aria-hidden="true">Giriş ücretsizdir. 5 Eylül bağışları Malteser dilek ambulansına, 6 Eylül bağışları Lebenshilfe Mainspessart e.V.'ye gidecektir.</p>
+          <p class="event-note" data-lang="uk" hidden aria-hidden="true">Вхід вільний. Пожертви 5 вересня буде передано службі Malteser, а пожертви 6 вересня - Lebenshilfe Mainspessart e.V.</p>
+        </div>
+        <figure class="event-poster-stage">
+          <img src="bilder/strauss2026konzert.jpg" data-lightbox-src="bilder/strauss2026konzert.jpg" alt="Plakat zu den Johann-Strauß-Konzerten am 5. September 2026 in Würzburg und am 6. September 2026 in Lohr" class="event-lightbox-trigger event-poster-image" loading="lazy" decoding="async" width="724" height="1024">
+          <figcaption class="event-poster-hint">
+            <span class="event-poster-hint-text" data-lang="de">Zur Großansicht anklicken oder antippen</span>
+            <span class="event-poster-hint-text" data-lang="en" hidden aria-hidden="true">Tap or click to enlarge</span>
+            <span class="event-poster-hint-text" data-lang="fr" hidden aria-hidden="true">Touchez ou cliquez pour agrandir</span>
+            <span class="event-poster-hint-text" data-lang="ln" hidden aria-hidden="true">Finya to simba mpo na komona monene</span>
+            <span class="event-poster-hint-text" data-lang="it" hidden aria-hidden="true">Tocca o fai clic per ingrandire</span>
+            <span class="event-poster-hint-text" data-lang="tr" hidden aria-hidden="true">Büyütmek için tıkla ya da dokun</span>
+            <span class="event-poster-hint-text" data-lang="uk" hidden aria-hidden="true">Натисніть або торкніться для збільшення</span>
+          </figcaption>
+        </figure>
+      </div>
+    </article>
   </div>
 </section>
 <section class="timeline-section timeline-section--teaser timeline-section--compact-link" id="timeline-section" data-region-label-selector=".timeline-title[data-lang], .timeline-title">
