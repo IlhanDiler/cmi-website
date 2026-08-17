@@ -1125,7 +1125,16 @@ async def main():
         encoding="utf-8",
     )
 
-    print(json.dumps({"issueCount": len(issues), "resultPath": str(RESULT_PATH)}, ensure_ascii=False))
+    print(
+        json.dumps(
+            {
+                "issueCount": len(issues),
+                "issues": issues,
+                "resultPath": str(RESULT_PATH),
+            },
+            ensure_ascii=False,
+        )
+    )
 
     if issues and should_fail_on_issues():
         raise SystemExit(1)
