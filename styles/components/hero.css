@@ -3,7 +3,7 @@
 .hero-bg {
     position: relative;
     width: 100%;
-    height: 100svh;
+    height: var(--hero-bg-height, 100svh);
     min-height: 760px;
     overflow: hidden;
     isolation: isolate;
@@ -120,6 +120,7 @@
     --hero-gallery-dot-selected-bg: rgba(var(--color-secondary-rgb), 0.96);
     --hero-gallery-dot-selected-shadow: 0 0 0 1px rgba(var(--color-secondary-rgb), 0.28);
     position: absolute;
+    box-sizing: border-box;
     left: 50%;
     bottom: var(--hero-gallery-ui-bottom);
     transform: translateX(-50%);
@@ -206,6 +207,7 @@
     grid-template-columns: var(--hero-gallery-controls-columns);
     gap: var(--hero-gallery-controls-gap);
     align-items: center;
+    min-width: 0;
 }
 
 .hero-gallery-control {
@@ -271,9 +273,11 @@
     bottom: auto;
     gap: var(--hero-gallery-pagination-gap);
     padding-bottom: 0;
+    min-width: 0;
 }
 
 .hero-gallery-dot {
+    flex: 0 0 auto;
     cursor: pointer;
     outline: none;
     position: relative;
@@ -281,6 +285,7 @@
     height: var(--hero-gallery-dot-size);
     border-radius: 999px;
     border: 0;
+    padding: 0;
     background: var(--hero-gallery-dot-bg);
     box-shadow: none;
     transition: none;
@@ -389,8 +394,8 @@
 
 @media (max-width: 700px) {
     .hero-bg {
-        --hero-bg-height: min(62vh, calc(100vw * 0.68));
-        min-height: 620px;
+        --hero-bg-height: clamp(520px, 72svh, 620px);
+        min-height: 520px;
         background: #000000;
     }
 
@@ -460,8 +465,8 @@
 
 @media (max-width: 400px) {
     .hero-bg {
-        --hero-bg-height: min(56vh, calc(100vw * 0.72));
-        min-height: 220px;
+        --hero-bg-height: clamp(500px, 72svh, 580px);
+        min-height: 500px;
     }
 
     .hero-gallery-ui {
@@ -472,6 +477,9 @@
         --hero-gallery-meta-columns: 1fr;
         --hero-gallery-meta-gap: 8px;
         --hero-gallery-counter-min-width: 0;
+        --hero-gallery-pagination-gap: 5px;
+        --hero-gallery-dot-size: 5px;
+        --hero-gallery-dot-selected-width: 16px;
     }
 
     .hero-gallery-counter {

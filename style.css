@@ -3,13 +3,17 @@
 @import url("styles/components/subpages.css?v=20260412-theme-toggle-8");
 @import url("styles/components/legal.css?v=20260412-theme-toggle-8");
 @import url("styles/components/contact.css?v=20260416-home-typo-1");
-@import url("styles/components/events.css?v=20260428-copy-link-feedback-1");
+@import url("styles/components/events.css?v=20260818-responsive-polish-1");
 @import url("styles/components/footer.css?v=20260428-footer-social-1");
-@import url("styles/components/hero.css?v=20260416-home-typo-2");
+@import url("styles/components/hero.css?v=20260818-responsive-polish-1");
 @import url("styles/components/image-caption.css?v=20260412-theme-toggle-8");
 @import url("styles/components/about-me.css?v=20260418-mobile-shell-align-1");
 @import url("styles/components/timeline.css?v=20260418-chronik-typo-1");
-@import url("styles/components/review.css?v=20260428-copy-link-feedback-1");
+@import url("styles/components/review.css?v=20260818-responsive-polish-1");
 @import url("styles/components/partners.css?v=20260416-partner-querbeet-1");
 @import url("styles/components/music-family.css?v=20260418-home-mobile-3");
 @import url("styles/components/repertoire.css?v=20260416-home-typo-3");
+
+[hidden] {
+	display: none !important;
+}

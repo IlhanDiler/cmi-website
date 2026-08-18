@@ -1014,7 +1014,7 @@
     }
 
     .event-section {
-        --event-card-radius: 20px;
+        --event-card-radius: 16px;
         --event-content-padding: 18px 16px 16px;
         --event-poster-radius: 14px;
         padding: var(--layout-section-gap-mobile) 0;
@@ -1048,7 +1048,7 @@
 
     .event-badge {
         padding: 14px 16px 12px;
-        border-radius: 20px 20px 0 0;
+        border-radius: 16px 16px 0 0;
     }
 
     .event-headline {
