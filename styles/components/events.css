@@ -568,7 +568,7 @@
     }
 }
 
-@media (min-width: 1180px) {
+@media (min-width: 1500px) {
     .event-card--musikerlebnis .event-content {
         grid-template-columns: minmax(0, 1.2fr) minmax(220px, 270px) minmax(260px, 0.9fr);
         column-gap: 18px;
