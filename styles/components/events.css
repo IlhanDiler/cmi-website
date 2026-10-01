@@ -3,7 +3,7 @@
 .event-lightbox-modal {
     position: fixed;
     inset: 0;
-    z-index: 30000;
+    z-index: 60000;
     align-items: center;
     justify-content: center;
     padding: 28px;
@@ -407,6 +407,12 @@
     max-width: none;
 }
 
+.event-card--musikerlebnis .event-description,
+.event-card--musikerlebnis .event-program li {
+    text-align: left !important;
+    text-justify: auto !important;
+}
+
 .event-note {
     text-align: left !important;
     text-justify: auto !important;
@@ -502,12 +508,148 @@
     background: var(--event-panel-surface);
 }
 
+.event-event-photo {
+    display: grid;
+    gap: 12px;
+    box-sizing: border-box;
+    justify-self: end;
+    justify-items: center;
+    width: min(100%, 460px);
+}
+
+.event-event-photo__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--event-panel-border-soft);
+    border-radius: 12px;
+    cursor: zoom-in;
+}
+
+.event-event-photo figcaption {
+    color: var(--event-panel-text);
+    font-family: var(--font-ui-modern);
+    font-size: 0.9rem;
+    line-height: 1.45;
+    text-align: center;
+}
+
+.event-event-photo-copy {
+    display: grid;
+    gap: 14px;
+    align-content: start;
+}
+
 .event-note-stack {
     display: grid;
     gap: 12px;
     width: 100%;
     grid-column: 1 / -1;
     align-self: stretch;
+}
+
+@media (min-width: 701px) {
+    .event-card--musikerlebnis .event-note-stack {
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 460px);
+        align-items: start;
+    }
+
+    .event-card--musikerlebnis .event-note-stack > .event-note:not(.event-event-photo) {
+        grid-column: 1 / -1;
+    }
+
+    .event-card--musikerlebnis .event-event-photo-copy {
+        grid-column: 1;
+    }
+
+    .event-card--musikerlebnis .event-event-photo {
+        grid-column: 2;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1180px) {
+    .event-card--musikerlebnis .event-content {
+        grid-template-columns: minmax(0, 1.2fr) minmax(220px, 270px) minmax(260px, 0.9fr);
+        column-gap: 18px;
+        row-gap: 0;
+    }
+
+    .event-card--musikerlebnis .event-copy {
+        gap: 9px;
+    }
+
+    .event-card--musikerlebnis .event-description,
+    .event-card--musikerlebnis .event-program li,
+    .event-card--musikerlebnis .event-note {
+        font-size: 0.94rem;
+        line-height: 1.5;
+    }
+
+    .event-card--musikerlebnis .event-program {
+        gap: 8px;
+        padding: 13px 15px 12px 17px;
+        border-radius: 14px;
+    }
+
+    .event-card--musikerlebnis .event-program li {
+        padding-left: 22px;
+    }
+
+    .event-card--musikerlebnis .event-program li::before {
+        left: 3px;
+    }
+
+    .event-card--musikerlebnis .event-poster-stage {
+        max-width: 270px;
+        padding: 10px;
+    }
+
+    .event-card--musikerlebnis .event-poster-hint {
+        padding-top: 0;
+    }
+
+    .event-card--musikerlebnis .event-poster-hint-text {
+        font-size: 0.82rem;
+        line-height: 1.3;
+    }
+
+    .event-card--musikerlebnis .event-poster-download {
+        box-sizing: border-box;
+        min-height: 34px;
+        padding: 7px 12px;
+        border-color: rgba(var(--event-accent-rgb), 0.24);
+        background: rgba(var(--event-accent-rgb), 0.1);
+        font-size: 0.82rem;
+        line-height: 1.2;
+    }
+
+    .event-card--musikerlebnis .event-note-stack {
+        grid-column: 3;
+        grid-row: 1;
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .event-card--musikerlebnis .event-event-photo-copy {
+        grid-column: 1;
+        gap: 9px;
+    }
+
+    .event-card--musikerlebnis .event-event-photo {
+        grid-column: 1;
+        gap: 7px;
+    }
+
+    .event-card--musikerlebnis .event-event-photo figcaption {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+
+    .event-card--musikerlebnis .event-note {
+        padding: 10px 12px;
+        border-radius: 12px;
+    }
 }
 
 .event-poster-stage {
@@ -886,6 +1028,10 @@
     .event-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .event-card--musikerlebnis {
+        grid-column: 1 / -1;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -1044,6 +1190,11 @@
 
     .event-poster-stage {
         justify-self: center;
+    }
+
+    .event-event-photo {
+        justify-self: center;
+        width: 100%;
     }
 
     .event-badge {

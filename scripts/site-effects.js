@@ -53,7 +53,7 @@ function initEventCardLayout() {
     eventContents.forEach(function(content) {
         const copyColumn = content.querySelector('.event-copy');
         const posterStage = content.querySelector('.event-poster-stage');
-        const notes = copyColumn ? Array.from(copyColumn.querySelectorAll(':scope > .event-note')) : [];
+        const notes = copyColumn ? Array.from(copyColumn.querySelectorAll(':scope > .event-note, :scope > .event-event-photo-copy')) : [];
 
         if (!copyColumn || !posterStage || !notes.length) {
             return;
