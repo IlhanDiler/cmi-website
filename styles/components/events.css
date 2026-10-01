@@ -566,6 +566,44 @@
         grid-column: 2;
         width: 100%;
     }
+}
+
+@media (min-width: 1500px) {
+    .event-card--musikerlebnis .event-content {
+        grid-template-columns: minmax(0, 1.2fr) minmax(220px, 270px) minmax(260px, 0.9fr);
+        column-gap: 18px;
+        row-gap: 0;
+    }
+
+    .event-card--musikerlebnis .event-copy {
+        gap: 9px;
+    }
+
+    .event-card--musikerlebnis .event-description,
+    .event-card--musikerlebnis .event-program li,
+    .event-card--musikerlebnis .event-note {
+        font-size: 0.94rem;
+        line-height: 1.5;
+    }
+
+    .event-card--musikerlebnis .event-program {
+        gap: 8px;
+        padding: 13px 15px 12px 17px;
+        border-radius: 14px;
+    }
+
+    .event-card--musikerlebnis .event-program li {
+        padding-left: 22px;
+    }
+
+    .event-card--musikerlebnis .event-program li::before {
+        left: 3px;
+    }
+
+    .event-card--musikerlebnis .event-poster-stage {
+        max-width: 270px;
+        padding: 10px;
+    }
 
     .event-card--musikerlebnis .event-poster-hint {
         padding-top: 0;
@@ -584,6 +622,33 @@
         background: rgba(var(--event-accent-rgb), 0.1);
         font-size: 0.82rem;
         line-height: 1.2;
+    }
+
+    .event-card--musikerlebnis .event-note-stack {
+        grid-column: 3;
+        grid-row: 1;
+        grid-template-columns: 1fr;
+        gap: 9px;
+    }
+
+    .event-card--musikerlebnis .event-event-photo-copy {
+        grid-column: 1;
+        gap: 9px;
+    }
+
+    .event-card--musikerlebnis .event-event-photo {
+        grid-column: 1;
+        gap: 7px;
+    }
+
+    .event-card--musikerlebnis .event-event-photo figcaption {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+
+    .event-card--musikerlebnis .event-note {
+        padding: 10px 12px;
+        border-radius: 12px;
     }
 }
 
